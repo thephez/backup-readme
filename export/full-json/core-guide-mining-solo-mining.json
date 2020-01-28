@@ -1,0 +1,65 @@
+{
+ "parentDoc": "5db6e5866efa37002f157fb9", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2019-11-13T21:41:16.783Z", 
+ "sync_unique": "", 
+ "id": "5db6e5b91ceb850043e49ab8", 
+ "createdAt": "2019-10-28T12:57:29.818Z", 
+ "category": "5db0a86967f978006336b1b5", 
+ "title": "Solo Mining", 
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-mining-pool-mining", 
+    "name": "Pool Mining"
+   }
+  ], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "As illustrated below, solo miners typically use `dashd` to get new <<glossary:transactions>> from the <<glossary:network>>. Their mining software periodically polls `dashd` for new transactions using the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-getblocktemplate), which provides the list of new transactions plus the <<glossary:public key>> to which the <<glossary:coinbase transaction>> should be sent.\n\n![Solo Bitcoin Mining](https://dash-docs.github.io/img/dev/en-solo-mining-overview.svg)\n\nThe mining software constructs a block using the template (described below) and creates a <<glossary:block header>>. It then sends the 80-byte block header to its mining hardware (an ASIC) along with a <<glossary:target threshold>> (difficulty setting). The mining hardware iterates through every possible value for the block header nonce and generates the corresponding hash.\n\nIf none of the hashes are below the threshold, the mining hardware gets an updated block header with a new <<glossary:merkle root>> from the mining software; this new block header is created by adding extra nonce data to the coinbase field of the coinbase transaction.\n\nOn the other hand, if a hash is found below the target threshold, the mining hardware returns the block header with the successful nonce to the mining software. The mining software combines the header with the block and sends the completed block to `dashd` to be broadcast to the network for addition to the block chain.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>As illustrated below, solo miners typically use <code>dashd</code> to get new &lt;&lt;glossary:transactions&gt;&gt; from the &lt;&lt;glossary:network&gt;&gt;. Their mining software periodically polls <code>dashd</code> for new transactions using the <a href=\"core-api-ref-remote-procedure-calls-mining#section-getblocktemplate\"><code>getblocktemplate</code> RPC</a>, which provides the list of new transactions plus the &lt;&lt;glossary:public key&gt;&gt; to which the &lt;&lt;glossary:coinbase transaction&gt;&gt; should be sent.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-solo-mining-overview.svg\" alt=\"Solo Bitcoin Mining\"></p>\n<p>The mining software constructs a block using the template (described below) and creates a &lt;&lt;glossary:block header&gt;&gt;. It then sends the 80-byte block header to its mining hardware (an ASIC) along with a &lt;&lt;glossary:target threshold&gt;&gt; (difficulty setting). The mining hardware iterates through every possible value for the block header nonce and generates the corresponding hash.</p>\n<p>If none of the hashes are below the threshold, the mining hardware gets an updated block header with a new &lt;&lt;glossary:merkle root&gt;&gt; from the mining software; this new block header is created by adding extra nonce data to the coinbase field of the coinbase transaction.</p>\n<p>On the other hand, if a hash is found below the target threshold, the mining hardware returns the block header with the successful nonce to the mining software. The mining software combines the header with the block and sends the completed block to <code>dashd</code> to be broadcast to the network for addition to the block chain.</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "core-guide-mining-solo-mining", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "5db6e5b91ceb850043e49ab8", 
+ "order": 0, 
+ "updates": []
+}

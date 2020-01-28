@@ -1,0 +1,65 @@
+{
+ "parentDoc": "5db0a910c4e022001110a32e", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2019-11-12T19:29:57.516Z", 
+ "sync_unique": "", 
+ "id": "5db0ae402ff31a0025f7de4c", 
+ "createdAt": "2019-10-23T19:47:12.331Z", 
+ "category": "5db0a86967f978006336b1b5", 
+ "title": "Masternode Payment", 
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-dash-features-masternode-sync", 
+    "name": "Masternode Sync"
+   }
+  ], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Since [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) (introduced in Dash Core 0.13.0), <<glossary:masternode>> reward payments are based on the deterministic masternode list information found on-chain in each <<glossary:block>>. This results in a transparent, deterministic process that operates using the [algorithm described in DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards).\n\nOn-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Since <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> (introduced in Dash Core 0.13.0), &lt;&lt;glossary:masternode&gt;&gt; reward payments are based on the deterministic masternode list information found on-chain in each &lt;&lt;glossary:block&gt;&gt;. This results in a transparent, deterministic process that operates using the <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards\">algorithm described in DIP3</a>.</p>\n<p>On-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "core-guide-dash-features-masternode-payment", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 3, 
+ "_id": "5db0ae402ff31a0025f7de4c", 
+ "order": 3, 
+ "updates": []
+}

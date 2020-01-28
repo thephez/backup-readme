@@ -1,0 +1,72 @@
+{
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2019-11-13T20:42:29.409Z", 
+ "sync_unique": "", 
+ "id": "5db748eb63fc5f002c5fee32", 
+ "createdAt": "2019-10-28T20:00:43.111Z", 
+ "category": "5db0a86967f978006336b1b5", 
+ "title": "Wallets", 
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-wallets-wallet-programs", 
+    "name": "Wallet Programs"
+   }, 
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-wallets-wallet-files", 
+    "name": "Wallet Files"
+   }
+  ], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "A Dash <<glossary:wallet>> can refer to either a wallet program or a wallet file. Wallet programs create <<glossary:public keys>> to receive <<glossary:duffs>> and use the corresponding <<glossary:private keys>> to spend those duffs. Wallet files store private keys and (optionally) other information related to <<glossary:transactions>> for the wallet program.\n\nWallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we're talking about wallet programs or wallet files.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>A Dash &lt;&lt;glossary:wallet&gt;&gt; can refer to either a wallet program or a wallet file. Wallet programs create &lt;&lt;glossary:public keys&gt;&gt; to receive &lt;&lt;glossary:duffs&gt;&gt; and use the corresponding &lt;&lt;glossary:private keys&gt;&gt; to spend those duffs. Wallet files store private keys and (optionally) other information related to &lt;&lt;glossary:transactions&gt;&gt; for the wallet program.</p>\n<p>Wallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we&#39;re talking about wallet programs or wallet files.</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "core-guide-wallets", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "5db748eb63fc5f002c5fee32", 
+ "order": 5, 
+ "updates": []
+}
