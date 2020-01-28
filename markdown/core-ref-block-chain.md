@@ -1,1 +1,0 @@
-The following subsections briefly document core block details.
