@@ -1,0 +1,142 @@
+{
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2019-11-05T19:29:38.367Z", 
+ "sync_unique": "", 
+ "id": "5db076c3dbccd5005ce07e4f", 
+ "createdAt": "2019-10-23T15:50:27.219Z", 
+ "category": "5db061df6d7d670050694628", 
+ "title": "P2P Network", 
+ "next": {
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-p2p-network-constants-and-defaults", 
+    "name": "Constants and Defaults"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-protocol-versions", 
+    "type": "doc", 
+    "name": "Protocol Versions", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-message-headers", 
+    "type": "doc", 
+    "name": "Message Headers", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-control-messages", 
+    "type": "doc", 
+    "name": "Control Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-data-messages", 
+    "type": "doc", 
+    "name": "Data Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-governance-messages", 
+    "type": "doc", 
+    "name": "Governance Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-instantsend-messages", 
+    "type": "doc", 
+    "name": "InstantSend Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-masternode-messages", 
+    "type": "doc", 
+    "name": "Masternode Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-privatesend-messages", 
+    "type": "doc", 
+    "name": "PrivateSend Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-quorum-messages", 
+    "type": "doc", 
+    "name": "Quorum Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-deprecated-messages", 
+    "type": "doc", 
+    "name": "Deprecated Messages", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-improvement-proposals", 
+    "name": "Improvement Proposals"
+   }
+  ], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <<glossary:BIP70 payment protocol>>, the [GetBlockTemplate mining protocol](core-guide-mining-block-prototypes#section-getblocktemplate-rpc), or any network protocol never implemented in an official version of Dash Core.\n\nAll peer-to-peer communication occurs entirely over TCP.\n[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.\"\n}\n[/block]", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the &lt;&lt;glossary:BIP70 payment protocol&gt;&gt;, the <a href=\"core-guide-mining-block-prototypes#section-getblocktemplate-rpc\">GetBlockTemplate mining protocol</a>, or any network protocol never implemented in an official version of Dash Core.</p>\n<p>All peer-to-peer communication occurs entirely over TCP.</p>\n\n</div>\n<div class=\"magic-block-callout type-warning no-title\"><span class=\"noTitleIcon\"><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.</p>\n\n\t</div>\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "core-ref-p2p-network", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 6, 
+ "_id": "5db076c3dbccd5005ce07e4f", 
+ "order": 4, 
+ "updates": []
+}

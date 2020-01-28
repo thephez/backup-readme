@@ -1,0 +1,65 @@
+{
+ "parentDoc": "5db72315f10c520072cce602", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2019-11-13T17:16:32.776Z", 
+ "sync_unique": "", 
+ "id": "5db723e3b107b800129a423a", 
+ "createdAt": "2019-10-28T17:22:43.394Z", 
+ "category": "5db0a86967f978006336b1b5", 
+ "title": "P2SH Scripts", 
+ "next": {
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-transactions-standard-transactions", 
+    "name": "Standard Transactions"
+   }
+  ], 
+  "description": ""
+ }, 
+ "version": "5daf2e65f4109c0040fd51e5", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Pubkey scripts are created by spenders who have little interest what that script does. Receivers do care about the script conditions and, if they want, they can ask spenders to use a particular <<glossary:pubkey script>>. Unfortunately, custom pubkey scripts are less convenient than short Dash <<glossary:addresses>> and there was no standard way to communicate them between programs prior to widespread implementation of the BIP70 Payment Protocol discussed later.\n\nTo solve these problems, pay-to-script-hash (<<glossary:P2SH>>) transactions were created in 2012 to let a spender create a pubkey script containing a hash of a second script, the <<glossary:redeem script>>.\n\nThe basic P2SH workflow, illustrated below, looks almost identical to the <<glossary:P2PKH>> workflow. Bob creates a redeem script with whatever script he wants, hashes the redeem script, and provides the <<glossary:redeem script>> hash to Alice. Alice creates a P2SH-style <<glossary:output>> containing Bob's redeem script hash.\n\n![Creating A P2SH Redeem Script And Hash](https://dash-docs.github.io/img/dev/en-creating-p2sh-output.svg)\n\nWhen Bob wants to spend the <<glossary:output>>, he provides his <<glossary:signature>> along with the full (serialized) redeem script in the <<glossary:signature script>>. The peer-to-peer <<glossary:network>> ensures the full redeem script hashes to the same value as the script hash Alice put in her output; it then processes the redeem script exactly as it would if it were the primary pubkey script, letting Bob spend the output if the redeem script does not return false.\n\n![Unlocking A P2SH Output For Spending](https://dash-docs.github.io/img/dev/en-unlocking-p2sh-output.svg)\n\nThe hash of the redeem script has the same properties as a pubkey hash---so it can be transformed into the standard Dash address format with only one small change to differentiate it from a standard address. This makes collecting a P2SH-style address as simple as collecting a P2PKH-style address. The hash also obfuscates any public keys in the redeem script, so P2SH scripts are as secure as P2PKH pubkey hashes.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Pubkey scripts are created by spenders who have little interest what that script does. Receivers do care about the script conditions and, if they want, they can ask spenders to use a particular &lt;&lt;glossary:pubkey script&gt;&gt;. Unfortunately, custom pubkey scripts are less convenient than short Dash &lt;&lt;glossary:addresses&gt;&gt; and there was no standard way to communicate them between programs prior to widespread implementation of the BIP70 Payment Protocol discussed later.</p>\n<p>To solve these problems, pay-to-script-hash (&lt;&lt;glossary:P2SH&gt;&gt;) transactions were created in 2012 to let a spender create a pubkey script containing a hash of a second script, the &lt;&lt;glossary:redeem script&gt;&gt;.</p>\n<p>The basic P2SH workflow, illustrated below, looks almost identical to the &lt;&lt;glossary:P2PKH&gt;&gt; workflow. Bob creates a redeem script with whatever script he wants, hashes the redeem script, and provides the &lt;&lt;glossary:redeem script&gt;&gt; hash to Alice. Alice creates a P2SH-style &lt;&lt;glossary:output&gt;&gt; containing Bob&#39;s redeem script hash.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-creating-p2sh-output.svg\" alt=\"Creating A P2SH Redeem Script And Hash\"></p>\n<p>When Bob wants to spend the &lt;&lt;glossary:output&gt;&gt;, he provides his &lt;&lt;glossary:signature&gt;&gt; along with the full (serialized) redeem script in the &lt;&lt;glossary:signature script&gt;&gt;. The peer-to-peer &lt;&lt;glossary:network&gt;&gt; ensures the full redeem script hashes to the same value as the script hash Alice put in her output; it then processes the redeem script exactly as it would if it were the primary pubkey script, letting Bob spend the output if the redeem script does not return false.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-unlocking-p2sh-output.svg\" alt=\"Unlocking A P2SH Output For Spending\"></p>\n<p>The hash of the redeem script has the same properties as a pubkey hash---so it can be transformed into the standard Dash address format with only one small change to differentiate it from a standard address. This makes collecting a P2SH-style address as simple as collecting a P2PKH-style address. The hash also obfuscates any public keys in the redeem script, so P2SH scripts are as secure as P2PKH pubkey hashes.</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "core-guide-transactions-p2sh-scripts", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "5db723e3b107b800129a423a", 
+ "order": 1, 
+ "updates": []
+}
