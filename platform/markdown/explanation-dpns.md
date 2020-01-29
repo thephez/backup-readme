@@ -13,9 +13,9 @@ To prevent [front-running](https://en.wikipedia.org/wiki/Domain_name_front_runni
 1. Pre-ordering the domain name
 2. Registering the domain name
 
-In the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. `hash('alice.wallet.dash' + salt)`) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and "stealing" them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.
+In the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. `hash('alice.dash' + salt)`) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and "stealing" them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.
 
-In the registration phase, the domain name (e.g. `alice.wallet.dash`) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.
+In the registration phase, the domain name (e.g. `alice.dash`) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.
 
 ## Implementation
 

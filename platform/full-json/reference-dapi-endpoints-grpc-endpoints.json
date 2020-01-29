@@ -1,0 +1,57 @@
+{
+ "parentDoc": "5e318e003e6e9c001b270a7c", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2020-01-29T18:28:39.299Z", 
+ "sync_unique": "", 
+ "id": "5e31cb56bbf63a003d135b78", 
+ "createdAt": "2020-01-28T22:36:23.400Z", 
+ "category": "5d6583437fe5090066c64397", 
+ "title": "gRPC Endpoints", 
+ "next": {
+  "pages": [], 
+  "description": ""
+ }, 
+ "version": "5d2374d8d238fb004e8f9243", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "# Overview\n\n\n# Endpoint Details - Core\n\n# Endpoint Details - Platform\n\n# Endpoint Details - Transaction Filter Stream\n\n# Code Reference\n\nImplementation details related to the information on this page can be found in the DAPI repository's [`lib/rpcServer/commands/platform` folder](https://github.com/dashevo/dapi/tree/v0.9-dev/lib/rpcServer/commands/platform).", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-endpoint-details-core\"></div>Endpoint Details - Core<a class=\"fa fa-anchor\" href=\"#section-endpoint-details-core\"></a></h1>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-endpoint-details-platform\"></div>Endpoint Details - Platform<a class=\"fa fa-anchor\" href=\"#section-endpoint-details-platform\"></a></h1>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-endpoint-details-transaction-filter-stream\"></div>Endpoint Details - Transaction Filter Stream<a class=\"fa fa-anchor\" href=\"#section-endpoint-details-transaction-filter-stream\"></a></h1>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-code-reference\"></div>Code Reference<a class=\"fa fa-anchor\" href=\"#section-code-reference\"></a></h1>\n<p>Implementation details related to the information on this page can be found in the DAPI repository&#39;s <a href=\"https://github.com/dashevo/dapi/tree/v0.9-dev/lib/rpcServer/commands/platform\"><code>lib/rpcServer/commands/platform</code> folder</a>.</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "reference-dapi-endpoints-grpc-endpoints", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5e31cb56bbf63a003d135b78", 
+ "order": 999, 
+ "updates": []
+}

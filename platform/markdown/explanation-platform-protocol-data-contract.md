@@ -66,3 +66,20 @@ An example contract for [DashPay](https://github.com/dashevo/dashpay-contract/bl
   ]
 }
 [/block]
+This is a visualization of the JSON data contract as UML class diagram for better understanding of the structure:
+
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/964c219-dashpay-plantuml.png",
+        "dashpay-plantuml.png",
+        962,
+        755,
+        "#f5f1e8"
+      ]
+    }
+  ]
+}
+[/block]
