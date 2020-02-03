@@ -1,15 +1,15 @@
 # Endpoint Overview
 
-DAPI currently provides 2 types of endpoints: [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/docs/guides/). The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions.
+[DAPI](explanation-dapi) currently provides 2 types of endpoints: [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/docs/guides/). The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions.
 
 ## JSON-RPC Endpoints
 
 | Layer | Endpoint | Description |
 | :-: | - | - |
 | 1 | [`getBestBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#section-get-best-block-hash) | Returns block hash of the chaintip |
-| 1 | `getBlockHash` | Returns block hash of the requested block |
-| 1 | `getMnListDiff` | Returns masternode list diff for the provided block hashes |
-| 1 | `getUTXO` | Returns unspent transaction outputs for a given address |
+| 1 | [`getBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#section-get-block-hash) | Returns block hash of the requested block |
+| 1 | [`getMnListDiff`](reference-dapi-endpoints-json-rpc-endpoints#section-get-mn-list-diff) | Returns masternode list diff for the provided block hashes |
+| 1 | [`getUTXO`](reference-dapi-endpoints-json-rpc-endpoints#section-get-utxo) | Returns unspent transaction outputs for a given address |
 
 ## gRPC Endpoints
 

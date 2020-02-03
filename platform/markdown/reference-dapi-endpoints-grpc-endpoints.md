@@ -17,15 +17,15 @@ The examples below use a command-line tool named [gRPCurl](https://github.com/fu
 {
   "type": "warning",
   "title": "gRPC Response Format",
-  "body": "The information returned is [CBOR encoded](https://tools.ietf.org/html/rfc7049). Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints."
+  "body": "The information returned is encoded in Base64 and [CBOR](https://tools.ietf.org/html/rfc7049). Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints."
 }
 [/block]
-
+This example uses the response from a [`getIdentity` gPRC request](#section-get-identity) to show how to parse the received data:
 [block:code]
 {
   "codes": [
     {
-      "code": "import cbor2\nidentity = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nprint('Identity details: {}\\n'.format(cbor2.loads(identity)))",
+      "code": "from base64 import b64decode\nimport json\nimport cbor2\n\ngrpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nidentity_cbor = b64decode(grpc_identity_response)\nidentity = cbor2.loads(identity_cbor)\n\nprint('Identity details:\\n{}\\n'.format(json.dumps(identity, indent=2)))",
       "language": "python"
     }
   ]
