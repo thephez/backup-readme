@@ -386,7 +386,7 @@ Sending the [`mempool` message](core-ref-p2p-network-data-messages#section-mempo
 [block:callout]
 {
   "type": "info",
-  "body": "Since Dash Core 0.15.0, the mempool message was expanded to include syncing of [InstantSend Lock](docs/core-ref-p2p-network-instantsend-messages#section-islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default. This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.",
+  "body": "Since Dash Core 0.15.0, the mempool message was expanded to include syncing of [InstantSend Lock](docs/core-ref-p2p-network-instantsend-messages#section-islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default (limited to peers using protocol version 70216 or higher). This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.",
   "title": "Mempool Synchronization"
 }
 [/block]
