@@ -24,3 +24,24 @@ DPNS names currently have several constraints as defined in the [DPNS data contr
 * Character set - `0-9`, `A-Z` (case insensitive), `-`
 
 For more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the [js-dpns-client](https://github.com/dashevo/js-dpns-client) repository. Additionally, the DPNS data contract is available in the [dpns-contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) repository.
+
+## Contract Diagram
+
+This is a visualization of the JSON data contract as UML class diagram for better understanding of the structure. The left side shows the `domain` document and the right side shows the `preorder` document:
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/5d2ad91-dpns-plantuml.png",
+        "dpns-plantuml.png",
+        2585,
+        871,
+        "#f8f6ee"
+      ],
+      "caption": "DPNS Contract Diagram"
+    }
+  ]
+}
+[/block]
+Click [here](https://files.readme.io/5d2ad91-dpns-plantuml.png) to download a copy of this diagram.

@@ -12,21 +12,42 @@ The endpoints described on this page provide access to information from Dash Pla
 
 The examples below use a command-line tool named [gRPCurl](https://github.com/fullstorydev/grpcurl) that allows interacting with gRPC servers in a similar way as `curl` does for the [JSON-RPCs](reference-dapi-endpoints-json-rpc-endpoints). Additional information may be found in the [gRPC documentation](https://grpc.io/docs/guides/).
 
-## Data Encoding
-[block:callout]
-{
-  "type": "warning",
-  "title": "gRPC Response Format",
-  "body": "The information returned is encoded in Base64 and [CBOR](https://tools.ietf.org/html/rfc7049). Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints."
-}
-[/block]
-This example uses the response from a [`getIdentity` gPRC request](#section-get-identity) to show how to parse the received data:
+To use gRPCurl as shown in the detailed examples, clone the [dapi-grpc](https://github.com/dashevo/dapi-grpc) repository and execute the example requests from the root directory of that repository as shown in this example:
 [block:code]
 {
   "codes": [
     {
-      "code": "from base64 import b64decode\nimport json\nimport cbor2\n\ngrpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nidentity_cbor = b64decode(grpc_identity_response)\nidentity = cbor2.loads(identity_cbor)\n\nprint('Identity details:\\n{}\\n'.format(json.dumps(identity, indent=2)))",
-      "language": "python"
+      "code": "# Clone the dapi-grpc repository\ngit clone https://github.com/dashevo/dapi-grpc.git\ncd dapi-grpc\n\n# Execute gRPCurl command\ngrpcurl -plaintext -proto protos/...",
+      "language": "shell"
+    }
+  ]
+}
+[/block]
+## Data Encoding
+
+The data submitted/received from the gRPC endpoints is encoded using both [CBOR](https://tools.ietf.org/html/rfc7049) and Base64. Data is first encoded with CBOR and the resulting output is then encoded in Base64 before being sent. 
+[block:callout]
+{
+  "type": "warning",
+  "title": "Canonical Encoding",
+  "body": "Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data."
+}
+[/block]
+Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints.
+
+The examples below use the response from a [`getIdentity` gPRC request](#section-get-identity) to demonstrate how to both encode data for sending and decode received data:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "from base64 import b64decode, b64encode\nimport json\nimport cbor2\n\ngrpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nidentity_cbor = b64decode(grpc_identity_response)\nidentity = cbor2.loads(identity_cbor)\n\nprint('Identity details:\\n{}\\n'.format(json.dumps(identity, indent=2)))",
+      "language": "python",
+      "name": "Python - Decode Identity"
+    },
+    {
+      "code": "from base64 import b64decode, b64encode\nimport json\nimport cbor2\n\n# Encode an identity\nidentity = {\n  \"id\": \"CbYVyoKnGxkHaBrucCAhPEBcpuz8j15cnYYiv1CEHBNx\",  \n  \"type\": 1,\n  \"publicKeys\": [\n    {\n      \"id\": 1,\n      \"data\": \"AmzR2FM4fYwCmZxGZ1N2ta2FfuJ95Ow+LLArZDLuYBjt\",\n      \"type\": 1,\n      \"isEnabled\": True\n    }\n  ]\n}\n\nidentity_cbor = cbor2.dumps(identity)\nidentity_grpc = b64encode(identity_cbor)\nprint('Identity gRPC data: {}'.format(identity_grpc))\n",
+      "language": "python",
+      "name": "Python - Encode Identity"
     }
   ]
 }
@@ -138,13 +159,13 @@ This example uses the response from a [`getIdentity` gPRC request](#section-get-
 | - | - | - | - |
 | `data_contract_id` | String | Yes | A data contract `id` |
 | `document_type` | String | Yes | A document type defined by the data contract (e.g. `preorder` or `domain` for the DPNS contract) |
-| `where` * | String | No | Where clause to filter the results (**must be CBOR encoded**) |
-| `order_by` * | String | No | Sort records by the field(s) provided (**must be CBOR encoded**) |
-| `limit` * | String | No | Maximum number of results to return |
+| `where` * | Bytes | No | Where clause to filter the results (**must be CBOR encoded**) |
+| `order_by` * | Bytes | No | Sort records by the field(s) provided (**must be CBOR encoded**) |
+| `limit` | Integer | No | Maximum number of results to return |
 | ---------- | | | |
-| One of the following: | | | |
-| `start_at` * | String | No | Return records beginning with the index provided |
-| `start_after` * | String | No | Return records beginning after the index provided |
+| _One_ of the following: | | | |
+| `start_at` | Integer | No | Return records beginning with the index provided |
+| `start_after` | Integer | No | Return records beginning after the index provided |
 [block:callout]
 {
   "type": "warning",
@@ -176,7 +197,69 @@ This example uses the response from a [`getIdentity` gPRC request](#section-get-
 [/block]
 # Endpoint Details - Transaction Filter Stream
 
+## subscribeToTransactionsWithProofs
+
+**Returns**: streams the requested transactions
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `bloom_filter.v_data` | Bytes | ??? |  |
+| `bloom_filter.n_hash_funcs` | Integer | ??? |  |
+| `bloom_filter.n_tweak` | Integer | ??? |  |
+| `bloom_filter.n_flags` | Integer | ??? |  |
+| ---------- | | | |
+| __One of the following:__ | | | |
+| `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |
+| `from_block_height` | Integer | No | Return records beginning with the block height provided |
+| ---------- | | | |
+| `count` | Integer | No |  |
+| `send_transaction_hashes` * | Boolean | No |  |
+
 # Endpoint Details - Core
+
+## getStatus
+
+**Returns**: Status information from the Core chain
+**Parameters**: None
+
+## getBlock
+
+**Returns**: A raw block
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| __One of the following:__ | | | |
+| `hash` | Bytes | No | Return the block matching the block hash provided |
+| `height` | Integer | No | Return the block matching the block height provided |
+
+## sendTransaction
+
+**Returns**: 
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `id` | String | Yes | A data contract `id` |
+
+## getTransaction
+
+**Returns**: 
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `id` | String | Yes | A data contract `id` |
+
+## subscribeToBlockHeadersWithChainLocks
+
+**Returns**: 
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `id` | String | Yes | A data contract `id` |
 
 # Code Reference
 

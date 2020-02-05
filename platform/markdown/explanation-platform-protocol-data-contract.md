@@ -78,7 +78,8 @@ This is a visualization of the JSON data contract as UML class diagram for bette
         962,
         755,
         "#f5f1e8"
-      ]
+      ],
+      "caption": "Dashpay Contract Diagram"
     }
   ]
 }

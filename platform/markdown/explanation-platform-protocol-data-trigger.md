@@ -1,6 +1,13 @@
+[block:callout]
+{
+  "type": "danger",
+  "title": "",
+  "body": "This page is intended to provide a brief description of how data triggers work in the first phase of Evonet. Their design will likely undergo extensive changes in the future."
+}
+[/block]
 # Overview
 
-Although [data contracts](explanation-platform-protocol-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side logic to operate effectively. For example, [DPNS](doc:explanation-dpns) must enforce some rules to ensure names remain DNS compatible. [Dash Platform Protocol](explanation-platform-protocol) (DPP) supports this application-specific custom logic using Data Triggers.
+Although [data contracts](explanation-platform-protocol-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](doc:explanation-dpns) must enforce some rules to ensure names remain DNS compatible. [Dash Platform Protocol](explanation-platform-protocol) (DPP) supports this application-specific custom logic using Data Triggers.
 [block:callout]
 {
   "type": "danger",
@@ -15,7 +22,7 @@ As an example, DPP contains several [data triggers for DPNS](https://github.com/
 
 | Data Contract | Document | Action(s) | Trigger Description |
 | - | - | - |
-| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility and validates provided hashes |
+| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validate provided hashes, and restrict top-level domain (TLD) registration |
 | DPNS | `domain` | [`REPLACE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/dpnsTriggers/updateDomainDataTrigger.js) | Prevents updates to existing domains |
 | DPNS | `domain` | [`DELETE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/dpnsTriggers/deleteDomainDataTrigger.js) | Prevents deletion of existing domains |
 | ---- | ----| ---- | ---- |
