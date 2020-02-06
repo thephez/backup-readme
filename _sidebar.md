@@ -92,3 +92,6 @@
         - [Transaction Broadcasting](core/markdown/core-guide-p2p-network-transaction-broadcasting.md)
         - [Misbehaving Nodes](core/markdown/core-guide-p2p-network-misbehaving-nodes.md)
     - [Mining](core/markdown/core-guide-mining.md)
+        - [Solo Mining](core/markdown/core-guide-mining-solo-mining.md)
+        - [Pool Mining](core/markdown/core-guide-mining-pool-mining.md)
+        - [Block Prototypes](core/markdown/core-guide-mining-block-prototypes.md)
