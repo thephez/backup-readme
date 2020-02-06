@@ -23,6 +23,7 @@
         - [PrivateSend Messages](core/markdown/core-ref-p2p-network-privatesend-messages.md)
         - [Quorum Messages](core/markdown/core-ref-p2p-network-quorum-messages.md)
         - [Deprecated Messages](core/markdown/core-ref-p2p-network-deprecated-messages.md)
+    - [Improvement Proposals](core/markdown/core-ref-improvement-proposals.md)
 
 - Core API Reference
     - [Hash Byte Order](core/markdown/core-ref-dash-core-apis-hash-byte-order.md)
@@ -42,6 +43,8 @@
         - [Wallet RPCs (Deprecated)](core/markdown/core-api-ref-remote-procedure-calls-wallet-deprecated.md)
         - [Removed RPCs](core/markdown/core-api-ref-remote-procedure-calls-removed.md)
     - [HTTP REST](core/markdown/core-api-ref-http-rest.md)
+        - [Quick Reference](core/markdown/core-api-ref-http-rest-quick-reference.md)
+        - [Requests](core/markdown/core-api-ref-http-rest-requests.md)
 
 - Core Guides
     - [Guide Intro](core/markdown/core-guide-introduction.md)
