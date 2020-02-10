@@ -204,16 +204,16 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
 
 | Name | Type | Required | Description |
 | - | - | - | - |
-| `bloom_filter.v_data` | Bytes | Yes |  |
-| `bloom_filter.n_hash_funcs` | Integer | Yes |  |
-| `bloom_filter.n_tweak` | Integer | ??? |  |
-| `bloom_filter.n_flags` | Integer | ??? |  |
+| `bloom_filter.v_data` | Bytes | Yes | The filter itself is simply a bit field of arbitrary byte-aligned size. The maximum size is 36,000 bytes |
+| `bloom_filter.n_hash_funcs` | Integer | Yes | The number of hash functions to use in this filter. The maximum value allowed in this field is 50 |
+| `bloom_filter.n_tweak` | Integer | Yes | A random value to add to the seed value in the hash function used by the bloom filter |
+| `bloom_filter.n_flags` | Integer | Yes | A set of flags that control how matched items are added to the filter |
 | ---------- | | | |
 | __One of the following:__ | | | |
 | `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |
 | `from_block_height` | Integer | No | Return records beginning with the block height provided |
 | ---------- | | | |
-| `count` | Integer | No |  |
+| `count` | Integer | No | Number of blocks to sync. If set to 0 syncing is continuously sends new data as well (default: 0) |
 | `send_transaction_hashes` * | Boolean | No |  |
 [block:code]
 {

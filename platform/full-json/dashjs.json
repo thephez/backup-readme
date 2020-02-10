@@ -23,18 +23,18 @@
   "auth": "required", 
   "method": "get"
  }, 
- "updatedAt": "2019-12-10T15:11:45.441Z", 
+ "updatedAt": "2020-02-10T08:47:42.947Z", 
  "sync_unique": "", 
- "id": "5d42e9e778950f0011743732", 
- "createdAt": "2019-08-01T13:32:23.391Z", 
+ "id": "5e41765f71e64e01a5861fe6", 
+ "createdAt": "2020-02-10T08:47:42.947Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
- "title": "DIPs (Improvement Proposals)", 
+ "title": "DashJS", 
  "next": {
   "pages": [], 
   "description": ""
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
- "hidden": true, 
+ "hidden": false, 
  "type": "link", 
  "metadata": {
   "image": [], 
@@ -46,12 +46,12 @@
  "body_html": "&nbsp;", 
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
- "slug": "resources-dips-improvement-proposals", 
- "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
+ "slug": "dashjs", 
+ "link_url": "https://dashevo.github.io/DashJS/#/", 
  "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5d42e9e778950f0011743732", 
- "order": 4, 
+ "_id": "5e41765f71e64e01a5861fe6", 
+ "order": 2, 
  "updates": []
 }
