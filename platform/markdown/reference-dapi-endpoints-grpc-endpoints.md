@@ -52,7 +52,7 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   ]
 }
 [/block]
-# Endpoint Details - Platform
+# Platform Endpoints
 
 ## applyStateTransition
 
@@ -179,7 +179,8 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   "codes": [
     {
       "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse\",\n    \"document_type\":\"domain\",\n    \"limit\":1\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
-      "language": "shell"
+      "language": "shell",
+      "name": "Request (gRPCurl)"
     }
   ]
 }
@@ -190,12 +191,13 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   "codes": [
     {
       "code": "{\n  \"documents\": [\n    \"q2QkcmV2AWUkdHlwZWZkb21haW5lbGFiZWxkZGFzaGckdXNlcklkeCwyS2ZNY014a3RLaW1KeEFaVWVad1lrRlVzRWNBWmhES0VwUXM4R01ucFVzZWdyZWNvcmRzoWxkYXNoSWRlbnRpdHl4LDJLZk1jTXhrdEtpbUp4QVpVZVp3WWtGVXNFY0FaaERLRXBRczhHTW5wVXNlaCRlbnRyb3B5eCJ5TGY3b214aHVVQVYybXh0VUNmaG1hTUFZZWdLZTJSRUJaaG5hbWVIYXNobDU2MDQ2NDYxNzM2OGskY29udHJhY3RJZHgsMktmTWNNeGt0S2ltSnhBWlVlWndZa0ZVc0VjQVpoREtFcFFzOEdNbnBVc2VscHJlb3JkZXJTYWx0eCJ5Z244S20zVXhhU1E4QU54S2NIU1J4dDNKNldYNzkyWlcyb25vcm1hbGl6ZWRMYWJlbGRkYXNoeBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZWA=\"\n  ]\n}\n",
-      "language": "json"
+      "language": "json",
+      "name": "Response"
     }
   ]
 }
 [/block]
-# Endpoint Details - Transaction Filter Stream
+# Transaction Streaming Endpoints
 
 ## subscribeToTransactionsWithProofs
 
@@ -220,7 +222,8 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   "codes": [
     {
       "code": "grpcurl -proto protos/transactions_filter_stream.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs",
-      "language": "shell"
+      "language": "shell",
+      "name": "Request (gRPCurl)"
     }
   ]
 }
@@ -231,7 +234,8 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   "codes": [
     {
       "code": "{\n  \"rawMerkleBlock\": \"AAAAIA3Qf/hFIRCR05p5g/4O26djuqwjPJ56ZTukdcN2AQAAsflRGQyucizvFIdNgGGJtTd2NjeH2jkxUh9zsI2fs6qPdzxepQYDHurVAAABAAAAAbH5URkMrnIs7xSHTYBhibU3djY3h9o5MVIfc7CNn7OqAQE=\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAqZ1AQj/////AgAkDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKz2Iw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCAKZ1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5gsYHsKUCCu3Z1QXIebAvYdPQWrpDuNbScLl8IniuUgL\",\n      \"AgAAAAI1daG8ULi9XATiHNWuE5LFZ0LIJAVfhUNK1HwGZgcOTAAAAABrSDBFAiEA76Zk6jUSMuQJYK9hLiNN3FfpsmgYOvn12mfxg3aByWQCIDUAeXIGRJikJNKZoj6o7Q/8LxRPvz7E343lOmbRnCNnASEDTWwgUGvLK39RQW798Cw3h2kKdHCTuX0MVOGZlPz78K7+////SEYK44c6nCor1t7aPZZpaMM8jASCmgvP/FlGmiYNRc8AAAAAakcwRAIgZhCp2FAXr/ZKCW2qLxYAYlTk/yjVsmWDUXlF3AqY6L4CIBwPc940WBmgfHeUvna7+zywsMG3PEK7AU/FwKPqB6xKASECZnWxu8VkIQOntY/yd1VOPbC+gFwycp1yDJhptlQbMKj+////Av9EcAQAAAAAGXapFB5OuEn+wOU/w3Z+q6SRt09g8ryQiKwA4fUFAAAAABl2qRQhGOdAxS3LMafwh8nFVbcOdw21MIispXUAAA==\"\n    ]\n  }\n}\n",
-      "language": "json"
+      "language": "json",
+      "name": "Response"
     }
   ]
 }
@@ -242,7 +246,7 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
   "html": "<div></div>\n<!--\n\ngrpcurl -proto protos/transactions_filter_stream.proto -plaintext   -d '{\n  \"from_block_height\": 30000,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}'   localhost:2510   org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjB1AQj/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADB1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AAAAIIGiClhX7zPY2s2DmwiDdlbUJSUpzBjclOIWcgggAwAAak7QtEqCigCc1+U3+R6ElSI/vQz4mXzn1bADpwg41MvxNjxeBaADHhuWAAACAAAAAi6VQ1ZA+oFPPtKYv7OuzUfdLqZ+ZwzAwpztIn0osooZAzrYFIkcfvpIDK6Mg9FgxH4eOkjvyMwXj6qwEqZCJPYBAw==\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjF1AQH/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADF1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AAAAIKnRSfNm6oA5kqly1SG3FJ0a/v3hAh9GrFtyApQ+AQAAx/bTc5j8Ctlx0exLl3Xn+GvymqZBllMPdX5f5TuPsFjkNzxepXsDHoBCAAABAAAAAcf203OY/ArZcdHsS5d15/hr8pqmQZZTD3V+X+U7j7BYAQE=\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjJ1AQT/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADJ1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n\n\n-->\n\n<style></style>"
 }
 [/block]
-# Endpoint Details - Core
+# Core Endpoints
 
 ## getStatus
 

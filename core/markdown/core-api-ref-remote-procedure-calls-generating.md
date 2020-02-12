@@ -49,10 +49,10 @@ Result:
 *See also*
 
 * [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-getblocktemplate): gets a block template or proposal for use with mining software.
-* [GetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-getgenerate): was removed in Dash Core 0.12.3.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
-* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-setgenerate): was removed in Dash Core 0.12.3.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.
+* [GetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-get-generate): was removed in Dash Core 0.12.3.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
+* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-set-generate): was removed in Dash Core 0.12.3.
 
 # GenerateToAddress
 [block:callout]
@@ -115,5 +115,5 @@ Result:
 *See also*
 
 * [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-getblocktemplate): gets a block template or proposal for use with mining software.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.

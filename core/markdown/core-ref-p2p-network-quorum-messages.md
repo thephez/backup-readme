@@ -21,7 +21,7 @@ The [`qcontrib` message](core-ref-p2p-network-quorum-messages#section-qcontrib) 
 | --- | --- | --- | --- |
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | 	The quorum identifier
-| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-proregtx) hash of the complaining member
+| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-pro-reg-tx) hash of the complaining member
 | 1-9 | vvecSize | compactSize uint | The size of the verification vector
 | 48 * `vvecSize` | vvec | BLSPubKey[] | The verification vector
 | 48 | ephemeralPubKey | BLSPubKey | Ephemeral BLS public key used to encrypt secret key contributions
@@ -108,7 +108,7 @@ If a threshold number of quorum participants indicate a masternode didn't contri
 | --- | --- | --- | --- |
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | 	The quorum identifier
-| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-proregtx) hash of the complaining member
+| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-pro-reg-tx) hash of the complaining member
 | 1-9 | badBitSize | compactSize uint | Number of bits in the bad members bitvector
 | (`badBitSize` + 7) / 8 | badMembers | byte[] | The bad members bitvector
 | 1-9 | complaintsBitSize | compactSize uint | Number of bits in the complaints bitvector
@@ -158,7 +158,7 @@ The [`qjustify` message](core-ref-p2p-network-quorum-messages#section-qjustify) 
 | --- | --- | --- | --- |
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | 	The quorum identifier
-| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-proregtx) hash of the complaining member
+| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-pro-reg-tx) hash of the complaining member
 | 1-9 | skContributions<br>Count | compactSize uint | Number of unencrypted secret key contributions
 | 36 * `skContributions`<br>`Count` | skContribution | SKContribution | Member index and secret key contribution for members justifying complaints
 | 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode
@@ -223,7 +223,7 @@ The [`qpcommit` message](core-ref-p2p-network-quorum-messages#section-qpcommit) 
 | --- | --- | --- | --- |
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | The quorum identifier
-| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-proregtx) hash of the complaining member
+| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#section-pro-reg-tx) hash of the complaining member
 | 1-9 | validMembersSize | compactSize uint | Bit size of the `validMembers` bitvector
 | (`valid`<br>`MembersSize` + 7) / 8 | validMembers | byte[] | Bitset of valid members in this commitment
 | 48 | quorumPublicKey | uint256 | The quorum public key
@@ -271,7 +271,7 @@ b6a5077267fdc61cdb192faffa27bed9
 
 ## qfcommit
 
-The [`qfcommit` message](core-ref-p2p-network-quorum-messages#section-qfcommit) is used to finalize a <<glossary:Long-Living Masternode Quorum>> setup by aggregating the information necessary to mine the on-chain [QcTx](core-ref-transactions-special-transactions#section-qctx) special transaction. The message contains all the necessary information required to validate the long-living masternode quorum's signing results.
+The [`qfcommit` message](core-ref-p2p-network-quorum-messages#section-qfcommit) is used to finalize a <<glossary:Long-Living Masternode Quorum>> setup by aggregating the information necessary to mine the on-chain [QcTx](core-ref-transactions-special-transactions#section-qc-tx) special transaction. The message contains all the necessary information required to validate the long-living masternode quorum's signing results.
 
 It is possible to receive multiple valid final commitments for the same DKG session. These should only differ in the number of signers, which can be ignored as long as there are at least `quorumThreshold` number of signers. The set of valid members for these final commitments should always be the same, as each member only creates a single premature commitment. This means that only one set of valid members (and thus only one quorum verification vector and quorum <<glossary:public key>>) can gain a majority. If the threshold is not reached, there will be no valid final commitment.
 

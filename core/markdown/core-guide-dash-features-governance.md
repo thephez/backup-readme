@@ -92,4 +92,4 @@ At the superblock height, the trigger with the most "Yes" votes is paid out by t
 [/block]
 In Dash Core 12.2, use of the `watchdog` governance object type was replaced by integrating sentinel information into the masternode ping (`mnp` message) via [Pull Request #1491](https://github.com/dashpay/dash/pull/1491).
 
-From Dash Core 0.12.2 through Dash Core 0.13, Sentinel used the [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinelping) to update the masternode info and prevent it from entering a `MASTERNODE_WATCHDOG_EXPIRED` state.
+From Dash Core 0.12.2 through Dash Core 0.13, Sentinel used the [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinel-ping) to update the masternode info and prevent it from entering a `MASTERNODE_WATCHDOG_EXPIRED` state.

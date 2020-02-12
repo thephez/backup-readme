@@ -85,7 +85,7 @@ yfV9Wirf5RkYHgNDttjpBz8Wdi8BavLHcP
 
 # 3. Create raw transaction
 
-Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-createrawtransaction), we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the <<glossary:index>> number (0) of the <<glossary:output>> from that transaction we want to spend. The second argument (a JSON object) creates the output with the address ( <<glossary:public key>> hash) and number of DASH we want to transfer. We save the resulting raw format transaction to a shell variable.
+Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction), we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the <<glossary:index>> number (0) of the <<glossary:output>> from that transaction we want to spend. The second argument (a JSON object) creates the output with the address ( <<glossary:public key>> hash) and number of DASH we want to transfer. We save the resulting raw format transaction to a shell variable.
 [block:callout]
 {
   "type": "danger",
@@ -114,7 +114,7 @@ In this example, our input had 500.0000 DASH and our output (`$NEW_ADDRESS`) is 
 
 # 4. Decode raw transaction
 
-Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-decoderawtransaction) to see exactly what the transaction we just created does.
+Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction) to see exactly what the transaction we just created does.
 [block:code]
 {
   "codes": [
@@ -164,7 +164,7 @@ Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-tra
 
 # 5. Sign transaction
 
-Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-signrawtransaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
+Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-sign-raw-transaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
 [block:code]
 {
   "codes": [
@@ -195,7 +195,7 @@ Even though the transaction is now complete, the Dash Core <<glossary:node>> we'
 
 # 6. Send raw transaction
 
-Send the signed transaction to the connected node using the [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-sendrawtransaction). After accepting the transaction, the node would usually then broadcast it to other <<glossary:peers>>, but we're not currently connected to other peers because we started in <<glossary:regression test mode>>.
+Send the signed transaction to the connected node using the [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-send-raw-transaction). After accepting the transaction, the node would usually then broadcast it to other <<glossary:peers>>, but we're not currently connected to other peers because we started in <<glossary:regression test mode>>.
 [block:code]
 {
   "codes": [

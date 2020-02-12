@@ -4,7 +4,7 @@ The following <<glossary:network>> messages all help control the connection betw
 
 Note that almost none of the control messages are authenticated in any way, meaning they can contain incorrect or intentionally harmful information.
 
-# Addr
+# addr
 
 The `addr` (IP address) message relays connection information for peers on the network. Each peer which wants to accept incoming connections creates an [`addr` message](core-ref-p2p-network-control-messages#section-addr) providing its connection information and then sends that message to its peers unsolicited. Some of its peers send that information to their peers (also unsolicited), some of which further distribute it, allowing decentralized peer discovery for any program already on the network.
 
@@ -37,7 +37,7 @@ d91f4854 ........................... Epoch time: 1414012889
 [...] .............................. (999 more addresses omitted)
 ```
 
-# FilterAdd
+# filteradd
 
 *Added in protocol version 70001 as described by BIP37.*
 
@@ -60,7 +60,7 @@ fdacf9b3eb077412e7a968d2e4f11b9a
 9dee312d666187ed77ee7d26af16cb0b ... Element (A TXID)
 ```
 
-# FilterClear
+# filterclear
 
 *Added in protocol version 70001 as described by BIP37.*
 
@@ -70,7 +70,7 @@ Dash Core does not require a [`filterclear` message](core-ref-p2p-network-contro
 
 There is no payload in a [`filterclear` message](core-ref-p2p-network-control-messages#section-filterclear).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
-# FilterLoad
+# filterload
 
 *Added in protocol version 70001 as described by BIP37.*
 
@@ -84,7 +84,7 @@ The [`filterload` message](core-ref-p2p-network-control-messages#section-filterl
 | 4        | nTweak       | uint32_t  | An arbitrary value to add to the seed value in the hash function used by the bloom filter.
 | 1        | nFlags       | uint8_t   | A set of flags that control how outpoints corresponding to a matched pubkey script are added to the filter. See the table in the Updating A Bloom Filter subsection below.
 
-The annotated hexdump below shows a [`filterload` message](core-ref-p2p-network-control-messages#section-filterload). (The message header has been omitted.)  For an example of how this payload was created, see the [filterload example](core-example-p2p-network-creating-a-bloom-filter).
+The annotated hexdump below shows a [`filterload` message](core-ref-p2p-network-control-messages#section-filterload). (The message header has been omitted.)  For an example of how this payload was created, see the [filterload example](core-examples-p2p-network-creating-a-bloom-filter).
 
 ``` text
 02 ......... Filter bytes: 2
@@ -217,19 +217,19 @@ The *nFlags* field has three allowed values:
 
 In addition, because the filter size stays the same even though additional elements are being added to it, the false positive rate increases. Each false positive can result in another element being added to the filter, creating a feedback loop that can (after a certain point) make the filter useless. For this reason, clients using automatic filter updates need to monitor the actual false positive rate and send a new filter when the rate gets too high.
 
-# GetAddr
+# getaddr
 
 The [`getaddr` message](core-ref-p2p-network-control-messages#section-getaddr) requests an [`addr` message](core-ref-p2p-network-control-messages#section-addr) from the receiving <<glossary:node>>, preferably one with lots of IP addresses of other receiving nodes. The transmitting node can use those IP addresses to quickly update its database of available nodes rather than waiting for unsolicited [`addr` messages](core-ref-p2p-network-control-messages#section-addr) to arrive over time.
 
 There is no payload in a [`getaddr` message](core-ref-p2p-network-control-messages#section-getaddr).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
-# GetSporks
+# getsporks
 
 The [`getsporks` message](core-ref-p2p-network-control-messages#section-getsporks) requests [`spork` messages](core-ref-p2p-network-control-messages#section-spork) from the receiving node.
 
 There is no payload in a [`getsporks` message](core-ref-p2p-network-control-messages#section-getsporks).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
-# Ping
+# ping
 
 The [`ping` message](core-ref-p2p-network-control-messages#section-ping) helps confirm that the receiving <<glossary:peer>> is still connected. If a TCP/IP error is encountered when sending the [`ping` message](core-ref-p2p-network-control-messages#section-ping) (such as a connection timeout), the transmitting node can assume that the receiving node is disconnected. The response to a [`ping` message](core-ref-p2p-network-control-messages#section-ping) is the [`pong` message](core-ref-p2p-network-control-messages#section-pong).
 
@@ -245,7 +245,7 @@ The annotated hexdump below shows a [`ping` message](core-ref-p2p-network-contro
 0094102111e2af4d ... Nonce
 ```
 
-# Pong
+# pong
 
 *Added in protocol version 60001 as described by BIP31.*
 
@@ -255,7 +255,7 @@ To allow nodes to keep track of latency, the [`pong` message](core-ref-p2p-netwo
 
 The format of the [`pong` message](core-ref-p2p-network-control-messages#section-pong) is identical to the [`ping` message](core-ref-p2p-network-control-messages#section-ping); only the message header differs.
 
-# Reject
+# reject
 
 *Added in protocol version 70002 as described by BIP61.*
 
@@ -325,7 +325,7 @@ The annotated hexdump below shows a [`reject` message](core-ref-p2p-network-cont
 947baf86a31017939575fb2354222821 ... TXID
 ```
 
-# SendCmpct
+# sendcmpct
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
 
@@ -353,7 +353,7 @@ The annotated hexdump below shows a [`sendcmpct` message](core-ref-p2p-network-c
 0100000000000000 ................... Compact block version: 1
 ```
 
-# SendDsq
+# senddsq
 
 *Added in protocol version 70214 of Dash Core*
 
@@ -369,13 +369,13 @@ The following annotated hexdump shows a [`senddsq` message](core-ref-p2p-network
 01 ................................. PrivateSend participation: Enabled (1)
 ```
 
-# SendHeaders
+# sendheaders
 
 The [`sendheaders` message](core-ref-p2p-network-control-messages#section-sendheaders) tells the receiving <<glossary:peer>> to send new <<glossary:block>> announcements using a [`headers` message](core-ref-p2p-network-data-messages#section-headers) rather than an [`inv` message](core-ref-p2p-network-data-messages#section-inv).
 
 There is no payload in a [`sendheaders` message](core-ref-p2p-network-control-messages#section-sendheaders).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
-# Spork
+# spork
 
 Sporks are a mechanism by which updated code is released to the network, but not immediately made active (or “enforced”). Enforcement of the updated code can be activated remotely. Should problems arise, the code can be deactivated in the same manner, without the need for a network-wide rollback or client update.
 
@@ -457,11 +457,11 @@ d32020c827a89f8128a00acd210f4ea4
 45 .......................................... Masternode Signature
 ```
 
-# VerAck
+# verack
 
 The [`verack` message](core-ref-p2p-network-control-messages#section-verack) acknowledges a previously-received [`version` message](core-ref-p2p-network-control-messages#section-version), informing the connecting <<glossary:node>> that it can begin to send other messages. The [`verack` message](core-ref-p2p-network-control-messages#section-verack) has no payload; for an example of a message with no payload, see the [message headers section](core-ref-p2p-network-message-headers).
 
-# Version
+# version
 
 The [`version` message](core-ref-p2p-network-control-messages#section-version) provides information about the transmitting <<glossary:node>> to the receiving node at the beginning of a connection. Until both <<glossary:peers>> have exchanged [`version` messages](core-ref-p2p-network-control-messages#section-version), no other messages will be accepted.
 

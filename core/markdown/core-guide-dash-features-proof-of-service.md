@@ -8,7 +8,7 @@ The current PoSe scoring system is based on participation in the <<glossary:LLMQ
 
 # **PoSe Score Calculation**
 
-As shown in the following table, the PoSe Score always decreases by 1 per <<glossary:block>> as long as a masternode has not been banned. Once banned, the masternode can only be restored by sending a Provider Update Service ([ProUpServTx](core-ref-transactions-special-transactions#section-proupservtx)) special transaction.
+As shown in the following table, the PoSe Score always decreases by 1 per <<glossary:block>> as long as a masternode has not been banned. Once banned, the masternode can only be restored by sending a Provider Update Service ([ProUpServTx](core-ref-transactions-special-transactions#section-pro-up-serv-tx)) special transaction.
 
 | PoSe Parameter | Value | Example Value |
 | --- | --- | --- |

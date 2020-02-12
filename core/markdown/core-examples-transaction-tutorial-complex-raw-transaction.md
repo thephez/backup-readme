@@ -86,7 +86,7 @@ For our two inputs, we select two UTXOs by placing the txid and output index num
   "title": "Private Key Warning"
 }
 [/block]
-Use the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#section-dumpprivkey) to get the <<glossary:private keys>> corresponding to the <<glossary:public keys>> used in the two UTXOs our inputs we will be spending.  We need the private keys so we can sign each of the inputs separately.
+Use the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#section-dump-priv-key) to get the <<glossary:private keys>> corresponding to the <<glossary:public keys>> used in the two UTXOs our inputs we will be spending.  We need the private keys so we can sign each of the inputs separately.
 
 ``` bash
 > dash-cli -regtest dumpprivkey $UTXO1_ADDRESS
@@ -116,7 +116,7 @@ yesLaP5XFTaLZiWAo2zK8mFfUCtV8rRhKw
 
 # 5. Create raw transaction
 
-Create the <<glossary:raw transaction>> using the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-createrawtransaction) much the same as before, except now we have two inputs and two outputs.
+Create the <<glossary:raw transaction>> using the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-create-raw-transaction) much the same as before, except now we have two inputs and two outputs.
 
 ``` bash
 ## Outputs - inputs = transaction fee, so always double-check your math!

@@ -1,6 +1,6 @@
 # GetGovernanceInfo
 
-The [`getgovernanceinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getgovernanceinfo) returns an object containing governance parameters.
+The [`getgovernanceinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-get-governance-info) returns an object containing governance parameters.
 
 *Parameters: none*
 
@@ -34,11 +34,11 @@ Result:
 
 *See also:*
 
-* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#section-gobject): provides a set of commands for managing governance objects and displaying information about them.
+* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#section-g-object): provides a set of commands for managing governance objects and displaying information about them.
 
 # GetPoolInfo
 
-The [`getpoolinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getpoolinfo) returns an object containing mixing pool related information.
+The [`getpoolinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-get-pool-info) returns an object containing mixing pool related information.
 
 *Parameters: none*
 
@@ -106,7 +106,7 @@ Result:
 
 # GetPrivateSendInfo
 
-The [`getprivatesendinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-getprivatesendinfo) returns an object containing an information about PrivateSend settings and state.
+The [`getprivatesendinfo` RPC](core-api-ref-remote-procedure-calls-dash#section-get-private-send-info) returns an object containing an information about PrivateSend settings and state.
 
 *Parameters: none*
 
@@ -193,7 +193,7 @@ Result:
 
 # GetSuperblockBudget
 
-The [`getsuperblockbudget` RPC](core-api-ref-remote-procedure-calls-dash#section-getsuperblockbudget) returns the absolute maximum sum of superblock payments allowed.
+The [`getsuperblockbudget` RPC](core-api-ref-remote-procedure-calls-dash#section-get-superblock-budget) returns the absolute maximum sum of superblock payments allowed.
 
 *Parameter #1---block index*
 
@@ -220,11 +220,11 @@ Result:
 
 *See also:*
 
-* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-getgovernanceinfo): returns an object containing governance parameters.
+* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-get-governance-info): returns an object containing governance parameters.
 
 # GObject
 
-The [`gobject` RPC](core-api-ref-remote-procedure-calls-dash#section-gobject) provides a set of commands for managing governance objects and displaying information about them.
+The [`gobject` RPC](core-api-ref-remote-procedure-calls-dash#section-g-object) provides a set of commands for managing governance objects and displaying information about them.
 
 ## GObject Check
 
@@ -315,7 +315,7 @@ Name | Type | Presence | Description
 **Details of the `data-hex` field:**
 
 The `data-hex` field is comprised of a JSON object as described in [GObject
-Deserialize](#gobject-deserialize) which is serialized to hex.
+Deserialize](#section-g-object-deserialize) which is serialized to hex.
 
 An example of a proposal JSON object is shown here:
 
@@ -1040,8 +1040,8 @@ dash-cli -testnet gobject vote-many \
 
 *See also:*
 
-* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-getgovernanceinfo): returns an object containing governance parameters.
-* [GetSuperblockBudget](/docs/core-api-ref-remote-procedure-calls-dash#section-getsuperblockbudget): returns the absolute maximum sum of superblock payments allowed.
+* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#section-get-governance-info): returns an object containing governance parameters.
+* [GetSuperblockBudget](/docs/core-api-ref-remote-procedure-calls-dash#section-get-superblock-budget): returns the absolute maximum sum of superblock payments allowed.
 
 # Masternode
 
@@ -1412,7 +1412,7 @@ Prints masternode.conf in JSON format.
 
 * [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#section-masternodelist): returns a list of masternodes in different modes.
 
-# MasternodeList
+# Masternodelist
 
 The [`masternodelist` RPC](core-api-ref-remote-procedure-calls-dash#section-masternodelist) returns a list of masternodes in different modes.
 
@@ -1524,11 +1524,11 @@ Result:
 *See also:*
 
 * [Masternode](/docs/core-api-ref-remote-procedure-calls-dash#section-masternode): provides a set of commands for managing masternodes and displaying information about them.
-* [MnSync](/docs/core-api-ref-remote-procedure-calls-dash#section-mnsync): returns the sync status, updates to the next step or resets it entirely.
+* [MnSync](/docs/core-api-ref-remote-procedure-calls-dash#section-mn-sync): returns the sync status, updates to the next step or resets it entirely.
 
 # MnSync
 
-The [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#section-mnsync) returns the sync status, updates to the next step or resets it entirely.
+The [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#section-mn-sync) returns the sync status, updates to the next step or resets it entirely.
 
 *Parameter #1---Command mode*
 
@@ -1631,7 +1631,7 @@ success
 
 As of Dash Core 0.12.3, client-side mixing is not supported on masternodes.
 
-The [`privatesend` RPC](core-api-ref-remote-procedure-calls-dash#section-privatesend) controls the mixing process.
+The [`privatesend` RPC](core-api-ref-remote-procedure-calls-dash#section-private-send) controls the mixing process.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -1805,7 +1805,7 @@ failure
 
 # VoteRaw
 
-The [`voteraw` RPC](core-api-ref-remote-procedure-calls-dash#section-voteraw) compiles and relays a governance vote with provided external signature instead of signing vote internally
+The [`voteraw` RPC](core-api-ref-remote-procedure-calls-dash#section-vote-raw) compiles and relays a governance vote with provided external signature instead of signing vote internally
 
 *Parameter #1---masternode collateral transaction hash*
 
@@ -1872,4 +1872,4 @@ Voted successfully
 
 *See also:*
 
-* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#section-gobject): provides a set of commands for managing governance objects and displaying information about them.
+* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#section-g-object): provides a set of commands for managing governance objects and displaying information about them.

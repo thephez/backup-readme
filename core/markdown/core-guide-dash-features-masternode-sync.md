@@ -3,7 +3,7 @@ Dash Core performs full <<glossary:masternode>> synchronization as required. The
 * Initial startup of Dash Core
 * More than 60 minutes have passed since the last activation
 * A failure occurred during the last sync attempt (after a 1 minute cooldown before sync restarts)
-* Issuing a [`mnsync reset` RPC](core-api-ref-remote-procedure-calls-dash#section-mnsync) command
+* Issuing a [`mnsync reset` RPC](core-api-ref-remote-procedure-calls-dash#section-mn-sync) command
 
 # Initial Masternode Sync
 
@@ -24,7 +24,7 @@ The following table details the data flow of P2P messages exchanged during initi
 
 *Masternode Sync Status*
 
-There are several status values used to track masternode synchronization. They are used in both [`ssc` messages](core-ref-p2p-network-masternode-messages#section-ssc) and the [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#section-mnsync).
+There are several status values used to track masternode synchronization. They are used in both [`ssc` messages](core-ref-p2p-network-masternode-messages#section-ssc) and the [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#section-mn-sync).
 
 | **Value** | **Status**  | **Description** |
 | --- | --- | --- |

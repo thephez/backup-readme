@@ -52,7 +52,7 @@ The deprecated type identifiers are:
 
 Type identifier zero and type identifiers greater than those shown in the table above are reserved for future implementations. Dash Core ignores all inventories with one of these unknown types.
 
-# Block
+# block
 
 The [`block` message](core-ref-p2p-network-data-messages#section-block) transmits a single <<glossary:serialized block>> in the format described in the [serialized blocks section](core-ref-block-chain-serialized-blocks). See that section for an example hexdump.  It can be sent for two different reasons:
 
@@ -60,7 +60,7 @@ The [`block` message](core-ref-p2p-network-data-messages#section-block) transmit
 
 2. **Unsolicited:** Some miners will send unsolicited [`block` messages](core-ref-p2p-network-data-messages#section-block) broadcasting their newly-mined blocks to all of their <<glossary:peers>>. Many <<glossary:mining>> pools do the same thing, although some may be misconfigured to send the block from multiple nodes, possibly sending the same block to some peers more than once.
 
-# Blocktxn
+# blocktxn
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
 
@@ -132,7 +132,7 @@ Transaction(s)
 | | 00000000 ............................... locktime: 0 (a block height)
 ```
 
-# CmpctBlock
+# cmpctblock
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
 
@@ -222,7 +222,7 @@ Prefilled Transactions
 | | 00000000 ............................... locktime: 0 (a block height)
 ```
 
-# GetBlocks
+# getblocks
 
 The [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) requests an [`inv` message](core-ref-p2p-network-data-messages#section-inv) that provides <<glossary:block header>> hashes starting from a particular point in the <<glossary:block chain>>. It allows a <<glossary:peer>> which has been disconnected or started for the first time to get the data it needs to request the blocks it hasn't seen.
 
@@ -255,7 +255,7 @@ d39f608a7775b537729884d4e6633bb2
 00000000000000000000000000000000 ... Stop hash
 ```
 
-# GetBlockTxn
+# getblocktxn
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
 
@@ -281,7 +281,7 @@ b0509e79c8cd3d654cdf3a0100000000 ... Block Hash
 01 ................................. Index: 1
 ```
 
-# GetData
+# getdata
 
 The [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) requests one or more data objects from another <<glossary:node>>. The objects are requested by an inventory, which the requesting node typically previously received by way of an [`inv` message](core-ref-p2p-network-data-messages#section-inv).
 
@@ -291,7 +291,7 @@ This message cannot be used to request arbitrary data, such as historic transact
 
 The format and maximum size limitations of the [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) are identical to the [`inv` message](core-ref-p2p-network-data-messages#section-inv); only the message header differs.
 
-# GetHeaders
+# getheaders
 
 *Added in protocol version 70077.*
 
@@ -299,7 +299,7 @@ The [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders
 
 The [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders) is nearly identical to the [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks), with one minor difference: the `inv` reply to the [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) will include no more than 500 <<glossary:block header>> hashes; the `headers` reply to the [`getheaders` message](core-ref-p2p-network-data-messages#section-getheaders) will include as many as 2,000 block headers.
 
-# GetMNListD
+# getmnlistd
 
 *Added in protocol version 70213*
 
@@ -323,7 +323,7 @@ The following annotated hexdump shows a [`getmnlistd` message](core-ref-p2p-netw
 db3fe368976296fd3b6d73fdaf898cc0 ........... Block hash
 ```
 
-# Headers
+# headers
 
 *Added in protocol version 31800 (of Bitcoin).*
 
@@ -351,7 +351,7 @@ fe9f0864 ........................... Nonce
 00 ................................. Transaction count (0x00)
 ```
 
-# Inv
+# inv
 
 The [`inv` message](core-ref-p2p-network-data-messages#section-inv) (inventory message) transmits one or more <<glossary:inventories>> of objects known to the transmitting <<glossary:peer>>.  It can be sent unsolicited to announce new <<glossary:transactions>> or <<glossary:blocks>>, or it can be sent in reply to a [`getblocks` message](core-ref-p2p-network-data-messages#section-getblocks) or [`mempool` message](core-ref-p2p-network-data-messages#section-mempool).
 
@@ -376,7 +376,7 @@ afc5b2f418f8c06c477a7d071240f5ee
 ab17057f9ce4b50c2aef4fadf3729a2e ... Hash (txlvote)
 ```
 
-# MemPool
+# mempool
 
 *Added in protocol version 60002 (of Bitcoin).*
 
@@ -396,7 +396,7 @@ The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages
 
 There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#section-mempool).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
-# MerkleBlock
+# merkleblock
 
 *Added in protocol version 70001 as described by BIP37.*
 
@@ -503,7 +503,7 @@ After you process a TXID node or a node which is neither a TXID nor a match ance
 
 After you fully process the merkle root node according to the instructions in the table above, processing is complete.  Pad your flag list to a byte boundary and construct the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) using the template near the beginning of this subsection.
 
-# MnListDiff
+# mnlistdiff
 
 *Added in protocol version 70213*
 
@@ -610,7 +610,7 @@ Masternode List
 | | 1 ...................................... Valid (1 - Yes)
 ```
 
-# NotFound
+# notfound
 
 *Added in protocol version 70001.*
 
@@ -618,7 +618,7 @@ The [`notfound` message](core-ref-p2p-network-data-messages#section-notfound) is
 
 The format and maximum size limitations of the [`notfound` message](core-ref-p2p-network-data-messages#section-notfound) are identical to the [`inv` message](core-ref-p2p-network-data-messages#section-inv); only the message header differs.
 
-# Tx
+# tx
 
 The [`tx` message](core-ref-p2p-network-data-messages#section-tx) transmits a single transaction in the <<glossary:raw transaction>> format. It can be sent in a variety of situations;
 

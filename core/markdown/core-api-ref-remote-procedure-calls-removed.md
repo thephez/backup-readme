@@ -5,7 +5,7 @@
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatepriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
+The [`estimatepriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimate-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritise-transaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -45,7 +45,7 @@ Result:
 
 *See also*
 
-* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-utility#section-estimatefee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+* [EstimateFee](/docs/core-api-ref-remote-procedure-calls-util#section-estimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 # EstimateSmartPriority
 [block:callout]
@@ -54,7 +54,7 @@ Result:
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimatesmartpriority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritisetransaction) which will remain supported for adding fee deltas to transactions.
+The [`estimatesmartpriority` RPC](core-api-ref-remote-procedure-calls-removed#section-estimate-smart-priority) was removed in Dash Core 0.14.0. This should not to be confused with the [`prioritisetransaction` RPC](core-api-ref-remote-procedure-calls-mining#section-prioritise-transaction) which will remain supported for adding fee deltas to transactions.
 
 *Parameter #1---how many blocks the transaction may wait before being included as a free high-priority transaction*
 
@@ -102,7 +102,7 @@ Result:
 
 *See also*
 
-* [EstimatePriority](/docs/core-api-ref-remote-procedure-calls-removed#section-estimatepriority): was removed in Dash Core 0.14.0.
+* [EstimatePriority](/docs/core-api-ref-remote-procedure-calls-removed#section-estimate-priority): was removed in Dash Core 0.14.0.
 
 # GetHashesPerSec
 
@@ -110,25 +110,25 @@ Result:
 [block:callout]
 {
   "type": "danger",
-  "body": "The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-gethashespersec) was removed in Bitcoin Core 0.11.0 and is not part of Dash."
+  "body": "The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-get-hashes-per-sec) was removed in Bitcoin Core 0.11.0 and is not part of Dash."
 }
 [/block]
 *See also*
 
 * [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
 
 # GetWork
 [block:callout]
 {
   "type": "danger",
-  "body": "The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-getwork) was removed in Bitcoin Core 0.10.0. and is not part of Dash."
+  "body": "The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-get-work) was removed in Bitcoin Core 0.10.0. and is not part of Dash."
 }
 [/block]
 *See also*
 
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-getblocktemplate): gets a block template or proposal for use with mining software.
-* [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#section-submitblock): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.
+* [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#section-submit-block): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
 
 # GetGenerate
 [block:callout]
@@ -139,7 +139,7 @@ Result:
 [/block]
 *Requires wallet support.*
 
-The [`getgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-getgenerate) was removed in Dash Core 0.12.3.
+The [`getgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-get-generate) was removed in Dash Core 0.12.3.
 
 *Parameters: none*
 
@@ -164,9 +164,9 @@ false
 *See also*
 
 * [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generatetoaddress): mines blocks immediately to a specified address.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
-* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-setgenerate): was removed in Dash Core 0.12.3.
+* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
+* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-set-generate): was removed in Dash Core 0.12.3.
 
 # MasternodeBroadcast
 [block:callout]
@@ -175,7 +175,7 @@ false
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternodebroadcast) was removed in Dash Core 0.14.0.
+The [`masternodebroadcast` RPC](core-api-ref-remote-procedure-calls-removed#section-masternode-broadcast) was removed in Dash Core 0.14.0.
 
 *Parameter #1---masternode broadcast command*
 
@@ -382,7 +382,7 @@ Result:
   "body": "**Warning:** **_Removed in Dash Core 0.14.0._**"
 }
 [/block]
-The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinelping) was removed in Dash Core 0.14.0.
+The [`sentinelping` RPC](core-api-ref-remote-procedure-calls-removed#section-sentinel-ping) was removed in Dash Core 0.14.0.
 
 *Parameter #1---sentinel version*
 
@@ -418,7 +418,7 @@ true
 [/block]
 *Requires wallet support.*
 
-The [`setgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-setgenerate) was removed in Dash Core 0.12.3.
+The [`setgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-set-generate) was removed in Dash Core 0.12.3.
 
 *Parameter #1---enable/disable generation*
 
@@ -453,6 +453,6 @@ Result:
 *See also*
 
 * [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generatetoaddress): mines blocks immediately to a specified address.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-getblocktemplate): gets a block template or proposal for use with mining software.
+* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.

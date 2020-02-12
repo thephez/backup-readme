@@ -26,7 +26,7 @@ Debug mode: net+mempool
 
 # GetInfo
 
-The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-getinfo) prints various information about the node and the network.
+The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-get-info) prints various information about the node and the network.
 [block:callout]
 {
   "type": "warning",
@@ -93,17 +93,17 @@ Result:
 
 *See also*
 
-* [GetBlockChainInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getblockchaininfo): provides information about the current state of the block chain.
-* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getmempoolinfo): returns information about the node's current transaction memory pool.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-getmininginfo): returns various mining-related information.
-* [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#section-getnetworkinfo): returns information about the node's connection to the network.
-* [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-getwalletinfo): provides information about the wallet.
+* [GetBlockChainInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-chain-info): provides information about the current state of the block chain.
+* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
+* [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#section-get-network-info): returns information about the node's connection to the network.
+* [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-wallet-info): provides information about the wallet.
 
 # GetMemoryInfo
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.14.0*
 
-The [`getmemoryinfo` RPC](core-api-ref-remote-procedure-calls-control#section-getmemoryinfo) returns information about memory usage.
+The [`getmemoryinfo` RPC](core-api-ref-remote-procedure-calls-control#section-get-memory-info) returns information about memory usage.
 
 *Parameter #1---mode*
 
@@ -147,7 +147,7 @@ Result:
 
 *See also*
 
-* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-getmempoolinfo): returns information about the node's current transaction memory pool.
+* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
 
 # Help
 

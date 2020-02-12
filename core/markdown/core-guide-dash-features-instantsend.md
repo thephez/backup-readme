@@ -14,7 +14,7 @@ The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Da
 
 Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASED`) are used to manage InstantSend. <<glossary:Spork>> 2 enables or disables the entire InstantSend feature. Spork 20 was used to support the transition to LLMQ-based InstantSend and is currently retained for backward compatibility. It will be deprecated in a future release.
 
-Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-getblocktemplate)) unless it:
+Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-get-block-template)) unless it:
 
  1. Has been locked, or 
  2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
@@ -34,4 +34,4 @@ A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> 
 | [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (islock)  | → |                         | Client requests lock message
 |                             | ← | [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock)        | Quorum responds with lock message
 
-Once a transaction lock is approved, the `instantlock` field of various RPCs is set to `true` (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#section-getmempoolentry)).
+Once a transaction lock is approved, the `instantlock` field of various RPCs is set to `true` (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-entry)).

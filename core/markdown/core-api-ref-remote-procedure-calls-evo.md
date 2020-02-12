@@ -2,7 +2,7 @@
 
 *Added in Dash Core 0.13.0*
 
-The [`bls` RPC](core-api-ref-remote-procedure-calls-evolution#section-bls) provides a set of commands to execute BLS-related actions.
+The [`bls` RPC](core-api-ref-remote-procedure-calls-evo#section-bls) provides a set of commands to execute BLS-related actions.
 
 ## BLS Generate
 
@@ -70,7 +70,7 @@ Result:
 
 *Added in Dash Core 0.13.0*
 
-The [`protx` RPC](core-api-ref-remote-procedure-calls-evolution#section-protx) provides a set of commands to execute ProTx related actions.
+The [`protx` RPC](core-api-ref-remote-procedure-calls-evo#section-pro-tx) provides a set of commands to execute ProTx related actions.
 
 ## ProTx Register
 
@@ -874,7 +874,7 @@ Result (truncated):
 
 *Added in Dash Core 0.14.0*
 
-The [`quorum` RPC](core-api-ref-remote-procedure-calls-evolution#section-quorum) provides a set of commands for quorums (LLMQs).
+The [`quorum` RPC](core-api-ref-remote-procedure-calls-evo#section-quorum) provides a set of commands for quorums (LLMQs).
 
 ## Quorum List
 
@@ -2167,7 +2167,7 @@ false
 
 ## Quorum MemberOf
 
-The [`quorum` RPC](core-api-ref-remote-procedure-calls-evolution#section-quorum) checks which quorums the given masternode is a member of.
+The [`quorum` RPC](core-api-ref-remote-procedure-calls-evo#section-quorum) checks which quorums the given masternode is a member of.
 
 *Parameter #1---proTxHash*
 

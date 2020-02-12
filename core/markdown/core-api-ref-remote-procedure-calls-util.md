@@ -1,6 +1,6 @@
 # CreateMultiSig
 
-The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-createmultisig) creates a P2SH multi-signature address.
+The [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#section-create-multi-sig) creates a P2SH multi-signature address.
 
 *Parameter #1---the number of signatures required*
 
@@ -49,12 +49,12 @@ Result:
 
 *See also*
 
-* [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress): adds a P2SH multisig address to the wallet.
-* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transaction#section-decodescript): decodes a hex-encoded P2SH redeem script.
+* [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet.
+* [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-decode-script): decodes a hex-encoded P2SH redeem script.
 
 # EstimateFee
 
-The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatefee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 
 *Parameter #1---how many blocks the transaction may wait before being included*
 
@@ -100,11 +100,11 @@ Result:
 
 *See also*
 
-* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-set-tx-fee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
 
 # EstimateSmartFee
 
-The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-utility#section-estimatesmartfee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
+The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-util#section-estimate-smart-fee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
 
 *Parameter #1---how many confirmations the transaction may wait before being included*
 
@@ -161,13 +161,13 @@ Result:
 
 *See also*
 
-* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#section-set-tx-fee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
 
 # SignMessageWithPrivKey
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*
 
-The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-utility#section-signmessagewithprivkey) signs a message with a given private key.
+The [`signmessagewithprivkey` RPC](core-api-ref-remote-procedure-calls-util#section-sign-message-with-priv-key) signs a message with a given private key.
 
 *Parameter #1---the private key to sign with*
 
@@ -204,12 +204,12 @@ IBx8jxFjutPlcZcFdQPlA2n/B4yTrYhH43qYJURKRj7LWhSD0ERE/nnRLOnXi/gwULUcqfqOKqnqkSvu
 
 *See also*
 
-* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-signmessage): signs a message with the private key of an address.
-* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-utility#section-verifymessage): verifies a signed message.
+* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-sign-message): signs a message with the private key of an address.
+* [VerifyMessage](/docs/core-api-ref-remote-procedure-calls-util#section-verify-message): verifies a signed message.
 
 # ValidateAddress
 
-The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validateaddress) returns information about the given Dash address.
+The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#section-validate-address) returns information about the given Dash address.
 
 *Parameter #1---a P2PKH or P2SH address*
 
@@ -296,12 +296,12 @@ Result:
 
 *See also*
 
-* [ImportAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-importaddress): adds an address or pubkey script to the wallet without the associated private key, allowing you to watch for transactions affecting that address or pubkey script without being able to spend any of its outputs.
-* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-getnewaddress): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
+* [ImportAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-import-address): adds an address or pubkey script to the wallet without the associated private key, allowing you to watch for transactions affecting that address or pubkey script without being able to spend any of its outputs.
+* [GetNewAddress](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-new-address): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account.
 
 # VerifyMessage
 
-The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-utility#section-verifymessage) verifies a signed message.
+The [`verifymessage` RPC](core-api-ref-remote-procedure-calls-util#section-verify-message) verifies a signed message.
 
 *Parameter #1---the address corresponding to the signing key*
 
@@ -313,7 +313,7 @@ Address | string (base58) | Required<br>(exactly 1) | The P2PKH address correspo
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the [`signmessage` RPC](core-api-ref-remote-procedure-calls-wallet#section-signmessage))
+Signature | string (base64) | Required<br>(exactly 1) | The signature created by the signer encoded as base-64 (the format output by the [`signmessage` RPC](core-api-ref-remote-procedure-calls-wallet#section-sign-message))
 
 *Parameter #3---the message*
 
@@ -347,4 +347,4 @@ true
 
 *See also*
 
-* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-signmessage): signs a message with the private key of an address.
+* [SignMessage](/docs/core-api-ref-remote-procedure-calls-wallet#section-sign-message): signs a message with the private key of an address.

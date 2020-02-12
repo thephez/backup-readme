@@ -23,7 +23,7 @@ Recall from the Guide that the hashed public keys used in addresses obfuscate th
 
 # 2. Get public key
 
-Use the [`validateaddress` RPC](core-api-ref-remote-procedure-calls-utility#section-validateaddress) to display the full (unhashed) public key for one of the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
+Use the [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#section-validate-address) to display the full (unhashed) public key for one of the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
 
 We save the address returned to a shell variable.
 
@@ -52,7 +52,7 @@ We save the address returned to a shell variable.
 
 # 3. Create multisig address
 
-Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-utility#section-createmultisig) with two arguments, the number (*n*) of signatures required and a list of addresses or public keys.  Because P2PKH addresses can't be used in the multisig redeem script created by this RPC, the only addresses which can be provided are those belonging to a public key in the <<glossary:wallet>>.  In this case, we provide two addresses and one public key---all of which will be converted to public keys in the redeem script.
+Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#section-create-multi-sig) with two arguments, the number (*n*) of signatures required and a list of addresses or public keys.  Because P2PKH addresses can't be used in the multisig redeem script created by this RPC, the only addresses which can be provided are those belonging to a public key in the <<glossary:wallet>>.  In this case, we provide two addresses and one public key---all of which will be converted to public keys in the redeem script.
 
 The P2SH address is returned along with the redeem script which must be provided when we spend duffs sent to the P2SH address.
 [block:callout]
@@ -62,7 +62,7 @@ The P2SH address is returned along with the redeem script which must be provided
   "title": "Redeem Script"
 }
 [/block]
-Neither the address nor the redeem script are stored in the wallet when you use `createmultisig`. To store them in the wallet, use the [`addmultisigaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-addmultisigaddress) instead.  If you add an address to the wallet, you should also make a new backup.
+Neither the address nor the redeem script are stored in the wallet when you use `createmultisig`. To store them in the wallet, use the [`addmultisigaddress` RPC](core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address) instead.  If you add an address to the wallet, you should also make a new backup.
 
 ``` bash
 > dash-cli -regtest createmultisig 2 '''
@@ -102,7 +102,7 @@ ddb2a2eb2402a9ae61d7db93a9a48c0747859d899e704b10f5b72145779f9c52
 
 # 5. Get decoded transaction
 
-We use the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transaction#section-getrawtransaction) with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the <<glossary:outputs>> to be our UTXO and get its <<glossary:output index>> number (vout) and <<glossary:pubkey script>> (scriptPubKey).
+We use the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction) with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the <<glossary:outputs>> to be our UTXO and get its <<glossary:output index>> number (vout) and <<glossary:pubkey script>> (scriptPubKey).
 
 ``` bash
 > dash-cli -regtest getrawtransaction $UTXO_TXID 1
