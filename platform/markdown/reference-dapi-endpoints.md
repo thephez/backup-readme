@@ -21,7 +21,7 @@
 | 1 | `getTransaction` | Returns details for the requested transaction |
 | 1 | `sendTransaction` | Submits the provided transaction |
 | 1 | `subscribeTo` `TransactionsWithProofs` | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#section-islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#section-merkle-block) |
-| 2 | `applyStateTransition` | Applies the provided State Transition |
-| 2 | `getIdentity` | Returns the requested identity |
-| 2 | `getDataContract` | Returns the requested data contract |
-| 2 | `getDocuments` | Returns the requested document(s) |
+| 2 | [`applyStateTransition`](reference-dapi-endpoints-platform-grpc-endpoints#section-apply-state-transition) | Applies the provided State Transition |
+| 2 | [`getIdentity`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-identity) | Returns the requested identity |
+| 2 | [`getDataContract`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-data-contract) | Returns the requested data contract |
+| 2 | [`getDocuments`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-documents) | Returns the requested document(s) |

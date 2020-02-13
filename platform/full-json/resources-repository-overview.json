@@ -1,0 +1,57 @@
+{
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }, 
+  "auth": "required", 
+  "method": "get"
+ }, 
+ "updatedAt": "2020-02-13T21:49:04.409Z", 
+ "sync_unique": "", 
+ "id": "5e45c28cabb0f6006e7f0317", 
+ "createdAt": "2020-02-13T21:40:00.103Z", 
+ "category": "5d42e9a722ecbe01d39a09c4", 
+ "title": "Repository Overview", 
+ "next": {
+  "pages": [], 
+  "description": ""
+ }, 
+ "version": "5d2374d8d238fb004e8f9243", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "# DashJS\n\nDash client-side Javascript library for application development and wallet payment/signing. Uses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers\n\nnpm: `dash`\nRepository: https://github.com/dashevo/DashJS/\n\n# dapi-client\n Client library for accessing DAPI endpoints.\n\nnpm: `@dashevo/dapi-client`\nRepository: https://github.com/dashevo/dapi-client\n\n# dapi\nA decentralized API for the Dash network\n\nRepository: https://github.com/dashevo/dapi\n\n# js-dpp\nJavascript implementation of Dash Platform Protocol\n\nRepository: https://github.com/dashevo/js-dpp", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-js\"></div>DashJS<a class=\"fa fa-anchor\" href=\"#section-dash-js\"></a></h1>\n<p>Dash client-side Javascript library for application development and wallet payment/signing. Uses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers</p>\n<p>npm: <code>dash</code><br>Repository: <a href=\"https://github.com/dashevo/DashJS/\">https://github.com/dashevo/DashJS/</a></p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dapi-client\"></div>dapi-client<a class=\"fa fa-anchor\" href=\"#section-dapi-client\"></a></h1>\n<p> Client library for accessing DAPI endpoints.</p>\n<p>npm: <code>@dashevo/dapi-client</code><br>Repository: <a href=\"https://github.com/dashevo/dapi-client\">https://github.com/dashevo/dapi-client</a></p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dapi\"></div>dapi<a class=\"fa fa-anchor\" href=\"#section-dapi\"></a></h1>\n<p>A decentralized API for the Dash network</p>\n<p>Repository: <a href=\"https://github.com/dashevo/dapi\">https://github.com/dashevo/dapi</a></p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-js-dpp\"></div>js-dpp<a class=\"fa fa-anchor\" href=\"#section-js-dpp\"></a></h1>\n<p>Javascript implementation of Dash Platform Protocol</p>\n<p>Repository: <a href=\"https://github.com/dashevo/js-dpp\">https://github.com/dashevo/js-dpp</a></p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "resources-repository-overview", 
+ "link_url": "", 
+ "isApi": false, 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5e45c28cabb0f6006e7f0317", 
+ "order": 3, 
+ "updates": []
+}
