@@ -15,13 +15,13 @@
 
 | Layer | Endpoint | |
 | :-: | - | - |
-| 1 | `getBlock` | Returns information for the requested block |
-| 1 | `getEstimatedTransactionFee` | Returns estimate of required transaction fee |
-| 1 | `getStatus` | Returns blockchain status information |
-| 1 | `getTransaction` | Returns details for the requested transaction |
-| 1 | `sendTransaction` | Submits the provided transaction |
-| 1 | `subscribeTo` `TransactionsWithProofs` | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#section-islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#section-merkle-block) |
-| 2 | [`applyStateTransition`](reference-dapi-endpoints-platform-grpc-endpoints#section-apply-state-transition) | Applies the provided State Transition |
-| 2 | [`getIdentity`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-identity) | Returns the requested identity |
-| 2 | [`getDataContract`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-data-contract) | Returns the requested data contract |
-| 2 | [`getDocuments`](reference-dapi-endpoints-platform-grpc-endpoints#section-get-documents) | Returns the requested document(s) |
+| 1 | [`getBlock`](reference-dapi-endpoints-core-grpc-endpoints#section-get-block) | Returns information for the requested block |
+| 1 | [`subscribeTo` `BlockHeaders` `WithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#section-subscribe-to-block-headers-with-chain-locks) | Returns block headers and associated ChainLock signatures |
+| 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#section-get-status) | Returns blockchain status information |
+| 1 | [`getTransaction`](reference-dapi-endpoints-core-grpc-endpoints#section-get-transaction) | Returns details for the requested transaction |
+| 1 | [`sendTransaction`](reference-dapi-endpoints-core-grpc-endpoints#section-send-transaction) | Submits the provided transaction |
+| 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-transaction-streaming-endpoints#section-subscribe-to-transactions-with-proofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#section-islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#section-merkle-block) |
+| 2 | [`applyStateTransition`](reference-dapi-endpoints-platform-endpoints#section-apply-state-transition) | Applies the provided State Transition |
+| 2 | [`getIdentity`](reference-dapi-endpoints-platform-endpoints#section-get-identity) | Returns the requested identity |
+| 2 | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#section-get-data-contract) | Returns the requested data contract |
+| 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#section-get-documents) | Returns the requested document(s) |

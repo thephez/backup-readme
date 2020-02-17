@@ -161,5 +161,5 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 [/block]
 # Code Reference
 Implementation details related to the information on this page can be found in:
-- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer` folder
+- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer/handlers/platform` folder
 - The [dapi-grpc repository](https://github.com/dashevo/dapi-grpc/) `protos` folder

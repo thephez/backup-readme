@@ -17,7 +17,7 @@ Platform services are provided via a combination of HTTP and gRPC connections to
 # Connect via Dash SDK
 
 ## 1. Install the Dash SDK
-The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install`:
+The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install` (from the command line):
 [block:code]
 {
   "codes": [
@@ -29,6 +29,7 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 }
 [/block]
 ## 2. Connect to Dash platform
+Create a file with the following contents. Then run it by typing `node <file.js>` (from the command line):
 [block:code]
 {
   "codes": [

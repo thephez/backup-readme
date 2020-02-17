@@ -71,5 +71,5 @@
 [/block]
 # Code Reference
 Implementation details related to the information on this page can be found in:
-- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer` folder
+- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer/handlers/tx-filter-stream` folder
 - The [DAPI-gRPC repository](https://github.com/dashevo/dapi-grpc/) `protos` folder

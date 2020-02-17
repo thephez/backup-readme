@@ -200,4 +200,5 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 [/block]
 # Code Reference
 
-Implementation details related to the information on this page can be found in the DAPI repository [`lib/rpcServer` folder](https://github.com/dashevo/dapi/tree/v0.9-dev/lib/rpcServer/).
+Implementation details related to the information on this page can be found in:
+- The [DAPI repository](https://github.com/dashevo/dapi) `lib/rpcServer/commands` folder
