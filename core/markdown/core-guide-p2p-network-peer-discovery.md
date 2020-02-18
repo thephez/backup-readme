@@ -4,12 +4,12 @@ When started for the first time, programs don't know the IP addresses of any act
 
 ```
 ;; QUESTION SECTION:
-;dnsseed.masternode.io.		  IN	A
+;dnsseed.dash.org.		IN	A
 
 ;; ANSWER SECTION:
-dnsseed.masternode.io.	60	IN	A	192.0.2.113
-dnsseed.masternode.io.	60	IN	A	198.51.100.231
-dnsseed.masternode.io.	60	IN	A	203.0.113.183
+dnsseed.dash.org.	3600	IN	A	140.82.38.181
+dnsseed.dash.org.	3600	IN	A	142.93.141.81
+dnsseed.dash.org.	3600	IN	A	144.76.117.234
 
 [...]
 ```
