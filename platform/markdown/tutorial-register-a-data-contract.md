@@ -22,7 +22,7 @@ As described in the [data contract explanation](explanation-platform-protocol-da
 {
   "codes": [
     {
-      "code": "{\n  \"note\": {\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    }\n  }\n}",
+      "code": "{\n  \"note\": {\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": false\n  }\n}",
       "language": "json",
       "name": "Data contract `note` document"
     }
