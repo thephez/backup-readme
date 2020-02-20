@@ -1,3 +1,9 @@
+# Misc
+
+Maximum size of CBOR-encoded data: 16 KB (https://github.com/dashevo/js-dpp/pull/114)
+Maximum size of serialized data contract: 15 KB (https://github.com/dashevo/js-dpp/pull/117) 
+
+
 # Data Contract Documents
 
 Many of the constraint details come from [js-dpp/schema/meta/data-contracts.json](https://github.com/dashevo/js-dpp/blob/v0.11-dev/schema/meta/data-contract.json).
@@ -7,6 +13,8 @@ Misc Restrictions
 - Can't use these keywords: `default`
 - Can't use remote `$ref` (i.e. `http://<something>`)
 - `additionalProperties` must always be `false` ???
+- Can't use `propertyNames` (https://github.com/dashevo/js-dpp/pull/107)
+- Maximum data contract depth: 500
 
 ## Properties
 
