@@ -1,13 +1,7 @@
 # Overview
 
 In this tutorial we will register a data contract.
-[block:callout]
-{
-  "type": "warning",
-  "title": "EvoNet Limitation",
-  "body": "Registration of third-party data contracts is not enabled on the initial phase of EvoNet; however, the DPNS contracts is registered. To register data contracts without restriction, please create a devnet."
-}
-[/block]
+
 For this tutorial you will need:
 
 - A wallet mnemonic with some funds in it: [Tutorial: Create and Fund a Wallet](tutorial-create-and-fund-a-wallet)

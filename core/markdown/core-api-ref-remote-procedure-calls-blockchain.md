@@ -529,6 +529,13 @@ Result:
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-best-block-hash): returns the header hash of the most recent block on the best block chain.
 
 # GetBlockHashes
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires `timestampindex` Dash Core command-line/configuration-file parameter to be enabled.",
+  "title": ""
+}
+[/block]
 
 *Added in Dash Core 0.12.1*
 
@@ -1611,7 +1618,13 @@ Result:
 * [GetRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
 # GetSpentInfo
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires `spentindex` Dash Core command-line/configuration-file parameter to be enabled.",
+  "title": ""
+}
+[/block]
 *Added in Dash Core 0.12.1*
 
 The [`getspentinfo` RPC](core-api-ref-remote-procedure-calls-blockchain#section-get-spent-info) returns the txid and index where an output is spent (requires `spentindex` to be enabled).

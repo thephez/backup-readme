@@ -16,7 +16,6 @@
 | Layer | Endpoint | |
 | :-: | - | - |
 | 1 | [`getBlock`](reference-dapi-endpoints-core-grpc-endpoints#section-get-block) | Returns information for the requested block |
-| 1 | [`subscribeTo` `BlockHeaders` `WithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#section-subscribe-to-block-headers-with-chain-locks) | Returns block headers and associated ChainLock signatures |
 | 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#section-get-status) | Returns blockchain status information |
 | 1 | [`getTransaction`](reference-dapi-endpoints-core-grpc-endpoints#section-get-transaction) | Returns details for the requested transaction |
 | 1 | [`sendTransaction`](reference-dapi-endpoints-core-grpc-endpoints#section-send-transaction) | Submits the provided transaction |
@@ -25,3 +24,8 @@
 | 2 | [`getIdentity`](reference-dapi-endpoints-platform-endpoints#section-get-identity) | Returns the requested identity |
 | 2 | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#section-get-data-contract) | Returns the requested data contract |
 | 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#section-get-documents) | Returns the requested document(s) |
+[block:html]
+{
+  "html": "<div></div>\n<!-- Not implemented yet\n| 1 | [`subscribeTo` `BlockHeaders` `WithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#section-subscribe-to-block-headers-with-chain-locks) | Returns block headers and associated ChainLock signatures |\n\n-->\n<style></style>"
+}
+[/block]

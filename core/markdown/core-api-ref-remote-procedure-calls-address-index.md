@@ -1,7 +1,10 @@
 # GetAddressBalance
-
-*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
 The [`getaddressbalance` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-balance) returns the balance for address(es).
 
 *Parameter #1---an array of <<glossary:addresses>>*
@@ -42,8 +45,12 @@ Result:
 * [GetUnconfirmedBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-unconfirmed-balance): returns the wallet's total unconfirmed balance.
 
 # GetAddressDeltas
-
-*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
 
 The [`getaddressdeltas` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-deltas) returns all changes for an address.
 
@@ -110,8 +117,13 @@ Result:
 ```
 
 # GetAddressMempool
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
 
-*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-mempool) returns all mempool deltas for an address.
 
@@ -159,8 +171,13 @@ Result:
 ```
 
 # GetAddressTxids
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
 
-*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-txids) returns the txids for an address(es).
 
@@ -208,8 +225,13 @@ Result:
 ```
 
 # GetAddressUtxos
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
 
-*Requires <<glossary:wallet>> support and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled.*
 
 The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-utxos) returns all unspent outputs for an address.
 

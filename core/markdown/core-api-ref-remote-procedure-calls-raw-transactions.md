@@ -369,8 +369,12 @@ Result:
 ﻿
 
 # FundRawTransaction
-
-*Requires wallet support.*
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)."
+}
+[/block]
 
 The [`fundrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-fund-raw-transaction) adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
 Note that inputs which were signed may need to be resigned after completion since in/outputs have been added.  The inputs added will not be signed, use signrawtransaction for that.

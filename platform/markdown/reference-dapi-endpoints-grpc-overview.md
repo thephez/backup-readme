@@ -59,6 +59,11 @@ The examples below use the response from a [`getIdentity` gPRC request](#section
       "code": "from base64 import b64decode, b64encode\nimport json\nimport cbor2\n\n# Encode an identity\nidentity = {\n  \"id\": \"CbYVyoKnGxkHaBrucCAhPEBcpuz8j15cnYYiv1CEHBNx\",  \n  \"type\": 1,\n  \"publicKeys\": [\n    {\n      \"id\": 1,\n      \"data\": \"AmzR2FM4fYwCmZxGZ1N2ta2FfuJ95Ow+LLArZDLuYBjt\",\n      \"type\": 1,\n      \"isEnabled\": True\n    }\n  ]\n}\n\nidentity_cbor = cbor2.dumps(identity)\nidentity_grpc = b64encode(identity_cbor)\nprint('Identity gRPC data: {}'.format(identity_grpc))\n",
       "language": "python",
       "name": "Python - Encode Identity"
+    },
+    {
+      "code": "const cbor = require('cbor');\n\nconst grpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nconst identity_cbor = Buffer.from(grpc_identity_response, 'base64').toJSON();\nconst identity = cbor.decode(Buffer.from(identity_cbor));\n\nconsole.log('Identity details');\nconsole.dir(identity);",
+      "language": "javascript",
+      "name": "NodeJS - Decode Identity"
     }
   ]
 }

@@ -76,7 +76,7 @@
 [block:callout]
 {
   "type": "info",
-  "body": "**Note:** The block data is Base64 encoded",
+  "body": "**Note:** The response block data is Base64 encoded",
   "title": "Block Encoding"
 }
 [/block]
@@ -152,7 +152,7 @@
 [block:callout]
 {
   "type": "info",
-  "body": "**Note:** The transaction data is Base64 encoded",
+  "body": "**Note:** The response transaction data is Base64 encoded",
   "title": "Transaction Encoding"
 }
 [/block]
@@ -168,29 +168,10 @@
   ]
 }
 [/block]
-## subscribeToBlockHeadersWithChainLocks
 
-**Returns**: Block headers and associated ChainLock signatures
-**Parameters**:
-
-| Name | Type | Required | Description |
-| - | - | - | - |
-| __One of the following:__ | | | |
-| `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |
-| `from_block_height` | Integer | No | Return records beginning with the block height provided |
-| ---------- | | | |
-| `count` | Integer | No |  |
-
-### Example Request and Response
-[block:code]
+[block:html]
 {
-  "codes": [
-    {
-      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"from_block_height\":1\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks",
-      "language": "shell",
-      "name": "Request (gRPCurl)"
-    }
-  ]
+  "html": "<div></div>\n<!-- Not yet implemented in DAPI-client\n## subscribeToBlockHeadersWithChainLocks \n\n**Returns**: Block headers and associated ChainLock signatures\n**Parameters**:\n\n| Name | Type | Required | Description |\n| - | - | - | - |\n| __One of the following:__ | | | |\n| `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |\n| `from_block_height` | Integer | No | Return records beginning with the block height provided |\n| ---------- | | | |\n| `count` | Integer | No |  |\n\n### Example Request and Response\ngrpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"from_block_height\":1\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks\n\n-->\n<style></style>"
 }
 [/block]
 # Code Reference
