@@ -3,7 +3,14 @@ Data contracts define the schema (structure) of data an application will store o
 The following sections provide details that developers need to construct valid contracts: [documents](#section-documents) and [definitions](#section-definitions).
 
 # General Data Contract Constraints
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts.",
+  "title": "Constraints"
+}
+[/block]
+## Keyword
 
 | Keyword | Constraint |
 | - | - |
@@ -13,6 +20,14 @@ The following sections provide details that developers need to construct valid c
 | `pattern: <something>` | `maxLength` must be defined (maximum: 50000) |
 | `format: <something>` | `maxLength` must be defined (maximum: 100000) |
 | `$ref: <something>` | `$ref` can only reference `definitions` - <br> remote references not supported |
+
+## Data Size
+Additionally, there are several constraints limiting the overall size of data contracts and related data as defined here:
+
+| Description | Constraint |
+| - | - |
+| Maximum size of serialized data contract | 15 KB |
+| Maximum size of CBOR-encoded data | 16 KB |
 
 # Documents
 The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define indices and a list of required properties.
