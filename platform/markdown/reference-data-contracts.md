@@ -1,8 +1,10 @@
+# Overview
+
 Data contracts define the schema (structure) of data an application will store on Dash Platform. Contracts are described using [JSON Schema](https://json-schema.org/understanding-json-schema/) which allows the platform to validate the contract-related data submitted to it.
 
-The following sections provide details that developers need to construct valid contracts: [documents](#section-documents) and [definitions](#section-definitions).
+The following sections provide details that developers need to construct valid contracts: [documents](#section-documents) and [definitions](#section-definitions). All data contracts must define one or more documents, whereas definitions are optional and may not be used for simple contracts.
 
-# General Data Contract Constraints
+# General Constraints
 [block:callout]
 {
   "type": "warning",
@@ -30,7 +32,7 @@ Additionally, there are several constraints limiting the overall size of data co
 | Maximum size of CBOR-encoded data | 16 KB |
 
 # Documents
-The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define indices and a list of required properties.
+The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#section-document-indices) and a list of [required properties](#section-required-properties).
 
 The following example shows a minimal `documents` object defining a single document (`note`) that has one property (`message`).
 [block:code]
@@ -73,7 +75,7 @@ Each document may have some fields that are required for the document to be vali
 {
   "codes": [
     {
-      "code": "\"required\": [\n  <field name a>,\n  <field name b>\n]",
+      "code": "\"required\": [\n  \"<field name a>\",\n  \"<field name b>\"\n]",
       "language": "json",
       "name": "Syntax"
     }
@@ -87,7 +89,7 @@ The following example (excerpt from the DPNS contract's `domain` document) demon
 {
   "codes": [
     {
-      "code": "    \"required\": [\n      \"nameHash\",\n      \"label\",\n      \"normalizedLabel\",\n      \"normalizedParentDomainName\",\n      \"preorderSalt\",\n      \"records\"\n    ],",
+      "code": "\"required\": [\n  \"nameHash\",\n  \"label\",\n  \"normalizedLabel\",\n  \"normalizedParentDomainName\",\n  \"preorderSalt\",\n  \"records\"\n],",
       "language": "json"
     }
   ]
@@ -110,7 +112,7 @@ The `indices` array consists of:
 {
   "codes": [
     {
-      "code": "\"indices\": [ \n  {\n    \"properties\": [\n      { <field name a>: <\"asc\"|\"desc\"> },\n      { <field name b>: <\"asc\"|\"desc\"> }\n    ], \n    unique: <true|false>\n  },\n  {\n    \"properties\": [\n      { <field name c>: <\"asc\"|\"desc\"> },\n    ], \n  }    \n]",
+      "code": "\"indices\": [ \n  {\n    \"properties\": [\n      { \"<field name a>\": \"<asc\"|\"desc>\" },\n      { \"<field name b>\": \"<asc\"|\"desc>\" }\n    ], \n    unique: true|false\n  },\n  {\n    \"properties\": [\n      { \"<field name c>\": \"<asc\"|\"desc>\" },\n    ], \n  }    \n]",
       "language": "json",
       "name": "Syntax"
     }
@@ -136,9 +138,21 @@ The following example (excerpt from the DPNS contract's `preorder` document) cre
 {
   "codes": [
     {
-      "code": "    \"indices\": [\n      {\n        \"properties\": [\n          { \"saltedDomainHash\": \"asc\" }\n        ],\n        \"unique\": true\n      }\n    ],",
+      "code": "\"indices\": [\n  {\n    \"properties\": [\n      { \"saltedDomainHash\": \"asc\" }\n    ],\n    \"unique\": true\n  }\n],",
       "language": "json",
       "name": "Example indices"
+    }
+  ]
+}
+[/block]
+## Full Document Syntax
+This example syntax shows the structure of a documents object that defines two documents, an index, and a required field.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "{\n  \"<document name a>\": {\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"properties\": [\n          {\n            \"<field name c>\": \"<asc|desc>\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
+      "language": "json"
     }
   ]
 }
