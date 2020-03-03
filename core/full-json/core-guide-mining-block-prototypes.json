@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-02-12T17:51:10.021Z", 
- "sync_unique": "", 
  "id": "5db6ea4085f8ef004c3efece", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-28T13:16:48.737Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Block Prototypes", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "core-guide-mining-block-prototypes", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "5db6ea4085f8ef004c3efece", 

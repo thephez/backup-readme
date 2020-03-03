@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,24 +21,24 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-22T14:48:52.035Z", 
- "sync_unique": "", 
  "id": "5dc187b105296a0073df5f49", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-05T14:31:13.762Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "Identity", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Explanations", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "explanation-dpns", 
-    "name": "Name Service (DPNS)"
+    "type": "doc", 
+    "name": "Name Service (DPNS)", 
+    "icon": "file-text-o"
    }, 
    {
     "type": "url", 
@@ -44,8 +46,7 @@
     "value": "https://dashplatform.readme.io/docs/tutorial-register-an-identity", 
     "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -62,7 +63,6 @@
  "isReference": false, 
  "slug": "explanation-identity", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 6, 
  "_id": "5dc187b105296a0073df5f49", 

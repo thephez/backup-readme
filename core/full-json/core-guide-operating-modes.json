@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,34 +21,33 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-13T21:26:09.503Z", 
- "sync_unique": "", 
  "id": "5db6f093552a86005e7fa890", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-28T13:43:47.059Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Operating Modes", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-operating-modes-full-node", 
-    "name": "Full Node"
+    "type": "doc", 
+    "name": "Full Node", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-operating-modes-simplified-payment-verification-spv", 
-    "name": "Simplified Payment Verification (SPV)"
+    "type": "doc", 
+    "name": "Simplified Payment Verification (SPV)", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -63,7 +64,6 @@
  "isReference": false, 
  "slug": "core-guide-operating-modes", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
  "_id": "5db6f093552a86005e7fa890", 

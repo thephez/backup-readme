@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-30T19:03:03.703Z", 
- "sync_unique": "", 
  "id": "5df25d2c9c9aeb001fe32b42", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-12-11T22:46:57.904Z", 
  "category": "5d261b31d8f6ed004c24cbbe", 
  "title": "Dash Core Full Node", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -43,12 +44,11 @@
  }, 
  "body": "[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and offers no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.\",\n  \"title\": \"Advanced Topic\"\n}\n[/block]\n# Config File\n\n The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using [Dash Core v0.14.0.5](https://github.com/dashpay/dash/releases/tag/v0.14.0.5).\n[block:code]\n{\n  \"codes\": [\n    {\n      \"code\": \"devnet=evonet\\nport=20001\\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\\n\\n# Hard-coded first node\\naddnode=54.148.62.72:20001\\n\\nminimumdifficultyblocks=1000\\nhighsubsidyblocks=500\\nhighsubsidyfactor=10\\n\",\n      \"language\": \"text\",\n      \"name\": \"dash-evonet.conf\"\n    }\n  ]\n}\n[/block]\n# Starting Dash Core\n\nTo start Dash Core and connect to Evonet, simply run dashd or dash-qt with the `conf` parameter set to the configuration file created above: `<path to binary> -conf=<path to configuration file>`\n[block:code]\n{\n  \"codes\": [\n    {\n      \"code\": \"dashd -conf=/home/dash/.dashcore/dash-evonet.conf\",\n      \"language\": \"shell\",\n      \"name\": \"Start dashd on Evonet\"\n    }\n  ]\n}\n[/block]", 
  "link_external": false, 
- "body_html": "<div class=\"magic-block-callout type-warning \">\n\t<h3><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i>Advanced Topic\n\t</h3>\n\t<div class=\"callout-body\"><p>Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and offers no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-config-file\"></div>Config File<a class=\"fa fa-anchor\" href=\"#section-config-file\"></a></h1>\n<p> The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using <a href=\"https://github.com/dashpay/dash/releases/tag/v0.14.0.5\">Dash Core v0.14.0.5</a>.</p>\n\n</div>\n<div class=\"magic-block-code\">\n\t<ul class=\"block-code-header\">\n\t\t<li><a href=\"\" ng-click=\"showCode(0)\" ng-class=\"{active: (0 == tab)}\">dash-evonet.conf</a></li>\n\t</ul>\n\t<div class=\"block-code-code\"><span ng-if=\"tab == 0\">\n\t\t\t<button ng-click=\"copyCode(947)\" class=\"copy-code-button\"><span ng-show=\"!copied\" class=\"fa fa-clipboard\"></span><span ng-show=\"copied\" class=\"fa fa-check\"></span></button>\n\t\t\t<textarea ng-non-bindable=\"ng-non-bindable\" style=\"position: absolute; left: -10000px;\" id=\"text-code-947\">devnet=evonet\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=54.148.62.72:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n</textarea>\n\t\t\t<pre id=\"code-947\"><code>devnet=evonet\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=54.148.62.72:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n</code></pre></span>\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-starting-dash-core\"></div>Starting Dash Core<a class=\"fa fa-anchor\" href=\"#section-starting-dash-core\"></a></h1>\n<p>To start Dash Core and connect to Evonet, simply run dashd or dash-qt with the <code>conf</code> parameter set to the configuration file created above: <code>&lt;path to binary&gt; -conf=&lt;path to configuration file&gt;</code></p>\n\n</div>\n<div class=\"magic-block-code\">\n\t<ul class=\"block-code-header\">\n\t\t<li><a href=\"\" ng-click=\"showCode(0)\" ng-class=\"{active: (0 == tab)}\">Start dashd on Evonet</a></li>\n\t</ul>\n\t<div class=\"block-code-code\"><span ng-if=\"tab == 0\">\n\t\t\t<button ng-click=\"copyCode(293)\" class=\"copy-code-button\"><span ng-show=\"!copied\" class=\"fa fa-clipboard\"></span><span ng-show=\"copied\" class=\"fa fa-check\"></span></button>\n\t\t\t<textarea ng-non-bindable=\"ng-non-bindable\" style=\"position: absolute; left: -10000px;\" id=\"text-code-293\">dashd -conf=/home/dash/.dashcore/dash-evonet.conf</textarea>\n\t\t\t<pre id=\"code-293\"><code><span class='cm-s-neo'>dashd <span class=\"cm-attribute\">-conf</span><span class=\"cm-operator\">=</span>&#47;home&#47;dash&#47;.dashcore&#47;dash-evonet.conf</span></code></pre></span>\n\t</div>\n</div>", 
+ "body_html": "<div class=\"magic-block-callout type-warning \">\n\t<h3><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i>Advanced Topic\n\t</h3>\n\t<div class=\"callout-body\"><p>Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and offers no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-config-file\"></div>Config File<a class=\"fa fa-anchor\" href=\"#section-config-file\"></a></h1>\n<p> The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using <a href=\"https://github.com/dashpay/dash/releases/tag/v0.14.0.5\">Dash Core v0.14.0.5</a>.</p>\n\n</div>\n<div class=\"magic-block-code\">\n\t<ul class=\"block-code-header\">\n\t\t<li><a href=\"\" ng-click=\"showCode(0)\" ng-class=\"{active: (0 == tab)}\">dash-evonet.conf</a></li>\n\t</ul>\n\t<div class=\"block-code-code\"><span ng-if=\"tab == 0\">\n\t\t\t<button ng-click=\"copyCode(730)\" class=\"copy-code-button\"><span ng-show=\"!copied\" class=\"fa fa-clipboard\"></span><span ng-show=\"copied\" class=\"fa fa-check\"></span></button>\n\t\t\t<textarea ng-non-bindable=\"ng-non-bindable\" style=\"position: absolute; left: -10000px;\" id=\"text-code-730\">devnet=evonet\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=54.148.62.72:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n</textarea>\n\t\t\t<pre id=\"code-730\"><code>devnet=evonet\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=54.148.62.72:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n</code></pre></span>\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-starting-dash-core\"></div>Starting Dash Core<a class=\"fa fa-anchor\" href=\"#section-starting-dash-core\"></a></h1>\n<p>To start Dash Core and connect to Evonet, simply run dashd or dash-qt with the <code>conf</code> parameter set to the configuration file created above: <code>&lt;path to binary&gt; -conf=&lt;path to configuration file&gt;</code></p>\n\n</div>\n<div class=\"magic-block-code\">\n\t<ul class=\"block-code-header\">\n\t\t<li><a href=\"\" ng-click=\"showCode(0)\" ng-class=\"{active: (0 == tab)}\">Start dashd on Evonet</a></li>\n\t</ul>\n\t<div class=\"block-code-code\"><span ng-if=\"tab == 0\">\n\t\t\t<button ng-click=\"copyCode(181)\" class=\"copy-code-button\"><span ng-show=\"!copied\" class=\"fa fa-clipboard\"></span><span ng-show=\"copied\" class=\"fa fa-check\"></span></button>\n\t\t\t<textarea ng-non-bindable=\"ng-non-bindable\" style=\"position: absolute; left: -10000px;\" id=\"text-code-181\">dashd -conf=/home/dash/.dashcore/dash-evonet.conf</textarea>\n\t\t\t<pre id=\"code-181\"><code><span class='cm-s-neo'>dashd <span class=\"cm-attribute\">-conf</span><span class=\"cm-operator\">=</span>&#47;home&#47;dash&#47;.dashcore&#47;dash-evonet.conf</span></code></pre></span>\n\t</div>\n</div>", 
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "tutorial-connecting-to-evonet-dash-core-full-node", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5df25d2c9c9aeb001fe32b42", 

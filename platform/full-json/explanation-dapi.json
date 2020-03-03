@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-29T17:36:52.892Z", 
- "sync_unique": "", 
  "id": "5dd6c2a34ec2c2006b08cdaf", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-21T17:00:19.885Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "Decentralized API (DAPI)", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "explanation-dapi", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
  "_id": "5dd6c2a34ec2c2006b08cdaf", 

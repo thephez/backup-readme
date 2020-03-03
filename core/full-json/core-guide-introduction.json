@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,76 +21,75 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-10-30T13:59:32.159Z", 
- "sync_unique": "", 
  "id": "5db73c731cdf05001898633e", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-28T19:07:31.813Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Introduction", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-dash-features", 
-    "name": "Dash Features"
+    "type": "doc", 
+    "name": "Dash Features", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-block-chain", 
-    "name": "Block Chain"
+    "type": "doc", 
+    "name": "Block Chain", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-transactions", 
-    "name": "Transactions"
+    "type": "doc", 
+    "name": "Transactions", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-contracts", 
-    "name": "Contracts"
+    "type": "doc", 
+    "name": "Contracts", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-wallets", 
-    "name": "Wallets"
+    "type": "doc", 
+    "name": "Wallets", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-operating-modes", 
-    "name": "Operating Modes"
+    "type": "doc", 
+    "name": "Operating Modes", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network", 
-    "name": "P2P Network"
+    "type": "doc", 
+    "name": "P2P Network", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-mining", 
-    "name": "Mining"
+    "type": "doc", 
+    "name": "Mining", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -105,7 +106,6 @@
  "isReference": false, 
  "slug": "core-guide-introduction", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
  "_id": "5db73c731cdf05001898633e", 

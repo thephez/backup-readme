@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-09-18T14:53:10.334Z", 
- "sync_unique": "", 
  "id": "5d497e54a883d801bfc9f593", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-08-06T13:19:16.306Z", 
  "category": "5d261b31d8f6ed004c24cbbe", 
  "title": "Creating a Devnet", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": true, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "tutorials-creating-a-devnet", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5d497e54a883d801bfc9f593", 

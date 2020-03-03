@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,62 +21,61 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-13T21:55:14.580Z", 
- "sync_unique": "", 
  "id": "5db1ae38f84ce1006175ff9c", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-24T13:59:20.014Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "P2P Network", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "slug": "core-guide-p2p-network-peer-discovery", 
+    "icon": "file-text-o", 
     "type": "doc", 
-    "name": "Peer Discovery", 
+    "slug": "core-guide-p2p-network-peer-discovery", 
+    "name": "Peer Discovery"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-connecting-to-peers", 
+    "type": "doc", 
+    "name": "Connecting to Peers", 
     "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
-    "slug": "core-guide-p2p-network-connecting-to-peers", 
-    "name": "Connecting to Peers"
-   }, 
-   {
-    "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network-initial-block-download", 
-    "name": "Initial Block Download"
+    "type": "doc", 
+    "name": "Initial Block Download", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network-block-broadcasting", 
-    "name": "Block Broadcasting"
+    "type": "doc", 
+    "name": "Block Broadcasting", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network-transaction-broadcasting", 
-    "name": "Transaction Broadcasting"
+    "type": "doc", 
+    "name": "Transaction Broadcasting", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network-misbehaving-nodes", 
-    "name": "Misbehaving Nodes"
+    "type": "doc", 
+    "name": "Misbehaving Nodes", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -91,7 +92,6 @@
  "isReference": false, 
  "slug": "core-guide-p2p-network", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
  "_id": "5db1ae38f84ce1006175ff9c", 

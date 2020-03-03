@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-26T13:45:51.112Z", 
- "sync_unique": "", 
  "id": "5df799d723f2c8020f9e1a98", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-12-16T06:09:28.006Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "Platform State", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "explanation-drive-platform-state", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
  "_id": "5df799d723f2c8020f9e1a98", 

@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-24T21:22:11.281Z", 
- "sync_unique": "", 
  "id": "5d42ebabf095260179f3c5c0", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-08-01T13:39:55.864Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "Core (Layer 1 Protocol)", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-source-code-core-blockchain", 
  "link_url": "https://github.com/dashpay/dash", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5d42ebabf095260179f3c5c0", 

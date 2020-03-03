@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-27T22:20:14.855Z", 
- "sync_unique": "", 
  "id": "5dc41deb512c3e0048b9ef54", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-07T13:36:43.831Z", 
  "category": "5dc41cb75124a90036070278", 
  "title": "API Services", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "additional-resources-api-services", 
  "link_url": "https://docs.dash.org/en/stable/developers/integration.html#api-services", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "5dc41deb512c3e0048b9ef54", 

@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,41 +21,40 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-02-26T13:08:58.076Z", 
- "sync_unique": "", 
  "id": "5e318e003e6e9c001b270a7c", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2020-01-29T13:30:58.286Z", 
  "category": "5d6583437fe5090066c64397", 
  "title": "DAPI Endpoints", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Reference", 
-    "slug": "reference-dapi-endpoints-json-rpc-endpoints", 
+    "icon": "file-text-o", 
     "type": "doc", 
-    "name": "JSON-RPC Endpoints", 
+    "slug": "reference-dapi-endpoints-json-rpc-endpoints", 
+    "name": "JSON-RPC Endpoints"
+   }, 
+   {
+    "category": "Reference", 
+    "slug": "reference-dapi-endpoints-grpc-overview", 
+    "type": "doc", 
+    "name": "gRPC Overview", 
     "icon": "file-text-o"
    }, 
    {
     "category": "Reference", 
-    "icon": "file-text-o", 
-    "type": "doc", 
-    "slug": "reference-dapi-endpoints-grpc-overview", 
-    "name": "gRPC Overview"
-   }, 
-   {
-    "category": "Reference", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "reference-dapi-endpoints-platform-grpc-endpoints", 
-    "name": "Platform gRPC Endpoints"
+    "type": "doc", 
+    "name": "Platform gRPC Endpoints", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -70,7 +71,6 @@
  "isReference": false, 
  "slug": "reference-dapi-endpoints", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
  "_id": "5e318e003e6e9c001b270a7c", 

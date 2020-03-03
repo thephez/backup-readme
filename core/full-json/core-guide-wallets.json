@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,34 +21,33 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-13T20:42:29.409Z", 
- "sync_unique": "", 
  "id": "5db748eb63fc5f002c5fee32", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-28T20:00:43.111Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Wallets", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-wallets-wallet-programs", 
-    "name": "Wallet Programs"
+    "type": "doc", 
+    "name": "Wallet Programs", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-wallets-wallet-files", 
-    "name": "Wallet Files"
+    "type": "doc", 
+    "name": "Wallet Files", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -63,7 +64,6 @@
  "isReference": false, 
  "slug": "core-guide-wallets", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
  "_id": "5db748eb63fc5f002c5fee32", 

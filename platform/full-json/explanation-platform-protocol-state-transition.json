@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,27 +21,26 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-16T15:48:23.324Z", 
- "sync_unique": "", 
  "id": "5dbaf43ec110f6017a83c8b1", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-31T14:48:30.945Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "State Transition", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Explanations", 
-    "slug": "explanation-platform-protocol-document", 
+    "icon": "file-text-o", 
     "type": "doc", 
-    "name": "Document", 
-    "icon": "file-text-o"
+    "slug": "explanation-platform-protocol-document", 
+    "name": "Document"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -56,7 +57,6 @@
  "isReference": false, 
  "slug": "explanation-platform-protocol-state-transition", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
  "_id": "5dbaf43ec110f6017a83c8b1", 

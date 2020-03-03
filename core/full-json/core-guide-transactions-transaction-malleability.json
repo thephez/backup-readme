@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,27 +21,26 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-13T19:03:23.734Z", 
- "sync_unique": "", 
  "id": "5db724aa0ed48f00527d302d", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-28T17:26:02.134Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Transaction Malleability", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-contracts", 
-    "name": "Contracts"
+    "type": "doc", 
+    "name": "Contracts", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -56,7 +57,6 @@
  "isReference": false, 
  "slug": "core-guide-transactions-transaction-malleability", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
  "_id": "5db724aa0ed48f00527d302d", 

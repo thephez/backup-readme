@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,17 +21,17 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-02-05T20:56:27.392Z", 
- "sync_unique": "", 
  "id": "5dd2dd0fa5a1d00040175628", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-18T18:03:59.388Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "Name Service (DPNS)", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "type": "url", 
@@ -37,8 +39,7 @@
     "value": "https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity", 
     "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -55,7 +56,6 @@
  "isReference": false, 
  "slug": "explanation-dpns", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
  "_id": "5dd2dd0fa5a1d00040175628", 

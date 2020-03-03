@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-15T16:10:49.816Z", 
- "sync_unique": "", 
  "id": "5e1d006b9788f100250e8477", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2020-01-13T00:24:34.181Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "GitHub Repositories", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": true, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-github-repositories", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5e1d006b9788f100250e8477", 

@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,27 +21,26 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-14T14:59:35.308Z", 
- "sync_unique": "", 
  "id": "5db33eb3858496002bce1f79", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-25T18:28:03.731Z", 
  "category": "5db0a86967f978006336b1b5", 
  "title": "Block Broadcasting", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Core Guides", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "core-guide-p2p-network-transaction-broadcasting", 
-    "name": "Transaction Broadcasting"
+    "type": "doc", 
+    "name": "Transaction Broadcasting", 
+    "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -56,7 +57,6 @@
  "isReference": false, 
  "slug": "core-guide-p2p-network-block-broadcasting", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
  "_id": "5db33eb3858496002bce1f79", 

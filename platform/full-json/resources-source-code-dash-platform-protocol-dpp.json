@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-24T21:21:36.567Z", 
- "sync_unique": "", 
  "id": "5e028048816df9004c894d06", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-12-24T21:13:47.244Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "Platform Protocol (DPP)", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-source-code-dash-platform-protocol-dpp", 
  "link_url": "https://github.com/dashevo/js-dpp", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5e028048816df9004c894d06", 

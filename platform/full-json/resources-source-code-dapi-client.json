@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-10T15:11:45.443Z", 
- "sync_unique": "", 
  "id": "5d42ebd63e1731002b462400", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-08-01T13:40:38.195Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "DAPI Client", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-source-code-dapi-client", 
  "link_url": "https://github.com/dashevo/dapi-client", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5d42ebd63e1731002b462400", 

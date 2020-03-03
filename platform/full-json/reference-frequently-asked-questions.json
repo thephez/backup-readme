@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-10T18:34:07.087Z", 
- "sync_unique": "", 
  "id": "5daf1ff45345890316e6deab", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-22T15:27:49.003Z", 
  "category": "5d6583437fe5090066c64397", 
  "title": "Frequently Asked Questions", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "reference-frequently-asked-questions", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
  "_id": "5daf1ff45345890316e6deab", 

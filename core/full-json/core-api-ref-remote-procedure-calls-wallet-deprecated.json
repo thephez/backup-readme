@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-02-26T17:28:11.928Z", 
- "sync_unique": "", 
  "id": "5ddd939cedfd9800281b6362", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-26T21:05:32.529Z", 
  "category": "5db200d330c9ba002c4ae2d9", 
  "title": "Wallet RPCs (Deprecated)", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "core-api-ref-remote-procedure-calls-wallet-deprecated", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "5ddd939cedfd9800281b6362", 

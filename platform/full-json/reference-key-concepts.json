@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-10-08T13:37:23.281Z", 
- "sync_unique": "", 
  "id": "5d9c684d33d702001d7b8201", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-08T10:43:25.811Z", 
  "category": "5d6583437fe5090066c64397", 
  "title": "Key Concepts", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": true, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "reference-key-concepts", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5d9c684d33d702001d7b8201", 

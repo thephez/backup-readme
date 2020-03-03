@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-11T22:04:01.266Z", 
- "sync_unique": "", 
  "id": "5db1bac3b107c500226a5e54", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-10-24T14:52:51.162Z", 
  "category": "5db19f199332b800310886f8", 
  "title": "Parsing A MerkleBlock", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "core-examples-p2p-network-parsing-a-merkleblock", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "5db1bac3b107c500226a5e54", 

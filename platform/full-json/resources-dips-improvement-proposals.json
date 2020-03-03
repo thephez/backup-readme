@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-10T15:11:45.441Z", 
- "sync_unique": "", 
  "id": "5d42e9e778950f0011743732", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-08-01T13:32:23.391Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "DIPs (Improvement Proposals)", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": true, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-dips-improvement-proposals", 
  "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5d42e9e778950f0011743732", 

@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,31 +21,31 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2020-01-20T15:59:31.961Z", 
- "sync_unique": "", 
  "id": "5de6677eb98a19003deadc27", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-12-03T13:47:42.588Z", 
  "category": "5dbaf3fbe244390067b8e845", 
  "title": "Platform Protocol (DPP)", 
  "next": {
+  "description": "", 
   "pages": [
    {
     "category": "Explanations", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "explanation-platform-protocol-data-contract", 
-    "name": "Data Contract"
+    "type": "doc", 
+    "name": "Data Contract", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Explanations", 
-    "icon": "file-text-o", 
-    "type": "doc", 
     "slug": "explanation-platform-protocol-state-transition", 
-    "name": "State Transition"
+    "type": "doc", 
+    "name": "State Transition", 
+    "icon": "file-text-o"
    }, 
    {
     "category": "Explanations", 
@@ -53,8 +55,7 @@
     "slug": "explanation-platform-protocol-document", 
     "icon": "file-text-o"
    }
-  ], 
-  "description": ""
+  ]
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -71,7 +72,6 @@
  "isReference": false, 
  "slug": "explanation-platform-protocol", 
  "link_url": "", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 5, 
  "_id": "5de6677eb98a19003deadc27", 

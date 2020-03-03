@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-12-24T21:22:52.657Z", 
- "sync_unique": "", 
  "id": "5e0281cde6003e0033b524c8", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-12-24T21:22:52.657Z", 
  "category": "5d42e9a722ecbe01d39a09c4", 
  "title": "Network Deployment Tool", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5d2374d8d238fb004e8f9243", 
  "hidden": false, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "resources-source-code-network-deployment-tool", 
  "link_url": "https://github.com/dashevo/dash-network-deploy", 
- "isApi": false, 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5e0281cde6003e0033b524c8", 

@@ -4,6 +4,8 @@
  "api": {
   "url": "", 
   "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
@@ -19,19 +21,18 @@
      "language": "json"
     }
    ]
-  }, 
-  "auth": "required", 
-  "method": "get"
+  }
  }, 
  "updatedAt": "2019-11-26T21:12:49.979Z", 
- "sync_unique": "", 
  "id": "5ddd93c91a6a74002d1dbadd", 
+ "sync_unique": "", 
+ "isApi": false, 
  "createdAt": "2019-11-26T21:06:17.010Z", 
  "category": "5db200d330c9ba002c4ae2d9", 
  "title": "Active Wallet RPCs", 
  "next": {
-  "pages": [], 
-  "description": ""
+  "description": "", 
+  "pages": []
  }, 
  "version": "5daf2e65f4109c0040fd51e5", 
  "hidden": true, 
@@ -48,7 +49,6 @@
  "isReference": false, 
  "slug": "active-wallet-rpcs", 
  "link_url": "", 
- "isApi": false, 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "5ddd93c91a6a74002d1dbadd", 
