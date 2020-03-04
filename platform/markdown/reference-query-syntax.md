@@ -1,4 +1,9 @@
+# Overview
+
 Generally queries will consist of a `where` clause plus optional modifiers controlling the specific subset of results returned. 
+
+# Modifier Details
+The query modifiers described here determine how query results will be sorted and what subset of data matching the query will be returned.
 
 | Modifier | Effect | Example |
 | - | - | - |
@@ -23,8 +28,18 @@ Generally queries will consist of a `where` clause plus optional modifiers contr
 [/block]
 # Where Clause Details
 
-The Where clause must be a non-empty array containing not more than 10 conditions. General syntax: `{ where: [ [<fieldName>, <operator>, <condition>], [<fieldName>, <operator>, <condition>] ] }`
-
+The Where clause must be a non-empty array containing not more than 10 conditions. See the following general syntax example:
+[block:code]
+{
+  "codes": [
+    {
+      "code": "{\n  where: [\n    [<fieldName>, <operator>, <condition>],\n    [<fieldName>, <operator>, <condition>] \n  ] \n}",
+      "language": "json",
+      "name": "Syntax"
+    }
+  ]
+}
+[/block]
 ## Fields
 Valid fields consist of the indices defined for the document being queried. For example, the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) defines three indices:
 
@@ -41,12 +56,44 @@ Valid fields consist of the indices defined for the document being queried. For 
 }
 [/block]
 ## Operators
-- `<`, `<=`, `==`, `>`, `>=`
-- `in` (array, 100 element maximum, unique elements)
-- `startsWith` (string, <= 255 characters)
-- `elementMatch` (requires 2 conditions)
-- `length`  (0 or positive integer)
-- `contains` (scalar or array of scalars only, 100 element maximum, unique elements)
+The operators described below provide ways to locate data stored in documents on the platform.
+
+### Comparison Operators
+
+| Name | Description |
+| :-: | - |
+| < | Matches values that are less than a specified value |
+| <= | Matches values that are less than or equal to a specified value |
+| == | Matches values that are equal to a specified value |
+| => | Matches values that are greater than or equal to a specified value |
+| > | Matches values that are greater than a specified value |
+
+### Other Operators
+
+| | |
+| - | - |
+| in |  - Selects the documents where the value of a field equals any value in the specified array<br> - Array may only include <= 100 (unique) elements
+| startsWith|  - Selects documents where the value of a field begins with the specified characters
+| length |
+| contains |
+| elementMatch |  - Matches documents that contain an array field with at least one element that matches all the specified query criteria <br>- Two or more conditions must be provided
+
+`in`
+ - Selects the documents where the value of the field matches any value in the specified array
+ - Array may only include <= 100 (unique) elements
+<br>
+
+`startsWith` (string, <= 255 characters)
+ - Selects documents where the value of a field begins with the specified characters
+<br>
+
+`length`  (0 or positive integer)
+<br>
+`contains` (scalar or array of scalars only, 100 element maximum, unique elements)
+<br>
+`elementMatch` 
+ - Matches documents that contain an array field with at least one element that matches all the specified query criteria
+ - Two or more conditions must be provided
 [block:code]
 {
   "codes": [
@@ -64,6 +111,16 @@ Valid fields consist of the indices defined for the document being queried. For 
       "code": "{\n  where: [\n      ['normalizedParentDomainName', '==', 'dash'],\n      // Return any names beginning with \"al\" (e.g. alice, alfred)\n      ['normalizedLabel', 'startsWith', 'al'],\n    ]\n}",
       "language": "json",
       "name": "startsWith"
+    },
+    {
+      "code": "{\n  where: [\n      ['normalizedParentDomainName', '==', 'dash'],\n      // Return ...\n      ['normalizedLabel', 'contains', ['alice']],\n    ]\n}",
+      "language": "json",
+      "name": "contains"
+    },
+    {
+      "code": "{\n  where: [\n    // Return scores documents where the results contain elements in a range\n    ['scores', 'elementMatch',\n      [\n        ['results', '>=', '80'],\n        ['results', '<=', '90']\n      ],\n    ],\n  ]\n}",
+      "language": "json",
+      "name": "elementMatch"
     }
   ]
 }

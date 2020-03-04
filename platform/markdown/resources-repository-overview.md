@@ -42,11 +42,13 @@ Repository: https://github.com/dashevo/dpns-contract
 ## dashcore-lib
 A JavaScript Dash library
 
+npm: `@dashevo/dashcore-lib`
 https://github.com/dashevo/dashcore-lib
 
 ## wallet-lib
 An extensible JavaScript Wallet Library for Dash. Provides layer 1 SPV wallet functionality.
 
+npm: `@dashevo/wallet-lib`
 https://github.com/dashevo/wallet-lib
 
 ## js-dpns-client
@@ -57,11 +59,13 @@ https://github.com/dashevo/js-dpns-client
 ## dapi-grpc
 Decentralized API gRPC definition files and generated clients. Used by clients (e.g. dapi-client) to interact with DAPI endpoints.
 
+npm: `@dashevo/dapi-grpc`
 https://github.com/dashevo/dapi-grpc
 
 ## drive-grpc
 Drive gRPC definition files and generated clients. Used by js-machine to interact with Drive endpoints.
 
+npm: `@dashevo/drive-grpc`
 https://github.com/dashevo/drive-grpc
 
 ## drive
