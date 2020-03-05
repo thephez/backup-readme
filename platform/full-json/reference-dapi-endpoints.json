@@ -49,9 +49,23 @@
    }, 
    {
     "category": "Reference", 
-    "slug": "reference-dapi-endpoints-platform-grpc-endpoints", 
+    "slug": "reference-dapi-endpoints-platform-endpoints", 
     "type": "doc", 
-    "name": "Platform gRPC Endpoints", 
+    "name": "Platform Endpoints", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Reference", 
+    "slug": "reference-dapi-endpoints-transaction-streaming-endpoints", 
+    "type": "doc", 
+    "name": "Transaction Streaming Endpoints", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Reference", 
+    "slug": "reference-dapi-endpoints-core-grpc-endpoints", 
+    "type": "doc", 
+    "name": "Core gRPC Endpoints", 
     "icon": "file-text-o"
    }
   ]
@@ -72,7 +86,7 @@
  "slug": "reference-dapi-endpoints", 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
- "__v": 2, 
+ "__v": 4, 
  "_id": "5e318e003e6e9c001b270a7c", 
  "order": 2, 
  "updates": []
