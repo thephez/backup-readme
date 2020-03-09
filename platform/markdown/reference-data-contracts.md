@@ -159,7 +159,6 @@ This example syntax shows the structure of a documents object that defines two d
 [/block]
 # Definitions
 The optional `definitions` object enables definition of aspects of a schema that are used in multiple places. This is done using the JSON Schema support for [reuse](https://json-schema.org/understanding-json-schema/structuring.html#reuse). Items defined in `definitions` may then be referenced when defining `documents` through use of the `$ref` keyword.
-
 [block:callout]
 {
   "type": "info",
@@ -188,6 +187,13 @@ The following example shows a definition for a `message` object consisting of tw
 }
 [/block]
 
+[block:callout]
+{
+  "type": "info",
+  "body": "In the `js-dpp` reference implementation, definitions are added to a data contract via the `.setDefinitions()` method (e.g. `myContract.setDefinitions({\"message\": { ... }})`. This must be done prior to broadcasting the contract for registration.",
+  "title": "Adding definitions with js-dpp"
+}
+[/block]
 # Additional Properties
 Although JSON Schema allows additional, undefined properties [by default](https://json-schema.org/understanding-json-schema/reference/object.html?#properties), they are not allowed in Dash Platform data contracts. Data contract validation will fail if they are not explicitly forbidden using the `additionalProperties` keyword anywhere `properties` are defined.
 

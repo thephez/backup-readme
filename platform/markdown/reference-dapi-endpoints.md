@@ -6,6 +6,7 @@
 
 | Layer | Endpoint | Description |
 | :-: | - | - |
+| 1 | [`getAddressSummary`](reference-dapi-endpoints-json-rpc-endpoints#section-get-address-summary) | Returns summary information for provided address(es) |
 | 1 | [`getBestBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#section-get-best-block-hash) | Returns block hash of the chaintip |
 | 1 | [`getBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#section-get-block-hash) | Returns block hash of the requested block |
 | 1 | [`getMnListDiff`](reference-dapi-endpoints-json-rpc-endpoints#section-get-mn-list-diff) | Returns masternode list diff for the provided block hashes |

@@ -21,6 +21,58 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
   "body": "This document is an work in progress. Details may be missing or incomplete and are subject to change."
 }
 [/block]
+## getAddressSummary
+
+**Returns**:  a summary of details related to the provided address(es)
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `address` | String or Array of Strings | Yes | Dash address(es) |
+
+### Example Request and Response
+[block:code]
+{
+  "codes": [
+    {
+      "code": "curl --request POST \\\n  --url http://54.148.62.72:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getAddressSummary\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\":{\n        \"address\": [\n          \"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\",\n          \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"\n        ]\n      }\n    }'",
+      "language": "curl",
+      "name": "Curl"
+    },
+    {
+      "code": "var request = require(\"request\");\n\nvar options = {\n  method: 'POST',\n  url: 'http://54.148.62.72:3000',\n  headers: {'content-type': 'application/json'},\n  body: '{\"method\":\"getAddressSummary\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"address\": [\"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\", \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"]}}'\n};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});",
+      "language": "javascript"
+    },
+    {
+      "code": "var XMLHttpRequest = require('xhr2');\nvar data = '{\"method\":\"getAddressSummary\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"address\": [\"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\", \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"]}}';\n\nvar xhr = new XMLHttpRequest();\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"POST\", \"http://54.148.62.72:3000\");\nxhr.setRequestHeader(\"content-type\", \"application/json\");\n\nxhr.send(data);",
+      "language": "javascript",
+      "name": "Node"
+    },
+    {
+      "code": "import requests\nimport json\n\nurl = \"http://54.148.62.72:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\": \"getAddressSummary\",\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"params\":{\n      \"address\": [\n        \"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\",\n        \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"\n      ]\n    }\n}\n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
+      "language": "python"
+    },
+    {
+      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://54.148.62.72:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getAddressSummary\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\":{\n      \"address\": [\n        \"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\",\n        \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"\n      ]\n    }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
+      "language": "ruby"
+    }
+  ]
+}
+[/block]
+
+[block:code]
+{
+  "codes": [
+    {
+      "code": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"result\": {\n    \"addrStr\": [\n      \"yVs4HGmHgzP4t3gZ7KrpxRzCmkQcvZmczd\",\n      \"ySnJVXXx9FtKUBTkovPaPPqCkTMNzDLPCu\"\n    ],\n    \"balance\": 800,\n    \"balanceSat\": 80000000000,\n    \"totalReceived\": 800,\n    \"totalReceivedSat\": 80000000000,\n    \"totalSent\": 0,\n    \"totalSentSat\": 0,\n    \"unconfirmedBalance\": 0,\n    \"unconfirmedBalanceSat\": 0,\n    \"unconfirmedTxApperances\": 0,\n    \"unconfirmedAppearances\": 0,\n    \"txApperances\": 2,\n    \"txAppearances\": 2,\n    \"transactions\": [\n      \"dd356b65d35b4944c039eca91cad4da640fe78ca0259f7087840588120c80ec7\",\n      \"be101c067be9ebc44a4c819032930a240c1f85c0237092ae72b4e3a0751f36d1\"\n    ]\n  }\n}\n",
+      "language": "json",
+      "name": "Example Response"
+    }
+  ]
+}
+[/block]
+
+
 ## getBestBlockHash
 
 **Returns**: the block hash of the chaintip
