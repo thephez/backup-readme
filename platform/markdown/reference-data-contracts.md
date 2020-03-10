@@ -8,7 +8,7 @@ The following sections provide details that developers need to construct valid c
 [block:callout]
 {
   "type": "warning",
-  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts.",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/js-dpp/blob/master/schema/meta/data-contract.json)).",
   "title": "Constraints"
 }
 [/block]
@@ -16,8 +16,8 @@ The following sections provide details that developers need to construct valid c
 
 | Keyword | Constraint |
 | - | - |
-| `default` | Restricted - cannot be used |
-| `propertyNames` | Restricted - cannot be used |
+| `default` | Restricted - cannot be used (defined in DPP logic) |
+| `propertyNames` | Restricted - cannot be used (defined in DPP logic) |
 | `uniqueItems: true` | `maxItems` must be defined (maximum: 100000) |
 | `pattern: <something>` | `maxLength` must be defined (maximum: 50000) |
 | `format: <something>` | `maxLength` must be defined (maximum: 100000) |
@@ -25,6 +25,8 @@ The following sections provide details that developers need to construct valid c
 
 ## Data Size
 Additionally, there are several constraints limiting the overall size of data contracts and related data as defined here:
+
+**Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
 | Description | Constraint |
 | - | - |
@@ -68,9 +70,10 @@ There are a variety of constraints currently defined for performance and securit
 | Property name first/last characters | ** Alphanumeric only (`A-Z`, `a-z`, `0-9`)**|
 | Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hypen (`-`) <br>Underscore (`_`) |
 
-### Required Properties
+### Required Properties (Optional)
 
-Each document may have some fields that are required for the document to be valid and other fields that are optional. Required fields are defined via the `required` array which consists of a list of the field names from the document that must be present.
+Each document may have some fields that are required for the document to be valid and other fields that are optional. Required fields are defined via the `required` array which consists of a list of the field names from the document that must be present. The `required` object should be excluded for documents without any required properties.
+
 [block:code]
 {
   "codes": [
@@ -112,7 +115,7 @@ The `indices` array consists of:
 {
   "codes": [
     {
-      "code": "\"indices\": [ \n  {\n    \"properties\": [\n      { \"<field name a>\": \"<asc\"|\"desc>\" },\n      { \"<field name b>\": \"<asc\"|\"desc>\" }\n    ], \n    unique: true|false\n  },\n  {\n    \"properties\": [\n      { \"<field name c>\": \"<asc\"|\"desc>\" },\n    ], \n  }    \n]",
+      "code": "\"indices\": [ \n  {\n    \"properties\": [\n      { \"<field name a>\": \"<asc\"|\"desc>\" },\n      { \"<field name b>\": \"<asc\"|\"desc>\" }\n    ], \n    \"unique\": true|false\n  },\n  {\n    \"properties\": [\n      { \"<field name c>\": \"<asc\"|\"desc>\" },\n    ], \n  }    \n]",
       "language": "json",
       "name": "Syntax"
     }
