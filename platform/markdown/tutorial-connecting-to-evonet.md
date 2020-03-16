@@ -55,17 +55,17 @@ The example below demonstrates retrieving the hash of the best block hash direct
 {
   "codes": [
     {
-      "code": "curl --request POST \\\n  --url http://54.148.62.72:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"getBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"height\": 100 }}'",
+      "code": "curl --request POST \\\n  --url http://evonet.thephez.com:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"getBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"height\": 100 }}'",
       "language": "shell",
       "name": null
     },
     {
-      "code": "import requests\n\nurl = \"http://54.148.62.72:3000/\"\n\npayload = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers)\n\nprint(response.text)\n",
+      "code": "import requests\n\nurl = \"http://evonet.thephez.com:3000/\"\n\npayload = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers)\n\nprint(response.text)\n",
       "language": "python",
       "name": "Python"
     },
     {
-      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://54.148.62.72:3000/\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\n\nresponse = http.request(request)\nputs response.read_body",
+      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://evonet.thephez.com:3000/\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\n\nresponse = http.request(request)\nputs response.read_body",
       "language": "ruby"
     }
   ]
