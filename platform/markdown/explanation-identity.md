@@ -9,7 +9,7 @@ In order to create an identity, a user needs to pay the network for storing a us
 {
   "type": "info",
   "title": "Evonet Faucet",
-  "body": "On Evonet, a [test Dash faucet](http://devnet-evonet-1117662964.us-west-2.elb.amazonaws.com/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to register an identity and username."
+  "body": "On Evonet, a [test Dash faucet](http://devnet-evonet-28309188.us-west-2.elb.amazonaws.com/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to register an identity and username."
 }
 [/block]
 ## User Registration

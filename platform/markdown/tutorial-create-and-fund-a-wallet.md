@@ -39,4 +39,4 @@ Once we connect to Evonet, we output the newly generated mnemonic from `sdk.wall
 
 # Next Step
 
-Using the Evonet faucet at http://devnet-evonet-1117662964.us-west-2.elb.amazonaws.com/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is an Evonet block explorer running at http://devnet-evonet-1117662964.us-west-2.elb.amazonaws.com:3001/insight which can be used to check confirmations.
+Using the Evonet faucet at http://devnet-evonet-28309188.us-west-2.elb.amazonaws.com/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is an Evonet block explorer running at http://devnet-evonet-28309188.us-west-2.elb.amazonaws.com:3001/insight/ which can be used to check confirmations.

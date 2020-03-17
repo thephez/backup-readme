@@ -7,7 +7,7 @@
 [/block]
 # Config File
 
- The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using [Dash Core v0.14.0.5](https://github.com/dashpay/dash/releases/tag/v0.14.0.5).
+ The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using [Dash Core v0.15.0.0](https://github.com/dashpay/dash/releases/tag/v0.15.0.0).
 [block:code]
 {
   "codes": [
