@@ -51,7 +51,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"CbYVyoKnGxkHaBrucCAhPEBcpuz8j15cnYYiv1CEHBNx\"\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"At44pvrZXLwjbJp415E2kjav49goGosRF3SB1WW1QJoG\"\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -63,7 +63,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"identity\": \"o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1\"\n}",
+      "code": "{\n  \"identity\": \"o2JpZHgsQXQ0NHB2clpYTHdqYkpwNDE1RTJramF2NDlnb0dvc1JGM1NCMVdXMVFKb0dkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBNkFKQWZSSnlLdU5vTnZ0MzN5Z1lmWWg2T0lZQTh0RjFzMkJRY1JBOVJOZ2R0eXBlAWlpc0VuYWJsZWT1\"\n}",
       "language": "json",
       "name": "Response (truncated)"
     }
@@ -91,7 +91,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse\"\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3\"\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -103,7 +103,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"dataContract\": \"pGckc2NoZW1heDRodHRwczovL3NjaGVtYS5kYXNoLm9yZy9kcHAtMC00LTAvbWV0YS9kYXRhLWNvbnRyYWN0Z3ZlcnNpb24BaWRvY3VtZW50c6JmZG9tYWlupGdpbmRpY2Vzg6JmdW5pcXVl9Wpwcm9wZXJ0aWVzgaFobmFtZUhhc2hjYXNjoWpwcm9wZXJ0aWVzgqF4Gm5vcm1hbGl6ZWRQYXJlbnREb21haW5OYW1lY2FzY6Fvbm9ybWFsaXplZExhYmVsY2FzY6FqcHJvcGVydGllc4GhdHJlY29yZHMuZGFzaElkZW50aXR5Y2FzY2hyZXF1aXJlZIZobmFtZUhhc2hlbGFiZWxvbm9ybWFsaXplZExhYmVseBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZWxwcmVvcmRlclNhbHRncmVjb3Jkc2pwcm9wZXJ0aWVzpmVsYWJlbKJkdHlwZWZzdHJpbmdncGF0dGVybngmXigoPyEtKVthLXpBLVowLTktXXswLDYyfVthLXpBLVowLTldKSRncmVjb3Jkc6RkdHlwZWZvYmplY3RqcHJvcGVydGllc6FsZGFzaElkZW50aXR5pGR0eXBlZnN0cmluZ2dwYXR0ZXJueD9eWzEyMzQ1Njc4OUFCQ0RFRkdISktMTU5QUVJTVFVWV1hZWmFiY2RlZmdoaWprbW5vcHFyc3R1dnd4eXpdKyRpbWF4TGVuZ3RoGCxpbWluTGVuZ3RoGCptbWluUHJvcGVydGllcwF0YWRkaXRpb25hbFByb3BlcnRpZXP0aG5hbWVIYXNoomR0eXBlZnN0cmluZ2ltaW5MZW5ndGgBbHByZW9yZGVyU2FsdKJkdHlwZWZzdHJpbmdpbWluTGVuZ3RoAW9ub3JtYWxpemVkTGFiZWyiZHR5cGVmc3RyaW5nZ3BhdHRlcm54IF4oKD8hLSlbYS16MC05LV17MCw2Mn1bYS16MC05XSkkeBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZaJkdHlwZWZzdHJpbmdpbWluTGVuZ3RoAHRhZGRpdGlvbmFsUHJvcGVydGllc/RocHJlb3JkZXKkZ2luZGljZXOBomZ1bmlxdWX1anByb3BlcnRpZXOBoXBzYWx0ZWREb21haW5IYXNoY2FzY2hyZXF1aXJlZIFwc2FsdGVkRG9tYWluSGFzaGpwcm9wZXJ0aWVzoXBzYWx0ZWREb21haW5IYXNoomR0eXBlZnN0cmluZ2ltaW5MZW5ndGgBdGFkZGl0aW9uYWxQcm9wZXJ0aWVz9Gpjb250cmFjdElkeCwyS2ZNY014a3RLaW1KeEFaVWVad1lrRlVzRWNBWmhES0VwUXM4R01ucFVzZQ==\"\n}",
+      "code": "{\n  \"dataContract\": \"pGckc2NoZW1heDRodHRwczovL3NjaGVtYS5kYXNoLm9yZy9kcHAtMC00LTAvbWV0YS9kYXRhLWNvbnRyYWN0Z3ZlcnNpb24BaWRvY3VtZW50c6JmZG9tYWlupGdpbmRpY2Vzg6JmdW5pcXVl9Wpwcm9wZXJ0aWVzgaFobmFtZUhhc2hjYXNjoWpwcm9wZXJ0aWVzgqF4Gm5vcm1hbGl6ZWRQYXJlbnREb21haW5OYW1lY2FzY6Fvbm9ybWFsaXplZExhYmVsY2FzY6FqcHJvcGVydGllc4GhdHJlY29yZHMuZGFzaElkZW50aXR5Y2FzY2hyZXF1aXJlZIZobmFtZUhhc2hlbGFiZWxvbm9ybWFsaXplZExhYmVseBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZWxwcmVvcmRlclNhbHRncmVjb3Jkc2pwcm9wZXJ0aWVzpmVsYWJlbKRkdHlwZWZzdHJpbmdncGF0dGVybngmXigoPyEtKVthLXpBLVowLTktXXswLDYyfVthLXpBLVowLTldKSRpbWF4TGVuZ3RoGD9rZGVzY3JpcHRpb254GURvbWFpbiBsYWJlbC4gZS5nLiAnVXNlUidncmVjb3Jkc6RkdHlwZWZvYmplY3RqcHJvcGVydGllc6FsZGFzaElkZW50aXR5pWR0eXBlZnN0cmluZ2dwYXR0ZXJueD9eWzEyMzQ1Njc4OUFCQ0RFRkdISktMTU5QUVJTVFVWV1hZWmFiY2RlZmdoaWprbW5vcHFyc3R1dnd4eXpdKyRpbWF4TGVuZ3RoGCxpbWluTGVuZ3RoGCprZGVzY3JpcHRpb254GWJhc2U1OCBpZGVudGl0eSBpZCBzdHJpbmdtbWluUHJvcGVydGllcwF0YWRkaXRpb25hbFByb3BlcnRpZXP0aG5hbWVIYXNopWR0eXBlZnN0cmluZ2dwYXR0ZXJubl5bQS1GYS1mMC05XSskaW1heExlbmd0aBhEaW1pbkxlbmd0aBhEa2Rlc2NyaXB0aW9ueEpEb3VibGUgc2hhLTI1NiBtdWx0aWhhc2ggb2YgdGhlIGZ1bGwgZG9tYWluIG5hbWUgaW4gYSBmb3JtIG9mIGEgaGV4IHN0cmluZ2xwcmVvcmRlclNhbHSlZHR5cGVmc3RyaW5nZ3BhdHRlcm54P15bMTIzNDU2Nzg5QUJDREVGR0hKS0xNTlBRUlNUVVZXWFlaYWJjZGVmZ2hpamttbm9wcXJzdHV2d3h5el0rJGltYXhMZW5ndGgYImltaW5MZW5ndGgYGWtkZXNjcmlwdGlvbnhKRG9tYWluIHByZS1vcmRlciBzYWx0LiBDdXJyZW50bHkgcmFuZG9tbHkgZ2VuZXJhdGVkIGJhc2U1OCBhZGRyZXNzIHN0cmluZy5vbm9ybWFsaXplZExhYmVspGR0eXBlZnN0cmluZ2dwYXR0ZXJueCBeKCg/IS0pW2EtejAtOS1dezAsNjJ9W2EtejAtOV0pJGltYXhMZW5ndGgYP2tkZXNjcmlwdGlvbngpRG9tYWluIGxhYmVsIGluIGEgbG93ZXIgY2FzZS4gZS5nLiAndXNlcid4Gm5vcm1hbGl6ZWRQYXJlbnREb21haW5OYW1lpGR0eXBlZnN0cmluZ2ltYXhMZW5ndGgYvmltaW5MZW5ndGgAa2Rlc2NyaXB0aW9ueDhBIGZ1bGwgcGFyZW50IGRvbWFpbiBuYW1lIGluIGxvd2VyIGNhc2UuIGUuZy4gJ2Rhc2gub3JnJ3RhZGRpdGlvbmFsUHJvcGVydGllc/RocHJlb3JkZXKkZ2luZGljZXOBomZ1bmlxdWX1anByb3BlcnRpZXOBoXBzYWx0ZWREb21haW5IYXNoY2FzY2hyZXF1aXJlZIFwc2FsdGVkRG9tYWluSGFzaGpwcm9wZXJ0aWVzoXBzYWx0ZWREb21haW5IYXNopWR0eXBlZnN0cmluZ2dwYXR0ZXJubl5bQS1GYS1mMC05XSskaW1heExlbmd0aBhEaW1pbkxlbmd0aBhEa2Rlc2NyaXB0aW9ueFFEb3VibGUgc2hhLTI1NiBtdWx0aWhhc2ggb2YgdGhlIGZ1bGwgZG9tYWluIG5hbWUgKyBzYWx0IGluIGEgZm9ybSBvZiBhIGhleCBzdHJpbmd0YWRkaXRpb25hbFByb3BlcnRpZXP0amNvbnRyYWN0SWR4LDc3dzhYcW4yNUh3Smhqb2RySFcxMzNhWGhqdVRzVHY5b3pRYVlwU0hBQ0Uz\"\n}\n",
       "language": "json",
       "name": "Response"
     }
@@ -140,7 +140,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse\",\n    \"document_type\":\"domain\",\n    \"limit\":1\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
+      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3\",\n    \"document_type\":\"domain\",\n    \"limit\":1\n    }' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -152,7 +152,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"documents\": [\n    \"q2QkcmV2AWUkdHlwZWZkb21haW5lbGFiZWxkZGFzaGckdXNlcklkeCwyS2ZNY014a3RLaW1KeEFaVWVad1lrRlVzRWNBWmhES0VwUXM4R01ucFVzZWdyZWNvcmRzoWxkYXNoSWRlbnRpdHl4LDJLZk1jTXhrdEtpbUp4QVpVZVp3WWtGVXNFY0FaaERLRXBRczhHTW5wVXNlaCRlbnRyb3B5eCJ5TGY3b214aHVVQVYybXh0VUNmaG1hTUFZZWdLZTJSRUJaaG5hbWVIYXNobDU2MDQ2NDYxNzM2OGskY29udHJhY3RJZHgsMktmTWNNeGt0S2ltSnhBWlVlWndZa0ZVc0VjQVpoREtFcFFzOEdNbnBVc2VscHJlb3JkZXJTYWx0eCJ5Z244S20zVXhhU1E4QU54S2NIU1J4dDNKNldYNzkyWlcyb25vcm1hbGl6ZWRMYWJlbGRkYXNoeBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZWA=\"\n  ]\n}\n",
+      "code": "{\n  \"documents\": [\n    \"q2QkcmV2AWUkdHlwZWZkb21haW5lbGFiZWxkZGFzaGckdXNlcklkeCw3N3c4WHFuMjVId0poam9kckhXMTMzYVhoanVUc1R2OW96UWFZcFNIQUNFM2dyZWNvcmRzoWxkYXNoSWRlbnRpdHl4LDc3dzhYcW4yNUh3Smhqb2RySFcxMzNhWGhqdVRzVHY5b3pRYVlwU0hBQ0UzaCRlbnRyb3B5eCJ5YVpRM1J1eHlKN2o3blZRN1g4RmdmVDdzTjZNakVMU2ZOaG5hbWVIYXNoeEQ1NjIwNjBmMDgzMzkzMmEyMTQ0NmFkYTliMGJiNzFhYzhlOGI0MGUyNjE4Zjk5ZjQ0MjA0ZDY2ODE1ZjZiZGYyNThjY2skY29udHJhY3RJZHgsNzd3OFhxbjI1SHdKaGpvZHJIVzEzM2FYaGp1VHNUdjlvelFhWXBTSEFDRTNscHJlb3JkZXJTYWx0eCJ5YnNhNFlOaUU5dW94Q3BwQmM4YVRranJzUTFXeTdOQ0szb25vcm1hbGl6ZWRMYWJlbGRkYXNoeBpub3JtYWxpemVkUGFyZW50RG9tYWluTmFtZWA=\"\n  ]\n}",
       "language": "json",
       "name": "Response"
     }

@@ -5,3 +5,14 @@
   "title": "Advanced Topic"
 }
 [/block]
+
+[block:code]
+{
+  "codes": [
+    {
+      "code": "git clone https://github.com/dashevo/mn-bootstrap.git\ncd mn-bootstrap\ndocker-compose --env-file .env.evonet up -d",
+      "language": "shell"
+    }
+  ]
+}
+[/block]

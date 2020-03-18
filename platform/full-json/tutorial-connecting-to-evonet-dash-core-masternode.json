@@ -23,7 +23,7 @@
    ]
   }
  }, 
- "updatedAt": "2019-12-30T20:26:31.855Z", 
+ "updatedAt": "2020-03-18T19:29:21.366Z", 
  "id": "5df25ffbaac8b40068563468", 
  "sync_unique": "", 
  "isApi": false, 
@@ -42,9 +42,9 @@
   "description": "", 
   "title": ""
  }, 
- "body": "[block:callout]\n{\n  \"type\": \"danger\",\n  \"body\": \"Running a masternode on Evonet requires familiarity with Dash Platform services. As with testnet, improper configuration may impact testing so please exercise caution if running a masternode.\",\n  \"title\": \"Advanced Topic\"\n}\n[/block]", 
+ "body": "[block:callout]\n{\n  \"type\": \"danger\",\n  \"body\": \"Running a masternode on Evonet requires familiarity with Dash Platform services. As with testnet, improper configuration may impact testing so please exercise caution if running a masternode.\",\n  \"title\": \"Advanced Topic\"\n}\n[/block]\n\n[block:code]\n{\n  \"codes\": [\n    {\n      \"code\": \"git clone https://github.com/dashevo/mn-bootstrap.git\\ncd mn-bootstrap\\ndocker-compose --env-file .env.evonet up -d\",\n      \"language\": \"shell\"\n    }\n  ]\n}\n[/block]", 
  "link_external": false, 
- "body_html": "<div class=\"magic-block-callout type-danger \">\n\t<h3><i title=\"Danger\" class=\"fa fa-exclamation-triangle\"></i>Advanced Topic\n\t</h3>\n\t<div class=\"callout-body\"><p>Running a masternode on Evonet requires familiarity with Dash Platform services. As with testnet, improper configuration may impact testing so please exercise caution if running a masternode.</p>\n\n\t</div>\n</div>", 
+ "body_html": "<div class=\"magic-block-callout type-danger \">\n\t<h3><i title=\"Danger\" class=\"fa fa-exclamation-triangle\"></i>Advanced Topic\n\t</h3>\n\t<div class=\"callout-body\"><p>Running a masternode on Evonet requires familiarity with Dash Platform services. As with testnet, improper configuration may impact testing so please exercise caution if running a masternode.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-code\">\n\t<ul class=\"block-code-header\">\n\t\t<li><a href=\"\" ng-click=\"showCode(0)\" ng-class=\"{active: (0 == tab)}\">Shell</a></li>\n\t</ul>\n\t<div class=\"block-code-code\"><span ng-if=\"tab == 0\">\n\t\t\t<button ng-click=\"copyCode(987)\" class=\"copy-code-button\"><span ng-show=\"!copied\" class=\"fa fa-clipboard\"></span><span ng-show=\"copied\" class=\"fa fa-check\"></span></button>\n\t\t\t<textarea ng-non-bindable=\"ng-non-bindable\" style=\"position: absolute; left: -10000px;\" id=\"text-code-987\">git clone https://github.com/dashevo/mn-bootstrap.git\ncd mn-bootstrap\ndocker-compose --env-file .env.evonet up -d</textarea>\n\t\t\t<pre id=\"code-987\"><code><span class='cm-s-neo'><span class=\"cm-builtin\">git</span> clone https:&#47;&#47;github.com&#47;dashevo&#47;mn-bootstrap.git\n<span class=\"cm-builtin\">cd</span> mn-bootstrap\ndocker-compose <span class=\"cm-attribute\">--env-file</span> .env.evonet up <span class=\"cm-attribute\">-d</span></span></code></pre></span>\n\t</div>\n</div>", 
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "tutorial-connecting-to-evonet-dash-core-masternode", 
