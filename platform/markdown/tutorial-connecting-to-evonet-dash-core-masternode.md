@@ -8,7 +8,7 @@ The purpose of this tutorial is to walk through the steps necessary to set up a 
 [/block]
 # Prerequisites
 - Access to a Linux VPS (Ubuntu 18.04 LTS recommended) configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
-- [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
+- [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v18.06.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
 
 # Masternode setup
 Clone the repository and edit the configuration file
