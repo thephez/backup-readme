@@ -1,3 +1,10 @@
+[block:callout]
+{
+  "type": "danger",
+  "title": "Dash SDK version 2.x+ required",
+  "body": "This tutorial requires version 2.0 of DashJS which is not yet available on npm. It can be accessed on the `develop` branch of the repository (see [here](https://github.com/dashevo/DashJS/pull/33) for status of the v2.0 pull request)."
+}
+[/block]
 # Overview
 
 In this tutorial we will register a data contract.
@@ -11,7 +18,14 @@ For this tutorial you will need:
 
 ## Defining contract documents
 
-As described in the [data contract explanation](explanation-platform-protocol-data-contract#section-structure), data contracts must include one or more developer-defined [documents](explanation-platform-protocol-document). The basic example below demonstrates registering a data contract containing a single document type (`note`) which has a single string property (`message`).
+As described in the [data contract explanation](explanation-platform-protocol-data-contract#section-structure), data contracts must include one or more developer-defined [documents](explanation-platform-protocol-document). The most basic example below demonstrates registering a data contract containing a single document type (`note`) which has a single string property (`message`).
+[block:callout]
+{
+  "type": "info",
+  "body": "Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents."
+}
+[/block]
+
 [block:code]
 {
   "codes": [

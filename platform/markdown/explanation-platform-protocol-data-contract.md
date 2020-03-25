@@ -25,14 +25,6 @@ In the [example contract](#section-example-contract) shown below, a `contact` do
 
 ## Registration
 
-[block:callout]
-{
-  "type": "warning",
-  "title": "Evonet Limitation",
-  "body": "Registration of third-party data contracts is not enabled on the initial phase of Evonet; however, the DPNS contracts is registered. To register data contracts without restriction, please create a devnet."
-}
-[/block]
-
 Once a [Dash Platform Protocol](explanation-platform-protocol) compliant data contract has been defined, it may be registered on the platform. Registration is completed by submitting a state transition containing the data contract to [DAPI](explanation-dapi).
 
 The drawing below illustrates the steps an application developer follows to complete registration.
