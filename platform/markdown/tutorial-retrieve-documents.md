@@ -5,14 +5,14 @@ In this tutorial we will retrieve some of the current data from a data contract.
 ## Prerequisites
 - [node.js](https://nodejs.org/en/)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The DashJS SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
+- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
 
 # Code
 [block:code]
 {
   "codes": [
     {
-      "code": "const dash = require('dash');\n\nconst sdkOpts = {\n  network: 'testnet'\n};\nconst sdk = new dash.SDK(sdkOpts);\n\nconst getDocuments = async function () {\n  try {\n    await sdk.isReady();\n    const documents = await sdk.platform.documents.get('dpns.domain', {\n      where: [\n        ['normalizedParentDomainName', '==', 'dash']\n      ],\n      startAt: 0\n    });\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    sdk.disconnect();\n  }\n};\n\ngetDocuments();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet'\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    const documents = await client.platform.documents.get('dpns.domain', {\n      where: [\n        ['normalizedParentDomainName', '==', 'dash']\n      ],\n      startAt: 0\n    });\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
       "language": "javascript"
     }
   ]
@@ -53,6 +53,6 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 [/block]
 # What's happening
 
-After we initialize the SDK, we request some documents. The `sdk.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `dpns` - the DPNS contract is automatically included with DashJS) and the top-level document type requested, (e.g. `domain`).
+After we initialize the Client, we request some documents. The `client.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `dpns` - the DPNS contract is automatically included with DashJS) and the top-level document type requested, (e.g. `domain`).
 
 If you need more than the first 100 documents, you'll have to make additional requests with `startAt` incremented by 100 each time. In the future, DashJS may return documents with paging information to make this easier and reveal how many documents are returned in total.

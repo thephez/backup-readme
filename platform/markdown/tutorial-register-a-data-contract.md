@@ -1,10 +1,3 @@
-[block:callout]
-{
-  "type": "danger",
-  "title": "Dash SDK version 2.x+ required",
-  "body": "This tutorial requires version 2.0 of DashJS which is not yet available on npm. It can be accessed on the `develop` branch of the repository (see [here](https://github.com/dashevo/DashJS/pull/33) for status of the v2.0 pull request)."
-}
-[/block]
 # Overview
 
 In this tutorial we will register a data contract.
@@ -42,7 +35,7 @@ As described in the [data contract explanation](explanation-platform-protocol-da
 {
   "codes": [
     {
-      "code": "const DashJS = require('dash');\n\nconst sdkOpts = {\n  network: 'testnet',\n  mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n};\nconst sdk = new DashJS.Client(sdkOpts);\n\nconst registerContract = async function () {\n  try {\n    await sdk.isReady();\n    const platform = sdk.platform;\n    const identity = await platform.identities.get('an identity ID goes here');\n    \n    const contractDocuments = {\n      note: {\n        properties: {\n          message: {\n            type: \"string\"\n          }\n        },\n        additionalProperties: false\n      }};\n    const contract = await platform.contracts.create(contractDocuments, identity);\n    console.dir({contract});\n    \n    // Sign and submit the data contract\n    await platform.contracts.broadcast(contract, identity);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    sdk.disconnect();\n  }\n}\n\nregisterContract();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async function () {\n  try {\n    await client.isReady();\n    const platform = client.platform;\n    const identity = await platform.identities.get('an identity ID goes here');\n    \n    const contractDocuments = {\n      note: {\n        properties: {\n          message: {\n            type: \"string\"\n          }\n        },\n        additionalProperties: false\n      }};\n    const contract = await platform.contracts.create(contractDocuments, identity);\n    console.dir({contract});\n    \n    // Sign and submit the data contract\n    await platform.contracts.broadcast(contract, identity);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n}\n\nregisterContract();",
       "language": "javascript"
     }
   ]
@@ -50,6 +43,6 @@ As described in the [data contract explanation](explanation-platform-protocol-da
 [/block]
 # What's Happening
 
-After we initialize the SDK, we create an object defining the documents this data contract requires (e.g. a `note` document in the example). The `platform.contracts.create` method takes two arguments: a contract definitions JSON-schema object and an application identity. The contract definitions object consists of the document types being created (e.g. `note`). It defines the properties and any indices. 
+After we initialize the Client, we create an object defining the documents this data contract requires (e.g. a `note` document in the example). The `platform.contracts.create` method takes two arguments: a contract definitions JSON-schema object and an application identity. The contract definitions object consists of the document types being created (e.g. `note`). It defines the properties and any indices. 
 
 Once the data contract has been created, we still need to submit it to DAPI. The `platform.contracts.broadcast` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the previously created contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered,

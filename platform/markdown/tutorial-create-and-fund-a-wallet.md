@@ -7,7 +7,7 @@ In order to make changes on Dash platform, you need a wallet with a balance. Thi
 {
   "codes": [
     {
-      "code": "const DashJS = require('dash');\n\nconst sdkOpts = {\n  network: 'testnet',\n  mnemonic: null, // this indicates that we want a new wallet to be generated\n                  // if you want to get a new address for an existing wallet\n                  // replace 'null' with an existing wallet mnemonic\n};\nconst sdk = new DashJS.SDK(sdkOpts);\n\nasync function createWallet() {\n  try {\n    await sdk.isReady();\n    const mnemonic = sdk.wallet.exportWallet();\n    const address = sdk.account.getUnusedAddress();\n    console.log('Mnemonic:', mnemonic);\n    console.log('Unused address:', address.address);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    sdk.disconnect();\n  }\n}\ncreateWallet();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  mnemonic: null, // this indicates that we want a new wallet to be generated\n                  // if you want to get a new address for an existing wallet\n                  // replace 'null' with an existing wallet mnemonic\n};\nconst client = new Dash.Client(clientOpts);\n\nasync function createWallet() {\n  try {\n    await client.isReady();\n    const mnemonic = client.wallet.exportWallet();\n    const address = client.account.getUnusedAddress();\n    console.log('Mnemonic:', mnemonic);\n    console.log('Unused address:', address.address);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n}\ncreateWallet();",
       "language": "javascript"
     }
   ]
@@ -35,7 +35,7 @@ In order to make changes on Dash platform, you need a wallet with a balance. Thi
 [/block]
 # What's Happening
 
-Once we connect to Evonet, we output the newly generated mnemonic from `sdk.wallet.exportWallet()` and an unused address from the wallet from `sdk.account.getUnusedAddress()`.
+Once we connect to Evonet, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `client.account.getUnusedAddress()`.
 
 # Next Step
 

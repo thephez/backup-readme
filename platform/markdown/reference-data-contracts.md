@@ -41,7 +41,7 @@ The following example shows a minimal `documents` object defining a single docum
 {
   "codes": [
     {
-      "code": "{\n  \"note\": {\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": \"false\"\n  }\n}",
+      "code": "{\n  \"note\": {\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": false\n  }\n}",
       "language": "json",
       "name": "Minimal document definition"
     }

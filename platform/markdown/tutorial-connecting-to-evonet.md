@@ -17,7 +17,7 @@ Platform services are provided via a combination of HTTP and gRPC connections to
 # Connect via Dash SDK
 
 ## 1. Install the Dash SDK
-The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install` (from the command line):
+The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install dash` (from the command line):
 [block:code]
 {
   "codes": [
@@ -34,7 +34,7 @@ Create a file with the following contents. Then run it by typing `node <file.js>
 {
   "codes": [
     {
-      "code": "const DashJS = require('dash');\n\nconst sdkOpts = {\n  network: 'testnet',\n};\nconst sdk = new DashJS.SDK(sdkOpts);\n\nasync function connect() {\n  try {\n    await sdk.isReady();\n    console.log('connected');\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    sdk.disconnect();\n  }\n}\n\nconnect();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n};\nconst client = new Dash.Client(clientOpts);\n\nasync function connect() {\n  try {\n    await client.isReady();\n    console.log('connected');\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n}\n\nconnect();",
       "language": "javascript"
     }
   ]
