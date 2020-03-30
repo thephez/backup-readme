@@ -1,14 +1,19 @@
 # Overview
 
-Dash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.
+Dash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names for [identities](explanation-identity) but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.
 
 ##  Relationship to identities
-DPNS and [Identities](explanation-identity) are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.
+DPNS names and [Identities](explanation-identity) are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.
 
 # Details
 
 ## Name Registration Process
-
+[block:callout]
+{
+  "type": "info",
+  "body": "Given the DNS-compatible nature of DPNS, all DPNS names are technically domain names and are registered under a top-level DPNS domain (`.dash`). Some applications may abstract the top-level domain away, but it is important to be aware that it exists."
+}
+[/block]
 To prevent [front-running](https://en.wikipedia.org/wiki/Domain_name_front_running), name registration is split into a two phase process consisting of:
 1. Pre-ordering the domain name
 2. Registering the domain name

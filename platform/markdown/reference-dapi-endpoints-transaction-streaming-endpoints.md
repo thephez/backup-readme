@@ -5,13 +5,6 @@
   "body": "Please refer to the [gRPC Overview](reference-dapi-endpoints-grpc-overview) for details regarding running the examples shown below, encoding/decoding the request/response data, and clients available for several languages."
 }
 [/block]
-# --- IMPORTANT NOTE ---
-[block:callout]
-{
-  "type": "warning",
-  "body": "This endpoint will be **unavailable on Evonet** until its nodes are running version Dash Core 0.15.x+ which provides the `getmerkleblocks` RPC necessary to support this feature."
-}
-[/block]
 # Endpoint Details
 [block:callout]
 {
