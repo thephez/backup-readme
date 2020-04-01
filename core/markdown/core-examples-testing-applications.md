@@ -4,8 +4,9 @@ Dash Core provides testing tools designed to let developers test their applicati
 
 When run with no arguments, all Dash Core programs default to Dash's main network (<<glossary:mainnet>>). However, for development, it's safer and cheaper to use Dash's test network (<<glossary:testnet>>) where the <<glossary:duffs>> spent have no real-world value. Testnet also relaxes some restrictions (such as standard transaction checks) so you can test functions which might currently be disabled by default on <<glossary:mainnet>>.
 
-To use testnet, use the argument `-testnet` with `dash-cli`, `dashd` or `dash-qt` or add `testnet=1` to your `dash.conf` file as [described earlier](core-examples-configuration-file).  To get free duffs for testing, check the faucets listed below. They are community supported and due to potentially frequent Testnet changes, one or more of them may be unavailable at a given time:
+To use testnet, use the argument `-testnet` with `dash-cli`, `dashd` or `dash-qt` or add `testnet=1` to your `dash.conf` file as [described earlier](core-examples-configuration-file).  To get free duffs for testing, check the faucets listed below. Some are community supported and due to potentially frequent Testnet changes, one or more of them may be unavailable at a given time:
 
+* [Testnet Faucet - Dash Core Group](https://testnet-faucet.dash.org/)
 * [Testnet Faucet - Crowdnode.io](http://faucet.test.dash.crowdnode.io/)
 * [Testnet Faucet - Masternode.io](http://test.faucet.masternode.io/)
 
