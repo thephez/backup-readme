@@ -8,43 +8,55 @@ In this tutorial we will retrieve some of the current data from a data contract.
 - The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
 
 # Code
+[block:callout]
+{
+  "type": "info",
+  "title": "Initializing the Client with a contract identity",
+  "body": "The example below shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [DashJS documentation](https://dashevo.github.io/DashJS/#/getting-started/multiple-apps) for details."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet'\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    const documents = await client.platform.documents.get('dpns.domain', {\n      where: [\n        ['normalizedParentDomainName', '==', 'dash']\n      ],\n      startAt: 0\n    });\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
       "language": "javascript"
     }
   ]
 }
 [/block]
+## Queries
+
+The example code uses a very basic query to return only one result. More extensive querying capabilities are covered in the [query syntax reference](reference-query-syntax).
+
 # Example Document
 
-The following examples show the structure of a DPNS `domain` document returned from the SDK when retrieved with various methods. 
+The following examples show the structure of a `note` document (from the data contract registered in the tutorial) returned from the SDK when retrieved with various methods. 
 
 The values returned by `.toJSON()` include the base document properties (prefixed with `$`) present in all documents along with the data contract defined properties. 
 
-The values returned by `.getData()` (and also shown in the console.dir() `data` property) represent _only_ the properties defined in the DPNS `domain` document described by the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L22-L56).
+The values returned by `.getData()` (and also shown in the console.dir() `data` property) represent _only_ the properties defined in the `note` document described by the [tutorial data contract](tutorial-register-a-data-contract#section-code).
 [block:code]
 {
   "codes": [
     {
-      "code": "{\n  '$type': 'domain',\n  '$contractId': '2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse',\n  '$userId': 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e',\n  '$entropy': 'yU6o6YUbhQpA52Cksudxv9vycFHunHvmvp',\n  '$rev': 1,\n  label: 'Alejandro84',\n  records: { \n    dashIdentity: 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e'\n  },\n  nameHash: '5610616c656a616e64726f38342e64617368',\n  preorderSalt: 'yTYLYcWnzgcWkwWBwG4M2LZm5SGi2Wf1Rc',\n  normalizedLabel: 'alejandro84',\n  normalizedParentDomainName: 'dash' \n}",
+      "code": "{\n  '$type': 'note',\n  '$contractId': 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM',\n  '$userId': 'At44pvrZXLwjbJp415E2kjav49goGosRF3SB1WW1QJoG',\n  '$entropy': 'yhRn6x4okoMnkXmjxqtNziUR12B3R9Tise',\n  '$rev': 1,\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
       "language": "json",
       "name": ".toJSON()"
     },
     {
-      "code": "{\n  label: 'Alejandro84',\n  records: {\n    dashIdentity: 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e'\n  },\n  nameHash: '5610616c656a616e64726f38342e64617368',\n  preorderSalt: 'yTYLYcWnzgcWkwWBwG4M2LZm5SGi2Wf1Rc',\n  normalizedLabel: 'alejandro84',\n  normalizedParentDomainName: 'dash'\n}",
+      "code": "{\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
       "language": "json",
       "name": ".getData()"
     },
     {
-      "code": "Alejandro84",
+      "code": "Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT",
       "language": "text",
       "name": ".data.label"
     },
     {
-      "code": "Document {\n    id: undefined,\n    action: undefined,\n    type: 'domain',\n    entropy: 'yU6o6YUbhQpA52Cksudxv9vycFHunHvmvp',\n    contractId: '2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse',\n    userId: 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e',\n    revision: 1,\n    data: {\n      label: 'Alejandro84',\n      records: {\n        dashIdentity: 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e' \n      },\n      nameHash: '5610616c656a616e64726f38342e64617368',\n      preorderSalt: 'yTYLYcWnzgcWkwWBwG4M2LZm5SGi2Wf1Rc',\n      normalizedLabel: 'alejandro84',\n      normalizedParentDomainName: 'dash'\n    }\n  }",
+      "code": "Document {\n  id: undefined,\n  action: undefined,\n  type: 'note',\n  entropy: 'yhRn6x4okoMnkXmjxqtNziUR12B3R9Tise',\n  contractId: 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM',\n  userId: 'At44pvrZXLwjbJp415E2kjav49goGosRF3SB1WW1QJoG',\n  revision: 1,\n  data: {\n    message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n  }\n}",
       "language": "json",
       "name": "console.dir(document)"
     }
@@ -53,6 +65,12 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 [/block]
 # What's happening
 
-After we initialize the Client, we request some documents. The `client.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `dpns` - the DPNS contract is automatically included with DashJS) and the top-level document type requested, (e.g. `domain`).
-
+After we initialize the Client, we request some documents. The `client.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `tutorialContract`) and the top-level document type requested, (e.g. `note`).
+[block:callout]
+{
+  "type": "info",
+  "title": "DPNS Contract",
+  "body": "Note: Access to the DPNS contract is built into DashJS. DPNS documents may be accessed via the `dpns` app name (e.g. `dpns.domain`)."
+}
+[/block]
 If you need more than the first 100 documents, you'll have to make additional requests with `startAt` incremented by 100 each time. In the future, DashJS may return documents with paging information to make this easier and reveal how many documents are returned in total.

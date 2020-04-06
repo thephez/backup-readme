@@ -12,7 +12,7 @@ In this tutorial we will submit some data to an application on Dash Platform. Da
 {
   "type": "info",
   "title": "Initializing the Client with a contract identity",
-  "body": "The example below shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.message`) can be enabled by passing a contract identity to the constructor. Please refer to the [DashJS documentation](https://dashevo.github.io/DashJS/#/getting-started/multiple-apps) for details."
+  "body": "The example below shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [DashJS documentation](https://dashevo.github.io/DashJS/#/getting-started/multiple-apps) for details."
 }
 [/block]
 
