@@ -100,7 +100,7 @@ The query modifiers described here determine how query results will be sorted an
 | - | - | - |
 | `limit` | Restricts the number of results returned (maximum: 100) | `limit: 10` |
 | `orderBy` | Returns records sorted by the field(s) provided (maximum: 2) | `orderBy: [['normalizedLabel', 'asc']]`
-| `startAt` | Returns records beginning with the index provided (maximum: 20000) | `startAt: 100` |
+| `startAt` | Returns records beginning with the index provided (minimum: 1, maximum: 20000) | `startAt: 100` |
 | `startAfter` | Returns records beginning after the index provided  (maximum: 20000) | `startAfter: 50` |
 [block:callout]
 {

@@ -20,7 +20,7 @@ For this tutorial you will need a wallet mnemonic with some funds in it: [How to
   ]
 }
 [/block]
-The identity will be output to the console. The identity will need to have one confirmation before it is accessible via `client.platform.identity.get`.
+The identity ID will be output to the console. The identity will need to have one confirmation before it is accessible via `client.platform.identity.get`.
 
 # What's Happening
 
