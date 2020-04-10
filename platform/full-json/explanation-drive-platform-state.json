@@ -1,4 +1,5 @@
 {
+ "pendingAlgoliaPublish": false, 
  "parentDoc": "5ddedaeaf5aff3004e2b6643", 
  "excerpt": "Global state of all platform data managed by a replicated state machine", 
  "api": {
