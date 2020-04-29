@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-13T21:39:28.937Z", 
- "id": "5db6e5866efa37002f157fb9", 
+ "id": "5e96055329a18c0025d39232", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T12:56:38.049Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Mining", 
  "next": {
   "description": "", 
@@ -57,7 +57,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -74,7 +74,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db6e5866efa37002f157fb9", 
+ "_id": "5e96055329a18c0025d39232", 
  "order": 8, 
  "updates": []
 }

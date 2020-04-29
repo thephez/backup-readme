@@ -2082,6 +2082,49 @@ dash-cli removeprunedfunds bb7daff525b83fa6a847ab50bf7f8f14d6\
 * [ImportPrivKey](/docs/core-api-ref-remote-procedure-calls-wallet#section-import-priv-key): adds a private key to your wallet. The key should be formatted in the wallet import format created by the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#section-dump-priv-key).
 * [ImportPrunedFunds](/docs/core-api-ref-remote-procedure-calls-wallet#section-import-pruned-funds): imports funds without the need of a rescan. Meant for use with pruned wallets.
 
+
+# RescanBlockChain
+
+The [`rescanblockchain` RPC](core-api-ref-remote-procedure-calls-wallet#section-rescan-block-chain) rescans the local blockchain for wallet related transactions.
+
+*Parameter #1---the start block height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Start Height | integer | Optional<br>(0 or 1) | The block height where the rescan should start
+
+*Parameter #2---the stop block height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Stop Height | integer | Optional<br>(0 or 1) | The last block height that should be scanned
+
+*Result---`null` or start/end height details if parameters provided*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object containing the start/end heights depending on the range of blocks scanned
+→<br>`start_height` | integer | Optional<br>(0 or 1) | The block height where the rescan has started. If omitted, rescan started from the genesis block
+→<br>`stop_height` | integer | Optional<br>(0 or 1) | The height of the last rescanned block. If omitted, rescan stopped at the chain tip
+
+*Example from Dash Core 0.16.0*
+
+``` bash
+dash-cli rescanblockchain
+```
+
+Result:
+``` json
+{
+  "start_height": 293600,
+  "stop_height": 293602
+}
+```
+
+*See also*
+
+* [AbortRescan](core-api-ref-remote-procedure-calls-wallet#section-abort-rescan): stops current wallet rescan. 
+
 # SendMany
 [block:callout]
 {
@@ -2118,6 +2161,7 @@ Confirmations | number (int) | Optional<br>(0 or 1) | The minimum number of conf
 }
 [/block]
 *Parameter #4--whether to add the balance from transactions locked via InstantSend*
+
 Name | Type | Presence | Description
 --- | --- | --- | ---
 addlocked | bool | Optional<br>(0 or 1) | If set to `true`, add the balance from InstantSend locked transactions. If set to `false` (the default), InstantSend locked transaction balances are not included.

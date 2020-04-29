@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db0a910c4e022001110a32e", 
+ "parentDoc": "5e96055329a18c0025d39201", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-12T19:29:57.516Z", 
- "id": "5db0ae402ff31a0025f7de4c", 
+ "id": "5e96055329a18c0025d39206", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T19:47:12.331Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Masternode Payment", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db0ae402ff31a0025f7de4c", 
+ "_id": "5e96055329a18c0025d39206", 
  "order": 3, 
  "updates": []
 }

@@ -39,8 +39,11 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 | LLMQ Signing | Too Many Messages | **100** | Maximum message count exceed in [`qsigsesann` message](core-ref-p2p-network-quorum-messages#section-qsigsesann), [`qsigsinv` message](core-ref-p2p-network-quorum-messages#section-qsigsinv), [`qgetsigs` message](core-ref-p2p-network-quorum-messages#section-qgetsigs), or [`qbsigs` message](core-ref-p2p-network-quorum-messages#section-qbsigs)
 | LLMQ Signing | Signature  | **100** | Peer relayed a message with an invalid recovered signature or signature share
 | Masternode Authentication | Duplicate Message | **100** | Only 1 message allowed (`mnauth` message)
+| Masternode Authentication | Invalid Services | **100** | Peer not advertising `NODE_NETWORK` or `NODE_BLOOM` services (`mnauth` message)
+| Masternode Authentication | Empty Hash | **100** | Peer relayed a message with a null ProRegTx hash (`mnauth` message)
 | Masternode Authentication | Signature | **100** | Peer relayed a message with an invalid signature (`mnauth` message)
 | Masternode Authentication | Invalid MN | 10 | Peer not in the valid masternode list (`mnauth` message)
+| Masternode Authentication | Invalid Signature | 10 | Signature verification failed (`mnauth` message)
 | Governance | Sync | 20 | Requesting a governance sync too frequently (`govsync` message with empty hash)
 | Governance | Invalid Object | 20 | Peer relayed an invalid governance object (`govobj` message)
 | Governance | Invalid Vote | 20 | Peer relayed an invalid/invalid old vote(`govobjvote` message)

@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-10-30T13:59:32.159Z", 
- "id": "5db73c731cdf05001898633e", 
+ "id": "5e96055329a18c0025d3924b", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T19:07:31.813Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Introduction", 
  "next": {
   "description": "", 
@@ -92,7 +92,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -109,7 +109,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
- "_id": "5db73c731cdf05001898633e", 
+ "_id": "5e96055329a18c0025d3924b", 
  "order": 0, 
  "updates": [
   "5dc1d392429c7c00634e8f70"

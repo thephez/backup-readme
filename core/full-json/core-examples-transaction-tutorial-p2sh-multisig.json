@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db1c7f980dc4f02b5e4131a", 
+ "parentDoc": "5e96055329a18c0025d39219", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-02-12T17:34:49.214Z", 
- "id": "5db1c92280dc4f02b5e41340", 
+ "id": "5e96055329a18c0025d3921e", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T15:54:10.361Z", 
- "category": "5db19f199332b800310886f8", 
+ "category": "5e96055329a18c0025d391e5", 
  "title": "P2SH Multisig", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db1c92280dc4f02b5e41340", 
+ "_id": "5e96055329a18c0025d3921e", 
  "order": 4, 
  "updates": []
 }

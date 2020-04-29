@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db1ae38f84ce1006175ff9c", 
+ "parentDoc": "5e96055329a18c0025d39210", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-13T22:12:06.481Z", 
- "id": "5db1b275aec2df0035f3aa47", 
+ "id": "5e96055329a18c0025d39212", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T14:17:25.543Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Connecting to Peers", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db1b275aec2df0035f3aa47", 
+ "_id": "5e96055329a18c0025d39212", 
  "order": 1, 
  "updates": []
 }

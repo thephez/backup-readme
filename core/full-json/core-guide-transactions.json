@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-13T16:25:35.411Z", 
- "id": "5db72315f10c520072cce602", 
+ "id": "5e96055329a18c0025d39241", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T17:19:17.674Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Transactions", 
  "next": {
   "description": "", 
@@ -99,7 +99,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -116,7 +116,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
- "_id": "5db72315f10c520072cce602", 
+ "_id": "5e96055329a18c0025d39241", 
  "order": 3, 
  "updates": []
 }

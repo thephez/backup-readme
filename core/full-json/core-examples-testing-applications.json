@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-04-01T16:31:54.026Z", 
- "id": "5db19f3138ea360052459a37", 
+ "id": "5e96055329a18c0025d3920e", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T12:55:13.692Z", 
- "category": "5db19f199332b800310886f8", 
+ "category": "5e96055329a18c0025d391e5", 
  "title": "Testing Applications", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db19f3138ea360052459a37", 
+ "_id": "5e96055329a18c0025d3920e", 
  "order": 2, 
  "updates": []
 }

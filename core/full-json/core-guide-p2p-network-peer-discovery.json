@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db1ae38f84ce1006175ff9c", 
+ "parentDoc": "5e96055329a18c0025d39210", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-02-18T15:23:14.707Z", 
- "id": "5db1b1f2c383ba006e07be97", 
+ "id": "5e96055329a18c0025d39211", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T14:15:14.671Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Peer Discovery", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db1b1f2c383ba006e07be97", 
+ "_id": "5e96055329a18c0025d39211", 
  "order": 0, 
  "updates": []
 }

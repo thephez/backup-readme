@@ -443,10 +443,7 @@ Result:
 
 The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
-Note: By default this function only works for mempool transactions. If the
-`-txindex` option is enabled, it also works for blockchain transactions. For now,
-it also works for transactions with unspent outputs although this feature is
-deprecated.
+Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if -txindex is enabled and the transaction is in a block in the blockchain.
 
 [block:callout]
 {
@@ -466,7 +463,13 @@ TXID | string (hex) | Required<br>(exactly 1) | The TXID of the transaction to g
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Format | bool | Optional<br>(0 or 1) | *Updated in Dash Core 0.12.3 / Bitcoin Core 0.14.0*<br><br>Set to `false` (the default) to return the serialized transaction as hex.  Set to `true` to return a decoded transaction.  Before 0.12.3, use `0` and `1`, respectively
+Verbose | bool | Optional<br>(0 or 1) | *Updated in Dash Core 0.12.3 / Bitcoin Core 0.14.0*<br><br>Set to `false` (the default) to return the serialized transaction as hex.  Set to `true` to return a decoded transaction in JSON.  Before 0.12.3, use `0` and `1`, respectively
+
+*Parameter #3---hash of a block to look in for the transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Block Hash | bool | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The hash of the block in which to look for the transaction
 
 *Result (if transaction not found)---`null`*
 
@@ -485,6 +488,7 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | If the transaction was found, this will be an object describing it
+→<br>`in_active_chain` | bool | Required<br>(exactly 1) | ) Whether specified block is in the active chain or not (only present with explicit `blockhash` argument)
 →<br>`txid` | string (hex) | Required<br>(exactly 1) | The transaction's TXID encoded as hex in RPC byte order
 →<br>`size` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The serialized transaction size
 →<br>`version` | number (int) | Required<br>(exactly 1) | The transaction format version number

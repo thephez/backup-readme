@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-05T14:42:26.519Z", 
- "id": "5db0adeba1353d026b1a34f8", 
+ "id": "5e96055329a18c0025d39205", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T19:45:47.427Z", 
- "category": "5db061df6d7d670050694628", 
+ "category": "5e96055329a18c0025d391e2", 
  "title": "Introduction", 
  "next": {
   "description": "Reference Sections", 
@@ -71,7 +71,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -88,7 +88,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 10, 
- "_id": "5db0adeba1353d026b1a34f8", 
+ "_id": "5e96055329a18c0025d39205", 
  "order": 0, 
  "updates": []
 }

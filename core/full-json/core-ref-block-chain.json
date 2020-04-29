@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-10-24T12:43:34.658Z", 
- "id": "5db079f20b5d1b0074328cef", 
+ "id": "5e96055329a18c0025d391f1", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T16:04:02.473Z", 
- "category": "5db061df6d7d670050694628", 
+ "category": "5e96055329a18c0025d391e2", 
  "title": "Block Chain", 
  "next": {
   "description": "", 
@@ -57,7 +57,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -74,7 +74,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
- "_id": "5db079f20b5d1b0074328cef", 
+ "_id": "5e96055329a18c0025d391f1", 
  "order": 1, 
  "updates": []
 }

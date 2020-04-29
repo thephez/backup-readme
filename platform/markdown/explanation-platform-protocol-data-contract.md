@@ -8,7 +8,7 @@ The first two data contracts are DashPay wallet and [Dash Platform Name Service 
 
 ## Ownership
 
-Data contracts are owned by the [application identity](explanation-identity#section-application-registration) that registers them. Since an application identity is used as the contract's ID, a unique identity must be used for each data contract. 
+Data contracts are owned by the [identity](explanation-identity) that registers them. Since Dash Platform Protocol version 0.12.0, a single identity may be used to create multiple data contracts.
 
 ## Constraints
 
@@ -18,7 +18,7 @@ On certain networks, such as a local devnet, anyone can create a new data contra
 Each data contract must define several fields. When using the [JavaScript implementation](https://github.com/dashevo/js-dpp) of the Dash Platform Protocol, some of these fields are automatically set to a default value and do not have to be explicitly provided:
  - The platform protocol schema version it uses (default: defined by js-dpp)
  - A contract version number (default: 1)
- - A contract ID (the application identity registering the contract)
+ - A contract ID (the identity registering the contract)
  - One or more documents
 
 In the [example contract](#section-example-contract) shown below, a `contact` document and a `profile` document are defined. Each of these documents then defines the properties and indices it requires.

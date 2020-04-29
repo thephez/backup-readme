@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db70cf2700ab3005442c13d", 
+ "parentDoc": "5e96055329a18c0025d3923b", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-12T21:50:58.781Z", 
- "id": "5db70d539d6e630011f70175", 
+ "id": "5e96055329a18c0025d3923c", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T15:46:27.050Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Block Chain Overview", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 5, 
- "_id": "5db70d539d6e630011f70175", 
+ "_id": "5e96055329a18c0025d3923c", 
  "order": 0, 
  "updates": []
 }

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db6f093552a86005e7fa890", 
+ "parentDoc": "5e96055329a18c0025d39236", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-13T21:27:39.675Z", 
- "id": "5db6f0ce5465db0052e95bf6", 
+ "id": "5e96055329a18c0025d39237", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T13:44:46.101Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Full Node", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db6f0ce5465db0052e95bf6", 
+ "_id": "5e96055329a18c0025d39237", 
  "order": 0, 
  "updates": []
 }

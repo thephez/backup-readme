@@ -25,17 +25,17 @@
   }
  }, 
  "updatedAt": "2019-11-27T22:20:14.855Z", 
- "id": "5dc41e158d68610011d6a313", 
+ "id": "5e96055329a18c0025d39257", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-11-07T13:37:25.809Z", 
- "category": "5dc41cb75124a90036070278", 
+ "category": "5e96055329a18c0025d391e8", 
  "title": "SDK Resources", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -52,7 +52,7 @@
  "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5dc41e158d68610011d6a313", 
+ "_id": "5e96055329a18c0025d39257", 
  "order": 3, 
  "updates": []
 }

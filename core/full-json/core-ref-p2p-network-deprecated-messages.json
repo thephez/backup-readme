@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db076c3dbccd5005ce07e4f", 
+ "parentDoc": "5e96055329a18c0025d391e9", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-20T20:48:39.537Z", 
- "id": "5db087f1607b8b015c8ae91e", 
+ "id": "5e96055329a18c0025d39200", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T17:03:45.891Z", 
- "category": "5db061df6d7d670050694628", 
+ "category": "5e96055329a18c0025d391e2", 
  "title": "Deprecated Messages", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 5, 
- "_id": "5db087f1607b8b015c8ae91e", 
+ "_id": "5e96055329a18c0025d39200", 
  "order": 10, 
  "updates": []
 }

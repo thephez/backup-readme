@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db7435cff8e9f0050e80e58", 
+ "parentDoc": "5e96055329a18c0025d3924c", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-13T20:33:08.419Z", 
- "id": "5db7438d78c025001ffcbbce", 
+ "id": "5e96055329a18c0025d3924d", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T19:37:49.672Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Escrow and Arbitration", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db7438d78c025001ffcbbce", 
+ "_id": "5e96055329a18c0025d3924d", 
  "order": 0, 
  "updates": []
 }

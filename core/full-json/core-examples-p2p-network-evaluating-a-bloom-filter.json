@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db19f9975818c0034428efb", 
+ "parentDoc": "5e96055329a18c0025d3920f", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-11T21:56:16.639Z", 
- "id": "5db1ba7a6d961f00182975e0", 
+ "id": "5e96055329a18c0025d39216", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T14:51:38.977Z", 
- "category": "5db19f199332b800310886f8", 
+ "category": "5e96055329a18c0025d391e5", 
  "title": "Evaluating A Bloom Filter", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db1ba7a6d961f00182975e0", 
+ "_id": "5e96055329a18c0025d39216", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5d42ea013e1731002b4623c6", 
+ "parentDoc": "5e95bfa43971fb0148efeb46", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,17 +25,17 @@
   }
  }, 
  "updatedAt": "2019-12-24T21:22:52.657Z", 
- "id": "5e0281cde6003e0033b524c8", 
+ "id": "5e95bfa43971fb0148efeb6d", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-24T21:22:52.657Z", 
- "category": "5d42e9a722ecbe01d39a09c4", 
+ "category": "5e95bfa43971fb0148efeb39", 
  "title": "Network Deployment Tool", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5d2374d8d238fb004e8f9243", 
+ "version": "5e95bfa43971fb0148efeb82", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -52,7 +52,7 @@
  "link_url": "https://github.com/dashevo/dash-network-deploy", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5e0281cde6003e0033b524c8", 
+ "_id": "5e95bfa43971fb0148efeb6d", 
  "order": 6, 
  "updates": []
 }

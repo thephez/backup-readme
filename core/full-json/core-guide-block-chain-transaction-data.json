@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db70cf2700ab3005442c13d", 
+ "parentDoc": "5e96055329a18c0025d3923b", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-12T22:13:44.056Z", 
- "id": "5db70d8d7f86fa004ff2c59a", 
+ "id": "5e96055329a18c0025d3923f", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T15:47:25.038Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Transaction Data", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 5, 
- "_id": "5db70d8d7f86fa004ff2c59a", 
+ "_id": "5e96055329a18c0025d3923f", 
  "order": 3, 
  "updates": []
 }

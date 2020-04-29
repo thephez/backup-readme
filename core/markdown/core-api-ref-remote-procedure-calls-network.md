@@ -378,6 +378,7 @@ Name | Type | Presence | Description
 → →<br>`subver` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#section-version).  This string will have been sanitized to prevent corrupting the JSON results.  May be an empty string
 → →<br>`inbound` | bool | Required<br>(exactly 1) | Set to `true` if this node connected to us (inbound); set to `false` if we connected to this node (outbound)
 → →<br>`addnode` | bool | Required<br>(exactly 1) | Set to `true` if this node was added via the [`addnode` RPC](core-api-ref-remote-procedure-calls-network#section-add-node).
+→ →<br>`masternode` | bool | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br><br>Whether connection was due to masternode connection attempt
 → →<br>`startingheight` | number (int) | Required<br>(exactly 1) | The height of the remote node's block chain when it connected to us as reported in its [`version` message](core-ref-p2p-network-control-messages#section-version)
 → →<br>`banscore` | number (int) | Required<br>(exactly 1) | The ban score we've assigned the node based on any misbehavior it's made.  By default, Dash Core disconnects when the ban score reaches `100`
 → →<br>`synced_headers` | number (int) | Required<br>(exactly 1) | The highest-height header we have in common with this node based the last P2P [`headers` message](core-ref-p2p-network-data-messages#section-headers) it sent us.  If a [`headers` message](core-ref-p2p-network-data-messages#section-headers) has not been received, this will be set to `-1`
@@ -420,6 +421,7 @@ Result (edited to show only a single entry, with IP addresses changed to
     "subver": "/Dash Core:0.14.0.3/",
     "inbound": false,
     "addnode": false,
+    "masternode": false,
     "startingheight": 159292,
     "banscore": 0,
     "synced_headers": 159350,

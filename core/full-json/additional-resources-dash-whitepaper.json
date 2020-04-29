@@ -25,17 +25,17 @@
   }
  }, 
  "updatedAt": "2019-11-27T22:20:14.854Z", 
- "id": "5dc41cc66e402d00ec3fcac7", 
+ "id": "5e96055329a18c0025d39254", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-11-07T13:31:50.130Z", 
- "category": "5dc41cb75124a90036070278", 
+ "category": "5e96055329a18c0025d391e8", 
  "title": "Dash Whitepaper", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -52,7 +52,7 @@
  "link_url": "https://docs.dash.org/en/stable/introduction/about.html#whitepaper", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5dc41cc66e402d00ec3fcac7", 
+ "_id": "5e96055329a18c0025d39254", 
  "order": 1, 
  "updates": []
 }

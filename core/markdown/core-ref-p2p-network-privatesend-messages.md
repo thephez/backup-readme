@@ -418,7 +418,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nMsgSessionID | int | Required | Session ID
 | 4 | nMsgState | int | Required | Current state of mixing process
-| 4 | nMsgEntriesCount | int | Required | _Deprecated in Dash Core 0.15.0_<br><br>Number of entries in the mixing pool
+| 4 | nMsgEntriesCount | int | Required | **_Deprecated in Dash Core 0.15.0_**<br><br>Number of entries in the mixing pool
 | 4 | nMsgStatusUpdate | int | Required | Update state and/or signal if entry was accepted or not
 | 4 | nMsgMessageID | int | Required | ID of the typical masternode reply message
 
@@ -431,7 +431,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | 2 | `POOL_STATE_ACCEPTING_ENTRIES`
 | 3 | `POOL_STATE_SIGNING`
 | 4 | `POOL_STATE_ERROR`
-| 5 | `POOL_STATE_SUCCESS`
+| ~~5~~ | ~~`POOL_STATE_SUCCESS`~~ **_Deprecated in Dash Core 0.16.0_**
 
 **Pool Status Update**
 
@@ -456,7 +456,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | 0x09 | `ERR_MAXIMUM`
 | 0x0A (10) | `ERR_MN_LIST`
 | 0x0B (11) | `ERR_MODE`
-| 0x0C (12) | `ERR_NON_STANDARD_PUBKEY`
+| 0x0C (12) | `ERR_NON_STANDARD_PUBKEY` (Not used)
 | 0x0D (13) | `ERR_NOT_A_MN` (Not used)
 | 0x0E (14) | `ERR_QUEUE_FULL`
 | 0x0F (15) | `ERR_RECENT`
@@ -466,6 +466,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | 0x13 (19) | `MSG_NOERR`
 | 0x14 (20) | `MSG_SUCCESS`
 | 0x15 (21) | `MSG_ENTRIES_ADDED`
+| 0x16 (22) | `ERR_SIZE_MISMATCH`
 
 The following annotated hexdump shows a [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu). (The message header has been omitted.)
 

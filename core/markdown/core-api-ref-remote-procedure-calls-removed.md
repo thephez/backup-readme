@@ -104,69 +104,80 @@ Result:
 
 * [EstimatePriority](/docs/core-api-ref-remote-procedure-calls-removed#section-estimate-priority): was removed in Dash Core 0.14.0.
 
-# GetHashesPerSec
-
-*Requires wallet support.*
+# GetInfo
 [block:callout]
 {
   "type": "danger",
-  "body": "The [`gethashespersec` RPC](core-api-ref-remote-procedure-calls-removed#section-get-hashes-per-sec) was removed in Bitcoin Core 0.11.0 and is not part of Dash."
+  "body": "**Warning:** **_Removed in Dash Core 0.16.0._**",
+  "title": ""
 }
 [/block]
-*See also*
-
-* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-
-# GetWork
-[block:callout]
-{
-  "type": "danger",
-  "body": "The [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-get-work) was removed in Bitcoin Core 0.10.0. and is not part of Dash."
-}
-[/block]
-*See also*
-
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.
-* [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#section-submit-block): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
-
-# GetGenerate
-[block:callout]
-{
-  "type": "danger",
-  "body": "**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**"
-}
-[/block]
-*Requires wallet support.*
-
-The [`getgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-get-generate) was removed in Dash Core 0.12.3.
+The [`getinfo` RPC](core-api-ref-remote-procedure-calls-control#section-get-info) prints various information about the node and the network.
 
 *Parameters: none*
 
-*Result---whether the server is set to generate blocks*
+*Result---information about the node and network*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | bool | Required<br>(exactly 1) | Set to `true` if the server is set to generate blocks; set to `false` if it is not
+`result` | object | Required<br>(exactly 1) | Information about this node and the network
+→<br>`deprecation-warning` | string | Required<br>(exactly 1) | Warning that the getinfo command is deprecated and will be removed in a future version
+→<br>`version` | number (int) | Required<br>(exactly 1) | This node's version of Bitcoin Core in its internal integer format.  For example, Dash Core 0.12.2 has the integer version number 120200
+→<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
+→<br>`walletversion` | number (int) | Optional<br>(0 or 1) | The version number of the wallet.  Only returned if wallet support is enabled
+→<br>`balance` | number (duffs) | Optional<br>(0 or 1) | The total balance of the wallet in duffs.  Only returned if wallet support is enabled
+→<br>`privatesend_balance` | number (duffs) | Optional<br>(0 or 1) | The PrivateSend balance of the wallet in duffs.  Only returned if wallet support is enabled  (Added in Dash Core 0.11.0)
+→<br>`blocks` | number (int) | Required<br>(exactly 1) | The number of blocks in the local best block chain.  A new node with only the hardcoded genesis block will return `0`
+→<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
+→<br>`connections` | number (int) | Required<br>(exactly 1) | The total number of open connections (both outgoing and incoming) between this node and other nodes
+→<br>`proxy` | string | Required<br>(exactly 1) | The hostname/IP address and port number of the proxy, if set, or an empty string if unset
+→<br>`difficulty` | number (real) | Required<br>(exactly 1) | The difficulty of the highest-height block in the local best block chain
+→<br>`testnet` | bool | Required<br>(exactly 1) | Set to `true` if this node is on testnet; set to `false` if this node is on mainnet or a regtest
+→<br>`keypoololdest` | number (int) | Optional<br>(0 or 1) | The date as Unix epoch time when the oldest key in the wallet key pool was created; useful for only scanning blocks created since this date for transactions.  Only returned if wallet support is enabled
+→<br>`keypoolsize` | number (int) | Optional<br>(0 or 1) | The number of keys in the wallet keypool.  Only returned if wallet support is enabled
+→<br>`unlocked_until` | number (int) | Optional<br>(0 or 1) | The Unix epoch time when the wallet will automatically re-lock.  Only displayed if wallet encryption is enabled.  Set to `0` if wallet is currently locked
+→<br>`paytxfee` | number (duffs) | Optional<br>(0 or 1) | The minimum fee to pay per kilobyte of transaction; may be `0`.  Only returned if wallet support is enabled
+→<br>`relayfee` | number (duffs) | Required<br>(exactly 1) | The minimum fee per kilobyte a transaction must pay in order for this node to accept it into its memory pool
+→<br>`errors` | string | Required<br>(exactly 1) | A plain-text description of any errors this node has encountered or detected.  If there are no errors, an empty string will be returned.  This is not related to the JSON-RPC `error` field
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.15.0 with wallet support enabled*
 
 ``` bash
-dash-cli -regtest getgenerate
+dash-cli -testnet getinfo
 ```
 
 Result:
 
 ``` json
-false
+{
+  "deprecation-warning": "WARNING: getinfo is deprecated and will be fully removed in a future version. Projects should transition to using getblockchaininfo, getnetworkinfo, and getwalletinfo.",
+  "version": 140100,
+  "protocolversion": 70215,
+  "walletversion": 61000,
+  "balance": 0.00000000,
+  "privatesend_balance": 0.00000000,
+  "blocks": 0,
+  "timeoffset": 0,
+  "connections": 0,
+  "proxy": "",
+  "difficulty": 0.000244140625,
+  "testnet": true,
+  "keypoololdest": 1507579068,
+  "keypoolsize": 617,
+  "unlocked_until": 0,
+  "paytxfee": 0.00000000,
+  "relayfee": 0.00010000,
+  "errors": ""
+}
 ```
 
 *See also*
 
-* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
+* [GetBlockChainInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-block-chain-info): provides information about the current state of the block chain.
+* [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info): returns information about the node's current transaction memory pool.
 * [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-set-generate): was removed in Dash Core 0.12.3.
+* [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#section-get-network-info): returns information about the node's connection to the network.
+* [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-wallet-info): provides information about the wallet.
 
 # MasternodeBroadcast
 [block:callout]
@@ -408,51 +419,3 @@ true
 ```
 
 *See also: none*
-
-# SetGenerate
-[block:callout]
-{
-  "type": "danger",
-  "body": "**_Removed in Dash Core 0.12.3 / Bitcoin Core 0.13.0._**"
-}
-[/block]
-*Requires wallet support.*
-
-The [`setgenerate` RPC](core-api-ref-remote-procedure-calls-removed#section-set-generate) was removed in Dash Core 0.12.3.
-
-*Parameter #1---enable/disable generation*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`generate` | boolean | Required<br>(exactly 1) | Set to true to turn on generation, false to turn off.
-
-*Parameter #2---processor limit*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`genproclimit` | number (int) | Optional<br>(exactly 1) | Set the processor limit for when generation is on. Can be -1 for unlimited.
-
-*Result---the generated block header hashes*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | null | Required<br>(exactly 1) | Always JSON `null`
-
-*Example from Dash Core 0.12.2*
-
-Enable generation using 1 processor:
-
-``` bash
-dash-cli -testnet setgenerate 1
-```
-
-Result:
-
-(Success: no result displayed. Process manager shows 100% CPU usage.)
-
-*See also*
-
-* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.

@@ -20,7 +20,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
       "language": "javascript"
     }
   ]
@@ -41,7 +41,7 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 {
   "codes": [
     {
-      "code": "{\n  '$type': 'note',\n  '$contractId': 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM',\n  '$userId': 'At44pvrZXLwjbJp415E2kjav49goGosRF3SB1WW1QJoG',\n  '$entropy': 'yhRn6x4okoMnkXmjxqtNziUR12B3R9Tise',\n  '$rev': 1,\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
+      "code": "{\n  'id': \n  '$type': 'note',\n  '$dataContractId': '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8',\n  '$ownerId': 'HcgaeTzwiwGMTpYFDBJuKERv8kjbDS2oDGDkQ4SN4Mi1',\n  '$revision': 1,\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
       "language": "json",
       "name": ".toJSON()"
     },
@@ -56,7 +56,7 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
       "name": ".data.label"
     },
     {
-      "code": "Document {\n  id: undefined,\n  action: undefined,\n  type: 'note',\n  entropy: 'yhRn6x4okoMnkXmjxqtNziUR12B3R9Tise',\n  contractId: 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM',\n  userId: 'At44pvrZXLwjbJp415E2kjav49goGosRF3SB1WW1QJoG',\n  revision: 1,\n  data: {\n    message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n  }\n}",
+      "code": "Document {\n  entropy: undefined,\n  id: '5Zqim5LkL76dBMqa1kE2AFRng2yqpgyVTKK6kTqWbYmu',\n  type: 'note',\n  dataContractId: '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8',\n  ownerId: 'HcgaeTzwiwGMTpYFDBJuKERv8kjbDS2oDGDkQ4SN4Mi1',\n  revision: 1,\n  data: {\n    message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n  }\n}",
       "language": "json",
       "name": "console.dir(document)"
     }

@@ -156,15 +156,14 @@ Name | Type | Presence | Description
 →<br>`currentblocksize` | number (int) | Required<br>(exactly 1) | If generation was enabled since the last time this node was restarted, this is the size in bytes of the last block built by this node for header hash checking.  Otherwise, the value `0`
 →<br>`currentblocktx` | number (int) | Required<br>(exactly 1) | If generation was enabled since the last time this node was restarted, this is the number of transactions in the last block built by this node for header hash checking.  Otherwise, this is the value `0`
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | If generation was enabled since the last time this node was restarted, this is the difficulty of the highest-height block in the local best block chain.  Otherwise, this is the value `0`
-→<br>`errors` | string | Required<br>(exactly 1) | A plain-text description of any errors this node has encountered or detected.  If there are no errors, an empty string will be returned.  This is not related to the JSON-RPC `error` field
-→<br>`genproclimit` | number (int) | Required<br>(exactly 1) | The processor limit for generation (-1 if no generation - see getgenerate or setgenerate calls).<br><br>*Removed in Bitcoin Core 0.13.0*
 →<br>`networkhashps` | number (int) | Required<br>(exactly 1) | An estimate of the number of hashes per second the network is generating to maintain the current difficulty.  See the [`getnetworkhashps` RPC](core-api-ref-remote-procedure-calls-mining#section-get-network-hash-ps) for configurable access to this data
 →<br>`pooledtx` | number (int) | Required<br>(exactly 1) | The number of transactions in the memory pool
-→<br>`testnet` | bool | Required<br>(exactly 1) | Set to `true` if this node is running on testnet.  Set to `false` if this node is on mainnet or a regtest<br><br>*Removed in Bitcoin Core 0.14.0*
+→<br>`testnet` | bool | Required<br>(exactly 1) | **_Removed in Bitcoin Core 0.14.0_**<br><br>Set to `true` if this node is running on testnet.  Set to `false` if this node is on mainnet or a regtest
 →<br>`chain` | string | Required<br>(exactly 1) | Set to `main` for mainnet, `test` for testnet, and `regtest` for regtest
-→<br>`generate` | bool | Optional<br>(0 or 1) | Set to `true` if generation is currently enabled; set to `false` if generation is currently disabled.  Only returned if the node has wallet support enabled<br><br>*Removed in Bitcoin Core 0.13.0*
+→<br>`warnings` | string | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Any network or blockchain warnings
+→<br>`errors` | string | Optional<br>(0 or 1) | _Deprecated in Dash Core 0.16.0_<br><br>Only shown when dashd is started with `-deprecatedrpc=getmininginfo`
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli getmininginfo
@@ -174,17 +173,14 @@ Result:
 
 ``` json
 {
-  "blocks": 8036,
+  "blocks": 292979,
   "currentblocksize": 0,
   "currentblocktx": 0,
-  "difficulty": 0.8239043524175907,
-  "errors": "",
-  "genproclimit": 1,
-  "networkhashps": 22234635.4469006,
-  "pooledtx": 3,
-  "testnet": true,
+  "difficulty": 0.0002441371325370145,
+  "networkhashps": 3805.856874962192,
+  "pooledtx": 0,
   "chain": "test",
-  "generate": false
+  "warnings": "Warning: unknown new rules activated (versionbit 3)"
 }
 ```
 

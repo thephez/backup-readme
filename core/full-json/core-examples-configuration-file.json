@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-11T20:05:15.974Z", 
- "id": "5db19f28c0420b00ec924c5d", 
+ "id": "5e96055329a18c0025d3920d", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T12:55:04.227Z", 
- "category": "5db19f199332b800310886f8", 
+ "category": "5e96055329a18c0025d391e5", 
  "title": "Configuration File", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db19f28c0420b00ec924c5d", 
+ "_id": "5e96055329a18c0025d3920d", 
  "order": 1, 
  "updates": []
 }

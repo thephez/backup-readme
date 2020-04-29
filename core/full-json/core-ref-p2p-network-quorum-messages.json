@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db076c3dbccd5005ce07e4f", 
+ "parentDoc": "5e96055329a18c0025d391e9", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-02-12T18:56:03.242Z", 
- "id": "5db087de29616900509db9b0", 
+ "id": "5e96055329a18c0025d391fe", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T17:03:26.338Z", 
- "category": "5db061df6d7d670050694628", 
+ "category": "5e96055329a18c0025d391e2", 
  "title": "Quorum Messages", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db087de29616900509db9b0", 
+ "_id": "5e96055329a18c0025d391fe", 
  "order": 9, 
  "updates": []
 }

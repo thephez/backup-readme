@@ -108,8 +108,12 @@ Name | Type | Presence | Description
 →<br>`bits` | string (hex) | Required<br>(exactly 1) | The value of the *nBits* field in the block header, indicating the target threshold this block's header had to pass
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | The estimated amount of work done to find this block relative to the estimated amount of work done to find block 0
 →<br>`chainwork` | string (hex) | Required<br>(exactly 1) | The estimated number of block header hashes miners had to check from the genesis block to this block, encoded as big-endian hex
+→<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+
+
 
 *Result (if verbosity was `2`---a JSON block with full transaction details*
 
@@ -169,11 +173,12 @@ Name | Type | Presence | Description
 →<br>`bits` | string (hex) | Required<br>(exactly 1) | The value of the *nBits* field in the block header, indicating the target threshold this block's header had to pass
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | The estimated amount of work done to find this block relative to the estimated amount of work done to find block 0
 →<br>`chainwork` | string (hex) | Required<br>(exactly 1) | The estimated number of block header hashes miners had to check from the genesis block to this block, encoded as big-endian hex
+→<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
-<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.16.0*
 
 Get a block in raw hex:
 
@@ -210,7 +215,7 @@ Result:
 ``` json
 {
   "hash": "00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b",
-  "confirmations": 73083,
+  "confirmations": 212898,
   "size": 310,
   "height": 86190,
   "version": 536870912,
@@ -231,6 +236,7 @@ Result:
   "bits": "1c0094aa",
   "difficulty": 440.8261075201009,
   "chainwork": "0000000000000000000000000000000000000000000000000045ab6f9403a8e7",
+  "nTx": 1,
   "previousblockhash": "000000000073a041bac70a7c3e49c29e8bc954071aeee6e00c7ac8064a372e27",
   "nextblockhash": "00000000001c6c962639a1aad4cd069f315560a824d489418dc1f26b50a58aed",
   "chainlock": true
@@ -249,7 +255,7 @@ Result:
 ``` json
 {
   "hash": "00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b",
-  "confirmations": 73084,
+  "confirmations": 212899,
   "size": 310,
   "height": 86190,
   "version": 536870912,
@@ -306,9 +312,9 @@ Result:
         "merkleRootMNList": "877392defa24888af72aa15f92b6609e71db1b385c1895bf870896398bc0e578",
         "merkleRootQuorums": "a320b95dab4963ca2547434d63ac8203835dfd0ce245924fa83dc6bab6ac57c7"
       },
-      "instantlock": false,
-      "chainlock": false
-      "hex": "03000500010000000000000000000000000000000000000000000000000000000000000000ffffffff2703ae50011a4d696e656420627920416e74506f6f6c2021000b01201da9196f0000000007000000ffffffff02809e4730000000001976a914cbd7bfcc50351180132b2c0698cb90ad74c473c788ac809e4730000000001976a91488a060bc2dfe05780ae4dcb6c98b12436c35a93988ac00000000460200ae50010078e5c08b39960887bf95185c381bdb719e60b6925fa12af78a8824fade927387c757acb6bac63da84f9245e20cfd5d830382ac634d434725ca6349ab5db920a3"
+      "hex": "03000500010000000000000000000000000000000000000000000000000000000000000000ffffffff2703ae50011a4d696e656420627920416e74506f6f6c2021000b01201da9196f0000000007000000ffffffff02809e4730000000001976a914cbd7bfcc50351180132b2c0698cb90ad74c473c788ac809e4730000000001976a91488a060bc2dfe05780ae4dcb6c98b12436c35a93988ac00000000460200ae50010078e5c08b39960887bf95185c381bdb719e60b6925fa12af78a8824fade927387c757acb6bac63da84f9245e20cfd5d830382ac634d434725ca6349ab5db920a3",
+      "instantlock": true,
+      "instantlock_internal": false
     }
   ],
   "cbTx": {
@@ -323,6 +329,7 @@ Result:
   "bits": "1c0094aa",
   "difficulty": 440.8261075201009,
   "chainwork": "0000000000000000000000000000000000000000000000000045ab6f9403a8e7",
+  "nTx": 1,
   "previousblockhash": "000000000073a041bac70a7c3e49c29e8bc954071aeee6e00c7ac8064a372e27",
   "nextblockhash": "00000000001c6c962639a1aad4cd069f315560a824d489418dc1f26b50a58aed",
   "chainlock": true
@@ -352,9 +359,13 @@ Name | Type | Presence | Description
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | The difficulty of the highest-height block in the best block chain
 →<br>`mediantime` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The median time of the 11 blocks before the most recent block on the blockchain.  Used for validating transaction locktime under BIP113
 →<br>`verificationprogress` | number (real) | Required<br>(exactly 1) | Estimate of what percentage of the block chain transactions have been verified so far, starting at 0.0 and increasing to 1.0 for fully verified.  May slightly exceed 1.0 when fully synced to account for transactions in the memory pool which have been verified before being included in a block
+→<br>`initialblockdownload` | boolean | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>An estimate of whether this node is in [Initial Block Download](core-guide-p2p-network-initial-block-download) mode (_debug information_)
 →<br>`chainwork` | string (hex) | Required<br>(exactly 1) | The estimated number of block header hashes checked from the genesis block to this block, encoded as big-endian hex
+→<br>`size_on_disk` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>The estimated size of the block and undo files on disk
 →<br>`pruned` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>Indicates if the blocks are subject to pruning
 →<br>`pruneheight` | number (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>The lowest-height complete block stored if pruning is activated
+→<br>`automatic_pruning` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Whether automatic pruning is enabled (only present if pruning is enabled)
+→<br>`prune_target_size` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The target size used by pruning (only present if automatic pruning is enabled)
 →<br>`softforks` | array | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>An array of objects each describing a current or previous soft fork
 → →<br>Softfork | object | Required<br>(0 or more) | A specific softfork
 → → →<br>`id` | string | Required<br>(exactly 1) | The name of the softfork
@@ -381,9 +392,10 @@ Name | Type | Presence | Description
 → → → →<br>`threshold` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set required to activate the feature.  Field is only shown when status is `started`
 → → → →<br>`elapsed` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks elapsed since the beginning of the current period.  Field is only shown when status is `started`
 → → → →<br>`count` | numeric<br>(int) | Optional<br>(0 or 1) | *Added in Dash Core 0.15.0*<br><br>The number of blocks with the version bit set in the current period.  Field is only shown when status is `started`
-→<br>`possible` | bool | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>Returns false if there are not enough blocks left in this period to pass activation threshold.  Field is only shown when status is `started`
+→ → →<br>`possible` | bool | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.11.0*<br><br>Returns false if there are not enough blocks left in this period to pass activation threshold.  Field is only shown when status is `started`
+→<br>`warnings` | bool | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>Returns any network and blockchain warnings
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet getblockchaininfo
@@ -394,13 +406,15 @@ Result:
 ``` json
 {
   "chain": "test",
-  "blocks": 160508,
-  "headers": 160508,
-  "bestblockhash": "0000000008ae87c2999faa79c74727ab2a15783fcab515cc940a6c14dfa921a8",
-  "difficulty": 24.71182965485547,
-  "mediantime": 1566479773,
-  "verificationprogress": 0.9999986039171913,
-  "chainwork": "0000000000000000000000000000000000000000000000000077db2024e1810b",
+  "blocks": 292973,
+  "headers": 292973,
+  "bestblockhash": "0000020029bcac549a6e7b7e488d9ca8af518d4c0aae8073cd364c70ca29be6e",
+  "difficulty": 0.0002441371325370145,
+  "mediantime": 1586975225,
+  "verificationprogress": 0.9999983278651547,
+  "initialblockdownload": false,
+  "chainwork": "00000000000000000000000000000000000000000000000001e6f68a064798f8",
+  "size_on_disk": 1186147401,
   "pruned": false,
   "softforks": [
     {
@@ -438,6 +452,12 @@ Result:
       "timeout": 1576191600,
       "since": 4400
     },
+    "bip147": {
+      "status": "active",
+      "startTime": 1544655600,
+      "timeout": 1576191600,
+      "since": 4300
+    },
     "dip0003": {
       "status": "active",
       "startTime": 1544655600,
@@ -449,14 +469,9 @@ Result:
       "startTime": 1553126400,
       "timeout": 1584748800,
       "since": 78800
-    },
-    "bip147": {
-      "status": "active",
-      "startTime": 1544655600,
-      "timeout": 1576191600,
-      "since": 4300
     }
-  }
+  },
+  "warnings": "Warning: unknown new rules activated (versionbit 3)"
 }
 ```
 
@@ -624,6 +639,7 @@ Name | Type | Presence | Description
 →<br>`bits` | string (hex) | Required<br>(exactly 1) | The value of the *nBits* field in the block header, indicating the target threshold this block's header had to pass
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | The estimated amount of work done to find this block relative to the estimated amount of work done to find block 0
 →<br>`chainwork` | string (hex) | Required<br>(exactly 1) | The estimated number of block header hashes miners had to check from the genesis block to this block, encoded as big-endian hex
+→<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
 
@@ -633,52 +649,52 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 →<br>`versionHex` | number (hex) | Required<br>(exactly 1) | This block's hex version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.16.0*
 
 Get a block header in raw hex:
 
 ``` bash
 dash-cli -testnet getblockheader \
-            00000000eb0af5aec7b673975a22593dc0cc763f71ba8de26292410273437078 \
+            00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b \
             false
 ```
 
 Result (wrapped):
 
 ``` text
-01000020f61396cfd2747e94cfa088fe1f7875d8171accc22d6e5616edca0cb8\
-00000000c31eb96ee1d9e78d61a601371a348c19e4e59698d0ff7869334b72cb\
-7ffb76893b41d6593016011d09b2aa3c
-
+00000020272e374a06c87a0ce0e6ee1a0754c98b9ec2493e7c0ac7ba41a0\
+730000000000568b3c4156090db4d8db5447762e95dd1d4c921c96801a9\
+086720ded85266325916cc05caa94001c5caf3595
 ```
 
 Get the same block in JSON:
 
 ``` bash
 dash-cli -testnet getblockheader \
-            00000000eb0af5aec7b673975a22593dc0cc763f71ba8de26292410273437078
+            00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b
 ```
 
 Result:
 
 ``` json
-
 {
-  "hash": "00000000eb0af5aec7b673975a22593dc0cc763f71ba8de26292410273437078",
-  "confirmations": 7,
-  "height": 4635,
-  "version": 536870913,
-  "merkleroot": "8976fb7fcb724b336978ffd09896e5e4198c341a3701a6618de7d9e16eb91ec3",
-  "time": 1507213627,
-  "mediantime": 1507213022,
-  "nonce": 1017819657,
-  "bits": "1d011630",
-  "difficulty": 0.920228600314536,
-  "chainwork": "000000000000000000000000000000000000000000000000000001e06428c09a",
-  "previousblockhash": "00000000b80ccaed16566e2dc2cc1a17d875781ffe88a0cf947e74d2cf9613f6",
-  "nextblockhash": "000000003b1aa290db62ae7cfb4dbb67c8e1402a40ef387587f930b8ec3b45db"
+  "hash": "00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b",
+  "confirmations": 212900,
+  "height": 86190,
+  "version": 536870912,
+  "versionHex": "20000000",
+  "merkleroot": "25632685ed0d7286901a80961c924c1ddd952e764754dbd8b40d0956413c8b56",
+  "time": 1556114577,
+  "mediantime": 1556113720,
+  "nonce": 2503323484,
+  "bits": "1c0094aa",
+  "difficulty": 440.8261075201009,
+  "chainwork": "0000000000000000000000000000000000000000000000000045ab6f9403a8e7",
+  "nTx": 1,
+  "previousblockhash": "000000000073a041bac70a7c3e49c29e8bc954071aeee6e00c7ac8064a372e27",
+  "nextblockhash": "00000000001c6c962639a1aad4cd069f315560a824d489418dc1f26b50a58aed",
+  "chainlock": true
 }
-
 ```
 
 *See also*
@@ -954,9 +970,12 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | Object containing transaction statistics
 →<br>`time` | number (int) | Required<br>(exactly 1) | The timestamp for the statistics in UNIX format
 →<br>`txcount` | number (int) | Required<br>(exactly 1) | The total number of transactions in the chain up to that point
-→<br>`txrate` | number (int) | Required<br>(exactly 1) | The average rate of transactions per second in the window
+→<br>`window_block_count` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Size of the window in number of blocks
+→<br>`window_tx_count` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The number of transactions in the window. Only returned if `window_block_count` is > 0
+→<br>`window_interval` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The elapsed time in the window in seconds. Only returned if `window_block_count` is > 0
+→<br>`txrate` | number (int) | Optional<br>(0 or 1) | The average rate of transactions per second in the window. Only returned if `window_interval` is > 0
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet getchaintxstats
@@ -965,9 +984,12 @@ dash-cli -testnet getchaintxstats
 Result:
 ``` json
 {
-  "time": 1566416832,
-  "txcount": 1353139,
-  "txrate": 0.04107376448354556
+  "time": 1586978101,
+  "txcount": 2463918,
+  "window_block_count": 17280,
+  "window_tx_count": 520296,
+  "window_interval": 3783695,
+  "txrate": 0.1375100265745521
 }
 ```
 
@@ -1227,7 +1249,7 @@ Name | Type | Presence | Description
 → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
 →<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>True if this transaction was locked via InstantSend
 
-*Examples from Dash Core 0.12.3*
+*Example from Dash Core 0.12.3*
 
 ``` bash
 dash-cli getmempoolentry d1eefe8a006e2c21b55bc97c1f5b10000d63aa6\
@@ -1276,10 +1298,11 @@ Name | Type | Presence | Description
 →<br>`bytes` | number (int) | Required<br>(exactly 1) | The total number of bytes in the transactions in the memory pool
 →<br>`usage` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>Total memory usage for the mempool in bytes
 →<br>`maxmempool` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>Maximum memory usage for the mempool in bytes
-→<br>`mempoolminfee` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The lowest fee per kilobyte paid by any transaction in the memory pool
+→<br>`mempoolminfee` | number | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The lowest fee per kilobyte paid by any transaction in the memory pool
+→<br>`mempoolminfee` | number | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>The current minimum relay fee for transactions
 →<br>`instantsendlocks` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>Number of unconfirmed InstantSend locks
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet getmempoolinfo
@@ -1289,12 +1312,13 @@ Result:
 
 ``` json
 {
-  "size": 1,
-  "bytes": 666,
-  "usage": 1936,
+  "size": 3,
+  "bytes": 1857,
+  "usage": 5536,
   "maxmempool": 300000000,
-  "mempoolminfee": 0.00000000,
-  "instantsendlocks": 1
+  "mempoolminfee": 0.00001000,
+  "minrelaytxfee": 0.00001000,
+  "instantsendlocks": 2
 }
 ```
 
@@ -1898,7 +1922,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | number (int) | Required<br>(exactly 1) | The height of the last block pruned
 
-*Examples from Dash Core 0.12.3*
+*Example from Dash Core 0.12.3*
 
 ``` bash
 dash-cli pruneblockchain 413555
@@ -1913,6 +1937,22 @@ Result:
 *See also*
 
 * [ImportPrunedFunds](/docs/core-api-ref-remote-procedure-calls-wallet#section-import-pruned-funds): imports funds without the need of a rescan. Meant for use with pruned wallets.
+
+# SaveMemPool
+
+The [`savemempool` RPC](core-api-ref-remote-procedure-calls-blockchain#section-save-mem-pool) dumps the mempool to disk.
+
+_Parameters: none_
+
+*Example from Dash Core 0.16.0*
+
+``` bash
+dash-cli savemempool
+```
+
+Result (no output from dash-cli).
+
+*See also: none*
 
 # VerifyChain
 

@@ -424,8 +424,15 @@ Name | Type | Presence | Description
 → →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
 → →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
 → →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
+→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
+→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
+→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
+→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
+→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
 
-*Example from Dash Core 0.14.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet protx list
@@ -444,20 +451,20 @@ Result:
 List of ProTxs which are active/valid at the given chain height.
 
 ``` bash
-dash-cli -testnet protx list valid false 700
+dash-cli -testnet protx list valid false 7090
 ```
 
 Result:
 ``` json
 [
-  "2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2"
+  "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f"
 ]
 ```
 
 Detailed list of ProTxs which are active/valid at the given chain height.
 
 ``` bash
-dash-cli -testnet protx list valid true 700
+dash-cli -testnet protx list valid true 7090
 ```
 
 Result:
@@ -470,7 +477,7 @@ Result:
     "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
     "operatorReward": 0,
     "state": {
-      "service": "1.2.3.4:1234",
+      "service": "173.61.30.231:19013",
       "registeredHeight": 7090,
       "lastPaidHeight": 0,
       "PoSePenalty": 0,
@@ -482,7 +489,7 @@ Result:
       "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
       "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
     },
-    "confirmations": 1,
+    "confirmations": 292830,
     "wallet": {
       "hasOwnerKey": false,
       "hasOperatorKey": false,
@@ -490,6 +497,14 @@ Result:
       "ownsCollateral": false,
       "ownsPayeeScript": false,
       "ownsOperatorRewardScript": false
+    },
+    "metaInfo": {
+      "lastDSQ": 0,
+      "mixingTxCount": 0,
+      "lastOutboundAttempt": 0,
+      "lastOutboundAttemptElapsed": 1588171141,
+      "lastOutboundSuccess": 0,
+      "lastOutboundSuccessElapsed": 1588171141
     }
   }
 ]
@@ -529,43 +544,59 @@ Name | Type | Presence | Description
 → →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
 → →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
 → →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
+→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
+→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
+→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
+→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
+→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
 
-*Example from Dash Core 0.14.0*
+
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet protx info\
- 2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2
+ c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
 ```
 
 Result:
 ``` json
 {
-  "proTxHash": "2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2",
-  "collateralHash": "8d23d08ee6e2e0577550c90afde9bc63745f734605724ba9908e0220c48dec04",
-  "collateralIndex": 1,
-  "collateralAddress": "ygp7ZJGQZsVvuU11shixkNZSq9Uw4QrdWj",
-  "operatorReward": 5,
+  "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
+  "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
+  "collateralIndex": 3,
+  "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
+  "operatorReward": 0,
   "state": {
-    "service": "54.149.207.193:19999",
-    "registeredHeight": 683,
-    "lastPaidHeight": 785,
-    "PoSePenalty": 0,
-    "PoSeRevivedHeight": -1,
-    "PoSeBanHeight": -1,
+    "service": "173.61.30.231:19013",
+    "registeredHeight": 7090,
+    "lastPaidHeight": 134608,
+    "PoSePenalty": 334,
+    "PoSeRevivedHeight": 96516,
+    "PoSeBanHeight": 134819,
     "revocationReason": 0,
-    "ownerAddress": "ycdU6EyVggw4RaW3EKPHCMBeT6vzRDXgbJ",
-    "votingAddress": "ycdU6EyVggw4RaW3EKPHCMBeT6vzRDXgbJ",
-    "payoutAddress": "yXsKagNKcHkE2eUKQe8Sf2Z32SKrmQ6XEJ",
-    "pubKeyOperator": "8ad9500ef26ae510e0dd8cf0568b2a89d1234697873db2fcdd11674a73caba91cd416f9ac701f4f7807d8db102bc4a39"
+    "ownerAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+    "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+    "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
+    "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
   },
-  "confirmations": 192,
+  "confirmations": 292831,
   "wallet": {
-    "hasOwnerKey": true,
+    "hasOwnerKey": false,
     "hasOperatorKey": false,
-    "hasVotingKey": true,
-    "ownsCollateral": true,
-    "ownsPayeeScript": true,
+    "hasVotingKey": false,
+    "ownsCollateral": false,
+    "ownsPayeeScript": false,
     "ownsOperatorRewardScript": false
+  },
+  "metaInfo": {
+    "lastDSQ": 0,
+    "mixingTxCount": 0,
+    "lastOutboundAttempt": 0,
+    "lastOutboundAttemptElapsed": 1588171300,
+    "lastOutboundSuccess": 0,
+    "lastOutboundSuccessElapsed": 1588171300
   }
 }
 ```
@@ -1036,6 +1067,11 @@ Name | Type | Presence | Description
 → → →<br>`receivedJustifications` | number | Required<br>(exactly 1) | Number of justifications received
 → → →<br>`receivedPrematureCommitments` | number | Required<br>(exactly 1) | Number of premature commitments received
 →<br>`minableCommitments` | object | Required<br>(exactly 1) | Object containing minable commitments
+→<br>`quorumConnections` | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Object containing quorum connection information
+→ →<br>Connection | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object describing a quorum connection
+→ → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The hash of the quorum member's provider registration transaction as hex in RPC byte order
+→ → →<br>`connected` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not the connection is active
+→ → →<br>`address` | string | Optional<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Address
 
 *Result (if detail level was 1)---JSON DKG details including member index*
 

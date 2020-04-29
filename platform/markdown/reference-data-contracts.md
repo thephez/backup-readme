@@ -53,6 +53,14 @@ The following example shows a minimal `documents` object defining a single docum
 The `properties` object defines each field that will be used by a document. Each field consists of an object that, at a minimum, must define its data `type` (`string`, `number`, `integer`, `boolean`, `array`, `object`). Fields may also apply a variety of optional JSON Schema constraints related to the format, range, length, etc. of the data.
 [block:callout]
 {
+  "type": "warning",
+  "body": "The `object` type is required to have properties defined either directly or via the data contract's [definitions](#section-definitions).",
+  "title": "Property type: `object`"
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "title": "JSON Schema",
   "body": "A full explanation of the capabilities of JSON Schema is beyond the scope of this document. For more information regarding its data types and the constraints that can be applied, please refer to the [JSON Schema reference](https://json-schema.org/understanding-json-schema/reference/index.html) documentation."

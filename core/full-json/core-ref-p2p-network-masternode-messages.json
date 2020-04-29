@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db076c3dbccd5005ce07e4f", 
+ "parentDoc": "5e96055329a18c0025d391e9", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2019-11-07T20:09:54.915Z", 
- "id": "5db087d5bc66890014b43686", 
+ "id": "5e96055329a18c0025d391fd", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T17:03:17.479Z", 
- "category": "5db061df6d7d670050694628", 
+ "category": "5e96055329a18c0025d391e2", 
  "title": "Masternode Messages", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db087d5bc66890014b43686", 
+ "_id": "5e96055329a18c0025d391fd", 
  "order": 7, 
  "updates": []
 }

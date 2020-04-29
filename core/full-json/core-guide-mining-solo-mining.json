@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db6e5866efa37002f157fb9", 
+ "parentDoc": "5e96055329a18c0025d39232", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-02-12T17:51:32.894Z", 
- "id": "5db6e5b91ceb850043e49ab8", 
+ "id": "5e96055329a18c0025d39233", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T12:57:29.818Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Solo Mining", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5db6e5b91ceb850043e49ab8", 
+ "_id": "5e96055329a18c0025d39233", 
  "order": 0, 
  "updates": []
 }

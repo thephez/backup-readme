@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5db70cf2700ab3005442c13d", 
+ "parentDoc": "5e96055329a18c0025d3923b", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,11 +25,11 @@
   }
  }, 
  "updatedAt": "2020-02-12T17:46:10.666Z", 
- "id": "5db70da80fc789003832a191", 
+ "id": "5e96055329a18c0025d39240", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T15:47:52.096Z", 
- "category": "5db0a86967f978006336b1b5", 
+ "category": "5e96055329a18c0025d391e3", 
  "title": "Consensus Rule Changes", 
  "next": {
   "description": "", 
@@ -43,7 +43,7 @@
    }
   ]
  }, 
- "version": "5daf2e65f4109c0040fd51e5", 
+ "version": "5e96055329a18c0025d39261", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -60,7 +60,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5db70da80fc789003832a191", 
+ "_id": "5e96055329a18c0025d39240", 
  "order": 4, 
  "updates": []
 }

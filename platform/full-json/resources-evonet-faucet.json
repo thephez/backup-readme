@@ -25,17 +25,17 @@
   }
  }, 
  "updatedAt": "2019-12-30T17:30:00.633Z", 
- "id": "5e08c8a418b2ed00326489e4", 
+ "id": "5e95bfa43971fb0148efeb70", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-29T03:05:37.670Z", 
- "category": "5d42e9a722ecbe01d39a09c4", 
+ "category": "5e95bfa43971fb0148efeb39", 
  "title": "Evonet Faucet", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5d2374d8d238fb004e8f9243", 
+ "version": "5e95bfa43971fb0148efeb82", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -49,10 +49,10 @@
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "resources-evonet-faucet", 
- "link_url": "http://faucet.evonet.networks.dash.org/", 
+ "link_url": "http://faucet.evonet.networks.dash.org", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5e08c8a418b2ed00326489e4", 
+ "_id": "5e95bfa43971fb0148efeb70", 
  "order": 0, 
  "updates": []
 }
