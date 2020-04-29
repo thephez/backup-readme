@@ -49,7 +49,7 @@
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "resources-evonet-block-explorer", 
- "link_url": "http://devnet-evonet-28309188.us-west-2.elb.amazonaws.com:3001/insight/", 
+ "link_url": "http://insight.evonet.networks.dash.org:3001/insight/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5e08c8de9b9456006c428618", 
