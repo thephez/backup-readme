@@ -37,7 +37,7 @@
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/transactions_filter_stream.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  evonet.thephez.com:3010 \\\n  org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs",
+      "code": "grpcurl -proto protos/transactions_filter_stream.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }

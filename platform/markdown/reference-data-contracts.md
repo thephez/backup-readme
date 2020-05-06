@@ -8,7 +8,7 @@ The following sections provide details that developers need to construct valid c
 [block:callout]
 {
   "type": "warning",
-  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/js-dpp/blob/master/schema/meta/data-contract.json)).",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/js-dpp/blob/v0.12.1/schema/dataContract/dataContractMeta.json)).",
   "title": "Constraints"
 }
 [/block]
@@ -24,14 +24,19 @@ The following sections provide details that developers need to construct valid c
 | `$ref: <something>` | `$ref` can only reference `definitions` - <br> remote references not supported |
 
 ## Data Size
-Additionally, there are several constraints limiting the overall size of data contracts and related data as defined here:
 
 **Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
-| Description | Constraint |
-| - | - |
-| Maximum size of serialized data contract | 15 KB |
-| Maximum size of CBOR-encoded data | 16 KB |
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/js-dpp/blob/v0.12.0/lib/util/serializer.js#L5).
+
+## Additional Properties
+
+Although JSON Schema allows additional, undefined properties [by default](https://json-schema.org/understanding-json-schema/reference/object.html?#properties), they are not allowed in Dash Platform data contracts. Data contract validation will fail if they are not explicitly forbidden using the `additionalProperties` keyword anywhere `properties` are defined (including within document properties of type `object`).
+
+Include the following at the same level as the `properties` keyword to ensure proper validation:
+```json
+"additionalProperties": false
+```
 
 # Documents
 The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#section-document-indices) and a list of [required properties](#section-required-properties).
@@ -54,7 +59,7 @@ The `properties` object defines each field that will be used by a document. Each
 [block:callout]
 {
   "type": "warning",
-  "body": "The `object` type is required to have properties defined either directly or via the data contract's [definitions](#section-definitions).",
+  "body": "The `object` type is required to have properties defined either directly or via the data contract's [definitions](#section-definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):\n```javascript\nconst contractDocuments = {\n  message: {\n    properties: {\n      body: {\n        type: \"object\",\n        properties: {\n          objectProperty: {\n            type: \"string\"\n          },\n        },\n        additionalProperties: false,\n      },\n      header: {\n        type: \"string\"\n      }\n    },\n    additionalProperties: false\n  }\n};\n```",
   "title": "Property type: `object`"
 }
 [/block]
@@ -119,6 +124,14 @@ The `indices` array consists of:
  - One or more objects that each contain:
   - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` or `desc`)
   - An (optional) `unique` element that determines if duplicate values are allowed for the document
+[block:callout]
+{
+  "type": "warning",
+  "title": "Compound Indices",
+  "body": "When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
@@ -205,10 +218,3 @@ The following example shows a definition for a `message` object consisting of tw
   "title": "Adding definitions with js-dpp"
 }
 [/block]
-# Additional Properties
-Although JSON Schema allows additional, undefined properties [by default](https://json-schema.org/understanding-json-schema/reference/object.html?#properties), they are not allowed in Dash Platform data contracts. Data contract validation will fail if they are not explicitly forbidden using the `additionalProperties` keyword anywhere `properties` are defined.
-
-Include the following at the same level as the `properties` keyword to ensure proper validation:
-```json
-"additionalProperties": false
-```

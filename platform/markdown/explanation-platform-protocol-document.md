@@ -14,17 +14,15 @@ Documents are defined in an application's [Data Contract](explanation-platform-p
 
 ## Base Fields
 
-Dash Platform Protocol (DPP) defines a set of base fields that must be present in all documents. For the [`js-dpp` reference implementation](https://github.com/dashevo/js-dpp/), the base fields shown below are defined in `lib/document/Document.js`.
+Dash Platform Protocol (DPP) defines a set of base fields that must be present in all documents. For the [`js-dpp` reference implementation](https://github.com/dashevo/js-dpp/), the base fields shown below are defined in the [document base schema](https://github.com/dashevo/js-dpp/blob/v0.12.1/schema/document/documentBase.json).
 
 | Field Name | Description |
 | - | - |
-| id | Unused in the current version of DPP (always `undefined`) |
-| action | `CREATE`, `REPLACE`, or `DELETE` |
+| $id | Document ID |
 | $type | Type of document (must match one of the document types defined in the data contract) |
-| $entropy | Randomness to ensure document uniqueness |
-| $contractId | Application identity that registered the data contract defining this document  |
-| $userId | Identity submitting the document  |
-| $rev | Document revision |
+| $dataContractId | Identity that registered the data contract defining this document  |
+| $ownerId | Identity submitting the document  |
+| $revision | Document revision |
 
 ## Data Contract Fields
 
@@ -47,12 +45,12 @@ Once a document has been created, it must be encapsulated in a State Transition 
 
 | Field Name | Description |
 | - | - | 
-| protocolVersion | Dash Platform Protocol version |
-| type | State transition type (`2` for documents) |
-| action(s) | Array containing action type for all documents |
-| document(s) | Array of documents |
-| signaturePublicKeyId | Index of which of the identity's public keys signed the state transition |
-| signature | Signature |
+| protocolVersion | Dash Platform Protocol version (currently `0`) |
+| type | State transition type (`1` for documents) |
+| ownerId | Identity submitting the document(s) |
+| transitions |  Document `create`, `replace`, or `delete` transitions (up to 10 objects) |
+| signaturePublicKeyId | The `id` of the identity public key that signed the state transition |
+| signature | Signature of state transition data |
 
 # Example Document
 
@@ -61,7 +59,7 @@ The following example shows the structure of a DPNS `domain` document as output 
 {
   "codes": [
     {
-      "code": "{\n  '$type': 'domain',\n  '$contractId': '2KfMcMxktKimJxAZUeZwYkFUsEcAZhDKEpQs8GMnpUse',\n  '$userId': 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e',\n  '$entropy': 'yU6o6YUbhQpA52Cksudxv9vycFHunHvmvp',\n  '$rev': 1,\n  label: 'Alejandro84',\n  records: { \n    dashIdentity: 'Bb2p582MFR1tQhVQHKrScsAJH6Erqsb6SoroD9dQhJ5e'\n  },\n  nameHash: '5610616c656a616e64726f38342e64617368',\n  preorderSalt: 'yTYLYcWnzgcWkwWBwG4M2LZm5SGi2Wf1Rc',\n  normalizedLabel: 'alejandro84',\n  normalizedParentDomainName: 'dash' \n}",
+      "code": "{\n  '$id': 'GbMwuXdxzN3BB9efMgLPRhbbqCA5jnyfka2jnbyvGyih',\n  '$type': 'domain',\n  '$dataContractId': '295xRRRMGYyAruG39XdAibaU9jMAzxhknkkAxFE7uVkW',\n  '$ownerId': 'HjRuBghdteSmiN8w1VvGe9VHShdAxgt329xBHNQhyUGL',\n  '$revision': 1,\n  label: 'testName1234',\n  records: {\n    dashIdentity: 'HjRuBghdteSmiN8w1VvGe9VHShdAxgt329xBHNQhyUGL'\n  },\n  nameHash: '5620938ed72967fa06cfd9ebcd3bf9e5a5abf366563f5ea1f1874a531e7d78e75500',\n  preorderSalt: 'ya9GK3VwCeLxyAS9jnQX7WTkGcXMJV96mX',\n  normalizedLabel: 'testname1234',\n  normalizedParentDomainName: 'dash'\n}",
       "language": "json",
       "name": ".toJSON()"
     }

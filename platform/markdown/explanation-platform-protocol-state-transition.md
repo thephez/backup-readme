@@ -37,7 +37,7 @@ The following table contains a list of currently defined payload types:
 | Payload Type | Payload Description |
 | - | - |
 | Data Contract (`0`) | Database schema for a single application |
-| Documents Batch (`1`) | An array of 1 or more document transition objects containing user application data |
+| Documents Batch (`1`) | An array of 1 or more document transition objects containing application data |
 | Identity (`2`) | Identity creation information |
 
 ## Application Usage

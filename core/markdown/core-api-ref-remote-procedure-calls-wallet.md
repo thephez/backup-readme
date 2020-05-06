@@ -730,6 +730,7 @@ The [`getwalletinfo` RPC](core-api-ref-remote-procedure-calls-wallet#section-get
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | An object describing the wallet
+→<br>`walletname` | string | Required<br>(exactly 1) | The name of the wallet
 →<br>`walletversion` | number (int) | Required<br>(exactly 1) | The version number of the wallet
 →<br>`balance` | number (dash) | Required<br>(exactly 1) | The total confirmed balance of the wallet.  The same as returned by the [`getbalance` RPC](core-api-ref-remote-procedure-calls-wallet#section-get-balance) with default parameters
 →<br>`privatesendbalance` | number (dash) | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>The total PrivateSend balance of the wallet
@@ -748,7 +749,7 @@ Name | Type | Presence | Description
 → →<br>`hdexternalkeyindex` | number (int) | Optional<br>(0 or 1) | Current external child key index
 → →<br>`hdinternalkeyindex` | number (int) | Optional<br>(0 or 1) | Current internal child key index
 
-*Example from Dash Core 0.12.3*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet getwalletinfo
@@ -758,6 +759,7 @@ Result:
 
 ``` json
 {
+  "walletname": "",
   "walletversion": 61000,
   "balance": 3000.00000000,
   "privatesend_balance": 413.20413200,  

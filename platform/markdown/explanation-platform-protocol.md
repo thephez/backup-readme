@@ -22,6 +22,6 @@ A document is an atomic entity used by the platform to store user-submitted data
 For additional detail, see the [Document](explanation-platform-protocol-document) explanation.
 
 ## State Transition
-A state transition represents a change made by a user to the application and platform states. It consists of either an array of documents or one data contract, the ID of the application to which the change is made, and a user signature. The user signature is made for the binary representation of the state transition using the private key associated with a user identity. A state transition is constructed by the client-side library when the user creates documents and submits them to the platform API.
+A state transition represents a change made by a user to the application and platform states. It consists of either an array of documents or one data contract, the ID of the application to which the change is made, and a user signature. The user signature is made for the binary representation of the state transition using a private key associated with a user identity. A state transition is constructed by a client-side library when the user creates documents and submits them to the platform API.
 
 For additional detail, see the [State Transition](explanation-platform-protocol-state-transition) explanation.

@@ -271,6 +271,7 @@ Name | Type | Presence | Description
 →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
 →<br>`networkactive` | bool | Required<br>(exactly 1) | Set to `true` if P2P networking is enabled.  Set to `false` if P2P networking is disabled. Enabling/disabling done via [SetNetworkActive](/docs/core-api-ref-remote-procedure-calls-network#section-set-network-active)
 →<br>`connections` | number (int) | Required<br>(exactly 1) | The total number of open connections (both outgoing and incoming) between this node and other nodes
+→<br>`socketevents` | string | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The socket events mode, either `epoll`, `poll`, or `select`
 →<br>`networks` | array | Required<br>(exactly 1) | An array with three objects: one describing the IPv4 connection, one describing the IPv6 connection, and one describing the Tor hidden service (onion) connection
 → →<br>Network | object | Optional<br>(0 to 3) | An object describing a network.  If the network is unroutable, it will not be returned
 → → →<br>`name` | string | Required<br>(exactly 1) | The name of the network.  Either `ipv4`, `ipv6`, or `onion`
@@ -287,7 +288,7 @@ Name | Type | Presence | Description
 → → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#section-version)
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>A plain-text description of any network warnings. If there are no warnings, an empty string will be returned.
 
-*Example from Dash Core 0.12.3*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli getnetworkinfo
@@ -297,14 +298,15 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
 
 ``` json
 {
-  "version": 120300,
-  "subversion": "/Dash Core:0.12.3/",
-  "protocolversion": 70208,
-  "localservices": "0000000000000005",
+  "version": 160000,
+  "subversion": "/Dash Core:0.16.0/",
+  "protocolversion": 70217,
+  "localservices": "0000000000000405",
   "localrelay": true,
   "timeoffset": 0,
   "networkactive": true,
-  "connections": 9,
+  "connections": 8,
+  "socketevents": "epoll",
   "networks": [
     {
       "name": "ipv4",
@@ -337,9 +339,8 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
       "score": 4
     }
   ],
-  "warnings": ""
+  "warnings": "Warning: unknown new rules activated (versionbit 3)"
 }
-
 ```
 
 *See also*

@@ -1072,6 +1072,7 @@ Name | Type | Presence | Description
 → → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The hash of the quorum member's provider registration transaction as hex in RPC byte order
 → → →<br>`connected` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not the connection is active
 → → →<br>`address` | string | Optional<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Address
+→ → →<br>`outbound` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not this is an outbound connection
 
 *Result (if detail level was 1)---JSON DKG details including member index*
 
@@ -2251,6 +2252,75 @@ Result:
     "memberIndex": 80
   }
 ]
+```
+
+*See also: none*
+
+## Quorum SelectQuorum
+
+The `quorum selectquorum` RPC returns information about the quorum that would/should sign a request.
+
+*Parameter #1---LLMQ Type*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) to list:<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+
+*Parameter #2---request id*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`id` | string (hex) | Required<br>(exactly 1) | The request ID
+
+*Result---quorum hash and list of quorum members*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | Array of objects | Required<br>(exactly 1) | Array containing info for quorum's the masternode belongs to
+→<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
+→→<br>`recoveryMembers` | array | Required<br>(exactly 1) | Array containing ProRegTx hashes
+→→→<br>ProRegTx Hash | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+
+*Example from Dash Core 0.16.0*
+
+``` bash
+dash-cli -testnet quorum selectquorum 1 \
+  b95205c3bba72e9edfbe7380ec91fe5a97e16a189e28f39b03c6822757ad1a34
+```
+
+Result:
+``` json
+{
+  "quorumHash": "00000ba8932486c66ed0742fd6b0f4e65afc75ab1e7886c6ef84580dfb7da34f",
+  "recoveryMembers": [
+    "0130c115522681b87082db1f45c38423d1a018a8e1559c2491103931e891c220",
+    "dcd5dd71c4bd50c76d428f72b4a5731bd819720fbc656fff717548e2fe8cbd09",
+    "a25c2f4549da0135411122ee9c2d37e8375577dc97431a282a5c374b4c71463a",
+    "a1aaa653e5183d6a4525abfd0a76fc7d6a68393a1c4259117028dfce4fd215e1",
+    "4c9eb7849590cca2aa18bf9aeeb1e4196c833740de2b111a7690eb62319b0735",
+    "f38b8c5cb6c9e712aeeb150b9591cbdc70e99f9f26c1516955dd506b20dd9876",
+    "afe12673c32de351e9f5a29178cd55656f03e64357be872536eb50b059032fe0",
+    "651d56765c77b8c16b829a4a68f6d39cab40c913d0d365d7b7fd254ccc6cb2f1",
+    "f88d0e5349d0bf7e4426a7461d7931d09f54c13edb6d83306c2521d19eb0b14b",
+    "bdba1f169ab1e73c4dc96f4133b337c36907976e26a4612ffa5ae18869eba96c",
+    "94044c070f9ce6bdd05c2b655ad2383c8402a74c10e0a9a3099d759b33cb7630",
+    "515f77efd5983a765dc5740b0e0d3fae6e867917ca384467b24e31dda68c7369",
+    "d1ebecfb816f5b4b5f34c91c0aab9c1b643c8567473e6ee35e02e01c9f2304c0",
+    "2755d546b114aaec98589cf5b946e408a8996e4837234d2eee97e1da8c71e9ce",
+    "b04b5240a8fc5ae62865dfa2e2558894f4b53d82fe88771e5345407b560d59bc",
+    "53750150229202353bfbc3a2c866b993dd33a4c749d8f18ddcb1f5caf7e901ef",
+    "7a5d1e05d4772feede8b9e71e17e013f99e77c622f13897b8a96339d6d06e1fc",
+    "24f6fae5b5afd001d1046425f38e6ef523140afafc83013468bd31feb343f307",
+    "18f2e176adf88043c41b406d0c97a2dd529d5daaca8b8ac49f72e6da30334926",
+    "73191708ab5b21cc7ede9b12bc1e79de97ad5c4b9717a4fbf5de0ed1f3a5836a",
+    "b57da176c0b6deae786afd318a8e00e351bed0f47ceac28f5b6d3d502f1c68d7",
+    "161b2dcf8243162d11065eefd0948cb79d96dfa8ae869e34763a2bbd7d1d5d55",
+    "fac81f18b3a968f5f881324d8eb38983f3f892c4999c2f46809c4de620b784d2",
+    "42267d2c50a68350c880a488ec25ba0eac4e7cd436eb97c686fe0a6d035d25d3",
+    "0be00b051c77fd4b6dac46a63b939f73726dc61dd80616e4573a9465f1aafa93"
+  ]
+}
+
 ```
 
 *See also: none*

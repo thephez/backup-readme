@@ -20,9 +20,6 @@ npm: `@dashevo/wallet-lib`
 Provides layer-1 spv wallet functions
 Uses dapi-client, dashcore-lib, and js-dpp.
 
-## dashpay-dpa
-platform plugin for wallet-lib
-
 ## [DashJS](https://github.com/dashevo/DashJS)
 npm: `dash`
 uses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers

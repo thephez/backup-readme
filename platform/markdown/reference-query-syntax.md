@@ -22,7 +22,7 @@ Valid fields consist of the indices defined for the document being queried. For 
 | Index Field(s) | Index Type | Unique |
 | - | - | :-: | 
 | [nameHash](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L4-L9) | Single Field | Yes |
-| [normalizedParentDomain, normalizedLabel](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L10-L15) | Compound | No |
+| [normalizedParentDomainName, normalizedLabel](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L10-L15) | Compound | No |
 | [records.dashIdentity](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L16-L20) | Single Field | Yes |
 
 
@@ -106,7 +106,7 @@ The query modifiers described here determine how query results will be sorted an
 {
   "type": "warning",
   "title": "Compound Index Constraints",
-  "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L11-L14)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order. Please see the [mongoDB documention](https://docs.mongodb.com/manual/core/index-compound/#sort-order) for further details related to this topic."
+  "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L11-L14)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order. Please see the [mongoDB documention](https://docs.mongodb.com/manual/core/index-compound/#sort-order) for further details related to this topic.\nAdditionally, the order in which the properties are defined in a compound index affects how queries may be constructed per this [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes). For example, a DPNS query for `normalizedLabel` must also include `normalizedParentDomainName` while the inverse is not true ([index definition](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L10-L15) in the DPNS contract)."
 }
 [/block]
 

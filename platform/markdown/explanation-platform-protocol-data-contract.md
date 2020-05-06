@@ -2,7 +2,7 @@
 
 As described briefly in the [Dash Platform Protocol explanation](explanation-platform-protocol#section-data-contract), Dash Platform uses data contracts to define the schema (structure) of data it stores. Therefore, an application must first register a data contract before using the platform to store its data. Then, whenever the application requests to store or change data on Dash Platform, the request will only succeed if the new data matches the data contract's schema.
 
-The first two data contracts are DashPay wallet and [Dash Platform Name Service (DPNS)](explanation-dpns). The concept of the social, username based DashPay wallet served as the catalyst for development of the platform, with DPNS providing the mechanism to support usernames.
+The first two data contracts are DashPay wallet and [Dash Platform Name Service (DPNS)](explanation-dpns). The concept of the social, username-based DashPay wallet served as the catalyst for development of the platform, with DPNS providing the mechanism to support usernames.
 
 # Details
 
@@ -10,14 +10,9 @@ The first two data contracts are DashPay wallet and [Dash Platform Name Service 
 
 Data contracts are owned by the [identity](explanation-identity) that registers them. Since Dash Platform Protocol version 0.12.0, a single identity may be used to create multiple data contracts.
 
-## Constraints
-
-On certain networks, such as a local devnet, anyone can create a new data contract. After launch, this will also be true on Testnet and Mainnet.
-
 ## Structure
 Each data contract must define several fields. When using the [JavaScript implementation](https://github.com/dashevo/js-dpp) of the Dash Platform Protocol, some of these fields are automatically set to a default value and do not have to be explicitly provided:
- - The platform protocol schema version it uses (default: defined by js-dpp)
- - A contract version number (default: 1)
+ - The platform protocol schema it uses (default: defined by js-dpp)
  - A contract ID (the identity registering the contract)
  - One or more documents
 
@@ -33,10 +28,10 @@ The drawing below illustrates the steps an application developer follows to comp
   "images": [
     {
       "image": [
-        "https://files.readme.io/f60c959-Creating_and_Using_an_Application.png",
-        "Creating and Using an Application.png",
-        960,
-        720,
+        "https://files.readme.io/e7fc1d6-Creating_and_Using_an_Application_-_All.png",
+        "Creating and Using an Application - All.png",
+        820,
+        719,
         "#eaecee"
       ],
       "caption": "Data Contract Registration Overview"

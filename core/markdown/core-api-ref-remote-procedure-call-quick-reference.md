@@ -67,7 +67,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [BLS](core-api-ref-remote-procedure-calls-evo#section-bls): provides a set of commands to execute BLS-related actions. _Updated in Dash Core 0.14.0_
 * [ProTx](core-api-ref-remote-procedure-calls-evo#section-pro-tx): provides a set of commands to execute ProTx related actions. **Updated in Dash Core 0.16.0**
-* [Quorum](core-api-ref-remote-procedure-calls-evo#section-quorum): provides a set of commands for quorums (LLMQs). _New in Dash Core 0.14.0_
+* [Quorum](core-api-ref-remote-procedure-calls-evo#section-quorum): provides a set of commands for quorums (LLMQs). **Updated in Dash Core 0.16.0**
 
 # [Generating RPCs](core-api-ref-remote-procedure-calls-generating)
 
@@ -90,7 +90,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetAddedNodeInfo](core-api-ref-remote-procedure-calls-network#section-get-added-node-info): returns information about the given added node, or all added nodes (except onetry nodes). Only nodes which have been manually added using the [`addnode` RPC](core-api-ref-remote-procedure-calls-network#section-add-node) will have their information displayed. *Updated in Dash Core 0.12.3*
 * [GetConnectionCount](core-api-ref-remote-procedure-calls-network#section-get-connection-count): returns the number of connections to other nodes.
 * [GetNetTotals](core-api-ref-remote-procedure-calls-network#section-get-net-totals): returns information about network traffic, including bytes in, bytes out, and the current time.
-* [GetNetworkInfo](core-api-ref-remote-procedure-calls-network#section-get-network-info): returns information about the node's connection to the network. _Updated in Dash Core 0.14.0_
+* [GetNetworkInfo](core-api-ref-remote-procedure-calls-network#section-get-network-info): returns information about the node's connection to the network. **Updated in Dash Core 0.16.0**
 * [GetPeerInfo](core-api-ref-remote-procedure-calls-network#section-get-peer-info): returns data about each connected network node. **Updated in Dash Core 0.16.0**
 * [ListBanned](core-api-ref-remote-procedure-calls-network#section-list-banned): lists all banned IPs/Subnets.
 * [Ping](core-api-ref-remote-procedure-calls-network#section-ping): sends a P2P ping message to all connected nodes to measure ping time. Results are provided by the [`getpeerinfo` RPC](core-api-ref-remote-procedure-calls-network#section-get-peer-info) pingtime and pingwait fields as decimal seconds. The P2P [`ping` message](core-ref-p2p-network-control-messages#section-ping) is handled in a queue with all other commands, so it measures processing backlog, not just network ping.

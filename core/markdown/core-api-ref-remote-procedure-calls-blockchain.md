@@ -753,16 +753,17 @@ Name | Type | Presence | Description
 → →<br>`bits` | string (hex) | Required<br>(exactly 1) | The value of the *nBits* field in the block header, indicating the target threshold this block's header had to pass
 → →<br>`difficulty` | number (real) | Required<br>(exactly 1) | The estimated amount of work done to find this block relative to the estimated amount of work done to find block 0
 →<br>`chainwork` | string (hex) | Required<br>(exactly 1) | The estimated number of block header hashes miners had to check from the genesis block to this block, encoded as big-endian hex
+→<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 → →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 → →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.16.0*
 
 Get two block headers in raw hex:
 
 ``` bash
 dash-cli -testnet getblockheaders \
-            0000000010a16c6fbc6bd5cdc238c2beabcda334e97fde1500d59be4e6fc4b89 \
+            00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b \
             2 false
 ```
 
@@ -770,12 +771,12 @@ Result (wrapped):
 
 ``` text
 [
-  "010000207216dc7b7c898ba3fc0b39d1fd16756b97b1e07e3eb5c64d1510a64b0000000\
-   0bb64e58a0be4276bf3e9c366bba960953ef9e47a8f62342476be56a5dfa7a2670276db\
-   59eae1001d0735577e",
-  "01000020894bfce6e49bd50015de7fe934a3cdabbec238c2cdd56bbc6f6ca1100000000\
-   0edb2a018d535de70b0622a3303dc329dcb315e7507d074c0c641501c58d88aa08576db\
-   59c5db001d03cf8986"
+  "00000020272e374a06c87a0ce0e6ee1a0754c98b9ec2493e7c0ac7ba41a0730000000\
+   000568b3c4156090db4d8db5447762e95dd1d4c921c96801a9086720ded8526632591\
+   6cc05caa94001c5caf3595", 
+  "000000202be60663802ead0740cb6d6e49ee7824481280f03c71369eb90f7b00000000\
+   006abd277facc8cf02886d88662dbcc2adb6d8de7a491915e74bed4d835656a4f1f26d\
+   c05ced93001ccf81cabc"
 ]
 ```
 
@@ -792,34 +793,40 @@ Result:
 ``` json
 [
   {
-    "hash": "0000000010a16c6fbc6bd5cdc238c2beabcda334e97fde1500d59be4e6fc4b89",
-    "confirmations": 20,
-    "height": 6802,
-    "version": 536870913,
-    "merkleroot": "67a2a7dfa556be762434628f7ae4f93e9560a9bb66c3e9f36b27e40b8ae564bb",
-    "time": 1507554818,
-    "mediantime": 1507554058,
-    "nonce": 2119644423,
-    "bits": "1d00e1ea",
-    "difficulty": 1.1331569664903,
-    "chainwork": "0000000000000000000000000000000000000000000000000000092c7b511197",
-    "previousblockhash": "000000004ba610154dc6b53e7ee0b1976b7516fdd1390bfca38b897c7bdc1672",
-    "nextblockhash": "000000009910885e811230c403e55aac6547d6df04ee671b2e8348524f73cab8"
+    "hash": "00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b",
+    "confirmations": 212910,
+    "height": 86190,
+    "version": 536870912,
+    "versionHex": "20000000",
+    "merkleroot": "25632685ed0d7286901a80961c924c1ddd952e764754dbd8b40d0956413c8b56",
+    "time": 1556114577,
+    "mediantime": 1556113720,
+    "nonce": 2503323484,
+    "bits": "1c0094aa",
+    "difficulty": 440.8261075201009,
+    "chainwork": "0000000000000000000000000000000000000000000000000045ab6f9403a8e7",
+    "nTx": 1,
+    "previousblockhash": "000000000073a041bac70a7c3e49c29e8bc954071aeee6e00c7ac8064a372e27",
+    "nextblockhash": "00000000001c6c962639a1aad4cd069f315560a824d489418dc1f26b50a58aed",
+    "chainlock": true
   },
   {
-    "hash": "000000009910885e811230c403e55aac6547d6df04ee671b2e8348524f73cab8",
-    "confirmations": 19,
-    "height": 6803,
-    "version": 536870913,
-    "merkleroot": "a08ad8581c5041c6c074d007755e31cb9d32dc03332a62b070de35d518a0b2ed",
-    "time": 1507554949,
-    "mediantime": 1507554181,
-    "nonce": 2257178371,
-    "bits": "1d00dbc5",
-    "difficulty": 1.164838875953147,
-    "chainwork": "0000000000000000000000000000000000000000000000000000092da5851d38",
-    "previousblockhash": "0000000010a16c6fbc6bd5cdc238c2beabcda334e97fde1500d59be4e6fc4b89",
-    "nextblockhash": "000000004bbb3828db1c4d4491760336cec215087819ab656336f30d4095e3d2"
+    "hash": "00000000001c6c962639a1aad4cd069f315560a824d489418dc1f26b50a58aed",
+    "confirmations": 212909,
+    "height": 86191,
+    "version": 536870912,
+    "versionHex": "20000000",
+    "merkleroot": "f1a45656834ded4be71519497aded8b6adc2bc2d66886d8802cfc8ac7f27bd6a",
+    "time": 1556114930,
+    "mediantime": 1556113903,
+    "nonce": 3167388111,
+    "bits": "1c0093ed",
+    "difficulty": 443.0262219757585,
+    "chainwork": "0000000000000000000000000000000000000000000000000045ad2a9c752d18",
+    "nTx": 1,
+    "previousblockhash": "00000000007b0fb99e36713cf08012482478ee496e6dcb4007ad2e806306e62b",
+    "nextblockhash": "000000000076a17beb1bb56e6ec53579f8a604d2363c9a4f8ca3f63e6aca3423",
+    "chainlock": true
   }
 ]
 ```

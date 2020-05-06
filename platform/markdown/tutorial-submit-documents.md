@@ -1,10 +1,3 @@
-[block:callout]
-{
-  "type": "danger",
-  "body": "This tutorial does not work with Version 3.0.0 of the SDK. The platform team is aware of the issue and additional information can be found in [PR #48 on GitHub](https://github.com/dashevo/DashJS/pull/48).",
-  "title": "Known Issue"
-}
-[/block]
 # Overview
 
 In this tutorial we will submit some data to an application on Dash Platform. Data is stored in the form of [documents](explanation-platform-protocol-document) which are encapsulated in a [state transition](explanation-platform-state-transition) before being submitted to DAPI. 
@@ -27,7 +20,7 @@ In this tutorial we will submit some data to an application on Dash Platform. Da
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  apps: {\n    tutorialContract: {\n      contractId: 'EzLBmQdQXYMaoeXWNaegK18iaaCDShitN3s14US3DunM'\n    }\n  }  \n};\nconst client = new Dash.Client(clientOpts);\n\nconst submitNoteDocument = async function () {\n  const platform = client.platform;\n  await client.isReady();\n\n  try {\n    const identity = await platform.identities.get('an identity ID goes here');\n\n    docProperties = {\n      message: 'Tutorial Test @ ' + new Date().toUTCString()\n    }\n\n    // Create the note document\n    const noteDocument = await platform.documents.create(\n      'tutorialContract.note',\n      identity,\n      docProperties,\n    );\n\n    const documentBatch = {\n      create: [noteDocument],\n    \treplace: [],\n    \tdelete: [],\n    }\n    // Sign and submit the document(s)\n    await platform.documents.broadcast(documentBatch, identity);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\nsubmitNoteDocument();\n",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  apps: {\n    tutorialContract: {\n      contractId: '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8'\n    }\n  }  \n};\nconst client = new Dash.Client(clientOpts);\n\nconst submitNoteDocument = async function () {\n  const platform = client.platform;\n  await client.isReady();\n\n  try {\n    const identity = await platform.identities.get('an identity ID goes here');\n\n    docProperties = {\n      message: 'Tutorial Test @ ' + new Date().toUTCString()\n    }\n\n    // Create the note document\n    const noteDocument = await platform.documents.create(\n      'tutorialContract.note',\n      identity,\n      docProperties,\n    );\n\n    const documentBatch = {\n      create: [noteDocument],\n    \treplace: [],\n    \tdelete: [],\n    }\n    // Sign and submit the document(s)\n    await platform.documents.broadcast(documentBatch, identity);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\nsubmitNoteDocument();\n",
       "language": "javascript"
     }
   ]

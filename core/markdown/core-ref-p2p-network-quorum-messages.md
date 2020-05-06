@@ -564,6 +564,33 @@ Session Announcement 2
 | 90a3c0300ce39177d0d31be5b47c2361 ......... Message Hash
 ```
 
+## qsigshare
+
+*Added in protocol version 70217 of Dash Core*
+[block:callout]
+{
+  "type": "warning",
+  "body": "This message is used for intra-quorum communication and is only sent to the <<glossary:masternodes>> in the LLMQ and <<glossary:nodes>> that are monitoring in Watch Mode for auditing/debugging purposes."
+}
+[/block]
+The [`qsigshare` message](core-ref-p2p-network-quorum-messages#section-qsigshare) (quorum signature share) announces one or more quorum signature shares known by the transmitting peer.
+
+
+[block:callout]
+{
+  "type": "info",
+  "body": "The maximum number of shares in a [`qsigshare` message](core-ref-p2p-network-quorum-messages#section-qsigshare) is limited to 32 (as defined by `MAX_MSGS_SIG_SHARES` in Dash Core)."
+}
+[/block]
+| Bytes | Name | Data type | Description |
+| --- | --- | --- | --- |
+
+The following annotated hexdump shows a [`qsigshare` message](core-ref-p2p-network-quorum-messages#section-qsigsjare). (The message header has been omitted.)
+
+``` text
+To be added
+```
+
 ## qsigsinv
 
 *Added in protocol version 70214 of Dash Core*

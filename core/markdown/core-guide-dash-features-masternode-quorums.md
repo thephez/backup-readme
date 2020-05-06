@@ -68,10 +68,8 @@ Note the following timeouts defined by Dash Core related to signing sessions:
 | `SIG_SHARE_REQUEST_TIMEOUT` | 5 | Time to wait for a requested share before requesting from a different node |
 | `SESSION_TOTAL_TIMEOUT` | 300 | Time to wait for session to complete |
 
-# Quorum Selection
+# Quorum Configuration
 
-| Quorum Type | Members | Consensus | Description |
-| ----------- | ------- | --------- | ----------- |
-| Classic<br>(non-LLMQ) InstantSend | 10      | Majority  | A set of 10 masternodes are selected for _each_ input of the InstantSend transaction. A majority (6+) of them must agree to lock the input. If all inputs in the transaction can be locked, it becomes a successful InstantSend.
-| MN Payments | 10      | Majority | A set of 10 masternodes are selected for each block. A majority (6+) of them must agree on the masternode payee for the next block.
-| MN Broadcast | 10      | Majority | _Deprecated by DIP3 (deterministic masternode list) in Dash Core 0.13._<br><br>If a majority (6+) of nodes agree, a new `mnb` message is not required.
+Mainnet and Testnet only use quorums of pre-defined sizes that are hard coded into Dash Core. RegTest and Devnet environments each have a quorum that supports custom size and threshold parameters that are controlled via command line or configuration file parameters (`llmqtestparams`/`llmqdevnetparams`).
+
+A list of all the quorums and their default sizes can be found in the [Current LLMQ Types table](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) found in DIP-6.
