@@ -1928,6 +1928,50 @@ Result:
 
 *See also: none*
 
+# LoadWallet
+[block:callout]
+{
+  "type": "warning",
+  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**).\n\n**Note:** This feature is currently only available through the RPC interface. Wallets loaded in this way will not display in the GUI."
+}
+[/block]
+The [`loadwallet` RPC](core-api-ref-remote-procedure-calls-wallet#section-load-wallet) loads a wallet from a wallet file or directory. Note that all wallet command-line options used when starting dashd will be applied to the new wallet (eg -zapwallettxes, upgradewallet, rescan, etc).
+
+*Parameter #1---wallet name*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Filename | string | Required<br>(exactly 1) | The wallet directory or .dat file. The wallet can be specified as file/directory basename (which must be located in the `walletdir` directory), or as an absolute path to a file/directory.
+
+*Result---operation status*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object containing the wallet name or warning message related to the operation
+→<br>`name` | string | Required | The wallet name if loaded successfully
+→<br>`warning` | string | Required | Warning message if wallet was not loaded cleanly
+*Example from Dash Core 0.16.0*
+
+``` bash
+dash-cli -testnet loadwallet wallet-test.dat
+```
+
+Result:
+
+``` json
+{
+  "name": "wallet-test.dat",
+  "warning": ""
+}
+```
+
+
+
+
+
+
+
+
 # LockUnspent
 [block:callout]
 {

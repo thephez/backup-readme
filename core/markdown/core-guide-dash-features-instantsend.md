@@ -7,7 +7,7 @@ Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction 
 
 | **Network** | **Confirmations Required** |
 | --- | --- |
-| Mainnet | 6 Blocks |
+| Mainnet | 6 Blocks (normal transactions)<br>**100 Blocks (mining/masternode rewards)** |
 | Testnet / Regtest / Devnet | 2 Blocks |
 
 The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.

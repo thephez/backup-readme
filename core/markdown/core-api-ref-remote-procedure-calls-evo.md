@@ -797,12 +797,17 @@ Name | Type | Presence | Description
 → →<br>`llmqType` | number | Required<br>(exactly 1) | The quorum type
 → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
 → →<br>`signersCount` | number | Required<br>(exactly 1) | The number of signers for the quorum
+→ →<br>`signers` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Bitset representing the aggregated signers of this final commitment
 → →<br>`validMembersCount` | number | Required<br>(exactly 1) | The number of valid members in the quorum
+→ →<br>`validMembers` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Bitset of valid members in this commitment
 → →<br>`quorumPublicKey` | string (hex) | Required<br>(exactly 1) | The public key of the quorum
+→ →<br>`quorumVvecHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The SHA256 hash of the quorum verification vector
+→ →<br>`quorumSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Recovered threshold signature
+→ →<br>`membersSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Aggregated BLS signatures from all included commitments
 →<br>`merkleRootMNList` | string (hex) | Required<br>(exactly 1) | Merkle root of the masternode list
 →<br>`merkleRootQuorums` | string (hex) | Required<br>(exactly 1) | *Added in Coinbase Transaction version 2 (Dash Core 0.14.0)*<br><br>Merkle root of the masternode list
 
-*Example from Dash Core 0.14.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet protx diff 75000 76000
@@ -867,32 +872,52 @@ Result (truncated):
       "llmqType": 1,
       "quorumHash": "0000000001427858db64213ed3ef32ffb2546ca7f2a096adbefc197437b90612",
       "signersCount": 50,
+      "signers": "ffffffffffff03",
       "validMembersCount": 50,
-      "quorumPublicKey": "922e3683358f09a2619efb9e8329f90d5a8a608a18e26db212613ef7f95818eb6f68372fb313edbf96fdd2cdee20a66d"
+      "validMembers": "ffffffffffff03",
+      "quorumPublicKey": "922e3683358f09a2619efb9e8329f90d5a8a608a18e26db212613ef7f95818eb6f68372fb313edbf96fdd2cdee20a66d",
+      "quorumVvecHash": "2da4253e43adb732b06d88324384025a4cd0c2803bc6400462f9eb89ea314da8",
+      "quorumSig": "949882d7912d7d3fef46dd856bcd6c70a080b2e5484a3c900bea04b902abd12c5f75e78d13cbdc5d352187db0e15c1b40715b9d89e998bb99437ad7ae97a1b23f922d55b6fc5cca290c05b44eda564782a3440c7ef3756fc3e9895d1ac34d3d0",
+      "membersSig": "9736d9cbc7ff7189f6ef543fabc9bfc2785f60ffd4493ea4c272343da51fa61ec9867cd46b681c82a1c22a9830f8b86b0a02e34e9e71212010231024fd61cb95143591be2cace53760dba03a325e178e5fcae6a748073fadf3ab34268c8ed2bc"
     },
     {
       "version": 1,
       "llmqType": 1,
       "quorumHash": "000000000148a6fced08763f3f31dd68a3d88d2d4f2d48eef44eb9311de66129",
       "signersCount": 50,
+      "signers": "ffffffffffff03",
       "validMembersCount": 50,
-      "quorumPublicKey": "814973fcf54892fa4edbf9e732341ff1227e2a89bf59cb22b52082e940f7c3ac8a7c25163cb375b3cfe3654e86eaa65d"
+      "validMembers": "ffffffffffff03",
+      "quorumPublicKey": "814973fcf54892fa4edbf9e732341ff1227e2a89bf59cb22b52082e940f7c3ac8a7c25163cb375b3cfe3654e86eaa65d",
+      "quorumVvecHash": "a91c4721c576850971313b9eb5ee7a886fd4dd4564e98ac0094e7a46e4351240",
+      "quorumSig": "16abcfa4137c1900899970533cd52b0c264000b48ca6bd1d29cc9baab1ef883b378d5cdb8c1dd8bb7765e154bcc8ee360cfcdc008584e2d7c29f5be8361fecf3a4cafcdea29f1cb2e75c5d67057d0557e0d6cfa65cf85ae6ed65971b8f29a913",
+      "membersSig": "18151a0b15e9ec892ae7ebc97b9e014bbe8a7f8344d24fe9f2925dae094e01500c6d5eb13b1ac6a8487be63e181a2b73053658f6b6374a01d183be1d4258ddaf0b18a4268a8a1e7d0c7ecfa414ad075d915beff5750d8ecef48b446b9c0d1da6"
     },
     {
       "version": 1,
       "llmqType": 1,
       "quorumHash": "0000000009931a8a6dcdf21a869739356e7715eb155c1a18a58c8bf13382ac33",
       "signersCount": 50,
+      "signers": "ffffffffffff03",
       "validMembersCount": 50,
-      "quorumPublicKey": "0694b46d8581423f2f68196dcc2d06be0b6b365a4100b54e351ab42f5828d09fd03941f8a1255363753a53d32b43f63b"
+      "validMembers": "ffffffffffff03",
+      "quorumPublicKey": "0694b46d8581423f2f68196dcc2d06be0b6b365a4100b54e351ab42f5828d09fd03941f8a1255363753a53d32b43f63b",
+      "quorumVvecHash": "e0f2853af9fffc937af96264316982728fbbe483a36bff161c606f764ad9d8b9",
+      "quorumSig": "16898292e519f01681c1a57606c54b7366275fa01a4912f8623eae73517ae1d3fd1607b7e8edcee43ce23141deba29fb00398d60f319adca9d460b972653715a4c5025a92141f065d92a0494cf211aa7485d6e4819514012efb107e8e2b9ba2e",
+      "membersSig": "884a01e0ed65b745076198183883535d7bf636c7ebf9e13deb662ec4f4b202041fa826c978c9973380d614d11fd4071e0cf97abb3a7dd3a24f2eda0d8d7b179ab1a5837a78c53673567565aa3aaa72122d0e0bb8b6f2df092ca3da626c2b2800"
     },
     {
       "version": 1,
       "llmqType": 1,
       "quorumHash": "0000000006097e9d08a4ca9bedbe4a97bb9bf3fe8d09372d18d2398f185cff5d",
       "signersCount": 50,
+      "signers": "ffffffffffff03",
       "validMembersCount": 50,
-      "quorumPublicKey": "10d0488558afd929508cd2d11bda7564333a904aa23c8b4a1ed57d86b217e3181497469e7220e9421e14f645a00940fc"
+      "validMembers": "ffffffffffff03",
+      "quorumPublicKey": "10d0488558afd929508cd2d11bda7564333a904aa23c8b4a1ed57d86b217e3181497469e7220e9421e14f645a00940fc",
+      "quorumVvecHash": "fbe6b3ae8d002bd648788b3173753c9cec3d4634b7df55f19b34d632b438aa70",
+      "quorumSig": "17d3c06ae24312c9cda1b0f5db10b16e1d1a356f6bb050827d066c5026ecd3cd26fbd2479d781c88a2755aa78f9e16a50882bf18c75e1ab96ff1514b1f283d4fb3b10b4dcd13f8f267ec449250e7d195bc27351a74c8c456a6fcf7d847535f05",
+      "membersSig": "0afd25e67d72d59c2dfbc671ae4e8163bfa2e75cda50b0c86800be5e1dd393abf8a717b147392688855f505d237154f8195b2bb30605d0ca18407e4552b7573cb08a6cb53eaf2a71894fb937af1f7783dbf5e6cb80b0cb903ea4f76266c039e7"
     }
   ],
   "merkleRootMNList": "47228e73ce927c2ff0cd26fe8e410995c5829c1971ab98f0c86527ba27f16dd2"
@@ -2032,6 +2057,12 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `msgHash` | string (hex) | Required<br>(exactly 1) | Hash of the message to be signed
+
+*Parameter #4---quorum hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`quorumHash` | string (hex) | Optional<br>(0 or 1) | **Added in Dash Core 0.16.0**<br><br>The quorum identifier. Used by [Dash Platform](https://dashplatform.readme.io/docs/introduction-what-is-dash-platform) to direct layer 2 signing requests to a specific quorum.
 
 *Result---status*
 

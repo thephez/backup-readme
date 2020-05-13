@@ -1,10 +1,22 @@
 The Proof of Service (PoSe) scoring system helps incentivize <<glossary:masternodes>> to provide <<glossary:network>> services. Masternodes that neglect to participate receive an increased PoSe score which eventually results in them being excluded from masternode payment eligibility.
 
-The current PoSe scoring system is based on participation in the <<glossary:LLMQ>> DKG process. This scoring system will expand over time to incorporate additional service requirements in support of the future Dash Platform (Evolution) functionality.
+# Distributed Key Generation Participation Requirements
+
+The following table lists the aspects of the DKG process a masternode must comply with to avoid receiving a PoSe score increase:
+
+| Protocol Version | Proof of Service<br>Requirement |
+| :-: | - |
+| 70213+ | Exchange required messages (quorum contributions and quorum justifications) with other quorum members during the [LLMQ DKG process](core-guide-dash-features-masternode-quorums#section-llmq-creation-dkg) (Dash Core 0.13.0+) |
+| 70217+ | Have an open P2P port ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)) |
+| 70217+ | Have a protocol version => `MIN_MASTERNODE_PROTO_VERSION`. During updates where this version is increased, masternodes will begin receiving PoSe score increases once > 60% of masternodes have upgrade ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)) |
+
+# Proof of Service Score Weighting
+
+The current PoSe scoring system is based only on participation in the <<glossary:LLMQ>> DKG process. This scoring system will expand over time to incorporate additional service requirements in support of the future Dash functionality.
 
 | Service | Percent of Score | Requirement |
-| ----------- | ---- | ------------------- |
-| LLMQ DKG    | 100% | Participate in the DKG process used to establish LLMQs. Requires exchanging messages with other quorum members. |
+| ----------- | :----: | ------------------- |
+| LLMQ DKG    | 100% | Participate in the DKG process used to establish LLMQs. Requires exchanging messages with other quorum members |
 
 # **PoSe Score Calculation**
 

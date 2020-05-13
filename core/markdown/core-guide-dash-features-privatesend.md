@@ -42,7 +42,7 @@ Protocol version 70213 added a 5th denomination (0.001 DASH).
 
 **Creating Collaterals**
 
-PrivateSend collaterals are used to pay mixing fees, but are kept separate from the denominations to maximize privacy. Since protocol version 70213, the minimum collateral fee is 1/10 of the smallest denomination for all mixing sessions regardless of denomination. In Dash Core, collaterals are created with enough value to pay 4 collateral fees (4 x 0.001 DASH). ([Dash Core Reference](https://github.com/dashpay/dash/blob/262454791c4b4f783b2533d1b16b757a71eb5f7d/src/privatesend.h#L413))
+PrivateSend collaterals are used to pay mixing fees, but are kept separate from the denominations to maximize privacy. Since protocol version 70213, the minimum collateral fee is 1/10 of the smallest denomination for all mixing sessions regardless of denomination. In Dash Core, collaterals are created with enough value to pay 4 collateral fees (4 x 0.001 DASH). ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L459))
 
 In protocol version 70208, collateral inputs can be anything from 2x the minimum collateral amount to the maximum collateral amount (currently defined as 4x the minimum collateral). In protocol versions > 70208, Dash Core can use any <<glossary:input>> from 1x the minimum collateral amount to the maximum collateral amount.
 
@@ -86,26 +86,33 @@ _**Step 1 - Pool Request**_
 _**Step 3 - Queue**_
 
   * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) when it starts a new queue. These message are relayed by all <<glossary:peers>>.
-  * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` (3) to `nPoolMaxParticipants` (5). Prior protocol version mixing sessions always contained exactly 3 participants
-  * Once the masternode has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#section-dsa) from the appropriate number of clients (`nSessionMaxParticipants`), it sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) with the ready bit set
-    * Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
+  * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` ([3](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L360)) to `nPoolMaxParticipants` ([5](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L361)). Prior protocol version mixing sessions always contained exactly 3 participants
+  * The masternode sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) with the ready bit set once it has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#section-dsa) from either:
+    1. The maximum number of clients (5)
+    2. Greater than the minimum number of clients (3) and the timeout has been reached ([30 seconds](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
+[block:callout]
+{
+  "type": "warning",
+  "body": "Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L23))"
+}
+[/block]
 
 _**Step 4 - Inputs**_
 
   * The collateral transaction can be the same in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) as the one in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) as long as it has not been spent
-  * Each client can provide up to 9 (`PRIVATESEND_ENTRY_MAX_SIZE`) inputs (and an equal number of outputs) to be mixed ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L29))
+  * Each client can provide up to 9 (`PRIVATESEND_ENTRY_MAX_SIZE`) inputs (and an equal number of outputs) to be mixed ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L29))
   * This is the only message in the PrivateSend process that contains enough information to link a wallet's PrivateSend inputs with its outputs
     * This message is sent directly between a client and the mixing masternode (not relayed across the Dash network) so no other clients see it
 
 _**Step 6 - Final Transaction (unsigned)**_
 
   * Once the masternode has received valid [`dsi` messages](core-ref-p2p-network-privatesend-messages#section-dsi) from all clients, it creates the final transaction and sends a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf)
-    * Inputs/outputs are ordered deterministically as defined by [BIP-69](https://github.com/dashevo/bips/blob/master/bip-0069.mediawiki#Abstract) to avoid leaking any data ([Dash Core Reference](https://github.com/dashpay/dash/blob/e596762ca22d703a79c6880a9d3edb1c7c972fd3/src/privatesend-server.cpp#L321-#L322))
-    * Clients must sign their inputs to the Final Transaction within 15 seconds or risk forfeiting the collateral they provided in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) (Step 4) ([Dash Core Reference](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L24))
+    * Inputs/outputs are ordered deterministically as defined by [BIP-69](https://github.com/dashevo/bips/blob/master/bip-0069.mediawiki#Abstract) to avoid leaking any data ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L271-L272))
+    * Clients must sign their inputs to the Final Transaction within 15 seconds or risk forfeiting the collateral they provided in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) (Step 4) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L24))
 
 _**Step 10 - Final Transaction broadcast**_
 
-  * Prior to protocol version 70213, masternodes could only send a single un-mined [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) at a time. As of protocol version 70213, up to 5 (`MASTERNODE_MAX_MIXING_TXES`) un-mined [`dstx` messages](core-ref-p2p-network-privatesend-messages#section-dstx) per masternode are allowed.
+  * Prior to protocol version 70213, masternodes could only send a single un-mined [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) at a time. As of protocol version 70213, up to 5 (`MASTERNODE_MAX_MIXING_TXES`) un-mined [`dstx` messages](core-ref-p2p-network-privatesend-messages#section-dstx) per masternode are allowed. ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/masternode/masternode-meta.h#L16))
 
 _**General**_
 
@@ -115,8 +122,8 @@ _**General**_
 
 **Mixing Fees**
 
-* If mixing completes successfully, Dash Core charges the collateral randomly in 1/10 mixing transactions to pay miners ([Dash Core Reference](https://github.com/dashpay/dash/blob/e596762ca22d703a79c6880a9d3edb1c7c972fd3/src/privatesend-server.cpp#L458-#L478))
-* Clients that abuse the mixing system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#section-dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 2/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/e596762ca22d703a79c6880a9d3edb1c7c972fd3/src/privatesend-server.cpp#L397-#L398))
+* If mixing completes successfully, Dash Core charges the collateral randomly in 1/10 mixing transactions to pay miners ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L400-L417))
+* Clients that abuse the mixing system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#section-dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 2/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L330-L347))
 
 **Sending Fees**
 
