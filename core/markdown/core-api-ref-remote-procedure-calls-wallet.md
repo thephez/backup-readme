@@ -95,23 +95,27 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Account | string | Optional<br>(0 or 1) | The account name in which the address should be stored.  Default is the default account, \\" (an empty string)"
 
-*Result---a P2SH address printed and stored in the wallet*
+*Result---P2SH address and hex-encoded redeem script*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | string (base58) | Required<br>(exactly 1) | The P2SH multisig address.  The address will also be added to the wallet, and outputs paying that address will be tracked by the wallet
+`result` | object | Required<br>(exactly 1) | An object describing the multisig address
+→<br>`address` | string (base58) | Required<br>(exactly 1) | The P2SH address for this multisig redeem script
+→<br>`redeemScript` | string (hex) | Required<br>(exactly 1) | The multisig redeem script encoded as hex
 
-*Example from Dash Core 0.12.2*
 
-Adding a 2-of-3 P2SH multisig address to the "test account" by mixing
+
+
+*Example from Dash Core 0.16.0*
+
+Adding a 1-of-2 P2SH multisig address to the "test account" by mixing
 two P2PKH addresses and one full public key:
 
 ``` bash
-dash-cli -testnet addmultisigaddress 2 '''
+dash-cli -testnet addmultisigaddress 1 '''
   [
-    "yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb",
-    "0311f97539724e0de38fb1ff79f5148e5202459d06ed07193ab18c730274fd0d88",
-    "yVJj7TB3ZhMcSP2wo65ZFNqy23BQH9tT87"
+    "ySxkBWzPwMrZLAY9ZPitMnSwf4NSUBPbiH",
+    "02594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb6223"
   ]
 ''' \
  'test account'
@@ -120,7 +124,10 @@ dash-cli -testnet addmultisigaddress 2 '''
 Result:
 
 ``` text
-8uJLxDxk2gEMbidF5vT8XLS2UCgQmVcroW
+{
+  "address": "8jYUv8hJcbSUPbwYmzp1XMPU6SXoic3hwi",
+  "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae"
+}
 ```
 
 (New P2SH multisig address also stored in wallet.)

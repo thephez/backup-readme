@@ -8,12 +8,18 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Required | number (int) | Required<br>(exactly 1) | The minimum (*m*) number of signatures required to spend this m-of-n multisig script
 
-*Parameter #2---the full public keys, or addresses for known public keys*
-
+*Parameter #2---the full public keys*
+[block:callout]
+{
+  "type": "warning",
+  "body": "As of Dash Core 0.16.0, using addresses with `createmultisig` is deprecated. Clients must transition to using [`addmultisigaddress`](core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address) to create multisig addresses with addresses known to the wallet before upgrading to v0.17. To use the deprecated functionality in 0.16.0, start dashd with `-deprecatedrpc=createmultisig`.",
+  "title": "Deprecation Warning"
+}
+[/block]
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Keys Or Addresses | array | Required<br>(exactly 1) | An array of strings with each string being a public key or address
-→<br>Key Or Address | string | Required<br>(1 or more) | A public key against which signatures will be checked.  If wallet support is enabled, this may be a P2PKH address belonging to the wallet---the corresponding public key will be substituted.  There must be at least as many keys as specified by the Required parameter, and there may be more keys
+Keys | array | Required<br>(exactly 1) | An array of strings with each string being a public key
+→<br>Key | string | Required<br>(1 or more) | A public key against which signatures will be checked. There must be at least as many keys as specified by the `Required` parameter, and there may be more keys
 
 *Result---P2SH address and hex-encoded redeem script*
 
@@ -23,17 +29,15 @@ Name | Type | Presence | Description
 →<br>`address` | string (base58) | Required<br>(exactly 1) | The P2SH address for this multisig redeem script
 →<br>`redeemScript` | string (hex) | Required<br>(exactly 1) | The multisig redeem script encoded as hex
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.16.0*
 
-Creating a 2-of-3 P2SH multisig address by mixing two P2PKH addresses and
-one full public key:
+Creating a 1-of-2 P2SH multisig address by mixing two full public keys:
 
 ``` bash
-dash-cli -testnet createmultisig 2 '''
+dash-cli -testnet createmultisig 1 '''
   [
-    "yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb",
-    "0311f97539724e0de38fb1ff79f5148e5202459d06ed07193ab18c730274fd0d88",
-    "yVJj7TB3ZhMcSP2wo65ZFNqy23BQH9tT87"
+    "03283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d3",
+    "02594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb6223"
   ]
 '''
 ```
@@ -42,8 +46,8 @@ Result:
 
 ``` json
 {
-  "address": "8uJLxDxk2gEMbidF5vT8XLS2UCgQmVcroW",
-  "redeemScript": "522102eacba539d92eb88d4e73bb32749d79f53f6e8d7947ac40a71bd4b26c13b6ec29210311f97539724e0de38fb1ff79f5148e5202459d06ed07193ab18c730274fd0d882103251f25a5c0291446d801ba6df122f67a7dd06c60a9b332b7b29cc94f3b8f57d053ae"
+  "address": "8jYUv8hJcbSUPbwYmzp1XMPU6SXoic3hwi",
+  "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae"
 }
 ```
 

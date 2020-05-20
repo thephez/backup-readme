@@ -110,7 +110,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 # [Utility RPCs](core-api-ref-remote-procedure-calls-util)
 
-* [CreateMultiSig](core-api-ref-remote-procedure-calls-util#section-create-multi-sig): creates a P2SH multi-signature address.
+* [CreateMultiSig](core-api-ref-remote-procedure-calls-util#section-create-multi-sig): creates a P2SH multi-signature address. **Updated in Dash Core 0.16.0**
 * [EstimateFee](core-api-ref-remote-procedure-calls-util#section-estimate-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
 * [EstimateSmartFee](core-api-ref-remote-procedure-calls-util#section-estimate-smart-fee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid. **_Updated in Dash Core 0.15.0_**
 * [SignMessageWithPrivKey](core-api-ref-remote-procedure-calls-util#section-sign-message-with-priv-key): signs a message with a given private key.  *New in Dash Core 0.12.3*
@@ -123,7 +123,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [AbandonTransaction](core-api-ref-remote-procedure-calls-wallet#section-abandon-transaction): marks an in-wallet transaction and all its in-wallet descendants as abandoned. This allows their inputs to be respent.
 * [AbortRescan](core-api-ref-remote-procedure-calls-wallet#section-abort-rescan): stops current wallet rescan. **_New in Dash Core 0.15.0_**
-* [AddMultiSigAddress](core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet.
+* [AddMultiSigAddress](core-api-ref-remote-procedure-calls-wallet#section-add-multi-sig-address): adds a P2SH multisig address to the wallet. **Updated in Dash Core 0.16.0**
 * [BackupWallet](core-api-ref-remote-procedure-calls-wallet#section-backup-wallet): safely copies `wallet.dat` to the specified file, which can be a directory or a path with filename.
 * [DumpHDInfo](core-api-ref-remote-procedure-calls-wallet#section-dump-hd-info): returns an object containing sensitive private info about this HD wallet New in Dash Core 0.12.2
 * [DumpPrivKey](core-api-ref-remote-procedure-calls-wallet#section-dump-priv-key): returns the wallet-import-format (WIP) private key corresponding to an address. (But does not remove it from the wallet.)

@@ -672,15 +672,6 @@ Result (wrapped):
 }
 ```
 
-## GObject Getvotes
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.14.0._**",
-  "title": "Deprecation Warning"
-}
-[/block]
-
 ## GObject Getcurrentvotes
 
 The `gobject getcurrentvotes` RPC gets only current (tallying) votes for a governance object hash (does not include old votes).
@@ -1379,34 +1370,6 @@ Result:
   "37433": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM:9"
 }
 ```
-
-**Deprecated RPCs**
-[block:callout]
-{
-  "type": "danger",
-  "title": "Removed RPCs",
-  "body": "The following RPCs were deprecated by Dash Core 0.14.0 and have been removed."
-}
-[/block]
-**Masternode Check**
-
-Forces a check of all masternodes and removes invalid ones.
-
-**Masternode Genkey**
-
-Generates a new masternodeprivkey.
-
-**Masternode Start-alias**
-
-Starts a single remote masternode by assigned alias configured in masternode.conf.
-
-**Masternode Start-mode**
-
-Starts remote masternodes configured in masternode.conf. Valid modes are: `all`, `missing`, or `disabled`.
-
-**Masternode List-conf**
-
-Prints masternode.conf in JSON format.
 
 *See also:*
 

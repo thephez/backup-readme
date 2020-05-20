@@ -121,7 +121,7 @@ Each <<glossary:output>> spends a certain number of <<glossary:duffs>>, placing 
 
 **Example**
 
-The sample raw transaction itemized below is the one created in the [Simple Raw Transaction section](core-examples-transactions-transaction-tutorial#simple-raw-transaction) of the Developer Examples. It spends a previous pay-to-pubkey output by paying to a new pay-to-pubkey-hash (P2PKH) output.
+The sample raw transaction itemized below is the one created in the [Simple Raw Transaction section](core-examples-transaction-tutorial#simple-raw-transaction) of the Developer Examples. It spends a previous pay-to-pubkey output by paying to a new pay-to-pubkey-hash (P2PKH) output.
 
 ``` text
 01000000 ................................... Version
