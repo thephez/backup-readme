@@ -2,43 +2,43 @@
 
 These RPCs are all Dash-specific and not found in Bitcoin Core
 
-* [GetAddressBalance](core-api-ref-remote-procedure-calls-address-index#section-get-address-balance): returns the balance for address(es).
-* [GetAddressDeltas](core-api-ref-remote-procedure-calls-address-index#section-get-address-deltas): returns all changes for an address.
-* [GetAddressMempool](core-api-ref-remote-procedure-calls-address-index#section-get-address-mempool): returns all mempool deltas for an address.
-* [GetAddressTxids](core-api-ref-remote-procedure-calls-address-index#section-get-address-txids): returns the txids for an address(es).
-* [GetAddressUtxos](core-api-ref-remote-procedure-calls-address-index#section-get-address-utxos): returns all unspent outputs for an address.
+* [GetAddressBalance](core-api-ref-remote-procedure-calls-address-index#getaddressbalance): returns the balance for address(es).
+* [GetAddressDeltas](core-api-ref-remote-procedure-calls-address-index#getaddressdeltas): returns all changes for an address.
+* [GetAddressMempool](core-api-ref-remote-procedure-calls-address-index#getaddressmempool): returns all mempool deltas for an address.
+* [GetAddressTxids](core-api-ref-remote-procedure-calls-address-index#getaddresstxids): returns the txids for an address(es).
+* [GetAddressUtxos](core-api-ref-remote-procedure-calls-address-index#getaddressutxos): returns all unspent outputs for an address.
 
 # [Block Chain RPCs](core-api-ref-remote-procedure-calls-blockchain)
 
-* [GetBestBlockHash](core-api-ref-remote-procedure-calls-blockchain#section-get-best-block-hash): returns the header hash of the most recent block on the best block chain.
-* [GetBestChainLock](core-api-ref-remote-procedure-calls-blockchain#section-get-best-chain-lock): returns the block hash of the best chainlock. **_New in Dash Core 0.15.0_**
-* [GetBlock](core-api-ref-remote-procedure-calls-blockchain#section-get-block): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. **Updated in Dash Core 0.16.0**
-* [GetBlockChainInfo](core-api-ref-remote-procedure-calls-blockchain#section-get-block-chain-info): provides information about the current state of the block chain. **Updated in Dash Core 0.16.0**
-* [GetBlockCount](core-api-ref-remote-procedure-calls-blockchain#section-get-block-count): returns the number of blocks in the local best block chain.
-* [GetBlockHash](core-api-ref-remote-procedure-calls-blockchain#section-get-block-hash): returns the header hash of a block at the given height in the local best block chain.
-* [GetBlockHashes](core-api-ref-remote-procedure-calls-blockchain#section-get-block-hashes): returns array of hashes of blocks within the timestamp range provided (requires `timestampindex` to be enabled). New in Dash Core 0.12.1
-* [GetBlockHeader](core-api-ref-remote-procedure-calls-blockchain#section-get-block-header): gets a block header with a particular header hash from the local block database either as a JSON object or as a serialized block header. **Updated in Dash Core 0.16.0**
-* [GetBlockHeaders](core-api-ref-remote-procedure-calls-blockchain#section-get-block-headers): returns an array of items with information about the requested number of blockheaders starting from the requested hash. New in Dash Core 0.12.1
-* [GetBlockStats](core-api-ref-remote-procedure-calls-blockchain#section-get-block-stats): computes per block statistics for a given window. **_New in Dash Core 0.15.0_**
-* [GetChainTips](core-api-ref-remote-procedure-calls-blockchain#section-get-chain-tips): returns information about the highest-height block (tip) of each local block chain. *Updated in Dash Core 0.12.3*
-* [GetChainTxStats](core-api-ref-remote-procedure-calls-blockchain#section-get-chain-tx-stats): compute statistics about the total number and rate of transactions in the chain. **Updated in Dash Core 0.16.0**
-* [GetDifficulty](core-api-ref-remote-procedure-calls-blockchain#section-get-difficulty): returns the proof-of-work difficulty as a multiple of the minimum difficulty.
-* [GetMemPoolAncestors](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-ancestors): returns all in-mempool ancestors for a transaction in the mempool. _Updated in Dash Core 0.14.0_
-* [GetMemPoolDescendants](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-descendants): returns all in-mempool descendants for a transaction in the mempool. _Updated in Dash Core 0.14.0_
-* [GetMemPoolEntry](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-entry): returns mempool data for given transaction (must be in mempool). _Updated in Dash Core 0.14.0_
-* [GetMemPoolInfo](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-info): returns information about the node's current transaction memory pool. **Updated in Dash Core 0.16.0**
-* [GetRawMemPool](core-api-ref-remote-procedure-calls-blockchain#section-get-raw-mem-pool): returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object. **_Updated in Dash Core 0.15.0_**
-* [GetMerkleBlocks](core-api-ref-remote-procedure-calls-blockchain#section-get-merkle-blocks): returns an array of hex-encoded merkleblocks for <count> blocks starting from <hash> which match <filter>. **_New in Dash Core 0.15.0_**
-* [GetSpecialTxes](core-api-ref-remote-procedure-calls-blockchain#section-get-special-txes): returns an array of special transactions found in the specified block **New in Dash Core 0.13.1**
-* [GetSpentInfo](core-api-ref-remote-procedure-calls-blockchain#section-get-spent-info): returns the txid and index where an output is spent (requires `spentindex` to be enabled). New in Dash Core 0.12.1
-* [GetTxOut](core-api-ref-remote-procedure-calls-blockchain#section-get-tx-out): returns details about an unspent transaction output (UTXO). **_Updated in Dash Core 0.15.0_**
-* [GetTxOutProof](core-api-ref-remote-procedure-calls-blockchain#section-get-tx-out-proof): returns a hex-encoded proof that one or more specified transactions were included in a block.
-* [GetTxOutSetInfo](core-api-ref-remote-procedure-calls-blockchain#section-get-tx-out-set-info): returns statistics about the confirmed unspent transaction output (UTXO) set. Note that this call may take some time and that it only counts outputs from confirmed transactions---it does not count outputs from the memory pool. **_Updated in Dash Core 0.15.0_**
-* [PreciousBlock](core-api-ref-remote-procedure-calls-blockchain#section-precious-block): treats a block as if it were received before others with the same work. *New in Dash Core 0.12.3*
-* [PruneBlockChain](core-api-ref-remote-procedure-calls-blockchain#section-prune-block-chain): prunes the blockchain up to a specified height or timestamp. *New in Dash Core 0.12.3*
-* [SaveMemPool](core-api-ref-remote-procedure-calls-blockchain#section-save-mem-pool): dumps the mempool to disk. **New in Dash Core 0.16.0**
-* [VerifyChain](core-api-ref-remote-procedure-calls-blockchain#section-verify-chain): verifies each entry in the local block chain database.
-* [VerifyTxOutProof](core-api-ref-remote-procedure-calls-blockchain#section-verify-tx-out-proof): verifies that a proof points to one or more transactions in a block, returning the transactions the proof commits to and throwing an RPC error if the block is not in our best block chain.
+* [GetBestBlockHash](core-api-ref-remote-procedure-calls-blockchain#getbestblockhash): returns the header hash of the most recent block on the best block chain.
+* [GetBestChainLock](core-api-ref-remote-procedure-calls-blockchain#getbestchainlock): returns the block hash of the best chainlock. **_New in Dash Core 0.15.0_**
+* [GetBlock](core-api-ref-remote-procedure-calls-blockchain#getblock): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. **Updated in Dash Core 0.16.0**
+* [GetBlockChainInfo](core-api-ref-remote-procedure-calls-blockchain#getblockchaininfo): provides information about the current state of the block chain. **Updated in Dash Core 0.16.0**
+* [GetBlockCount](core-api-ref-remote-procedure-calls-blockchain#getblockcount): returns the number of blocks in the local best block chain.
+* [GetBlockHash](core-api-ref-remote-procedure-calls-blockchain#getblockhash): returns the header hash of a block at the given height in the local best block chain.
+* [GetBlockHashes](core-api-ref-remote-procedure-calls-blockchain#getblockhashes): returns array of hashes of blocks within the timestamp range provided (requires `timestampindex` to be enabled). New in Dash Core 0.12.1
+* [GetBlockHeader](core-api-ref-remote-procedure-calls-blockchain#getblockheader): gets a block header with a particular header hash from the local block database either as a JSON object or as a serialized block header. **Updated in Dash Core 0.16.0**
+* [GetBlockHeaders](core-api-ref-remote-procedure-calls-blockchain#getblockheaders): returns an array of items with information about the requested number of blockheaders starting from the requested hash. New in Dash Core 0.12.1
+* [GetBlockStats](core-api-ref-remote-procedure-calls-blockchain#getblockstats): computes per block statistics for a given window. **_New in Dash Core 0.15.0_**
+* [GetChainTips](core-api-ref-remote-procedure-calls-blockchain#getchaintips): returns information about the highest-height block (tip) of each local block chain. *Updated in Dash Core 0.12.3*
+* [GetChainTxStats](core-api-ref-remote-procedure-calls-blockchain#getchaintx-stats): compute statistics about the total number and rate of transactions in the chain. **Updated in Dash Core 0.16.0**
+* [GetDifficulty](core-api-ref-remote-procedure-calls-blockchain#getdifficulty): returns the proof-of-work difficulty as a multiple of the minimum difficulty.
+* [GetMemPoolAncestors](core-api-ref-remote-procedure-calls-blockchain#getmempoolancestors): returns all in-mempool ancestors for a transaction in the mempool. _Updated in Dash Core 0.14.0_
+* [GetMemPoolDescendants](core-api-ref-remote-procedure-calls-blockchain#getmempooldescendants): returns all in-mempool descendants for a transaction in the mempool. _Updated in Dash Core 0.14.0_
+* [GetMemPoolEntry](core-api-ref-remote-procedure-calls-blockchain#getmempoolentry): returns mempool data for given transaction (must be in mempool). _Updated in Dash Core 0.14.0_
+* [GetMemPoolInfo](core-api-ref-remote-procedure-calls-blockchain#getmempoolinfo): returns information about the node's current transaction memory pool. **Updated in Dash Core 0.16.0**
+* [GetRawMemPool](core-api-ref-remote-procedure-calls-blockchain#getrawmempool): returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object. **_Updated in Dash Core 0.15.0_**
+* [GetMerkleBlocks](core-api-ref-remote-procedure-calls-blockchain#getmerkleblocks): returns an array of hex-encoded merkleblocks for <count> blocks starting from <hash> which match <filter>. **_New in Dash Core 0.15.0_**
+* [GetSpecialTxes](core-api-ref-remote-procedure-calls-blockchain#getspecialtxes): returns an array of special transactions found in the specified block **New in Dash Core 0.13.1**
+* [GetSpentInfo](core-api-ref-remote-procedure-calls-blockchain#getspentinfo): returns the txid and index where an output is spent (requires `spentindex` to be enabled). New in Dash Core 0.12.1
+* [GetTxOut](core-api-ref-remote-procedure-calls-blockchain#gettxout): returns details about an unspent transaction output (UTXO). **_Updated in Dash Core 0.15.0_**
+* [GetTxOutProof](core-api-ref-remote-procedure-calls-blockchain#gettxoutproof): returns a hex-encoded proof that one or more specified transactions were included in a block.
+* [GetTxOutSetInfo](core-api-ref-remote-procedure-calls-blockchain#gettxoutsetinfo): returns statistics about the confirmed unspent transaction output (UTXO) set. Note that this call may take some time and that it only counts outputs from confirmed transactions---it does not count outputs from the memory pool. **_Updated in Dash Core 0.15.0_**
+* [PreciousBlock](core-api-ref-remote-procedure-calls-blockchain#preciousblock): treats a block as if it were received before others with the same work. *New in Dash Core 0.12.3*
+* [PruneBlockChain](core-api-ref-remote-procedure-calls-blockchain#pruneblockchain): prunes the blockchain up to a specified height or timestamp. *New in Dash Core 0.12.3*
+* [SaveMemPool](core-api-ref-remote-procedure-calls-blockchain#savemempool): dumps the mempool to disk. **New in Dash Core 0.16.0**
+* [VerifyChain](core-api-ref-remote-procedure-calls-blockchain#verifychain): verifies each entry in the local block chain database.
+* [VerifyTxOutProof](core-api-ref-remote-procedure-calls-blockchain#verifytxoutproof): verifies that a proof points to one or more transactions in a block, returning the transactions the proof commits to and throwing an RPC error if the block is not in our best block chain.
 
 # [Control RPCs](core-api-ref-remote-procedure-calls-control)
 
