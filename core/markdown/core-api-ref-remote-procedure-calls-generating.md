@@ -6,7 +6,7 @@
   "body": "Since Dash Core 0.14, this RPC is not available in the official Windows/Mac binaries. The Linux binary and binaries self-compiled (with the appropriate options) continue to support this feature. See [PR #2778](https://github.com/dashpay/dash/pull/2778) for additional details.\n\n**_Requires wallet support (unavailable on masternodes)._**"
 }
 [/block]
-The [`generate` RPC](core-api-ref-remote-procedure-calls-generating#section-generate) mines blocks immediately (before the RPC call returns).
+The [`generate` RPC](core-api-ref-remote-procedure-calls-generating#generate) mines blocks immediately (before the RPC call returns).
 
 *Parameter #1---the number of blocks to generate*
 
@@ -46,11 +46,11 @@ Result:
 
 *See also*
 
-* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#section-generate-to-address): mines blocks immediately to a specified address.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.
-* [GetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-get-generate): was removed in Dash Core 0.12.3.
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#section-set-generate): was removed in Dash Core 0.12.3.
+* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#generatetoaddress): mines blocks immediately to a specified address.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software.
+* [GetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#getgenerate): was removed in Dash Core 0.12.3.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information.
+* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#setgenerate): was removed in Dash Core 0.12.3.
 
 # GenerateToAddress
 [block:callout]
@@ -63,7 +63,7 @@ Result:
 
 *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*
 
-The [`generatetoaddress` RPC](core-api-ref-remote-procedure-calls-generating#section-generate-to-address) mines blocks immediately to a specified address.
+The [`generatetoaddress` RPC](core-api-ref-remote-procedure-calls-generating#generatetoaddress) mines blocks immediately to a specified address.
 
 *Parameter #1---the number of blocks to generate*
 
@@ -110,6 +110,6 @@ Result:
 
 *See also*
 
-* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#section-generate): mines blocks immediately (before the RPC call returns).
-* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#section-get-mining-info): returns various mining-related information.
-* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#section-get-block-template): gets a block template or proposal for use with mining software.
+* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#generate): mines blocks immediately (before the RPC call returns).
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software.

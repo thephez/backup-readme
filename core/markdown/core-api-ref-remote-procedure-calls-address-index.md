@@ -5,7 +5,7 @@
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
 }
 [/block]
-The [`getaddressbalance` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-balance) returns the balance for address(es).
+The [`getaddressbalance` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressbalance) returns the balance for address(es).
 
 *Parameter #1---an array of <<glossary:addresses>>*
 
@@ -41,8 +41,8 @@ Result:
 
 *See also*
 
-* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-balance): gets the balance in decimal dash across all accounts or for a particular account.
-* [GetUnconfirmedBalance](/docs/core-api-ref-remote-procedure-calls-wallet#section-get-unconfirmed-balance): returns the wallet's total unconfirmed balance.
+* [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account.
+* [GetUnconfirmedBalance](/docs/core-api-ref-remote-procedure-calls-wallet#getunconfirmedbalance): returns the wallet's total unconfirmed balance.
 
 # GetAddressDeltas
 [block:callout]
@@ -52,7 +52,7 @@ Result:
 }
 [/block]
 
-The [`getaddressdeltas` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-deltas) returns all changes for an address.
+The [`getaddressdeltas` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressdeltas) returns all changes for an address.
 
 *Parameter #1---an array of addresses*
 
@@ -125,7 +125,7 @@ Result:
 [/block]
 
 
-The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-mempool) returns all mempool deltas for an address.
+The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressmempool) returns all mempool deltas for an address.
 
 *Parameter #1---an array of addresses*
 
@@ -179,7 +179,7 @@ Result:
 [/block]
 
 
-The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-txids) returns the txids for an address(es).
+The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#getaddresstxids) returns the txids for an address(es).
 
 *Parameter #1---an array of addresses*
 
@@ -233,7 +233,7 @@ Result:
 [/block]
 
 
-The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#section-get-address-utxos) returns all unspent outputs for an address.
+The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressutxos) returns all unspent outputs for an address.
 
 *Parameter #1---an array of addresses*
 
