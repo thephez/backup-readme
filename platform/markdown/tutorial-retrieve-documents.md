@@ -20,7 +20,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
       "language": "javascript"
     }
   ]
