@@ -11,12 +11,12 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 | - | - | - | - | - | - |
 | v0.12.3 | 2 | - | n/a | n/a | n/a |
 | v0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
-| v0.13.0 | 3 | 1 | [ProRegTx](#section-pro-reg-tx) | Masternode Registration | hex | compactSize uint |
-| v0.13.0 | 3 | 2 | [ProUpServTx](#section-pro-up-serv-tx) | Update Masternode Service | hex | compactSize uint |
-| v0.13.0 | 3 | 3 | [ProUpRegTx](#section-pro-up-reg-tx) | Update Masternode Operator | hex | compactSize uint |
-| v0.13.0 | 3 | 4 | [ProUpRevTx](#section-pro-up-rev-tx) | Masternode Operator Revocation | hex | compactSize uint |
-| v0.13.0 | 3 | 5 | [CbTx](#section-cb-tx) | Masternode List Merkle Proof | hex | compactSize uint |
-| v0.13.0 | 3 | 6 | [QcTx](#section-qc-tx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
+| v0.13.0 | 3 | 1 | [ProRegTx](#proregtx) | Masternode Registration | hex | compactSize uint |
+| v0.13.0 | 3 | 2 | [ProUpServTx](#proupservtx) | Update Masternode Service | hex | compactSize uint |
+| v0.13.0 | 3 | 3 | [ProUpRegTx](#proupregtx) | Update Masternode Operator | hex | compactSize uint |
+| v0.13.0 | 3 | 4 | [ProUpRevTx](#prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
+| v0.13.0 | 3 | 5 | [CbTx](#cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
+| v0.13.0 | 3 | 6 | [QcTx](#qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
 
 # ProRegTx
 
@@ -24,7 +24,7 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 
 The <<glossary:masternode>> Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
 
-A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-procedure-calls-evo#section-pro-tx). The ProRegTx must either include an <<glossary:output>> with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
+A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-procedure-calls-evo#protx). The ProRegTx must either include an <<glossary:output>> with 1000 DASH (`protx register`) or refer to an existing unspent output holding 1000 DASH (`protx fund_register`). If the 1000 DASH is an output of the ProRegTx, the collateralOutpoint hash field should be null.
 
 The special transaction type is 1 and the extra payload consists of the following data:
 
@@ -165,11 +165,11 @@ ProRegTx Payload
 
 *Added in protocol version 70213 of Dash Core as described by DIP3*
 
-The <<glossary:masternode>> Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial [ProRegTx](#section-pro-reg-tx), the operator may also set the scriptOperatorPayout field in the ProUpServTx.
+The <<glossary:masternode>> Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial [ProRegTx](#proregtx), the operator may also set the scriptOperatorPayout field in the ProUpServTx.
 
 A ProUpServTx is only valid for masternodes in the registered masternodes subset. When processed, it updates the metadata of the masternode entry and revives the masternode if it was previously marked as PoSe-banned.
 
-A ProUpServTx is created and sent using the [`protx update_service` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-update-service).
+A ProUpServTx is created and sent using the [`protx update_service` RPC](core-api-ref-remote-procedure-calls-evo#protx-update-service).
 
 The special transaction type used for ProUpServTx Transactions is 2 and the extra payload consists of the following data:
 
@@ -229,7 +229,7 @@ ProUpServTx Payload
 
 The <<glossary:masternode>> Provider Update Registrar (ProUpRegTx) special transaction is used by a masternode owner to update masternode metadata (e.g. operator/voting key details or the payout script).
 
-A ProUpRegTx is created and sent using the [`protx update_registrar` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-update-registrar).
+A ProUpRegTx is created and sent using the [`protx update_registrar` RPC](core-api-ref-remote-procedure-calls-evo#protx-update-registrar).
 
 The special transaction type is 3 and the extra payload consists of the following data:
 
@@ -300,7 +300,7 @@ ProRegTx Payload
 
 The <<glossary:masternode>> Operator Revocation (ProUpRevTx) special transaction allows an operator to revoke their key in case of compromise or if they wish to terminate service. If a masternode's operator key is revoked, the masternode becomes ineligible for payment until the owner provides a new operator key (via a ProUpRegTx).
 
-A ProUpRevTx is created and sent using the [`protx revoke` RPC](core-api-ref-remote-procedure-calls-evo#section-protx-revoke).
+A ProUpRevTx is created and sent using the [`protx revoke` RPC](core-api-ref-remote-procedure-calls-evo#protx-revoke).
 
 The special transaction type used for ProUpServTx Transactions is 4 and the extra payload consists of the following data:
 
@@ -439,7 +439,7 @@ the extra payload consists of the following data:
 | ---------- | ----------- | -------- | -------- |
 | 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
 | 4 | height | uint32_t | Height of the block
-| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](quorum-messages#section-qfcommit)
+| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](quorum-messages#qfcommit)
 
 The following annotated hexdump shows a QcTx transaction.
 

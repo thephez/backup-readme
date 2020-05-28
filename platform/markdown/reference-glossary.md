@@ -8,7 +8,7 @@ An identity registered on the blockchain. Used to identify an application
 The collection of documents created by users during their use of an application
 
 ## Block
-One or more transactions prefaced by a block header and protected by proof of work. Blocks are the data stored on the [core blockchain](#section-core-chain)
+One or more transactions prefaced by a block header and protected by proof of work. Blocks are the data stored on the [core blockchain](#core-chain)
 
 ## Block Reward
 The amount that miners may claim as a reward for creating a block. Equal to the sum of the block subsidy (newly available duffs) plus the transactions fees paid by transactions included in the block
@@ -53,7 +53,7 @@ Describes data structures and validation rules for the data structures used by t
 An organization where decision making is governed according to a set of rules that is transparent, controlled by organization members, and lacking any central authority. Financial records are tracked using a blockchain, which provides the transparency and trust required by organization members. 
 
 ## Distributed Key Generation (DKG)
-Distributed key generation (DKG) is a cryptographic process in which multiple parties contribute to the calculation of a shared public and private key set. In Dash, DKG is used to generate a BLS key pair for use in a [long-living masternode quorum](#section-long-living-masternode-quorum-llmq) (LLMQ) to perform threshold signing on network messages. Further detail can be found in [DIP-6 Long-Living Masternode Quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#llmq-dkg-network-protocol).
+Distributed key generation (DKG) is a cryptographic process in which multiple parties contribute to the calculation of a shared public and private key set. In Dash, DKG is used to generate a BLS key pair for use in a [long-living masternode quorum](#long-living-masternode-quorum-llmq) (LLMQ) to perform threshold signing on network messages. Further detail can be found in [DIP-6 Long-Living Masternode Quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#llmq-dkg-network-protocol).
 
 ## Document
 A data entry, similar to a  document in a document-oriented database. Represented as a JSON.  An atomic entity used by the platform to store the user-submitted data
@@ -65,7 +65,7 @@ Layer 2 platform storage
 A special transaction with outputs for funding creation of new Dash platform identities. It contains one or more outputs which can be spent to fund identity registrations
 
 ## Layer (1, 2, 3)  
-- Layer 1: Core blockchain and [Dash Core](#section-dash-core)
+- Layer 1: Core blockchain and [Dash Core](#dash-core)
 - Layer2: Drive and DAPI
 - Layer 3: DAPI clients
 
@@ -85,7 +85,7 @@ All layer 2 data including contracts, documents (user data), credit balance, ide
 A consensus algorithm designed to work efficiently in asynchronous environments while assuming the presence of adversarial actors. Advantages of pBFT include energy efficiency, transaction finality, and low reward variance. 
 
 ## Proof of Service (PoSe)  
-Ability to trustlessly prove that a [masternode](#section-masternode) provided the required service to the network in order to earn a reward
+Ability to trustlessly prove that a [masternode](#masternode) provided the required service to the network in order to earn a reward
 
 ## Proof of Work (PoW)
 Ability to trustlessly prove that a node completed a certain amount of work during the process of confirming a new block to the blockchain. 

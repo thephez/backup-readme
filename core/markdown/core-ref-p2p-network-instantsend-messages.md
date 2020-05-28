@@ -6,9 +6,9 @@ The following network messages all help control the InstantSend feature of Dash.
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig) is used to indicate a successful ChainLock for the designated <<glossary:block height>>. The Chainlock ensures that no other <<glossary:blocks>> can replace the one with the indicated block hash. This determination is made by agreement of a <<glossary:Long-Living Masternode Quorum>> (LLMQ) which creates the BLS signature in the message.
+The [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) is used to indicate a successful ChainLock for the designated <<glossary:block height>>. The Chainlock ensures that no other <<glossary:blocks>> can replace the one with the indicated block hash. This determination is made by agreement of a <<glossary:Long-Living Masternode Quorum>> (LLMQ) which creates the BLS signature in the message.
 
-Once a [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig) is received, clients must reject any other blocks for the indicated block height as described in [DIP8 (ChainLocks)](https://github.com/dashpay/dips/blob/master/dip-0008.md). This increases security by preventing reorganization of a block with a ChainLock (and all blocks below it).
+Once a [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) is received, clients must reject any other blocks for the indicated block height as described in [DIP8 (ChainLocks)](https://github.com/dashpay/dips/blob/master/dip-0008.md). This increases security by preventing reorganization of a block with a ChainLock (and all blocks below it).
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
@@ -16,7 +16,7 @@ Once a [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig
 | 32 | blockHash | uint256 | Block hash
 | 96 | sig | CBLSSignature | LLMQ BLS signature
 
-The following annotated hexdump shows a [`clsig` message](core-ref-p2p-network-instantsend-messages#section-clsig). (The message header has been omitted.)
+The following annotated hexdump shows a [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig). (The message header has been omitted.)
 
 ``` text
 c1310100 ................................... Block Height: 78273
@@ -36,7 +36,7 @@ dcd5497d105932e609016dac075f02df
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock) is used to provide details of transactions that have been locked by LLMQ-based InstantSend. The message includes the details of all transaction <<glossary:inputs>> along with the transaction ID and the BLS <<glossary:signature>> of the <<glossary:LLMQ>> that approved the transaction lock.
+The [`islock` message](core-ref-p2p-network-instantsend-messages#islock) is used to provide details of transactions that have been locked by LLMQ-based InstantSend. The message includes the details of all transaction <<glossary:inputs>> along with the transaction ID and the BLS <<glossary:signature>> of the <<glossary:LLMQ>> that approved the transaction lock.
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ The [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock)
 | 32 | txid | uint256 | TXID of the locked transaction |
 | 96 | sig | byte[] | LLMQ BLS Signature |
 
-The following annotated hexdump shows a [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock). (The message header has been omitted.)
+The following annotated hexdump shows a [`islock` message](core-ref-p2p-network-instantsend-messages#islock). (The message header has been omitted.)
 
 ``` text
 02 ......................................... Number of inputs: 2

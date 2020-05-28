@@ -13,7 +13,7 @@ Early designs of Drive were based on using on the Layer 1 core blockchain and [I
 In order to support Dash Platform's performance requirements, the platform chain has the following design characteristics:
 - Relies on masternode Proof of Service, not miner Proof of Work (PoW)
 - Hosted exclusively on masternodes
-- Uses a [practical Byzantine Fault Tolerance (pBFT)](reference-glossary#section-practical-byzantine-fault-tolerance-p-bft) consensus algorithm
+- Uses a [practical Byzantine Fault Tolerance (pBFT)](reference-glossary#practical-byzantine-fault-tolerance-pbft) consensus algorithm
 - Has a deterministic fee structure
 - Provides fast (< 10 seconds) and absolute block finality (no reorgs) 
 

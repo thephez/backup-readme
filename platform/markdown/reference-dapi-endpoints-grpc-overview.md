@@ -46,7 +46,7 @@ The data submitted/received from the gRPC endpoints is encoded using both [CBOR]
 [/block]
 Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints.
 
-The examples below use the response from a [`getIdentity` gPRC request](#section-get-identity) to demonstrate how to both encode data for sending and decode received data:
+The examples below use the response from a [`getIdentity` gPRC request](reference-dapi-endpoints-platform-endpoints#getidentity) to demonstrate how to both encode data for sending and decode received data:
 [block:code]
 {
   "codes": [

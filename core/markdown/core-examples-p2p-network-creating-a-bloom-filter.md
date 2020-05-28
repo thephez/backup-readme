@@ -1,4 +1,4 @@
-In this section, we'll use variable names that correspond to the field names in the [`filterload` message documentation](core-ref-p2p-network-control-messages#section-filterload). Each code block precedes the paragraph describing it.
+In this section, we'll use variable names that correspond to the field names in the [`filterload` message documentation](core-ref-p2p-network-control-messages#filterload). Each code block precedes the paragraph describing it.
 
 ``` python
 #!/usr/bin/env python
@@ -103,7 +103,7 @@ We only added one element to the filter above, but we could repeat the process w
 
 Note: for a more optimized Python implementation with fewer external dependencies, see [python-bitcoinlib's](https://github.com/petertodd/python-bitcoinlib) bloom filter module which is based directly on Bitcoin Core's C++ implementation.
 
-Using the [`filterload` message](core-ref-p2p-network-control-messages#section-filterload) format, the complete filter created above would be the binary form of the annotated hexdump shown below:
+Using the [`filterload` message](core-ref-p2p-network-control-messages#filterload) format, the complete filter created above would be the binary form of the annotated hexdump shown below:
 
 ``` text
 02 ......... Filter bytes: 2

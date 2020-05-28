@@ -24,14 +24,14 @@ Currently, the following notifications are supported:
 | zmqpubhashgovernancevote | Governance vote hash |
 | zmqpubhashgovernanceobject | Governance object hash |
 | zmqpubhashinstantsend<br>doublespend | Hash of a transaction attempting to double-spend an InstantSend-locked input |
-| zmqpubrawblock | Raw [`block`](core-ref-p2p-network-data-messages#section-block) |
-| zmqpubrawchainlock | Raw [`block`](core-ref-p2p-network-data-messages#section-block) receiving a ChainLock |
-| zmqpubrawchainlocksig | Raw [`block`](core-ref-p2p-network-data-messages#section-block) with ChainLock signature ([`clsig`](core-ref-p2p-network-instantsend-messages#section-clsig)) concatenated |
+| zmqpubrawblock | Raw [`block`](core-ref-p2p-network-data-messages#block) |
+| zmqpubrawchainlock | Raw [`block`](core-ref-p2p-network-data-messages#block) receiving a ChainLock |
+| zmqpubrawchainlocksig | Raw [`block`](core-ref-p2p-network-data-messages#block) with ChainLock signature ([`clsig`](core-ref-p2p-network-instantsend-messages#clsig)) concatenated |
 | zmqpubrawtx | Raw transaction ([`tx`](core-ref-transactions-raw-transaction-format))  |
 | zmqpubrawtxlock | Raw InstantSend transaction ([`tx`](core-ref-transactions-raw-transaction-format))  |
-| zmqpubrawtxlocksig | Raw InstantSend transaction ([`tx`](core-ref-transactions-raw-transaction-format)) with InstantSend lock signature ([`islock`](core-ref-p2p-network-instantsend-messages#section-islock)) concatenated |
-| zmqpubrawgovernancevote | Raw governance vote ([`govobjvote`](core-ref-p2p-network-governance-messages#section-govobjvote)) |
-| zmqpubrawgovernanceobject | Raw governance object ([`govobject`](core-ref-p2p-network-governance-messages#section-govobj)) |
+| zmqpubrawtxlocksig | Raw InstantSend transaction ([`tx`](core-ref-transactions-raw-transaction-format)) with InstantSend lock signature ([`islock`](core-ref-p2p-network-instantsend-messages#islock)) concatenated |
+| zmqpubrawgovernancevote | Raw governance vote ([`govobjvote`](core-ref-p2p-network-governance-messages#govobjvote)) |
+| zmqpubrawgovernanceobject | Raw governance object ([`govobject`](core-ref-p2p-network-governance-messages#govobj)) |
 | zmqpubrawinstantsend<br>doublespend | Raw transaction ([`tx`](core-ref-transactions-raw-transaction-format)) attempting to double-spend an InstantSend-locked input |
 
 # Dash Core Configuration

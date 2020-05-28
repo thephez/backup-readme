@@ -49,7 +49,7 @@ Developer networks (devnets) have some aspects of testnet and some aspects of re
 
 The genesis block of the devnet is the same as the one from regtest. This starts the devnet with a very low <<glossary:difficulty>>, allowing quick generation of a sufficient balance to create a <<glossary:masternode>>.
 
-The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#section-version). If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
+The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#version). If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
 
 To use devnet, use the argument `-devnet=<name>` with `dash-cli`, `dashd`or `dash-qt` or add `devnet=<name>` to your `dash.conf` file as [described earlier](core-examples-configuration-file).
 

@@ -1,6 +1,6 @@
 # Overview
 
-As described briefly in the [Dash Platform Protocol explanation](explanation-platform-protocol#section-data-contract), Dash Platform uses data contracts to define the schema (structure) of data it stores. Therefore, an application must first register a data contract before using the platform to store its data. Then, whenever the application requests to store or change data on Dash Platform, the request will only succeed if the new data matches the data contract's schema.
+As described briefly in the [Dash Platform Protocol explanation](explanation-platform-protocol#data-contract), Dash Platform uses data contracts to define the schema (structure) of data it stores. Therefore, an application must first register a data contract before using the platform to store its data. Then, whenever the application requests to store or change data on Dash Platform, the request will only succeed if the new data matches the data contract's schema.
 
 The first two data contracts are DashPay wallet and [Dash Platform Name Service (DPNS)](explanation-dpns). The concept of the social, username-based DashPay wallet served as the catalyst for development of the platform, with DPNS providing the mechanism to support usernames.
 
@@ -16,7 +16,7 @@ Each data contract must define several fields. When using the [JavaScript implem
  - A contract ID (the identity registering the contract)
  - One or more documents
 
-In the [example contract](#section-example-contract) shown below, a `contact` document and a `profile` document are defined. Each of these documents then defines the properties and indices it requires.
+In the [example contract](#example-contract) shown below, a `contact` document and a `profile` document are defined. Each of these documents then defines the properties and indices it requires.
 
 ## Registration
 

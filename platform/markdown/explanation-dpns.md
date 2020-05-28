@@ -26,8 +26,14 @@ In the registration phase, the domain name (e.g. `alice.dash`) is once again sub
 
 DPNS names currently have several constraints as defined in the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json). The constraints exist to maintain compatibility with DNS:
 * Maximum length - 63 characters
-* Character set - `0-9`, `A-Z` (case insensitive), `-`
-
+* Character set - `0-9`, `-` (hyphen), and `A-Z` (case insensitive)
+[block:callout]
+{
+  "type": "info",
+  "title": "",
+  "body": "Note: Use of `-` as a prefix/suffix to a name is not allowed (e.g. `-name` or `name-`). This constraint is defined by this JSON-Schema [pattern](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L29) in the DPNS data contract:\n```\n\"^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$\"\n```"
+}
+[/block]
 Additionally, the DPNS [data triggers](explanation-platform-protocol-data-trigger) defined in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.12.1/lib/dataTrigger/dpnsTriggers) enforce additional validation rules related to the `domain` document.
 
 For more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the [js-dpns-client](https://github.com/dashevo/js-dpns-client) repository. Additionally, the DPNS data contract is available in the [dpns-contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) repository.

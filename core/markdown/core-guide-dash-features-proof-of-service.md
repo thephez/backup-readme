@@ -6,7 +6,7 @@ The following table lists the aspects of the DKG process a masternode must compl
 
 | Protocol Version | Proof of Service<br>Requirement |
 | :-: | - |
-| 70213+ | Exchange required messages (quorum contributions and quorum justifications) with other quorum members during the [LLMQ DKG process](core-guide-dash-features-masternode-quorums#section-llmq-creation-dkg) (Dash Core 0.13.0+) |
+| 70213+ | Exchange required messages (quorum contributions and quorum justifications) with other quorum members during the [LLMQ DKG process](core-guide-dash-features-masternode-quorums#llmq-creation-dkg) (Dash Core 0.13.0+) |
 | 70217+ | Have an open P2P port ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)) |
 | 70217+ | Have a protocol version => `MIN_MASTERNODE_PROTO_VERSION`. During updates where this version is increased, masternodes will begin receiving PoSe score increases once > 60% of masternodes have upgrade ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)) |
 
@@ -20,7 +20,7 @@ The current PoSe scoring system is based only on participation in the <<glossary
 
 # **PoSe Score Calculation**
 
-As shown in the following table, the PoSe Score always decreases by 1 per <<glossary:block>> as long as a masternode has not been banned. Once banned, the masternode can only be restored by sending a Provider Update Service ([ProUpServTx](core-ref-transactions-special-transactions#section-pro-up-serv-tx)) special transaction.
+As shown in the following table, the PoSe Score always decreases by 1 per <<glossary:block>> as long as a masternode has not been banned. Once banned, the masternode can only be restored by sending a Provider Update Service ([ProUpServTx](core-ref-transactions-special-transactions#proupservtx)) special transaction.
 
 | PoSe Parameter | Value | Example Value |
 | --- | --- | --- |

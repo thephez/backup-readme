@@ -1,4 +1,4 @@
-In the section above, we retrieved a <<glossary:merkle block>> from the network; now we will parse it. Most of the <<glossary:block header>> has been omitted. For a more complete hexdump, see the example in the [`merkleblock` message section](core-ref-p2p-network-data-messages#section-merkleblock).
+In the section above, we retrieved a <<glossary:merkle block>> from the network; now we will parse it. Most of the <<glossary:block header>> has been omitted. For a more complete hexdump, see the example in the [`merkleblock` message section](core-ref-p2p-network-data-messages#merkleblock).
 
 ``` text
 7f16c5962e8bd963659c793ce370d95f
@@ -20,7 +20,7 @@ bb3183301d7a1fb3bd174fcfa40a2b65 ... Hash #2
 1d ................................. Flags: 1 0 1 1 1 0 0 0
 ```
 
-We parse the above [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) using the following instructions.  Each illustration is described in the paragraph below it.
+We parse the above [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) using the following instructions.  Each illustration is described in the paragraph below it.
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-001.svg)
 
@@ -32,7 +32,7 @@ The first flag is a 1 and the <<glossary:merkle root>> is (as always) a non-TXID
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-003.svg)
 
-The next flag in the example is a 0 and this is also a non-TXID node, so we apply the first hash from the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) to this node. We also don't process any child nodes---according to the peer which created the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock), none of those nodes will lead to <<glossary:TXIDs>> of transactions that match our filter, so we don't need them. We go back up to the merkle root and then descend into its right child and look at the next (third) flag for instructions.
+The next flag in the example is a 0 and this is also a non-TXID node, so we apply the first hash from the [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) to this node. We also don't process any child nodes---according to the peer which created the [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock), none of those nodes will lead to <<glossary:TXIDs>> of transactions that match our filter, so we don't need them. We go back up to the merkle root and then descend into its right child and look at the next (third) flag for instructions.
 
 ![Parsing A MerkleBlock](https://dash-docs.github.io/img/dev/gifs/en-merkleblock-parsing/en-merkleblock-parsing-004.svg)
 
@@ -62,4 +62,4 @@ Moving to the right child of the third node we encountered, we fill it out using
 
 We hash as appropriate to fill out the tree.  Note that the eighth flag is not used---this is acceptable as it was required to pad out a flag byte.
 
-The final steps would be to ensure the computed <<glossary:merkle root>> is identical to the merkle root in the <<glossary:header>> and check the other steps of the parsing checklist in the [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock) section.
+The final steps would be to ensure the computed <<glossary:merkle root>> is identical to the merkle root in the <<glossary:header>> and check the other steps of the parsing checklist in the [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) section.

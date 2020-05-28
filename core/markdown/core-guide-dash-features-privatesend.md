@@ -26,7 +26,7 @@ The <<glossary:wallet>> completes two operations in this phase:
 
 **Creating Denominations**
 
-The PrivateSend denominations include a bit mapping to easily differentiate them. The [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) and [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) use this bit shifted integer instead of sending the actual denomination. The table below lists the bit, its associated integer value used in P2P messages, and the actual Dash value.
+The PrivateSend denominations include a bit mapping to easily differentiate them. The [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) and [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) use this bit shifted integer instead of sending the actual denomination. The table below lists the bit, its associated integer value used in P2P messages, and the actual Dash value.
 
 | **Bit** | **Denom. (Integer)** | **Denomination (DASH)** |
 | --- | --- | --- |
@@ -59,17 +59,17 @@ The mixing phase involves exchanging a sequence of messages with a <<glossary:ma
 |   | **Clients** | **Direction**  | **Masternode**   | **Description** |
 | --- | --- | :---: | --- | --- |
 | 0 | | | | Client determines whether to join an existing mixing pool or create a new one |
-| 1 | [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa)                            | → |                            | Client asks to join mixing pool or have the masternode create a new one
-| 2 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu)       | Masternode provides a mixing pool status update (Typical - State: `POOL_STATE_QUEUE`, Message: `MSG_NOERR`)
-| 3 |                                                | ← | [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq)        | Masternode notifies clients when it is ready to mix
-| 4 | [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi)                                 | → |                       | Upon receiving a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) with the Ready bit set, clients each provide a list of their inputs (unsigned) to be mixed, collateral, and a list of outputs where mixed funds should be sent
-| 5 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu)       | Masternode provides a mixing pool status update (typical - State: `POOL_STATE_ACCEPTING_ENTRIES`, Message: `MSG_ENTRIES_ADDED`)
-| 6 |                                                | ← | [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf)        | Masternode sends the final transaction containing all clients inputs (unsigned) and all client outputs to each client for verification
-| 7 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu)       | Masternode provides a mixing pool status update (Typical - State: `POOL_STATE_SIGNING`, Message: `MSG_NOERR`)
-| 8 | [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss)                                 | → |                       | After verifying the final transaction, clients each sign their own inputs and send them back
-| 9 |                                                | ← | [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc)        | Masternode verifies the signed inputs, creates a [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) to broadcast the transaction, and notifies clients that the mixing transaction is complete (Typical - Message: `MSG_SUCCESS`)
-| 10 |                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv)        | Masternode broadcasts a `dstx` inventory message
-| 11 | [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (dstx)                                 | → |            | (Optional)
+| 1 | [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa)                            | → |                            | Client asks to join mixing pool or have the masternode create a new one
+| 2 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu)       | Masternode provides a mixing pool status update (Typical - State: `POOL_STATE_QUEUE`, Message: `MSG_NOERR`)
+| 3 |                                                | ← | [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq)        | Masternode notifies clients when it is ready to mix
+| 4 | [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi)                                 | → |                       | Upon receiving a [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) with the Ready bit set, clients each provide a list of their inputs (unsigned) to be mixed, collateral, and a list of outputs where mixed funds should be sent
+| 5 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu)       | Masternode provides a mixing pool status update (typical - State: `POOL_STATE_ACCEPTING_ENTRIES`, Message: `MSG_ENTRIES_ADDED`)
+| 6 |                                                | ← | [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf)        | Masternode sends the final transaction containing all clients inputs (unsigned) and all client outputs to each client for verification
+| 7 |                                                | ← | [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu)       | Masternode provides a mixing pool status update (Typical - State: `POOL_STATE_SIGNING`, Message: `MSG_NOERR`)
+| 8 | [`dss` message](core-ref-p2p-network-privatesend-messages#dss)                                 | → |                       | After verifying the final transaction, clients each sign their own inputs and send them back
+| 9 |                                                | ← | [`dsc` message](core-ref-p2p-network-privatesend-messages#dsc)        | Masternode verifies the signed inputs, creates a [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx) to broadcast the transaction, and notifies clients that the mixing transaction is complete (Typical - Message: `MSG_SUCCESS`)
+| 10 |                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#inv)        | Masternode broadcasts a `dstx` inventory message
+| 11 | [`getdata` message](core-ref-p2p-network-data-messages#getdata) (dstx)                                 | → |            | (Optional)
 
 **Additional notes**
 
@@ -79,51 +79,51 @@ _**Step 0 - Pool Selection**_
 
 _**Step 1 - Pool Request**_
 
-  * The [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) contains a collateral transaction
+  * The [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) contains a collateral transaction
     * This transaction uses a collateral <<glossary:input>> created in the [Wallet Preparation](#privatesend-wallet-preparation) phase
     * The collateral is a signed <<glossary:transaction>> that pays the collateral back to a client <<glossary:address>> minus a fee of 0.001 DASH
 
 _**Step 3 - Queue**_
 
-  * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) when it starts a new queue. These message are relayed by all <<glossary:peers>>.
+  * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) when it starts a new queue. These message are relayed by all <<glossary:peers>>.
   * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` ([3](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L360)) to `nPoolMaxParticipants` ([5](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L361)). Prior protocol version mixing sessions always contained exactly 3 participants
-  * The masternode sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) with the ready bit set once it has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#section-dsa) from either:
+  * The masternode sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) with the ready bit set once it has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#dsa) from either:
     1. The maximum number of clients (5)
     2. Greater than the minimum number of clients (3) and the timeout has been reached ([30 seconds](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
 [block:callout]
 {
   "type": "warning",
-  "body": "Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L23))"
+  "body": "Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L23))"
 }
 [/block]
 
 _**Step 4 - Inputs**_
 
-  * The collateral transaction can be the same in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) as the one in the [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) (Step 1) as long as it has not been spent
+  * The collateral transaction can be the same in the [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi) as the one in the [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) (Step 1) as long as it has not been spent
   * Each client can provide up to 9 (`PRIVATESEND_ENTRY_MAX_SIZE`) inputs (and an equal number of outputs) to be mixed ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L29))
   * This is the only message in the PrivateSend process that contains enough information to link a wallet's PrivateSend inputs with its outputs
     * This message is sent directly between a client and the mixing masternode (not relayed across the Dash network) so no other clients see it
 
 _**Step 6 - Final Transaction (unsigned)**_
 
-  * Once the masternode has received valid [`dsi` messages](core-ref-p2p-network-privatesend-messages#section-dsi) from all clients, it creates the final transaction and sends a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf)
+  * Once the masternode has received valid [`dsi` messages](core-ref-p2p-network-privatesend-messages#dsi) from all clients, it creates the final transaction and sends a [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf)
     * Inputs/outputs are ordered deterministically as defined by [BIP-69](https://github.com/dashevo/bips/blob/master/bip-0069.mediawiki#Abstract) to avoid leaking any data ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L271-L272))
-    * Clients must sign their inputs to the Final Transaction within 15 seconds or risk forfeiting the collateral they provided in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) (Step 4) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L24))
+    * Clients must sign their inputs to the Final Transaction within 15 seconds or risk forfeiting the collateral they provided in the [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi) (Step 4) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L24))
 
 _**Step 10 - Final Transaction broadcast**_
 
-  * Prior to protocol version 70213, masternodes could only send a single un-mined [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) at a time. As of protocol version 70213, up to 5 (`MASTERNODE_MAX_MIXING_TXES`) un-mined [`dstx` messages](core-ref-p2p-network-privatesend-messages#section-dstx) per masternode are allowed. ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/masternode/masternode-meta.h#L16))
+  * Prior to protocol version 70213, masternodes could only send a single un-mined [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx) at a time. As of protocol version 70213, up to 5 (`MASTERNODE_MAX_MIXING_TXES`) un-mined [`dstx` messages](core-ref-p2p-network-privatesend-messages#dstx) per masternode are allowed. ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/masternode/masternode-meta.h#L16))
 
 _**General**_
 
-  With the exception of the [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) and the [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) (which need to be public and do not expose any private information), all PrivateSend P2P messages are sent directly between the mixing masternode and relevant client(s).
+  With the exception of the [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) and the [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx) (which need to be public and do not expose any private information), all PrivateSend P2P messages are sent directly between the mixing masternode and relevant client(s).
 
 # PrivateSend Fees
 
 **Mixing Fees**
 
 * If mixing completes successfully, Dash Core charges the collateral randomly in 1/10 mixing transactions to pay miners ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L400-L417))
-* Clients that abuse the mixing system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#section-dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 2/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L330-L347))
+* Clients that abuse the mixing system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 2/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L330-L347))
 
 **Sending Fees**
 

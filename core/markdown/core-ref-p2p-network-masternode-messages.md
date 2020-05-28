@@ -6,7 +6,7 @@ For additional details, refer to the Developer Guide [Masternode Sync](core-guid
 
 # ssc
 
-The [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc) is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of governance objects (`govsync` message), and governance object votes (`govsync` message).
+The [`ssc` message](core-ref-p2p-network-masternode-messages#ssc) is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of governance objects (`govsync` message), and governance object votes (`govsync` message).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -19,10 +19,10 @@ Sync Item IDs
 |------|--------------|---------------
 | 2 | MASTERNODE_SYNC_LIST | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`dseg` message
 | 3 | MASTERNODE_SYNC_MNW | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`mnget` message
-| 10 | MASTERNODE_SYNC_GOVOBJ | [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync)
-| 11 | MASTERNODE_SYNC_GOVOBJ_VOTE | [`govsync` message](core-ref-p2p-network-governance-messages#section-govsync) with non-zero hash
+| 10 | MASTERNODE_SYNC_GOVOBJ | [`govsync` message](core-ref-p2p-network-governance-messages#govsync)
+| 11 | MASTERNODE_SYNC_GOVOBJ_VOTE | [`govsync` message](core-ref-p2p-network-governance-messages#govsync) with non-zero hash
 
-The following annotated hexdump shows a [`ssc` message](core-ref-p2p-network-masternode-messages#section-ssc). (The message header has been omitted.)
+The following annotated hexdump shows a [`ssc` message](core-ref-p2p-network-masternode-messages#ssc). (The message header has been omitted.)
 
 ``` text
 02000000 ................................... Item ID: MASTERNODE_SYNC_LIST (2)
@@ -33,9 +33,9 @@ bf110000 ................................... Count: 4543
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) is sent by a <<glossary:masternode>> immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#section-verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.
+The [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) is sent by a <<glossary:masternode>> immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.
 
-The [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth) signs a challenge that was previously sent via a [`version` message](core-ref-p2p-network-control-messages#section-version). The challenge is signed differently depending on if the connection is inbound or outbound.
+The [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) signs a challenge that was previously sent via a [`version` message](core-ref-p2p-network-control-messages#version). The challenge is signed differently depending on if the connection is inbound or outbound.
 
 This is primarily used as a DoS protection mechanism to allow persistent connections between masternodes to remain open even if inbound connection limits are reached.
 
@@ -44,7 +44,7 @@ This is primarily used as a DoS protection mechanism to allow persistent connect
 | 32 | proRegTxHash | uint256 | Version of the message
 | 96 | sig | byte[] | BLS signature, signed with the operator key of the masternode
 
-The following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#section-mnauth). (The message header has been omitted.)
+The following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth). (The message header has been omitted.)
 
 ``` text
 63cd3bf06404d78f80163afeb4b13e18

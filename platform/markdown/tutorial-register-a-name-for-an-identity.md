@@ -1,4 +1,4 @@
-The purpose of this tutorial is to walk through the steps necessary to register a [Dash Platform Name Service (DPNS)](reference-glossary#section-dash-platform-naming-service-dpns) name.
+The purpose of this tutorial is to walk through the steps necessary to register a [Dash Platform Name Service (DPNS)](reference-glossary#dash-platform-naming-service-dpns) name.
 
 # Overview
 Dash platform names make cryptographic identities easy to remember and communicate. 
@@ -9,7 +9,7 @@ For this tutorial you will need:
 
 - A wallet mnemonic with some funds in it: [Tutorial: Create and Fund a Wallet](tutorial-create-and-fund-a-wallet)
 - A dash platform identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
-- A name you want to register. [Name restrictions](explanation-dpns#section-implementation)
+- A name you want to register: [Name restrictions](explanation-dpns#implementation)
 
 # Code
 [block:code]

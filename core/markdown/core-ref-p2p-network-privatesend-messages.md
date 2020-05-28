@@ -1,12 +1,12 @@
 The following network messages all help control the <<glossary:PrivateSend>> (formerly DarkSend) coin mixing features built in to Dash and facilitated by the <<glossary:masternode>> network.
 
-Since the messages are all related to a single process, this diagram shows them sequentially numbered. The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) (not shown) is sent by the masternode in conjunction with some responses. For additional details, refer to the Developer Guide [PrivateSend section](core-guide-dash-features-privatesend).
+Since the messages are all related to a single process, this diagram shows them sequentially numbered. The [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu) (not shown) is sent by the masternode in conjunction with some responses. For additional details, refer to the Developer Guide [PrivateSend section](core-guide-dash-features-privatesend).
 
 ![Overview Of P2P Protocol PrivateSend Request And Reply Messages](https://dash-docs.github.io/img/dev/en-p2p-privatesend-messages.svg)
 
 # dsa
 
-The [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa) allows a <<glossary:node>> to join a mixing pool. A collateral fee is required and may be forfeited if the client acts maliciously. The message operates in two ways:
+The [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) allows a <<glossary:node>> to join a mixing pool. A collateral fee is required and may be forfeited if the client acts maliciously. The message operates in two ways:
 
 1. When sent to a masternode without a current mixing queue, it initiates the start of a new mixing queue
 
@@ -17,9 +17,9 @@ Dash Core attempts to join an existing queue first and only requests a new one i
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nDenom | int | Required | Denomination that will be exclusively used when submitting inputs into the pool
-| 216+ | txCollateral | [`tx` message](core-ref-p2p-network-data-messages#section-tx) | Required | Collateral TX that will be charged if this client acts maliciously
+| 216+ | txCollateral | [`tx` message](core-ref-p2p-network-data-messages#tx) | Required | Collateral TX that will be charged if this client acts maliciously
 
-The following annotated hexdump shows a [`dsa` message](core-ref-p2p-network-privatesend-messages#section-dsa). (The message header has been omitted.) Note that the 'Required inputs' bytes will only be preset if <<glossary:Spork>> 6 is active and protocol version => 70209.
+The following annotated hexdump shows a [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa). (The message header has been omitted.) Note that the 'Required inputs' bytes will only be preset if <<glossary:Spork>> 6 is active and protocol version => 70209.
 
 ``` text
 02000000 ................................... Denomination: 1 Dash (2)
@@ -46,16 +46,16 @@ Collateral Transaction
 
 # dsc
 
-The [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc) indicates a PrivateSend mixing session is complete.
+The [`dsc` message](core-ref-p2p-network-privatesend-messages#dsc) indicates a PrivateSend mixing session is complete.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nSessionID | int | Required | ID of the mixing session
 | 4 | nMessageID | int | Required | ID of the message describing the result of the mixing session
 
-Reference the Message IDs table under the [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) for descriptions of the Message ID values.
+Reference the Message IDs table under the [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu) for descriptions of the Message ID values.
 
-The following annotated hexdump shows a [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc). (The message header has been omitted.)
+The following annotated hexdump shows a [`dsc` message](core-ref-p2p-network-privatesend-messages#dsc). (The message header has been omitted.)
 
 ``` text
 d9070700 ............................. Session ID: 791686
@@ -64,14 +64,14 @@ d9070700 ............................. Session ID: 791686
 
 # dsf
 
-The [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) is sent by the masternode as the final mixing transaction in a PrivateSend mixing session. The <<glossary:masternode>> expects <<glossary:nodes>> in the mixing session to respond with a [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss).
+The [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf) is sent by the masternode as the final mixing transaction in a PrivateSend mixing session. The <<glossary:masternode>> expects <<glossary:nodes>> in the mixing session to respond with a [`dss` message](core-ref-p2p-network-privatesend-messages#dss).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nSessionID | int | Required | ID of the mixing session
-| # | txFinal | [`tx` message](core-ref-p2p-network-data-messages#section-tx) | Required |  Final mixing transaction with unsigned inputs
+| # | txFinal | [`tx` message](core-ref-p2p-network-data-messages#tx) | Required |  Final mixing transaction with unsigned inputs
 
-The following annotated hexdump shows a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf). (The message header has been omitted.) Transaction <<glossary:inputs>>/<<glossary:outputs>> are only shown for a single node (compare with the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) and [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss) hexdumps).
+The following annotated hexdump shows a [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf). (The message header has been omitted.) Transaction <<glossary:inputs>>/<<glossary:outputs>> are only shown for a single node (compare with the [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi) and [`dss` message](core-ref-p2p-network-privatesend-messages#dss) hexdumps).
 
 ``` text
 86140c00 ............................. Session ID: 791686
@@ -171,15 +171,15 @@ Transaction Message
 
 # dsi
 
-The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) replies to a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) that has the Ready field set to 0x01. The [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi) contains user <<glossary:inputs>> for mixing along with the <<glossary:outputs>> and a collateral. Once the <<glossary:masternode>> receives [`dsi` messages](core-ref-p2p-network-privatesend-messages#section-dsi) from all members of the pool, it responds with a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf).
+The [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi) replies to a [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) that has the Ready field set to 0x01. The [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi) contains user <<glossary:inputs>> for mixing along with the <<glossary:outputs>> and a collateral. Once the <<glossary:masternode>> receives [`dsi` messages](core-ref-p2p-network-privatesend-messages#dsi) from all members of the pool, it responds with a [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | ? | vecTxDSIn | CTxDSIn[] | Required | Vector of users inputs (CTxDSIn serialization is equal to CTxIn serialization)
-| 216+ | txCollateral | [`tx` message](core-ref-p2p-network-data-messages#section-tx) | Required | Collateral transaction which is used to prevent misbehavior and also to charge fees randomly
+| 216+ | txCollateral | [`tx` message](core-ref-p2p-network-data-messages#tx) | Required | Collateral transaction which is used to prevent misbehavior and also to charge fees randomly
 | ? | vecTxDSOut | CTxDSOut[] | Required | Vector of user outputs (CTxDSOut serialization is equal to CTxOut serialization)
 
-The following annotated hexdump shows a [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi). (The message header has been omitted.)
+The following annotated hexdump shows a [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi). (The message header has been omitted.)
 
 ``` text
 User inputs
@@ -297,17 +297,17 @@ User outputs
 
 # dsq
 
-The [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) provides <<glossary:nodes>> with mixing queue details and notifies them when to sign final mixing TX messages.
+The [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) provides <<glossary:nodes>> with mixing queue details and notifies them when to sign final mixing TX messages.
 
-If the message indicates the queue is not ready, the node verifies the message is valid. It also verifies that the <<glossary:masternode>> is not flooding the <<glossary:network>> with [`dsq` messages](core-ref-p2p-network-privatesend-messages#section-dsq) in an attempt to dominate the queuing process. It then relays the message to its connected <<glossary:peers>>.
+If the message indicates the queue is not ready, the node verifies the message is valid. It also verifies that the <<glossary:masternode>> is not flooding the <<glossary:network>> with [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) in an attempt to dominate the queuing process. It then relays the message to its connected <<glossary:peers>>.
 
-If the message indicates the queue is ready, the node responds with a [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi).
+If the message indicates the queue is ready, the node responds with a [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nDenom | int | Required | Denomination allowed in this mixing session
 | 36 | masternodeOutPoint | outPoint | Required | The unspent outpoint of the masternode (holding 1000 DASH) which is hosting this session
-| 8 | nTime | int64_t | Required | Time this [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) was created
+| 8 | nTime | int64_t | Required | Time this [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) was created
 | 1 | fReady | bool | Required | Indicates if the mixing pool is ready to be executed
 | 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) activation_<br><br>BLS Signature of this message by masternode verifiable via pubKeyMasternode (Length (1 byte) + Signature (96 bytes))
 
@@ -321,7 +321,7 @@ Denominations (per [`src/privatesend.cpp`](https://github.com/dashpay/dash/blob/
 | 8 | 0.01 Dash
 | 16 | 0.001 Dash
 
-The following annotated hexdump shows a [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq). (The message header has been omitted.) Note that the 'Required <<glossary:inputs>>' bytes will only be preset if <<glossary:Spork>> 6 is active and protocol version => 70209.
+The following annotated hexdump shows a [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq). (The message header has been omitted.) Note that the 'Required <<glossary:inputs>>' bytes will only be preset if <<glossary:Spork>> 6 is active and protocol version => 70209.
 
 ``` text
 01000000 ............................. Denomination: 10 Dash (1)
@@ -347,15 +347,15 @@ Masternode Outpoint
 
 # dss
 
-The [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss) replies to a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) sent by the <<glossary:masternode>> managing the mixing session.  The [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) provides the unsigned transaction <<glossary:inputs>> for all members of the mixing pool. Each <<glossary:node>> verifies that the final transaction matches what is expected. They then sign any transaction inputs belonging to them and then relay them to the masternode via this [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss).
+The [`dss` message](core-ref-p2p-network-privatesend-messages#dss) replies to a [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf) sent by the <<glossary:masternode>> managing the mixing session.  The [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf) provides the unsigned transaction <<glossary:inputs>> for all members of the mixing pool. Each <<glossary:node>> verifies that the final transaction matches what is expected. They then sign any transaction inputs belonging to them and then relay them to the masternode via this [`dss` message](core-ref-p2p-network-privatesend-messages#dss).
 
-Once the masternode receives and validates all [`dss` messages](core-ref-p2p-network-privatesend-messages#section-dss), it issues a [`dsc` message](core-ref-p2p-network-privatesend-messages#section-dsc). If a node does not respond to a [`dsf` message](core-ref-p2p-network-privatesend-messages#section-dsf) with signed transaction inputs, it may forfeit the collateral it provided. This is to minimize malicious behavior.
+Once the masternode receives and validates all [`dss` messages](core-ref-p2p-network-privatesend-messages#dss), it issues a [`dsc` message](core-ref-p2p-network-privatesend-messages#dsc). If a node does not respond to a [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf) with signed transaction inputs, it may forfeit the collateral it provided. This is to minimize malicious behavior.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | # | inputs | txIn[] | Required | Signed inputs for mixing session
 
-The following annotated hexdump shows a [`dss` message](core-ref-p2p-network-privatesend-messages#section-dss). (The message header has been omitted.) Note that these will be the same transaction inputs that were supplied (unsiged) in the [`dsi` message](core-ref-p2p-network-privatesend-messages#section-dsi).
+The following annotated hexdump shows a [`dss` message](core-ref-p2p-network-privatesend-messages#dss). (The message header has been omitted.) Note that these will be the same transaction inputs that were supplied (unsiged) in the [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi).
 
 ``` text
 User inputs
@@ -412,7 +412,7 @@ User inputs
 
 # dssu
 
-The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) provides a mixing pool status update.
+The [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu) provides a mixing pool status update.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -468,7 +468,7 @@ The [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu) pro
 | 0x15 (21) | `MSG_ENTRIES_ADDED`
 | 0x16 (22) | `ERR_SIZE_MISMATCH`
 
-The following annotated hexdump shows a [`dssu` message](core-ref-p2p-network-privatesend-messages#section-dssu). (The message header has been omitted.)
+The following annotated hexdump shows a [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu). (The message header has been omitted.)
 
 ``` text
 86140c00 ............................. Session ID: 791686
@@ -479,16 +479,16 @@ The following annotated hexdump shows a [`dssu` message](core-ref-p2p-network-pr
 
 # dstx
 
-The [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx) allows <<glossary:masternodes>> to broadcast subsidized transactions without fees (to provide security in mixing).
+The [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx) allows <<glossary:masternodes>> to broadcast subsidized transactions without fees (to provide security in mixing).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
-| # | tx | [`tx` message](core-ref-p2p-network-data-messages#section-tx) | Required | The transaction
+| # | tx | [`tx` message](core-ref-p2p-network-data-messages#tx) | Required | The transaction
 | 36 | masternode<br>OutPoint | outPoint | Required | The unspent outpoint of the masternode (holding 1000 DASH) which is signing the message
 | 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) activation_<br><br>BLS Signature of this message by masternode verifiable via pubKeyMasternode (Length (1 byte) + Signature (96 bytes))
 | 8 | sigTime | int64_t | Require | Time this message was signed
 
-The following annotated hexdump shows a [`dstx` message](core-ref-p2p-network-privatesend-messages#section-dstx). (The message header has been omitted.)
+The following annotated hexdump shows a [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx). (The message header has been omitted.)
 
 ``` text
 Transaction Message

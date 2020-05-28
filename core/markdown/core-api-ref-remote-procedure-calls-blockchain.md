@@ -92,7 +92,7 @@ Name | Type | Presence | Description
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →<br>`versionHex` | string (hex) | Required<br>(exactly 1) | _Added in Bitcoin Core 0.13.0_<br><br>The block version formatted in hexadecimal
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing the TXIDs of all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -111,7 +111,7 @@ Name | Type | Presence | Description
 →<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
-→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
 
 
@@ -124,7 +124,7 @@ Name | Type | Presence | Description
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`size` | number (int) | Required<br>(exactly 1) | The size of this block in serialized block format, counted in bytes
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →<br>`versionHex` | string (hex) | Required<br>(exactly 1) | _Added in Bitcoin Core 0.13.0_<br><br>The block version formatted in hexadecimal
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`tx` | array | Required<br>(exactly 1) | An array containing the TXIDs of all transactions in this block.  The transactions appear in the array in the same order they appear in the serialized block
@@ -160,8 +160,8 @@ Name | Type | Presence | Description
 → → → → → →<br>Address | string | Required<br>(1 or more) | A P2PKH or P2SH address
 → →<br>`extraPayloadSize` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0.0*<br><br>Size of the DIP2 extra payload. Only present if it's a DIP2 special transaction
 → →<br>`extraPayload` | string (hex) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0.0*<br><br>Hex encoded DIP2 extra payload data. Only present if it's a DIP2 special transaction
-→ →<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
-→ →<br>`instantlock_internal` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction has an InstantSend lock
+→ →<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
+→ →<br>`instantlock_internal` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction has an InstantSend lock
 →<br>`cbTx` | object | Required<br>(exactly 1) | Coinbase special transaction details
 → →<br>`version` | number (int) | Required<br>(exactly 1) | The version of the Coinbase special transaction (CbTx)
 → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
@@ -176,7 +176,7 @@ Name | Type | Presence | Description
 →<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
-→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
 *Example from Dash Core 0.16.0*
 
@@ -631,7 +631,7 @@ Name | Type | Presence | Description
 →<br>`hash` | string (hex) | Required<br>(exactly 1) | The hash of this block's block header encoded as hex in RPC byte order.  This is the same as the hash provided in parameter #1
 →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 →<br>`time` | number (int) | Required<br>(exactly 1) | The time of the block  
 →<br>`mediantime` | number (int) | Required<br>(exactly 1) | The computed median time of the previous 11 blocks.  Used for validating transaction locktime under BIP113
@@ -647,7 +647,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-→<br>`versionHex` | number (hex) | Required<br>(exactly 1) | This block's hex version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→<br>`versionHex` | number (hex) | Required<br>(exactly 1) | This block's hex version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 
 *Example from Dash Core 0.16.0*
 
@@ -745,7 +745,7 @@ Name | Type | Presence | Description
 → →<br>`hash` | string (hex) | Required<br>(exactly 1) | The hash of this block's block header encoded as hex in RPC byte order.  This is the same as the hash provided in parameter #1
 → →<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations the transactions in this block have, starting at 1 when this block is at the tip of the best block chain.  This score will be -1 if the the block is not part of the best block chain
 → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
-→ →<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#section-block-versions)
+→ →<br>`version` | number (int) | Required<br>(exactly 1) | This block's version number.  See [block version numbers](core-ref-block-chain-block-headers#block-versions)
 → →<br>`merkleroot` | string (hex) | Required<br>(exactly 1) | The merkle root for this block, encoded as hex in RPC byte order
 → →<br>`time` | number (int) | Required<br>(exactly 1) | The time of the block
 → →<br>`mediantime` | number (int) | Required<br>(exactly 1) | The computed median time of the previous 11 blocks.  Used for validating transaction locktime under BIP113
@@ -1254,7 +1254,7 @@ Name | Type | Presence | Description
 →<br>`ancestorfees` | number (int) | Required<br>(exactly 1) | The modified fees (see `modifiedfee` above) of in-mempool ancestors (including this one)
 →<br>`depends` | array | Required<br>(exactly 1) | An array holding TXIDs of unconfirmed transactions this transaction depends upon (parent transactions).  Those transactions must be part of a block before this transaction can be added to a block, although all transactions may be included in the same block.  The array may be empty
 → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
-→<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>True if this transaction was locked via InstantSend
+→<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>True if this transaction was locked via InstantSend
 
 *Example from Dash Core 0.12.3*
 
@@ -1371,7 +1371,7 @@ Name | Type | Presence | Description
 → →<br>`ancestorfees` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.12.3 / Bitcoin Core 0.13.0*<br><br>The modified fees (see `modifiedfee` above) of in-mempool ancestors (including this one)
 → →<br>`depends` | array | Required<br>(exactly 1) | An array holding TXIDs of unconfirmed transactions this transaction depends upon (parent transactions).  Those transactions must be part of a block before this transaction can be added to a block, although all transactions may be included in the same block.  The array may be empty
 → → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
-→ →<br>`instantlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>**Always `false` if [lite mode](core-guide-dash-features#section-lite-mode) is enabled**<br><br>Set to `true` for locked InstantSend transactions (masternode quorum has locked the transaction inputs via `islock` message). Set to `false` if the masternodes have not approved the InstantSend transaction
+→ →<br>`instantlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>Set to `true` for locked InstantSend transactions (masternode quorum has locked the transaction inputs via `islock` message). Set to `false` if the masternodes have not approved the InstantSend transaction
 
 *Examples from Dash Core 0.12.3*
 
@@ -1836,7 +1836,7 @@ f0476ba0e00105
 *See also*
 
 * [VerifyTxOutProof](/docs/core-api-ref-remote-procedure-calls-blockchain#verifytxoutproof): verifies that a proof points to one or more transactions in a block, returning the transactions the proof commits to and throwing an RPC error if the block is not in our best block chain.
-* [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock): A description of the
+* [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock): A description of the
   format used for the proof.
 
 # GetTxOutSetInfo
@@ -2043,4 +2043,4 @@ Result:
 *See also*
 
 * [GetTxOutProof](/docs/core-api-ref-remote-procedure-calls-blockchain#gettxoutproof): returns a hex-encoded proof that one or more specified transactions were included in a block.
-* [`merkleblock` message](core-ref-p2p-network-data-messages#section-merkleblock): A description of the format used for the proof.
+* [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock): A description of the format used for the proof.

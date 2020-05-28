@@ -264,10 +264,10 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | Information about this node's connection to the network
 →<br>`version` | number | Required<br>(exactly 1) | This node's version of Dash Core in its internal integer format.  For example, Dash Core 0.12.2 has the integer version number 120200
-→<br>`subversion` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#section-version)
+→<br>`subversion` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
-→<br>`localservices` | string (hex) | Required<br>(exactly 1) | The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#section-version)
-→<br>`localrelay` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#section-version)
+→<br>`localservices` | string (hex) | Required<br>(exactly 1) | The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
+→<br>`localrelay` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
 →<br>`networkactive` | bool | Required<br>(exactly 1) | Set to `true` if P2P networking is enabled.  Set to `false` if P2P networking is disabled. Enabling/disabling done via [SetNetworkActive](/docs/core-api-ref-remote-procedure-calls-network#setnetworkactive)
 →<br>`connections` | number (int) | Required<br>(exactly 1) | The total number of open connections (both outgoing and incoming) between this node and other nodes
@@ -283,9 +283,9 @@ Name | Type | Presence | Description
 →<br>`incrementalfee` | number (DASH) | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>The minimum fee increment for mempool limiting or BIP 125 replacement in DASH/kB
 →<br>`localaddresses` | array | Required<br>(exactly 1) | An array of objects each describing the local addresses this node believes it listens on
 → →<br>Address | object | Optional<br>(0 or more) | An object describing a particular address this node believes it listens on
-→ → →<br>`address` | string | Required<br>(exactly 1) | An IP address or .onion address this node believes it listens on.  This may be manually configured, auto detected, or based on [`version` messages](core-ref-p2p-network-control-messages#section-version) this node received from its peers
-→ → →<br>`port` | number (int) | Required<br>(exactly 1) | The port number this node believes it listens on for the associated `address`.  This may be manually configured, auto detected, or based on [`version` messages](core-ref-p2p-network-control-messages#section-version) this node received from its peers
-→ → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#section-version)
+→ → →<br>`address` | string | Required<br>(exactly 1) | An IP address or .onion address this node believes it listens on.  This may be manually configured, auto detected, or based on [`version` messages](core-ref-p2p-network-control-messages#version) this node received from its peers
+→ → →<br>`port` | number (int) | Required<br>(exactly 1) | The port number this node believes it listens on for the associated `address`.  This may be manually configured, auto detected, or based on [`version` messages](core-ref-p2p-network-control-messages#version) this node received from its peers
+→ → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>A plain-text description of any network warnings. If there are no warnings, an empty string will be returned.
 
 *Example from Dash Core 0.16.0*
@@ -365,25 +365,25 @@ Name | Type | Presence | Description
 → →<br>`addr` | string | Required<br>(exactly 1) | The IP address and port number used for the connection to the remote node
 → →<br>`addrlocal` | string | Optional<br>(0 or 1) | Our IP address and port number according to the remote node.  May be incorrect due to error or lying.  Most SPV nodes set this to `127.0.0.1:9999`
 → →<br>`addrbind` | string | Optional<br>(0 or 1) | Bind address of the connection to the peer
-→ →<br>`services` | string (hex) | Required<br>(exactly 1) | The services advertised by the remote node in its [`version` message](core-ref-p2p-network-control-messages#section-version)
+→ →<br>`services` | string (hex) | Required<br>(exactly 1) | The services advertised by the remote node in its [`version` message](core-ref-p2p-network-control-messages#version)
 → →<br>`lastsend` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we last successfully sent data to the TCP socket for this node
 → →<br>`lastrecv` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we last received data from this node
 → →<br>`bytessent` | number (int) | Required<br>(exactly 1) | The total number of bytes we've sent to this node
 → →<br>`bytesrecv` | number (int) | Required<br>(exactly 1) | The total number of bytes we've received from this node
 → →<br>`conntime` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we connected to this node
 → →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The time offset in seconds
-→ →<br>`pingtime` | number (real) | Required<br>(exactly 1) | The number of seconds this node took to respond to our last P2P [`ping` message](core-ref-p2p-network-control-messages#section-ping)
+→ →<br>`pingtime` | number (real) | Required<br>(exactly 1) | The number of seconds this node took to respond to our last P2P [`ping` message](core-ref-p2p-network-control-messages#ping)
 → →<br>`minping` | number (real) | Optional<br>(0 or 1) | *Updated in Bitcoin Core 0.13.0*<br><br>The minimum observed ping time (if any at all)
-→ →<br>`pingwait` | number (real) | Optional<br>(0 or 1) | The number of seconds we've been waiting for this node to respond to a P2P [`ping` message](core-ref-p2p-network-control-messages#section-ping).  Only shown if there's an outstanding [`ping` message](core-ref-p2p-network-control-messages#section-ping)
+→ →<br>`pingwait` | number (real) | Optional<br>(0 or 1) | The number of seconds we've been waiting for this node to respond to a P2P [`ping` message](core-ref-p2p-network-control-messages#ping).  Only shown if there's an outstanding [`ping` message](core-ref-p2p-network-control-messages#ping)
 → →<br>`version` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
-→ →<br>`subver` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#section-version).  This string will have been sanitized to prevent corrupting the JSON results.  May be an empty string
+→ →<br>`subver` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version).  This string will have been sanitized to prevent corrupting the JSON results.  May be an empty string
 → →<br>`inbound` | bool | Required<br>(exactly 1) | Set to `true` if this node connected to us (inbound); set to `false` if we connected to this node (outbound)
 → →<br>`addnode` | bool | Required<br>(exactly 1) | Set to `true` if this node was added via the [`addnode` RPC](core-api-ref-remote-procedure-calls-network#addnode).
 → →<br>`masternode` | bool | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br><br>Whether connection was due to masternode connection attempt
-→ →<br>`startingheight` | number (int) | Required<br>(exactly 1) | The height of the remote node's block chain when it connected to us as reported in its [`version` message](core-ref-p2p-network-control-messages#section-version)
+→ →<br>`startingheight` | number (int) | Required<br>(exactly 1) | The height of the remote node's block chain when it connected to us as reported in its [`version` message](core-ref-p2p-network-control-messages#version)
 → →<br>`banscore` | number (int) | Required<br>(exactly 1) | The ban score we've assigned the node based on any misbehavior it's made.  By default, Dash Core disconnects when the ban score reaches `100`
-→ →<br>`synced_headers` | number (int) | Required<br>(exactly 1) | The highest-height header we have in common with this node based the last P2P [`headers` message](core-ref-p2p-network-data-messages#section-headers) it sent us.  If a [`headers` message](core-ref-p2p-network-data-messages#section-headers) has not been received, this will be set to `-1`
-→ →<br>`synced_blocks` | number (int) | Required<br>(exactly 1) | The highest-height block we have in common with this node based on P2P [`inv` messages](core-ref-p2p-network-data-messages#section-inv) this node sent us.  If no block [`inv` messages](core-ref-p2p-network-data-messages#section-inv) have been received from this node, this will be set to `-1`
+→ →<br>`synced_headers` | number (int) | Required<br>(exactly 1) | The highest-height header we have in common with this node based the last P2P [`headers` message](core-ref-p2p-network-data-messages#headers) it sent us.  If a [`headers` message](core-ref-p2p-network-data-messages#headers) has not been received, this will be set to `-1`
+→ →<br>`synced_blocks` | number (int) | Required<br>(exactly 1) | The highest-height block we have in common with this node based on P2P [`inv` messages](core-ref-p2p-network-data-messages#inv) this node sent us.  If no block [`inv` messages](core-ref-p2p-network-data-messages#inv) have been received from this node, this will be set to `-1`
 → →<br>`inflight` | array | Required<br>(exactly 1) | An array of blocks which have been requested from this peer.  May be empty
 → → →<br>Blocks | number (int) | Optional<br>(0 or more) | The height of a block being requested from the remote peer
 → →<br>`whitelisted` | bool | Required<br>(exactly 1) | Set to `true` if the remote peer has been whitelisted; otherwise, set to `false`.  Whitelisted peers will not be banned if their ban score exceeds the maximum (100 by default).  By default, peers connecting from localhost are whitelisted
@@ -535,7 +535,7 @@ Result:
 
 # Ping
 
-The [`ping` RPC](core-api-ref-remote-procedure-calls-network#ping) sends a P2P ping message to all connected nodes to measure ping time. Results are provided by the [`getpeerinfo` RPC](core-api-ref-remote-procedure-calls-network#getpeerinfo) pingtime and pingwait fields as decimal seconds. The P2P [`ping` message](core-ref-p2p-network-control-messages#section-ping) is handled in a queue with all other commands, so it measures processing backlog, not just network ping.
+The [`ping` RPC](core-api-ref-remote-procedure-calls-network#ping) sends a P2P ping message to all connected nodes to measure ping time. Results are provided by the [`getpeerinfo` RPC](core-api-ref-remote-procedure-calls-network#getpeerinfo) pingtime and pingwait fields as decimal seconds. The P2P [`ping` message](core-ref-p2p-network-control-messages#ping) is handled in a queue with all other commands, so it measures processing backlog, not just network ping.
 
 *Parameters: none*
 
@@ -575,7 +575,7 @@ Results:
 *See also*
 
 * [GetPeerInfo](/docs/core-api-ref-remote-procedure-calls-network#getpeerinfo): returns data about each connected network node.
-* [P2P Ping Message](core-ref-p2p-network-control-messages#section-ping)
+* [P2P Ping Message](core-ref-p2p-network-control-messages#ping)
 
 # SetBan
 

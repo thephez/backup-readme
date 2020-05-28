@@ -23,7 +23,7 @@ Lite mode provides a way to run Dash Core full nodes with Dash-specific function
 {
   "type": "danger",
   "title": "Lite mode effects",
-  "body": "Since nodes running in lite mode do not execute InstantSend/ChainLock logic, they are unaware of transaction lock status and will always show `false` for the lock status returned in RPC responses (e.g. [GetTransaction's](core-api-ref-remote-procedure-calls-wallet#section-get-transaction) `chainlock`, `instantlock`, and `instantlock_internal` fields)."
+  "body": "Since nodes running in lite mode do not execute InstantSend/ChainLock logic, they are unaware of transaction lock status and will always show `false` for the lock status returned in RPC responses (e.g. [GetTransaction's](core-api-ref-remote-procedure-calls-wallet#gettransaction) `chainlock`, `instantlock`, and `instantlock_internal` fields)."
 }
 [/block]
 Lite mode is enable by setting `litemode=1` in the `dash.conf` file or by running Dash Core with the command line parameter `-litemode=1`.

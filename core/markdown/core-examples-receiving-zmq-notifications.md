@@ -1,6 +1,6 @@
-# Overview 
+# Overview
 
-Receiving notifications from Dash Core is important for a variety of use-cases. Although polling [RPCs](core-api-ref-remote-procedure-calls) can be useful, in some scenarios it may be more desirable to have publish-subscribe functionality. Dash Core's built-in ZeroMQ (ZMQ) support provides the ability to subscribe to block, transaction, and governance related messages. 
+Receiving notifications from Dash Core is important for a variety of use-cases. Although polling [RPCs](core-api-ref-remote-procedure-calls) can be useful, in some scenarios it may be more desirable to have publish-subscribe functionality. Dash Core's built-in ZeroMQ (ZMQ) support provides the ability to subscribe to block, transaction, and governance related messages.
 
 Further information regarding ZMQ support may be found in the [ZMQ API Reference](core-api-ref-zmq).
 
@@ -11,7 +11,7 @@ Further information regarding ZMQ support may be found in the [ZMQ API Reference
   "body": "This requires a Dash Core full node or masternode"
 }
 [/block]
-In the [`dash.conf` configuration file](core-examples-configuration-file), add the following [ZMQ notifications](core-api-ref-zmq#section-available-notifications) and assign the address that Dash Core should listen on. The notifications selected here relate to InstantSend and ChainLocks.
+In the [`dash.conf` configuration file](core-examples-configuration-file), add the following [ZMQ notifications](core-api-ref-zmq#available-notifications) and assign the address that Dash Core should listen on. The notifications selected here relate to InstantSend and ChainLocks.
 
 ```
 # ZMQ
@@ -65,15 +65,15 @@ Create a file with the following contents. Then run it by typing `node <your-fil
 The following response demonstrates the notification provided by Dash Core when it receives a transaction and then receives the associated InstantSend lock. The four notifications represent:
   1. The TXID of the transaction is received (`HASHTX`) - at this point the transaction is not locked
   2. The TXID of a locked transaction is received (`HASHTXLOCK`). Since this is the same value as the `HASHTX` already received, we know that the transaction has now received an InstantSend lock.
-  3. The raw transaction (`RAWTXLOCK`) (this could be decoded using the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-decode-raw-transaction) for example)
-  4. A combination of the raw transaction and the InstantSend [lock signature](core-ref-p2p-network-instantsend-messages#section-islock) (`RAWTXLOCKSIG`)
+  3. The raw transaction (`RAWTXLOCK`) (this could be decoded using the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction) for example)
+  4. A combination of the raw transaction and the InstantSend [lock signature](core-ref-p2p-network-instantsend-messages#islock) (`RAWTXLOCKSIG`)
 
 ```
 Received HASHTX containing:
- b2e128661e3679c3d00cd081e32fdc9a12f44e486e083e6eab998bdfd6f64a9b 
+ b2e128661e3679c3d00cd081e32fdc9a12f44e486e083e6eab998bdfd6f64a9b
 
 Received HASHTXLOCK containing:
- b2e128661e3679c3d00cd081e32fdc9a12f44e486e083e6eab998bdfd6f64a9b 
+ b2e128661e3679c3d00cd081e32fdc9a12f44e486e083e6eab998bdfd6f64a9b
 
 Received RAWTXLOCK containing:
  02000000025a4d18da609107e9ea3dc6 ... 5a32ea917a30147d6c9788ac6ea90400

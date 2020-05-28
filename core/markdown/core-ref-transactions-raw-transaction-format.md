@@ -24,7 +24,7 @@ A transaction may have multiple <<glossary:inputs>> and <<glossary:outputs>>, so
 
 # JSON-RPC Responses
 
-When retrieving transaction data via Dash Core RPCs (e.g. the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#section-get-raw-transaction)), the transaction data is returned in the following format.
+When retrieving transaction data via Dash Core RPCs (e.g. the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction)), the transaction data is returned in the following format.
 
 Version 1 and 2 Transaction Structure (prior to DIP2 activation in Dash Core v0.13.0):
 ``` json

@@ -2,11 +2,11 @@ In both solo and pool mining, the mining software needs to get the information n
 
 # getwork RPC
 
-The simplest and earliest method was the now-deprecated Dash Core [`getwork` RPC](core-api-ref-remote-procedure-calls-removed#section-get-work), which constructed a <<glossary:header>> for the miner directly. Since a header only contains a single 4-byte nonce good for about 4 gigahashes, many modern miners need to make dozens or hundreds of `getwork` requests a second.
+The simplest and earliest method was the now-deprecated Dash Core `getwork` RPC, which constructed a <<glossary:header>> for the miner directly. Since a header only contains a single 4-byte nonce good for about 4 gigahashes, many modern miners need to make dozens or hundreds of `getwork` requests a second.
 
 # getblocktemplate RPC
 
-An improved method is the Dash Core [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-get-block-template). This provides the mining software with much more information:
+An improved method is the Dash Core [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#getblocktemplate). This provides the mining software with much more information:
 
 1. The information necessary to construct a <<glossary:coinbase transaction>> paying the pool or the solo miner's `dashd` wallet.
 

@@ -11,7 +11,7 @@ For this tutorial you will need:
 
 ## Defining contract documents
 
-As described in the [data contract explanation](explanation-platform-protocol-data-contract#section-structure), data contracts must include one or more developer-defined [documents](explanation-platform-protocol-document). The most basic example below demonstrates registering a data contract containing a single document type (`note`) which has a single string property (`message`).
+As described in the [data contract explanation](explanation-platform-protocol-data-contract#structure), data contracts must include one or more developer-defined [documents](explanation-platform-protocol-document). The most basic example below demonstrates registering a data contract containing a single document type (`note`) which has a single string property (`message`).
 [block:callout]
 {
   "type": "info",

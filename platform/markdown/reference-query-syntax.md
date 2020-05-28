@@ -1,6 +1,6 @@
 # Overview
 
-Generally queries will consist of a `where` clause plus optional [modifiers](#section-query-modifiers) controlling the specific subset of results returned. 
+Generally queries will consist of a `where` clause plus optional [modifiers](#query-modifiers) controlling the specific subset of results returned. 
 
 # Where Clause
 

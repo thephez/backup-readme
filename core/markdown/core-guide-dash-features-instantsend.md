@@ -10,11 +10,11 @@ Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction 
 | Mainnet | 6 Blocks (normal transactions)<br>**100 Blocks (mining/masternode rewards)** |
 | Testnet / Regtest / Devnet | 2 Blocks |
 
-The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
+The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
 
 Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASED`) are used to manage InstantSend. <<glossary:Spork>> 2 enables or disables the entire InstantSend feature. Spork 20 was used to support the transition to LLMQ-based InstantSend and is currently retained for backward compatibility. It will be deprecated in a future release.
 
-Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#section-get-block-template)) unless it:
+Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#getblocktemplate)) unless it:
 
  1. Has been locked, or 
  2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
@@ -25,13 +25,13 @@ A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> 
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |
-| [`tx` message](core-ref-p2p-network-data-messages#section-tx)                | → |                         | Client sends InstantSend transaction
+| [`tx` message](core-ref-p2p-network-data-messages#tx)                | → |                         | Client sends InstantSend transaction
 | **LLMQ Signing Sessions**   |   |                         | Quorums internally process locking |
 |                             |   |                         | Quorum(s) responsible for the transaction's inputs lock the inputs via LLMQ signing sessions
 |                             |   |                         | Once all inputs are locked, the quorum responsible for the overall transaction creates the transaction lock (`islock`) via an LLMQ signing session
 | **LLMQ Results**             |   |                         | Quorum results broadcast to the network |
-|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv) (islock)  | Quorum responds with lock inventory
-| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (islock)  | → |                         | Client requests lock message
-|                             | ← | [`islock` message](core-ref-p2p-network-instantsend-messages#section-islock)        | Quorum responds with lock message
+|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#inv) (islock)  | Quorum responds with lock inventory
+| [`getdata` message](core-ref-p2p-network-data-messages#getdata) (islock)  | → |                         | Client requests lock message
+|                             | ← | [`islock` message](core-ref-p2p-network-instantsend-messages#islock)        | Quorum responds with lock message
 
-Once a transaction lock is approved, the `instantlock` field of various RPCs is set to `true` (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-entry)).
+Once a transaction lock is approved, the `instantlock` field of various RPCs is set to `true` (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#getmempoolentry)).

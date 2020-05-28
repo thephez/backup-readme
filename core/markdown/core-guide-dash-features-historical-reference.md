@@ -38,14 +38,14 @@ The following video provides an overview with a good introduction to the details
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |
-| [`inv` message](core-ref-p2p-network-data-messages#section-inv) (ix)          | → |                         | Client sends inventory for transaction lock request
-|                             | ← | [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (ix)  | Peer responds with request for transaction lock request
+| [`inv` message](core-ref-p2p-network-data-messages#inv) (ix)          | → |                         | Client sends inventory for transaction lock request
+|                             | ← | [`getdata` message](core-ref-p2p-network-data-messages#getdata) (ix)  | Peer responds with request for transaction lock request
 | `ix` message                | → |                         | Client sends InstantSend transaction lock request
-|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#section-inv) (txlvote) | Masternodes in the [quorum](core-guide-dash-features-masternode-quorums#section-quorum-selection) respond with votes
-| [`getdata` message](core-ref-p2p-network-data-messages#section-getdata) (txlvote) | → |                         | Client requests vote
+|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#inv) (txlvote) | Masternodes in the [quorum](core-guide-dash-features-masternode-quorums#quorum-configuration) respond with votes
+| [`getdata` message](core-ref-p2p-network-data-messages#getdata) (txlvote) | → |                         | Client requests vote
 |                             | ← | `txlvote` message       | Peer responds with vote
 
-Once an InstantSend lock has been requested, the `instantsend` field of various RPCs (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#section-get-mem-pool-entry)) is set to `true`. Then, if a sufficient number of votes approve the transaction lock, the InstantSend transaction is approved the `instantlock` field of the RPC is set to `true`.
+Once an InstantSend lock has been requested, the `instantsend` field of various RPCs (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#getmempoolentry)) is set to `true`. Then, if a sufficient number of votes approve the transaction lock, the InstantSend transaction is approved the `instantlock` field of the RPC is set to `true`.
 
 If an InstantSend transaction is a valid transaction but does not receive a transaction lock, it reverts to being a standard transaction.
 

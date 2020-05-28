@@ -287,7 +287,7 @@ Result | object | Required<br>(exactly 1) | Object containing result data
 →<br>`vchSig` | string (base64) | Required<br>(exactly 1) | Masternode signature
 →<br>`sigTime` | int64_t | Required<br>(exactly 1) | Signature time as a Unix epoch
 →<br>`protocolVersion` | int | Required<br>(exactly 1) | Dash protocol version
-→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last [`dsq` message](core-ref-p2p-network-privatesend-messages#section-dsq) from this node
+→<br>`nLastDsq` | int64_t | Required<br>(exactly 1) | Dsq count from the last [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) from this node
 →<br>lastPing | object | Required<br>(exactly 1) | Ping object (`mnp` message)
 → →<br>`outpoint` | string (hex) | Required<br>(exactly 1) | Masternode outpoint
 → →<br>`blockHash` | string (hex) | Required<br>(exactly 1) | Block hash from 12 blocks prior to the current tip

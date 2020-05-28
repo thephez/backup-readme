@@ -2,7 +2,7 @@
 
 Data contracts define the schema (structure) of data an application will store on Dash Platform. Contracts are described using [JSON Schema](https://json-schema.org/understanding-json-schema/) which allows the platform to validate the contract-related data submitted to it.
 
-The following sections provide details that developers need to construct valid contracts: [documents](#section-documents) and [definitions](#section-definitions). All data contracts must define one or more documents, whereas definitions are optional and may not be used for simple contracts.
+The following sections provide details that developers need to construct valid contracts: [documents](#documents) and [definitions](#definitions). All data contracts must define one or more documents, whereas definitions are optional and may not be used for simple contracts.
 
 # General Constraints
 [block:callout]
@@ -39,7 +39,7 @@ Include the following at the same level as the `properties` keyword to ensure pr
 ```
 
 # Documents
-The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#section-document-indices) and a list of [required properties](#section-required-properties).
+The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#document-indices) and a list of [required properties](#required-properties-optional).
 
 The following example shows a minimal `documents` object defining a single document (`note`) that has one property (`message`).
 [block:code]
@@ -59,7 +59,7 @@ The `properties` object defines each field that will be used by a document. Each
 [block:callout]
 {
   "type": "warning",
-  "body": "The `object` type is required to have properties defined either directly or via the data contract's [definitions](#section-definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):\n```javascript\nconst contractDocuments = {\n  message: {\n    properties: {\n      body: {\n        type: \"object\",\n        properties: {\n          objectProperty: {\n            type: \"string\"\n          },\n        },\n        additionalProperties: false,\n      },\n      header: {\n        type: \"string\"\n      }\n    },\n    additionalProperties: false\n  }\n};\n```",
+  "body": "The `object` type is required to have properties defined either directly or via the data contract's [definitions](#definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):\n```javascript\nconst contractDocuments = {\n  message: {\n    properties: {\n      body: {\n        type: \"object\",\n        properties: {\n          objectProperty: {\n            type: \"string\"\n          },\n        },\n        additionalProperties: false,\n      },\n      header: {\n        type: \"string\"\n      }\n    },\n    additionalProperties: false\n  }\n};\n```",
   "title": "Property type: `object`"
 }
 [/block]
