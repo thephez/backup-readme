@@ -12,7 +12,7 @@
 {
   "codes": [
     {
-      "code": "devnet=evonet\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=evonet.thephez.com:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
+      "code": "devnet=evonet-2\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=seed-1.evonet.networks.dash.org:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
       "language": "text",
       "name": "dash-evonet.conf"
     }
@@ -22,14 +22,7 @@
 # Starting Dash Core
 
 To start Dash Core and connect to Evonet, simply run dashd or dash-qt with the `conf` parameter set to the configuration file created above: `<path to binary> -conf=<path to configuration file>`
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dashd -conf=/home/dash/.dashcore/dash-evonet.conf",
-      "language": "shell",
-      "name": "Start dashd on Evonet"
-    }
-  ]
-}
-[/block]
+
+```shell Start dashd on Evonet
+dashd -conf=/home/dash/.dashcore/dash-evonet.conf
+```

@@ -41,7 +41,7 @@ The HTTP response data for a RPC request is a JSON object with the following for
 | Response             | object          | Required<br>(exactly 1)     | The JSON-RPC response object.
 | → <br>`result`       | *any*           | Required<br>(exactly 1)     | The RPC output whose type varies by call.  Has value `null` if an error occurred.
 | → <br>`error`        | null/object     | Required<br>(exactly 1)     | An object describing the error if one occurred, otherwise `null`.
-| → → <br>`code`        | number (int)    | Required<br>(exactly 1)     | The error code returned by the RPC function call. See [rpcprotocol.h](https://github.com/dashpay/dash/blob/7d8eab2641023c78a72ccd6efc99fc35fd030a46/src/rpc/protocol.h) for a full list of error codes and their meanings.
+| → → <br>`code`        | number (int)    | Required<br>(exactly 1)     | The error code returned by the RPC function call. See [rpcprotocol.h](https://github.com/dashpay/dash/blob/v0.15.x/src/rpc/protocol.h) for a full list of error codes and their meanings.
 | → → <br>`message`     | string          | Required<br>(exactly 1)     | A text description of the error.  May be an empty string ("").
 | → <br>`id`           | string          | Required<br>(exactly 1)     | The value of `id` provided with the request. Has value `null` if the `id` field was omitted in the request.
 
@@ -49,7 +49,7 @@ The HTTP response data for a RPC request is a JSON object with the following for
 
 As an example, here is the JSON-RPC request object for the hash of the <<glossary:genesis block>>:
 
-``` json
+```json
 {
     "method": "getblockhash",
     "params": [0],
@@ -92,7 +92,7 @@ Alternatively, we could `POST` this request using the cURL command-line program 
 [/block]
 The HTTP response data for this request would be:
 
-``` json
+```json
 {
     "result": "00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c",
     "error": null,
@@ -115,13 +115,13 @@ Here whitespace has been added to make the object more readable. `dash-cli` also
 
 Continuing with the example above, the output from the `dash-cli` command would be simply:
 
-``` text
+```text
 00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c
 ```
 
 If there's an error processing a request, Dash Core sets the `result` field to `null` and provides information about the error in the  `error` field. For example, a request for the block hash at block height -1 would be met with the following response (again, whitespace added for clarity):
 
-``` json
+```json
 {
     "result": null,
     "error": {
@@ -134,7 +134,7 @@ If there's an error processing a request, Dash Core sets the `result` field to `
 
 If `dash-cli` encounters an error, it exits with a non-zero status code and outputs the `error` field as text to the process's standard error stream:
 
-``` text
+```text
 error code: -8
 error message:
 Block height out of range
@@ -153,13 +153,13 @@ The RPC interface supports request batching as described in [version 2.0 of the 
 [/block]
 To keep this documentation compact and readable, the examples for each of the available RPC calls will be given as `dash-cli` commands:
 
-``` text
+```shell
 dash-cli [options] <method name> <param1> <param2> ...
 ```
 
 This translates into an JSON-RPC Request object of the form:
 
-``` json
+```json
 {
     "method": "<method name>",
     "params": [ "<param1>", "<param2>", "..." ],

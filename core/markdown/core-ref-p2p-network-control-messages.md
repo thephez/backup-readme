@@ -133,7 +133,7 @@ The actual hash function implementation used is the [32-bit Murmur3 hash functio
 [/block]
 The data to be hashed can be any transaction element which the bloom filter can match. See the next subsection for the list of transaction elements checked against the filter. The largest element which can be matched is a script data push of 520 bytes, so the data should never exceed 520 bytes.
 
-The example below from Dash Core [bloom.cpp](https://github.com/dashpay/dash/blob/333e1eaeea80344e5a28db6efbce2691c85e2b25/src/bloom.cpp#L58) combines all the steps above to create the hash function template. The seed is the first parameter; the data to be hashed is the second parameter. The result is a uint32\_t modulo the size of the bit field in bits.
+The example below from Dash Core [bloom.cpp](https://github.com/dashpay/dash/blob/v0.15.x/src/bloom.cpp#L59) combines all the steps above to create the hash function template. The seed is the first parameter; the data to be hashed is the second parameter. The result is a uint32\_t modulo the size of the bit field in bits.
 
 ``` c++
 MurmurHash3(nHashNum * 0xFBA4C795 + nTweak, vDataToHash) % (vData.size() * 8)
@@ -390,7 +390,7 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 | 8 | nTimeSigned | int64_t | Required | Time the spork value was signed
 | 66 | vchSig | char[] | Required | Length (1 byte) + Signature (65 bytes)
 
-Active Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38b65384fb9243ce78c111feceb377e1a9/src/spork.h#L20))
+**Active Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/v0.16.x/src/spork.h#L24))**
 
 | Spork ID | Num. | Name | Description |
 | :----------: | :----------: | ----------- | ----------- |
@@ -401,15 +401,6 @@ Active Sporks (per [`src/spork.h`](https://github.com/dashpay/dash/blob/a4f5ba38
 | 10016 | 17 | `SPORK_17_QUORUM_DKG_`<br>`ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
 | 10018 | 19 | `SPORK_19_CHAINLOCKS_`<br>`ENABLED` | Enable LLMQ-based ChainLocks.
 | 10020 | 21 | `SPORK_21_QUORUM_ALL_`<br>`CONNECTED` | **Added in Dash Core 0.16.0**<br>Enable connections between all masternodes in a quorum.
-
-**Deprecated Sporks**
-The following sporks are still present for backwards compatibility with Dash Core v0.14 clients, but no longer have logic associated with them. They will be removed in a future release of Dash Core.
-
-| Spork ID | Num. | Name | Description |
-| :----------: | :----------: | ----------- | ----------- |
-| 10014 | 15 | `DETERMINISTIC_MNS_`<br>`ENABLED` | Deterministic masternode lists are enabled
-| 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)
-| 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | Enable LLMQ-based InstantSend.
 
 **Removed Sporks**
 The following sporks were used in the past but are no longer necessary and have been removed.
@@ -422,7 +413,10 @@ The following sporks were used in the past but are no longer necessary and have 
 | _10011_ | _12_ | `RECONSIDER_BLOCKS` | _Removed in Dash Core 0.15.0.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_
 | _10012_ | _13_ | `OLD_SUPERBLOCK_FLAG` | _Removed in Dash Core 0.12.3.<br>No network function since block 614820_
 | _10013_ | _14_ | `REQUIRE_SENTINEL_FLAG` | _Removed in Dash Core 0.14.0.<br>Only masternode's running sentinel will be paid_
+| 10014 | 15 | `DETERMINISTIC_MNS_`<br>`ENABLED` | _Removed in Dash Core 0.16.0.<br>Deterministic masternode lists are enabled_
+| 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | _Removed in Dash Core 0.16.0.<br>Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)_
 | _10017_ | _18_ | `QUORUM_DEBUG_ENABLED` | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._
+| 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | _Removed in Dash Core 0.16.0.<br>Enable LLMQ-based InstantSend._
 [block:callout]
 {
   "type": "info",

@@ -213,8 +213,16 @@ The following example shows a definition for a `message` object consisting of tw
 
 [block:callout]
 {
+  "type": "danger",
+  "title": "Toplevel definitions blocked by issue #185",
+  "body": "Currently using definitions at the document toplevel throws an error. See [https://github.com/dashevo/js-dpp/issues/185](https://github.com/dashevo/js-dpp/issues/185)"
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
-  "body": "In the `js-dpp` reference implementation, definitions are added to a data contract via the `.setDefinitions()` method (e.g. `myContract.setDefinitions({\"message\": { ... }})`. This must be done prior to broadcasting the contract for registration.",
+  "body": "In the `js-dpp` reference implementation, definitions are added to a data contract via the `.setDefinitions()` method (e.g. `myContract.setDefinitions({\"message\": { ... }})`. This must be done prior to broadcasting the contract for registration.\n\nFor a code example for setting definitions using `js-dpp` see this [gist](https://gist.github.com/dashameter/9afc48276b3669de8875f0200eec6e5c)",
   "title": "Adding definitions with js-dpp"
 }
 [/block]

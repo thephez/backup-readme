@@ -27,7 +27,7 @@ Name | Type | Presence | Description
 
 Abandons the transaction on your node.
 
-``` bash
+```bash
 dash-cli abandontransaction fa3970c341c9f5de6ab13f128cbfec58d732e736a505fe32137ad551c799ecc4
 ```
 
@@ -55,12 +55,12 @@ Name | Type | Presence | Description
 
 Abort the running wallet rescan
 
-``` bash
+```bash
 dash-cli -testnet abortrescan
 ```
 
 Result:
-``` text
+```text
 true
 ```
 
@@ -111,7 +111,7 @@ Name | Type | Presence | Description
 Adding a 1-of-2 P2SH multisig address to the "test account" by mixing
 two P2PKH addresses and one full public key:
 
-``` bash
+```bash
 dash-cli -testnet addmultisigaddress 1 '''
   [
     "ySxkBWzPwMrZLAY9ZPitMnSwf4NSUBPbiH",
@@ -123,7 +123,7 @@ dash-cli -testnet addmultisigaddress 1 '''
 
 Result:
 
-``` text
+```json
 {
   "address": "8jYUv8hJcbSUPbwYmzp1XMPU6SXoic3hwi",
   "redeemScript": "512103283a224c2c014d1d0ef82b00470b6b277d71e227c0e2394f9baade5d666e57d32102594523b004e82849a66b3da096b1e680bf2ed5f7d03a3443c027aa5777bb622352ae"
@@ -161,7 +161,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet backupwallet /tmp/backup.dat
 ```
 
@@ -187,12 +187,12 @@ Result | object | Required<br>(exactly 1) | An object containing sensitive priva
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet dumphdinfo
 ```
 
 Result (truncated for security reasons):
-``` json
+```json
 {
   "hdseed": "20c63c3fb298ebd52de3 ...",
   "mnemonic": "cost circle shiver ...",
@@ -226,13 +226,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet dumpprivkey ycBuREgSskHHkWLxDa9A5WppCki6PfFycL
 ```
 
 Result:
 
-``` text
+```text
 cQZZ4awQvcXXyES3CmUJqSgeTobQm9t9nyUr337kvUtsWsnvvMyw
 ```
 
@@ -274,14 +274,14 @@ Name | Type | Presence | Description
 
 Create a wallet dump and then print its first 10 lines.
 
-``` bash
+```bash
 dash-cli -testnet dumpwallet /tmp/dump.txt
 head /tmp/dump.txt
 ```
 
 Results:
 
-``` json
+```json
 {
   "dashcoreversion": "v0.13.0.0",
   "lastblockheight": 250186,
@@ -295,7 +295,7 @@ Results:
 
 Results (the first 10 lines of the file):
 
-``` bash
+```bash
 >>>>>>>> Wallet dump created by Dash Core v0.13.0.0
 >>>>>>>> * Created on 2018-10-23T12:55:38Z
 >>>>>>>> * Best block at time of backup was 250186 (0000000000a82fb1890de5da4740d0671910a436fe6fc4503a3e553adef073b4),
@@ -342,13 +342,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet encryptwallet "test"
 ```
 
 Result:
 
-``` text
+```text
 Wallet encrypted; Dash Core server stopping, restart to run with encrypted wallet.
 The keypool has been flushed and a new HD seed was generated (if you are using
 HD). You need to make a new backup.
@@ -407,13 +407,13 @@ Get the balance for the main ("") account, including transactions with
 at least five confirmations and those spent to watch-only addresses in
 that account. Do not include InstantSend locked transactions.
 
-``` bash
+```bash
 dash-cli -testnet getbalance "" 3 false true
 ```
 
 Result:
 
-``` json
+```json
 0.00000000
 ```
 
@@ -421,13 +421,13 @@ Get the balance for the main ("") account, including transactions with
 at least one confirmation and those spent to watch-only addresses in
 that account. Include the balance from InstantSend locked transactions.
 
-``` bash
+```bash
 dash-cli -testnet getbalance "" 3 true true
 ```
 
 Result:
 
-``` json
+```json
 1.00000000
 ```
 
@@ -463,13 +463,13 @@ Name | Type | Presence | Description
 
 Create a new address in the "doc test" account:
 
-``` bash
+```bash
 dash-cli -testnet getnewaddress "doc test"
 ```
 
 Result:
 
-``` text
+```text
 yPuNTqCGzXtU3eEV5jHvhhJkzEPyJLmVkb
 ```
 
@@ -499,13 +499,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet getrawchangeaddress
 ```
 
 Result:
 
-``` text
+```text
 yXBr9BiJmugTzHPgByDmvjJMAkvhTmXVJ8
 ```
 
@@ -554,26 +554,26 @@ Name | Type | Presence | Description
 Get the dash received for a particular address, only counting
 transactions with six or more confirmations (ignore InstantSend locked transactions):
 
-``` bash
+```bash
 dash-cli -testnet getreceivedbyaddress yYoCWcjbykWsQJ7MVJrTMeQd8TZe5N4Q7g 6
 ```
 
 Result:
 
-``` json
+```json
 0.00000000
 ```
 
 Get the dash received for a particular address, only counting
 transactions with six or more confirmations (include InstantSend locked transactions):
 
-``` bash
+```bash
 dash-cli -testnet getreceivedbyaddress yYoCWcjbykWsQJ7MVJrTMeQd8TZe5N4Q7g 6 true
 ```
 
 Result:
 
-``` json
+```json
 0.30000000
 ```
 
@@ -643,13 +643,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet gettransaction \
   c099c882745ad150e9b2a55ef5818683c7ef597e1e5fc20856c67eabc3778ccc
 ```
 
 Result:
-``` json
+```json
 {
   "amount": -50.00000000,
   "fee": -0.00030000,
@@ -706,13 +706,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet getunconfirmedbalance
 ```
 
 Result (no unconfirmed incoming payments):
 
-``` json
+```json
 0.00000000
 ```
 
@@ -758,13 +758,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet getwalletinfo
 ```
 
 Result:
 
-``` json
+```json
 {
   "walletname": "",
   "walletversion": 61000,
@@ -830,7 +830,7 @@ Name | Type | Presence | Description
 Add an address, rescanning the local block database for any transactions
 matching it.
 
-``` bash
+```bash
 dash-cli -testnet importaddress \
   yg89Yt5Tjzs9nRpX3wJCuvr7KuQvgkvmeC "watch-only test" true
 ```
@@ -841,13 +841,13 @@ Result:
 
 Show that the address has been added:
 
-``` bash
+```bash
 dash-cli -testnet getaccount yg89Yt5Tjzs9nRpX3wJCuvr7KuQvgkvmeC
 ```
 
 Result:
 
-``` text
+```text
 watch-only test
 ```
 
@@ -880,7 +880,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli importelectrumwallet /tmp/electrum-export.csv
 ```
 
@@ -938,7 +938,7 @@ Name | Type | Presence | Description
 
 Import the address `ycCsAUKsjdmoP4qAXiS1cjYA4ixM48zJWe` (giving it a label and scanning the entire block chain) and the scriptPubKey `76a9146cf5870411edc31ba5630d61c7cddff55b884fda88ac` (giving a specific timestamp and label):
 
-``` bash
+```bash
 dash-cli importmulti '
   [
     {
@@ -956,7 +956,7 @@ dash-cli importmulti '
 
 Result (scriptPubKey import failed because `internal` was not set to `true`):
 
-``` json
+```json
 [
   {
     "success": true
@@ -1017,7 +1017,7 @@ Import the private key for the address
 ycBuREgSskHHkWLxDa9A5WppCki6PfFycL, giving it a label and scanning the
 entire block chain:
 
-``` bash
+```bash
 dash-cli -testnet importprivkey \
               cQZZ4awQvcXXyES3CmUJqSgeTobQm9t9nyUr337kvUtsWsnvvMyw \
               "test label" \
@@ -1067,7 +1067,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.3*
 
-``` bash
+```bash
 bitcoin-cli importprunedfunds "txhex" "txoutproof"
 ```
 
@@ -1111,7 +1111,7 @@ Name | Type | Presence | Description
 Import the public key for the address, giving it a label and scanning the
 entire block chain:
 
-``` bash
+```bash
 dash-cli -testnet importpubkey \
     0210c1349657c1253d3d64d1b31d3500b09335bf12b8df061666e216f550a43249 \
     "test label" \
@@ -1152,7 +1152,7 @@ Name | Type | Presence | Description
 
 Import the file shown in the example subsection of the [`dumpwallet` RPC](core-api-ref-remote-procedure-calls-wallet#dumpwallet).
 
-``` bash
+```bash
 dash-cli -testnet importwallet /tmp/dump.txt
 ```
 
@@ -1193,14 +1193,15 @@ Result | string (base64) | Required (exactly 1) | The new key
 
 Manually generate a key
 
-``` bash
+```bash
 dash-cli -testnet keepass genkey
 ```
 
 Result:
-``` bash
+
+```bash
 Generated Key: dNjo+J8Jb30txbJiKq4s9H6vEgWq/whb1w9bb2cTOFo=
-```  
+```
 
 **Command Mode - `init`**
 
@@ -1214,15 +1215,15 @@ Result | string | Required (exactly 1) | The success/error status
 
 Automatically initialize
 
-``` bash
+```bash
 dash-cli -testnet keepass init
 ```
 
 Result (wrapped):
-``` bash
+```bash
 Association successful. Id: testwalletassociation - \
 Key: MSb+JLygqz7ZH40SyJ1QR62i00IXoa3tmT85MGGI2K0=
-```  
+```
 
 **Command Mode - `setpassphrase`**
 
@@ -1242,14 +1243,14 @@ Result | string | Required (exactly 1) | The success/error status
 
 Set KeePass passphrase
 
-``` bash
+```bash
 dash-cli -testnet keepass setpassphrase 1BWi20Xyk76uWumxJQy4
 ```
 
 Result:
-``` bash
+```bash
 setlogin: Updated credentials.
-```  
+```
 
 *See also: none*
 
@@ -1279,7 +1280,7 @@ Name | Type | Presence | Description
 
 Generate one extra key than the default:
 
-``` bash
+```bash
 dash-cli -testnet keypoolrefill 1001
 ```
 
@@ -1310,12 +1311,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.3*
 
-``` bash
+```bash
 dash-cli -testnet listaddressbalances 25
 ```
 
 Result:
-``` json
+```json
 {
   "yMQtQkcMBXrAZyqTGZeg7tQHzmbypGEP4w": 299.99990000,
   "yRyfgrHm4f5A8GGvqpqTFvbCrCQHJm1L4V": 99.13570000,
@@ -1353,13 +1354,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet listaddressgroupings
 ```
 
 Result (edited to only three results):
 
-``` json
+```json
 [
   [
     [
@@ -1413,13 +1414,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet listlockunspent
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "txid": "d3d57ec5e4168b7145e911d019e9713563c1f2db5b2d6885739ea887feca4c87",
@@ -1486,13 +1487,13 @@ Name | Type | Presence | Description
 List addresses with balances confirmed by at least six blocks, including
 watch-only addresses. Also include the balance from InstantSend locked transactions:
 
-``` bash
+```bash
 dash-cli -testnet listreceivedbyaddress 6 true false true
 ```
 
 Result (edit to show only two entries):
 
-``` json
+```json
 [
   {
     "address": "yV3ZTfwyfUmpspncMSitiwzh7EvqSGrqZA",
@@ -1597,7 +1598,7 @@ Name | Type | Presence | Description
 Get all transactions since a particular block (including watch-only
 transactions) and the header hash of the sixth most recent block.
 
-``` bash
+```bash
 dash-cli -testnet listsinceblock \
               0000000001fc119ea77e0c67783227fb9d55386125179ea5597109d311af2337 \
               6 true true
@@ -1605,7 +1606,7 @@ dash-cli -testnet listsinceblock \
 
 Result (edited to show only two payments):
 
-``` json
+```json
 {
   "transactions": [
     {
@@ -1732,13 +1733,13 @@ Name | Type | Presence | Description
 
 List the most recent transaction from the main account including watch-only addresses.
 
-``` bash
+```bash
 dash-cli listtransactions "" 1 0 true
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "account": "",
@@ -1811,7 +1812,7 @@ Include Unsafe | bool | Optional<br>(false or true) | Include outputs that are n
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Query Options | json | Optional | JSON with query options. Available options:<br> - `minimumAmount`: Minimum value of each UTXO in DASH<br> - `maximumAmount`: Maximum value of each UTXO in DASH<br> - `maximumCount`: Maximum number of UTXOs<br> - `minimumSumAmount`: Minimum sum value of all UTXOs in DASH
+Query Options | json | Optional | JSON with query options. Available options:<br> - `minimumAmount`: Minimum value of each UTXO in DASH<br> - `maximumAmount`: Maximum value of each UTXO in DASH<br> - `maximumCount`: Maximum number of UTXOs<br> - `minimumSumAmount`: Minimum sum value of all UTXOs in DASH<br> - `cointType`: Filter coinTypes as follows:<br>0 = `ALL_COINS`, <br>1 = `ONLY_FULLY_MIXED`, <br>2 = `ONLY_READY_TO_MIX`, <br>3 = `ONLY_NONDENOMINATED`, <br>4 = `ONLY_MASTERNODE_COLLATERAL`, <br>5 = `ONLY_PRIVATESEND_COLLATERAL`
 
 *Result---the list of unspent outputs*
 
@@ -1837,7 +1838,7 @@ Name | Type | Presence | Description
 Get all outputs confirmed at least 6 times for a particular
 address:
 
-``` bash
+```bash
 dash-cli -testnet listunspent 6 99999999 '''
   [
     "yLki4jbxX28JB3TThm1DTgRfbKVhhiMx3d"
@@ -1847,7 +1848,7 @@ dash-cli -testnet listunspent 6 99999999 '''
 
 Result:
 
-``` json
+```json
 [
   {
     "txid": "534fe12e360773dddf8aa125a4027d2d8c0073e13ff2f04fd733202b85dbdcf1",
@@ -1866,9 +1867,7 @@ Result:
 
 Get all outputs for a particular address that have at least 1 confirmation and a maximum value of 10:
 
-``` bash
-listunspent 1 9999999 "[\"yQqTPAw1Nk8iFDeDXqe5dQ7A9xD6LVUStD\"]" true "{\"maximumAmount\":\"10\"}"
-
+```shell
 dash-cli -testnet listunspent 1 9999999 '''
   [
     "yQqTPAw1Nk8iFDeDXqe5dQ7A9xD6LVUStD"
@@ -1882,7 +1881,7 @@ dash-cli -testnet listunspent 1 9999999 '''
 
 Result:
 
-``` json
+```json
 [
   {
     "txid": "42cd5150fd1179b5a194e034685d524e6d5d38703ac794d236495923a29addc5",
@@ -1922,12 +1921,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.15.0*
 
-``` bash
+```bash
 dash-cli -testnet listwallets
 ```
 
 Result:
-``` json
+```json
 [
   "wallet.dat"
 ]
@@ -1959,13 +1958,13 @@ Name | Type | Presence | Description
 →<br>`warning` | string | Required | Warning message if wallet was not loaded cleanly
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet loadwallet wallet-test.dat
 ```
 
 Result:
 
-``` json
+```json
 {
   "name": "wallet-test.dat",
   "warning": ""
@@ -2014,7 +2013,7 @@ Name | Type | Presence | Description
 
 Lock two outputs:
 
-``` bash
+```bash
 dash-cli -testnet lockunspent false '''
   [
     {
@@ -2031,19 +2030,19 @@ dash-cli -testnet lockunspent false '''
 
 Result:
 
-``` json
+```json
 true
 ```
 
 Verify the outputs have been locked:
 
-``` bash
+```bash
 dash-cli -testnet listlockunspent
 ```
 
 Result
 
-``` json
+```json
 [
   {
     "txid": "d3d57ec5e4168b7145e911d019e9713563c1f2db5b2d6885739ea887feca4c87",
@@ -2058,7 +2057,7 @@ Result
 
 Unlock one of the above outputs:
 
-``` bash
+```bash
 dash-cli -testnet lockunspent true '''
 [
   {
@@ -2071,19 +2070,19 @@ dash-cli -testnet lockunspent true '''
 
 Result:
 
-``` json
+```json
 true
 ```
 
 Verify the output has been unlocked:
 
-``` bash
+```bash
 dash-cli -testnet listlockunspent
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "txid": "d3d57ec5e4168b7145e911d019e9713563c1f2db5b2d6885739ea887feca4c87",
@@ -2123,7 +2122,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.3*
 
-``` bash
+```bash
 dash-cli removeprunedfunds bb7daff525b83fa6a847ab50bf7f8f14d6\
 22761a19f69157b362ef3f25bda687
 ```
@@ -2162,12 +2161,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli rescanblockchain
 ```
 
 Result:
-``` json
+```json
 {
   "start_height": 293600,
   "stop_height": 293602
@@ -2267,7 +2266,7 @@ Name | Type | Presence | Description
 From the account *test1*, send 0.1 dash to the first address and 0.2
 dash to the second address, with a comment of "Example Transaction".
 
-``` bash
+```bash
 dash-cli -testnet sendmany \
   "test1" \
   '''
@@ -2282,7 +2281,7 @@ dash-cli -testnet sendmany \
 
 Result:
 
-``` text
+```text
 a7c0194a005a220b9bfeb5fdd12d5b90979c10f53de4f8a48a1495aa198a6b95
 ```
 
@@ -2291,7 +2290,7 @@ a7c0194a005a220b9bfeb5fdd12d5b90979c10f53de4f8a48a1495aa198a6b95
 From the account *test1*, send 0.1 dash to the first address and 0.2
 dash to the second address using InstantSend, with a comment of "Example Transaction".
 
-``` bash
+```bash
 dash-cli -testnet sendmany \
   "test1" \
   '''
@@ -2310,7 +2309,7 @@ dash-cli -testnet sendmany \
 
 Result:
 
-``` text
+```text
 3a5bbaa1a7aa3a8af45e8f1adf79528f99efc61052b0616d41b33fb8fb7af347
 ```
 
@@ -2319,7 +2318,7 @@ Result:
 From the account *test1*, send 0.1 dash to the first address and 0.2
 dash to the second address using PrivateSend, with a comment of "Example Transaction".
 
-``` bash
+```bash
 dash-cli -testnet sendmany \
   "test1" \
   '''
@@ -2339,7 +2338,7 @@ dash-cli -testnet sendmany \
 
 Result:
 
-``` text
+```text
 43337c8e4f3b21bedad7765fa851a6e855e4bb04f60d6b3e4c091ed21ffc5753
 ```
 
@@ -2424,14 +2423,14 @@ Name | Type | Presence | Description
 Spend 0.1 dash to the address below with the comment "sendtoaddress
 example" and the comment-to "Nemo From Example.com":
 
-``` bash
+```bash
 dash-cli -testnet sendtoaddress ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv \
   1.0 "sendtoaddress example" "Nemo From Example.com"
 ```
 
 Result:
 
-``` text
+```text
 70e2029d363f0110fe8a0aa2ba7bd771a579453135568b2aa559b2cb30f875aa
 ```
 
@@ -2440,14 +2439,14 @@ Result:
 Spend 0.1 dash via InstantSend to the address below with the comment "sendtoaddress
 example" and the comment-to "Nemo From Example.com":
 
-``` bash
+```bash
 dash-cli -testnet sendtoaddress ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv \
   1.0 "sendtoaddress example" "Nemo From Example.com" false true
 ```
 
 Result:
 
-``` text
+```text
 af002b9c931b5efb5b2852df3d65efd48c3b9ac2ba0ef8a4cf97b894f3ff08c2
 ```
 
@@ -2456,14 +2455,14 @@ af002b9c931b5efb5b2852df3d65efd48c3b9ac2ba0ef8a4cf97b894f3ff08c2
 Spend 0.1 dash via PrivateSend to the address below with the comment "sendtoaddress
 example" and the comment-to "Nemo From Example.com":
 
-``` bash
+```bash
 dash-cli -testnet sendtoaddress ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv \
   1.0 "sendtoaddress example" "Nemo From Example.com" false false true
 ```
 
 Result:
 
-``` text
+```text
 949833bc49e0643f63e2afed1704ccccf005a93067a4e46165b06ace42544694
 ```
 
@@ -2472,14 +2471,14 @@ Result:
 Spend 0.1 dash via InstantSend and PrivateSend to the address below with the
 comment "sendtoaddressexample" and the comment-to "Nemo From Example.com":
 
-``` bash
+```bash
 dash-cli -testnet sendtoaddress ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv \
   1.008 "sendtoaddress example" "Nemo From Example.com" false true true
 ```
 
 Result:
 
-``` text
+```text
 ba4bbe29fa06b67d6f3f3a73e381627e66abe22e217ce329aefad41ea72c3922
 ```
 
@@ -2503,7 +2502,7 @@ Amount | int | Required<br>(exactly 1) | The number of DASH to mix (minimum: 2, 
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet setprivatesendamount 2000
 ```
 
@@ -2527,7 +2526,7 @@ Rounds | int | Required<br>(exactly 1) | The number of mixing rounds to use (min
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet setprivatesendrounds 4
 ```
 
@@ -2563,13 +2562,13 @@ Name | Type | Presence | Description
 
 Set the transaction fee per kilobyte to 10,000 duffs.
 
-``` bash
+```bash
 dash-cli -testnet settxfee 0.00010000
 ```
 
 Result:
 
-``` json
+```json
 true
 ```
 
@@ -2610,13 +2609,13 @@ Name | Type | Presence | Description
 
 Sign a the message "Hello, World!" using the following address:
 
-``` bash
+```bash
 dash-cli -testnet signmessage yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb "Hello, World!"
 ```
 
 Result:
 
-``` text
+```text
 H4XULzfHCf16In2ECk9Ta9QxQPq639zQto2JA3OLlo3JbUdrClvJ89+A1z+Z9POd6l8LJhn1jGpQYF8mX4jkQvE=
 ```
 
@@ -2644,7 +2643,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet walletlock
 ```
 
@@ -2701,7 +2700,7 @@ Name | Type | Presence | Description
 
 Unlock the wallet for 10 minutes (the passphrase is "test"):
 
-``` bash
+```bash
 dash-cli -testnet walletpassphrase test 600
 ```
 
@@ -2709,7 +2708,7 @@ dash-cli -testnet walletpassphrase test 600
 
 Unlock the wallet for mixing transactions only for 10 minutes (the passphrase is "test"):
 
-``` bash
+```bash
 dash-cli -testnet walletpassphrase test 600 true
 ```
 
@@ -2760,7 +2759,7 @@ Name | Type | Presence | Description
 
 Change the wallet passphrase from "test" to "example":
 
-``` bash
+```bash
 dash-cli -testnet walletpassphrasechange "test" "example"
 ```
 

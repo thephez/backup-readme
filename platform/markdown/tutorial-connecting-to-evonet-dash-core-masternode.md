@@ -25,14 +25,9 @@ Clone the repository and edit the configuration file
 Paste in appropriate values for `CORE_EXTERNAL_IP` and `CORE_MASTERNODE_BLS_PRIV_KEY`. Generate a new BLS key using `dash-cli bls generate` or from Dash Core debug console with `bls generate` if necessary.
 
 # Start the masternode
-[block:code]
-{
-  "codes": [
-    {
-      "code": "docker-compose up -d",
-      "language": "text"
-    }
-  ]
-}
-[/block]
+
+```shell Run detached (in background)
+docker-compose up -d
+```
+
 Then obtain 1000 Evonet tDASH and create your protx registration transaction as described [here](https://docs.dash.org/en/stable/masternodes/setup.html#option-2-registering-from-dash-core-wallet).

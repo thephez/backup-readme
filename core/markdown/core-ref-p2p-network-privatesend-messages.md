@@ -311,7 +311,7 @@ If the message indicates the queue is ready, the node responds with a [`dsi` mes
 | 1 | fReady | bool | Required | Indicates if the mixing pool is ready to be executed
 | 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) activation_<br><br>BLS Signature of this message by masternode verifiable via pubKeyMasternode (Length (1 byte) + Signature (96 bytes))
 
-Denominations (per [`src/privatesend.cpp`](https://github.com/dashpay/dash/blob/7d8eab2641023c78a72ccd6efc99fc35fd030a46/src/privatesend.cpp#L201-L221))
+Denominations (per [`src/privatesend.cpp`](https://github.com/dashpay/dash/blob/v0.15.x/src/privatesend/privatesend.cpp#L319-L339))
 
 | Value | Denomination
 |------|--------------

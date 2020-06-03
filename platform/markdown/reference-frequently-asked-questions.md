@@ -13,10 +13,6 @@ The DNS seed will provide a deterministic masternode list (DML) to the client. M
 
 Modern browsers block connections to insecure content when the main page is loaded securely. At the moment, there are technical obstacles to serving DAPI content over HTTPS. Until then, the only way to test DAPI from a web page is to serve the web page insecurely. Dash Core team is evaluating different ways to work around this browser restriction and have a trustworthy connection to DAPI.
 
-## What is the warning I see three times when running DashJS, "More than one instance of dashcore-lib found"?
-
-This is carried over from other versions of core-libs from which dashcore-lib was forked. The library works even with the warnings, and we plan to resolve them in a future version.
-
 ## Why does DashJS connect to testnet when we are using Evonet?
 
 The reference to testnet is for compatibility with lower level libraries like dashcore-lib. DashJS is still connecting to Evonet.

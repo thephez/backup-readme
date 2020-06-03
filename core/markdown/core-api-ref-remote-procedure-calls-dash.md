@@ -1680,7 +1680,7 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | Object containing status
 →<br>`Spork Value` | int64_t | Required<br>(1 or more) | Spork value (epoch datetime to enable/disable)
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.16.0*
 
 ``` bash
 dash-cli -testnet spork show
@@ -1691,13 +1691,11 @@ Result:
 {
   "SPORK_2_INSTANTSEND_ENABLED": 0,
   "SPORK_3_INSTANTSEND_BLOCK_FILTERING": 0,
-  "SPORK_6_NEW_SIGS": 4000000000,
+  "SPORK_6_NEW_SIGS": 0,
   "SPORK_9_SUPERBLOCKS_ENABLED": 0,
-  "SPORK_15_DETERMINISTIC_MNS_ENABLED": 1047200,
-  "SPORK_16_INSTANTSEND_AUTOLOCKS": 0,
   "SPORK_17_QUORUM_DKG_ENABLED": 0,
-  "SPORK_19_CHAINLOCKS_ENABLED": 0,
-  "SPORK_20_INSTANTSEND_LLMQ_BASED": 0
+  "SPORK_19_CHAINLOCKS_ENABLED": 1,
+  "SPORK_21_QUORUM_ALL_CONNECTED": 4070908800
 }
 ```
 
@@ -1721,13 +1719,11 @@ Result:
 {
   "SPORK_2_INSTANTSEND_ENABLED": true,
   "SPORK_3_INSTANTSEND_BLOCK_FILTERING": true,
-  "SPORK_6_NEW_SIGS": false,
+  "SPORK_6_NEW_SIGS": true,
   "SPORK_9_SUPERBLOCKS_ENABLED": true,
-  "SPORK_15_DETERMINISTIC_MNS_ENABLED": true,
-  "SPORK_16_INSTANTSEND_AUTOLOCKS": true,
   "SPORK_17_QUORUM_DKG_ENABLED": true,
   "SPORK_19_CHAINLOCKS_ENABLED": true,
-  "SPORK_20_INSTANTSEND_LLMQ_BASED": true
+  "SPORK_21_QUORUM_ALL_CONNECTED": false
 }
 ```
 
@@ -1810,7 +1806,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`vote-sig` | string (base64) | Required<br>(exactly 1) | The vote signature created by external application (i.e. [Dash Masternode Tool](https://github.com/Bertrand256/dash-masternode-tool) or [dashmnb](https://github.com/chaeplin/dashmnb)).<br><br>Must match the Dash Core ([governance vote signature format](https://github.com/dashpay/dash/blob/48d63ab296f5613c727306ea39524f51d157a04c/src/governance-vote.cpp#L240-#L241)).
+`vote-sig` | string (base64) | Required<br>(exactly 1) | The vote signature created by external application (i.e. [Dash Masternode Tool](https://github.com/Bertrand256/dash-masternode-tool) or [dashmnb](https://github.com/chaeplin/dashmnb)).<br><br>Must match the Dash Core ([governance vote signature format](https://github.com/dashpay/dash/blob/v0.15.x/src/governance/governance-vote.cpp#L180-L181)).
 
 *Result---votes for specified governance*
 
