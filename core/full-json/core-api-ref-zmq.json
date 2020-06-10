@@ -1,5 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -60,6 +61,6 @@
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
  "_id": "5ebc1f1e39065f00110c31d2", 
- "order": 999, 
+ "order": 3, 
  "updates": []
 }

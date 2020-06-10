@@ -51,7 +51,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"JCaTiRxm4dRN1GJqoNkpowmvisC7BbgPW48pJ6roLSgw\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"FRoVmz3KBXbbBFoYMNzi2pgWFt2zYD2EwttQJVnvjMLE\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -63,7 +63,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"identity\": \"o2JpZHgsSkNhVGlSeG00ZFJOMUdKcW9Oa3Bvd212aXNDN0JiZ1BXNDhwSjZyb0xTZ3dnYmFsYW5jZRoAmJXSanB1YmxpY0tleXOBpGJpZAFkZGF0YXgsQTZBSkFmUkp5S3VOb052dDMzeWdZZlloNk9JWUE4dEYxczJCUWNSQTlSTmdkdHlwZQBpaXNFbmFibGVk9Q==\"\n}\n",
+      "code": "{\n  \"identity\": \"o2JpZHgsRlJvVm16M0tCWGJiQkZvWU1OemkycGdXRnQyellEMkV3dHRRSlZudmpNTEVnYmFsYW5jZRoAmI/ManB1YmxpY0tleXOBpGJpZABkZGF0YXgsQTZBSkFmUkp5S3VOb052dDMzeWdZZlloNk9JWUE4dEYxczJCUWNSQTlSTmdkdHlwZQBpaXNFbmFibGVk9Q==\"\n}\n",
       "language": "json",
       "name": "Response (truncated)"
     }
@@ -91,7 +91,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -103,7 +103,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"dataContract\": \"pGMkaWR4LDV3cFpBRVduZFljVGV1d1pwa21TYThzNDljSFhVNXEyRGhkaWJlc3hGU3U4ZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZHgsSGNnYWVUendpd0dNVHBZRkRCSnVLRVJ2OGtqYkRTMm9ER0RrUTRTTjRNaTFpZG9jdW1lbnRzoWRub3Rlompwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/Q=\"\n}\n",
+      "code": "{\n  \"dataContract\": \"pGMkaWR4LDZrazlzcWczU0x3RGs3a245MlZ6eGNXUldWOHFlMmcySml4eEs2VjJjUXNtZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZHgsRlJvVm16M0tCWGJiQkZvWU1OemkycGdXRnQyellEMkV3dHRRSlZudmpNTEVpZG9jdW1lbnRzoWRub3Rlompwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/Q=\"\n}\n",
       "language": "json",
       "name": "Response"
     }
@@ -140,7 +140,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8\",\n    \"document_type\":\"note\",\n    \"limit\":1\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
+      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm\",\n    \"document_type\":\"note\",\n    \"limit\":1\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -152,7 +152,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"documents\": [\n    \"pmMkaWR4LDJvR1c2b3B3eEtvSm5iN0t0TFI4VlpMMnlQcWs3anp0Z1JNYWExbXhNQ250ZSR0eXBlZG5vdGVnbWVzc2FnZXgtVHV0b3JpYWwgVGVzdCBAIE1vbiwgMjcgQXByIDIwMjAgMTU6MzA6MTcgR01UaCRvd25lcklkeCw1WnFpbTVMa0w3NmRCTXFhMWtFMkFGUm5nMnlxcGd5VlRLSzZrVHFXYlltdWkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZHgsNXdwWkFFV25kWWNUZXV3WnBrbVNhOHM0OWNIWFU1cTJEaGRpYmVzeEZTdTg=\"\n  ]\n}\n",
+      "code": "{\n  \"documents\": [\n    \"pmMkaWR4LEFvTW9vdUZtRFRrY1VjUENlNUN3UFVtekhReWM1b3BTRW1XekR2UVkxNHg0ZSR0eXBlZG5vdGVnbWVzc2FnZXgtVHV0b3JpYWwgVGVzdCBAIFdlZCwgMjcgTWF5IDIwMjAgMTM6MDA6MTUgR01UaCRvd25lcklkeCxGUm9WbXozS0JYYmJCRm9ZTU56aTJwZ1dGdDJ6WUQyRXd0dFFKVm52ak1MRWkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZHgsNmtrOXNxZzNTTHdEazdrbjkyVnp4Y1dSV1Y4cWUyZzJKaXh4SzZWMmNRc20=\"\n  ]\n}\n",
       "language": "json",
       "name": "Response"
     }

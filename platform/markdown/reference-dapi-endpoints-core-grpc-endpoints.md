@@ -78,7 +78,7 @@
 {
   "codes": [
     {
-      "code": "{\n  \"block\": \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAGIrsfCKw44jdFcMK7FOSYlv2BLmgl0VVcKFTyQDdWgS6loBU//9/IAEAAAABAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8PUQ1kZXZuZXQtZXZvbmV0/////wEA8gUqAQAAAAFqAAAAAA==\"\n}\n",
+      "code": "{\n  \"block\": \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAt6gicOI3kagmy2RcaqcAJ9AdzNceCiW3FlG1q/C6woG6loBU//9/IAAAAAABAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8RUQ9kZXZuZXQtZXZvbmV0LTL/////AQDyBSoBAAAAAWoAAAAA\"\n}\n",
       "language": "json",
       "name": "Response"
     }
@@ -134,7 +134,7 @@
 {
   "codes": [
     {
-      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"id\":\"29b68163a22d89c14e24f1281cb4608b8dc7be05bc2604e2cecf8a85b1dede0d\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
+      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"id\":\"81c2baf0abb55116b7250a1ed7cc1dd02700a76a5c64cb26a89137e27022a8b7\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -154,7 +154,7 @@
 {
   "codes": [
     {
-      "code": "{\n  \"transaction\": \"AgAAAAPyww4BwBE/4dFVU83HZ7MJ8hxjsnfQvUMz3SeA0T5rXQAAAABqRzBEAiBzJTAVHBIQhmOUWyvOoQTPMEHkkJzJ5GFNsYrjfy/7lgIgStoJDO1d3u7cZH+1XOWMboxYuFkM7ioz2Rg8QMju/YwBIQOmXK/2ykwEFaOsGC38Km06Tc65jouDHnFQHfOKoVbywf7///85s8IQDoJ2uslk1NOHjTLozwLZ1AjIUnWPhpwjKcq6ygAAAABrSDBFAiEA2le39Bh8tZU8nXZvAOrH6f2azaovy4KyP8lNBJt+50sCIH6sHuM93E8WcwO5GIFCvXjlBQbJMze6NrcEauNTiDq0ASEDplyv9spMBBWjrBgt/CptOk3OuY6Lgx5xUB3ziqFW8sH+////B+AsD3Tu3T0dW1Hl4w0j1CjWtHcKzNDvO+R/eQtwRtAAAAAAa0gwRQIhAOXhMxq5MZ5wOFPrHRHFgAMxAGS+IR88mMxE/b4cwDkjAiBwP0B1y0BTzcu3vEGTPZWuesKsEhoyWnOVEoVdg5z9vgEhA6Zcr/bKTAQVo6wYLfwqbTpNzrmOi4MecVAd84qhVvLB/v///wL2cTukCwAAABl2qRQDERpaqYsXNIIrPMolLurh/NIj/YisAOh2SBcAAAAZdqkUJsaJyzD0C4jQAetWHi4Qi2wJs26IrJYFAAA=\"\n}\n",
+      "code": "{\n  \"transaction\": \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8RUQ9kZXZuZXQtZXZvbmV0LTL/////AQDyBSoBAAAAAWoAAAAA\"\n}\n",
       "language": "json",
       "name": "Response"
     }

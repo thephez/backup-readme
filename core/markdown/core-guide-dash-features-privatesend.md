@@ -129,8 +129,8 @@ _**General**_
 
 To maintain privacy when using PrivateSend, PrivateSend transactions must fully spend all inputs to a single output (with the remainder becoming the fee - i.e. no <<glossary:change output>>). This can result in large fees depending on the value being sent.
 
-For example, an extreme case is sending the minimum non-dust value (546 duffs) via PrivateSend. This results in an extremely large transaction fee because the minimum PrivateSend denomination (0.0100001 DASH or 1,000,010 duffs) must be fully spent with no change. This results in a fee of 0.00999464 DASH and a sent value of only 0.00000546 DASH as shown by the calculation below.
+For example, an extreme case is sending the minimum non-dust value (546 duffs) via PrivateSend. This results in an extremely large transaction fee because the minimum PrivateSend denomination (0.00100001 DASH or 100,001 duffs) must be fully spent with no change. This results in a fee of 0.00999464 DASH and a sent value of only 0.00000546 DASH as shown by the calculation below.
 
-1000010 duffs (smallest PrivateSend denomination) - 546 duffs (value to send) = 999464 duffs (fee)
+100001 duffs (smallest PrivateSend denomination) - 546 duffs (value to send) = 99455 duffs (fee)
 
 [Example Testnet PrivateSend transaction spending 546 duffs](https://testnet-insight.dashevo.org/insight/address/yWWNYVEQ84RM1xXJekj62wJPF3h1TKh9fS)
