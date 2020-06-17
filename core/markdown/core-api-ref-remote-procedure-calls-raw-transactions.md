@@ -393,12 +393,12 @@ Note: For backwards compatibility, passing in a `true` instead of an object will
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Options | Object | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.13.0*<br><br>Additional options
-→ <br>`changeAddress` | string | Optional<br>(0 or 1) | The bitcoin address to receive the change. If not set, the address is chosen from address pool
+→ <br>`changeAddress` | string | Optional<br>(0 or 1) | The address to receive the change. If not set, the address is chosen from address pool
 → <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
 `includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
 → <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
 → <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | *Deprecated and ignored in Dash Core 0.15.0*<br><br>Reserves the change output key from the keypool. The default is `true`. Before Bitcoin Core 0.14.0, the used keypool key was never marked as change-address key and directly returned to the keypool (leading to address reuse).  
-→ <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay(BTC per KB). If not set, the wallet determines the fee
+→ <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay (BTC per KB). If not set, the wallet determines the fee
 → <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added.
 → →<br>Output index | numeric (int) | Optional<br>(0 or more) | A output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
 
@@ -745,7 +745,7 @@ Transaction | string (hex) | Required<br>(exactly 1) | The serialized transactio
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Allow High Fees | bool | Optional<br>(0 or 1) | Set to `true` to allow the transaction to pay a high transaction fee.  Set to `false` (the default) to prevent Bitcoin Core from broadcasting the transaction if it includes a high fee.  Transaction fees are the sum of the inputs minus the sum of the outputs, so this high fees check helps ensures user including a change address to return most of the difference back to themselves
+Allow High Fees | bool | Optional<br>(0 or 1) | Set to `true` to allow the transaction to pay a high transaction fee.  Set to `false` (the default) to prevent Dash Core from broadcasting the transaction if it includes a high fee.  Transaction fees are the sum of the inputs minus the sum of the outputs, so this high fees check helps ensures user including a change address to return most of the difference back to themselves
 
 *Parameter #3--whether to use InstantSend*
 

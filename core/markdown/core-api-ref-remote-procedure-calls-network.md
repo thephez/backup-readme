@@ -24,7 +24,7 @@ Name | Type | Presence | Description
 
 Try connecting to the following node.
 
-``` bash
+```bash
 dash-cli -testnet addnode 192.0.2.113:19999 onetry
 ```
 
@@ -52,7 +52,7 @@ Name | Type | Presence | Description
 
 Clears the ban list.
 
-``` bash
+```bash
 dash-cli clearbanned
 ```
 
@@ -91,7 +91,7 @@ Name | Type | Presence | Description
 
 Disconnects following node by address.
 
-``` bash
+```bash
 dash-cli -testnet disconnectnode 192.0.2.113:19999
 ```
 
@@ -99,7 +99,7 @@ Result (no output from `dash-cli` because result is set to `null`).
 
 Disconnects following node by id.
 
-``` bash
+```bash
 dash-cli -testnet disconnectnode "" 3
 ```
 
@@ -145,13 +145,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.3*
 
-``` bash
+```bash
 dash-cli getaddednodeinfo
 ```
 
 Result (real hostname and IP address replaced with [RFC5737](http://tools.ietf.org/html/rfc5737) reserved address):
 
-``` json
+```json
 [
   {
     "addednode": "192.0.2.113:19999",
@@ -185,13 +185,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet getconnectioncount
 ```
 
 Result:
 
-``` text
+```text
 14
 ```
 
@@ -225,13 +225,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli getnettotals
 ```
 
 Result:
 
-``` json
+```json
 {
   "totalbytesrecv": 4661588,
   "totalbytessent": 2899423,
@@ -290,13 +290,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli getnetworkinfo
 ```
 
 Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org/html/rfc5737) reserved addresses):
 
-``` json
+```json
 {
   "version": 160000,
   "subversion": "/Dash Core:0.16.0/",
@@ -394,14 +394,14 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli getpeerinfo
 ```
 
 Result (edited to show only a single entry, with IP addresses changed to
 [RFC5737](http://tools.ietf.org/html/rfc5737) reserved IP addresses):
 
-``` json
+```json
 [
   {
     "id": 3,
@@ -505,13 +505,13 @@ Name | Type | Presence | Description
 
 The default (`false`):
 
-``` bash
+```bash
 dash-cli listbanned
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "address": "192.0.2.201/32",
@@ -547,7 +547,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet ping
 ```
 
@@ -555,13 +555,13 @@ dash-cli -testnet ping
 
 Get the results using the [`getpeerinfo` RPC](core-api-ref-remote-procedure-calls-network#getpeerinfo):
 
-``` bash
+```bash
 dash-cli -testnet getpeerinfo | grep ping
 ```
 
 Results:
 
-``` json
+```json
         "pingtime" : 0.11790800,
         "pingtime" : 0.22673400,
         "pingtime" : 0.16451900,
@@ -617,7 +617,7 @@ Name | Type | Presence | Description
 
 Ban the following node.
 
-``` bash
+```bash
 dash-cli -testnet setban 192.0.2.113 add 2592000
 ```
 
@@ -648,7 +648,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli setnetworkactive true
 ```
 

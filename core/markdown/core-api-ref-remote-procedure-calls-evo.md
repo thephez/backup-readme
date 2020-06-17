@@ -20,12 +20,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet bls generate
 ```
 
 Result:
-``` json
+```json
 {
   "secret": "52f35cd3d977a505485f2474e7e71ef3f60f859603d72ad6b0fa7f7bd163e144",
   "public": "885d01d746c3e4d2093b0975de2d8c1f3e5a2c3e8fdaaed929f86fc9fbb278a095248163c101a2456650b415776b7990"
@@ -52,12 +52,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet bls fromsecret 52f35cd3d977a505485f2474e7e71ef3f60f859603d72ad6b0fa7f7bd163e144
 ```
 
 Result:
-``` json
+```json
 {
   "secret": "52f35cd3d977a505485f2474e7e71ef3f60f859603d72ad6b0fa7f7bd163e144",
   "public": "885d01d746c3e4d2093b0975de2d8c1f3e5a2c3e8fdaaed929f86fc9fbb278a095248163c101a2456650b415776b7990"
@@ -138,7 +138,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx register\
  8b2eab3413abb6e04d17d1defe2b71039ba6b6f72ea1e5dab29bb10e7b745948 1\
  2.3.4.5:2345 yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6\
@@ -147,7 +147,7 @@ dash-cli -testnet protx register\
 ```
 
 Result:
-``` bash
+```text
 61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929
 ```
 
@@ -211,7 +211,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx register_fund yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7\
  3.4.5.6:3456 yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw\
  0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51\
@@ -219,7 +219,7 @@ dash-cli -testnet protx register_fund yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7\
 ```
 
 Result:
-``` bash
+```text
 ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd
 ```
 
@@ -295,7 +295,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx register_prepare\
  df41e398bb245e973340d434d386f431dbd69735a575721b0b6833856e7d31ec 1 \
  9.8.7.6:9876 yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz\
@@ -304,7 +304,7 @@ dash-cli -testnet protx register_prepare\
 ```
 
 Result:
-``` json
+```json
 {
   "tx": "0300010001912b88876fee2f8e43e23b5e81276c163cf23d867bad4148170cb106ef9023700000000000feffffff0125623ba40b0000001976a914736e155c1039a269d4019c66219d2a18f0fee27588ac00000000d1010000000000ec317d6e8533680b1b7275a53597d6db31f486d334d44033975e24bb98e341df0100000000000000000000000000ffff090807062694ca6b243168b30461d1f19e2bb89a965a5bac067e06849865d01e4f73a6d5a025117e48f50b897e14235800501c8bfb8a6365cc8dbf5ddb67a3635d0f1dcc7d46a7ee280cca6b243168b30461d1f19e2bb89a965a5bac067e78001976a914fc136008111fcc7a05be6cec66f97568727a9e5188ace5f6b70ac55411727e25178bd417b9b03f837ad7155d90ad286f3a427203fb9f00",
   "collateralAddress": "yWuKWhDzGQqZL8rw6kGxGrfe6P8bUC2S4f",
@@ -338,7 +338,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx register_submit\
  03000100012d988526d5d1efd32320023c92eff09c2963dcb021b0de9761\
  17e5e37dc7a7870000000000feffffff015f603ba40b0000001976a9140c\
@@ -355,7 +355,7 @@ dash-cli -testnet protx register_submit\
 ```
 
 Result:
-``` bash
+```text
 273ce3ebe24183ee4117b10e054cdbb108a3bde5d2f286129e29480d46a3f573
 ```
 
@@ -434,12 +434,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet protx list
 ```
 
 Result:
-``` json
+```json
 [
   "2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2",
   "61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929",
@@ -450,12 +450,12 @@ Result:
 
 List of ProTxs which are active/valid at the given chain height.
 
-``` bash
+```bash
 dash-cli -testnet protx list valid false 7090
 ```
 
 Result:
-``` json
+```json
 [
   "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f"
 ]
@@ -463,12 +463,12 @@ Result:
 
 Detailed list of ProTxs which are active/valid at the given chain height.
 
-``` bash
+```bash
 dash-cli -testnet protx list valid true 7090
 ```
 
 Result:
-``` json
+```json
 [
   {
     "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
@@ -555,13 +555,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet protx info\
  c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
 ```
 
 Result:
-``` json
+```json
 {
   "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
   "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
@@ -643,7 +643,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx update_service\
  ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd\
  "4.3.2.1:4321"\
@@ -651,7 +651,7 @@ dash-cli -testnet protx update_service\
 ```
 
 Result:
-``` bash
+```bash
 5b6cfa1bdd3c8b7e0b9550b9c4e809381f81a410bc7f241d3879dd736fd51270
 ```
 
@@ -697,7 +697,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx update_registrar\
  "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
  "0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51"\
@@ -705,7 +705,7 @@ dash-cli -testnet protx update_registrar\
 ```
 
 Result:
-``` bash
+```bash
 702390ef06b10c174841ad7b863df23c166c27815e3be2438e2fee6f87882b91
 ```
 
@@ -745,14 +745,14 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet protx revoke\
  "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
  "4da7e1ea30fb9e55c73ad23df0b9d3d34342acb24facf4b19420e1a26ae272d1"
 ```
 
 Result:
-``` bash
+```bash
 2aad36dd2ab254bee06b0b5dad51e7603691b72058d5806fd94e1d2d19a7c209
 ```
 
@@ -809,12 +809,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet protx diff 75000 76000
 ```
 
 Result (truncated):
-``` json
+```json
 {
   "baseBlockHash": "0000000003deb00bba101ee581cdc4e1cbd1243ec5cd190472ae93eff07c8881",
   "blockHash": "0000000000c0279636003ed0042c9a454b4c39e9a6c49bb92d420e0bf4e0f49b",
@@ -952,12 +952,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum list
 ```
 
 Result:
-``` json
+```json
 {
   "llmq_50_60": [
     "00000000023cc6dde69bed898c83fe2328ef38b1ea9da14a599efa14caef0b7d",
@@ -1021,13 +1021,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.15.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum info 1 \
   000004bfc56646880bfeb80a0b89ad955e557ead7b0f09bcc61e56c8473eaea9 true
 ```
 
 Result (truncated):
-``` json
+```json
 {
   "height": 264072,
   "type": "llmq_50_60",
@@ -1146,12 +1146,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum dkgstatus
 ```
 
-Result:
-``` json
+Result (truncated):
+```json
 {
   "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
   "time": 1555172494,
@@ -1184,18 +1184,58 @@ Result:
       "validMembersCount": 0,
       "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     }
+  },
+  "quorumConnections": {
+    "llmq_50_60": [
+    ],
+    "llmq_400_60": [
+      {
+        "proTxHash": "38a22aeedd3bfaa6f2fd8c6859e257b679261ec17c247eb4950af93ab702be28",
+        "connected": false,
+        "outbound": false
+      },
+      {
+        "proTxHash": "f443dd87ec7981e8630ae957f295d9d226d4bd3895f59dbd80b30137a92b3735",
+        "connected": true,
+        "address": "95.183.53.17:10008",
+        "outbound": true
+      },
+      {
+        "proTxHash": "ab0848b6a026d953c334c7a5bd1ebf98909d8dc26994fc42f61aed984acb0c3d",
+        "connected": false,
+        "outbound": false
+      }
+    ],
+    "llmq_400_85": [
+      {
+        "proTxHash": "ed06587e8898754ff9abacdcf19c0870d7a065f4895b936878c8274bed4f9d5e",
+        "connected": true,
+        "address": "3.249.195.183:31145",
+        "outbound": true
+      },
+      {
+        "proTxHash": "bc36e6c0d0c69173ea0c8a9a821548468e7713ab9bf748c117d5404b4450f86b",
+        "connected": false,
+        "outbound": true
+      },
+      {
+        "proTxHash": "0ed3ba3ceac8505f109557157b2e0984812d87b7d83dbd14aab956f21a752a78",
+        "connected": false,
+        "outbound": false
+      },
+    ]
   }
 }
 ```
 
 *Example from Dash Core 0.14.0 (detail_level: 1)*
 
-``` bash
+```bash
 dash-cli -testnet quorum dkgstatus 1
 ```
 
 Result:
-``` json
+```json
 {
   "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
   "time": 1555172494,
@@ -1378,12 +1418,12 @@ Result:
 
 *Example from Dash Core 0.14.0 (detail_level: 2)*
 
-``` bash
+```bash
 dash-cli -testnet quorum dkgstatus 2
 ```
 
 Result:
-``` json
+```json
 {
   "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
   "time": 1555172494,
@@ -2072,14 +2112,14 @@ result | bool | Required<br>(exactly 1) | True or false depending on success
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum sign 1 \
   "abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234abcd1234" \
   "51c11d287dfa85aef3eebb5420834c8e443e01d15c0b0a8e397d67e2e51aa239"
 ```
 
 Result:
-``` json
+```json
 false
 ```
 
@@ -2119,14 +2159,14 @@ result | bool | Required<br>(exactly 1) | Recovered signature details
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum getrecsig 1 \
   "e980ebf295b42f24b03321ffb255818753b2b211e8c46b61c0b6fde91242d12f" \
   "907087d4720850e639b7b5cc41d7a6d020e5a50debb3bc3974f0cb3d7d378ea4"
 ```
 
 Result:
-``` json
+```json
 {
   "llmqType": 1,
   "quorumHash": "00000000008344da08e4d262773ea545472fbf625f78b3ebfe5fc067c33b1d22",
@@ -2174,14 +2214,14 @@ result | bool | Required<br>(exactly 1) | True or false depending on success
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum hasrecsig 1 \
   "e980ebf295b42f24b03321ffb255818753b2b211e8c46b61c0b6fde91242d12f" \
   "907087d4720850e639b7b5cc41d7a6d020e5a50debb3bc3974f0cb3d7d378ea4"
 ```
 
 Result:
-``` json
+```text
 true
 ```
 
@@ -2222,14 +2262,14 @@ result | bool | Required<br>(exactly 1) | True or false depending on success
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum isconflicting 1 \
   "e980ebf295b42f24b03321ffb255818753b2b211e8c46b61c0b6fde91242d12f" \
   "907087d4720850e639b7b5cc41d7a6d020e5a50debb3bc3974f0cb3d7d378ea4"
 ```
 
 Result:
-``` json
+```text
 false
 ```
 
@@ -2265,13 +2305,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.15.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum memberof 1 \
   39c07d2c9c6d0ead56f52726b63c15e295cb5c3ecf7fe1fefcfb23b2e3cfed1f 1
 ```
 
 Result:
-``` json
+```json
 [
   {
     "height": 72000,
@@ -2314,13 +2354,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli -testnet quorum selectquorum 1 \
   b95205c3bba72e9edfbe7380ec91fe5a97e16a189e28f39b03c6822757ad1a34
 ```
 
 Result:
-``` json
+```json
 {
   "quorumHash": "00000ba8932486c66ed0742fd6b0f4e65afc75ab1e7886c6ef84580dfb7da34f",
   "recoveryMembers": [

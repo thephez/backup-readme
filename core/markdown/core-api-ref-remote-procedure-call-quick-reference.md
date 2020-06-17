@@ -153,6 +153,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [ListTransactions](core-api-ref-remote-procedure-calls-wallet#listtransactions): returns the most recent transactions that affect the wallet. _Updated in Dash Core 0.14.0_
 * [ListUnspent](core-api-ref-remote-procedure-calls-wallet#listunspent): returns an array of unspent transaction outputs belonging to this wallet. **Updated in Dash Core 0.16.0**
 * [ListWallets](core-api-ref-remote-procedure-calls-wallet#listwallets): returns a list of currently loaded wallets. **_New in Dash Core 0.15.0_**
+* [LoadWallet](core-api-ref-remote-procedure-calls-wallet#loadwallet): loads a wallet from a wallet file or directory. **New in Dash Core 0.16.0**
 * [LockUnspent](core-api-ref-remote-procedure-calls-wallet#lockunspent): temporarily locks or unlocks specified transaction outputs. A locked transaction output will not be chosen by automatic coin selection when spending dash. Locks are stored in memory only, so nodes start with zero locked outputs and the locked output list is always cleared when a node stops or fails.
 * [RemovePrunedFunds](core-api-ref-remote-procedure-calls-wallet#removeprunedfunds): deletes the specified transaction from the wallet. Meant for use with pruned wallets and as a companion to importprunedfunds. *New in Dash Core 0.12.3*
 * [RescanBlockChain](core-api-ref-remote-procedure-calls-wallet#rescanblockchain): rescans the local blockchain for wallet related transactions. **New in Dash Core 0.16.0**

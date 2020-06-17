@@ -74,13 +74,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.13.0*
 
-``` bash
+```bash
 dash-cli -testnet getblocktemplate
 ```
 
 Result:
 
-``` json
+```json
 {
   "capabilities": [
     "proposal"
@@ -165,13 +165,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.16.0*
 
-``` bash
+```bash
 dash-cli getmininginfo
 ```
 
 Result:
 
-``` json
+```json
 {
   "blocks": 292979,
   "currentblocksize": 0,
@@ -218,13 +218,13 @@ Name | Type | Presence | Description
 Get the average hashes per second for all the blocks since the last
 difficulty change before block 6000.
 
-``` bash
+```bash
 dash-cli -testnet getnetworkhashps -1 6000
 ```
 
 Result:
 
-``` json
+```text
 22214011.90821117
 ```
 
@@ -257,7 +257,7 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.14.0*
 
-``` bash
+```bash
 dash-cli -testnet prioritisetransaction \
     f86c74f27fdd9c7e618d69b3606eeae1710b3f02fabede6ae8c88dd7bb756942 \
     456789
@@ -265,7 +265,7 @@ dash-cli -testnet prioritisetransaction \
 
 Result:
 
-``` json
+```json
 true
 ```
 
@@ -300,7 +300,7 @@ Name | Type | Presence | Description
 
 Submit the following block with the a dummy value, "test".
 
-``` bash
+```bash
 dash-cli -testnet submitblock 0100002032e3965d5fdd7a883209d516599337eb4cb82f\
   7aea22ecc114942c1f00000000244388a3bd2c38a85bf337755a1a165d0df2b335e3886058\
   40e08a3cdf1ce1a4297ede598f6a011d027c1c300201000000010000000000000000000000\
@@ -322,7 +322,7 @@ dash-cli -testnet submitblock 0100002032e3965d5fdd7a883209d516599337eb4cb82f\
 
 Result (the block above was already on a local block chain):
 
-``` text
+```text
 duplicate
 ```
 

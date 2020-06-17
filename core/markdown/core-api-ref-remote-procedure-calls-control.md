@@ -10,13 +10,13 @@ Debug category | string | Required<br>(1 or more) | The debug category to activa
 
 *Example from Dash Core 0.15.0*
 
-``` bash
+```bash
 dash-cli -testnet debug "net+mempool"
 ```
 
 Result:
 
-``` text
+```text
 Debug mode: net+mempool
 ```
 
@@ -51,13 +51,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.3*
 
-``` bash
+```bash
 dash-cli getmemoryinfo
 ```
 
 Result:
 
-``` json
+```json
 {
   "locked": {
     "used": 1146240,
@@ -94,13 +94,13 @@ Name | Type | Presence | Description
 
 Command to get help about the [`help` RPC](core-api-ref-remote-procedure-calls-control#help):
 
-``` bash
+```bash
 dash-cli -testnet help help
 ```
 
 Result:
 
-``` text
+```text
 help ( "command" )
 
 List all commands, or get help for a specified command.
@@ -151,12 +151,12 @@ Name | Type | Presence | Description
 
 Include a category in logging
 
-``` bash
+```bash
 dash-cli -testnet logging '["llmq", "spork"]'
 ```
 
 Result:
-``` json
+```json
 {
   "net": 0,
   "tor": 0,
@@ -195,12 +195,12 @@ Result:
 
 Excluding a previously included category (without including any new ones):
 
-``` bash
+```bash
 dash-cli -testnet logging '[]' '["spork"]'
 ```
 
 Result:
-``` json
+```json
 {
   "net": 0,
   "tor": 0,
@@ -255,13 +255,13 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.12.2*
 
-``` bash
+```bash
 dash-cli -testnet stop
 ```
 
 Result:
 
-``` text
+```text
 Dash Core server stopping
 ```
 
@@ -281,12 +281,12 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 0.15.0*
 
-``` bash
+```bash
 dash-cli -testnet uptime
 ```
 
 Result:
-``` text
+```text
 5500
 ```
 

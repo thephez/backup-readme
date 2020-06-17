@@ -31,13 +31,13 @@ Name | Type | Presence | Description
 
 Using regtest mode, generate 2 blocks:
 
-``` bash
+```bash
 dash-cli -regtest generate 2
 ```
 
 Result:
 
-``` json
+```json
 [
   "55a4c47da8151c0823eec22c41ebc6d690a0288302179625bae9eb6f36808266",
   "3f07b9aa4e3bcd5518610945c4a6b32699acac71b1762605ff79ba553111fc79"
@@ -94,14 +94,14 @@ Name | Type | Presence | Description
 
 Using regtest mode, generate 2 blocks with maximal 500000 iterations:
 
-``` bash
+```bash
 dash-cli -regtest generatetoaddress 2 "yaQzdWrDVYGncLKSKG4bHQ\
 ML9UdAe726QN" 500000
 ```
 
 Result:
 
-``` json
+```json
 [
   "34726c518d1688a9c56b3399e892089d3a639b43de194517c07da2b168a3a89c",
   "1f030abe2bb323b8895542e3a85ed8386bd92c67af9d19fe9c163a4c5f5ef149"

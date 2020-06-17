@@ -26,13 +26,13 @@ Name | Type | Presence | Description
 
 Get the balance for an address:
 
-``` bash
+```bash
 dash-cli getaddressbalance '{"addresses": ["yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ"]}'
 ```
 
 Result:
 
-``` json
+```json
 {
   "balance": 0,
   "received": 10000100
@@ -89,13 +89,13 @@ Name | Type | Presence | Description
 
 Get the deltas for an address:
 
-``` bash
+```bash
 dash-cli getaddressdeltas '{"addresses": ["yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ"], "start":5000, "end":7500}'
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "satoshis": 10000100,
@@ -152,13 +152,13 @@ Name | Type | Presence | Description
 
 Get the deltas for an address:
 
-``` bash
+```bash
 dash-cli getaddressmempool '{"addresses": ["yVcYtcKd3nSi85JFtE8ZSDPimj3VMTJB8k"]}'
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "address": "yVcYtcKd3nSi85JFtE8ZSDPimj3VMTJB8k",
@@ -211,13 +211,13 @@ Name | Type | Presence | Description
 
 Get the deltas for an address:
 
-``` bash
+```bash
 dash-cli getaddresstxids '{"addresses": ["yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ"], "start":5000, "end":7500}'
 ```
 
 Result:
 
-``` json
+```json
 [
   "1fe86e463a9394d4ccd9a5ff1c6b483c95b4350ffdb055b55dc3615111e977de",
   "6cb4379eec45cd3bb08b8f4c3a101b8cd89795e24f2cb8288a9941a85fb114cf"
@@ -259,13 +259,13 @@ Name | Type | Presence | Description
 
 Get the unspent outputs for an address:
 
-``` bash
+```bash
 dash-cli getaddressutxos '{"addresses": ["yLeC3F9UxJmFaRaf5yzH7FDc7RdvBasi84"]}'
 ```
 
 Result:
 
-``` json
+```json
 [
   {
     "address": "yLeC3F9UxJmFaRaf5yzH7FDc7RdvBasi84",
