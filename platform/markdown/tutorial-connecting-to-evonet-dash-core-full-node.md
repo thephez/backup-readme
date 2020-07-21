@@ -12,7 +12,7 @@
 {
   "codes": [
     {
-      "code": "devnet=evonet-2\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=seed-1.evonet.networks.dash.org:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
+      "code": "devnet=evonet-4\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=seed-1.evonet.networks.dash.org:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
       "language": "text",
       "name": "dash-evonet.conf"
     }

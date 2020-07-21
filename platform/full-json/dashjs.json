@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2020-02-10T08:47:42.947Z", 
- "id": "5e95bfa43971fb0148efeb7b", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-02-10T08:47:42.947Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "DashJS", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": false, 
- "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "dashjs", 
- "link_url": "https://dashevo.github.io/DashJS/#/", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb7b", 
- "order": 2, 
- "updates": []
+ },
+ "title": "DashJS",
+ "updates": [],
+ "type": "link",
+ "slug": "dashjs",
+ "excerpt": "",
+ "body": "",
+ "order": 2,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://dashevo.github.io/DashJS/#/",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:47.335Z",
+ "_id": "5ed52e27d6b31c07c140106a",
+ "version": "5ed52e27d6b31c07c1401075",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5ed52e27d6b31c07c1401028",
+ "updatedAt": "2020-02-10T08:47:42.947Z",
+ "createdAt": "2020-02-10T08:47:42.947Z",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c140106a",
+ "body_html": "&nbsp;"
 }

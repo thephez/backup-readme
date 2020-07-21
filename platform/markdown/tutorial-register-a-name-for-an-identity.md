@@ -16,7 +16,7 @@ For this tutorial you will need:
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerName = async function () {\n  try {\n    await client.isReady();\n    const platform = client.platform;\n    const identity = await platform.identities.get('an identity ID goes here');\n    const nameRegistration = await platform.names.register('a name goes here', identity);\n    console.log({nameRegistration});\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n}\n\nregisterName();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerName = async function () {\n  try {\n    const platform = client.platform;\n    const identity = await platform.identities.get('an identity ID goes here');\n    const nameRegistration = await platform.names.register('a name goes here', identity);\n    console.log({nameRegistration});\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n}\n\nregisterName();",
       "language": "javascript"
     }
   ]

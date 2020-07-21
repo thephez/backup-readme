@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e95bfa43971fb0148efeb46", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-10T15:11:45.443Z", 
- "id": "5e95bfa43971fb0148efeb49", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-08-01T13:40:38.195Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "DAPI Client", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-source-code-dapi-client", 
- "link_url": "https://github.com/dashevo/dapi-client", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb49", 
- "order": 4, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "DAPI Client",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-dapi-client",
+ "excerpt": "",
+ "body": "",
+ "order": 4,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/dapi-client",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:46.788Z",
+ "_id": "5ed52e27d6b31c07c1401039",
+ "version": "5ed52e27d6b31c07c1401075",
+ "updatedAt": "2019-12-10T15:11:45.443Z",
+ "createdAt": "2019-08-01T13:40:38.195Z",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "5ed52e27d6b31c07c1401028",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5ed52e27d6b31c07c1401036",
+ "__v": 0,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c1401039",
+ "body_html": "&nbsp;"
 }

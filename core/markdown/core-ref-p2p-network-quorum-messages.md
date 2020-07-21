@@ -584,11 +584,37 @@ The [`qsigshare` message](core-ref-p2p-network-quorum-messages#qsigshare) (quoru
 [/block]
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
+| Varies | count | compactSize uint | Number of sig share announcements |
+| 1 | llmqType | uint8_t | The type of LLMQ
+| 32 | quorumHash | uint256 | The quorum hash
+| 32 | id | uint256 | The signing request id
+| 32 | msgHash | uint256 | The message hash
+| 96 | sigShare | byte[] | The final recovered BLS threshold signature
 
 The following annotated hexdump shows a [`qsigshare` message](core-ref-p2p-network-quorum-messages#qsigshare). (The message header has been omitted.)
 
 ``` text
-To be added
+01 ......................................... Count: 1
+
+01 ......................................... LLMQ Type: 1 (LLMQ_50_60)
+
+613bc036d2a2f8914a28dafd04c7d61e
+238d1a10703769d166706d4178010000 ........... Quorum Hash
+
+0300 ....................................... Quorum Member
+
+ac520a15c20b7dd115103dd9ccabee71
+32a8bc8e1f258250f5fabdd1a2a0ef0e ........... Message ID
+
+69779b1c59a524738ed9bd6e66c3c5f9
+cd4b9bd93ebb83069eaab77dff30ca48 ........... Message Hash
+
+0671499594b4a811d29b009f647215f0
+32ac7ad90a76589ab91d20ac876daac1
+8e20ae1901be093ade77c8fbc54a7927
+11f397d025d3690ff48bfb476ab23ad0
+8b68a618a63bb0319cf286902307a5be
+a277386b48a7ae627d075da826aab694 ......... Signature Share
 ```
 
 ## qsigsinv

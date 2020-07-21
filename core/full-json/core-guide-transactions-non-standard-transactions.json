@@ -1,66 +1,68 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e96055329a18c0025d39241", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-11-13T17:44:37.642Z", 
- "id": "5e96055329a18c0025d3924a", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T17:52:35.418Z", 
- "category": "5e96055329a18c0025d391e3", 
- "title": "Non-Standard Transactions", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-transactions-signature-hash-types", 
-    "type": "doc", 
-    "name": "Signature Hash Types", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Signature Hash Types",
+    "slug": "core-guide-transactions-signature-hash-types",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "5e96055329a18c0025d39261", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "If you use anything besides a standard <<glossary:pubkey script>> in an <<glossary:output>>, <<glossary:peers>> and miners using the default Dash Core settings will neither accept, broadcast, nor mine your <<glossary:transaction>>. When you try to broadcast your transaction to a peer running the default settings, you will receive an error.\n\nIf you create a <<glossary:redeem script>>, hash it, and use the hash in a <<glossary:P2SH>> output, the network sees only the hash, so it will accept the output as valid no matter what the redeem script says. This allows payment to non-standard scripts, and as of Bitcoin Core 0.11, almost all valid redeem scripts can be spent. The exception is scripts that use unassigned [NOP opcodes](https://en.bitcoin.it/wiki/Script#Reserved_words); these opcodes are reserved for future soft forks and can only be relayed or mined by nodes that don't follow the standard mempool policy.\n[block:callout]\n{\n  \"type\": \"info\",\n  \"body\": \"Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It's easy to create standard transactions which make the duffs sent to them unspendable.\"\n}\n[/block]\nStandard transactions must also meet the following conditions:\n\n* The transaction must be finalized: either its locktime must be in the past (or less than or equal to the current block height), or all of its sequence numbers must be 0xffffffff.\n\n* The transaction must be smaller than 100,000 bytes. That's around 200 times larger than a typical single-input, single-output P2PKH transaction.\n\n* Each of the transaction's signature scripts must be smaller than 1,650 bytes. That's large enough to allow 15-of-15 multisig transactions in P2SH using compressed <<glossary:public keys>>.\n\n* Bare (non-P2SH) multisig transactions which require more than 3 public keys are currently non-standard.\n\n* The transaction's <<glossary:signature script>> must only push data to the script evaluation stack. It cannot push new opcodes, with the exception of opcodes which solely push data to the stack.\n\n* The transaction must not include any <<glossary:outputs>> which receive fewer than 1/3 as many <<glossary:duffs>> as it would take to spend it in a typical <<glossary:input>>. That's currently 5460 duffs for a P2PKH or P2SH output on a Dash Core node with the default relay fee. **Exception: standard null data outputs must receive zero duffs.**", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>If you use anything besides a standard &lt;&lt;glossary:pubkey script&gt;&gt; in an &lt;&lt;glossary:output&gt;&gt;, &lt;&lt;glossary:peers&gt;&gt; and miners using the default Dash Core settings will neither accept, broadcast, nor mine your &lt;&lt;glossary:transaction&gt;&gt;. When you try to broadcast your transaction to a peer running the default settings, you will receive an error.</p>\n<p>If you create a &lt;&lt;glossary:redeem script&gt;&gt;, hash it, and use the hash in a &lt;&lt;glossary:P2SH&gt;&gt; output, the network sees only the hash, so it will accept the output as valid no matter what the redeem script says. This allows payment to non-standard scripts, and as of Bitcoin Core 0.11, almost all valid redeem scripts can be spent. The exception is scripts that use unassigned <a href=\"https://en.bitcoin.it/wiki/Script#Reserved_words\">NOP opcodes</a>; these opcodes are reserved for future soft forks and can only be relayed or mined by nodes that don&#39;t follow the standard mempool policy.</p>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It&#39;s easy to create standard transactions which make the duffs sent to them unspendable.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>Standard transactions must also meet the following conditions:</p>\n<ul>\n<li ><p>The transaction must be finalized: either its locktime must be in the past (or less than or equal to the current block height), or all of its sequence numbers must be 0xffffffff.</p>\n</li><li ><p>The transaction must be smaller than 100,000 bytes. That&#39;s around 200 times larger than a typical single-input, single-output P2PKH transaction.</p>\n</li><li ><p>Each of the transaction&#39;s signature scripts must be smaller than 1,650 bytes. That&#39;s large enough to allow 15-of-15 multisig transactions in P2SH using compressed &lt;&lt;glossary:public keys&gt;&gt;.</p>\n</li><li ><p>Bare (non-P2SH) multisig transactions which require more than 3 public keys are currently non-standard.</p>\n</li><li ><p>The transaction&#39;s &lt;&lt;glossary:signature script&gt;&gt; must only push data to the script evaluation stack. It cannot push new opcodes, with the exception of opcodes which solely push data to the stack.</p>\n</li><li ><p>The transaction must not include any &lt;&lt;glossary:outputs&gt;&gt; which receive fewer than 1/3 as many &lt;&lt;glossary:duffs&gt;&gt; as it would take to spend it in a typical &lt;&lt;glossary:input&gt;&gt;. That&#39;s currently 5460 duffs for a P2PKH or P2SH output on a Dash Core node with the default relay fee. <strong>Exception: standard null data outputs must receive zero duffs.</strong></p>\n</li></ul>\n\n</div>", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "core-guide-transactions-non-standard-transactions", 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 1, 
- "_id": "5e96055329a18c0025d3924a", 
- "order": 3, 
- "updates": []
+ },
+ "title": "Non-Standard Transactions",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-transactions-non-standard-transactions",
+ "excerpt": "",
+ "body": "If you use anything besides a standard <<glossary:pubkey script>> in an <<glossary:output>>, <<glossary:peers>> and miners using the default Dash Core settings will neither accept, broadcast, nor mine your <<glossary:transaction>>. When you try to broadcast your transaction to a peer running the default settings, you will receive an error.\n\nIf you create a <<glossary:redeem script>>, hash it, and use the hash in a <<glossary:P2SH>> output, the network sees only the hash, so it will accept the output as valid no matter what the redeem script says. This allows payment to non-standard scripts, and as of Bitcoin Core 0.11, almost all valid redeem scripts can be spent. The exception is scripts that use unassigned [NOP opcodes](https://en.bitcoin.it/wiki/Script#Reserved_words); these opcodes are reserved for future soft forks and can only be relayed or mined by nodes that don't follow the standard mempool policy.\n[block:callout]\n{\n  \"type\": \"info\",\n  \"body\": \"Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It's easy to create standard transactions which make the duffs sent to them unspendable.\"\n}\n[/block]\nStandard transactions must also meet the following conditions:\n\n* The transaction must be finalized: either its locktime must be in the past (or less than or equal to the current block height), or all of its sequence numbers must be 0xffffffff.\n\n* The transaction must be smaller than 100,000 bytes. That's around 200 times larger than a typical single-input, single-output P2PKH transaction.\n\n* Each of the transaction's signature scripts must be smaller than 1,650 bytes. That's large enough to allow 15-of-15 multisig transactions in P2SH using compressed <<glossary:public keys>>.\n\n* Bare (non-P2SH) multisig transactions which require more than 3 public keys are currently non-standard.\n\n* The transaction's <<glossary:signature script>> must only push data to the script evaluation stack. It cannot push new opcodes, with the exception of opcodes which solely push data to the stack.\n\n* The transaction must not include any <<glossary:outputs>> which receive fewer than 1/3 as many <<glossary:duffs>> as it would take to spend it in a typical <<glossary:input>>. That's currently 5460 duffs for a P2PKH or P2SH output on a Dash Core node with the default relay fee. **Exception: standard null data outputs must receive zero duffs.**",
+ "order": 3,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:46.537Z",
+ "_id": "5e96055329a18c0025d3924a",
+ "version": "5e96055329a18c0025d39261",
+ "updatedAt": "2019-11-13T17:44:37.642Z",
+ "createdAt": "2019-10-28T17:52:35.418Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5e96055329a18c0025d39241",
+ "category": "5e96055329a18c0025d391e3",
+ "__v": 1,
+ "isApi": false,
+ "id": "5e96055329a18c0025d3924a",
+ "body_html": "<div class=\"magic-block-textarea\"><p>If you use anything besides a standard &lt;&lt;glossary:pubkey script&gt;&gt; in an &lt;&lt;glossary:output&gt;&gt;, &lt;&lt;glossary:peers&gt;&gt; and miners using the default Dash Core settings will neither accept, broadcast, nor mine your &lt;&lt;glossary:transaction&gt;&gt;. When you try to broadcast your transaction to a peer running the default settings, you will receive an error.</p>\n<p>If you create a &lt;&lt;glossary:redeem script&gt;&gt;, hash it, and use the hash in a &lt;&lt;glossary:P2SH&gt;&gt; output, the network sees only the hash, so it will accept the output as valid no matter what the redeem script says. This allows payment to non-standard scripts, and as of Bitcoin Core 0.11, almost all valid redeem scripts can be spent. The exception is scripts that use unassigned <a href=\"https://en.bitcoin.it/wiki/Script#Reserved_words\">NOP opcodes</a>; these opcodes are reserved for future soft forks and can only be relayed or mined by nodes that don&#39;t follow the standard mempool policy.</p>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It&#39;s easy to create standard transactions which make the duffs sent to them unspendable.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>Standard transactions must also meet the following conditions:</p>\n<ul>\n<li ><p>The transaction must be finalized: either its locktime must be in the past (or less than or equal to the current block height), or all of its sequence numbers must be 0xffffffff.</p>\n</li><li ><p>The transaction must be smaller than 100,000 bytes. That&#39;s around 200 times larger than a typical single-input, single-output P2PKH transaction.</p>\n</li><li ><p>Each of the transaction&#39;s signature scripts must be smaller than 1,650 bytes. That&#39;s large enough to allow 15-of-15 multisig transactions in P2SH using compressed &lt;&lt;glossary:public keys&gt;&gt;.</p>\n</li><li ><p>Bare (non-P2SH) multisig transactions which require more than 3 public keys are currently non-standard.</p>\n</li><li ><p>The transaction&#39;s &lt;&lt;glossary:signature script&gt;&gt; must only push data to the script evaluation stack. It cannot push new opcodes, with the exception of opcodes which solely push data to the stack.</p>\n</li><li ><p>The transaction must not include any &lt;&lt;glossary:outputs&gt;&gt; which receive fewer than 1/3 as many &lt;&lt;glossary:duffs&gt;&gt; as it would take to spend it in a typical &lt;&lt;glossary:input&gt;&gt;. That&#39;s currently 5460 duffs for a P2PKH or P2SH output on a Dash Core node with the default relay fee. <strong>Exception: standard null data outputs must receive zero duffs.</strong></p>\n</li></ul>\n\n</div>"
 }

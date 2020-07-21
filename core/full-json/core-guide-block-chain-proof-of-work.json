@@ -1,66 +1,68 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e96055329a18c0025d3923b", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-11-12T21:59:32.206Z", 
- "id": "5e96055329a18c0025d3923d", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T15:46:42.899Z", 
- "category": "5e96055329a18c0025d391e3", 
- "title": "Proof Of Work", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-block-chain-block-height-and-forking", 
-    "type": "doc", 
-    "name": "Block Height and Forking", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Block Height and Forking",
+    "slug": "core-guide-block-chain-block-height-and-forking",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "5e96055329a18c0025d39261", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "The <<glossary:block chain>> is collaboratively maintained by anonymous <<glossary:peers>> on the <<glossary:network>>, so Dash requires that each <<glossary:block>> prove a significant amount of work was invested in its creation to ensure that untrustworthy peers who want to modify past blocks have to work harder than honest peers who only want to add new blocks to the block chain.\n\nChaining blocks together makes it impossible to modify <<glossary:transactions>> included in any block without modifying all following blocks. As a result, the cost to modify a particular block increases with every new block added to the block chain, magnifying the effect of the proof of work.\n\nThe <<glossary:proof of work>> used in Dash takes advantage of the apparently random nature of cryptographic hashes. A good cryptographic hash algorithm converts arbitrary data into a seemingly-random number. If the data is modified in any way and the hash re-run, a new seemingly-random number is produced, so there is no way to modify the data to make the hash number predictable.\n\nTo prove you did some extra work to create a block, you must create a hash of the <<glossary:block header>> which does not exceed a certain value. For example, if the maximum possible hash value is <span class=\"math\">2<sup>256</sup>\u2005\u2212\u20051</span>, you can prove that you tried up to two combinations by producing a hash value less than <span class=\"math\">2<sup>255</sup></span>.\n\nIn the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the <<glossary:target threshold>>. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.\n\nNew blocks will only be added to the block chain if their hash is at least as challenging as a <<glossary:difficulty>> value expected by the <<glossary:consensus>> protocol. Every block, the network uses the difficulty of the last 24 blocks and number of seconds elapsed between generation of the first and last of those last 24 blocks. The ideal value is 3600 (one hour).\n\n* If it took less than one hour to generate the 24 blocks, the expected difficulty value is increased so that the next 24 blocks should take exactly one hour to generate if hashes are checked at the same rate.\n\n* If it took more than one hour to generate the blocks, the expected difficulty value is decreased for the same reason.\n\nThis method of calculating difficulty (Dark Gravity Wave) was authored by Dash creator Evan Duffield to fix exploits possible with the previously used Kimoto Gravity Well difficulty readjustment algorithm. For additional detail, reference this [Official Documentation Dark Gravity Wave page](https://docs.dash.org/en/stable/introduction/features.html#dark-gravity-wave).\n\nBecause each block header must hash to a value below the target threshold, and because each block is linked to the block that preceded it, it requires (on average) as much hashing power to propagate a modified block as the entire Dash network expended between the time the original block was created and the present time. Only if you acquired a majority of the network's hashing power could you reliably execute such a <<glossary:51 percent attack>> against transaction history (although, it should be noted, that even less than 50% of the hashing power still has a good chance of performing such attacks).\n\nThe block header provides several easy-to-modify fields, such as a dedicated nonce field, so obtaining new hashes doesn't require waiting for new transactions. Also, only the 80-byte block header is hashed for proof-of-work, so including a large volume of transaction data in a block does not slow down hashing with extra I/O, and adding additional transaction data only requires the recalculation of the ancestor hashes in the <<glossary:merkle tree>>.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The &lt;&lt;glossary:block chain&gt;&gt; is collaboratively maintained by anonymous &lt;&lt;glossary:peers&gt;&gt; on the &lt;&lt;glossary:network&gt;&gt;, so Dash requires that each &lt;&lt;glossary:block&gt;&gt; prove a significant amount of work was invested in its creation to ensure that untrustworthy peers who want to modify past blocks have to work harder than honest peers who only want to add new blocks to the block chain.</p>\n<p>Chaining blocks together makes it impossible to modify &lt;&lt;glossary:transactions&gt;&gt; included in any block without modifying all following blocks. As a result, the cost to modify a particular block increases with every new block added to the block chain, magnifying the effect of the proof of work.</p>\n<p>The &lt;&lt;glossary:proof of work&gt;&gt; used in Dash takes advantage of the apparently random nature of cryptographic hashes. A good cryptographic hash algorithm converts arbitrary data into a seemingly-random number. If the data is modified in any way and the hash re-run, a new seemingly-random number is produced, so there is no way to modify the data to make the hash number predictable.</p>\n<p>To prove you did some extra work to create a block, you must create a hash of the &lt;&lt;glossary:block header&gt;&gt; which does not exceed a certain value. For example, if the maximum possible hash value is <span class=\"math\">2<sup>256</sup>\u2005\u2212\u20051</span>, you can prove that you tried up to two combinations by producing a hash value less than <span class=\"math\">2<sup>255</sup></span>.</p>\n<p>In the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the &lt;&lt;glossary:target threshold&gt;&gt;. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.</p>\n<p>New blocks will only be added to the block chain if their hash is at least as challenging as a &lt;&lt;glossary:difficulty&gt;&gt; value expected by the &lt;&lt;glossary:consensus&gt;&gt; protocol. Every block, the network uses the difficulty of the last 24 blocks and number of seconds elapsed between generation of the first and last of those last 24 blocks. The ideal value is 3600 (one hour).</p>\n<ul>\n<li ><p>If it took less than one hour to generate the 24 blocks, the expected difficulty value is increased so that the next 24 blocks should take exactly one hour to generate if hashes are checked at the same rate.</p>\n</li><li ><p>If it took more than one hour to generate the blocks, the expected difficulty value is decreased for the same reason.</p>\n</li></ul>\n<p>This method of calculating difficulty (Dark Gravity Wave) was authored by Dash creator Evan Duffield to fix exploits possible with the previously used Kimoto Gravity Well difficulty readjustment algorithm. For additional detail, reference this <a href=\"https://docs.dash.org/en/stable/introduction/features.html#dark-gravity-wave\">Official Documentation Dark Gravity Wave page</a>.</p>\n<p>Because each block header must hash to a value below the target threshold, and because each block is linked to the block that preceded it, it requires (on average) as much hashing power to propagate a modified block as the entire Dash network expended between the time the original block was created and the present time. Only if you acquired a majority of the network&#39;s hashing power could you reliably execute such a &lt;&lt;glossary:51 percent attack&gt;&gt; against transaction history (although, it should be noted, that even less than 50% of the hashing power still has a good chance of performing such attacks).</p>\n<p>The block header provides several easy-to-modify fields, such as a dedicated nonce field, so obtaining new hashes doesn&#39;t require waiting for new transactions. Also, only the 80-byte block header is hashed for proof-of-work, so including a large volume of transaction data in a block does not slow down hashing with extra I/O, and adding additional transaction data only requires the recalculation of the ancestor hashes in the &lt;&lt;glossary:merkle tree&gt;&gt;.</p>\n\n</div>", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "core-guide-block-chain-proof-of-work", 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 5, 
- "_id": "5e96055329a18c0025d3923d", 
- "order": 1, 
- "updates": []
+ },
+ "title": "Proof Of Work",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-block-chain-proof-of-work",
+ "excerpt": "",
+ "body": "The <<glossary:block chain>> is collaboratively maintained by anonymous <<glossary:peers>> on the <<glossary:network>>, so Dash requires that each <<glossary:block>> prove a significant amount of work was invested in its creation to ensure that untrustworthy peers who want to modify past blocks have to work harder than honest peers who only want to add new blocks to the block chain.\n\nChaining blocks together makes it impossible to modify <<glossary:transactions>> included in any block without modifying all following blocks. As a result, the cost to modify a particular block increases with every new block added to the block chain, magnifying the effect of the proof of work.\n\nThe <<glossary:proof of work>> used in Dash takes advantage of the apparently random nature of cryptographic hashes. A good cryptographic hash algorithm converts arbitrary data into a seemingly-random number. If the data is modified in any way and the hash re-run, a new seemingly-random number is produced, so there is no way to modify the data to make the hash number predictable.\n\nTo prove you did some extra work to create a block, you must create a hash of the <<glossary:block header>> which does not exceed a certain value. For example, if the maximum possible hash value is <span class=\"math\">2<sup>256</sup>\u2005\u2212\u20051</span>, you can prove that you tried up to two combinations by producing a hash value less than <span class=\"math\">2<sup>255</sup></span>.\n\nIn the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the <<glossary:target threshold>>. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.\n\nNew blocks will only be added to the block chain if their hash is at least as challenging as a <<glossary:difficulty>> value expected by the <<glossary:consensus>> protocol. Every block, the network uses the difficulty of the last 24 blocks and number of seconds elapsed between generation of the first and last of those last 24 blocks. The ideal value is 3600 (one hour).\n\n* If it took less than one hour to generate the 24 blocks, the expected difficulty value is increased so that the next 24 blocks should take exactly one hour to generate if hashes are checked at the same rate.\n\n* If it took more than one hour to generate the blocks, the expected difficulty value is decreased for the same reason.\n\nThis method of calculating difficulty (Dark Gravity Wave) was authored by Dash creator Evan Duffield to fix exploits possible with the previously used Kimoto Gravity Well difficulty readjustment algorithm. For additional detail, reference this [Official Documentation Dark Gravity Wave page](https://docs.dash.org/en/stable/introduction/features.html#dark-gravity-wave).\n\nBecause each block header must hash to a value below the target threshold, and because each block is linked to the block that preceded it, it requires (on average) as much hashing power to propagate a modified block as the entire Dash network expended between the time the original block was created and the present time. Only if you acquired a majority of the network's hashing power could you reliably execute such a <<glossary:51 percent attack>> against transaction history (although, it should be noted, that even less than 50% of the hashing power still has a good chance of performing such attacks).\n\nThe block header provides several easy-to-modify fields, such as a dedicated nonce field, so obtaining new hashes doesn't require waiting for new transactions. Also, only the 80-byte block header is hashed for proof-of-work, so including a large volume of transaction data in a block does not slow down hashing with extra I/O, and adding additional transaction data only requires the recalculation of the ancestor hashes in the <<glossary:merkle tree>>.",
+ "order": 1,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:45.185Z",
+ "_id": "5e96055329a18c0025d3923d",
+ "version": "5e96055329a18c0025d39261",
+ "updatedAt": "2019-11-12T21:59:32.206Z",
+ "createdAt": "2019-10-28T15:46:42.899Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5e96055329a18c0025d3923b",
+ "category": "5e96055329a18c0025d391e3",
+ "__v": 5,
+ "isApi": false,
+ "id": "5e96055329a18c0025d3923d",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The &lt;&lt;glossary:block chain&gt;&gt; is collaboratively maintained by anonymous &lt;&lt;glossary:peers&gt;&gt; on the &lt;&lt;glossary:network&gt;&gt;, so Dash requires that each &lt;&lt;glossary:block&gt;&gt; prove a significant amount of work was invested in its creation to ensure that untrustworthy peers who want to modify past blocks have to work harder than honest peers who only want to add new blocks to the block chain.</p>\n<p>Chaining blocks together makes it impossible to modify &lt;&lt;glossary:transactions&gt;&gt; included in any block without modifying all following blocks. As a result, the cost to modify a particular block increases with every new block added to the block chain, magnifying the effect of the proof of work.</p>\n<p>The &lt;&lt;glossary:proof of work&gt;&gt; used in Dash takes advantage of the apparently random nature of cryptographic hashes. A good cryptographic hash algorithm converts arbitrary data into a seemingly-random number. If the data is modified in any way and the hash re-run, a new seemingly-random number is produced, so there is no way to modify the data to make the hash number predictable.</p>\n<p>To prove you did some extra work to create a block, you must create a hash of the &lt;&lt;glossary:block header&gt;&gt; which does not exceed a certain value. For example, if the maximum possible hash value is <span class=\"math\">2<sup>256</sup>\u2005\u2212\u20051</span>, you can prove that you tried up to two combinations by producing a hash value less than <span class=\"math\">2<sup>255</sup></span>.</p>\n<p>In the example given above, you will produce a successful hash on average every other try. You can even estimate the probability that a given hash attempt will generate a number below the &lt;&lt;glossary:target threshold&gt;&gt;. Dash assumes a linear probability that the lower it makes the target threshold, the more hash attempts (on average) will need to be tried.</p>\n<p>New blocks will only be added to the block chain if their hash is at least as challenging as a &lt;&lt;glossary:difficulty&gt;&gt; value expected by the &lt;&lt;glossary:consensus&gt;&gt; protocol. Every block, the network uses the difficulty of the last 24 blocks and number of seconds elapsed between generation of the first and last of those last 24 blocks. The ideal value is 3600 (one hour).</p>\n<ul>\n<li ><p>If it took less than one hour to generate the 24 blocks, the expected difficulty value is increased so that the next 24 blocks should take exactly one hour to generate if hashes are checked at the same rate.</p>\n</li><li ><p>If it took more than one hour to generate the blocks, the expected difficulty value is decreased for the same reason.</p>\n</li></ul>\n<p>This method of calculating difficulty (Dark Gravity Wave) was authored by Dash creator Evan Duffield to fix exploits possible with the previously used Kimoto Gravity Well difficulty readjustment algorithm. For additional detail, reference this <a href=\"https://docs.dash.org/en/stable/introduction/features.html#dark-gravity-wave\">Official Documentation Dark Gravity Wave page</a>.</p>\n<p>Because each block header must hash to a value below the target threshold, and because each block is linked to the block that preceded it, it requires (on average) as much hashing power to propagate a modified block as the entire Dash network expended between the time the original block was created and the present time. Only if you acquired a majority of the network&#39;s hashing power could you reliably execute such a &lt;&lt;glossary:51 percent attack&gt;&gt; against transaction history (although, it should be noted, that even less than 50% of the hashing power still has a good chance of performing such attacks).</p>\n<p>The block header provides several easy-to-modify fields, such as a dedicated nonce field, so obtaining new hashes doesn&#39;t require waiting for new transactions. Also, only the 80-byte block header is hashed for proof-of-work, so including a large volume of transaction data in a block does not slow down hashing with extra I/O, and adding additional transaction data only requires the recalculation of the ancestor hashes in the &lt;&lt;glossary:merkle tree&gt;&gt;.</p>\n\n</div>"
 }

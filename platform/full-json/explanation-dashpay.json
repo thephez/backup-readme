@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-31T15:48:44.807Z", 
- "id": "5e95bfa43971fb0148efeb74", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-31T15:38:51.091Z", 
- "category": "5e95bfa43971fb0148efeb3b", 
- "title": "DashPay", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": true, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "(Explanation from Andy Freer, a nice starting point)\n\nIdentities represent a user on the blockchain, not a payment address.  DashDrive lets users store documents (in other words data Entities), the syntax and validity of which is defined in a Contract, and the ownership of which is proved by the sig of the identity that created them.\n\nNow, if Alice and Bob have identities and want to pay each other by name, we can construct a simple pay-by-name DAP as such:\n\n1. 3rd party dev (Carol) creates a Contract that allows identities to store a list of other identities (this will be each user's Contact list),\n2. Alice wants to pay Bob so first she has to create an Entity with Bob's identity using Carol's Contract, and embeds an HDPubKey, encrypted for Bob. (we can call this a Contact Entity)\n3. Bob then sees the entity with his identity included (using a client that's reading Carol's Contract) and interprets this as a Contact request.\n4. Bob decides to accept the request, so he creates his own Entity using Carol's Contract, which contains Alice's identity and Bob's HDPubKey, encrypted for her.\n5. Alice then sees that Bob created an entity for her using Carol's Contract, and her client interprets this as an accepted request (because both users have essentially exchanged payment address seeds).\n6. Alice and Bob can now pay each other by name, using a client working with Carol's Contract, which can generate a unique payment address  behind-the-scenes each time they pay by name.\n7. Alice and Bob's clients can scan the blockchain using the exchanged addresses to generate a history of all payments between themselves\n\nThis is the basics of the DashPay DAP thats coming (its probably improved by now but this is the essence of it)...the main benefit is that the Contact entities Alice and Bob created for each other are stored 'on the Dash blockchain' so they never need to trust a third party that the past transactions between those names, or when making a new payment they dont need to worry if they are paying the right person, they can have full confidence and never see an address.  They can also create / verify / access this data from a stateless client (like a browser) without a 3rd party and the data is secured and available 24/7 on the Masternode network, and with the payment addresses and transactions private between the users.\n\nAlso note that each Contact entity is in itself a unique digital asset owned by Alice and Bob..  Alice and Bob control ownership, content and transfer of their entities, Carol controls the format and rules for what those entities can contain and what state they can be in.  For more advanced DAPs this is a really neat feature.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>(Explanation from Andy Freer, a nice starting point)</p>\n<p>Identities represent a user on the blockchain, not a payment address.  DashDrive lets users store documents (in other words data Entities), the syntax and validity of which is defined in a Contract, and the ownership of which is proved by the sig of the identity that created them.</p>\n<p>Now, if Alice and Bob have identities and want to pay each other by name, we can construct a simple pay-by-name DAP as such:</p>\n<ol>\n<li  value=\"1\">3rd party dev (Carol) creates a Contract that allows identities to store a list of other identities (this will be each user&#39;s Contact list),</li><li  value=\"2\">Alice wants to pay Bob so first she has to create an Entity with Bob&#39;s identity using Carol&#39;s Contract, and embeds an HDPubKey, encrypted for Bob. (we can call this a Contact Entity)</li><li  value=\"3\">Bob then sees the entity with his identity included (using a client that&#39;s reading Carol&#39;s Contract) and interprets this as a Contact request.</li><li  value=\"4\">Bob decides to accept the request, so he creates his own Entity using Carol&#39;s Contract, which contains Alice&#39;s identity and Bob&#39;s HDPubKey, encrypted for her.</li><li  value=\"5\">Alice then sees that Bob created an entity for her using Carol&#39;s Contract, and her client interprets this as an accepted request (because both users have essentially exchanged payment address seeds).</li><li  value=\"6\">Alice and Bob can now pay each other by name, using a client working with Carol&#39;s Contract, which can generate a unique payment address  behind-the-scenes each time they pay by name.</li><li  value=\"7\">Alice and Bob&#39;s clients can scan the blockchain using the exchanged addresses to generate a history of all payments between themselves</li></ol>\n<p>This is the basics of the DashPay DAP thats coming (its probably improved by now but this is the essence of it)...the main benefit is that the Contact entities Alice and Bob created for each other are stored &#39;on the Dash blockchain&#39; so they never need to trust a third party that the past transactions between those names, or when making a new payment they dont need to worry if they are paying the right person, they can have full confidence and never see an address.  They can also create / verify / access this data from a stateless client (like a browser) without a 3rd party and the data is secured and available 24/7 on the Masternode network, and with the payment addresses and transactions private between the users.</p>\n<p>Also note that each Contact entity is in itself a unique digital asset owned by Alice and Bob..  Alice and Bob control ownership, content and transfer of their entities, Carol controls the format and rules for what those entities can contain and what state they can be in.  For more advanced DAPs this is a really neat feature.</p>\n\n</div>", 
- "user": "5d5abd2ace3a96005e4f8d68", 
- "isReference": false, 
- "slug": "explanation-dashpay", 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb74", 
- "order": 6, 
- "updates": []
+ },
+ "title": "DashPay",
+ "updates": [],
+ "type": "basic",
+ "slug": "explanation-dashpay",
+ "excerpt": "",
+ "body": "(Explanation from Andy Freer, a nice starting point)\n\nIdentities represent a user on the blockchain, not a payment address.  DashDrive lets users store documents (in other words data Entities), the syntax and validity of which is defined in a Contract, and the ownership of which is proved by the sig of the identity that created them.\n\nNow, if Alice and Bob have identities and want to pay each other by name, we can construct a simple pay-by-name DAP as such:\n\n1. 3rd party dev (Carol) creates a Contract that allows identities to store a list of other identities (this will be each user's Contact list),\n2. Alice wants to pay Bob so first she has to create an Entity with Bob's identity using Carol's Contract, and embeds an HDPubKey, encrypted for Bob. (we can call this a Contact Entity)\n3. Bob then sees the entity with his identity included (using a client that's reading Carol's Contract) and interprets this as a Contact request.\n4. Bob decides to accept the request, so he creates his own Entity using Carol's Contract, which contains Alice's identity and Bob's HDPubKey, encrypted for her.\n5. Alice then sees that Bob created an entity for her using Carol's Contract, and her client interprets this as an accepted request (because both users have essentially exchanged payment address seeds).\n6. Alice and Bob can now pay each other by name, using a client working with Carol's Contract, which can generate a unique payment address  behind-the-scenes each time they pay by name.\n7. Alice and Bob's clients can scan the blockchain using the exchanged addresses to generate a history of all payments between themselves\n\nThis is the basics of the DashPay DAP thats coming (its probably improved by now but this is the essence of it)...the main benefit is that the Contact entities Alice and Bob created for each other are stored 'on the Dash blockchain' so they never need to trust a third party that the past transactions between those names, or when making a new payment they dont need to worry if they are paying the right person, they can have full confidence and never see an address.  They can also create / verify / access this data from a stateless client (like a browser) without a 3rd party and the data is secured and available 24/7 on the Masternode network, and with the payment addresses and transactions private between the users.\n\nAlso note that each Contact entity is in itself a unique digital asset owned by Alice and Bob..  Alice and Bob control ownership, content and transfer of their entities, Carol controls the format and rules for what those entities can contain and what state they can be in.  For more advanced DAPs this is a really neat feature.",
+ "order": 7,
+ "isReference": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:46.461Z",
+ "_id": "5ed52e27d6b31c07c1401063",
+ "version": "5ed52e27d6b31c07c1401075",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5d5abd2ace3a96005e4f8d68",
+ "category": "5ed52e27d6b31c07c140102a",
+ "updatedAt": "2019-12-31T15:48:44.807Z",
+ "createdAt": "2019-12-31T15:38:51.091Z",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c1401063",
+ "body_html": "<div class=\"magic-block-textarea\"><p>(Explanation from Andy Freer, a nice starting point)</p>\n<p>Identities represent a user on the blockchain, not a payment address.  DashDrive lets users store documents (in other words data Entities), the syntax and validity of which is defined in a Contract, and the ownership of which is proved by the sig of the identity that created them.</p>\n<p>Now, if Alice and Bob have identities and want to pay each other by name, we can construct a simple pay-by-name DAP as such:</p>\n<ol>\n<li  value=\"1\">3rd party dev (Carol) creates a Contract that allows identities to store a list of other identities (this will be each user&#39;s Contact list),</li><li  value=\"2\">Alice wants to pay Bob so first she has to create an Entity with Bob&#39;s identity using Carol&#39;s Contract, and embeds an HDPubKey, encrypted for Bob. (we can call this a Contact Entity)</li><li  value=\"3\">Bob then sees the entity with his identity included (using a client that&#39;s reading Carol&#39;s Contract) and interprets this as a Contact request.</li><li  value=\"4\">Bob decides to accept the request, so he creates his own Entity using Carol&#39;s Contract, which contains Alice&#39;s identity and Bob&#39;s HDPubKey, encrypted for her.</li><li  value=\"5\">Alice then sees that Bob created an entity for her using Carol&#39;s Contract, and her client interprets this as an accepted request (because both users have essentially exchanged payment address seeds).</li><li  value=\"6\">Alice and Bob can now pay each other by name, using a client working with Carol&#39;s Contract, which can generate a unique payment address  behind-the-scenes each time they pay by name.</li><li  value=\"7\">Alice and Bob&#39;s clients can scan the blockchain using the exchanged addresses to generate a history of all payments between themselves</li></ol>\n<p>This is the basics of the DashPay DAP thats coming (its probably improved by now but this is the essence of it)...the main benefit is that the Contact entities Alice and Bob created for each other are stored &#39;on the Dash blockchain&#39; so they never need to trust a third party that the past transactions between those names, or when making a new payment they dont need to worry if they are paying the right person, they can have full confidence and never see an address.  They can also create / verify / access this data from a stateless client (like a browser) without a 3rd party and the data is secured and available 24/7 on the Masternode network, and with the payment addresses and transactions private between the users.</p>\n<p>Also note that each Contact entity is in itself a unique digital asset owned by Alice and Bob..  Alice and Bob control ownership, content and transfer of their entities, Carol controls the format and rules for what those entities can contain and what state they can be in.  For more advanced DAPs this is a really neat feature.</p>\n\n</div>"
 }

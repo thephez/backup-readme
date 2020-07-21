@@ -6,13 +6,7 @@
 }
 [/block]
 # Endpoint Details
-[block:callout]
-{
-  "type": "danger",
-  "title": "Work in Progress",
-  "body": "This document is an work in progress. Details may be missing or incomplete and are subject to change."
-}
-[/block]
+
 ## getStatus
 
 **Returns**: Status information from the Core chain
@@ -26,6 +20,11 @@
       "code": "grpcurl -plaintext -proto protos/core.proto \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getStatus",
       "language": "shell",
       "name": "Request (gRPCurl)"
+    },
+    {
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    service: 'seed-1.evonet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nclient.getStatus().then((response) => {\n  console.log(response);\n});",
+      "language": "javascript",
+      "name": "JavaScript (dapi-client)"
     }
   ]
 }
@@ -35,9 +34,14 @@
 {
   "codes": [
     {
-      "code": "{\n  \"coreVersion\": 150000,\n  \"protocolVersion\": 70216,\n  \"blocks\": 9380,\n  \"connections\": 18,\n  \"difficulty\": 0.00187190486593008,\n  \"relayFee\": 1e-05,\n  \"network\": \"testnet\"\n}\n",
+      "code": "{\n  \"coreVersion\": 150000,\n  \"protocolVersion\": 70216,\n  \"blocks\": 6056,\n  \"connections\": 62,\n  \"difficulty\": 0.001477193138737096,\n  \"relayFee\": 1e-05,\n  \"network\": \"testnet\"\n}\n",
       "language": "json",
       "name": "Response"
+    },
+    {
+      "code": "{\n  coreVersion: 150000,\n  protocolVersion: 70216,\n  blocks: 6056,\n  timeOffset: 0,\n  connections: 65,\n  proxy: '',\n  difficulty: 0.001477193138737096,\n  testnet: false,\n  relayFee: 0.00001,\n  errors: '',\n  network: 'testnet'\n}",
+      "language": "json",
+      "name": "Response (dapi-client)"
     }
   ]
 }
@@ -78,7 +82,7 @@
 {
   "codes": [
     {
-      "code": "{\n  \"block\": \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAt6gicOI3kagmy2RcaqcAJ9AdzNceCiW3FlG1q/C6woG6loBU//9/IAAAAAABAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8RUQ9kZXZuZXQtZXZvbmV0LTL/////AQDyBSoBAAAAAWoAAAAA\"\n}\n",
+      "code": "{\n  \"block\": \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAGIrsfCKw44jdFcMK7FOSYlv2BLmgl0VVcKFTyQDdWgS6loBU//9/IAEAAAABAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8PUQ1kZXZuZXQtZXZvbmV0/////wEA8gUqAQAAAAFqAAAAAA==\"\n}\n",
       "language": "json",
       "name": "Response"
     }
@@ -101,7 +105,7 @@
 {
   "codes": [
     {
-      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"transaction\": \"020000000123c52118bfc5da0222a569d379ce3e3a9ca18976175785fd45b3f8990341768b000000006b483045022100a3952306ccb38e1eb22d9956ab40744b79e3072621e634e19225ad8a15603e3102201a3724cb9a8216e78139793c953245b0890c207e13af86bb02735f50a5bccad9012103439cfc2b5fab7fe05c0fbf8fa9217707a5bf5badb7c7e6db05bd0fb1231c5c8bfeffffff0200e1f505000000001976a91468b39aad690ffb710b4ba522d742670b763b501988ac1ec34f95010000001976a91445ada709129f7b6381559c8a16f1ec83c0b3ca8c88acb4240000\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/sendTransaction",
+      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"transaction\": \"03000000014f83880b387e1d4a639f8dd59083ab68f464516a060e4725cc1530a0ee2c3d41000000006b483045022100e7ea589971130f6221ec129b66696ecdd359576b7421e8ee5ab0c7e8c4dc3c460220075c25bd0384148de5636af8bc16f4cc271156d20a3eae26e6b590bfc84033d2012103a65caff6ca4c0415a3ac182dfc2a6d3a4dceb98e8b831e71501df38aa156f2c1ffffffff02204e0000000000001976a91409cf4b155dd5ca22979c1390df14aaaa1009bbee88ac44701a3d050000001976a91416b93a3b9168a20605cc3cda62f6135a3baa531a88ac00000000\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/sendTransaction",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -113,7 +117,7 @@
 {
   "codes": [
     {
-      "code": "d4b4617e1fbd70f005495c831ac6ab4b9370f3f464dd6d5604386a5154ae9f72",
+      "code": "0f8409a5239150bc9a12c2d3b9a430dcc515ef562906a46e2bfb3ba418d8c9e3",
       "language": "text",
       "name": "Response"
     }
@@ -134,7 +138,7 @@
 {
   "codes": [
     {
-      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"id\":\"81c2baf0abb55116b7250a1ed7cc1dd02700a76a5c64cb26a89137e27022a8b7\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
+      "code": "grpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"id\":\"0f8409a5239150bc9a12c2d3b9a430dcc515ef562906a46e2bfb3ba418d8c9e3\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -154,7 +158,7 @@
 {
   "codes": [
     {
-      "code": "{\n  \"transaction\": \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8RUQ9kZXZuZXQtZXZvbmV0LTL/////AQDyBSoBAAAAAWoAAAAA\"\n}\n",
+      "code": "{\n  \"transaction\": \"AwAAAAFPg4gLOH4dSmOfjdWQg6to9GRRagYORyXMFTCg7iw9QQAAAABrSDBFAiEA5+pYmXETD2Ih7BKbZmluzdNZV2t0IejuWrDH6MTcPEYCIAdcJb0DhBSN5WNq+LwW9MwnEVbSCj6uJua1kL/IQDPSASEDplyv9spMBBWjrBgt/CptOk3OuY6Lgx5xUB3ziqFW8sH/////AiBOAAAAAAAAGXapFAnPSxVd1coil5wTkN8UqqoQCbvuiKxEcBo9BQAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAA==\"\n}\n\n",
       "language": "json",
       "name": "Response"
     }

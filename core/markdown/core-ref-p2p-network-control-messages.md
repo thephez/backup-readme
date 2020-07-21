@@ -386,7 +386,7 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
 | 4 | nSporkID | int | Required | ID assigned in spork.h
-| 8 | nValue | int64_t | Required | Value assigned to spork
+| 8 | nValue | int64_t | Required | Value assigned to spork<br>Default (disabled): `4000000000`
 | 8 | nTimeSigned | int64_t | Required | Time the spork value was signed
 | 66 | vchSig | char[] | Required | Length (1 byte) + Signature (65 bytes)
 
@@ -400,8 +400,14 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 | 10008 | 9 | `SUPERBLOCKS_ENABLED` | Superblocks are enabled (10% of the block reward allocated to fund the dash treasury for funding approved proposals)
 | 10016 | 17 | `SPORK_17_QUORUM_DKG_`<br>`ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
 | 10018 | 19 | `SPORK_19_CHAINLOCKS_`<br>`ENABLED` | Enable LLMQ-based ChainLocks.
-| 10020 | 21 | `SPORK_21_QUORUM_ALL_`<br>`CONNECTED` | **Added in Dash Core 0.16.0**<br>Enable connections between all masternodes in a quorum.
-
+| 10020 | 21 | `SPORK_21_QUORUM_ALL_`<br>`CONNECTED` | **Added in Dash Core 0.16.0**<br>Enable connections between all masternodes in a quorum to optimize the signature recovery process.
+[block:callout]
+{
+  "type": "info",
+  "title": "Spork 21 Values",
+  "body": "Spork 21 supports two different enabled values:\n - `0` - Connections established between each masternode in a quorum (regardless of quorum size)\n - `1` - Connections established between each masternode in LLMQ_50_60 quorums only"
+}
+[/block]
 **Removed Sporks**
 The following sporks were used in the past but are no longer necessary and have been removed.
 
@@ -417,13 +423,7 @@ The following sporks were used in the past but are no longer necessary and have 
 | 10015 | 16 | `INSTANTSEND_AUTOLOCKS` | _Removed in Dash Core 0.16.0.<br>Automatic InstantSend for transactions with <=4 inputs (also eliminates the special InstantSend fee requirement for these transactions)_
 | _10017_ | _18_ | `QUORUM_DEBUG_ENABLED` | _Removed in Dash Core 0.14.0.<br><br>Temporarily used on Testnet only quorum debugging._
 | 10019 | 20 | `SPORK_20_INSTANTSEND_`<br>`LLMQ_BASED` | _Removed in Dash Core 0.16.0.<br>Enable LLMQ-based InstantSend._
-[block:callout]
-{
-  "type": "info",
-  "title": "",
-  "body": "As of Dash Core 0.15.0, `SPORK_15_DETERMINISTIC_MNS_ENABLED`, `SPORK_16_INSTANTSEND_AUTOLOCKS`, and `SPORK_20_INSTANTSEND_LLMQ_BASED` have no code logic behind them. They were previously used as part of the DIP0003, DIP0008 and DIP0010 activation process which is finished now. They are still kept and relayed only to ensure smooth operation of v0.14 clients and will be removed in some future verions."
-}
-[/block]
+
 To verify `vchSig`, compare the hard-coded spork public key (`strSporkPubKey` from [`src/chainparams.cpp`](https://github.com/dashpay/dash/blob/eaf90b77177efbaf9cbed46e822f0d794f1a0ee5/src/chainparams.cpp#L158)) with the public key recovered from the [`spork` message](core-ref-p2p-network-control-messages#spork)'s hash and `vchSig` value (implementation details for Dash Core can be found in `CPubKey::RecoverCompact`). The hash is a double SHA-256 hash of:
 
 * The spork magic message (`"DarkCoin Signed Message:\n"`)

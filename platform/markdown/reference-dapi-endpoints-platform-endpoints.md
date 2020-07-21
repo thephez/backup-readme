@@ -28,7 +28,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "# Submit a DPNS `preorder` State Transition\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pmR0eXBlAmdhY3Rpb25zgQFpZG9jdW1lbnRzgaZkJHJldgFlJHR5cGVocHJlb3JkZXJnJHVzZXJJZHgsR0pNVm51UzdYVFhkaWtnalFyRDR0TjVaSkNYem02eE12R0dyNVNkdGVjcDFoJGVudHJvcHl4InlVOXVta1Q0QnZjQWpQSmpGRVRGNW9CbUgzdEEyU3FKS2drJGNvbnRyYWN0SWR4LDJLZk1jTXhrdEtpbUp4QVpVZVp3WWtGVXNFY0FaaERLRXBRczhHTW5wVXNlcHNhbHRlZERvbWFpbkhhc2h4XjU2MmQ4Y2Q1YTQ1Nzg4ZWU0MWM3YzNiYWNhZGU5ODMwNGY0MTk0MzkyOTA4NDgxMzljOWZiZDU2MTI3NDY1NzM3NDJlNzQ2ODY1NzA2ODY1N2EzMzJlNjQ2MTczNjhpc2lnbmF0dXJleFhIMkxxMW5pM1cyR0Q0TXlqK3lzSHdOMExKRXdHSjExMTRaTHExL0dTalJxakliY2Z0VzcvUkpZVFozeFhnOW0wTTJ4SnVJSEwvMzVGUFVUdUkxUUFBSTg9b3Byb3RvY29sVmVyc2lvbgB0c2lnbmF0dXJlUHVibGljS2V5SWQB\"\n\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/applyStateTransition",
+      "code": "# Submit an identity create State Transition\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pWR0eXBlAmlzaWduYXR1cmV4WEg3TWhFWDQ0Z3JzMVIwTE9XTU5IZjAxWFNpYVFQcUlVZ1JLRXQyMkxHVERsUlUrZ1BwQUlUZk5JUmhXd3IvYTVHd0lzWm1idGdYVVFxcVhjbW9lQWtUOD1qcHVibGljS2V5c4GkYmlkAGRkYXRheCxBdzh2UmYxeFFCTlVLbzNiY2llaHlaR2NhM0hBSThkY0ZvVWJTK3hLb0lITmR0eXBlAGlpc0VuYWJsZWT1bmxvY2tlZE91dFBvaW50eDBLT1VUSHB5YnFPek9DNnhEVUhFWm9uc1lNSVpqcGppTHFZNnkxYmlWNWxRQUFBQUFvcHJvdG9jb2xWZXJzaW9uAA==\"\n\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/applyStateTransition",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -51,7 +51,12 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"FRoVmz3KBXbbBFoYMNzi2pgWFt2zYD2EwttQJVnvjMLE\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient({\n  seeds: [{\n    service: 'seed-1.evonet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nconst identityId = 'C7id2mah2RkiroiTy6h134hLgS6A47jhh5x91tvw16bz';\nclient.getIdentity(identityId).then((response) => {\n  const identity = cbor.decode(response);\n  console.log(identity);\n}",
+      "language": "javascript",
+      "name": "JavaScript (dapi-client)"
+    },
+    {
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"C7id2mah2RkiroiTy6h134hLgS6A47jhh5x91tvw16bz\"\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -63,20 +68,130 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"identity\": \"o2JpZHgsRlJvVm16M0tCWGJiQkZvWU1OemkycGdXRnQyellEMkV3dHRRSlZudmpNTEVnYmFsYW5jZRoAmI/ManB1YmxpY0tleXOBpGJpZABkZGF0YXgsQTZBSkFmUkp5S3VOb052dDMzeWdZZlloNk9JWUE4dEYxczJCUWNSQTlSTmdkdHlwZQBpaXNFbmFibGVk9Q==\"\n}\n",
+      "code": "{\n  id: 'C7id2mah2RkiroiTy6h134hLgS6A47jhh5x91tvw16bz',\n  balance: 10026096,\n  publicKeys: [\n    {\n      id: 0,\n      data: 'A9/uZEcu2EtDODih7AYcwgfBViKE/Nkeo/x7UVa2RbUk',\n      type: 0,\n      isEnabled: true\n    }\n  ]\n\n}",
       "language": "json",
-      "name": "Response (truncated)"
+      "name": "Response (dapi-client)"
+    },
+    {
+      "code": "{\n  \"identity\": \"o2JpZHgsQzdpZDJtYWgyUmtpcm9pVHk2aDEzNGhMZ1M2QTQ3amhoNXg5MXR2dzE2YnpnYmFsYW5jZRoAmPxwanB1YmxpY0tleXOBpGJpZABkZGF0YXgsQTkvdVpFY3UyRXRET0RpaDdBWWN3Z2ZCVmlLRS9Oa2VvL3g3VVZhMlJiVWtkdHlwZQBpaXNFbmFibGVk9Q==\"\n}",
+      "language": "json",
+      "name": "Response (gRPCurl)"
+    }
+  ]
+}
+[/block]
+## getIdentityByFirstPublicKey
+[block:callout]
+{
+  "type": "success",
+  "title": "New in Dash Platform v0.13"
+}
+[/block]
+**Returns**: [Identity](explanation-identity) information associated with the provided public key hash
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `public_key_hash` | Bytes | Yes | Public key hash (double-sha256) of an identity's first public key |
+
+
+[block:callout]
+{
+  "type": "info",
+  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  data: 'A9/uZEcu2EtDODih7AYcwgfBViKE/Nkeo/x7UVa2RbUk',\n  type: 0,\n  isEnabled: true\n}\n```",
+  "title": "Public key hash"
+}
+[/block]
+** Example Request and Response **
+[block:code]
+{
+  "codes": [
+    {
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient({\n  seeds: [{\n    service: 'seed-1.evonet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nconst hash = '4e2736d0eecca645821089eb4b2422544e045655';\nclient.getIdentityByFirstPublicKey(hash).then((response) => {\n  const identity = cbor.decode(response);\n  console.log(identity);\n});\n",
+      "language": "javascript",
+      "name": "JavaScript (dapi-client)"
+    },
+    {
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hash\":\"4e2736d0eecca645821089eb4b2422544e045655\"\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityByFirstPublicKey",
+      "language": "shell",
+      "name": "Request (gRPCurl)"
     }
   ]
 }
 [/block]
 
-[block:html]
+[block:code]
 {
-  "html": "<div></div>\n<!--\nFull identity result:\no2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1\n-->\n<style></style>"
+  "codes": [
+    {
+      "code": "{\n  id: 'C7id2mah2RkiroiTy6h134hLgS6A47jhh5x91tvw16bz',\n  balance: 10026096,\n  publicKeys: [\n    {\n\n      id: 0,\n      data: 'A9/uZEcu2EtDODih7AYcwgfBViKE/Nkeo/x7UVa2RbUk',\n      type: 0,\n      isEnabled: true\n    }\n  ]\n}",
+      "language": "json",
+      "name": "Response (dapi-client)"
+    },
+    {
+      "code": "",
+      "language": "text",
+      "name": "Response (gRPCurl)"
+    }
+  ]
+}
+[/block]
+## getIdentityIdByFirstPublicKey
+[block:callout]
+{
+  "type": "success",
+  "title": "New in Dash Platform v0.13"
+}
+[/block]
+**Returns**: [Identity](explanation-identity) ID associated with the provided public key hash
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `public_key_hash` | Bytes | Yes | Public key hash (double-sha256) of an identity's first public key |
+
+[block:callout]
+{
+  "type": "info",
+  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  data: 'A9/uZEcu2EtDODih7AYcwgfBViKE/Nkeo/x7UVa2RbUk',\n  type: 0,\n  isEnabled: true\n}\n```",
+  "title": "Public key hash"
 }
 [/block]
 
+** Example Request and Response **
+[block:code]
+{
+  "codes": [
+    {
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hash\":\"4e2736d0eecca645821089eb4b2422544e045655\"\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdByFirstPublicKey",
+      "language": "shell",
+      "name": "Request (gRPCurl)"
+    },
+    {
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient({\n  seeds: [{\n    service: 'seed-1.evonet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nconst hash = '4e2736d0eecca645821089eb4b2422544e045655';\nclient.getIdentityIdByFirstPublicKey(hash).then((response) => {\n  console.log(response);\n});\n",
+      "language": "javascript",
+      "name": "JavaScript (dapi-client)"
+    }
+  ]
+}
+[/block]
+
+[block:code]
+{
+  "codes": [
+    {
+      "code": "",
+      "language": "text",
+      "name": "Response (gRPCurl)"
+    },
+    {
+      "code": "C7id2mah2RkiroiTy6h134hLgS6A47jhh5x91tvw16bz",
+      "language": "text",
+      "name": "Response (dapi-client)"
+    }
+  ]
+}
+[/block]
 ## getDataContract
 
 **Returns**: [Data Contract](explanation-platform-protocol-data-contract) information for the requested data contract
@@ -91,7 +206,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm\"\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
+      "code": "grpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"ARQGUnPH3YMK8FZuqwUjnTWEF6Zu4Cf3sT6e1Ruu1RXk\"\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -103,7 +218,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"dataContract\": \"pGMkaWR4LDZrazlzcWczU0x3RGs3a245MlZ6eGNXUldWOHFlMmcySml4eEs2VjJjUXNtZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZHgsRlJvVm16M0tCWGJiQkZvWU1OemkycGdXRnQyellEMkV3dHRRSlZudmpNTEVpZG9jdW1lbnRzoWRub3Rlompwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/Q=\"\n}\n",
+      "code": "{\n  \"dataContract\": \"pGMkaWR4LEFSUUdVblBIM1lNSzhGWnVxd1VqblRXRUY2WnU0Q2Yzc1Q2ZTFSdXUxUlhrZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZHgsR2I5WUVITVl4Y01pU25CaHRCUVFtdHRtQW9xTjFhc2k2SEtReFJSN1lkWEFpZG9jdW1lbnRzoWRub3Rlompwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/Q=\"\n}\n",
       "language": "json",
       "name": "Response"
     }
@@ -140,7 +255,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm\",\n    \"document_type\":\"note\",\n    \"limit\":1\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
+      "code": "# Request one DPNS domain document\ngrpcurl -proto protos/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"ARQGUnPH3YMK8FZuqwUjnTWEF6Zu4Cf3sT6e1Ruu1RXk\",\n    \"document_type\":\"note\",\n    \"limit\":1\n    }' \\\n  seed-1.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -152,7 +267,7 @@ Submits a [state transition](explanation-platform-protocol-state-transition) to 
 {
   "codes": [
     {
-      "code": "{\n  \"documents\": [\n    \"pmMkaWR4LEFvTW9vdUZtRFRrY1VjUENlNUN3UFVtekhReWM1b3BTRW1XekR2UVkxNHg0ZSR0eXBlZG5vdGVnbWVzc2FnZXgtVHV0b3JpYWwgVGVzdCBAIFdlZCwgMjcgTWF5IDIwMjAgMTM6MDA6MTUgR01UaCRvd25lcklkeCxGUm9WbXozS0JYYmJCRm9ZTU56aTJwZ1dGdDJ6WUQyRXd0dFFKVm52ak1MRWkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZHgsNmtrOXNxZzNTTHdEazdrbjkyVnp4Y1dSV1Y4cWUyZzJKaXh4SzZWMmNRc20=\"\n  ]\n}\n",
+      "code": "{\n  \"documents\": [\n    \"pmMkaWR4LEhUYkNWZlRoU2gySmZiU1RCQmVjZlVpbWlONVp3VEU5bVZpb2pYQVYyZ1QxZSR0eXBlZG5vdGVnbWVzc2FnZXgtVHV0b3JpYWwgVGVzdCBAIE1vbiwgMTUgSnVuIDIwMjAgMjA6MDM6MDIgR01UaCRvd25lcklkeCxHYjlZRUhNWXhjTWlTbkJodEJRUW10dG1Bb3FOMWFzaTZIS1F4UlI3WWRYQWkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZHgsQVJRR1VuUEgzWU1LOEZadXF3VWpuVFdFRjZadTRDZjNzVDZlMVJ1dTFSWGs=\"\n  ]\n}\n",
       "language": "json",
       "name": "Response"
     }

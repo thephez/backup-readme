@@ -6,13 +6,7 @@
 }
 [/block]
 # Endpoint Details
-[block:callout]
-{
-  "type": "danger",
-  "title": "Work in Progress",
-  "body": "This document is an work in progress. Details may be missing or incomplete and are subject to change."
-}
-[/block]
+
 ## subscribeToTransactionsWithProofs
 
 **Returns**: streams the requested transaction information
@@ -49,7 +43,7 @@
 {
   "codes": [
     {
-      "code": "{\n  \"rawMerkleBlock\": \"AAAAIA3Qf/hFIRCR05p5g/4O26djuqwjPJ56ZTukdcN2AQAAsflRGQyucizvFIdNgGGJtTd2NjeH2jkxUh9zsI2fs6qPdzxepQYDHurVAAABAAAAAbH5URkMrnIs7xSHTYBhibU3djY3h9o5MVIfc7CNn7OqAQE=\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAqZ1AQj/////AgAkDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKz2Iw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCAKZ1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5gsYHsKUCCu3Z1QXIebAvYdPQWrpDuNbScLl8IniuUgL\",\n      \"AgAAAAI1daG8ULi9XATiHNWuE5LFZ0LIJAVfhUNK1HwGZgcOTAAAAABrSDBFAiEA76Zk6jUSMuQJYK9hLiNN3FfpsmgYOvn12mfxg3aByWQCIDUAeXIGRJikJNKZoj6o7Q/8LxRPvz7E343lOmbRnCNnASEDTWwgUGvLK39RQW798Cw3h2kKdHCTuX0MVOGZlPz78K7+////SEYK44c6nCor1t7aPZZpaMM8jASCmgvP/FlGmiYNRc8AAAAAakcwRAIgZhCp2FAXr/ZKCW2qLxYAYlTk/yjVsmWDUXlF3AqY6L4CIBwPc940WBmgfHeUvna7+zywsMG3PEK7AU/FwKPqB6xKASECZnWxu8VkIQOntY/yd1VOPbC+gFwycp1yDJhptlQbMKj+////Av9EcAQAAAAAGXapFB5OuEn+wOU/w3Z+q6SRt09g8ryQiKwA4fUFAAAAABl2qRQhGOdAxS3LMafwh8nFVbcOdw21MIispXUAAA==\"\n    ]\n  }\n}\n",
+      "code": "{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8RUQ9kZXZuZXQtZXZvbmV0LTT/////AQDyBSoBAAAAAWoAAAAA\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAD0Oosr0gDJvAxHZ2Y+4dtsmO+XenCUNNoIX0W06eoW26loBU//9/IAAAAAABAAAAAQ9DqLK9IAybwMR2dmPuHbbJjvl3pwlDTaCF9FtOnqFtAQE=\"\n}\n",
       "language": "json",
       "name": "Response"
     }

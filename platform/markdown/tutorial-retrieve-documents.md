@@ -20,7 +20,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '6kk9sqg3SLwDk7kn92VzxcWRWV8qe2g2JixxK6V2cQsm'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {\n    await client.isReady();\n    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: 'ARQGUnPH3YMK8FZuqwUjnTWEF6Zu4Cf3sT6e1Ruu1RXk'\n    }\n  }\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async function () {\n  try {    \n    const queryOpts = {\n      limit: 1 // Only retrieve 1 document\n    };\n    const documents = await client.platform.documents.get(\n      'tutorialContract.note',\n      queryOpts\n    );\n    console.log(documents);\n  } catch (e) {\n    console.error('Something went wrong:', e);\n  } finally {\n    client.disconnect();\n  }\n};\n\ngetDocuments();",
       "language": "javascript"
     }
   ]
@@ -41,22 +41,22 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 {
   "codes": [
     {
-      "code": "{\n  'id': \n  '$type': 'note',\n  '$dataContractId': '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8',\n  '$ownerId': 'HcgaeTzwiwGMTpYFDBJuKERv8kjbDS2oDGDkQ4SN4Mi1',\n  '$revision': 1,\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
+      "code": "{\n  '$id': 'HTbCVfThSh2JfbSTBBecfUimiN5ZwTE9mViojXAV2gT1',\n  '$type': 'note',\n  '$dataContractId': 'ARQGUnPH3YMK8FZuqwUjnTWEF6Zu4Cf3sT6e1Ruu1RXk',\n  '$ownerId': 'Gb9YEHMYxcMiSnBhtBQQmttmAoqN1asi6HKQxRR7YdXA',\n  '$revision': 1,\n  message: 'Tutorial Test @ Mon, 15 Jun 2020 20:03:02 GMT'\n}",
       "language": "json",
       "name": ".toJSON()"
     },
     {
-      "code": "{\n  message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n}",
+      "code": "{\n  message: 'Tutorial Test @ Mon, 15 Jun 2020 20:03:02 GMT'\n}",
       "language": "json",
       "name": ".getData()"
     },
     {
-      "code": "Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT",
+      "code": "Tutorial Test @ Mon, 15 Jun 2020 20:03:02 GMT",
       "language": "text",
-      "name": ".data.label"
+      "name": ".data.message"
     },
     {
-      "code": "Document {\n  entropy: undefined,\n  id: '5Zqim5LkL76dBMqa1kE2AFRng2yqpgyVTKK6kTqWbYmu',\n  type: 'note',\n  dataContractId: '5wpZAEWndYcTeuwZpkmSa8s49cHXU5q2DhdibesxFSu8',\n  ownerId: 'HcgaeTzwiwGMTpYFDBJuKERv8kjbDS2oDGDkQ4SN4Mi1',\n  revision: 1,\n  data: {\n    message: 'Tutorial Test @ Wed, 25 Mar 2020 16:42:50 GMT'\n  }\n}",
+      "code": "Document {\n  entropy: undefined,\n  id: 'HTbCVfThSh2JfbSTBBecfUimiN5ZwTE9mViojXAV2gT1',\n  type: 'note',\n  dataContractId: 'ARQGUnPH3YMK8FZuqwUjnTWEF6Zu4Cf3sT6e1Ruu1RXk',\n  ownerId: 'Gb9YEHMYxcMiSnBhtBQQmttmAoqN1asi6HKQxRR7YdXA',\n  revision: 1,\n  data: { message: 'Tutorial Test @ Mon, 15 Jun 2020 20:03:02 GMT' }\n}",
       "language": "json",
       "name": "console.dir(document)"
     }

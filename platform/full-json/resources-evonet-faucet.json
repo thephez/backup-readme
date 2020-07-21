@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-30T17:30:00.633Z", 
- "id": "5e95bfa43971fb0148efeb70", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-29T03:05:37.670Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "Evonet Faucet", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "resources-evonet-faucet", 
- "link_url": "http://faucet.evonet.networks.dash.org", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb70", 
- "order": 0, 
- "updates": []
+ },
+ "title": "Evonet Faucet",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-evonet-faucet",
+ "excerpt": "",
+ "body": "",
+ "order": 0,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "http://faucet.evonet.networks.dash.org",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:45.535Z",
+ "_id": "5ed52e27d6b31c07c140105f",
+ "version": "5ed52e27d6b31c07c1401075",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "5ed52e27d6b31c07c1401028",
+ "updatedAt": "2019-12-30T17:30:00.633Z",
+ "createdAt": "2019-12-29T03:05:37.670Z",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c140105f",
+ "body_html": "&nbsp;"
 }

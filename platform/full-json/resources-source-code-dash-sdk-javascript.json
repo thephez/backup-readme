@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e95bfa43971fb0148efeb46", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-10T15:11:45.444Z", 
- "id": "5e95bfa43971fb0148efeb54", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-08T10:40:40.478Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "Dash SDK (Javascript)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "resources-source-code-dash-sdk-javascript", 
- "link_url": "https://github.com/dashevo/DashJS", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb54", 
- "order": 0, 
- "updates": []
+ },
+ "title": "Dash SDK (Javascript)",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-dash-sdk-javascript",
+ "excerpt": "",
+ "body": "",
+ "order": 0,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/DashJS",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:27:29.995Z",
+ "_id": "5ed52e27d6b31c07c1401044",
+ "version": "5ed52e27d6b31c07c1401075",
+ "updatedAt": "2019-12-10T15:11:45.444Z",
+ "createdAt": "2019-10-08T10:40:40.478Z",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5ed52e27d6b31c07c1401036",
+ "category": "5ed52e27d6b31c07c1401028",
+ "__v": 0,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c1401044",
+ "body_html": "&nbsp;"
 }

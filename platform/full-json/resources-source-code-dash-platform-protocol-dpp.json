@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e95bfa43971fb0148efeb46", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-24T21:21:36.567Z", 
- "id": "5e95bfa43971fb0148efeb68", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-24T21:13:47.244Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "Platform Protocol (DPP)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "resources-source-code-dash-platform-protocol-dpp", 
- "link_url": "https://github.com/dashevo/js-dpp", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb68", 
- "order": 2, 
- "updates": []
+ },
+ "title": "Platform Protocol (DPP)",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-dash-platform-protocol-dpp",
+ "excerpt": "",
+ "body": "",
+ "order": 2,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/js-dpp",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:47.419Z",
+ "_id": "5ed52e27d6b31c07c1401058",
+ "version": "5ed52e27d6b31c07c1401075",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5ed52e27d6b31c07c1401036",
+ "category": "5ed52e27d6b31c07c1401028",
+ "updatedAt": "2019-12-24T21:21:36.567Z",
+ "createdAt": "2019-12-24T21:13:47.244Z",
+ "__v": 0,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c1401058",
+ "body_html": "&nbsp;"
 }

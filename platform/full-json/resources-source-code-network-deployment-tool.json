@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "5e95bfa43971fb0148efeb46", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-24T21:22:52.657Z", 
- "id": "5e95bfa43971fb0148efeb6d", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-24T21:22:52.657Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "Network Deployment Tool", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
- "isReference": false, 
- "slug": "resources-source-code-network-deployment-tool", 
- "link_url": "https://github.com/dashevo/dash-network-deploy", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb6d", 
- "order": 7, 
- "updates": []
+ },
+ "title": "Network Deployment Tool",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-network-deployment-tool",
+ "excerpt": "",
+ "body": "",
+ "order": 7,
+ "isReference": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/dash-network-deploy",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:45.723Z",
+ "_id": "5ed52e27d6b31c07c140105c",
+ "version": "5ed52e27d6b31c07c1401075",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "5ed52e27d6b31c07c1401036",
+ "category": "5ed52e27d6b31c07c1401028",
+ "updatedAt": "2019-12-24T21:22:52.657Z",
+ "createdAt": "2019-12-24T21:22:52.657Z",
+ "__v": 0,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c140105c",
+ "body_html": "&nbsp;"
 }

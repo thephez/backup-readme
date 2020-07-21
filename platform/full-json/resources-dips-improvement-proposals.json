@@ -1,58 +1,60 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "updatedAt": "2019-12-10T15:11:45.441Z", 
- "id": "5e95bfa43971fb0148efeb45", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-08-01T13:32:23.391Z", 
- "category": "5e95bfa43971fb0148efeb39", 
- "title": "DIPs (Improvement Proposals)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "5e95bfa43971fb0148efeb82", 
- "hidden": true, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": false, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-dips-improvement-proposals", 
- "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "5e95bfa43971fb0148efeb45", 
- "order": 5, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "DIPs (Improvement Proposals)",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-dips-improvement-proposals",
+ "excerpt": "",
+ "body": "",
+ "order": 5,
+ "isReference": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashpay/dips/blob/master/README.md",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-07-21T19:07:45.613Z",
+ "_id": "5ed52e27d6b31c07c1401035",
+ "version": "5ed52e27d6b31c07c1401075",
+ "updatedAt": "2019-12-10T15:11:45.441Z",
+ "createdAt": "2019-08-01T13:32:23.391Z",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "5ed52e27d6b31c07c1401028",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "5ed52e27d6b31c07c1401035",
+ "body_html": "&nbsp;"
 }

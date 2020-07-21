@@ -29,6 +29,8 @@
 | 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-transaction-streaming-endpoints#subscribetotransactionswithproofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#merkleblock) |
 | 2 | [`applyStateTransition`](reference-dapi-endpoints-platform-endpoints#applystatetransition) | Applies the provided State Transition |
 | 2 | [`getIdentity`](reference-dapi-endpoints-platform-endpoints#getidentity) | Returns the requested identity |
+| 2 | [`getIdentityByFirstPublicKey`](reference-dapi-endpoints-platform-endpoints#getidentitybyfirstpublickey) | Returns the identity associated with the provided public key |
+| 2 | [`getIdentityIdByFirstPublicKey`](reference-dapi-endpoints-platform-endpoints#getidentityidbyfirstpublickey) | Returns the identity ID associated with the provided public key |
 | 2 | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#getdatacontract) | Returns the requested data contract |
 | 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#getdocuments) | Returns the requested document(s) |
 [block:html]
