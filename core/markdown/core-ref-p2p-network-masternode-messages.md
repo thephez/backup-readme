@@ -31,18 +31,24 @@ bf110000 ................................... Count: 4543
 
 # mnauth
 
-*Added in protocol version 70214 of Dash Core*
+*Added in protocol version 70214*
 
 The [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) is sent by a <<glossary:masternode>> immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.
 
 The [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) signs a challenge that was previously sent via a [`version` message](core-ref-p2p-network-control-messages#version). The challenge is signed differently depending on if the connection is inbound or outbound.
-
+[block:callout]
+{
+  "type": "success",
+  "body": "As of protocol version 70218, when communicating with masternodes that have reported a version => `MIN_MASTERNODE_PROTO_VERSION`, the mnauth signature is created by signing a message incorporating both the `mnauth_challenge` and protocol `version` (from the [`version` message](core-ref-p2p-network-control-messages#version)). Further details may be found in [Dash Core PR 3631](https://github.com/dashpay/dash/pull/3631).",
+  "title": "Protocol Update"
+}
+[/block]
 This is primarily used as a DoS protection mechanism to allow persistent connections between masternodes to remain open even if inbound connection limits are reached.
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
 | 32 | proRegTxHash | uint256 | Version of the message
-| 96 | sig | byte[] | BLS signature, signed with the operator key of the masternode
+| 96 | sig | byte[] | BLS signature of the [`version` message's](core-ref-p2p-network-control-messages#version) `mnauth_challenge`. Signed with the operator key of the masternode.
 
 The following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth). (The message header has been omitted.)
 

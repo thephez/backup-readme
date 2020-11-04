@@ -1,82 +1,82 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-10-24T12:43:34.658Z", 
+ "id": "5e96055329a18c0025d391f1", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:04:02.473Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Block Chain", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "category": "Core Reference",
-    "slug": "core-ref-block-chain-block-headers",
-    "name": "Block Headers",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-block-chain-block-headers", 
+    "name": "Block Headers"
+   }, 
    {
-    "category": "Core Reference",
-    "slug": "core-ref-block-chain-serialized-blocks",
-    "name": "Serialized Blocks",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-block-chain-serialized-blocks", 
+    "name": "Serialized Blocks"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Transactions",
-    "slug": "core-ref-transactions",
-    "category": "Core Reference"
+    "category": "Core Reference", 
+    "slug": "core-ref-transactions", 
+    "type": "doc", 
+    "name": "Transactions", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Block Chain",
- "updates": [],
- "type": "basic",
- "slug": "core-ref-block-chain",
- "excerpt": "",
- "body": "The following subsections briefly document core block details.",
- "order": 1,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:47.500Z",
- "_id": "5e96055329a18c0025d391f1",
- "version": "5e96055329a18c0025d39261",
- "updatedAt": "2019-10-24T12:43:34.658Z",
- "createdAt": "2019-10-23T16:04:02.473Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5e96055329a18c0025d391e2",
- "__v": 2,
- "parentDoc": null,
- "isApi": false,
- "id": "5e96055329a18c0025d391f1",
- "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n\n</div>"
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-04T05:09:18.957Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The following subsections briefly document core block details.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-block-chain", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "5e96055329a18c0025d391f1", 
+ "order": 1, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

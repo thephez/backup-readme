@@ -1,119 +1,119 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-10-30T13:59:32.159Z", 
+ "id": "5e96055329a18c0025d3924b", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-28T19:07:31.813Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "Introduction", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Dash Features",
-    "slug": "core-guide-dash-features",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-dash-features", 
+    "type": "doc", 
+    "name": "Dash Features", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Block Chain",
-    "slug": "core-guide-block-chain",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-block-chain", 
+    "type": "doc", 
+    "name": "Block Chain", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Transactions",
-    "slug": "core-guide-transactions",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-transactions", 
+    "type": "doc", 
+    "name": "Transactions", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Contracts",
-    "slug": "core-guide-contracts",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-contracts", 
+    "type": "doc", 
+    "name": "Contracts", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Wallets",
-    "slug": "core-guide-wallets",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-wallets", 
+    "type": "doc", 
+    "name": "Wallets", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Operating Modes",
-    "slug": "core-guide-operating-modes",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-operating-modes", 
+    "type": "doc", 
+    "name": "Operating Modes", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "P2P Network",
-    "slug": "core-guide-p2p-network",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network", 
+    "type": "doc", 
+    "name": "P2P Network", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Mining",
-    "slug": "core-guide-mining",
-    "category": "Core Guides"
+    "category": "Core Guides", 
+    "slug": "core-guide-mining", 
+    "type": "doc", 
+    "name": "Mining", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Introduction",
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-03T23:12:29.934Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\">pre-compiled executable</a>.</p>\n<p>Questions about Dash development are best asked in one of the <a href=\"https://www.dash.org/community/\">Dash development communities</a>. Errors or suggestions related to documentation can be submitted via the &quot;Suggest Edits&quot; button on the top, right of each page.</p>\n<p>In the following documentation, some strings have been shortened or wrapped: &quot;[...]&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.</p>\n\n</div>", 
  "updates": [
   "5dc1d392429c7c00634e8f70"
- ],
- "type": "basic",
- "slug": "core-guide-introduction",
- "excerpt": "",
- "body": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.",
- "order": 0,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:47.753Z",
- "_id": "5e96055329a18c0025d3924b",
- "version": "5e96055329a18c0025d39261",
- "updatedAt": "2019-10-30T13:59:32.159Z",
- "createdAt": "2019-10-28T19:07:31.813Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5e96055329a18c0025d391e3",
- "__v": 2,
- "parentDoc": null,
- "isApi": false,
- "id": "5e96055329a18c0025d3924b",
- "body_html": "<div class=\"magic-block-textarea\"><p>The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\">pre-compiled executable</a>.</p>\n<p>Questions about Dash development are best asked in one of the <a href=\"https://www.dash.org/community/\">Dash development communities</a>. Errors or suggestions related to documentation can be submitted via the &quot;Suggest Edits&quot; button on the top, right of each page.</p>\n<p>In the following documentation, some strings have been shortened or wrapped: &quot;[...]&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.</p>\n\n</div>"
+ ], 
+ "isReference": false, 
+ "slug": "core-guide-introduction", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "5e96055329a18c0025d3924b", 
+ "order": 0, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

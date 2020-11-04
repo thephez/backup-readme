@@ -1,60 +1,60 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5ed52e27d6b31c07c1401036", 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-24T21:21:43.427Z", 
+ "id": "5ed52e27d6b31c07c1401059", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-12-24T21:17:48.591Z", 
+ "category": "5ed52e27d6b31c07c1401028", 
+ "title": "Platform Services Controller", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Platform Services Controller",
- "updates": [],
- "type": "link",
- "slug": "resources-source-code-dash-platform-services-controller",
- "excerpt": "",
- "body": "",
- "order": 8,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "https://github.com/dashevo/js-dp-services-ctl",
- "link_external": true,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:45.403Z",
- "_id": "5ed52e27d6b31c07c1401059",
- "version": "5ed52e27d6b31c07c1401075",
- "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
- "parentDoc": "5ed52e27d6b31c07c1401036",
- "category": "5ed52e27d6b31c07c1401028",
- "updatedAt": "2019-12-24T21:21:43.427Z",
- "createdAt": "2019-12-24T21:17:48.591Z",
- "__v": 0,
- "isApi": false,
- "id": "5ed52e27d6b31c07c1401059",
- "body_html": "&nbsp;"
+ }, 
+ "version": "5ed52e27d6b31c07c1401075", 
+ "slugUpdatedAt": "2020-11-03T23:12:31.051Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "resources-source-code-dash-platform-services-controller", 
+ "link_url": "https://github.com/dashevo/js-dp-services-ctl", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5ed52e27d6b31c07c1401059", 
+ "order": 8, 
+ "updates": []
 }

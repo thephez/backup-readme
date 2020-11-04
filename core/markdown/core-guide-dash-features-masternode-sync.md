@@ -20,7 +20,10 @@ The following table details the data flow of P2P messages exchanged during initi
 | **1. Sporks** |   |  |  |
 | [`getsporks` message](core-ref-p2p-network-control-messages#getsporks)                            | → |                           | Syncing node requests sporks
 |                                                | ← | [`spork` message](core-ref-p2p-network-control-messages#spork)(s)        |
-| **2. Governance** |   |  | See [Governance sync](#governance) |
+| **2. Mempool** |   |  |  |
+| [`mempool` message](core-ref-p2p-network-data-messages#mempool)                            | → |                           | Syncing node requests mempool entries
+|                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#inv)(s) | `inv` message(s) containing TXIDs of mempool transactions |
+| **3. Governance** |   |  | See [Governance sync](#governance) |
 
 *Masternode Sync Status*
 
@@ -28,17 +31,15 @@ There are several status values used to track masternode synchronization. They a
 
 | **Value** | **Status**  | **Description** |
 | --- | --- | --- |
-| -1  | `MASTERNODE_SYNC_FAILED`      | Synchronization failed |
-| 0   | `MASTERNODE_SYNC_INITIAL`     | Synchronization just started, was reset recently, or is still in IBD |
-| 1   | `MASTERNODE_SYNC_WAITING`     | Synchronization pending - waiting after initial to check for more headers/blocks |
-| 2   | `MASTERNODE_SYNC_LIST`        | ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) _Deprecated following activation of DIP3 and Spork 15_<br><br>Synchronizing masternode list |
-| 3   | `MASTERNODE_SYNC_MNW`         | ![Warning icon](https://dash-docs.github.io/img/icons/icon_warning.svg) _Deprecated following activation of DIP3 and Spork 15_<br><br>Synchronizing masternode payments |
+| _-1_  | _`MASTERNODE_SYNC_FAILED` _     | **Removed in Dash Core 0.16.0**<br>Synchronization failed |
+| _0_   | _`MASTERNODE_SYNC_INITIAL` _    | **Deprecated (merged with `MASTERNODE_SYNC_WAITING` in Dash Core 0.16.0)**<br>Synchronization just started, was reset recently, or is still in IBD |
+| 1   | `MASTERNODE_SYNC_BLOCKCHAIN` (previously `MASTERNODE_SYNC_WAITING`)  | **Renamed in Dash Core 0.16.0**<br>Synchronization pending - waiting after initial to check for more headers/blocks.  |
 | 4   | `MASTERNODE_SYNC_GOVERNANCE`  | Synchronizing governance objects  |
 | 999 | `MASTERNODE_SYNC_FINISHED`    | Synchronization finished |
 
 # Ongoing Masternode Sync
 
-Once a masternode completes an initial full sync, continuing synchronization is maintained by the exchange of P2P messages with other <<glossary:nodes>>. This diagram shows an overview of the messages exchanged to keep the masternode list, masternode payments, and governance objects synchronized between masternodes.
+Once a masternode completes an initial full sync, continuing synchronization is maintained by the exchange of P2P messages with other <<glossary:nodes>>. This diagram shows an overview of the messages exchanged to keep governance objects synchronized between masternodes.
 
 ![Masternode Sync (Ongoing)](https://dash-docs.github.io/img/dev/en-masternode-sync-ongoing.svg)
 
@@ -52,7 +53,7 @@ The following tables detail the timing of various functions used to keep the mas
 
 | **Period (seconds)** | **Action** | **Description** |
 | --- | --- | --- |
-| 6   | MN Sync                   | Synchronizes sporks, masternode list, masternode payments, and governance objects (masternode-sync.cpp) |
+| 6   | MN Sync                   | Synchronizes sporks and governance objects (masternode-sync.cpp) |
 
 The following actions only run when the masternode sync is past `MASTERNODE_SYNC_WAITING` status.
 

@@ -620,7 +620,7 @@ The amount remaining when the value of all outputs in a transaction are subtract
 
 # Transaction identifiers
 
-Identifiers used to uniquely identify a particular transaction; specifically, the sha256d hash of the transaction.
+Identifiers used to uniquely identify a particular transaction; specifically, the sha256d hash of the transaction. Also known as TXIDs.
 
 # Transaction version number
 

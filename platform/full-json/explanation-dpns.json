@@ -1,69 +1,69 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "Enabling name-based user experiences", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-06-01T14:20:24.852Z", 
+ "id": "5ed52e27d6b31c07c140104d", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-11-18T18:03:59.388Z", 
+ "category": "5ed52e27d6b31c07c140102a", 
+ "title": "Name Service (DPNS)", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "type": "url",
-    "icon": "file-text-o",
-    "name": "Tutorial - Register a Name",
-    "value": "https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity"
+    "type": "url", 
+    "name": "Tutorial - Register a Name", 
+    "value": "https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Name Service (DPNS)",
+ }, 
+ "version": "5ed52e27d6b31c07c1401075", 
+ "slugUpdatedAt": "2020-11-03T23:12:30.404Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "# Overview\n\nDash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names for [identities](explanation-identity) but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.\n\n##  Relationship to identities\nDPNS names and [Identities](explanation-identity) are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.\n\n# Details\n\n## Name Registration Process\n[block:callout]\n{\n  \"type\": \"info\",\n  \"body\": \"Given the DNS-compatible nature of DPNS, all DPNS names are technically domain names and are registered under a top-level DPNS domain (`.dash`). Some applications may abstract the top-level domain away, but it is important to be aware that it exists.\"\n}\n[/block]\nTo prevent [front-running](https://en.wikipedia.org/wiki/Domain_name_front_running), name registration is split into a two phase process consisting of:\n1. Pre-ordering the domain name\n2. Registering the domain name\n\nIn the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. `hash('alice.dash' + salt)`) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and \"stealing\" them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.\n\nIn the registration phase, the domain name (e.g. `alice.dash`) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.\n\n## Implementation\n\nDPNS names currently have several constraints as defined in the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json). The constraints exist to maintain compatibility with DNS:\n* Maximum length - 63 characters\n* Character set - `0-9`, `-` (hyphen), and `A-Z` (case insensitive)\n[block:callout]\n{\n  \"type\": \"info\",\n  \"title\": \"\",\n  \"body\": \"Note: Use of `-` as a prefix/suffix to a name is _not_ allowed (e.g. `-name` or `name-`). This constraint is defined by this JSON-Schema [pattern](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L29) in the DPNS data contract:\\n```\\n\\\"^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$\\\"\\n```\"\n}\n[/block]\nAdditionally, the DPNS [data triggers](explanation-platform-protocol-data-trigger) defined in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.12.1/lib/dataTrigger/dpnsTriggers) enforce additional validation rules related to the `domain` document.\n\nFor more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the [js-dpns-client](https://github.com/dashevo/js-dpns-client) repository. Additionally, the DPNS data contract is available in the [dpns-contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) repository.\n\n## Contract Diagram\n\nThis is a visualization of the JSON data contract as UML class diagram for better understanding of the structure. The left side shows the `domain` document and the right side shows the `preorder` document:\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/5d2ad91-dpns-plantuml.png\",\n        \"dpns-plantuml.png\",\n        2585,\n        871,\n        \"#f8f6ee\"\n      ],\n      \"caption\": \"DPNS Contract Diagram\"\n    }\n  ]\n}\n[/block]\nClick [here](https://files.readme.io/5d2ad91-dpns-plantuml.png) to download a copy of this diagram.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>Dash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names for <a href=\"explanation-identity\">identities</a> but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-relationship-to-identities\"></div>Relationship to identities<a class=\"fa fa-anchor\" href=\"#section-relationship-to-identities\"></a></h2>\n<p>DPNS names and <a href=\"explanation-identity\">Identities</a> are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-details\"></div>Details<a class=\"fa fa-anchor\" href=\"#section-details\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-name-registration-process\"></div>Name Registration Process<a class=\"fa fa-anchor\" href=\"#section-name-registration-process\"></a></h2>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Given the DNS-compatible nature of DPNS, all DPNS names are technically domain names and are registered under a top-level DPNS domain (<code>.dash</code>). Some applications may abstract the top-level domain away, but it is important to be aware that it exists.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>To prevent <a href=\"https://en.wikipedia.org/wiki/Domain_name_front_running\">front-running</a>, name registration is split into a two phase process consisting of:</p>\n<ol>\n<li  value=\"1\">Pre-ordering the domain name</li><li  value=\"2\">Registering the domain name</li></ol>\n<p>In the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. <code>hash(&#39;alice.dash&#39; + salt)</code>) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and &quot;stealing&quot; them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.</p>\n<p>In the registration phase, the domain name (e.g. <code>alice.dash</code>) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-implementation\"></div>Implementation<a class=\"fa fa-anchor\" href=\"#section-implementation\"></a></h2>\n<p>DPNS names currently have several constraints as defined in the <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json\">DPNS data contract</a>. The constraints exist to maintain compatibility with DNS:</p>\n<ul>\n<li >Maximum length - 63 characters</li><li >Character set - <code>0-9</code>, <code>-</code> (hyphen), and <code>A-Z</code> (case insensitive)</li></ul>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: Use of <code>-</code> as a prefix/suffix to a name is <em>not</em> allowed (e.g. <code>-name</code> or <code>name-</code>). This constraint is defined by this JSON-Schema <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L29\">pattern</a> in the DPNS data contract:</p>\n<pre><code>&quot;^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$&quot;\n</code></pre>\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>Additionally, the DPNS <a href=\"explanation-platform-protocol-data-trigger\">data triggers</a> defined in <a href=\"https://github.com/dashevo/js-dpp/blob/v0.12.1/lib/dataTrigger/dpnsTriggers\">js-dpp</a> enforce additional validation rules related to the <code>domain</code> document.</p>\n<p>For more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the <a href=\"https://github.com/dashevo/js-dpns-client\">js-dpns-client</a> repository. Additionally, the DPNS data contract is available in the <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json\">dpns-contract</a> repository.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-contract-diagram\"></div>Contract Diagram<a class=\"fa fa-anchor\" href=\"#section-contract-diagram\"></a></h2>\n<p>This is a visualization of the JSON data contract as UML class diagram for better understanding of the structure. The left side shows the <code>domain</code> document and the right side shows the <code>preorder</code> document:</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\" class=\"block-display-image-parent block-display-image-size-smart \"><img src=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\" alt=\"DPNS Contract Diagram\"/></a>\n\t</figure>\n\t<figcaption><p>DPNS Contract Diagram</p>\n</figcaption>\n</div>\n<div class=\"magic-block-textarea\"><p>Click <a href=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\">here</a> to download a copy of this diagram.</p>\n\n</div>", 
  "updates": [
   "5e02779a2462d40013a48a69"
- ],
- "type": "basic",
- "slug": "explanation-dpns",
- "excerpt": "Enabling name-based user experiences",
- "body": "# Overview\n\nDash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names for [identities](explanation-identity) but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.\n\n##  Relationship to identities\nDPNS names and [Identities](explanation-identity) are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.\n\n# Details\n\n## Name Registration Process\n[block:callout]\n{\n  \"type\": \"info\",\n  \"body\": \"Given the DNS-compatible nature of DPNS, all DPNS names are technically domain names and are registered under a top-level DPNS domain (`.dash`). Some applications may abstract the top-level domain away, but it is important to be aware that it exists.\"\n}\n[/block]\nTo prevent [front-running](https://en.wikipedia.org/wiki/Domain_name_front_running), name registration is split into a two phase process consisting of:\n1. Pre-ordering the domain name\n2. Registering the domain name\n\nIn the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. `hash('alice.dash' + salt)`) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and \"stealing\" them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.\n\nIn the registration phase, the domain name (e.g. `alice.dash`) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.\n\n## Implementation\n\nDPNS names currently have several constraints as defined in the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json). The constraints exist to maintain compatibility with DNS:\n* Maximum length - 63 characters\n* Character set - `0-9`, `-` (hyphen), and `A-Z` (case insensitive)\n[block:callout]\n{\n  \"type\": \"info\",\n  \"title\": \"\",\n  \"body\": \"Note: Use of `-` as a prefix/suffix to a name is _not_ allowed (e.g. `-name` or `name-`). This constraint is defined by this JSON-Schema [pattern](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L29) in the DPNS data contract:\\n```\\n\\\"^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$\\\"\\n```\"\n}\n[/block]\nAdditionally, the DPNS [data triggers](explanation-platform-protocol-data-trigger) defined in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.12.1/lib/dataTrigger/dpnsTriggers) enforce additional validation rules related to the `domain` document.\n\nFor more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the [js-dpns-client](https://github.com/dashevo/js-dpns-client) repository. Additionally, the DPNS data contract is available in the [dpns-contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) repository.\n\n## Contract Diagram\n\nThis is a visualization of the JSON data contract as UML class diagram for better understanding of the structure. The left side shows the `domain` document and the right side shows the `preorder` document:\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/5d2ad91-dpns-plantuml.png\",\n        \"dpns-plantuml.png\",\n        2585,\n        871,\n        \"#f8f6ee\"\n      ],\n      \"caption\": \"DPNS Contract Diagram\"\n    }\n  ]\n}\n[/block]\nClick [here](https://files.readme.io/5d2ad91-dpns-plantuml.png) to download a copy of this diagram.",
- "order": 3,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:50.355Z",
- "_id": "5ed52e27d6b31c07c140104d",
- "version": "5ed52e27d6b31c07c1401075",
- "updatedAt": "2020-06-01T14:20:24.852Z",
- "createdAt": "2019-11-18T18:03:59.388Z",
- "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5ed52e27d6b31c07c140102a",
- "__v": 2,
- "parentDoc": null,
- "isApi": false,
- "id": "5ed52e27d6b31c07c140104d",
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>Dash Platform Name Service (DPNS) is a service used to register names on Dash Platform. It is a general service that is used to provide usernames and application names for <a href=\"explanation-identity\">identities</a> but can also be extended in the future to resolve other cryptocurrency addresses, websites, and more. DPNS is implemented as an application on top of the platform and leverages platform capabilities.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-relationship-to-identities\"></div>Relationship to identities<a class=\"fa fa-anchor\" href=\"#section-relationship-to-identities\"></a></h2>\n<p>DPNS names and <a href=\"explanation-identity\">Identities</a> are closely related to each other. Identities provide a foundation that DPNS builds on to enable name-based interactions -- a user experience similar to what is found in non-cryptocurrency applications. With DPNS, platform users or application developers register a name and associate it with an identity. Once linked, the identity private key allows them to prove ownership of the name to establish trust when they interact with other users and applications.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-details\"></div>Details<a class=\"fa fa-anchor\" href=\"#section-details\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-name-registration-process\"></div>Name Registration Process<a class=\"fa fa-anchor\" href=\"#section-name-registration-process\"></a></h2>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Given the DNS-compatible nature of DPNS, all DPNS names are technically domain names and are registered under a top-level DPNS domain (<code>.dash</code>). Some applications may abstract the top-level domain away, but it is important to be aware that it exists.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>To prevent <a href=\"https://en.wikipedia.org/wiki/Domain_name_front_running\">front-running</a>, name registration is split into a two phase process consisting of:</p>\n<ol>\n<li  value=\"1\">Pre-ordering the domain name</li><li  value=\"2\">Registering the domain name</li></ol>\n<p>In the pre-order phase, the domain name is salted to obscure the actual domain name being registered (e.g. <code>hash(&#39;alice.dash&#39; + salt)</code>) and submitted to platform. This is done to prevent masternodes from seeing the names being registered and &quot;stealing&quot; them for later resale. Once the pre-order receives a sufficient number of confirmations, the registration can proceed.</p>\n<p>In the registration phase, the domain name (e.g. <code>alice.dash</code>) is once again submitted along with the salt used in the pre-order. The salt serves as proof that the registration is from the user that submitted the pre-order. This registration also references the identity being associated with the domain name to complete the identity-domain link.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-implementation\"></div>Implementation<a class=\"fa fa-anchor\" href=\"#section-implementation\"></a></h2>\n<p>DPNS names currently have several constraints as defined in the <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json\">DPNS data contract</a>. The constraints exist to maintain compatibility with DNS:</p>\n<ul>\n<li >Maximum length - 63 characters</li><li >Character set - <code>0-9</code>, <code>-</code> (hyphen), and <code>A-Z</code> (case insensitive)</li></ul>\n\n</div>\n<div class=\"magic-block-callout type-info no-title\"><span class=\"noTitleIcon\"><i title=\"Info\" class=\"fa fa-info-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: Use of <code>-</code> as a prefix/suffix to a name is <em>not</em> allowed (e.g. <code>-name</code> or <code>name-</code>). This constraint is defined by this JSON-Schema <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L29\">pattern</a> in the DPNS data contract:</p>\n<pre><code>&quot;^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$&quot;\n</code></pre>\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>Additionally, the DPNS <a href=\"explanation-platform-protocol-data-trigger\">data triggers</a> defined in <a href=\"https://github.com/dashevo/js-dpp/blob/v0.12.1/lib/dataTrigger/dpnsTriggers\">js-dpp</a> enforce additional validation rules related to the <code>domain</code> document.</p>\n<p>For more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the <a href=\"https://github.com/dashevo/js-dpns-client\">js-dpns-client</a> repository. Additionally, the DPNS data contract is available in the <a href=\"https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json\">dpns-contract</a> repository.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-contract-diagram\"></div>Contract Diagram<a class=\"fa fa-anchor\" href=\"#section-contract-diagram\"></a></h2>\n<p>This is a visualization of the JSON data contract as UML class diagram for better understanding of the structure. The left side shows the <code>domain</code> document and the right side shows the <code>preorder</code> document:</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\" class=\"block-display-image-parent block-display-image-size-smart \"><img src=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\" alt=\"DPNS Contract Diagram\"/></a>\n\t</figure>\n\t<figcaption><p>DPNS Contract Diagram</p>\n</figcaption>\n</div>\n<div class=\"magic-block-textarea\"><p>Click <a href=\"https://files.readme.io/5d2ad91-dpns-plantuml.png\">here</a> to download a copy of this diagram.</p>\n\n</div>"
+ ], 
+ "isReference": false, 
+ "slug": "explanation-dpns", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 2, 
+ "_id": "5ed52e27d6b31c07c140104d", 
+ "order": 3, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

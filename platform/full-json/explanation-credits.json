@@ -1,60 +1,60 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-06-02T21:01:20.910Z", 
+ "id": "5ed6be19b6bbac0058226326", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2020-06-02T21:01:13.824Z", 
+ "category": "5ed52e27d6b31c07c140102a", 
+ "title": "Credits", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Credits",
- "updates": [],
- "type": "basic",
- "slug": "explanation-credits",
- "excerpt": "",
- "body": "",
- "order": 5,
- "isReference": false,
- "hidden": true,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:45.895Z",
- "_id": "5ed6be19b6bbac0058226326",
- "createdAt": "2020-06-02T21:01:13.824Z",
- "updatedAt": "2020-06-02T21:01:20.910Z",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5ed52e27d6b31c07c140102a",
- "project": "5bda01cad172e200499a20a9",
- "version": "5ed52e27d6b31c07c1401075",
- "__v": 0,
- "parentDoc": null,
- "isApi": false,
- "id": "5ed6be19b6bbac0058226326",
- "body_html": "&nbsp;"
+ }, 
+ "version": "5ed52e27d6b31c07c1401075", 
+ "slugUpdatedAt": "2020-11-03T23:12:30.041Z", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "explanation-credits", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5ed6be19b6bbac0058226326", 
+ "order": 5, 
+ "updates": []
 }

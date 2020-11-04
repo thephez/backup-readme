@@ -86,14 +86,14 @@ _**Step 1 - Pool Request**_
 _**Step 3 - Queue**_
 
   * A masternode broadcasts [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) when it starts a new queue. These message are relayed by all <<glossary:peers>>.
-  * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` ([3](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L360)) to `nPoolMaxParticipants` ([5](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L361)). Prior protocol version mixing sessions always contained exactly 3 participants
+  * As of protocol version 70214, mixing sessions have a variable number of participants defined by the range `nPoolMinParticipants` ([3](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L360)) to `nPoolMaxParticipants` ([5](https://github.com/dashpay/dash/blob/v0.15.0.0/src/chainparams.cpp#L361)). Prior protocol version mixing sessions always contained exactly 3 participants. Spork 22 introduced in Dash Core 0.16.0 expands the maximum number of participants to 20 and also reduces the minimum number of participants to 2 for testnet/devnet/regtest networks.
   * The masternode sends a [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq) with the ready bit set once it has received valid [`dsa` messages](core-ref-p2p-network-privatesend-messages#dsa) from either:
-    1. The maximum number of clients (5)
-    2. Greater than the minimum number of clients (3) and the timeout has been reached ([30 seconds](https://github.com/dashpay/dash/blob/e9f7142ed01c0d7b53ef8b5f6f3f6375a68ef422/src/privatesend.h#L23))
+    1. The maximum number of clients (5 if spork 22 not present/off; 20 if spork 22 on)
+    2. Greater than the minimum number of clients (3) and the timeout has been reached ([30 seconds](https://github.com/dashpay/dash/blob/v0.16.x/src/privatesend/privatesend.h#L23))
 [block:callout]
 {
   "type": "warning",
-  "body": "Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend.h#L23))"
+  "body": "Clients must respond to the Queue ready within 30 seconds or risk forfeiting the collateral they provided in the [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa) (Step 1) ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.16.x/src/privatesend/privatesend.h#L23))"
 }
 [/block]
 

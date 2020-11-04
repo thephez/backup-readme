@@ -1086,7 +1086,7 @@ The [`importpubkey` RPC](core-api-ref-remote-procedure-calls-wallet#importpubkey
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Private Key | string (hex) | Required<br>(exactly 1) | The public key to import
+Public Key | string (hex) | Required<br>(exactly 1) | The public key to import
 
 *Parameter #2---the account into which the key should be placed*
 

@@ -1,103 +1,103 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-10-23T22:38:58.439Z", 
+ "id": "5e96055329a18c0025d391f2", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:04:10.599Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Transactions", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "category": "Core Reference",
-    "slug": "core-ref-transactions-opcodes",
-    "name": "OpCodes",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-opcodes", 
+    "name": "OpCodes"
+   }, 
    {
-    "category": "Core Reference",
-    "slug": "core-ref-transactions-address-conversion",
-    "name": "Address Conversion",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-address-conversion", 
+    "name": "Address Conversion"
+   }, 
    {
-    "category": "Core Reference",
-    "slug": "core-ref-transactions-raw-transaction-format",
-    "name": "Raw Transaction Format",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-raw-transaction-format", 
+    "name": "Raw Transaction Format"
+   }, 
    {
-    "category": "Core Reference",
-    "slug": "core-ref-transactions-special-transactions",
-    "name": "Special Transactions",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-special-transactions", 
+    "name": "Special Transactions"
+   }, 
    {
-    "category": "Core Reference",
-    "slug": "core-ref-transactions-compactsize-unsigned-integers",
-    "name": "CompactSize Unsigned Integers",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-compactsize-unsigned-integers", 
+    "name": "CompactSize Unsigned Integers"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Wallets",
-    "slug": "core-ref-wallets",
-    "category": "Core Reference"
+    "category": "Core Reference", 
+    "slug": "core-ref-wallets", 
+    "type": "doc", 
+    "name": "Wallets", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Transactions",
- "updates": [],
- "type": "basic",
- "slug": "core-ref-transactions",
- "excerpt": "",
- "body": "The following subsections briefly document core transaction details.",
- "order": 2,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:27:17.446Z",
- "_id": "5e96055329a18c0025d391f2",
- "version": "5e96055329a18c0025d39261",
- "updatedAt": "2019-10-23T22:38:58.439Z",
- "createdAt": "2019-10-23T16:04:10.599Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5e96055329a18c0025d391e2",
- "__v": 4,
- "parentDoc": null,
- "isApi": false,
- "id": "5e96055329a18c0025d391f2",
- "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>"
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-04T04:36:14.621Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The following subsections briefly document core transaction details.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-transactions", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 4, 
+ "_id": "5e96055329a18c0025d391f2", 
+ "order": 2, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -396,11 +396,11 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 | :----------: | :----------: | ----------- | ----------- |
 | 10001 | 2 | `INSTANTSEND_ENABLED` | Turns on and off InstantSend network wide
 | 10002 | 3 | `INSTANTSEND_BLOCK_`<br>`FILTERING` | Turns on and off InstantSend block filtering
-| 10005 | 6 | `NEW_SIGS` | Turns on and off new signature format for Dash-specific messages
 | 10008 | 9 | `SUPERBLOCKS_ENABLED` | Superblocks are enabled (10% of the block reward allocated to fund the dash treasury for funding approved proposals)
 | 10016 | 17 | `SPORK_17_QUORUM_DKG_`<br>`ENABLED` | Enable long-living masternode quorum (LLMQ) distributed key generation (DKG). When enabled, simple PoSe  scoring and banning is active as well.
 | 10018 | 19 | `SPORK_19_CHAINLOCKS_`<br>`ENABLED` | Enable LLMQ-based ChainLocks.
 | 10020 | 21 | `SPORK_21_QUORUM_ALL_`<br>`CONNECTED` | **Added in Dash Core 0.16.0**<br>Enable connections between all masternodes in a quorum to optimize the signature recovery process.
+| 10021 | 22 | `SPORK_22_PS_MORE_`<br>`PARTICIPANTS` | **Added in Dash Core 0.16.0**<br>Increase the maximum number of participants in PrivateSend mixing sessions.
 [block:callout]
 {
   "type": "info",
@@ -410,10 +410,17 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 [/block]
 **Removed Sporks**
 The following sporks were used in the past but are no longer necessary and have been removed.
-
+[block:callout]
+{
+  "type": "info",
+  "title": "Spork 6",
+  "body": "Since spork 6 was never enabled on mainnet, it was removed in Dash Core 0.16.0. The associated logic was hardened in [PR  3662](https://github.com/dashpay/dash/pull/3662) to support testnet (where it is enabled). If testnet is reset at some point in the future, the remaining logic will be removed."
+}
+[/block]
 | Spork ID | Num. | Name | Description |
 | :----------: | :----------: | ----------- | ----------- |
-| _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.15.0.<br>Controls the max value for an InstantSend transaction (currently 2000 dash)_
+| _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.15.0.<br>Controls the max value for an InstantSend transaction (currently 2000 DASH)_
+| _10005_ | _6_ | `NEW_SIGS` | _Removed in Dash Core 0.16.0.<br>Turns on and off new signature format for Dash-specific messages_
 | _10007_ | _8_ | `MASTERNODE_PAYMENT_`<br>`ENFORCEMENT` | _Removed in Dash Core 0.14.0.<br>Requires masternodes to be paid by miners when blocks are processed_
 | _10009_ | _10_ | `MASTERNODE_PAY_`<br>`UPDATED_NODES` | _Removed in Dash Core 0.14.0.<br>Only current protocol version masternode's will be paid (not older nodes)_
 | _10011_ | _12_ | `RECONSIDER_BLOCKS` | _Removed in Dash Core 0.15.0.<br>Forces reindex of a specified number of blocks to recover from unintentional network forks_

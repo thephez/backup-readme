@@ -45,11 +45,15 @@ Regtest wallets and block chain state (chainstate) are saved in the `regtest` su
 
 # Devnet Mode
 
+## Overview
+
 Developer networks (devnets) have some aspects of testnet and some aspects of regtest. Unlike testnet, multiple independent devnets can be created and coexist without interference. Each one is identified by a name which is hardened into a "devnet genesis" block, which is automatically positioned at height 1. Validation rules will ensure that a <<glossary:node>> from `devnet=test1` never be able to accept blocks from `devnet=test2`. This is done by checking the expected devnet <<glossary:genesis block>>.
 
 The genesis block of the devnet is the same as the one from regtest. This starts the devnet with a very low <<glossary:difficulty>>, allowing quick generation of a sufficient balance to create a <<glossary:masternode>>.
 
 The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#version). If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
+
+## Configuration
 
 To use devnet, use the argument `-devnet=<name>` with `dash-cli`, `dashd`or `dash-qt` or add `devnet=<name>` to your `dash.conf` file as [described earlier](core-examples-configuration-file).
 
@@ -63,6 +67,14 @@ Dash Core server starting
 ```
 
 You can now use Dash Core RPCs prefixed with `dash-cli -devnet=<name>`.
+[block:callout]
+{
+  "type": "info",
+  "title": "Devnet-exclusive Options",
+  "body": "Devnets can use 3 devnet-specific options to enable quickly mining large amounts of Dash. This enables quick establishment of test masternodes, etc. The following `dash.conf` excerpt shows these configuration options in use:\n\n```\n# First 1000 blocks mined with the lowest difficulty (like regtest)\n# and first 500 blocks mined with a block subsidity multiplied by 10\n# This allows immediate MN registration (DIP3 activates on block 2)\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n```"
+}
+[/block]
+## Management
 
 Devnet wallets and block chain state (chainstate) are saved in the `devnet-<name>` subdirectory of the Dash Core configuration directory. You can safely delete the `devnet-<name>` subdirectory and restart Dash Core to start a new devnet. (See the [Developer Examples Introduction](core-examples-introduction) for default configuration directory locations on various operating systems. **Always back up mainnet wallets before performing dangerous operations such as deleting.**)
 

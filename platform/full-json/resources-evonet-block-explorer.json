@@ -1,60 +1,60 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-30T17:30:06.302Z", 
+ "id": "5ed52e27d6b31c07c1401060", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-12-29T03:05:37.993Z", 
+ "category": "5ed52e27d6b31c07c1401028", 
+ "title": "Evonet Block Explorer", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Evonet Block Explorer",
- "updates": [],
- "type": "link",
- "slug": "resources-evonet-block-explorer",
- "excerpt": "",
- "body": "",
- "order": 1,
- "isReference": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "http://insight.evonet.networks.dash.org:3001/insight/",
- "link_external": true,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-07-21T19:07:49.338Z",
- "_id": "5ed52e27d6b31c07c1401060",
- "version": "5ed52e27d6b31c07c1401075",
- "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "5ed52e27d6b31c07c1401028",
- "updatedAt": "2019-12-30T17:30:06.302Z",
- "createdAt": "2019-12-29T03:05:37.993Z",
- "__v": 0,
- "parentDoc": null,
- "isApi": false,
- "id": "5ed52e27d6b31c07c1401060",
- "body_html": "&nbsp;"
+ }, 
+ "version": "5ed52e27d6b31c07c1401075", 
+ "slugUpdatedAt": "2020-11-03T23:12:30.291Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "resources-evonet-block-explorer", 
+ "link_url": "http://insight.evonet.networks.dash.org:3001/insight/", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5ed52e27d6b31c07c1401060", 
+ "order": 1, 
+ "updates": []
 }

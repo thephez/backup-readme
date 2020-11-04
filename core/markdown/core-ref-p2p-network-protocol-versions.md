@@ -1,11 +1,11 @@
 # Dash Protocol Versions
 The table below lists some notable versions of the P2P network protocol, with the most recent versions listed first.
 
-As of Dash Core 0.16.0, the most recent protocol version is 70217.
+As of Dash Core 0.16.0, the most recent protocol version is 70218.
 
 | Version | Initial Release                    | Major Changes
 |---------|------------------------------------|--------------
-| 70217  | Dash Core 0.16.0 <br>(??? 2020)  | •
+| 70218  | Dash Core 0.16.0 <br>(Q3 2020)  | •
 | 70216  | Dash Core 0.15.0 <br>(Q1 2020)  | • Mempool sync (via [`mempool` message](core-ref-p2p-network-data-messages#mempool))<br>• Updated [default P2P/RPC ports](core-ref-p2p-network-constants-and-defaults) for RegTest and Devnet networks<br>• Removal of `alert` message<br>• Removal of legacy InstantSend<br>• Removal of [sporks](core-ref-p2p-network-control-messages#spork) 5 and 12<br>• Deprecation of [sporks](core-ref-p2p-network-control-messages#spork) 15, 16, and 20
 | 70215  | Dash Core 0.14.0.1 <br>(May 2019)  | • None (Governance bugfix only)
 | 70214  | Dash Core 0.14.0.0 <br>(May 2019)  | • <<glossary:Long-Living Masternode Quorum>><br>• <<glossary:ChainLocks>><br>• PrivateSend improvements<br>• Experimental LLMQ InstantSend<br>• Bitcoin Core 0.15 backports
