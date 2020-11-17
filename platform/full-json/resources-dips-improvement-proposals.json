@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-10T15:11:45.441Z", 
+ "id": "5f8f3fa8b257f9003428ff4f", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-08-01T13:32:23.391Z", 
+ "category": "5f8f3fa8b257f9003428ff42", 
+ "title": "DIPs (Improvement Proposals)", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5f8f3fa8b257f9003428ff97", 
+ "slugUpdatedAt": "2020-11-17T20:46:14.536Z", 
+ "hidden": true, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "resources-dips-improvement-proposals", 
+ "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5f8f3fa8b257f9003428ff4f", 
+ "order": 5, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

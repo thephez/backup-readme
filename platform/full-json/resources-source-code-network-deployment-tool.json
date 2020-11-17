@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5f8f3fa8b257f9003428ff50", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-24T21:22:52.657Z", 
+ "id": "5f8f3fa8b257f9003428ff76", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-12-24T21:22:52.657Z", 
+ "category": "5f8f3fa8b257f9003428ff42", 
+ "title": "Network Deployment Tool", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5f8f3fa8b257f9003428ff97", 
+ "slugUpdatedAt": "2020-11-17T20:43:40.137Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "resources-source-code-network-deployment-tool", 
+ "link_url": "https://github.com/dashevo/dash-network-deploy", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5f8f3fa8b257f9003428ff76", 
+ "order": 7, 
+ "updates": []
+}

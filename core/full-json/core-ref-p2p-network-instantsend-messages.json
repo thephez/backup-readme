@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5e96055329a18c0025d391e9", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-05-28T19:34:15.288Z", 
+ "id": "5e96055329a18c0025d391ef", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:02:52.588Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "InstantSend Messages", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-masternode-messages", 
+    "type": "doc", 
+    "name": "Masternode Messages", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T19:07:50.702Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The following network messages all help control the InstantSend feature of Dash. InstantSend uses the masternode network to lock transaction inputs and enable secure, instantaneous transactions. For additional details, refer to the Developer Guide [InstantSend section](core-guide-dash-features-instantsend).\n\n![Overview Of P2P Protocol InstantSend Request And Reply Messages](https://dash-docs.github.io/img/dev/en-p2p-instantsend-messages.svg)\n\n# clsig\n\n*Added in protocol version 70214 of Dash Core*\n\nThe [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) is used to indicate a successful ChainLock for the designated <<glossary:block height>>. The Chainlock ensures that no other <<glossary:blocks>> can replace the one with the indicated block hash. This determination is made by agreement of a <<glossary:Long-Living Masternode Quorum>> (LLMQ) which creates the BLS signature in the message.\n\nOnce a [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) is received, clients must reject any other blocks for the indicated block height as described in [DIP8 (ChainLocks)](https://github.com/dashpay/dips/blob/master/dip-0008.md). This increases security by preventing reorganization of a block with a ChainLock (and all blocks below it).\n\n| Bytes | Name | Data type | Description |\n| --- | --- | --- | --- |\n| 4 | nHeight | int32_t | Block height\n| 32 | blockHash | uint256 | Block hash\n| 96 | sig | CBLSSignature | LLMQ BLS signature\n\nThe following annotated hexdump shows a [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig). (The message header has been omitted.)\n\n``` text\nc1310100 ................................... Block Height: 78273\n\n03bb286a877135fad3b33ea9cce9a525\ne5edc0879411afaff513b30100000000 ........... Block Hash\n\n12a3331fd8d0008804edaaf94c57b491\nd36f38f1993d06dfff71df9ec83da463\ndcd5497d105932e609016dac075f02df\n1259951e3bcebfcc26afc904f6cd92df\n7ff9b8c6c2ac9dcc9cb1a7dc7ec03bcc\n005574710c3aabc2f8670959cf8bc9b5 ........... LLMQ BLS Signature\n```\n\n# islock\n\n*Added in protocol version 70214 of Dash Core*\n\nThe [`islock` message](core-ref-p2p-network-instantsend-messages#islock) is used to provide details of transactions that have been locked by LLMQ-based InstantSend. The message includes the details of all transaction <<glossary:inputs>> along with the transaction ID and the BLS <<glossary:signature>> of the <<glossary:LLMQ>> that approved the transaction lock.\n\n| Bytes | Name | Data type | Description |\n| --- | --- | --- | --- |\n| 1-9 | inputsSize | compactSize uint | Number of inputs |\n| 36 * `inputsSize`| inputs | COutPoint | Outpoints used in the transaction |\n| 32 | txid | uint256 | TXID of the locked transaction |\n| 96 | sig | byte[] | LLMQ BLS Signature |\n\nThe following annotated hexdump shows a [`islock` message](core-ref-p2p-network-instantsend-messages#islock). (The message header has been omitted.)\n\n``` text\n02 ......................................... Number of inputs: 2\n\nInput 1\n| 05f24f65a9d98ff543ba61f7f0ce9448\n| 79632bf2517540a5bd8bde2fe8e94617 ......... Previous outpoint TXID\n| 00000000 ................................. Previous outpoint index: 0\n\nInput 2\n| 05f24f65a9d98ff543ba61f7f0ce9448\n| 79632bf2517540a5bd8bde2fe8e94617 ......... Previous outpoint TXID\n| 01000000 ................................. Previous outpoint index: 1\n\ne2e1c797576d8b13c83e929684b9aacd\n553c20a34e2d11e38bdcaaf8e1de1680 ........... TXID\n\n0f055c2064885d446f83d51b9bb09892\n7ea0375a0f6a3f3402abf158ece67e00\n81049b8a8f45d254b64574cef194ef31\n197e450fba1196d652f2e1421d3b80ae\nf429c10eabd4ab9289e9a8f80f6989b7\na11e5e7930deccc3e11a931fc9524f06 ........... LLMQ BLS Signature (96 bytes)\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following network messages all help control the InstantSend feature of Dash. InstantSend uses the masternode network to lock transaction inputs and enable secure, instantaneous transactions. For additional details, refer to the Developer Guide <a href=\"core-guide-dash-features-instantsend\">InstantSend section</a>.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-p2p-instantsend-messages.svg\" alt=\"Overview Of P2P Protocol InstantSend Request And Reply Messages\"></p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-clsig\"></div>clsig<a class=\"fa fa-anchor\" href=\"#section-clsig\"></a></h1>\n<p><em>Added in protocol version 70214 of Dash Core</em></p>\n<p>The <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a> is used to indicate a successful ChainLock for the designated &lt;&lt;glossary:block height&gt;&gt;. The Chainlock ensures that no other &lt;&lt;glossary:blocks&gt;&gt; can replace the one with the indicated block hash. This determination is made by agreement of a &lt;&lt;glossary:Long-Living Masternode Quorum&gt;&gt; (LLMQ) which creates the BLS signature in the message.</p>\n<p>Once a <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a> is received, clients must reject any other blocks for the indicated block height as described in <a href=\"https://github.com/dashpay/dips/blob/master/dip-0008.md\">DIP8 (ChainLocks)</a>. This increases security by preventing reorganization of a block with a ChainLock (and all blocks below it).</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Bytes</th>\n<th>Name</th>\n<th>Data type</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4</td>\n<td>nHeight</td>\n<td>int32_t</td>\n<td>Block height</td>\n</tr>\n<tr>\n<td>32</td>\n<td>blockHash</td>\n<td>uint256</td>\n<td>Block hash</td>\n</tr>\n<tr>\n<td>96</td>\n<td>sig</td>\n<td>CBLSSignature</td>\n<td>LLMQ BLS signature</td>\n</tr>\n</tbody>\n</table></div>\n<p>The following annotated hexdump shows a <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a>. (The message header has been omitted.)</p>\n<pre><code class=\"lang-text\">c1310100 ................................... Block Height: 78273\n\n03bb286a877135fad3b33ea9cce9a525\ne5edc0879411afaff513b30100000000 ........... Block Hash\n\n12a3331fd8d0008804edaaf94c57b491\nd36f38f1993d06dfff71df9ec83da463\ndcd5497d105932e609016dac075f02df\n1259951e3bcebfcc26afc904f6cd92df\n7ff9b8c6c2ac9dcc9cb1a7dc7ec03bcc\n005574710c3aabc2f8670959cf8bc9b5 ........... LLMQ BLS Signature\n</code></pre>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-islock\"></div>islock<a class=\"fa fa-anchor\" href=\"#section-islock\"></a></h1>\n<p><em>Added in protocol version 70214 of Dash Core</em></p>\n<p>The <a href=\"core-ref-p2p-network-instantsend-messages#islock\"><code>islock</code> message</a> is used to provide details of transactions that have been locked by LLMQ-based InstantSend. The message includes the details of all transaction &lt;&lt;glossary:inputs&gt;&gt; along with the transaction ID and the BLS &lt;&lt;glossary:signature&gt;&gt; of the &lt;&lt;glossary:LLMQ&gt;&gt; that approved the transaction lock.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Bytes</th>\n<th>Name</th>\n<th>Data type</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1-9</td>\n<td>inputsSize</td>\n<td>compactSize uint</td>\n<td>Number of inputs</td>\n</tr>\n<tr>\n<td>36 * <code>inputsSize</code></td>\n<td>inputs</td>\n<td>COutPoint</td>\n<td>Outpoints used in the transaction</td>\n</tr>\n<tr>\n<td>32</td>\n<td>txid</td>\n<td>uint256</td>\n<td>TXID of the locked transaction</td>\n</tr>\n<tr>\n<td>96</td>\n<td>sig</td>\n<td>byte[]</td>\n<td>LLMQ BLS Signature</td>\n</tr>\n</tbody>\n</table></div>\n<p>The following annotated hexdump shows a <a href=\"core-ref-p2p-network-instantsend-messages#islock\"><code>islock</code> message</a>. (The message header has been omitted.)</p>\n<pre><code class=\"lang-text\">02 ......................................... Number of inputs: 2\n\nInput 1\n| 05f24f65a9d98ff543ba61f7f0ce9448\n| 79632bf2517540a5bd8bde2fe8e94617 ......... Previous outpoint TXID\n| 00000000 ................................. Previous outpoint index: 0\n\nInput 2\n| 05f24f65a9d98ff543ba61f7f0ce9448\n| 79632bf2517540a5bd8bde2fe8e94617 ......... Previous outpoint TXID\n| 01000000 ................................. Previous outpoint index: 1\n\ne2e1c797576d8b13c83e929684b9aacd\n553c20a34e2d11e38bdcaaf8e1de1680 ........... TXID\n\n0f055c2064885d446f83d51b9bb09892\n7ea0375a0f6a3f3402abf158ece67e00\n81049b8a8f45d254b64574cef194ef31\n197e450fba1196d652f2e1421d3b80ae\nf429c10eabd4ab9289e9a8f80f6989b7\na11e5e7930deccc3e11a931fc9524f06 ........... LLMQ BLS Signature (96 bytes)\n</code></pre>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-p2p-network-instantsend-messages", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 3, 
+ "_id": "5e96055329a18c0025d391ef", 
+ "order": 6, 
+ "user": "5af39863989da435b05d284d"
+}

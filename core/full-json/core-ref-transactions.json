@@ -1,0 +1,103 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-10-23T22:38:58.439Z", 
+ "id": "5e96055329a18c0025d391f2", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:04:10.599Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Transactions", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-opcodes", 
+    "name": "OpCodes"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-address-conversion", 
+    "name": "Address Conversion"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-raw-transaction-format", 
+    "name": "Raw Transaction Format"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-special-transactions", 
+    "name": "Special Transactions"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions-compactsize-unsigned-integers", 
+    "name": "CompactSize Unsigned Integers"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-wallets", 
+    "type": "doc", 
+    "name": "Wallets", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T19:07:51.346Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The following subsections briefly document core transaction details.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-transactions", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 4, 
+ "_id": "5e96055329a18c0025d391f2", 
+ "order": 2, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

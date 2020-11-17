@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-05T15:23:19.871Z", 
+ "id": "5e96055329a18c0025d391f3", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:04:18.401Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Wallets", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network", 
+    "type": "doc", 
+    "name": "P2P Network", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T20:59:10.520Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "# Deterministic Wallet Formats\n\n## Type 1: Single Chain Wallets\n\nA Type 1 deterministic <<glossary:wallet>> is the simpler of the two, which can create a single series of keys from a single seed. A primary weakness is that if the seed is leaked, all funds are compromised, and wallet sharing is extremely limited.\n\n## Type 2: Hierarchical Deterministic (HD) Wallets\n\n![Overview Of Hierarchical Deterministic Key Derivation](https://dash-docs.github.io/img/dev/en-hd-overview.svg)\n\nFor an overview of the <<glossary:HD wallet>>, please see the [developer guide section](core-guide-wallets).  For details, please see [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki).", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-deterministic-wallet-formats\"></div>Deterministic Wallet Formats<a class=\"fa fa-anchor\" href=\"#section-deterministic-wallet-formats\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-type-1-single-chain-wallets\"></div>Type 1: Single Chain Wallets<a class=\"fa fa-anchor\" href=\"#section-type-1-single-chain-wallets\"></a></h2>\n<p>A Type 1 deterministic &lt;&lt;glossary:wallet&gt;&gt; is the simpler of the two, which can create a single series of keys from a single seed. A primary weakness is that if the seed is leaked, all funds are compromised, and wallet sharing is extremely limited.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-type-2-hierarchical-deterministic-hd-wallets\"></div>Type 2: Hierarchical Deterministic (HD) Wallets<a class=\"fa fa-anchor\" href=\"#section-type-2-hierarchical-deterministic-hd-wallets\"></a></h2>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-hd-overview.svg\" alt=\"Overview Of Hierarchical Deterministic Key Derivation\"></p>\n<p>For an overview of the &lt;&lt;glossary:HD wallet&gt;&gt;, please see the <a href=\"core-guide-wallets\">developer guide section</a>.  For details, please see <a href=\"https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki\">BIP32</a>.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-wallets", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 3, 
+ "_id": "5e96055329a18c0025d391f3", 
+ "order": 3, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

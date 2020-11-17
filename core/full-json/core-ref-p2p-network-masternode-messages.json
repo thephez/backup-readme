@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5e96055329a18c0025d391e9", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-09-02T14:02:01.463Z", 
+ "id": "5e96055329a18c0025d391fd", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T17:03:17.479Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Masternode Messages", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-privatesend-messages", 
+    "type": "doc", 
+    "name": "PrivateSend Messages", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-09-01T20:20:44.094Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The following network messages enable the <<glossary:masternode>> features built in to Dash.\n\n![Overview Of P2P Protocol Masternode Request And Reply Messages](https://dash-docs.github.io/img/dev/en-p2p-masternode-messages.svg)\n\nFor additional details, refer to the Developer Guide [Masternode Sync](core-guide-dash-features-masternode-sync) and [Masternode Payment](core-guide-dash-features-masternode-payment) sections.\n\n# ssc\n\nThe [`ssc` message](core-ref-p2p-network-masternode-messages#ssc) is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of governance objects (`govsync` message), and governance object votes (`govsync` message).\n\n| Bytes | Name | Data type | Required | Description |\n| ---------- | ----------- | --------- | -------- | -------- |\n| 4 | nItemID | int | Required | Masternode Sync Item ID\n| 4 | nCount | int | Required | Number of items to sync\n\nSync Item IDs\n\n| ID | Description | Response To\n|------|--------------|---------------\n| 2 | MASTERNODE_SYNC_LIST | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`dseg` message\n| 3 | MASTERNODE_SYNC_MNW | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`mnget` message\n| 10 | MASTERNODE_SYNC_GOVOBJ | [`govsync` message](core-ref-p2p-network-governance-messages#govsync)\n| 11 | MASTERNODE_SYNC_GOVOBJ_VOTE | [`govsync` message](core-ref-p2p-network-governance-messages#govsync) with non-zero hash\n\nThe following annotated hexdump shows a [`ssc` message](core-ref-p2p-network-masternode-messages#ssc). (The message header has been omitted.)\n\n``` text\n02000000 ................................... Item ID: MASTERNODE_SYNC_LIST (2)\nbf110000 ................................... Count: 4543\n```\n\n# mnauth\n\n*Added in protocol version 70214*\n\nThe [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) is sent by a <<glossary:masternode>> immediately after sending a [`verack` message](core-ref-p2p-network-control-messages#verack) to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.\n\nThe [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth) signs a challenge that was previously sent via a [`version` message](core-ref-p2p-network-control-messages#version). The challenge is signed differently depending on if the connection is inbound or outbound.\n[block:callout]\n{\n  \"type\": \"success\",\n  \"body\": \"As of protocol version 70218, when communicating with masternodes that have reported a version => `MIN_MASTERNODE_PROTO_VERSION`, the mnauth signature is created by signing a message incorporating both the `mnauth_challenge` and protocol `version` (from the [`version` message](core-ref-p2p-network-control-messages#version)). Further details may be found in [Dash Core PR 3631](https://github.com/dashpay/dash/pull/3631).\",\n  \"title\": \"Protocol Update\"\n}\n[/block]\nThis is primarily used as a DoS protection mechanism to allow persistent connections between masternodes to remain open even if inbound connection limits are reached.\n\n| Bytes | Name | Data type | Description |\n| --- | --- | --- | --- |\n| 32 | proRegTxHash | uint256 | Version of the message\n| 96 | sig | byte[] | BLS signature of the [`version` message's](core-ref-p2p-network-control-messages#version) `mnauth_challenge`. Signed with the operator key of the masternode.\n\nThe following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth). (The message header has been omitted.)\n\n``` text\n63cd3bf06404d78f80163afeb4b13e18\n7dc1c1d04997ef04f1a2ecb3166dd004 ........... ProRegTx Hash\n\n12f2706bc75e9cb14a9ebf1d93d177d5\nf266ad2eddc49ad463810cb976a3e4bb\nabffc96819c5030fd5a7601af9c8ee50\n0feb066b38a48af1a31b7242bd814bab\n91e2a887f963904f33af851ddc9167d5\n66d6d3bd6c07e99091edd8867d0dd56e ........... Masternode BLS Signature (96 bytes)\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following network messages enable the &lt;&lt;glossary:masternode&gt;&gt; features built in to Dash.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-p2p-masternode-messages.svg\" alt=\"Overview Of P2P Protocol Masternode Request And Reply Messages\"></p>\n<p>For additional details, refer to the Developer Guide <a href=\"core-guide-dash-features-masternode-sync\">Masternode Sync</a> and <a href=\"core-guide-dash-features-masternode-payment\">Masternode Payment</a> sections.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-ssc\"></div>ssc<a class=\"fa fa-anchor\" href=\"#section-ssc\"></a></h1>\n<p>The <a href=\"core-ref-p2p-network-masternode-messages#ssc\"><code>ssc</code> message</a> is used to track the sync status of masternode objects. This message is sent in response to sync requests for the list of governance objects (<code>govsync</code> message), and governance object votes (<code>govsync</code> message).</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Bytes</th>\n<th>Name</th>\n<th>Data type</th>\n<th>Required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>4</td>\n<td>nItemID</td>\n<td>int</td>\n<td>Required</td>\n<td>Masternode Sync Item ID</td>\n</tr>\n<tr>\n<td>4</td>\n<td>nCount</td>\n<td>int</td>\n<td>Required</td>\n<td>Number of items to sync</td>\n</tr>\n</tbody>\n</table></div>\n<p>Sync Item IDs</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>ID</th>\n<th>Description</th>\n<th>Response To</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>2</td>\n<td>MASTERNODE_SYNC_LIST</td>\n<td><em>Deprecated following activation of <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> in Dash Core 0.13.0</em><br><br><code>dseg</code> message</td>\n</tr>\n<tr>\n<td>3</td>\n<td>MASTERNODE_SYNC_MNW</td>\n<td><em>Deprecated following activation of <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> in Dash Core 0.13.0</em><br><br><code>mnget</code> message</td>\n</tr>\n<tr>\n<td>10</td>\n<td>MASTERNODE_SYNC_GOVOBJ</td>\n<td><a href=\"core-ref-p2p-network-governance-messages#govsync\"><code>govsync</code> message</a></td>\n</tr>\n<tr>\n<td>11</td>\n<td>MASTERNODE_SYNC_GOVOBJ_VOTE</td>\n<td><a href=\"core-ref-p2p-network-governance-messages#govsync\"><code>govsync</code> message</a> with non-zero hash</td>\n</tr>\n</tbody>\n</table></div>\n<p>The following annotated hexdump shows a <a href=\"core-ref-p2p-network-masternode-messages#ssc\"><code>ssc</code> message</a>. (The message header has been omitted.)</p>\n<pre><code class=\"lang-text\">02000000 ................................... Item ID: MASTERNODE_SYNC_LIST (2)\nbf110000 ................................... Count: 4543\n</code></pre>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-mnauth\"></div>mnauth<a class=\"fa fa-anchor\" href=\"#section-mnauth\"></a></h1>\n<p><em>Added in protocol version 70214</em></p>\n<p>The <a href=\"core-ref-p2p-network-masternode-messages#mnauth\"><code>mnauth</code> message</a> is sent by a &lt;&lt;glossary:masternode&gt;&gt; immediately after sending a <a href=\"core-ref-p2p-network-control-messages#verack\"><code>verack</code> message</a> to authenticate that the sender is a masternode. It is only sent when the sender is actually a masternode.</p>\n<p>The <a href=\"core-ref-p2p-network-masternode-messages#mnauth\"><code>mnauth</code> message</a> signs a challenge that was previously sent via a <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>. The challenge is signed differently depending on if the connection is inbound or outbound.</p>\n\n</div>\n<div class=\"magic-block-callout type-success \">\n\t<h3><i title=\"Success\" class=\"fa fa-check-square\"></i>Protocol Update\n\t</h3>\n\t<div class=\"callout-body\"><p>As of protocol version 70218, when communicating with masternodes that have reported a version =&gt; <code>MIN_MASTERNODE_PROTO_VERSION</code>, the mnauth signature is created by signing a message incorporating both the <code>mnauth_challenge</code> and protocol <code>version</code> (from the <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>). Further details may be found in <a href=\"https://github.com/dashpay/dash/pull/3631\">Dash Core PR 3631</a>.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><p>This is primarily used as a DoS protection mechanism to allow persistent connections between masternodes to remain open even if inbound connection limits are reached.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Bytes</th>\n<th>Name</th>\n<th>Data type</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>32</td>\n<td>proRegTxHash</td>\n<td>uint256</td>\n<td>Version of the message</td>\n</tr>\n<tr>\n<td>96</td>\n<td>sig</td>\n<td>byte[]</td>\n<td>BLS signature of the <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message&#39;s</a> <code>mnauth_challenge</code>. Signed with the operator key of the masternode.</td>\n</tr>\n</tbody>\n</table></div>\n<p>The following annotated hexdump shows a <a href=\"core-ref-p2p-network-masternode-messages#mnauth\"><code>mnauth</code> message</a>. (The message header has been omitted.)</p>\n<pre><code class=\"lang-text\">63cd3bf06404d78f80163afeb4b13e18\n7dc1c1d04997ef04f1a2ecb3166dd004 ........... ProRegTx Hash\n\n12f2706bc75e9cb14a9ebf1d93d177d5\nf266ad2eddc49ad463810cb976a3e4bb\nabffc96819c5030fd5a7601af9c8ee50\n0feb066b38a48af1a31b7242bd814bab\n91e2a887f963904f33af851ddc9167d5\n66d6d3bd6c07e99091edd8867d0dd56e ........... Masternode BLS Signature (96 bytes)\n</code></pre>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-p2p-network-masternode-messages", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 3, 
+ "_id": "5e96055329a18c0025d391fd", 
+ "order": 7, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

@@ -1,0 +1,96 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-05T14:42:26.519Z", 
+ "id": "5e96055329a18c0025d39205", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T19:45:47.427Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Introduction", 
+ "next": {
+  "description": "Reference Sections", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-block-chain", 
+    "name": "Block Chain"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-transactions", 
+    "name": "Transactions"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-wallets", 
+    "type": "doc", 
+    "name": "Wallets", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Reference", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-ref-p2p-network", 
+    "name": "P2P Network"
+   }, 
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-improvement-proposals", 
+    "type": "doc", 
+    "name": "Improvement Proposals", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T19:07:52.371Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The Developer Reference aims to provide technical details and API information to help you start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://www.github.com/dashpay/dash) or from a [pre-compiled executable](https://github.com/dashpay/dash/releases/latest).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted as via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \n\"`[...]`\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below.\n\n# Not A Specification\n\nThis Developer Documentation describes how Dash works to help educate new Dash developers, but it is not a specification---and it never will be.\n\nDash security depends on <<glossary:consensus>>. Should your program diverge from consensus, its security is weakened or destroyed. The cause of the divergence doesn't matter: it could be a bug in your program, it could be an error in this documentation which you implemented as described, or it could be you do everything right but other software on the <<glossary:network>> [behaves unexpectedly](https://bitcoin.org/en/alert/2013-03-11-chain-fork) as in the case of Bitcoin's v0.8 chain fork. The specific cause will not matter to the users of your software whose wealth is lost.\n\nThe only correct specification of consensus behavior is the actual behavior of programs on the network which maintain consensus. As that behavior is subject to arbitrary inputs in a large variety of unique environments, it cannot ever be fully documented here or anywhere else.\n\nIn addition, we also warn you that this documentation has not been extensively reviewed by Dash experts and so likely contains numerous errors.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The Developer Reference aims to provide technical details and API information to help you start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from <a href=\"https://www.github.com/dashpay/dash\">source</a> or from a <a href=\"https://github.com/dashpay/dash/releases/latest\">pre-compiled executable</a>.</p>\n<p>Questions about Dash development are best asked in one of the <a href=\"https://www.dash.org/community/\">Dash development communities</a>. Errors or suggestions related to documentation can be submitted as via the &quot;Suggest Edits&quot; button on the top, right of each page.</p>\n<p>In the following documentation, some strings have been shortened or wrapped:<br>&quot;<code>[...]</code>&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-not-a-specification\"></div>Not A Specification<a class=\"fa fa-anchor\" href=\"#section-not-a-specification\"></a></h1>\n<p>This Developer Documentation describes how Dash works to help educate new Dash developers, but it is not a specification---and it never will be.</p>\n<p>Dash security depends on &lt;&lt;glossary:consensus&gt;&gt;. Should your program diverge from consensus, its security is weakened or destroyed. The cause of the divergence doesn&#39;t matter: it could be a bug in your program, it could be an error in this documentation which you implemented as described, or it could be you do everything right but other software on the &lt;&lt;glossary:network&gt;&gt; <a href=\"https://bitcoin.org/en/alert/2013-03-11-chain-fork\">behaves unexpectedly</a> as in the case of Bitcoin&#39;s v0.8 chain fork. The specific cause will not matter to the users of your software whose wealth is lost.</p>\n<p>The only correct specification of consensus behavior is the actual behavior of programs on the network which maintain consensus. As that behavior is subject to arbitrary inputs in a large variety of unique environments, it cannot ever be fully documented here or anywhere else.</p>\n<p>In addition, we also warn you that this documentation has not been extensively reviewed by Dash experts and so likely contains numerous errors.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-introduction", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 10, 
+ "_id": "5e96055329a18c0025d39205", 
+ "order": 0, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

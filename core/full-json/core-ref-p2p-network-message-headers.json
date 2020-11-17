@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5e96055329a18c0025d391e9", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-06-02T19:51:36.287Z", 
+ "id": "5e96055329a18c0025d391ec", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:02:12.016Z", 
+ "category": "5e96055329a18c0025d391e2", 
+ "title": "Message Headers", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Reference", 
+    "slug": "core-ref-p2p-network-control-messages", 
+    "type": "doc", 
+    "name": "Control Messages", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T20:59:09.617Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "All messages in the network protocol use the same container format, which provides a required multi-field <<glossary:message header>> and an optional payload. The message header format is:\n\n| Bytes | Name         | Data Type | Description\n| :-------: |--------------|-----------|-------------\n| 4     | start string | char[4]   | Magic bytes indicating the originating network; used to seek to next message when stream state is unknown.\n| 12    | command name | char[12]  | ASCII string which identifies what message type is contained in the payload.  Followed by nulls (0x00) to pad out byte count; for example: `version\\0\\0\\0\\0\\0`.\n| 4     | payload size | uint32_t  | Number of bytes in payload.  The current maximum number of bytes ([`MAX_SIZE`](https://github.com/dashpay/dash/blob/v0.15.x/src/serialize.h#L29)) allowed in the payload by Dash Core is 32 MiB---messages with a payload size larger than this will be dropped or rejected.\n| 4     | checksum     | char[4]   | *Added in protocol version 209.* <br><br>First 4 bytes of SHA256(SHA256(payload)) in internal byte order.<br /><br /> If payload is empty, as in `verack` and [`getaddr` messages](core-ref-p2p-network-control-messages#getaddr), the checksum is always 0x5df6e0e2 (SHA256(SHA256(<empty string>))).\n\n# Example\n\nThe following example is an annotated hex dump of a <<glossary:mainnet>> message header from a [`verack` message](core-ref-p2p-network-control-messages#verack) which has no payload.\n\n``` text\nbf0c6bbd ................... Start string: Mainnet\n76657261636b000000000000 ... Command name: verack + null padding\n00000000 ................... Byte count: 0\n5df6e0e2 ................... Checksum: SHA256(SHA256(<empty>))\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>All messages in the network protocol use the same container format, which provides a required multi-field &lt;&lt;glossary:message header&gt;&gt; and an optional payload. The message header format is:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th style=\"text-align:center\">Bytes</th>\n<th>Name</th>\n<th>Data Type</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align:center\">4</td>\n<td>start string</td>\n<td>char[4]</td>\n<td>Magic bytes indicating the originating network; used to seek to next message when stream state is unknown.</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">12</td>\n<td>command name</td>\n<td>char[12]</td>\n<td>ASCII string which identifies what message type is contained in the payload.  Followed by nulls (0x00) to pad out byte count; for example: <code>version\\0\\0\\0\\0\\0</code>.</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">4</td>\n<td>payload size</td>\n<td>uint32_t</td>\n<td>Number of bytes in payload.  The current maximum number of bytes (<a href=\"https://github.com/dashpay/dash/blob/v0.15.x/src/serialize.h#L29\"><code>MAX_SIZE</code></a>) allowed in the payload by Dash Core is 32 MiB---messages with a payload size larger than this will be dropped or rejected.</td>\n</tr>\n<tr>\n<td style=\"text-align:center\">4</td>\n<td>checksum</td>\n<td>char[4]</td>\n<td><em>Added in protocol version 209.</em> <br><br>First 4 bytes of SHA256(SHA256(payload)) in internal byte order.<br><br> If payload is empty, as in <code>verack</code> and <a href=\"core-ref-p2p-network-control-messages#getaddr\"><code>getaddr</code> messages</a>, the checksum is always 0x5df6e0e2 (SHA256(SHA256(&lt;empty string&gt;))).</td>\n</tr>\n</tbody>\n</table></div>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-example\"></div>Example<a class=\"fa fa-anchor\" href=\"#section-example\"></a></h1>\n<p>The following example is an annotated hex dump of a &lt;&lt;glossary:mainnet&gt;&gt; message header from a <a href=\"core-ref-p2p-network-control-messages#verack\"><code>verack</code> message</a> which has no payload.</p>\n<pre><code class=\"lang-text\">bf0c6bbd ................... Start string: Mainnet\n76657261636b000000000000 ... Command name: verack + null padding\n00000000 ................... Byte count: 0\n5df6e0e2 ................... Checksum: SHA256(SHA256(&lt;empty&gt;))\n</code></pre>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-p2p-network-message-headers", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "5e96055329a18c0025d391ec", 
+ "order": 2, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

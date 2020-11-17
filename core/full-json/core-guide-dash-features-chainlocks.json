@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5e96055329a18c0025d39201", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-05-28T20:34:35.308Z", 
+ "id": "5e96055329a18c0025d39203", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T19:39:09.938Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "Chainlocks", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-dash-features-privatesend", 
+    "type": "doc", 
+    "name": "Privatesend", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T19:07:51.295Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Dash's <<glossary:ChainLock>> feature leverages <<glossary:LLMQ>> Signing Requests/Sessions to reduce uncertainty when receiving funds and remove the possibility of 51% mining attacks.\n\nFor each block, an LLMQ of a few hundred <<glossary:masternodes>> (300-400) is selected and each participating member signs the first <<glossary:block>> that it sees extending the active chain at the current <<glossary:block height>>. If enough members (at least 240) see the same block as the first block, they will be able to create a [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) and propagate it to all <<glossary:nodes>> in the <<glossary:network>>.\n\nIf a valid [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig) is received by a node, it must reject all blocks (and any descendants) at the same height that do not match the block specified in the [`clsig` message](core-ref-p2p-network-instantsend-messages#clsig). This makes the decision on the active chain quick, easy and unambiguous. It also makes reorganizations below this block impossible.\n\nWith LLMQ-based <<glossary:InstantSend>>, a ChainLock is only attempted once all <<glossary:transactions>> in the block are locked via InstantSend. If a block contains unlocked transactions, retroactive InstantSend locks are established prior to a ChainLock.\n\nPlease read [DIP8 ChainLocks](https://github.com/dashpay/dips/blob/master/dip-0008.md) for additional details.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Dash&#39;s &lt;&lt;glossary:ChainLock&gt;&gt; feature leverages &lt;&lt;glossary:LLMQ&gt;&gt; Signing Requests/Sessions to reduce uncertainty when receiving funds and remove the possibility of 51% mining attacks.</p>\n<p>For each block, an LLMQ of a few hundred &lt;&lt;glossary:masternodes&gt;&gt; (300-400) is selected and each participating member signs the first &lt;&lt;glossary:block&gt;&gt; that it sees extending the active chain at the current &lt;&lt;glossary:block height&gt;&gt;. If enough members (at least 240) see the same block as the first block, they will be able to create a <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a> and propagate it to all &lt;&lt;glossary:nodes&gt;&gt; in the &lt;&lt;glossary:network&gt;&gt;.</p>\n<p>If a valid <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a> is received by a node, it must reject all blocks (and any descendants) at the same height that do not match the block specified in the <a href=\"core-ref-p2p-network-instantsend-messages#clsig\"><code>clsig</code> message</a>. This makes the decision on the active chain quick, easy and unambiguous. It also makes reorganizations below this block impossible.</p>\n<p>With LLMQ-based &lt;&lt;glossary:InstantSend&gt;&gt;, a ChainLock is only attempted once all &lt;&lt;glossary:transactions&gt;&gt; in the block are locked via InstantSend. If a block contains unlocked transactions, retroactive InstantSend locks are established prior to a ChainLock.</p>\n<p>Please read <a href=\"https://github.com/dashpay/dips/blob/master/dip-0008.md\">DIP8 ChainLocks</a> for additional details.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-dash-features-chainlocks", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 5, 
+ "_id": "5e96055329a18c0025d39203", 
+ "order": 1, 
+ "user": "5af39863989da435b05d284d"
+}

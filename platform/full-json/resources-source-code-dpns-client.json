@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5f8f3fa8b257f9003428ff50", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-24T00:34:59.017Z", 
+ "id": "5f8f3fa8b257f9003428ff75", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-12-24T00:34:59.017Z", 
+ "category": "5f8f3fa8b257f9003428ff42", 
+ "title": "DPNS Client", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5f8f3fa8b257f9003428ff97", 
+ "slugUpdatedAt": "2020-11-17T19:07:50.962Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "resources-source-code-dpns-client", 
+ "link_url": "https://github.com/dashevo/js-dpns-client", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5f8f3fa8b257f9003428ff75", 
+ "order": 5, 
+ "updates": []
+}

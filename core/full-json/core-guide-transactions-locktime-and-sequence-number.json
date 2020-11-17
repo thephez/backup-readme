@@ -1,0 +1,68 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "5e96055329a18c0025d39241", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-13T17:49:00.927Z", 
+ "id": "5e96055329a18c0025d39246", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-28T17:24:04.468Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "Locktime and Sequence Number", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-transactions-transaction-fees-and-change", 
+    "type": "doc", 
+    "name": "Transaction Fees and Change", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2020-11-17T19:07:51.109Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "One thing all signature hash types sign is the transaction's <<glossary:locktime>>. (Called nLockTime in the Dash Core source code.) The locktime indicates the earliest time a <<glossary:transaction>> can be added to the <<glossary:block chain>>.\n\nLocktime allows signers to create time-locked transactions which will only become valid in the future, giving the signers a chance to change their minds.\n\nIf any of the signers change their mind, they can create a new non-locktime transaction. The new transaction will use, as one of its <<glossary:inputs>>, one of the same <<glossary:outputs>> which was used as an input to the locktime transaction. This makes the locktime transaction invalid if the new transaction is added to the block chain before the time lock expires.\n\nCare must be taken near the expiry time of a time lock. The peer-to-peer <<glossary:network>> allows block time to be up to two hours ahead of real time, so a locktime transaction can be added to the block chain up to two hours before its time lock officially expires. Also, blocks are not created at guaranteed intervals, so any attempt to cancel a valuable transaction should be made a few hours before the time lock expires.\n\nPrevious versions of Dash Core provided a feature which prevented transaction signers from using the method described above to cancel a time-locked transaction, but a necessary part of this feature was disabled to prevent denial of service attacks. A legacy of this system is a four-byte <<glossary:sequence number>> in every input. Sequence numbers were meant to allow multiple signers to agree to update a transaction; when they finished updating the transaction, they could agree to set every input's sequence number to the four-byte unsigned maximum (0xffffffff), allowing the transaction to be added to a block even if its time lock had not expired.\n\nEven today, setting all sequence numbers to 0xffffffff (the default in Dash Core) can still disable the time lock, so if you want to use locktime, at least one input must have a sequence number below the maximum. Since sequence numbers are not used by the network for any other purpose, setting any sequence number to zero is sufficient to enable locktime.\n\n<span id=\"locktime_parsing_rules\">Locktime itself is an unsigned 4-byte integer which can be parsed two ways:</span>\n\n* If less than 500 million, locktime is parsed as a <<glossary:block height>>. The transaction can be added to any block which has this height or higher.\n\n* If greater than or equal to 500 million, locktime is parsed using the Unix epoch time format (the number of seconds elapsed since 1970-01-01T00:00 UTC---currently over 1.395 billion). The transaction can be added to any block whose block time is greater than the locktime.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>One thing all signature hash types sign is the transaction&#39;s &lt;&lt;glossary:locktime&gt;&gt;. (Called nLockTime in the Dash Core source code.) The locktime indicates the earliest time a &lt;&lt;glossary:transaction&gt;&gt; can be added to the &lt;&lt;glossary:block chain&gt;&gt;.</p>\n<p>Locktime allows signers to create time-locked transactions which will only become valid in the future, giving the signers a chance to change their minds.</p>\n<p>If any of the signers change their mind, they can create a new non-locktime transaction. The new transaction will use, as one of its &lt;&lt;glossary:inputs&gt;&gt;, one of the same &lt;&lt;glossary:outputs&gt;&gt; which was used as an input to the locktime transaction. This makes the locktime transaction invalid if the new transaction is added to the block chain before the time lock expires.</p>\n<p>Care must be taken near the expiry time of a time lock. The peer-to-peer &lt;&lt;glossary:network&gt;&gt; allows block time to be up to two hours ahead of real time, so a locktime transaction can be added to the block chain up to two hours before its time lock officially expires. Also, blocks are not created at guaranteed intervals, so any attempt to cancel a valuable transaction should be made a few hours before the time lock expires.</p>\n<p>Previous versions of Dash Core provided a feature which prevented transaction signers from using the method described above to cancel a time-locked transaction, but a necessary part of this feature was disabled to prevent denial of service attacks. A legacy of this system is a four-byte &lt;&lt;glossary:sequence number&gt;&gt; in every input. Sequence numbers were meant to allow multiple signers to agree to update a transaction; when they finished updating the transaction, they could agree to set every input&#39;s sequence number to the four-byte unsigned maximum (0xffffffff), allowing the transaction to be added to a block even if its time lock had not expired.</p>\n<p>Even today, setting all sequence numbers to 0xffffffff (the default in Dash Core) can still disable the time lock, so if you want to use locktime, at least one input must have a sequence number below the maximum. Since sequence numbers are not used by the network for any other purpose, setting any sequence number to zero is sufficient to enable locktime.</p>\n<p><span id=\"locktime_parsing_rules\">Locktime itself is an unsigned 4-byte integer which can be parsed two ways:</span></p>\n<ul>\n<li ><p>If less than 500 million, locktime is parsed as a &lt;&lt;glossary:block height&gt;&gt;. The transaction can be added to any block which has this height or higher.</p>\n</li><li ><p>If greater than or equal to 500 million, locktime is parsed using the Unix epoch time format (the number of seconds elapsed since 1970-01-01T00:00 UTC---currently over 1.395 billion). The transaction can be added to any block whose block time is greater than the locktime.</p>\n</li></ul>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-transactions-locktime-and-sequence-number", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "5e96055329a18c0025d39246", 
+ "order": 5, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

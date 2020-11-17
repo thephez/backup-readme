@@ -1,0 +1,28 @@
+[block:callout]
+{
+  "type": "warning",
+  "body": "Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and offers no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.",
+  "title": "Advanced Topic"
+}
+[/block]
+# Config File
+
+ The config file shown below may be used to connect a Dash Core node to Evonet. Evonet currently operates using [Dash Core v0.16.0.1](https://github.com/dashpay/dash/releases/tag/v0.16.0.1).
+[block:code]
+{
+  "codes": [
+    {
+      "code": "devnet=evonet-8\n\n[devnet]\n# The [devnet] section heading is required as of Dash Core 0.16\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=seed-1.evonet.networks.dash.org:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
+      "language": "text",
+      "name": "dash-evonet.conf"
+    }
+  ]
+}
+[/block]
+# Starting Dash Core
+
+To start Dash Core and connect to Evonet, simply run dashd or dash-qt with the `conf` parameter set to the configuration file created above: `<path to binary> -conf=<path to configuration file>`
+
+```shell Start dashd on Evonet
+dashd -conf=/home/dash/.dashcore/dash-evonet.conf
+```
