@@ -29,7 +29,12 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 }
 [/block]
 The Identity will be output to the console. The Identity will need to have one confirmation before it is accessible via `client.platform.identity.get`.
-
+[block:callout]
+{
+  "type": "success",
+  "body": "**Make a note of the returned identity `id` as it will be used used in subsequent tutorials throughout the documentation.**"
+}
+[/block]
 # What's Happening
 
 After connecting to the Client, we call `platform.identities.register`. This will generate a keypair and submit an _Identity Open Transaction_. After the Identity is registered, we output it to the console.

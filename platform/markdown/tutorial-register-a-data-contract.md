@@ -101,6 +101,13 @@ The following examples demonstrate the details of creating contracts using the f
   ]
 }
 [/block]
+
+[block:callout]
+{
+  "type": "success",
+  "body": "**Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**"
+}
+[/block]
 # What's Happening
 
 After we initialize the Client, we create an object defining the documents this data contract requires (e.g. a `note` document in the example). The `platform.contracts.create` method takes two arguments: a contract definitions JSON-schema object and an identity. The contract definitions object consists of the document types being created (e.g. `note`). It defines the properties and any indices. 

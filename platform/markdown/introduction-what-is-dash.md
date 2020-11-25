@@ -1,3 +1,24 @@
+[block:image]
+{
+  "images": [
+    {
+      "image": [
+        "https://files.readme.io/92cc368-how-it-works-2.svg",
+        "how-it-works-2.svg",
+        132,
+        150,
+        "#e9f8ff"
+      ]
+    }
+  ]
+}
+[/block]
+
+[block:html]
+{
+  "html": "<div></div>\n\n<style>\n .markdown-body img {\n float: right;\n margin-left: 30px;\n /*width: 25%;*/\n max-width: 25%; /*400px;*/\n height: auto;  \n}\n</style>"
+}
+[/block]
 Dash is a next generation, p2p payments network and cryptocurrency where transactions are recorded on the blockchain: a decentralized, distributed, public ledger. It provides users with a digital currency that is secure, portable, and fungible.
 
 # Key Advantages

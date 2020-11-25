@@ -25,7 +25,7 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2019-10-23T22:38:58.439Z", 
+ "updatedAt": "2020-11-24T18:15:01.170Z", 
  "id": "5e96055329a18c0025d391f2", 
  "sync_unique": "", 
  "isApi": false, 
@@ -80,7 +80,7 @@
   ]
  }, 
  "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2020-11-17T22:22:00.087Z", 
+ "slugUpdatedAt": "2020-11-24T05:14:26.299Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -88,9 +88,9 @@
   "description": "", 
   "title": ""
  }, 
- "body": "The following subsections briefly document core transaction details.", 
+ "body": "The following subsections briefly document core transaction details.\n\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/0a51d76-businessplan.svg\",\n        \"businessplan.svg\",\n        300,\n        86,\n        \"#0045db\"\n      ],\n      \"sizing\": \"75\"\n    }\n  ]\n}\n[/block]", 
  "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>", 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core transaction details.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/0a51d76-businessplan.svg\" class=\"block-display-image-parent block-display-image-size-75 \"><img src=\"https://files.readme.io/0a51d76-businessplan.svg\"/></a>\n\t</figure>\n</div>", 
  "updates": [], 
  "isReference": false, 
  "slug": "core-ref-transactions", 

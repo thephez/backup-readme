@@ -25,7 +25,7 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2020-05-28T20:41:31.158Z", 
+ "updatedAt": "2020-11-24T18:19:31.844Z", 
  "id": "5e96055329a18c0025d391e9", 
  "sync_unique": "", 
  "isApi": false, 
@@ -122,7 +122,7 @@
   ]
  }, 
  "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2020-11-17T22:21:57.724Z", 
+ "slugUpdatedAt": "2020-11-24T04:36:43.878Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -130,9 +130,9 @@
   "description": "", 
   "title": ""
  }, 
- "body": "This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <<glossary:BIP70 payment protocol>>, the [GetBlockTemplate mining protocol](core-guide-mining-block-prototypes#getblocktemplate-rpc), or any network protocol never implemented in an official version of Dash Core.\n\nAll peer-to-peer communication occurs entirely over TCP.\n[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.\"\n}\n[/block]", 
+ "body": "This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <<glossary:BIP70 payment protocol>>, the [GetBlockTemplate mining protocol](core-guide-mining-block-prototypes#getblocktemplate-rpc), or any network protocol never implemented in an official version of Dash Core.\n\nAll peer-to-peer communication occurs entirely over TCP.\n[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.\"\n}\n[/block]\n\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/2f6f207-home-map-1.svg\",\n        \"home-map-1.svg\",\n        259,\n        150,\n        \"#000000\"\n      ],\n      \"sizing\": \"55\"\n    }\n  ]\n}\n[/block]", 
  "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the &lt;&lt;glossary:BIP70 payment protocol&gt;&gt;, the <a href=\"core-guide-mining-block-prototypes#getblocktemplate-rpc\">GetBlockTemplate mining protocol</a>, or any network protocol never implemented in an official version of Dash Core.</p>\n<p>All peer-to-peer communication occurs entirely over TCP.</p>\n\n</div>\n<div class=\"magic-block-callout type-warning no-title\"><span class=\"noTitleIcon\"><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.</p>\n\n\t</div>\n</div>", 
+ "body_html": "<div class=\"magic-block-textarea\"><p>This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the &lt;&lt;glossary:BIP70 payment protocol&gt;&gt;, the <a href=\"core-guide-mining-block-prototypes#getblocktemplate-rpc\">GetBlockTemplate mining protocol</a>, or any network protocol never implemented in an official version of Dash Core.</p>\n<p>All peer-to-peer communication occurs entirely over TCP.</p>\n\n</div>\n<div class=\"magic-block-callout type-warning no-title\"><span class=\"noTitleIcon\"><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i></span>\n\t<div class=\"callout-body\"><p>Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/2f6f207-home-map-1.svg\" class=\"block-display-image-parent block-display-image-size-55 \"><img src=\"https://files.readme.io/2f6f207-home-map-1.svg\"/></a>\n\t</figure>\n</div>", 
  "updates": [], 
  "isReference": false, 
  "slug": "core-ref-p2p-network", 
@@ -141,5 +141,5 @@
  "__v": 6, 
  "_id": "5e96055329a18c0025d391e9", 
  "order": 4, 
- "user": "5af39863989da435b05d284d"
+ "user": "5b8400d7185d5e00036dcc3b"
 }
