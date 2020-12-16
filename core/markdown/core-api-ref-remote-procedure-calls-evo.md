@@ -2073,13 +2073,7 @@ Result:
 ## Quorum Sign
 
 The `quorum sign` RPC requests threshold-signing for a message.
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: Used for RegTest testing only.",
-  "title": "Regtest Network Only"
-}
-[/block]
+
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description

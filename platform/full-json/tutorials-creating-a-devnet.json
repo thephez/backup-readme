@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "5f8f3fa8b257f9003428ff97", 
- "slugUpdatedAt": "2020-12-09T13:41:12.792Z", 
+ "slugUpdatedAt": "2020-12-16T13:35:14.680Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -55,6 +55,6 @@
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "5f8f3fa8b257f9003428ff56", 
- "order": 17, 
+ "order": 18, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

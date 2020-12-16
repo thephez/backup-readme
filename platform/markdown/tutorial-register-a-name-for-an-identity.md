@@ -33,7 +33,7 @@ Additional details regarding identities can be found in the [Identity descriptio
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerName = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const nameRegistration = await platform.names.register(\n    'a name goes here',\n    { dashUniqueIdentityId: identity.getId() },\n    identity,\n  );\n\n  return nameRegistration;\n};\n\nregisterName()\n  .then((d) => console.log('Name registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerName = async () => {\n  const platform = client.platform;\n\n  const identity = await platform.identities.get('an identity ID goes here');\n  const nameRegistration = await platform.names.register(\n    '<identity name goes here>.dash',\n    { dashUniqueIdentityId: identity.getId() },\n    identity,\n  );\n\n  return nameRegistration;\n};\n\nregisterName()\n  .then((d) => console.log('Name registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "Register Name for Identity"
     },
