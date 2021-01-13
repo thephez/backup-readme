@@ -43,6 +43,14 @@ spentindex=1
 }
 [/block]
 Since Dash Core 0.16 it is possible for a single configuration file to set different options for different networks. This is done by using sections or by prefixing the option with the network as shown below:
+[block:callout]
+{
+  "type": "danger",
+  "title": "Valid Section Names",
+  "body": "Please note that the valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
