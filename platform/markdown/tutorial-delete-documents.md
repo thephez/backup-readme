@@ -17,11 +17,19 @@ In this tutorial we will update delete data from Dash Platform. Data is stored i
 }
 [/block]
 
+[block:callout]
+{
+  "type": "warning",
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'evonet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n  apps: {\n    tutorialContract: {\n      contractId: 'Q894cs83D8REQNo7mAetj1wPJK2W3svrwqaN61aP25W',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst deleteNoteDocument = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const documentId = 'an existing document ID goes here';\n\n  // Retrieve the existing document\n  const [document] = await client.platform.documents.get(\n    'tutorialContract.note',\n    { where: [['$id', '==', documentId]] },\n  );\n\n  // Sign and submit the document delete transition\n  return platform.documents.broadcast({ delete: [document] }, identity);\n};\n\ndeleteNoteDocument()\n  .then((d) => console.log('Document deleted:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n  },\n  apps: {\n    tutorialContract: {\n      contractId: '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst deleteNoteDocument = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const documentId = 'an existing document ID goes here';\n\n  // Retrieve the existing document\n  const [document] = await client.platform.documents.get(\n    'tutorialContract.note',\n    { where: [['$id', '==', documentId]] },\n  );\n\n  // Sign and submit the document delete transition\n  return platform.documents.broadcast({ delete: [document] }, identity);\n};\n\ndeleteNoteDocument()\n  .then((d) => console.log('Document deleted:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

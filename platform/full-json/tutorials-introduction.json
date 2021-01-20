@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "tutorials-overview", 
  "updatedAt": "2020-11-23T14:34:45.855Z", 
- "id": "5fb539a9374a4a0011fa4329", 
+ "id": "5fd7ce777afee60053b2953e", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-11-18T15:11:37.636Z", 
- "category": "5f8f3fa8b257f9003428ff41", 
+ "category": "5fd7ce777afee60053b294e7", 
  "title": "Introduction", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
+ "version": "5fd7ce777afee60053b29540", 
  "slugUpdatedAt": "2020-11-18T15:14:05.220Z", 
  "hidden": false, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5fb539a9374a4a0011fa4329", 
+ "_id": "5fd7ce777afee60053b2953e", 
  "order": 0, 
  "updates": []
 }

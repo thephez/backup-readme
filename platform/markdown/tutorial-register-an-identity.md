@@ -13,8 +13,16 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 [block:callout]
 {
   "type": "warning",
-  "body": "Early versions of Dash Platform did not check if a public key was already used when creating an identity. As of Dash Platform Protocol v0.13, validation ensures that a public key can only be associated with a single identity.",
+  "body": "Since Dash Platform Protocol v0.13, a public key can only be associated with a single identity.",
   "title": "Identity public key reuse"
+}
+[/block]
+
+[block:callout]
+{
+  "type": "warning",
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
 }
 [/block]
 
@@ -22,7 +30,7 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'evonet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst createIdentity = async () => {\n  return client.platform.identities.register();\n};\n\ncreateIdentity()\n  .then((d) => console.log('Identity:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst createIdentity = async () => {\n  return client.platform.identities.register();\n};\n\ncreateIdentity()\n  .then((d) => console.log('Identity:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
@@ -37,4 +45,4 @@ The Identity will be output to the console. The Identity will need to have one c
 [/block]
 # What's Happening
 
-After connecting to the Client, we call `platform.identities.register`. This will generate a keypair and submit an _Identity Open Transaction_. After the Identity is registered, we output it to the console.
+After connecting to the Client, we call `platform.identities.register`. This will generate a keypair and submit an _Identity Create State Transaction_. After the Identity is registered, we output it to the console.

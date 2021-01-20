@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-11-17T20:53:02.142Z", 
- "id": "5fb4165ef5405d00538fcf99", 
+ "id": "5fd7ce777afee60053b2953d", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-11-17T18:28:46.114Z", 
- "category": "5f8f3fa8b257f9003428ff46", 
+ "category": "5fd7ce777afee60053b294ec", 
  "title": "Overview", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
+ "version": "5fd7ce777afee60053b29540", 
  "slugUpdatedAt": "2020-11-17T16:51:25.180Z", 
  "hidden": false, 
  "type": "basic", 
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 3, 
- "_id": "5fb4165ef5405d00538fcf99", 
+ "_id": "5fd7ce777afee60053b2953d", 
  "order": 0, 
  "updates": []
 }

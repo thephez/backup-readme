@@ -12,8 +12,13 @@ Identities consist of three components that are described in further detail in f
 | balance | integer | Credit balance associated with the identity |
 | revision | integer | Identity update revision |
 
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/identity/identity.json):
-
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/identity/identity.json):
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: as of Dash Platform 0.17.0, the maximum number of publicKeys is 32"
+}
+[/block]
 ```json
 {
   "$schema": "http://json-schema.org/draft-07/schema",
@@ -34,7 +39,7 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
     "publicKeys": {
       "type": "array",
       "minItems": 1,
-      "maxItems": 100,
+      "maxItems": 32,
       "uniqueItems": true
     },
     "balance": {
@@ -89,7 +94,7 @@ The identity `id` is calculated by Base58 encoding the double sha256 hash of the
     );
 ```
 
-**Note:** The identity `id` uses the Dash Platform specific `application/x.dash.dpp.identifier` content media type. For additional information, please refer to the [js-dpp PR 252](https://github.com/dashevo/js-dpp/pull/252) that introduced it and [Identifier.js](https://github.com/dashevo/js-dpp/blob/v0.16.0/lib/identifier/Identifier.js).
+**Note:** The identity `id` uses the Dash Platform specific `application/x.dash.dpp.identifier` content media type. For additional information, please refer to the [js-dpp PR 252](https://github.com/dashevo/js-dpp/pull/252) that introduced it and [Identifier.js](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/identifier/Identifier.js).
 
 ## Identity publicKeys
 
@@ -107,7 +112,7 @@ Each item in the `publicKeys` array consists an object containing:
 
 **Note:** the `isEnabled` field was removed in [version 0.16](https://github.com/dashevo/js-dpp/pull/236).
 
-Each identity public key must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/identity/publicKey.json):
+Each identity public key must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/identity/publicKey.json):
 
 ```json
 {
@@ -225,7 +230,11 @@ const dataHex = rawPublicKey.data.toString('hex');
 
 Each identity has a balance of credits established by value locked via a layer 1 lock transaction. This credit balance is used to pay the fees associated with state transitions.
 
-# Identity Creation
+# Identity State Transition Details
+
+There are two identity-related state transitions: [identity create](#identity-creation) and [identity topup](#identity-topup). Details are provided in this section including information about [asset locking](#asset-lock) and [signing](#identity-state-transition-signing) required for both state transitions.
+
+## Identity Creation
 
 Identities are created on the platform by submitting the identity information in an identity create state transition.
 
@@ -233,13 +242,11 @@ Identities are created on the platform by submitting the identity information in
 | - | - | - |
 | protocolVersion | integer | The identity create protocol version (currently `0`) |
 | type | integer | State transition type (`2` for identity create) |
-| lockedOutPoint | array of bytes | Lock [outpoint]([https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint)) from the layer 1 locking transaction (36 bytes) |
+| assetLock | object | [Asset lock object](#asset-lock) proving the layer 1 locking transaction exists and is locked |
 | publicKeys | array of keys | [Public key(s)](#identity-publickeys) associated with the identity |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
-**Note:** The lock transaction that creates the `lockedOutPoint` is not covered in this document. The preliminary design simply uses an `OP_RETURN` output.
-
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/identity/stateTransition/identityCreate.json):
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/identity/stateTransition/identityCreate.json):
 
 ```json
 {
@@ -255,11 +262,8 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
       "type": "integer",
       "const": 2
     },
-    "lockedOutPoint": {
-      "type": "array",
-      "byteArray": true,
-      "minItems": 36,
-      "maxItems": 36
+    "assetLock": {
+      "type": "object"
     },
     "publicKeys": {
       "type": "array",
@@ -278,7 +282,7 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
   "required": [
     "protocolVersion",
     "type",
-    "lockedOutPoint",
+    "assetLock",
     "publicKeys",
     "signature"
   ]
@@ -288,23 +292,29 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
 **Example State Transition**
 
 ```json
-
 {
   "protocolVersion": 0,
   "type": 2,
-  "signature": "ILoF6DKZPpDMJTlBjwiY05v7/3LEcJcLlwgmg6wvltT7St15F4oesX8cd+yNtosIQ6rgCx7o3m+OeJM49HWk880=",
-  "lockedOutPoint": "kSALb/mPrS7H83szmJ5EJYIKUPI1QFXN9Zv60lCSvIMAAAAA",
+  "signature": "IO15T6RCXSH2qHEYYBinXy8n+/E8AhEqNRFngPrxoZ+WT9Y4dF89uuUgzfTsK+L0FiTg6JQynk32IhII4XdBfLg=",
+  "assetLock": {
+    "transaction": "03000000011dc6578c8c60d1fa1e5ed3d9581a8028b2e9b08b1b8cd3d9535c56b69c77c743010000006a473044022063532c0f1cddc1dfcde853350204a44e747c9c575b2aa5d301fab633e69b28420220617c60520a0125d219c50000b24402adf01f9cfe81ea8996f5996cf2efb86d710121027369081c5d755fe493f1019c48911d2b0e2571d4c9a175e0a2620ccc7ad790a4ffffffff021027000000000000166a1445e54b74b591b28cde362b693186faf7ad2909ca905ce60e000000001976a914b07d21cb4aab2d4cd5fd2f636490bb4182fd2f6188ac00000000",
+    "outputIndex": 0,
+    "proof": {
+      "type": 0,
+      "instantLock": "AR3GV4yMYNH6Hl7T2VgagCiy6bCLG4zT2VNcVracd8dDAQAAAJirJim2+gA55+jG99faJMObo/kQtVkY+G6LBk6eNPOiDbqp+g4Tf735y3gm/ykFmZKxM5Q+kZn3pe4bPQCu8V4E6bKrhDUE80ZMSavYcGHXF86oSeeoqgejvs3wQlrntbxg3j5x8rZvF0CYJAzXgrF6N4IcGotA7gxE/HYOgJEU"
+    }
+  },
   "publicKeys": [
     {
       "id": 0,
       "type": 0,
-      "data": "A3imAPz+S1aP+keuUYpRvq9JD3Vn4+0nN5UydeV5JiIP"
+      data: "AslQmm/K+kjV5GcUudY4GsAvcTd+v/4dE2G740AFdPeN"
     }
   ]
 }
 ```
 
-# Identity TopUp
+## Identity TopUp
 
 Identity credit balances are increased by submitting the topup information in an identity topup state transition.
 
@@ -312,13 +322,11 @@ Identity credit balances are increased by submitting the topup information in an
 | - | - | - |
 | protocolVersion | integer | The identity topup protocol version (currently `0`) |
 | type | integer | State transition type (`3` for identity topup) |
-| lockedOutPoint | array of bytes | Lock [outpoint]([https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint)) from the layer 1 locking transaction (36 bytes) |
+| assetLock | object | [Asset lock object](#asset-lock) proving the layer 1 locking transaction exists and is locked |
 | identityId | array of bytes | An [Identity ID](#identity-id) for the identity receiving the topup (can be any identity) (32 bytes) |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
-**Note:** The lock transaction that creates the `lockedOutPoint` is not covered in this document. The preliminary design simply uses an `OP_RETURN` output.
-
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/identity/stateTransition/identityTopUp.json):
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/identity/stateTransition/identityTopUp.json):
 
 ```json
 {
@@ -334,11 +342,8 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
       "type": "integer",
       "const": 3
     },
-    "lockedOutPoint": {
-      "type": "array",
-      "byteArray": true,
-      "minItems": 36,
-      "maxItems": 36
+    "assetLock": {
+      "type": "object"
     },
     "identityId": {
       "type": "array",
@@ -358,7 +363,7 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
   "required": [
     "protocolVersion",
     "type",
-    "lockedOutPoint",
+    "assetLock",
     "identityId",
     "signature"
   ]
@@ -371,13 +376,105 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
 {
   "protocolVersion": 0,
   "type": 3,
-  "signature": "IGsZ6qDhSvrACTo+PpAvmWrlnnSzmKjNJVPBjXAMweFBVtPDPdDHBNomsEzzPo9BHPMPCTK9882omofGFot41iY=",
-  "identityId": "7NUbPf231ixt1kVBQsBvSMMBxd7AgPad8KtdtfFGhXDP",
-  "lockedOutPoint": "KSP1RVZdVG1R5OkaK8LTjccTC6eaWTWiAt+6YMp5fzwAAAAA"
+  "signature": "IGXSpVuY8hqrfbISrBfFPBtYd3x4O+Jzf6263WMtQluuRsAtLpx3EQKYbsKl6wwRdUuKrtGQkd7KRY7XsuSI9iU=",
+  "identityId": "EseVWo8sXWKjvp8VidwT2xBy5q9RHqMbra9iyHJB4uxp",
+  "assetLock": {
+    "transaction": "030000000198ab2629b6fa0039e7e8c6f7d7da24c39ba3f910b55918f86e8b064e9e34f3a2010000006a47304402203df77552c1e1680c1b91acb91676ad565d80f5a36633ba8139889af6472e35d9022014fdb848a167a31e39f2d12c5c724b2d9ff13dd3d6417ac2a1635a16b51f0e47012102e3aaadeb2800220bad531558888a47d5a03d0bdda21a30823594591d3f177429ffffffff02e803000000000000166a142c9dc681ab0512cd2395daa894d0fd9a8cc7b2e9c054e60e000000001976a914d6c0bedc22dacb338b869bbe77e677cf924702e288ac00000000",
+    "outputIndex": 0,
+    "proof": {
+      "type": 0,
+      "instantLock": "AZirJim2+gA55+jG99faJMObo/kQtVkY+G6LBk6eNPOiAQAAAG0TCt0zY6GexLs/NsjCXcyq4kqLgxnr0NWIDgf+FwFqFVNzc06l8lrPywHddUgWYSyUCPUQdsmTiiJgBPLzvpcfWm75wOcYw+4vJUhRxSLBBXfz1PkBeMPySzF9Gnf2Y+83ZsT8AY8UWK4FB/xkEHLkKHQOKtqYtMaCWcYV6j1h"
+    }
+  }
 }
 ```
 
-# Identity State Transition Signing
+## Asset Lock
+[block:callout]
+{
+  "type": "success",
+  "body": "Added in Dash Platform 0.17"
+}
+[/block]
+The [identity create](#identity-creation) and [identity topup](#identity-topup) state transitions both include an asset lock object. This object references includes the layer 1 lock transaction and includes proof that the transaction is locked.
+
+| Field | Type | Description|
+| - | - | - |
+| transaction | array of bytes | The asset lock transaction |
+| outputIndex | integer | Index of the transaction output to be used |
+| proof | object | Proof that the transaction is locked via InstantSend or ChainLocks |
+
+Each asset lock object must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/identity/stateTransition/assetLock/assetLock.json):
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "properties": {
+    "transaction": {
+      "type": "array",
+      "byteArray": true,
+      "minItems": 1,
+      "maxItems": 100000
+    },
+    "outputIndex": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "proof": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "integer",
+          "enum": [0]
+        }
+      },
+      "required": ["type"]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "transaction",
+    "outputIndex",
+    "proof"
+  ]
+}
+```
+
+### Asset Lock Proof
+
+Currently only InstantSend locks are accepted as proofs.
+
+| Field | Type | Description|
+| - | - | - |
+| type | integer | The asset lock proof type (`0` for InstantSend locks) |
+| instantLock | array of bytes | The InstantSend lock ([`islock`?](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock)) |
+
+Asset locks using an InstantSend lock as proof must comply with this JSON-Schema definition established in [js-dpp](https://raw.githubusercontent.com/dashevo/js-dpp/v0.17.0/schema/identity/stateTransition/assetLock/proof/instantAssetLockProof.json):
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "properties": {
+    "type": {
+      "type": "integer",
+      "const": 0
+    },
+    "instantLock": {
+      "type": "array",
+      "byteArray": true,
+      "minItems": 165,
+      "maxItems": 100000
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "type",
+    "instantLock"
+  ]
+}
+```
+
+## Identity State Transition Signing
 
 **Note:** The identity create and topup state transition signatures are unique in that they must be signed by the private key used in the layer 1 locking transaction. All other state transitions will be signed by a private key of the identity submitting them.
 

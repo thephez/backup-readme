@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-01-20T15:16:34.958Z", 
+ "id": "60084660d56673029846e596", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-01-20T15:04:00.143Z", 
+ "category": "5fd7ce777afee60053b294ea", 
+ "title": "Platform Consensus", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5fd7ce777afee60053b29540", 
+ "slugUpdatedAt": "2021-01-20T10:24:09.777Z", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Dash Platform consensus is provided by Drive which uses Tenderdash - a fork of Tendermint modified to meet platform requirements - to operate the platform chain.\n\n# Tenderdash\n\nTenderdash is a fork of Tendermint modified leverage meet Dash Platform requirements. Additionally, it is being updated to integrate some improvements that leverage Dash's long-living masternode quorums (LLMQ). Specifically ... validator sets using LLMQs, BLS signing, etc.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Dash Platform consensus is provided by Drive which uses Tenderdash - a fork of Tendermint modified to meet platform requirements - to operate the platform chain.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-tenderdash\"></div>Tenderdash<a class=\"fa fa-anchor\" href=\"#section-tenderdash\"></a></h1>\n<p>Tenderdash is a fork of Tendermint modified leverage meet Dash Platform requirements. Additionally, it is being updated to integrate some improvements that leverage Dash&#39;s long-living masternode quorums (LLMQ). Specifically ... validator sets using LLMQs, BLS signing, etc.</p>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "explanation-platform-consensus", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "60084660d56673029846e596", 
+ "order": 6, 
+ "updates": []
+}

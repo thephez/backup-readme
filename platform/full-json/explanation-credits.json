@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-06-02T21:01:20.910Z", 
- "id": "5f8f3fa8b257f9003428ff8c", 
+ "id": "5fd7ce777afee60053b29531", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-06-02T21:01:13.824Z", 
- "category": "5f8f3fa8b257f9003428ff44", 
+ "category": "5fd7ce777afee60053b294ea", 
  "title": "Credits", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
- "slugUpdatedAt": "2021-01-20T10:23:50.590Z", 
+ "version": "5fd7ce777afee60053b29540", 
+ "slugUpdatedAt": "2021-01-20T10:24:16.740Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5f8f3fa8b257f9003428ff8c", 
- "order": 5, 
+ "_id": "5fd7ce777afee60053b29531", 
+ "order": 7, 
  "updates": []
 }

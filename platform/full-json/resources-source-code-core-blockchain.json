@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5f8f3fa8b257f9003428ff50", 
+ "parentDoc": "5fd7ce777afee60053b294f6", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-24T21:22:11.281Z", 
- "id": "5f8f3fa8b257f9003428ff51", 
+ "id": "5fd7ce777afee60053b294f7", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-08-01T13:39:55.864Z", 
- "category": "5f8f3fa8b257f9003428ff42", 
+ "category": "5fd7ce777afee60053b294e8", 
  "title": "Core (Layer 1 Protocol)", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
- "slugUpdatedAt": "2021-01-20T12:08:17.452Z", 
+ "version": "5fd7ce777afee60053b29540", 
+ "slugUpdatedAt": "2021-01-20T11:10:36.761Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "https://github.com/dashpay/dash", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5f8f3fa8b257f9003428ff51", 
+ "_id": "5fd7ce777afee60053b294f7", 
  "order": 9, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

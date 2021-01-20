@@ -9,11 +9,18 @@ In this tutorial we will retrieve the list of identities associated with a speci
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
 
 # Code
+[block:callout]
+{
+  "type": "warning",
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
+}
+[/block]
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  network: 'evonet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n});\n\nconst retrieveIdentityIds = async () => {\n  const account = await client.getWalletAccount();\n  return account.getIdentityIds();\n};\n\nretrieveIdentityIds()\n  .then((d) => console.log('Mnemonic identities:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n  },\n});\n\nconst retrieveIdentityIds = async () => {\n  const account = await client.getWalletAccount();\n  return account.getIdentityIds();\n};\n\nretrieveIdentityIds()\n  .then((d) => console.log('Mnemonic identities:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

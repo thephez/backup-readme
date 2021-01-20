@@ -49,6 +49,10 @@ Describes data structures and validation rules for the data structures used by t
 ## Decentralized Autonomous Organization (DAO)
 An organization where decision making is governed according to a set of rules that is transparent, controlled by organization members, and lacking any central authority. Financial records are tracked using a blockchain, which provides the transparency and trust required by organization members. 
 
+## Direct Settlement Payment Channel (DSPC)
+
+In DashPay, established contacts have address spaces to send and receive from each other. When these are present either in one way or bi-directional we will call this a direct settlement payment channel.
+
 ## Distributed Key Generation (DKG)
 Distributed key generation (DKG) is a cryptographic process in which multiple parties contribute to the calculation of a shared public and private key set. In Dash, DKG is used to generate a BLS key pair for use in a [long-living masternode quorum](#long-living-masternode-quorum-llmq) (LLMQ) to perform threshold signing on network messages. Further detail can be found in [DIP-6 Long-Living Masternode Quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#llmq-dkg-network-protocol).
 

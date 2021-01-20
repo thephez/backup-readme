@@ -14,7 +14,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveContract = async () => {\n  const contractId = 'Q894cs83D8REQNo7mAetj1wPJK2W3svrwqaN61aP25W';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveContract = async () => {\n  const contractId = '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
@@ -27,7 +27,7 @@ The following example response shows a retrieved contract:
 {
   "codes": [
     {
-      "code": "{\n  \"protocolVersion\": 0,\n  \"$id\": \"E18yBYfRLa4HiKgYevL6EEhVZ4HssBgGoiV8pwb1EaQb\",\n  \"$schema\": \"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n  \"ownerId\": \"bKad7BSN23Yr4s6DHUQnNgUTGK4RMPx1LYuqoxRvMcv\",\n  \"documents\": {\n    \"note\": {\n      \"properties\": {\n        \"message\": {\n          \"type\": \"string\"\n        }\n      },\n      \"additionalProperties\": false\n    }\n  }\n}",
+      "code": "{\n  \"protocolVersion\": 0,\n  \"$id\": \"6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi\",\n  \"$schema\": \"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n  \"ownerId\": \"BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf\",\n  \"documents\": {\n    \"note\": {\n      \"properties\": {\n        \"message\": {\n          \"type\": \"string\"\n        }\n      },\n      \"additionalProperties\": false\n    }\n  }\n}",
       "language": "json"
     }
   ]

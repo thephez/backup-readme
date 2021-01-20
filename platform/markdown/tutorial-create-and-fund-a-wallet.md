@@ -1,6 +1,6 @@
 # Overview
 
-In order to make changes on Dash platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.
+In order to make changes on Dash Platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.
 
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
@@ -8,11 +8,19 @@ In order to make changes on Dash platform, you need a wallet with a balance. Thi
 - The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
 
 # Code
+[block:callout]
+{
+  "type": "warning",
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'evonet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n                    // if you want to get a new address for an existing wallet\n                    // replace 'null' with an existing wallet mnemonic\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n                    // if you want to get a new address for an existing wallet\n                    // replace 'null' with an existing wallet mnemonic\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
@@ -40,8 +48,8 @@ In order to make changes on Dash platform, you need a wallet with a balance. Thi
 [/block]
 # What's Happening
 
-Once we connect to Evonet, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `account.getUnusedAddress()`.
+Once we connect, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `account.getUnusedAddress()`.
 
 # Next Step
 
-Using the Evonet faucet at http://faucet.evonet.networks.dash.org/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is an Evonet block explorer running at http://insight.evonet.networks.dash.org:3001/insight/ which can be used to check confirmations.
+Using the faucet at http://testnet-452625393.us-west-2.elb.amazonaws.com/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at https://testnet-insight.dashevo.org/insight/ which can be used to check confirmations.

@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-10-20T20:01:03.154Z", 
- "id": "5f8f3fa8b257f9003428ff6c", 
+ "id": "5fd7ce777afee60053b29512", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-03T13:47:42.588Z", 
- "category": "5f8f3fa8b257f9003428ff44", 
+ "category": "5fd7ce777afee60053b294ea", 
  "title": "Platform Protocol (DPP)", 
  "next": {
   "description": "", 
@@ -59,7 +59,7 @@
    }
   ]
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
+ "version": "5fd7ce777afee60053b29540", 
  "slugUpdatedAt": "2020-10-20T19:33:58.651Z", 
  "hidden": false, 
  "type": "basic", 
@@ -79,7 +79,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 5, 
- "_id": "5f8f3fa8b257f9003428ff6c", 
+ "_id": "5fd7ce777afee60053b29512", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-12-30T22:23:46.347Z", 
+ "id": "5fecfdf2bba85b001d332692", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2020-12-30T22:23:46.347Z", 
+ "category": "5fd7ce777afee60053b294e8", 
+ "title": "Previous Version of Docs", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5fd7ce777afee60053b29540", 
+ "slugUpdatedAt": "2020-12-29T23:43:01.883Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "previous-version-of-docs", 
+ "link_url": "https://dashplatform.readme.io/v0.16.0/docs", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "5fecfdf2bba85b001d332692", 
+ "order": 8, 
+ "updates": []
+}

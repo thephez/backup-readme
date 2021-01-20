@@ -8,7 +8,7 @@ The following sections provide details that developers need to construct valid c
 [block:callout]
 {
   "type": "warning",
-  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/dataContract/dataContractMeta.json)).",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json)).",
   "title": "Constraints"
 }
 [/block]
@@ -18,9 +18,9 @@ The following sections provide details that developers need to construct valid c
 | - | - |
 | `default` | Restricted - cannot be used (defined in DPP logic) |
 | `propertyNames` | Restricted - cannot be used (defined in DPP logic) |
-| `uniqueItems: true` | `maxItems` must be defined (maximum: [100000](https://github.com/dashevo/js-dpp/blob/v0.15.0/schema/dataContract/dataContractMeta.json#L212)) |
-| `pattern: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/js-dpp/blob/v0.15.0/schema/dataContract/dataContractMeta.json#L226)) |
-| `format: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/js-dpp/blob/v0.15.0/schema/dataContract/dataContractMeta.json#L239)) |
+| `uniqueItems: true` | `maxItems` must be defined (maximum: [100000](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json#L229)) |
+| `pattern: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json#L243)) |
+| `format: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json#L256)) |
 | `$ref: <something>` | `$ref` can only reference `definitions` - <br> remote references not supported |
 | `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts |
 [block:callout]
@@ -34,7 +34,7 @@ The following sections provide details that developers need to construct valid c
 
 **Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/js-dpp/blob/v0.16.0/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/util/serializer.js#L5).
 
 ## Additional Properties
 
@@ -159,10 +159,10 @@ The `indices` array consists of:
 [/block]
 | Description | Value |
 | - | - |
-| Maximum number of indices | [10](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/dataContract/dataContractMeta.json#L384) |
-| Maximum number of unique indices | [3](https://github.com/dashevo/js-dpp/blob/v0.16.0/lib/errors/UniqueIndicesLimitReachedError.js#L21) |
-| Maximum number of properties in a single index | [10](https://github.com/dashevo/js-dpp/blob/v0.16.0/schema/dataContract/dataContractMeta.json#L374) |
-| Maximum length of indexed string property | [1024](https://github.com/dashevo/js-dpp/blob/v0.16.0/lib/dataContract/validateDataContractFactory.js#L23) |
+| Maximum number of indices | [10](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json#L384) |
+| Maximum number of unique indices | [3](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/errors/UniqueIndicesLimitReachedError.js#L21) |
+| Maximum number of properties in a single index | [10](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/dataContract/dataContractMeta.json#L374) |
+| Maximum length of indexed string property | [1024](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/dataContract/validateDataContractFactory.js#L23) |
 
 **Example**
 The following example (excerpt from the DPNS contract's `preorder` document) creates an index on `saltedDomainHash` that also enforces uniqueness across all documents of that type:

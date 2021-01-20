@@ -12,11 +12,19 @@ As users interact with Dash Platform applications, the credit balance associated
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
 
 # Code
+[block:callout]
+{
+  "type": "warning",
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
+}
+[/block]
+
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'evonet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst topupIdentity = async () => {\n  const identityId = 'an identity ID goes here';\n  const topUpAmount = 1000; // Number of duffs\n\n  await client.platform.identities.topUp(identityId, topUpAmount);\n  return client.platform.identities.get(identityId);\n};\n\ntopupIdentity()\n  .then((d) => console.log('Identity credit balance: ', d.balance))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst topupIdentity = async () => {\n  const identityId = 'an identity ID goes here';\n  const topUpAmount = 1000; // Number of duffs\n\n  await client.platform.identities.topUp(identityId, topUpAmount);\n  return client.platform.identities.get(identityId);\n};\n\ntopupIdentity()\n  .then((d) => console.log('Identity credit balance: ', d.balance))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

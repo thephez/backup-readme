@@ -2,7 +2,7 @@ The purpose of this tutorial is to walk through the steps necessary to set up a 
 [block:callout]
 {
   "type": "danger",
-  "body": "Running a masternode on Evonet requires familiarity with Dash Platform services. As with testnet, improper configuration may impact testing so please exercise caution if running a masternode.",
+  "body": "Running a masternode requires familiarity with Dash Platform services. Improper configuration may impact testing so please exercise caution if running a masternode.",
   "title": "Advanced Topic"
 }
 [/block]
@@ -25,21 +25,21 @@ Clone the mn-bootstrap repository
 [/block]
 # Masternode setup
 
-First, obtain 1000 Evonet tDASH and create your protx registration transaction as described [here](https://docs.dash.org/en/stable/masternodes/setup.html#option-2-registering-from-dash-core-wallet). The [Dash Core Full Node tutorial](tutorial-connecting-to-evonet-dash-core-full-node#config-file) has an example configuration file that can be used to connect to Evonet with Dash Core.
+First, obtain 1000 Evonet tDASH and create your protx registration transaction as described [here](https://docs.dash.org/en/stable/masternodes/setup.html#option-2-registering-from-dash-core-wallet). The [Dash Core Full Node tutorial](tutorial-connecting-to-evonet-dash-core-full-node#config-file) has an example configuration file that can be used to connect to Testnet with Dash Core.
 [block:callout]
 {
   "type": "info",
-  "body": "The Dash required for the masternode collateral may be obtained from the [Evonet faucet](http://faucet.evonet.networks.dash.org/) (it may take several requests to get the full amount)."
+  "body": "The Dash required for the masternode collateral may be obtained from the [faucet](https://testnet-faucet.dash.org/) (it may take several requests to get the full amount)."
 }
 [/block]
 ## Set config options
 
-Select the evonet config, set the IP address, and the BLS key used in the previous step:
+Select the testnet config, set the IP address, and the BLS key used in the previous step:
 [block:code]
 {
   "codes": [
     {
-      "code": "node bin/mn config:default evonet\nnode bin/mn config:set externalIp <your IP>\nnode bin/mn config:set core.masternode.operator.privateKey <your BLS private key>",
+      "code": "node bin/mn config:default testnet\nnode bin/mn config:set externalIp <your IP>\nnode bin/mn config:set core.masternode.operator.privateKey <your BLS private key>",
       "language": "shell"
     }
   ]
@@ -59,12 +59,12 @@ Select the evonet config, set the IP address, and the BLS key used in the previo
 
 # Full Node with Platform Services
 
-A full node that runs all Platform services can be run by simply selecting the evonet config, setting the config as show below, and starting the node.
+A full node that runs all Platform services can be run by simply selecting the testnet config, setting the config as show below, and starting the node.
 [block:code]
 {
   "codes": [
     {
-      "code": "bin/mn config:default evonet\nbin/mn config:set core.masternode.enable false\nbin/mn start",
+      "code": "bin/mn config:default testnet\nbin/mn config:set core.masternode.enable false\nbin/mn start",
       "language": "shell"
     }
   ]

@@ -12,7 +12,7 @@ Identities are separate from names and can be thought of as a lower-level constr
 [/block]
 # Identity Management
 
-In order to [create an identity](#identity-create-process), a user needs to pay the network for storing a user's public key on the platform chain. Since new users may not have existing Dash funds, there may be an invitation process in the future to allow users to create an identity despite lacking their own funds. The invitation process would effectively separate the funding and registration steps that are required for any new identity to be created.
+In order to [create an identity](#identity-create-process), a user needs to pay the network for storing a user's public key on the platform chain. Since new users may not have existing Dash funds, there will be an invitation process in the future to allow users to create an identity despite lacking their own funds. The invitation process will effectively separate the funding and registration steps that are required for any new identity to be created.
 
 Once an identity is created, its credit balance is used to pay for platform activity (e.g. use of applications). The [topup process ](#identity-balance-topup-process) provides a way to add additional funds to the balance.
 

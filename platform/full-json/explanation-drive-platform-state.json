@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5f8f3fa8b257f9003428ff6a", 
+ "parentDoc": "5fd7ce777afee60053b29510", 
  "excerpt": "Global state of all platform data managed by a replicated state machine", 
  "api": {
   "url": "", 
@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-05-04T15:51:36.949Z", 
- "id": "5f8f3fa8b257f9003428ff6f", 
+ "id": "5fd7ce777afee60053b29515", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-16T06:09:28.006Z", 
- "category": "5f8f3fa8b257f9003428ff44", 
+ "category": "5fd7ce777afee60053b294ea", 
  "title": "Platform State", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5f8f3fa8b257f9003428ff97", 
- "slugUpdatedAt": "2021-01-20T10:12:24.690Z", 
+ "version": "5fd7ce777afee60053b29540", 
+ "slugUpdatedAt": "2021-01-20T10:22:19.831Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
- "_id": "5f8f3fa8b257f9003428ff6f", 
+ "_id": "5fd7ce777afee60053b29515", 
  "order": 1, 
  "updates": [
   "5e02768bf4502b0047fc2179"
