@@ -20,7 +20,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  apps: {\n    tutorialContract: {\n      contractId: '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get(\n    'tutorialContract.note',\n    {\n      limit: 1, // Only retrieve 1 document\n    },\n  );\n};\n\ngetDocuments()\n  .then((d) => console.log(d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  apps: {\n    tutorialContract: {\n      contractId: '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get(\n    'tutorialContract.note',\n    {\n      limit: 2, // Only retrieve 1 document\n    },\n  );\n};\n\ngetDocuments()\n  .then((d) => console.log(d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

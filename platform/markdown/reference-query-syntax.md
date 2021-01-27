@@ -17,13 +17,13 @@ The Where clause must be a non-empty array containing not more than 10 condition
 }
 [/block]
 ## Fields
-Valid fields consist of the indices defined for the document being queried. For example, the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json) defines three indices:
+Valid fields consist of the indices defined for the document being queried. For example, the [DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json) defines three indices:
 
 | Index Field(s) | Index Type | Unique |
 | - | - | :-: | 
-| [normalizedParentDomainName, normalizedLabel](https://github.com/dashevo/dpns-contract/blob/v0.3-dev/schema/dpns-contract-documents.json#L4-L14) | Compound | Yes |
-| [records.dashUniqueIdentityId](https://github.com/dashevo/dpns-contract/blob/v0.3-dev/schema/dpns-contract-documents.json#L15-L22) | Single Field | Yes |
-| [records.dashAliasIdentityId](https://github.com/dashevo/dpns-contract/blob/v0.3-dev/schema/dpns-contract-documents.json#L23-L29) | Single Field | No |
+| [normalizedParentDomainName, normalizedLabel](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json#L4-L14) | Compound | Yes |
+| [records.dashUniqueIdentityId](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json#L15-L22) | Single Field | Yes |
+| [records.dashAliasIdentityId](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json#L23-L29) | Single Field | No |
 
 
 [block:html]
@@ -106,7 +106,7 @@ The query modifiers described here determine how query results will be sorted an
 {
   "type": "warning",
   "title": "Compound Index Constraints",
-  "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L11-L14)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order. Please see the [mongoDB documention](https://docs.mongodb.com/manual/core/index-compound/#sort-order) for further details related to this topic.\nAdditionally, the order in which the properties are defined in a compound index affects how queries may be constructed per this [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes). For example, a DPNS query for `normalizedLabel` must also include `normalizedParentDomainName` while the inverse is not true ([index definition](https://github.com/dashevo/dpns-contract/blob/master/src/schema/dpns-documents.json#L10-L15) in the DPNS contract)."
+  "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order. Please see the [mongoDB documention](https://docs.mongodb.com/manual/core/index-compound/#sort-order) for further details related to this topic.\nAdditionally, the order in which the properties are defined in a compound index affects how queries may be constructed per this [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes). For example, a DPNS query for `normalizedLabel` must also include `normalizedParentDomainName` while the inverse is not true ([index definition](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json) in the DPNS contract)."
 }
 [/block]
 
