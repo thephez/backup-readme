@@ -28,6 +28,7 @@ Additional details regarding identities can be found in the [Identity descriptio
   "body": "As of v3.14.0 of the Dash JavaScript SDK, the name must be the full domain name including the parent domain (i.e. `myname.dash` instead of just `myname`). Currently `dash` is the only top-level domain that may be used."
 }
 [/block]
+
 [block:callout]
 {
   "type": "warning",
@@ -45,7 +46,7 @@ Additional details regarding identities can be found in the [Identity descriptio
       "name": "Register Name for Identity"
     },
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerAlias = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const aliasRegistration = await platform.names.register(\n    'a name goes here',\n    { dashAliasIdentityId: identity.getId() },\n    identity,\n  );\n\n  return aliasRegistration;\n};\n\nregisterAlias()\n  .then((d) => console.log('Alias registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerAlias = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const aliasRegistration = await platform.names.register(\n    '<identity alias goes here>.dash',\n    { dashAliasIdentityId: identity.getId() },\n    identity,\n  );\n\n  return aliasRegistration;\n};\n\nregisterAlias()\n  .then((d) => console.log('Alias registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "Register Alias for Identity"
     }

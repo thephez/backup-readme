@@ -28,7 +28,7 @@
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\nconst { Transaction } = require('@dashevo/dashcore-lib');\n\nconst corePromiseClient = new CorePromiseClient('http://seed.testnet.networks.dash.org:3010');\n\nconst tx = Transaction('02000000022fd1c4583099109524b8216d712373bd837d24a502414fcadd8ae94753c3d87e010000006a47304402202cbdc560898ad389005fbe231fb345da503d838cfadab738a7d2f57bdd7ff77c02206e02b9f05c3dfb380d158949407372f26fa8ecc66956297792509c2f700723d1012103422fa857d5049000c22c3188e84557da5b783c2ef54b83a76a2933a0564c22dafeffffff07e987f3bb114c4370b937915e980657e2706135e21fbd8972a5534c804d5495000000006a473044022041a69c058035a2a8c88715c018efcb77a9ee3a08b72fd24afe8591364cee8dc002203026f115ac9c7206a985f71422ac38d451bde092d708bfb81ef35b2968f4ee34012102f0ce58f50515d04d4ff01a550a4d3246fbdc9d27031ef7d883e845b6b41f0e4efeffffff0269440f00000000001976a91465f6a3d634ba58247825c6fd55174ca72fdcdbd988ac00e1f505000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac4d5b0600');\n\ncorePromiseClient.client.broadcastTransaction({ transaction: tx.toBuffer() })\n  .then((response) => console.log(response));",
+      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\nconst { Transaction } = require('@dashevo/dashcore-lib');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\nconst tx = Transaction('02000000022fd1c4583099109524b8216d712373bd837d24a502414fcadd8ae94753c3d87e010000006a47304402202cbdc560898ad389005fbe231fb345da503d838cfadab738a7d2f57bdd7ff77c02206e02b9f05c3dfb380d158949407372f26fa8ecc66956297792509c2f700723d1012103422fa857d5049000c22c3188e84557da5b783c2ef54b83a76a2933a0564c22dafeffffff07e987f3bb114c4370b937915e980657e2706135e21fbd8972a5534c804d5495000000006a473044022041a69c058035a2a8c88715c018efcb77a9ee3a08b72fd24afe8591364cee8dc002203026f115ac9c7206a985f71422ac38d451bde092d708bfb81ef35b2968f4ee34012102f0ce58f50515d04d4ff01a550a4d3246fbdc9d27031ef7d883e845b6b41f0e4efeffffff0269440f00000000001976a91465f6a3d634ba58247825c6fd55174ca72fdcdbd988ac00e1f505000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac4d5b0600');\n\ncorePromiseClient.client.broadcastTransaction({ transaction: tx.toBuffer() })\n  .then((response) => console.log(response));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     }
@@ -62,12 +62,12 @@
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    GetStatusRequest,\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getStatus(new GetStatusRequest())\n  .then((response) => console.log(response));",
+      "code": "const {\n  v0: {\n    GetStatusRequest,\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getStatus(new GetStatusRequest())\n  .then((response) => console.log(response));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  seed.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getStatus",
+      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getStatus",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -112,17 +112,17 @@
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getBlock({ height: 1 })\n  .then((response) => console.log(response.block.toString('hex')));",
+      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getBlock({ height: 1 })\n  .then((response) => console.log(response.block.toString('hex')));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getBlock({\n  hash: '0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1',\n}).then((response) => {\n  console.log(response.block.toString('hex'));\n});",
+      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\ncorePromiseClient.client.getBlock({\n  hash: '0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1',\n}).then((response) => {\n  console.log(response.block.toString('hex'));\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  -d '{\n    \"height\":1\n    }' \\\n  seed.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getBlock",
+      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  -d '{\n    \"height\":1\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getBlock",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -174,12 +174,12 @@
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed.testnet.networks.dash.org:3010');\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\n\ncorePromiseClient.client.getTransaction({ id: txid })\n  .then((response) => console.log(response.transaction.toString('hex')));",
+      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\n\ncorePromiseClient.client.getTransaction({ id: txid })\n  .then((response) => console.log(response.transaction.toString('hex')));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  -d '{\n    \"id\":\"4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308\"\n    }' \\\n  seed.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
+      "code": "grpcurl -plaintext -proto protos/core/v0/core.proto \\\n  -d '{\n    \"id\":\"4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/getTransaction",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -242,7 +242,7 @@
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  seed.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToTransactionsWithProofs",
+      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToTransactionsWithProofs",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
