@@ -23,7 +23,6 @@ testnet=1
 rpcuser=user
 rpcpassword=pass
 rpcallowip=127.0.0.1
-rpcport=19998
 #----
 listen=1
 server=1
@@ -33,6 +32,9 @@ txindex=1
 addressindex=1
 timestampindex=1
 spentindex=1
+
+[test]
+rpcport=19998
 ```
 
 # Configuration sections for different networks
