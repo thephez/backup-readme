@@ -7,7 +7,7 @@
 [/block]
 # Config File
 
- The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v0.17.0.0-RC2](https://github.com/dashpay/dash/tree/v0.17.0.0-rc2).
+ The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v0.17.0.0-RC3](https://github.com/dashpay/dash/releases/tag/v0.17.0.0-rc3).
 [block:code]
 {
   "codes": [
@@ -15,11 +15,6 @@
       "code": "testnet=1\n\n# Hard-coded first node\naddnode=seed-1.testnet.networks.dash.org:19999",
       "language": "text",
       "name": "dash-testnet.conf"
-    },
-    {
-      "code": "devnet=evonet-8\n\n[devnet]\n# The [devnet] section heading is required as of Dash Core 0.16\nport=20001\nsporkaddr=yQuAu9YAMt4yEiXBeDp3q5bKpo7jsC2eEj\n\n# Hard-coded first node\naddnode=seed-1.evonet.networks.dash.org:20001\n\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n",
-      "language": "text",
-      "name": "dash-evonet.conf"
     }
   ]
 }
@@ -28,6 +23,6 @@
 
 To start Dash Core and connect to Testnet, simply run dashd or dash-qt with the `conf` parameter set to the configuration file created above: `<path to binary> -conf=<path to configuration file>`
 
-```shell Start dashd on Evonet
+```shell Start dashd on Testnet
 dashd -conf=/home/dash/.dashcore/dash-testnet.conf
 ```

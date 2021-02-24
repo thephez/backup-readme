@@ -7,7 +7,7 @@ The purpose of this tutorial is to walk through the steps necessary to set up a 
 }
 [/block]
 # Prerequisites
-- Access to a Linux VPS (Ubuntu 18.04 LTS recommended) configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
+- Access to a Linux VPS (Ubuntu 20.04 LTS recommended) configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v18.06.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
 - An installation of [NodeJS](https://nodejs.org/en/download/) v12+
 - A copy of the [mn-bootstrap repository](https://github.com/dashevo/mn-bootstrap)
@@ -21,6 +21,14 @@ Clone the mn-bootstrap repository
       "language": "shell"
     }
   ]
+}
+[/block]
+
+[block:callout]
+{
+  "type": "info",
+  "title": "Full Platform Node",
+  "body": "A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/mn-bootstrap#setup-node) set to  `fullnode` and then starting the node.\n```\nmn setup testnet fullnode\nmn start\n```"
 }
 [/block]
 # Masternode setup
@@ -51,20 +59,6 @@ Select the testnet config, set the IP address, and the BLS key used in the previ
   "codes": [
     {
       "code": "node bin/mn start\nnode bin/mn stop",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
-
-# Full Node with Platform Services
-
-A full node that runs all Platform services can be run by simply selecting the testnet config, setting the config as show below, and starting the node.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "bin/mn config:default testnet\nbin/mn config:set core.masternode.enable false\nbin/mn start",
       "language": "shell"
     }
   ]
