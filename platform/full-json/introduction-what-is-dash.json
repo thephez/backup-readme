@@ -34,7 +34,15 @@
  "title": "What is Dash?", 
  "next": {
   "description": "", 
-  "pages": []
+  "pages": [
+   {
+    "category": "Introduction", 
+    "slug": "introduction-what-is-dash-platform", 
+    "type": "doc", 
+    "name": "What is Dash Platform?", 
+    "icon": "file-text-o"
+   }
+  ]
  }, 
  "version": "5fd7ce777afee60053b29540", 
  "slugUpdatedAt": "2020-11-23T08:41:15.923Z", 
@@ -56,7 +64,7 @@
  "slug": "introduction-what-is-dash", 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
- "__v": 2, 
+ "__v": 3, 
  "_id": "5fd7ce777afee60053b294fe", 
  "order": 0, 
  "user": "5b8400d7185d5e00036dcc3b"

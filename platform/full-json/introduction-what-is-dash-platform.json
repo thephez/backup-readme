@@ -37,9 +37,9 @@
   "pages": [
    {
     "category": "Introduction", 
-    "slug": "introduction-intro-to-evonet", 
+    "slug": "intro-to-testnet", 
     "type": "doc", 
-    "name": "Intro to EvoNet", 
+    "name": "Intro to Testnet", 
     "icon": "file-text-o"
    }
   ]
@@ -63,7 +63,7 @@
  "slug": "introduction-what-is-dash-platform", 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
- "__v": 4, 
+ "__v": 5, 
  "_id": "5fd7ce777afee60053b294ef", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"

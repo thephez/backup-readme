@@ -2,7 +2,7 @@
 {
   "type": "danger",
   "title": "Dash Platform on Testnet",
-  "body": "As of Dash Platform v0.17, platform services are now deployed on the Dash testnet. Evonet is currently still online but it is still using Dash Platform v0.16. Please refer to [this page](intro-to-testnet) for testnet information."
+  "body": "As of Dash Platform v0.17, platform services are now deployed on the Dash testnet and Evonet has been shutdown. Please refer to [this page](intro-to-testnet) for testnet information."
 }
 [/block]
 # Overview

@@ -47,7 +47,7 @@ This is primarily used as a DoS protection mechanism to allow persistent connect
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
-| 32 | proRegTxHash | uint256 | Version of the message
+| 32 | proRegTxHash | uint256 | The hash of the ProRegTx that identifies the masternode
 | 96 | sig | byte[] | BLS signature of the [`version` message's](core-ref-p2p-network-control-messages#version) `mnauth_challenge`. Signed with the operator key of the masternode.
 
 The following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth). (The message header has been omitted.)
