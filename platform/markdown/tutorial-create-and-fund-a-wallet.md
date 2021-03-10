@@ -5,7 +5,7 @@ In order to make changes on Dash Platform, you need a wallet with a balance. Thi
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
+- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
 
 # Code
 [block:callout]

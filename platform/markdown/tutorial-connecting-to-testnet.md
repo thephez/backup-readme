@@ -21,7 +21,7 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 {
   "codes": [
     {
-      "code": "npm install dash",
+      "code": "# Until testnet is updated to Platform v0.18, v3.17.0 of the SDK must be used\nnpm install dash@3.17.0",
       "language": "shell"
     }
   ]
@@ -32,7 +32,7 @@ Create a file with the following contents. Then run it by typing `node <file.js>
 [block:callout]
 {
   "type": "info",
-  "body": "As of Dash SDK v0.17.0, the SDK connects to testnet by default."
+  "body": "As of Dash Platform v0.17.0, the SDK connects to testnet by default."
 }
 [/block]
 

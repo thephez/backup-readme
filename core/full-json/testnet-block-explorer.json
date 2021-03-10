@@ -1,6 +1,5 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fd7ce777afee60053b294f6", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -25,19 +24,19 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2019-12-24T00:34:58.581Z", 
- "id": "5fd7ce777afee60053b2951a", 
+ "updatedAt": "2021-03-04T13:40:01.098Z", 
+ "id": "6040e331fca1bf004888263e", 
  "sync_unique": "", 
  "isApi": false, 
- "createdAt": "2019-12-24T00:34:58.581Z", 
- "category": "5fd7ce777afee60053b294e8", 
- "title": "DPNS Data Contract", 
+ "createdAt": "2021-03-04T13:40:01.098Z", 
+ "category": "5e96055329a18c0025d391e8", 
+ "title": "Testnet Block Explorer", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
- "slugUpdatedAt": "2021-03-09T21:29:54.528Z", 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2021-03-03T22:56:08.513Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -50,11 +49,11 @@
  "body_html": "&nbsp;", 
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
- "slug": "resources-source-code-dpns-data-contract", 
- "link_url": "https://github.com/dashevo/dpns-contract", 
- "project": "5bda01cad172e200499a20a9", 
+ "slug": "testnet-block-explorer", 
+ "link_url": "http://testnet-452625393.us-west-2.elb.amazonaws.com:3001/insight/", 
+ "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5fd7ce777afee60053b2951a", 
- "order": 6, 
+ "_id": "6040e331fca1bf004888263e", 
+ "order": 999, 
  "updates": []
 }
