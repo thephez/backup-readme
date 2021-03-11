@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-02-02T17:31:41.020Z", 
- "id": "60084660d56673029846e596", 
+ "id": "6035408f7bfb31002c3da324", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2021-01-20T15:04:00.143Z", 
- "category": "5fd7ce777afee60053b294ea", 
+ "category": "6035408f7bfb31002c3da2c4", 
  "title": "Platform Consensus", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2021-01-20T10:24:09.777Z", 
  "hidden": false, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60084660d56673029846e596", 
+ "_id": "6035408f7bfb31002c3da324", 
  "order": 5, 
  "updates": []
 }

@@ -5,7 +5,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
+- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
 
 # Code
 
@@ -14,7 +14,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveContract = async () => {\n  const contractId = '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveContract = async () => {\n  const contractId = 'C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
@@ -27,7 +27,7 @@ The following example response shows a retrieved contract:
 {
   "codes": [
     {
-      "code": "{\n  \"protocolVersion\": 0,\n  \"$id\": \"6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi\",\n  \"$schema\": \"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n  \"ownerId\": \"BSNxbs99zCFvEtK8qrewYTVxNKt4DnFQ8sPbsb8nrDuf\",\n  \"documents\": {\n    \"note\": {\n      \"properties\": {\n        \"message\": {\n          \"type\": \"string\"\n        }\n      },\n      \"additionalProperties\": false\n    }\n  }\n}",
+      "code": "{\n   \"protocolVersion\":0,\n   \"$id\":\"C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi\",\n   \"$schema\":\"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n   \"ownerId\":\"FgPx8YHbWv4rMeiP52DfmnAXGtjiCiSaNKCbgT7eCRxh\",\n   \"documents\":{\n      \"note\":{\n         \"properties\":{\n            \"message\":{\n               \"type\":\"string\"\n            }\n         },\n         \"additionalProperties\":false\n      }\n   }\n}",
       "language": "json"
     }
   ]

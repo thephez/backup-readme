@@ -10,7 +10,7 @@ Platform services are provided via a combination of HTTP and gRPC connections to
 {
   "type": "info",
   "title": "Minimum Supported Version",
-  "body": "As of Dash Platform 0.16, NodeJS v12 or higher must be used"
+  "body": "As of Dash Platform v0.16, NodeJS v12 or higher must be used"
 }
 [/block]
 # Connect via Dash SDK
@@ -21,13 +21,13 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 {
   "codes": [
     {
-      "code": "# Until testnet is updated to Platform v0.18, v3.17.0 of the SDK must be used\nnpm install dash@3.17.0",
+      "code": "npm install dash",
       "language": "shell"
     }
   ]
 }
 [/block]
-## 2. Connect to Dash platform
+## 2. Connect to Dash Platform
 Create a file with the following contents. Then run it by typing `node <file.js>` (from the command line):
 [block:callout]
 {

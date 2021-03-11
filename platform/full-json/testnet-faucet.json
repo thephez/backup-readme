@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-12-30T20:24:39.883Z", 
- "id": "5fece2078b5d3200287f8dd2", 
+ "id": "6035408f7bfb31002c3da321", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-30T20:24:39.883Z", 
- "category": "5fd7ce777afee60053b294e8", 
+ "category": "6035408f7bfb31002c3da2c2", 
  "title": "Testnet Faucet", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2020-12-29T22:21:13.998Z", 
  "hidden": false, 
  "type": "link", 
@@ -51,10 +51,10 @@
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "testnet-faucet", 
- "link_url": "http://testnet-452625393.us-west-2.elb.amazonaws.com/", 
+ "link_url": "http://faucet.testnet.networks.dash.org/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5fece2078b5d3200287f8dd2", 
+ "_id": "6035408f7bfb31002c3da321", 
  "order": 0, 
  "updates": []
 }

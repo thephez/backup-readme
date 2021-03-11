@@ -25,12 +25,12 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2021-02-24T16:13:47.979Z", 
- "id": "5fd7ce777afee60053b29517", 
+ "updatedAt": "2021-02-24T16:01:11.129Z", 
+ "id": "6035408f7bfb31002c3da2f3", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-19T00:52:47.898Z", 
- "category": "5fd7ce777afee60053b294e5", 
+ "category": "6035408f7bfb31002c3da2c2", 
  "title": "Intro to Evonet", 
  "next": {
   "description": "", 
@@ -45,10 +45,10 @@
    }
   ]
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2020-12-28T21:36:01.071Z", 
  "hidden": false, 
- "type": "basic", 
+ "type": "link", 
  "metadata": {
   "image": [], 
   "description": "", 
@@ -60,10 +60,10 @@
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "introduction-intro-to-evonet", 
- "link_url": "", 
+ "link_url": "https://dashplatform.readme.io/docs/intro-to-testnet", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
- "_id": "5fd7ce777afee60053b29517", 
- "order": 3, 
+ "_id": "6035408f7bfb31002c3da2f3", 
+ "order": 8, 
  "updates": []
 }

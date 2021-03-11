@@ -24,20 +24,20 @@
    ]
   }
  }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-30T17:30:06.302Z", 
- "id": "5fd7ce777afee60053b29520", 
+ "previousSlug": "testnet-status", 
+ "updatedAt": "2021-02-24T16:07:03.541Z", 
+ "id": "603679a7dbb864006bd761d4", 
  "sync_unique": "", 
  "isApi": false, 
- "createdAt": "2019-12-29T03:05:37.993Z", 
- "category": "5fd7ce777afee60053b294e8", 
- "title": "Evonet Block Explorer", 
+ "createdAt": "2021-02-24T16:07:03.541Z", 
+ "category": "6035408f7bfb31002c3da2c2", 
+ "title": "Testnet Status", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
- "slugUpdatedAt": "2020-12-29T22:21:13.998Z", 
+ "version": "6035408f7bfb31002c3da325", 
+ "slugUpdatedAt": "2021-02-24T16:07:59.270Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -50,11 +50,11 @@
  "body_html": "&nbsp;", 
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
- "slug": "resources-evonet-block-explorer", 
- "link_url": "http://insight.evonet.networks.dash.org:3001/insight/", 
+ "slug": "resources-testnet-status", 
+ "link_url": "https://dash-testnet.freshstatus.io/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5fd7ce777afee60053b29520", 
- "order": 3, 
+ "_id": "603679a7dbb864006bd761d4", 
+ "order": 2, 
  "updates": []
 }

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fd7ce777afee60053b29512", 
+ "parentDoc": "6035408f7bfb31002c3da2ee", 
  "excerpt": "The means of storing and updating Dash Platform data", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-01-19T20:40:58.570Z", 
- "id": "5fd7ce777afee60053b29509", 
+ "id": "6035408f7bfb31002c3da2e5", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-31T14:48:30.945Z", 
- "category": "5fd7ce777afee60053b294ea", 
+ "category": "6035408f7bfb31002c3da2c4", 
  "title": "State Transition", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2020-10-20T19:08:37.841Z", 
  "hidden": false, 
  "type": "basic", 
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
- "_id": "5fd7ce777afee60053b29509", 
+ "_id": "6035408f7bfb31002c3da2e5", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

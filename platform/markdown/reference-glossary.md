@@ -31,6 +31,15 @@ An HTTP Client that connects to DAPI to enable users to read and write data to t
 ## DashPay
 Dash Platform based wallet supporting payments via usernames
 
+## DashPay Contact Request
+A platform document that defines a one way relationship between a sender and a recipient. It includes an encrypted extended public key which will allow the sender to pay the recipient using addresses that other users have no knowledge of. The sender creates and publishes this document. When two users have both sent contact requests to each other, then each is considered a fully established contact with the other.
+
+## DashPay Contact Info
+A platform document containing an identity's set of private information related to other identities that are contacts.
+
+## DashPay Profile
+A platform document containing a set of public information for an identity that includes a display name, a public message (bio/status) and an avatar URL. The display name and avatar help complement the identity's username from DPNS to better visually identify an identity in a user interface. An identity can only have a single DashPay profile.
+
 ## Dash Core  
 Layer 1 core blockchain reference client
 
@@ -61,9 +70,6 @@ A data entry, similar to a  document in a document-oriented database. Represente
 
 ## Drive  
 Layer 2 platform storage
-
-## Invitation Lock Transaction
-A special transaction with outputs for funding creation of new Dash platform identities. It contains one or more outputs which can be spent to fund identity registrations
 
 ## Layer (1, 2, 3)  
 - Layer 1: Core blockchain and [Dash Core](#dash-core)
@@ -108,6 +114,9 @@ The application that validates state transitions and updates state in Drive
 
 ## State Transition
 The change a user does to the application and platforms states. Consists of an array of documents _or_ one data contract, the id of the application to which the change is made, and a user signature
+
+## Tenderdash
+Dash fork of [Tendermint](https://tendermint.com/core) modified for use in Dash Platform
 
 ## Validator Set
 The group of masternodes responsible for the layer 2 blockchain (platform chain) consensus at a given time. They vote on the content of each platform chain block and are analogous to miners on the layer 1's core blockchain

@@ -8,7 +8,13 @@
 # Endpoint Details
 
 ## broadcastStateTransition
-
+[block:callout]
+{
+  "type": "success",
+  "body": "Since Dash Platform 0.18.0 `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. \n\n**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
+  "title": "Updated in Dash Platform 0.18.0"
+}
+[/block]
 Broadcasts a [state transition](explanation-platform-protocol-state-transition) to the platform via DAPI to make a change to layer 2 data.
 
 **Returns**: Nothing or error
@@ -23,14 +29,19 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "# Submit an identity create State Transition\n# `state_transition` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pWR0eXBlAmlzaWduYXR1cmV4WEg3TWhFWDQ0Z3JzMVIwTE9XTU5IZjAxWFNpYVFQcUlVZ1JLRXQyMkxHVERsUlUrZ1BwQUlUZk5JUmhXd3IvYTVHd0lzWm1idGdYVVFxcVhjbW9lQWtUOD1qcHVibGljS2V5c4GkYmlkAGRkYXRheCxBdzh2UmYxeFFCTlVLbzNiY2llaHlaR2NhM0hBSThkY0ZvVWJTK3hLb0lITmR0eXBlAGlpc0VuYWJsZWT1bmxvY2tlZE91dFBvaW50eDBLT1VUSHB5YnFPek9DNnhEVUhFWm9uc1lNSVpqcGppTHFZNnkxYmlWNWxRQUFBQUFvcHJvdG9jb2xWZXJzaW9uAA==\"\n\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/broadcastStateTransition",
-      "language": "shell",
-      "name": "gRPCurl"
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'IAp3sn0tLA2FyxsWbEgrgIrjpNig0VdlgVHrBFiHtTvrAU7d7kkpQ0mUdK8PhMZjOKaepVOPRTDQgnHfVZ6HESA=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'HvjAUGUHuVBWP7vXEWWmBSb4mTCoquhxenbziyGM14aF',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '7NUbPf231ixt1kVBQsBvSMMBxd7AgPad8KtdtfFGhXDP',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false\n      }\n    }\n  },\n  entropy: 'XyuDb+YebayRZT4vxQQnzP7htozTXYEHRnBFL9KQjDg='\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    client.platform.broadcastStateTransition(stateTransition.toBuffer())\n      .then(() => console.log('State Transition broadcast successfully'));\n  });",
+      "language": "javascript",
+      "name": "JavaScript (dapi-client)"
     },
     {
       "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    BroadcastStateTransitionRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'IAp3sn0tLA2FyxsWbEgrgIrjpNig0VdlgVHrBFiHtTvrAU7d7kkpQ0mUdK8PhMZjOKaepVOPRTDQgnHfVZ6HESA=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'HvjAUGUHuVBWP7vXEWWmBSb4mTCoquhxenbziyGM14aF',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '7NUbPf231ixt1kVBQsBvSMMBxd7AgPad8KtdtfFGhXDP',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false\n      }\n    }\n  },\n  entropy: 'XyuDb+YebayRZT4vxQQnzP7htozTXYEHRnBFL9KQjDg='\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\nconst broadcastStateTransitionRequest = new BroadcastStateTransitionRequest();\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    console.log(stateTransition);\n    broadcastStateTransitionRequest.setStateTransition(stateTransition.toBuffer());\n\n    platformPromiseClient.broadcastStateTransition(broadcastStateTransitionRequest)\n      .then(() => console.log('State Transition broadcast successfully'))\n      .catch((e) => {\n        console.error(e);\n        console.error(e.metadata);\n      });\n  })\n  .catch((e) => console.error(e));\n",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
+    },
+    {
+      "code": "# Submit an identity create State Transition\n# `state_transition` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pWR0eXBlAmlzaWduYXR1cmV4WEg3TWhFWDQ0Z3JzMVIwTE9XTU5IZjAxWFNpYVFQcUlVZ1JLRXQyMkxHVERsUlUrZ1BwQUlUZk5JUmhXd3IvYTVHd0lzWm1idGdYVVFxcVhjbW9lQWtUOD1qcHVibGljS2V5c4GkYmlkAGRkYXRheCxBdzh2UmYxeFFCTlVLbzNiY2llaHlaR2NhM0hBSThkY0ZvVWJTK3hLb0lITmR0eXBlAGlpc0VuYWJsZWT1bmxvY2tlZE91dFBvaW50eDBLT1VUSHB5YnFPek9DNnhEVUhFWm9uc1lNSVpqcGppTHFZNnkxYmlWNWxRQUFBQUFvcHJvdG9jb2xWZXJzaW9uAA==\"\n\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/broadcastStateTransition",
+      "language": "shell",
+      "name": "gRPCurl"
     }
   ]
 }
@@ -306,10 +317,42 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
   ]
 }
 [/block]
+## waitForStateTransitionResult
+[block:callout]
+{
+  "type": "success",
+  "body": "**Note:** this must be called **_before_** [`broadcastStateTransition`](#broadcaststatetransition) in order to receive a response",
+  "title": "Added in Dash Platform 0.18.0"
+}
+[/block]
+**Returns**: The state transition hash and either a proof that the state transition was confirmed in a block or an error. 
+**Parameters**:
 
+| Name | Type | Required | Description |
+| - | - | - | - |
+| `state_transition_hash` | Bytes | Yes | Hash of the state transition |
+| `prove` | Boolean | Yes | Set to `true` to request a proof |
+
+** Example Request**
+[block:code]
+{
+  "codes": [
+    {
+      "code": "# `state_transition_hash` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition_hash\":\"dfOwZ+oo3TlNXVgHb/5vXObvUHpBghHmzlCyJcMyrBM=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult",
+      "language": "shell",
+      "name": "Request (gRPCurl)"
+    },
+    {
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    WaitForStateTransitionResultRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\nconst crypto = require('crypto');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'IAp3sn0tLA2FyxsWbEgrgIrjpNig0VdlgVHrBFiHtTvrAU7d7kkpQ0mUdK8PhMZjOKaepVOPRTDQgnHfVZ6HESA=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    $id: 'HvjAUGUHuVBWP7vXEWWmBSb4mTCoquhxenbziyGM14aF',\n    $schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '7NUbPf231ixt1kVBQsBvSMMBxd7AgPad8KtdtfFGhXDP',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: 'XyuDb+YebayRZT4vxQQnzP7htozTXYEHRnBFL9KQjDg=',\n};\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    //  Calculate state transition hash\n    const hash = crypto.createHash('sha256')\n      .update(stateTransition.toBuffer())\n      .digest();\n\n    const waitForStateTransitionResultRequest = new WaitForStateTransitionResultRequest();\n    waitForStateTransitionResultRequest.setStateTransitionHash(hash);\n    platformPromiseClient.waitForStateTransitionResult(waitForStateTransitionResultRequest)\n      .then((response) => {\n        console.log(response);\n      })\n      .catch((e) => console.error(e));\n  });",
+      "language": "javascript",
+      "name": "JavaScript (dapi-grpc)"
+    }
+  ]
+}
+[/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.16.0/docs/reference-dapi-endpoints-platform-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints-platform-endpoints).
 
 # Code Reference
 Implementation details related to the information on this page can be found in:

@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "reference-document", 
  "updatedAt": "2020-12-29T17:42:23.764Z", 
- "id": "5fd7ce777afee60053b29536", 
+ "id": "6035408f7bfb31002c3da312", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-09-02T14:33:22.321Z", 
- "category": "5fd7ce777afee60053b294ec", 
+ "category": "6035408f7bfb31002c3da2c6", 
  "title": "Document", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2020-11-17T18:27:39.204Z", 
  "hidden": false, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5fd7ce777afee60053b29536", 
+ "_id": "6035408f7bfb31002c3da312", 
  "order": 4, 
  "updates": []
 }

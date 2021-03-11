@@ -5,22 +5,14 @@ In order to make changes on Dash Platform, you need a wallet with a balance. Thi
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
+- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
 
 # Code
-[block:callout]
-{
-  "type": "warning",
-  "title": "Wallet Operations",
-  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
-}
-[/block]
-
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n                    // if you want to get a new address for an existing wallet\n                    // replace 'null' with an existing wallet mnemonic\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n                    // if you want to get a new address for an existing wallet\n                    // replace 'null' with an existing wallet mnemonic\n    offlineMode: true,  // this indicates we don't want to sync the chain\n                        // it can only be used when the mnemonic is set to 'null'\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});",
       "language": "javascript"
     }
   ]
@@ -52,4 +44,4 @@ Once we connect, we output the newly generated mnemonic from `client.wallet.expo
 
 # Next Step
 
-Using the faucet at http://testnet-452625393.us-west-2.elb.amazonaws.com/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at https://testnet-insight.dashevo.org/insight/ which can be used to check confirmations.
+Using the faucet at http://faucet.testnet.networks.dash.org/, send test funds to the "unused address" from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at https://testnet-insight.dashevo.org/insight/ which can be used to check confirmations.

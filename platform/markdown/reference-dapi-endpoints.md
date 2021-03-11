@@ -8,14 +8,6 @@
   "body": "The remaining JSON-RPC endpoints will be migrated to gRPC in a future release"
 }
 [/block]
-
-[block:callout]
-{
-  "type": "danger",
-  "title": "Deprecated RPCs",
-  "body": "The `getAddressSummary` and `getUTXO` RPCs are deprecated and no longer usable as of Dash Platform v0.15.0. \n\nServices that previously used these RPCs should join the [wallet-lib library](https://github.com/dashevo/wallet-lib/pull/119) in switching to using the [`subscribeToTransactionsWithProofs`](reference-dapi-endpoints-transaction-streaming-endpoints#subscribetotransactionswithproofs) gRPC endpoint for similar (and more efficient) functionality."
-}
-[/block]
 | Layer | Endpoint | Description |
 | :-: | - | - |
 | 1 | [`getBestBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#getbestblockhash) | Returns block hash of the chaintip |
@@ -36,13 +28,6 @@
 
 ## Platform gRPC Service
 
-[block:callout]
-{
-  "type": "danger",
-  "body": "The `getIdentityByFirstPublicKey` and `getIdentityIdByFirstPublicKey` RPCs are deprecated and no longer usable as of Dash Platform v0.16.0. They were replaced by [`getIdentitiesByPublicKeyHashes`](reference-dapi-endpoints-platform-endpoints#getidentitiesbypublickeyhashes) and [`getIdentityIdsByPublicKeyHashes`](reference-dapi-endpoints-platform-endpoints#getidentityidsbypublickeyhashes).",
-  "title": "Deprecated RPCs"
-}
-[/block]
 | Layer | Endpoint | |
 | :-: | - | - |
 | 2 | [`broadcastStateTransition`](reference-dapi-endpoints-platform-endpoints#broadcaststatetransition) | Broadcasts the provided State Transition |
@@ -51,8 +36,16 @@
 | 2 | [`getIdentityIdsByPublicKeyHashes`](reference-dapi-endpoints-platform-endpoints#getidentityidsbypublickeyhashes) | Returns the identity IDs associated with the provided public key hashes<br>_Added in Dash Platform v0.16_ |
 | 2 | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#getdatacontract) | Returns the requested data contract |
 | 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#getdocuments) | Returns the requested document(s) |
+| 2 | [`waitForStateTransitionResult`](reference-dapi-endpoints-platform-endpoints#waitforstatetransitionresult) | Responds with the state transition hash and either a proof that the state transition was confirmed in a block or an error |
 [block:html]
 {
   "html": "<div></div>\n<!-- Not implemented yet\n| 1 | [`subscribeTo` `BlockHeaders` `WithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#section-subscribe-to-block-headers-with-chain-locks) | Returns block headers and associated ChainLock signatures |\n\n-->\n<style></style>"
+}
+[/block]
+
+[block:callout]
+{
+  "type": "info",
+  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints)."
 }
 [/block]

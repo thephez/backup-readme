@@ -269,7 +269,7 @@
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.16.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
 
 # Code Reference
 

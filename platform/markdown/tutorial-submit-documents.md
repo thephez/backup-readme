@@ -5,22 +5,22 @@ In this tutorial we will submit some data to an application on Dash Platform. Da
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
+- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
 
 # Code
 [block:callout]
 {
   "type": "info",
-  "title": "Initializing the Client with a contract identity",
-  "body": "The example below shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://dashevo.github.io/js-dash-sdk/#/getting-started/multiple-apps) for details."
+  "title": "Wallet Operations",
+  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes.\n\nAn upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster. For now, the `skipSynchronizationBeforeHeight` option can be used to only sync the wallet starting at a certain block height."
 }
 [/block]
 
 [block:callout]
 {
-  "type": "warning",
-  "title": "Wallet Operations",
-  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
+  "type": "success",
+  "title": "Initializing the Client with a contract identity",
+  "body": "The example below shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://dashevo.github.io/js-dash-sdk/#/getting-started/multiple-apps) for details."
 }
 [/block]
 
@@ -28,7 +28,7 @@ In this tutorial we will submit some data to an application on Dash Platform. Da
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n  },\n  apps: {\n    tutorialContract: {\n      contractId: '6Ti3c7nvD1gDf4gFi8a3FfZVhVLiRsGLnQ7nCAF74osi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst submitNoteDocument = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const docProperties = {\n    message: 'Tutorial Test @ ' + new Date().toUTCString(),\n  };\n\n  // Create the note document\n  const noteDocument = await platform.documents.create(\n    'tutorialContract.note',\n    identity,\n    docProperties,\n  );\n\n  const documentBatch = {\n    create: [noteDocument], // Document(s) to create\n    replace: [],            // Document(s) to update\n    delete: [],             // Document(s) to delete\n  };\n  // Sign and submit the document(s)\n  return platform.documents.broadcast(documentBatch, identity);\n};\n\nsubmitNoteDocument()\n  .then((d) => console.log(d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 415000, // only sync from start of 2021\n    },\n  },\n  apps: {\n    tutorialContract: {\n      contractId: 'C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst submitNoteDocument = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const docProperties = {\n    message: 'Tutorial Test @ ' + new Date().toUTCString(),\n  };\n\n  // Create the note document\n  const noteDocument = await platform.documents.create(\n    'tutorialContract.note',\n    identity,\n    docProperties,\n  );\n\n  const documentBatch = {\n    create: [noteDocument], // Document(s) to create\n    replace: [],            // Document(s) to update\n    delete: [],             // Document(s) to delete\n  };\n  // Sign and submit the document(s)\n  return platform.documents.broadcast(documentBatch, identity);\n};\n\nsubmitNoteDocument()\n  .then((d) => console.log(d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

@@ -24,9 +24,9 @@ Once an identity is created, its credit balance is used to pay for platform acti
   "body": "On Evonet, a [test Dash faucet](http://faucet.evonet.networks.dash.org/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to create an identity and username."
 }
 [/block]
-First, a sponsor (which could be a business, another person, or even the same user who is creating the identity) spends Dash to create an <a class="glossary" href="reference-glossary#invitation-lock-transaction" title="A special transaction with outputs for funding creation of new dash platform identities">invitation lock transaction</a>. The transaction contains one or more outputs which burn some Dash funds to establish credits within Dash platform. (In the future those Dash will be locked instead of burned, so that Masternodes who have been paid credits can unlock the original Dash to receive their payment.) 
+First, a sponsor (which could be a business, another person, or even the same user who is creating the identity) spends Dash in a transaction to create an invitation. The transaction contains one or more outputs which lock some Dash funds to establish credits within Dash platform.
 
-After the invitation lock transaction is broadcast and confirmed, the sponsor sends information about the transaction to the new user. This may be done as a hyperlink that the core wallet understands, or as a QR code that a mobile wallet can scan. Once the user has the transaction data from the sponsor, they can use it to fund an identity create state transition within Dash platform.
+After the transaction is broadcast and confirmed, the sponsor sends information about the invitation to the new user. This may be done as a hyperlink that the core wallet understands, or as a QR code that a mobile wallet can scan. Once the user has the transaction data from the sponsor, they can use it to fund an identity create state transition within Dash platform.
 
 Users who already have Dash funds can act as their own sponsor if they wish, using the same steps listed here.
 

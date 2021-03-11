@@ -4,7 +4,7 @@ Testnet is the Dash testing network used for experimentation and evaluation of D
 [block:callout]
 {
   "type": "warning",
-  "body": "As a testing network, Testnet may be subject to occasional updates and changes that break backwards compatibility.",
+  "body": "As a testing network, Testnet may be subject to occasional updates and changes that break backwards compatibility. Please visit [this page](https://dash-testnet.freshstatus.io/) to see current testnet status.",
   "title": "Testnet Stability"
 }
 [/block]
@@ -28,4 +28,4 @@ With this initial testnet release of the core Dash Platform components, the feat
 
 # Getting involved
 
-This network is open for all who are interested in testing and interacting with Dash Platform. To learn how to connect, please jump to the [Connecting to a Network tutorial](tutorial-connecting-to-evonet).
+This network is open for all who are interested in testing and interacting with Dash Platform. To learn how to connect, please jump to the [Connecting to a Network tutorial](tutorial-connecting-to-testnet).

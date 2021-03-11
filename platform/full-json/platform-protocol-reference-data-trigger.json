@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "reference-data-trigger", 
  "updatedAt": "2020-12-29T20:12:36.052Z", 
- "id": "5fd7ce777afee60053b29537", 
+ "id": "6035408f7bfb31002c3da313", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-09-02T14:39:03.052Z", 
- "category": "5fd7ce777afee60053b294ec", 
+ "category": "6035408f7bfb31002c3da2c6", 
  "title": "Data Trigger", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fd7ce777afee60053b29540", 
+ "version": "6035408f7bfb31002c3da325", 
  "slugUpdatedAt": "2020-11-17T18:27:47.606Z", 
  "hidden": false, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "5fd7ce777afee60053b29537", 
+ "_id": "6035408f7bfb31002c3da313", 
  "order": 5, 
  "updates": []
 }

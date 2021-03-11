@@ -31,25 +31,25 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 {
   "codes": [
     {
-      "code": "curl --request POST \\\n  --url http://seed.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getBestBlockHash\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\":{}\n    }'",
+      "code": "curl --request POST \\\n  --url http://seed-1.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getBestBlockHash\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\":{}\n    }'",
       "language": "curl",
       "name": "Curl"
     },
     {
-      "code": "var request = require(\"request\");\n\nvar options = {\n  method: 'POST',\n  url: 'http://seed.testnet.networks.dash.org:3000',\n  headers: {'content-type': 'application/json'},\n  body: '{\"method\":\"getBestBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\"}'\n};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});",
+      "code": "var request = require(\"request\");\n\nvar options = {\n  method: 'POST',\n  url: 'http://seed-1.testnet.networks.dash.org:3000',\n  headers: {'content-type': 'application/json'},\n  body: '{\"method\":\"getBestBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\"}'\n};\n\nrequest(options, function (error, response, body) {\n  if (error) throw new Error(error);\n\n  console.log(body);\n});",
       "language": "javascript"
     },
     {
-      "code": "var XMLHttpRequest = require('xhr2');\nvar data = '{\"method\":\"getBestBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\"}';\n\nvar xhr = new XMLHttpRequest();\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"POST\", \"http://seed.testnet.networks.dash.org:3000\");\nxhr.setRequestHeader(\"content-type\", \"application/json\");\n\nxhr.send(data);",
+      "code": "var XMLHttpRequest = require('xhr2');\nvar data = '{\"method\":\"getBestBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\"}';\n\nvar xhr = new XMLHttpRequest();\n\nxhr.addEventListener(\"readystatechange\", function () {\n  if (this.readyState === this.DONE) {\n    console.log(this.responseText);\n  }\n});\n\nxhr.open(\"POST\", \"http://seed-1.testnet.networks.dash.org:3000\");\nxhr.setRequestHeader(\"content-type\", \"application/json\");\n\nxhr.send(data);",
       "language": "javascript",
       "name": "Node"
     },
     {
-      "code": "import requests\nimport json\n\nurl = \"http://seed.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\": \"getBestBlockHash\",\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"params\": {}\n}\n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
+      "code": "import requests\nimport json\n\nurl = \"http://seed-1.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\": \"getBestBlockHash\",\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"params\": {}\n}\n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
       "language": "python"
     },
     {
-      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getBestBlockHash\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\":{ }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
+      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed-1.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getBestBlockHash\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\":{ }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
       "language": "ruby"
     }
   ]
@@ -82,16 +82,16 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 {
   "codes": [
     {
-      "code": "curl --request POST \\\n  --url http://seed.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getBlockHash\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\": {\n        \"height\": 1\n       }\n    }'",
+      "code": "curl --request POST \\\n  --url http://seed-1.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getBlockHash\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\": {\n        \"height\": 1\n       }\n    }'",
       "language": "shell",
       "name": "Curl"
     },
     {
-      "code": "import requests\nimport json\n\nurl = \"http://seed.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\": \"getBlockHash\",\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"height\": 100\n    }\n}\n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
+      "code": "import requests\nimport json\n\nurl = \"http://seed-1.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\": \"getBlockHash\",\n    \"id\": 1,\n    \"jsonrpc\": \"2.0\",\n    \"params\": {\n        \"height\": 100\n    }\n}\n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
       "language": "python"
     },
     {
-      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getBlockHash\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\":{\n        \"height\":100\n    }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
+      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed-1.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getBlockHash\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\":{\n        \"height\":100\n    }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
       "language": "ruby"
     }
   ]
@@ -125,16 +125,16 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 {
   "codes": [
     {
-      "code": "curl --request POST \\\n  --url http://seed.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getMnListDiff\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\": {\n        \"baseBlockHash\": \"6c2f69e9696baf3c28af0d21d85af0e61c6a2adbe319c3714ec4b16adc3e1d2f\",\n        \"blockHash\": \"000000bbdda70535d4fa854ca8c12d67f5788bcc6f7d85d39722bc2abed10f58\"\n      }\n    }'",
+      "code": "curl --request POST \\\n  --url http://seed-1.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\n      \"method\":\"getMnListDiff\",\n      \"id\":1,\n      \"jsonrpc\":\"2.0\",\n      \"params\": {\n        \"baseBlockHash\": \"6c2f69e9696baf3c28af0d21d85af0e61c6a2adbe319c3714ec4b16adc3e1d2f\",\n        \"blockHash\": \"000000bbdda70535d4fa854ca8c12d67f5788bcc6f7d85d39722bc2abed10f58\"\n      }\n    }'",
       "language": "shell",
       "name": "Curl"
     },
     {
-      "code": "import requests\nimport json\n\nurl = \"http://seed.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\":\"getMnListDiff\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\": {\n        \"baseBlockHash\": \"0000248ff415f1a3155b30c4041bdb681c25a69a319b83676f878d8214441e0b\",\n        \"blockHash\": \"000001c61729f702adae5266adf68f378211a5ea33970683724894f0e1bae56d\"\n    }\n}  \n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
+      "code": "import requests\nimport json\n\nurl = \"http://seed-1.testnet.networks.dash.org:3000/\"\nheaders = {'content-type': 'application/json'}\n\npayload_json = {\n    \"method\":\"getMnListDiff\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\": {\n        \"baseBlockHash\": \"0000248ff415f1a3155b30c4041bdb681c25a69a319b83676f878d8214441e0b\",\n        \"blockHash\": \"000001c61729f702adae5266adf68f378211a5ea33970683724894f0e1bae56d\"\n    }\n}  \n\nresponse = requests.request(\"POST\", url, data=json.dumps(payload_json), headers=headers)\n\nprint(response.text)",
       "language": "python"
     },
     {
-      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getMnListDiff\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\": {\n        \"baseBlockHash\": \"0000248ff415f1a3155b30c4041bdb681c25a69a319b83676f878d8214441e0b\",\n        \"blockHash\": \"000001c61729f702adae5266adf68f378211a5ea33970683724894f0e1bae56d\"\n    }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
+      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed-1.testnet.networks.dash.org:3000/\")\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\n\nrequest.body = '{\n    \"method\":\"getMnListDiff\",\n    \"id\":1,\n    \"jsonrpc\":\"2.0\",\n    \"params\": {\n        \"baseBlockHash\": \"0000248ff415f1a3155b30c4041bdb681c25a69a319b83676f878d8214441e0b\",\n        \"blockHash\": \"000001c61729f702adae5266adf68f378211a5ea33970683724894f0e1bae56d\"\n    }\n}'\n\nresponse = http.request(request)\nputs response.read_body",
       "language": "ruby"
     }
   ]
@@ -154,7 +154,7 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.16.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
 
 # Code Reference
 
