@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "6035408f7bfb31002c3da2d2", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-12-10T15:11:45.444Z", 
+ "id": "6035408f7bfb31002c3da2e0", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-08T10:40:40.478Z", 
+ "category": "6035408f7bfb31002c3da2c2", 
+ "title": "Dash SDK (Javascript)", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "6035408f7bfb31002c3da325", 
+ "slugUpdatedAt": "2020-09-03T17:49:06.994Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "resources-source-code-dash-sdk-javascript", 
+ "link_url": "https://github.com/dashevo/js-dash-sdk", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "6035408f7bfb31002c3da2e0", 
+ "order": 0, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

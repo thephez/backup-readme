@@ -1,0 +1,75 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-13T21:26:09.503Z", 
+ "id": "5e96055329a18c0025d39236", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-28T13:43:47.059Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "Operating Modes", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-operating-modes-full-node", 
+    "type": "doc", 
+    "name": "Full Node", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-operating-modes-simplified-payment-verification-spv", 
+    "type": "doc", 
+    "name": "Simplified Payment Verification (SPV)", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2021-04-06T22:10:48.588Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Currently there are two primary methods of validating the <<glossary:block chain>> as a client: Full <<glossary:nodes>> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-operating-modes", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "5e96055329a18c0025d39236", 
+ "order": 6, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

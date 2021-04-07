@@ -1,0 +1,103 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-13T21:55:14.580Z", 
+ "id": "5e96055329a18c0025d39210", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-24T13:59:20.014Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "P2P Network", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-guide-p2p-network-peer-discovery", 
+    "name": "Peer Discovery"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-connecting-to-peers", 
+    "type": "doc", 
+    "name": "Connecting to Peers", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-initial-block-download", 
+    "type": "doc", 
+    "name": "Initial Block Download", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-block-broadcasting", 
+    "type": "doc", 
+    "name": "Block Broadcasting", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-transaction-broadcasting", 
+    "type": "doc", 
+    "name": "Transaction Broadcasting", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-p2p-network-misbehaving-nodes", 
+    "type": "doc", 
+    "name": "Misbehaving Nodes", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2021-04-06T22:10:48.538Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The Dash network protocol allows full <<glossary:nodes>> (peers) to collaboratively maintain a peer-to-peer <<glossary:network>> for <<glossary:block>> and <<glossary:transaction>> exchange. Full nodes download and verify every block and transaction prior to relaying them to other nodes. Archival nodes are full nodes which store the entire <<glossary:block chain>> and can serve historical blocks to other nodes. Pruned nodes are full nodes which do not store the entire block chain. Many SPV clients also use the Dash network protocol to connect to full nodes.\n\nConsensus rules do _not_ cover networking, so Dash programs may use alternative networks and protocols, such as the [high-speed block relay network](https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg03189.html) used by some miners and the [dedicated transaction information servers](https://github.com/spesmilo/electrum-server) used by some wallets that provide SPV-level security.\n\nTo provide practical examples of the Dash peer-to-peer network, this section uses Dash Core as a representative full node and [DashJ](https://github.com/HashEngineering/dashj) as a representative SPV client. Both programs are flexible, so only default behavior is described. Also, for privacy, actual IP addresses in the example output below have been replaced with [RFC5737](http://tools.ietf.org/html/rfc5737) reserved IP addresses.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The Dash network protocol allows full &lt;&lt;glossary:nodes&gt;&gt; (peers) to collaboratively maintain a peer-to-peer &lt;&lt;glossary:network&gt;&gt; for &lt;&lt;glossary:block&gt;&gt; and &lt;&lt;glossary:transaction&gt;&gt; exchange. Full nodes download and verify every block and transaction prior to relaying them to other nodes. Archival nodes are full nodes which store the entire &lt;&lt;glossary:block chain&gt;&gt; and can serve historical blocks to other nodes. Pruned nodes are full nodes which do not store the entire block chain. Many SPV clients also use the Dash network protocol to connect to full nodes.</p>\n<p>Consensus rules do <em>not</em> cover networking, so Dash programs may use alternative networks and protocols, such as the <a href=\"https://www.mail-archive.com/bitcoin-development@lists.sourceforge.net/msg03189.html\">high-speed block relay network</a> used by some miners and the <a href=\"https://github.com/spesmilo/electrum-server\">dedicated transaction information servers</a> used by some wallets that provide SPV-level security.</p>\n<p>To provide practical examples of the Dash peer-to-peer network, this section uses Dash Core as a representative full node and <a href=\"https://github.com/HashEngineering/dashj\">DashJ</a> as a representative SPV client. Both programs are flexible, so only default behavior is described. Also, for privacy, actual IP addresses in the example output below have been replaced with <a href=\"http://tools.ietf.org/html/rfc5737\">RFC5737</a> reserved IP addresses.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-p2p-network", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "5e96055329a18c0025d39210", 
+ "order": 7, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

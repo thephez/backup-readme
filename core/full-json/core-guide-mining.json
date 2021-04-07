@@ -1,0 +1,82 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-13T21:39:28.937Z", 
+ "id": "5e96055329a18c0025d39232", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-28T12:56:38.049Z", 
+ "category": "5e96055329a18c0025d391e3", 
+ "title": "Mining", 
+ "next": {
+  "description": "", 
+  "pages": [
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-mining-solo-mining", 
+    "type": "doc", 
+    "name": "Solo Mining", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-mining-pool-mining", 
+    "type": "doc", 
+    "name": "Pool Mining", 
+    "icon": "file-text-o"
+   }, 
+   {
+    "category": "Core Guides", 
+    "slug": "core-guide-mining-block-prototypes", 
+    "type": "doc", 
+    "name": "Block Prototypes", 
+    "icon": "file-text-o"
+   }
+  ]
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2021-04-06T22:10:48.455Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Mining adds new <<glossary:blocks>> to the <<glossary:block chain>>, making transaction history hard to modify.  Mining today takes on two forms:\n\n* Solo mining, where the <<glossary:miner>> attempts to generate new blocks on his own, with the proceeds from the <<glossary:block reward>> and transaction fees going entirely to himself, allowing him to receive large payments with a higher variance (longer time between payments)\n\n* Pooled mining, where the miner pools resources with other miners to find blocks more often, with the proceeds being shared among the pool miners in rough correlation to the amount of hashing power they each contributed, allowing the miner to receive small payments with a lower variance (shorter time between payments).", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Mining adds new &lt;&lt;glossary:blocks&gt;&gt; to the &lt;&lt;glossary:block chain&gt;&gt;, making transaction history hard to modify.  Mining today takes on two forms:</p>\n<ul>\n<li ><p>Solo mining, where the &lt;&lt;glossary:miner&gt;&gt; attempts to generate new blocks on his own, with the proceeds from the &lt;&lt;glossary:block reward&gt;&gt; and transaction fees going entirely to himself, allowing him to receive large payments with a higher variance (longer time between payments)</p>\n</li><li ><p>Pooled mining, where the miner pools resources with other miners to find blocks more often, with the proceeds being shared among the pool miners in rough correlation to the amount of hashing power they each contributed, allowing the miner to receive small payments with a lower variance (shorter time between payments).</p>\n</li></ul>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-mining", 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "5e96055329a18c0025d39232", 
+ "order": 8, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}

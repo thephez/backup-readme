@@ -1,0 +1,59 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-03-24T16:38:27.417Z", 
+ "id": "605b6b033f93f200113b0f2c", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-03-24T16:38:27.417Z", 
+ "category": "5e96055329a18c0025d391e8", 
+ "title": "Previous Version of Docs", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "5e96055329a18c0025d39261", 
+ "slugUpdatedAt": "2021-03-24T15:50:39.791Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "previous-version-of-docs", 
+ "link_url": "https://dashcore.readme.io/v0.15.0/docs/", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "605b6b033f93f200113b0f2c", 
+ "order": 999, 
+ "updates": []
+}

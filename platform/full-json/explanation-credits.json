@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2020-06-02T21:01:20.910Z", 
+ "id": "6035408f7bfb31002c3da30d", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2020-06-02T21:01:13.824Z", 
+ "category": "6035408f7bfb31002c3da2c4", 
+ "title": "Credits", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "6035408f7bfb31002c3da325", 
+ "slugUpdatedAt": "2021-04-06T22:10:57.353Z", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "explanation-credits", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "6035408f7bfb31002c3da30d", 
+ "order": 7, 
+ "updates": []
+}

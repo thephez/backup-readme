@@ -1,0 +1,59 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-03-25T12:36:31.306Z", 
+ "id": "605c82ccc8365e00476e4e84", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-03-25T12:32:12.874Z", 
+ "category": "6035408f7bfb31002c3da2c3", 
+ "title": "Debugging", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "6035408f7bfb31002c3da325", 
+ "slugUpdatedAt": "2021-03-25T00:06:08.981Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"\",\n  \"title\": \"Under construction\"\n}\n[/block]", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-callout type-warning \">\n\t<h3><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i>Under construction\n\t</h3>\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "reference-debugging", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "605c82ccc8365e00476e4e84", 
+ "order": 999, 
+ "updates": []
+}

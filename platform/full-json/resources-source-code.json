@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-08-01T13:35:56.777Z", 
+ "id": "6035408f7bfb31002c3da2d2", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-08-01T13:32:49.643Z", 
+ "category": "6035408f7bfb31002c3da2c2", 
+ "title": "Source Code", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "6035408f7bfb31002c3da325", 
+ "slugUpdatedAt": "2021-04-06T22:10:48.092Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Source code produced by Dash Core Group is located in two GitHub organizations:\n- [Dashpay](https://github.com/dashpay) - Dash Core Blockchain software and documention\n- [Dashevo](https://github.com/dashevo) - Dash Platform software", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Source code produced by Dash Core Group is located in two GitHub organizations:</p>\n<ul>\n<li ><a href=\"https://github.com/dashpay\">Dashpay</a> - Dash Core Blockchain software and documention</li><li ><a href=\"https://github.com/dashevo\">Dashevo</a> - Dash Platform software</li></ul>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "resources-source-code", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "6035408f7bfb31002c3da2d2", 
+ "order": 5, 
+ "user": "5b8400d7185d5e00036dcc3b"
+}
