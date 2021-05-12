@@ -379,7 +379,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints-platform-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-platform-endpoints).
 
 # Code Reference
 Implementation details related to the information on this page can be found in:

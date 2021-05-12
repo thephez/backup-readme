@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-09-18T14:53:10.334Z", 
- "id": "6035408f7bfb31002c3da2d8", 
+ "id": "60906294cda2820061269597", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-08-06T13:19:16.306Z", 
- "category": "6035408f7bfb31002c3da2c1", 
+ "category": "60906294cda282006126957f", 
  "title": "Creating a Devnet", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "6035408f7bfb31002c3da325", 
- "slugUpdatedAt": "2021-05-05T13:53:05.771Z", 
+ "version": "60906294cda28200612695e5", 
+ "slugUpdatedAt": "2021-05-11T23:44:51.591Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "6035408f7bfb31002c3da2d8", 
+ "_id": "60906294cda2820061269597", 
  "order": 10, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

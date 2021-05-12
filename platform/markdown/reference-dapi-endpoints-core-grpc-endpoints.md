@@ -48,7 +48,13 @@
 }
 [/block]
 ## getStatus
-
+[block:callout]
+{
+  "type": "warning",
+  "title": "Breaking change in Dash Platform 0.19.0",
+  "body": "The structure of the response has been reformatted in Dash Platform 0.19.0 ([PR 107](https://github.com/dashevo/dapi-grpc/pull/107)). See the [previous version](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints#getstatus) of documentation for details of the older format."
+}
+[/block]
 **Returns**: Status information from the Core chain
 **Parameters**: None
 
@@ -79,12 +85,12 @@
 {
   "codes": [
     {
-      "code": "{\n  coreVersion: 170000,\n  protocolVersion: 70218,\n  blocks: 416585,\n  timeOffset: 0,\n  connections: 240,\n  proxy: '',\n  difficulty: 0.004320536256772037,\n  testnet: false,\n  relayFee: 0.00001,\n  errors: 'Warning: unknown new rules activated (versionbit 3)',\n  network: 'testnet'\n}",
+      "code": "{\n   \"version\":{\n      \"protocol\":70219,\n      \"software\":170000,\n      \"agent\":\"/Dash Core:0.17.0.0/\"\n   },\n   \"time\":{\n      \"now\":1620322175,\n      \"offset\":0,\n      \"median\":1620321299\n   },\n   \"status\":\"READY\",\n   \"syncProgress\":0.9999994872058411,\n   \"chain\":{\n      \"name\":\"test\",\n      \"headersCount\":494825,\n      \"blocksCount\":494825,\n      \"bestBlockHash\":<Buffer 00 00 00 82 7f 8d ac 9a b0 71 e5 4c 91 f5 1b 07 60 46 48 25 bc 08 72 f8 2e 49 23 30 3d 0b e7 9d>,\n      \"difficulty\":0.00279997477523297,\n      \"chainWork\":<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 2f 14 da c3 9c f1 bb>,\n      \"isSynced\":true,\n      \"syncProgress\":0.9999994872058411\n   },\n   \"masternode\":{\n      \"status\":\"READY\",\n      \"proTxHash\":<Buffer aa 9b 76 35 e2 ba 2b ac 54 a1 f9 90 fc 88 92 d5 a8 ae c4 78 f7 7c c1 da 00 b9 f0 3d 9b 18 b3 58>,\n      \"posePenalty\":0,\n      \"isSynced\":true,\n      \"syncProgress\":1\n   },\n   \"network\":{\n      \"peersCount\":167,\n      \"fee\":{\n         \"relay\":0.00001,\n         \"incremental\":0.00001\n      }\n   }\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"coreVersion\": 170000,\n  \"protocolVersion\": 70218,\n  \"blocks\": 416583,\n  \"connections\": 190,\n  \"difficulty\": 0.00430861051502146,\n  \"relayFee\": 1e-05,\n  \"errors\": \"Warning: unknown new rules activated (versionbit 3)\",\n  \"network\": \"testnet\"\n}\n",
+      "code": "{\n   \"version\":{\n      \"protocol\":70219,\n      \"software\":170000,\n      \"agent\":\"/Dash Core:0.17.0.0/\"\n   },\n   \"time\":{\n      \"now\":1620322383,\n      \"median\":1620321517\n   },\n   \"status\":\"READY\",\n   \"syncProgress\":0.9999996782468702,\n   \"chain\":{\n      \"name\":\"test\",\n      \"headersCount\":494826,\n      \"blocksCount\":494826,\n      \"bestBlockHash\":\"AAAAX/TonwIUBy4PtB2r7DPd8uuKBbOLgJZk8zqXoms=\",\n      \"difficulty\":0.002842032681099084,\n      \"chainWork\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi8U2sRXM9o=\",\n      \"isSynced\":true,\n      \"syncProgress\":0.9999996782468702\n   },\n   \"masternode\":{\n      \"status\":\"READY\",\n      \"proTxHash\":\"vMf8qFk4MHCWATHJ0bMWAm/RVove6LNMNXpcVko3YaY=\",\n      \"isSynced\":true,\n      \"syncProgress\":1\n   },\n   \"network\":{\n      \"peersCount\":172,\n      \"fee\":{\n         \"relay\":1e-05,\n         \"incremental\":1e-05\n      }\n   }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     }
@@ -269,7 +275,7 @@
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
 
 # Code Reference
 

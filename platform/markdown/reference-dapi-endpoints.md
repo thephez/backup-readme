@@ -22,7 +22,7 @@
 | :-: | - | - |
 | 1 | [`broadcastTransaction`](reference-dapi-endpoints-core-grpc-endpoints#broadcasttransaction) | Broadcasts the provided transaction |
 | 1 | [`getBlock`](reference-dapi-endpoints-core-grpc-endpoints#getblock) | Returns information for the requested block |
-| 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#getstatus) | Returns blockchain status information |
+| 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#getstatus) | Returns blockchain status information<br>**Updated in Dash Platform v0.19** |
 | 1 | [`getTransaction`](reference-dapi-endpoints-core-grpc-endpoints#gettransaction) | Returns details for the requested transaction |
 | 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-core-grpc-endpoints#subscribetotransactionswithproofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#merkleblock) |
 
@@ -46,6 +46,6 @@
 [block:callout]
 {
   "type": "info",
-  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.17.0/docs/reference-dapi-endpoints)."
+  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints)."
 }
 [/block]
