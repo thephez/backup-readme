@@ -1,6 +1,6 @@
 # Introduction
 
-The Dash Platform Protocol (DPP) defines a protocol for the data objects (e.g.  [idenitities](platform-protocol-reference-identity), data contracts, documents, state transitions) that can be stored on [Dash's layer 2 platform](https://dashplatform.readme.io/docs/introduction-what-is-dash-platform). All data stored on Dash Platform is governed by DPP to ensure data consistency and integrity is maintained.
+The Dash Platform Protocol (DPP) defines a protocol for the data objects (e.g.  [identities](platform-protocol-reference-identity), data contracts, documents, state transitions) that can be stored on [Dash's layer 2 platform](https://dashplatform.readme.io/docs/introduction-what-is-dash-platform). All data stored on Dash Platform is governed by DPP to ensure data consistency and integrity is maintained.
 
 Dash Platform data objects consist of JSON and are validated using the JSON Schema specification via pre-defined JSON Schemas and meta-schemas described in these sections. The meta-schemas allow for creation of DPP-compliant schemas which define fields for third-party Dash Platform applications.
 

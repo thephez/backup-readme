@@ -1,16 +1,17 @@
 # State Transition Overview
 
  State transitions are the means for submitting data that creates, updates, or deletes platform data and results in a change to a new state. Each one must contain:
+
  - [Common fields](#common-fields) present in all state transitions
  - Additional fields specific to the type of action the state transition provides (e.g. [creating an identity](platform-protocol-reference-identity#identity-create-schema))
 
 ## Fees
 
-State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/identity/creditsConverter.js#L1). The current fee rate is [1 credit/byte](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/stateTransition/calculateStateTransitionFee.js#L1).
+State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashevo/js-dpp/blob/v0.19.1/lib/identity/creditsConverter.js#L1). The current fee rate is [1 credit/byte](https://github.com/dashevo/js-dpp/blob/v0.19.1/lib/stateTransition/calculateStateTransitionFee.js#L1).
 
 ## Size
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/js-dpp/blob/v0.17.0/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/js-dpp/blob/v0.19.1/lib/util/serializer.js#L5).
 
 ## Common Fields
 
@@ -27,7 +28,6 @@ Additionally, all state transitions except the identity create and topup state t
 | Field | Type | Description|
 | - | - | - |
 | signaturePublicKeyId | integer | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition (`=> 0`)|
-
 
 # State Transition Types
 
@@ -77,12 +77,12 @@ More detailed information about the `publicKeys` object can be found in the [ide
 | lockedOutPoint | array of bytes | Lock [outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint) from the layer 1 locking transaction (36 bytes) |
 | identityId | array of bytes | An [Identity ID](platform-protocol-reference-identity#identity-id) for the identity receiving the topup (can be any identity) (32 bytes) |
 
-
 # State Transition Signing
 
 State transitions must be signed by a private key associated with the identity creating the state transition.
 
 The process to sign a state transition consists of the following steps:
+
 1. Canonical CBOR encode the state transition data - this include all ST fields except the `signature` and `signaturePublicKeyId`
 2. Sign the encoded data with a private key associated with the identity creating the state transition
 3. Set the state transition `signature` to the value of the signature created in the previous step
@@ -90,7 +90,7 @@ The process to sign a state transition consists of the following steps:
 
 ## Signature Validation
 
-The `signature` validation (see [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.17.0/test/unit/stateTransition/validation/validateStateTransitionSignatureFactory.spec.js)) verifies that:
+The `signature` validation (see [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/test/unit/stateTransition/validation/validateStateTransitionSignatureFactory.spec.js)) verifies that:
 
 1. The identity has a public key
 2. The identity's public key is of type `ECDSA`
@@ -98,7 +98,7 @@ The `signature` validation (see [js-dpp](https://github.com/dashevo/js-dpp/blob/
 
 The example test output below shows the necessary criteria:
 
-```
+```text
 validateStateTransitionSignatureFactory
   ✓ should pass properly signed state transition
   ✓ should return MissingPublicKeyError if the identity doesn't have a matching public key

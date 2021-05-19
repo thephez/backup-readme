@@ -1,0 +1,60 @@
+{
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "60906294cda28200612695d9", 
+ "excerpt": "", 
+ "api": {
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
+  "results": {
+   "codes": [
+    {
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
+    {
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }
+   ]
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-05-17T16:16:02.928Z", 
+ "id": "60a296039ffb0f00167ce375", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-05-17T16:12:51.193Z", 
+ "category": "60906294cda282006126957f", 
+ "title": "Client App options", 
+ "next": {
+  "description": "", 
+  "pages": []
+ }, 
+ "version": "60906294cda28200612695e5", 
+ "slugUpdatedAt": "2021-05-17T06:59:56.629Z", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>", 
+ "user": "5b8400d7185d5e00036dcc3b", 
+ "isReference": false, 
+ "slug": "tutorial-update-client-app-options", 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "60a296039ffb0f00167ce375", 
+ "order": 999, 
+ "updates": []
+}

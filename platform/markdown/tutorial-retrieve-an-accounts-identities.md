@@ -19,9 +19,9 @@ In this tutorial we will retrieve the list of identities associated with a speci
 
 [block:callout]
 {
-  "type": "danger",
+  "type": "warning",
   "title": "Dash Platform 0.18 Breaking Change",
-  "body": "The derivation path used for [identities](explanation-identity) has been updated to align with [DIP13](https://github.com/dashpay/dips/blob/master/dip-0013.md#identity-authentication-keys) and provide compatibility with the mobile DashPay wallets. Consequently, identities registered with previous versions of the SDK [will be not be retrievable](https://github.com/dashevo/js-dash-sdk/pull/188).\n\nAlso note the change from `account.getIdentityIds()` to  `account.identities.getIdentityIds()` for retrieving identities ([PR](https://github.com/dashevo/wallet-lib/pull/227))."
+  "body": "The derivation path used for [identities](explanation-identity) was updated to align with [DIP13](https://github.com/dashpay/dips/blob/master/dip-0013.md#identity-authentication-keys) and provide compatibility with the mobile DashPay wallets. Consequently, identities registered with previous versions of the SDK [will be not be retrievable](https://github.com/dashevo/js-dash-sdk/pull/188).\n\nAlso note the change from `account.getIdentityIds()` to  `account.identities.getIdentityIds()` for retrieving identities ([PR](https://github.com/dashevo/wallet-lib/pull/227))."
 }
 [/block]
 
