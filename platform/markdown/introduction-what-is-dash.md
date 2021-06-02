@@ -33,7 +33,7 @@ The Dash [decentralized autonomous organization (DAO)](reference-glossary#decent
 
 ## Established History of Technological Innovation
 
-Most of Dash's technical innovations are described in greater detail elsewhere in this developer hub. However, its record speaks for itself with innovations in governance ([masternodes](https://docs.dash.org/en/stable/introduction/features.html#masternodes), [treasury system](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance)), security ([ChainLocks](https://docs.dash.org/en/stable/introduction/features.html#chainlocks)), usability (automatic [InstantSend](https://docs.dash.org/en/stable/introduction/features.html#instantsend)), and scalability ([long-living masternode quorums](https://dashcore.readme.io/docs/core-guide-dash-features-masternode-quorums)).
+Most of Dash's technical innovations are described in greater detail elsewhere in this developer hub. However, its record speaks for itself with innovations in governance ([masternodes](https://docs.dash.org/en/stable/introduction/features.html#masternodes), [treasury system](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance)), security ([ChainLocks](https://docs.dash.org/en/stable/introduction/features.html#chainlocks)), usability (automatic [InstantSend](https://docs.dash.org/en/stable/introduction/features.html#instantsend)), and scalability ([long-living masternode quorums](reference-glossary#long-living-masternode-quorum-llmq)).
 
 ## Instantly Confirmed Transactions
 
@@ -48,7 +48,7 @@ However, the Dash network has a second layer of network participants that provid
 
 ## Long-Living Masternode Quorums
 
-Dash's long-living masternode quorums (LLMQs) are used to facilitate the operation of masternode provided features in a decentralized, deterministic way. These LLMQs are deterministic subsets of the overall masternode list that are formed via a [distributed key generation](reference-glossary#distributed-key-generation-dkg) protocol and remain active for long periods of time (e.g. hours to days). The main task of LLMQs is to perform threshold signing of consensus-related messages for features like InstantSend and ChainLocks.
+Dash's [long-living masternode quorums](https://dashcore.readme.io/docs/core-guide-dash-features-masternode-quorums) (LLMQs) are used to facilitate the operation of masternode provided features in a decentralized, deterministic way. These LLMQs are deterministic subsets of the overall masternode list that are formed via a [distributed key generation](reference-glossary#distributed-key-generation-dkg) protocol and remain active for long periods of time (e.g. hours to days). The main task of LLMQs is to perform threshold signing of consensus-related messages for features like InstantSend and ChainLocks.
 
 ## InstantSend
 
