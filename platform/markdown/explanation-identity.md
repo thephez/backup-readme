@@ -21,7 +21,7 @@ Once an identity is created, its credit balance is used to pay for platform acti
 {
   "type": "info",
   "title": "Evonet Faucet",
-  "body": "On Evonet, a [test Dash faucet](http://faucet.evonet.networks.dash.org/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to create an identity and username."
+  "body": "On Testnet, a [test Dash faucet](https://testnet-faucet.dash.org/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to create an identity and username."
 }
 [/block]
 First, a sponsor (which could be a business, another person, or even the same user who is creating the identity) spends Dash in a transaction to create an invitation. The transaction contains one or more outputs which lock some Dash funds to establish credits within Dash platform.
