@@ -1,7 +1,7 @@
 The purpose of this tutorial is to walk through the steps necessary to set up a masternode with Dash Platform services.
 
 # Prerequisites
-- Access to a Linux system (an Ubuntu 20.04 LTS VPS is recommended) configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
+- Access to a Linux system configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v20.10.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
 - An installation of [NodeJS](https://nodejs.org/en/download/) v12+
 - A copy of the [dashmate repository](https://github.com/dashevo/dashmate)
@@ -16,7 +16,7 @@ Clone the dashmate repository and prepare for use:
 {
   "codes": [
     {
-      "code": "git clone -b master https://github.com/dashevo/dashmate.git\ncd dashmate\nnpm ci # optional: install CLI dependencies\nsudo npm link # optional: link CLI for system-wide execution",
+      "code": "git clone -b master https://github.com/dashevo/dashmate.git\ncd dashmate\nnpm ci\nsudo npm link # optional: link CLI for system-wide execution",
       "language": "shell"
     }
   ]
@@ -54,6 +54,32 @@ Run the following command to start the setup wizard, then accept the default val
   "body": "Make a note of the key, identity, and contract ID information displayed during setup as they may be required in the future."
 }
 [/block]
+Example (partial) output of the setup wizard showing important information:
+```
+  ✔ Initialize SDK
+    › HD private key: tprv8ZgxMBicQKsPfLTCjh8vdHkDHYM369tUeQ4aqpV9GzUfQyBKutfstB1sDfQyLERACTEYy5Qjph42gBiqqnqYmXJZZqRc4PQssGzbvwJXHnN
+  ✔ Register DPNS identity
+    › DPNS identity: 6whgUd1LzwzU4ob7K8FGCLV765K7dp2JbEmVgdTQEFxD
+  ✔ Register DPNS contract
+    › DPNS contract ID: EpCvWuoh3JcFetFY83HdwuzRUvwxF2hc3mU19MtBg2kK
+  ✔ Obtain DPNS contract commit block height
+    › DPNS contract block height: 5
+  ✔ Register top level domain "dash"
+  ✔ Register identity for Dashpay
+    › Dashpay's owner identity: 2T7kLcbJzQrLhBV6BferW42Jimb3BJ5zAAore42mfNyE
+  ✔ Register Dashpay Contract
+    › Dashpay contract ID: EAv8ePXREdJ719ntcRiKuEYxv9XooMwL1mJmPHMGuW9r
+  ✔ Obtain Dashpay contract commit block height
+    › Dashpay contract block height: 15
+  ✔ Register Feature Flags identity
+    › Feature Flags identity: 8BsvV4RCbW7srWj81kgjJCykRBF2rzyigys8XkBchY96
+  ✔ Register Feature Flags contract
+    › Feature Flags contract ID: JDrDAGVqTWsM9k7KGBsSjcyC11Vd2UdPxPoPf4NzyyrP
+  ✔ Obtain Feature Flags contract commit block height
+    › Feature Flags contract block height: 20
+
+```
+
 
 ## Operation
 
@@ -109,12 +135,16 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
   ]
 }
 [/block]
-Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. To make the Dash SDK connect to your local devnet, use the `dapiAddresses` option when configuring your client:
+## Using the devnet
+
+Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
+
+To make the Dash SDK connect to your local devnet, use the `dapiAddresses` option and set the DPNS contract ID when configuring your client:
 [block:code]
 {
   "codes": [
     {
-      "code": "const clientOpts = {\n  dapiAddresses: ['127.0.0.1:3000'],\n  ...\n};\n\nconst client = new Dash.Client(clientOpts);",
+      "code": "const clientOpts = {\n  dapiAddresses: ['127.0.0.1:3000'],\n  // Set DPNS contract ID to the one output during devnet setup\n  apps: {\n    dpns: {\n  \t\tcontractId: 'DPNS contract ID displayed during the setup step',\n    },\n\t},  \n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
       "language": "javascript"
     }
   ]
@@ -130,12 +160,8 @@ Once the address is funded, you can begin creating identities, data contracts, e
 }
 [/block]
 To setup a testnet masternode, please refer to the comprehensive documentation of the process as described [here](https://docs.dash.org/en/stable/masternodes/setup-testnet.html#dashmate-installation). The following video also details how to complete the process.
-[block:embed]
+[block:html]
 {
-  "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2FLLiMMXSAfeU%3Ffeature%3Doembed%26rel%3D0&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DLLiMMXSAfeU&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2FLLiMMXSAfeU%2Fhqdefault.jpg&key=f2aa6fc3595946d0afc3d76cbbd25dc3&type=text%2Fhtml&schema=youtube-nocookie\" width=\"854\" height=\"480\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
-  "url": "https://www.youtube-nocookie.com/embed/LLiMMXSAfeU?rel=0&wmode=transparent",
-  "title": "Introducing Dashmate - testnet masternode setup",
-  "favicon": "https://www.youtube-nocookie.com/favicon.ico",
-  "image": "https://i.ytimg.com/vi/LLiMMXSAfeU/hqdefault.jpg"
+  "html": "<div></div>\n\n<style></style>\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/LLiMMXSAfeU?rel=0&modestbranding=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 }
 [/block]
