@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5e96055329a18c0025d39241", 
+ "parentDoc": "5fce5c21ec64d90073aa885a", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-13T17:44:37.642Z", 
- "id": "5e96055329a18c0025d3924a", 
+ "id": "5fce5c21ec64d90073aa8863", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T17:52:35.418Z", 
- "category": "5e96055329a18c0025d391e3", 
+ "category": "5fce5c21ec64d90073aa87fb", 
  "title": "Non-Standard Transactions", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T21:17:57.116Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:07.788Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5e96055329a18c0025d3924a", 
+ "_id": "5fce5c21ec64d90073aa8863", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

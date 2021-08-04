@@ -1,6 +1,6 @@
 # GetGovernanceInfo
 
-The [`getgovernanceinfo` RPC](core-api-ref-remote-procedure-calls-dash#getgovernanceinfo) returns an object containing governance parameters.
+The [`getgovernanceinfo` RPC](#getgovernanceinfo) returns an object containing governance parameters.
 
 *Parameters: none*
 
@@ -34,122 +34,55 @@ Result:
 
 *See also:*
 
-* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#gobject): provides a set of commands for managing governance objects and displaying information about them.
+* [GObject](#gobject): provides a set of commands for managing governance objects and displaying information about them.
 
-# GetPoolInfo
+**<span id="getprivatesendinfo"></span>**
+# GetCoinJoinInfo
 
-The [`getpoolinfo` RPC](core-api-ref-remote-procedure-calls-dash#getpoolinfo) returns an object containing mixing pool related information.
-
-*Parameters: none*
-
-*Result---information about the mixing pool*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | Information about the mixing pool
-→<br>`state` | string | Required<br>(exactly 1) | Mixing pool state.  Will be one of the following:<br>• `IDLE` <br>• `QUEUE` <br>• `ACCEPTING_ENTRIES` <br>• `SIGNING` <br>• `ERROR` <br>• `SUCCESS` <br>• `UNKNOWN` <br>
-→<br>`mixing_mode` | string | Required<br>(exactly 1) | Mixing mode - will be one of the following:<br>• `normal` <br>• `multi-session` <br>
-→<br>`queue` | number (int) | Required<br>(exactly 1) | Queue size
-→<br>`entries` | number (int) | Required<br>(exactly 1) | The number of entries
-→<br>`status` | string | Required<br>(exactly 1) | A more detailed description of the current state
-→<br>`outpoint` | string (hex) | Optional<br>(exactly 1) | Previous output
-→<br>`addr` | string | Optional<br>(exactly 1) | Address
-→<br>`keys_left` | number (int) | Optional<br>(exactly 1) | The number of keys left in the local wallet
-→<br>`warnings` | number (int) | Optional<br>(exactly 1) | Warnings related to local wallet
-
-*Example from Dash Core 0.12.2*
-
-``` bash
-dash-cli -testnet getpoolinfo
-```
-
-Result:
-``` json
-{
-  "state": "IDLE",
-  "mixing_mode": "normal",
-  "queue": 0,
-  "entries": 0,
-  "status": "PrivateSend is idle.",
-  "keys_left": 617,
-  "warnings": ""
-}
-```
-
-``` json
-{
-  "state": "QUEUE",
-  "mixing_mode": "normal",
-  "queue": 1,
-  "entries": 0,
-  "status": "Submitted to masternode, waiting in queue .",
-  "outpoint": "e3a6b7878a7e9413898bb379b323c521676f9d460db17ec3bf42d9ac0c9a432f-1",
-  "addr": "217.182.229.146:19999",
-  "keys_left": 571,
-  "warnings": ""
-}
-```
-
-``` json
-{
-  "state": "ERROR",
-  "mixing_mode": "normal",
-  "queue": 0,
-  "entries": 0,
-  "status": "PrivateSend request incomplete: Session timed out. Will retry...",
-  "keys_left": 571,
-  "warnings": ""
-}
-```
-
-*See also:*
-
-# GetPrivateSendInfo
-
-The [`getprivatesendinfo` RPC](core-api-ref-remote-procedure-calls-dash#getprivatesendinfo) returns an object containing an information about PrivateSend settings and state.
+The [`getcoinjoininfo` RPC](#getcoinjoininfo) returns an object containing an information about CoinJoin settings and state (previously named `getprivatesendinfo` prior to Dash Core 0.17.0).
 
 *Parameters: none*
 
-*Result---(for regular nodes) information about the mixing pool*
+*Result---(for regular nodes) information about the pool*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | Information about the mixing pool
-→<br>`enabled` | bool | Required<br>(exactly 1) | Whether mixing functionality is enabled
-→<br>`multisession` | bool | Required<br>(exactly 1) | Whether PrivateSend Multisession option is enabled
-→<br>`max_sessions` | number (int) | Required<br>(exactly 1) | How many parallel mixing sessions can there be at once
-→<br>`max_rounds` | number (int) | Required<br>(exactly 1) | How many rounds to mix
-→<br>`max_amount` | number (int) | Required<br>(exactly 1) | How many DASH to keep anonymized
+`result` | object | Required<br>(exactly 1) | Information about the pool
+→<br>`enabled` | bool | Required<br>(exactly 1) | Whether CoinJoin functionality is enabled
+→<br>`multisession` | bool | Required<br>(exactly 1) | Whether CoinJoin multisession option is enabled
+→<br>`max_sessions` | number (int) | Required<br>(exactly 1) | How many parallel sessions can there be at once
+→<br>`max_rounds` | number (int) | Required<br>(exactly 1) | How many rounds to process
+→<br>`max_amount` | number (int) | Required<br>(exactly 1) | How many DASH to keep processed
 →<br>`max_denoms` | number (int) | Required<br>(exactly 1) | **Removed in Dash Core 0.16.0**<br>How many inputs of each denominated amount to create
 →<br>`denoms_goal` | number (int) | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br>How many inputs of each denominated amount to target
 →<br>`denoms_hardcap` | number (int) | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br>Maximum limit of how many inputs of each denominated amount to create
 →<br>`queue_size` | number (int) | Required<br>(exactly 1) | How many queues there are currently on the network
-→<br>`running` | bool | Required<br>(exactly 1) | Whether mixing is currently running
+→<br>`running` | bool | Required<br>(exactly 1) | Whether CoinJoin is currently running
 →<br>`sessions` | array of json objects | Required<br>(exactly 1) | Information about session(s)
 → →<br>Session | object | Optional<br>(1 or more) | Information for a session
 → → →<br>`protxhash` | string | Required<br>(exactly 1) | The ProTxHash of the masternode
 → → →<br>`outpoint` | string (txid-index) | Required<br>(exactly 1) | The outpoint of the masternode
 → → →<br>`service` | string (host:port) | Required<br>(exactly 1) | The IP address and port of the masternode
-→ → →<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the mixing session in DASH
-→ → →<br>`state` | string | Required<br>(exactly 1) | Current state of the mixing session
-→ → →<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the mixing session
+→ → →<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the session (in DASH)
+→ → →<br>`state` | string | Required<br>(exactly 1) | Current state of the session
+→ → →<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the session
 →<br>`keys_left` | number (int) | Required<br>(exactly 1) | How many new keys are left since last automatic backup
 →<br>`warnings` | string | Optional<br>(exactly 1) | Any warnings
 
-*Result---(for masternodes) information about the mixing pool*
+*Result---(for masternodes) information about the pool*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | Information about the mixing pool
+`result` | object | Required<br>(exactly 1) | Information about the pool
 →<br>`queue_size` | number (int) | Required<br>(exactly 1) | How many queues there are currently on the network
-→<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the mixing session in DASH
-→<br>`state` | string | Required<br>(exactly 1) | Current state of the mixing session
-→<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the mixing session
+→<br>`denomination` | number (int) | Required<br>(exactly 1) | The denomination of the session (in DASH)
+→<br>`state` | string | Required<br>(exactly 1) | Current state of the session
+→<br>`entries_count` | number (int) | Required<br>(exactly 1) | The number of entries in the session
 
-*Example from Dash Core 0.16.0 (regular node)*
+*Example from Dash Core 0.17.0 (regular node)*
 
 ``` bash
-dash-cli -testnet getprivatesendinfo
+dash-cli -testnet getcoinjoininfo
 ```
 
 Result:
@@ -183,7 +116,7 @@ Result:
 
 # GetSuperblockBudget
 
-The [`getsuperblockbudget` RPC](core-api-ref-remote-procedure-calls-dash#getsuperblockbudget) returns the absolute maximum sum of superblock payments allowed.
+The [`getsuperblockbudget` RPC](#getsuperblockbudget) returns the absolute maximum sum of superblock payments allowed.
 
 *Parameter #1---block index*
 
@@ -210,11 +143,11 @@ Result:
 
 *See also:*
 
-* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#getgovernanceinfo): returns an object containing governance parameters.
+* [GetGovernanceInfo](#getgovernanceinfo): returns an object containing governance parameters.
 
 # GObject
 
-The [`gobject` RPC](core-api-ref-remote-procedure-calls-dash#gobject) provides a set of commands for managing governance objects and displaying information about them.
+The [`gobject` RPC](#gobject) provides a set of commands for managing governance objects and displaying information about them.
 
 ## GObject Check
 
@@ -250,168 +183,66 @@ Result:
 }
 ```
 
-## GObject Prepare
+## GObject Count
 
-The `gobject prepare` RPC prepares a governance object by signing and creating a collateral transaction.
+The `gobject count` RPC returns the count of governance objects and votes.
 
-*Parameter #1---parent hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`parent-hash` | string (hex) | Required<br>(exactly 1) | Hash of the parent object. Usually the root node which has a hash of 0
-
-*Parameter #2---revision*
+*Parameter #1---mode*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`revision` | int | Required<br>(exactly 1) | Object revision number
+`mode` | string | Optional<br>(exactly 1) | Result return format:<br>`json` (default)<br>`all` - Default before Dash Core 0.12.3 (for backwards compatibility)
 
-*Parameter #3---time*
+**Command Mode - `json`**
 
-Name | Type | Presence | Description
---- | --- | --- | ---
-`time` | int64_t | Required<br>(exactly 1) | Create time (Unix epoch time)
-
-*Parameter #4---data*
+*Result---count of governance objects and votes*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`data-hex` | string (hex) | Required<br>(exactly 1) | **Updated in Dash Core 0.14.0 to require all new proposals to use JSON serialization.**<br><br>Object data (JSON object with governance details). Additional details regarding this are provided in an example below.
+Result | object | Required<br>(exactly 1) | Information about the governance object
+→<br>`objects_total` | int | Required<br>(exactly 1) | Total object count
+→<br>`proposals` | int | Required<br>(exactly 1) | Proposal count
+→<br>`triggers` | int | Required<br>(exactly 1) | Trigger count
+→<br>`other` | int | Required<br>(exactly 1) | Non-proposal/trigger count
+→<br>`erased` | int | Required<br>(exactly 1) | Erased count
+→<br>`votes` | int | Required<br>(exactly 1) | Vote count
 
-*Parameter #5---use-IS*
+*Example from Dash Core 0.14.0 (mode: `json`/default)*
 
-Name | Type | Presence | Description
---- | --- | --- | ---
-`use-IS` | boolean | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
+``` bash
+dash-cli -testnet gobject count
+```
 
-*Parameter #6---outputHash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`outputHash` | string (hex) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0*<br><br>The single output to submit the proposal fee from
-
-*Parameter #7---outputIndex*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`outputIndex` | numeric | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0*<br><br>The output index (required if the `outputHash` parameter is provided)
-
-*Result---collateral transaction ID*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Transaction ID for the collateral transaction
-
-**Details of the `data-hex` field:**
-
-The `data-hex` field is comprised of a JSON object as described in [GObject
-Deserialize](#gobject-deserialize) which is serialized to hex.
-
-An example of a proposal JSON object is shown here:
-
+Result (wrapped):
 ``` json
 {
-  "end_epoch": 1560457055,
-  "name": "test",
-  "payment_address": "yd5KMREs3GLMe6mTJYr3YrH1juwNwrFCfB",
-  "payment_amount": 5,
-  "start_epoch": 1560453490,
-  "type": 1,
-  "url": "http://test.com"
+  "objects_total": 3,
+  "proposals": 3,
+  "triggers": 0,
+  "other": 0,
+  "erased": 4,
+  "votes": 18
 }
 ```
 
-To serialize the object, first remove all spaces from the JSON object as shown below:
+**Command Mode - `all`**
 
-``` json
-{"end_epoch":1560457055,"name":"test","payment_address":"yd5KMREs3GLMe6mTJYr3YrH1juwNwrFCfB","payment_amount":5,"start_epoch":1560453490,"type":1,"url":"http://test.com"}
-```
+*Result---count of governance objects and votes*
 
-Then convert the string to its hex equivalent as shown below. This is what will
-be used for the `data-hex` field of the `gobject prepare` command:
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string | Required<br>(exactly 1) | The count of governance objects and votes
+
+*Example from Dash Core 0.14.0 (mode: `all`)*
 
 ``` bash
-7b22656e645f65706f6368223a313536303435373035352c226e616d65223a2274657374222c\
-227061796d656e745f61646472657373223a227964354b4d52457333474c4d65366d544a5972\
-33597248316a75774e777246436642222c227061796d656e745f616d6f756e74223a352c2273\
-746172745f65706f6368223a313536303435333439302c2274797065223a312c2275726c223a\
-22687474703a2f2f746573742e636f6d227d
+dash-cli -testnet gobject count all
 ```
 
-*Example from Dash Core 0.14.0*
-
-``` bash
-gobject prepare 0 1 1560449223 7b22656e645f65706f6368223a3135363034353730353\
-52c226e616d65223a2274657374222c227061796d656e745f61646472657373223a227964354\
-b4d52457333474c4d65366d544a597233597248316a75774e777246436642222c227061796d6\
-56e745f616d6f756e74223a352c2273746172745f65706f6368223a313536303435333439302\
-c2274797065223a312c2275726c223a22687474703a2f2f746573742e636f6d227d
-```
-
-Result (Collateral Transaction ID):
-``` bash
-3fd758e7a5761bb07b2850b8ba432ef42c1ea80f0921d2eab0682697dda78262
-```
-
-## GObject Submit
-
-The `gobject submit` RPC submits a governance object to network (objects must
-first be prepared via `gobject prepare`).
-
-Note: Parameters 1-4 should be the same values as the ones used for `gobject
-prepare`.
-
-*Parameter #1---parent hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`parent-hash` | string (hex) | Required<br>(exactly 1) | Hash of the parent object. Usually the root node which has a hash of 0
-
-*Parameter #2---revision*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`revision` | int | Required<br>(exactly 1) | Object revision number
-
-*Parameter #3---time*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`time` | int64_t | Required<br>(exactly 1) | Create time
-
-*Parameter #4---data*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`data-hex` | string (hex) | Required<br>(exactly 1) | **Updated in Dash Core 0.14.0 to require all new proposals to use JSON serialization.**<br><br>Object data (JSON object with governance details). See [GObject Prepare](#gobject-prepare) for additional details about this field.
-
-*Parameter #5---fee transaction ID*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`data` | string (hex) | Required<br>(exactly 1) | Fee transaction ID - required for all objects except triggers
-
-*Result---governance object hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Governance object hash
-
-*Example from Dash Core 0.14.0*
-
-``` bash
-dash-cli -testnet gobject submit 0 1 1560449223 7b22656e645f65706f6368223a3\
-13536303435373035352c226e616d65223a2274657374222c227061796d656e745f61646472\
-657373223a227964354b4d52457333474c4d65366d544a597233597248316a75774e7772464\
-36642222c227061796d656e745f616d6f756e74223a352c2273746172745f65706f6368223a\
-313536303435333439302c2274797065223a312c2275726c223a22687474703a2f2f7465737\
-42e636f6d227d \
-3fd758e7a5761bb07b2850b8ba432ef42c1ea80f0921d2eab0682697dda78262
-```
-
-Result (Governance Object Hash):
-``` bash
-e353b2ab5f7e7cb24b95e00e153ec2a6339249672f18b8e8e144aa711678710d
+Result (wrapped):
+``` text
+Governance Objects: 177 (Proposals: 177, Triggers: 0, Other: 0; Erased: 5), \
+Votes: 9680
 ```
 
 ## GObject Deserialize
@@ -503,66 +334,74 @@ Result (wrapped):
 }
 ```
 
-## GObject Count
+## GObject Diff
 
-The `gobject count` RPC returns the count of governance objects and votes.
+The `gobject diff` RPC Lists governance objects differences since last diff.
 
-*Parameter #1---mode*
+*Parameter #1---signal*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`mode` | string | Optional<br>(exactly 1) | Result return format:<br>`json` (default)<br>`all` - Default before Dash Core 0.12.3 (for backwards compatibility)
+`signal` | string (hex) | Optional<br>(exactly 1) | Type of governance object signal: <br>• `valid`<br>• `funding`<br>• `delete`<br>• `endorsed`<br>• `all` (_DEFAULT_)
 
-**Command Mode - `json`**
+*Parameter #2---type*
 
-*Result---count of governance objects and votes*
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`type` | string (hex) | Optional<br>(exactly 1) | Type of governance object signal: <br>• `proposals`<br>• `triggers`<br>• `all` (_DEFAULT_)
+
+*Result---governance objects*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Result | object | Required<br>(exactly 1) | Information about the governance object
-→<br>`objects_total` | int | Required<br>(exactly 1) | Total object count
-→<br>`proposals` | int | Required<br>(exactly 1) | Proposal count
-→<br>`triggers` | int | Required<br>(exactly 1) | Trigger count
-→<br>`other` | int | Required<br>(exactly 1) | Non-proposal/trigger count
-→<br>`erased` | int | Required<br>(exactly 1) | Erased count
-→<br>`votes` | int | Required<br>(exactly 1) | Vote count
+→<br>Governance Object(s) | object | Required<br>(1 or more) | Key: Governance object hash<br>Values: Governance object details
+→ →<br>`DataHex` | string (hex) | Required<br>(exactly 1) | Governance object info as hex string
+→ →<br>`DataString` | string | Required<br>(exactly 1) | Governance object info as string
+→ →<br>`Hash` | string (hex) | Required<br>(exactly 1) | Hash of this governance object
+→ →<br>`CollateralHash` | string (hex) | Required<br>(exactly 1) | Hash of the collateral payment transaction
+→ →<br>`ObjectType` | number | Required<br>(exactly 1) | Object types:<br>`1` - Unknown<br>`2` - Proposal<br>`3` - Trigger
+→ →<br>`CreationTime` | number | Required<br>(exactly 1) | Object creation time as Unix epoch time
+→ →<br>`SigningMasternode` | string (hex) | Optional<br>(0 or 1) | Signing masternode's vin (only present in triggers)
+→ →<br>`AbsoluteYesCount` | number | Required<br>(exactly 1) | Number of `Yes` votes minus number of `No` votes
+→ →<br>`YesCount` | number | Required<br>(exactly 1) | Number of `Yes` votes
+→ →<br>`NoCount` | number | Required<br>(exactly 1) | Number of `No` votes
+→ →<br>`AbstainCount` | number | Required<br>(exactly 1) | Number of `Abstain` votes
+→<br>`fLocalValidity` | boolean | Required<br>(exactly 1) | Valid by the blockchain
+→<br>`IsValidReason` | string | Required<br>(exactly 1) | `fLocalValidity` error result. Empty if no error returned.
+→<br>`fCachedValid` | boolean | Required<br>(exactly 1) | Minimum network support has been reached flagging this object as a valid and understood governance object (e.g, the serialized data is correct format, etc)
+→<br>`fCachedFunding` | boolean | Required<br>(exactly 1) | Minimum network support has been reached for this object to be funded (doesn't mean it will be for sure though)
+→<br>`fCachedDelete` | boolean | Required<br>(exactly 1) | Minimum network support has been reached saying this object should be deleted from the system entirely
+→<br>`fCachedEndorsed` | boolean | Required<br>(exactly 1) | Minimum network support has been reached flagging this object as endorsed
 
-*Example from Dash Core 0.14.0 (mode: `json`/default)*
+*Example from Dash Core 0.12.2*
 
 ``` bash
-dash-cli -testnet gobject count
+dash-cli -testnet gobject diff all all
 ```
 
-Result (wrapped):
+Result (truncated):
 ``` json
 {
-  "objects_total": 3,
-  "proposals": 3,
-  "triggers": 0,
-  "other": 0,
-  "erased": 4,
-  "votes": 18
+  "17c2bd32005c5168a52f9b5caa74d875ee8a6867a6109f36923887ef6c36b301": {
+    "DataHex": "5b5b2270726f706f73616c222c7b22656e645f65706f6368223a2231353037343533353731222c226e616d65223a227465737470726f706f73616c5f2d5f6162636465666768696a6b6c6d6e6f707172737475767778797a3031323334353637383931353037323634343939222c227061796d656e745f61646472657373223a2279697355653636445352487048504233514245426764574746637068435933626234222c227061796d656e745f616d6f756e74223a2232222c2273746172745f65706f6368223a2231353037323634343939222c2274797065223a312c2275726c223a2268747470733a2f2f7777772e6461736863656e7472616c2e6f72672f702f746573745f70726f706f73616c5f31353037323634343939227d5d5d",
+    "DataString": "[[\"proposal\",{\"end_epoch\":\"1507453571\",\"name\":\"testproposal\",\"payment_address\":\"yisUe66DSRHpHPB3QBEBgdWGFcphCY3bb4\",\"payment_amount\":\"2\",\"start_epoch\":\"1507264499\",\"type\":1,\"url\":\"https://www.dashcentral.org/p/test_proposal_1507264499\"}]]",
+    "Hash": "17c2bd32005c5168a52f9b5caa74d875ee8a6867a6109f36923887ef6c36b301",
+    "CollateralHash": "a25c44b57931afd74530ce39741f91456446a8fd794d2f1c58c42d6f492647ad",
+    "ObjectType": 1,
+    "CreationTime": 1507264499,
+    "AbsoluteYesCount": 0,
+    "YesCount": 0,
+    "NoCount": 0,
+    "AbstainCount": 0,
+    "fBlockchainValidity": true,
+    "IsValidReason": "",
+    "fCachedValid": true,
+    "fCachedFunding": false,
+    "fCachedDelete": false,
+    "fCachedEndorsed": false
+  }
 }
-```
-
-**Command Mode - `all`**
-
-*Result---count of governance objects and votes*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string | Required<br>(exactly 1) | The count of governance objects and votes
-
-*Example from Dash Core 0.14.0 (mode: `all`)*
-
-``` bash
-dash-cli -testnet gobject count all
-```
-
-Result (wrapped):
-``` text
-Governance Objects: 177 (Proposals: 177, Triggers: 0, Other: 0; Erased: 5), \
-Votes: 9680
 ```
 
 ## GObject Get
@@ -785,75 +624,241 @@ Result (truncated):
 }
 ```
 
-## GObject Diff
+## GObject Prepare
 
-The `gobject diff` RPC Lists governance objects differences since last diff.
+The `gobject prepare` RPC prepares a governance object by signing and creating a collateral transaction.
 
-*Parameter #1---signal*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`signal` | string (hex) | Optional<br>(exactly 1) | Type of governance object signal: <br>• `valid`<br>• `funding`<br>• `delete`<br>• `endorsed`<br>• `all` (_DEFAULT_)
-
-*Parameter #2---type*
+*Parameter #1---parent hash*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`type` | string (hex) | Optional<br>(exactly 1) | Type of governance object signal: <br>• `proposals`<br>• `triggers`<br>• `all` (_DEFAULT_)
+`parent-hash` | string (hex) | Required<br>(exactly 1) | Hash of the parent object. Usually the root node which has a hash of 0
 
-*Result---governance objects*
+*Parameter #2---revision*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Result | object | Required<br>(exactly 1) | Information about the governance object
-→<br>Governance Object(s) | object | Required<br>(1 or more) | Key: Governance object hash<br>Values: Governance object details
-→ →<br>`DataHex` | string (hex) | Required<br>(exactly 1) | Governance object info as hex string
-→ →<br>`DataString` | string | Required<br>(exactly 1) | Governance object info as string
-→ →<br>`Hash` | string (hex) | Required<br>(exactly 1) | Hash of this governance object
-→ →<br>`CollateralHash` | string (hex) | Required<br>(exactly 1) | Hash of the collateral payment transaction
-→ →<br>`ObjectType` | number | Required<br>(exactly 1) | Object types:<br>`1` - Unknown<br>`2` - Proposal<br>`3` - Trigger
-→ →<br>`CreationTime` | number | Required<br>(exactly 1) | Object creation time as Unix epoch time
-→ →<br>`SigningMasternode` | string (hex) | Optional<br>(0 or 1) | Signing masternode's vin (only present in triggers)
-→ →<br>`AbsoluteYesCount` | number | Required<br>(exactly 1) | Number of `Yes` votes minus number of `No` votes
-→ →<br>`YesCount` | number | Required<br>(exactly 1) | Number of `Yes` votes
-→ →<br>`NoCount` | number | Required<br>(exactly 1) | Number of `No` votes
-→ →<br>`AbstainCount` | number | Required<br>(exactly 1) | Number of `Abstain` votes
-→<br>`fLocalValidity` | boolean | Required<br>(exactly 1) | Valid by the blockchain
-→<br>`IsValidReason` | string | Required<br>(exactly 1) | `fLocalValidity` error result. Empty if no error returned.
-→<br>`fCachedValid` | boolean | Required<br>(exactly 1) | Minimum network support has been reached flagging this object as a valid and understood governance object (e.g, the serialized data is correct format, etc)
-→<br>`fCachedFunding` | boolean | Required<br>(exactly 1) | Minimum network support has been reached for this object to be funded (doesn't mean it will be for sure though)
-→<br>`fCachedDelete` | boolean | Required<br>(exactly 1) | Minimum network support has been reached saying this object should be deleted from the system entirely
-→<br>`fCachedEndorsed` | boolean | Required<br>(exactly 1) | Minimum network support has been reached flagging this object as endorsed
+`revision` | int | Required<br>(exactly 1) | Object revision number
 
-*Example from Dash Core 0.12.2*
+*Parameter #3---time*
 
-``` bash
-dash-cli -testnet gobject diff all all
-```
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`time` | int64_t | Required<br>(exactly 1) | Create time (Unix epoch time)
 
-Result (truncated):
+*Parameter #4---data*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`data-hex` | string (hex) | Required<br>(exactly 1) | **Updated in Dash Core 0.14.0 to require all new proposals to use JSON serialization.**<br><br>Object data (JSON object with governance details). Additional details regarding this are provided in an example below.
+
+*Parameter #5---use-IS*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`use-IS` | boolean | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.15.0*
+
+*Parameter #6---outputHash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`outputHash` | string (hex) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0*<br><br>The single output to submit the proposal fee from
+
+*Parameter #7---outputIndex*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`outputIndex` | numeric | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0*<br><br>The output index (required if the `outputHash` parameter is provided)
+
+*Result---collateral transaction ID*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Transaction ID for the collateral transaction
+
+**Details of the `data-hex` field:**
+
+The `data-hex` field is comprised of a JSON object as described in [GObject
+Deserialize](#gobject-deserialize) which is serialized to hex.
+
+An example of a proposal JSON object is shown here:
+
 ``` json
 {
-  "17c2bd32005c5168a52f9b5caa74d875ee8a6867a6109f36923887ef6c36b301": {
-    "DataHex": "5b5b2270726f706f73616c222c7b22656e645f65706f6368223a2231353037343533353731222c226e616d65223a227465737470726f706f73616c5f2d5f6162636465666768696a6b6c6d6e6f707172737475767778797a3031323334353637383931353037323634343939222c227061796d656e745f61646472657373223a2279697355653636445352487048504233514245426764574746637068435933626234222c227061796d656e745f616d6f756e74223a2232222c2273746172745f65706f6368223a2231353037323634343939222c2274797065223a312c2275726c223a2268747470733a2f2f7777772e6461736863656e7472616c2e6f72672f702f746573745f70726f706f73616c5f31353037323634343939227d5d5d",
-    "DataString": "[[\"proposal\",{\"end_epoch\":\"1507453571\",\"name\":\"testproposal\",\"payment_address\":\"yisUe66DSRHpHPB3QBEBgdWGFcphCY3bb4\",\"payment_amount\":\"2\",\"start_epoch\":\"1507264499\",\"type\":1,\"url\":\"https://www.dashcentral.org/p/test_proposal_1507264499\"}]]",
-    "Hash": "17c2bd32005c5168a52f9b5caa74d875ee8a6867a6109f36923887ef6c36b301",
-    "CollateralHash": "a25c44b57931afd74530ce39741f91456446a8fd794d2f1c58c42d6f492647ad",
-    "ObjectType": 1,
-    "CreationTime": 1507264499,
-    "AbsoluteYesCount": 0,
-    "YesCount": 0,
-    "NoCount": 0,
-    "AbstainCount": 0,
-    "fBlockchainValidity": true,
-    "IsValidReason": "",
-    "fCachedValid": true,
-    "fCachedFunding": false,
-    "fCachedDelete": false,
-    "fCachedEndorsed": false
-  }
+  "end_epoch": 1560457055,
+  "name": "test",
+  "payment_address": "yd5KMREs3GLMe6mTJYr3YrH1juwNwrFCfB",
+  "payment_amount": 5,
+  "start_epoch": 1560453490,
+  "type": 1,
+  "url": "http://test.com"
 }
 ```
+
+To serialize the object, first remove all spaces from the JSON object as shown below:
+
+``` json
+{"end_epoch":1560457055,"name":"test","payment_address":"yd5KMREs3GLMe6mTJYr3YrH1juwNwrFCfB","payment_amount":5,"start_epoch":1560453490,"type":1,"url":"http://test.com"}
+```
+
+Then convert the string to its hex equivalent as shown below. This is what will
+be used for the `data-hex` field of the `gobject prepare` command:
+
+``` bash
+7b22656e645f65706f6368223a313536303435373035352c226e616d65223a2274657374222c\
+227061796d656e745f61646472657373223a227964354b4d52457333474c4d65366d544a5972\
+33597248316a75774e777246436642222c227061796d656e745f616d6f756e74223a352c2273\
+746172745f65706f6368223a313536303435333439302c2274797065223a312c2275726c223a\
+22687474703a2f2f746573742e636f6d227d
+```
+
+*Example from Dash Core 0.14.0*
+
+``` bash
+gobject prepare 0 1 1560449223 7b22656e645f65706f6368223a3135363034353730353\
+52c226e616d65223a2274657374222c227061796d656e745f61646472657373223a227964354\
+b4d52457333474c4d65366d544a597233597248316a75774e777246436642222c227061796d6\
+56e745f616d6f756e74223a352c2273746172745f65706f6368223a313536303435333439302\
+c2274797065223a312c2275726c223a22687474703a2f2f746573742e636f6d227d
+```
+
+Result (Collateral Transaction ID):
+``` bash
+3fd758e7a5761bb07b2850b8ba432ef42c1ea80f0921d2eab0682697dda78262
+```
+
+*See also:*
+
+* [GObject List-Prepared](#gobject-list-prepared): returns a list of governance objects prepared by this wallet
+
+## GObject List-Prepared
+
+The `gobject list-prepared` RPC returns a list of governance objects prepared by this wallet with [`gobject prepare`](#gobject-prepare) sorted by their creation time.
+
+*Parameter #1---count*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`count` | number (int) | Optional<br>(0 or 1) | Maximum number of objects to return
+
+*Result---list of governance objects*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | List of governance objects
+→<br>Governance Object | object | Required<br>(0 or more) | Proposal object
+→ →<br>`objectHash` | string (hex) | Required<br>(exactly 1) | Proposal object hash
+→ →<br>`parentHash` | string (hex) | Required<br>(exactly 1) | Hash of the parent object. Usually the root node which has a hash of 0
+→ →<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | Hash of the collateral payment transaction
+→ →<br>`createdAt` | number (int) | Required<br>(exactly 1) | Proposal creation time as Unix epoch time
+→ →<br>`revision` | number (int) | Required<br>(exactly 1) | Proposal revision number
+→ →<br>`data` | object | Required<br>(exactly 1) | Object containing governance object data
+→ → →<br>`end_epoch` | string | Required<br>(exactly 1) | Governance object info as string
+→ → →<br>`name` | string (hex) | Required<br>(exactly 1) | Proposal name
+→ → →<br>`payment_address` | string (hex) | Required<br>(exactly 1) | Proposal payment address
+→ → →<br>`payment_amount` | string | Required<br>(exactly 1) | Proposal payment amount
+→ → →<br>`start_epoch` | string (hex) | Required<br>(exactly 1) | Proposal start
+→ → →<br>`type` | number (int) | Required<br>(exactly 1) | Object type
+→ → →<br>`url` | string | Required<br>(exactly 1) | Proposal URL
+→ → →<br>`hex` | string (hex) | Required<br>(exactly 1) | Governance object data as hex
+
+*Example from Dash Core 0.17.0*
+
+``` bash
+gobject list-prepared
+```
+
+Result (Collateral Transaction ID):
+``` json
+[
+  {
+    "objectHash": "307cde2e485968548cd1a19473bf48f788c16178d82f63cbe849c33988d9592b",
+    "parentHash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "collateralHash": "987570add8979576cb8a4ee510df448fd2ae7097628b7980559489ecb116b0fa",
+    "createdAt": 1608143561,
+    "revision": 1,
+    "data": {
+      "end_epoch": 1608151237,
+      "name": "test",
+      "payment_address": "yd5KMREs3GLMe6mTJYr3YrH1juwNwrFCfB",
+      "payment_amount": 5,
+      "start_epoch": 1608147672,
+      "type": 1,
+      "url": "https://www.dash.org",
+      "hex": "7b22656e645f65706f6368223a313630383135313233372c226e616d65223a2274657374222c227061796d656e745f61646472657373223a227964354b4d52457333474c4d65366d544a597233597248316a75774e777246436642222c227061796d656e745f616d6f756e74223a352c2273746172745f65706f6368223a313630383134373637322c2274797065223a312c2275726c223a2268747470733a2f2f7777772e646173682e6f7267227d"
+    }
+  }
+]
+```
+
+*See also:*
+
+* [GObject Prepared](#gobject-prepare): prepares a governance object by signing and creating a collateral transaction
+
+## GObject Submit
+
+The `gobject submit` RPC submits a governance object to network (objects must
+first be prepared via `gobject prepare`).
+
+Note: Parameters 1-4 should be the same values as the ones used for `gobject
+prepare`.
+
+*Parameter #1---parent hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`parent-hash` | string (hex) | Required<br>(exactly 1) | Hash of the parent object. Usually the root node which has a hash of 0
+
+*Parameter #2---revision*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`revision` | int | Required<br>(exactly 1) | Object revision number
+
+*Parameter #3---time*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`time` | int64_t | Required<br>(exactly 1) | Create time
+
+*Parameter #4---data*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`data-hex` | string (hex) | Required<br>(exactly 1) | **Updated in Dash Core 0.14.0 to require all new proposals to use JSON serialization.**<br><br>Object data (JSON object with governance details). See [GObject Prepare](#gobject-prepare) for additional details about this field.
+
+*Parameter #5---fee transaction ID*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`data` | string (hex) | Required<br>(exactly 1) | Fee transaction ID - required for all objects except triggers
+
+*Result---governance object hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Governance object hash
+
+*Example from Dash Core 0.14.0*
+
+``` bash
+dash-cli -testnet gobject submit 0 1 1560449223 7b22656e645f65706f6368223a3\
+13536303435373035352c226e616d65223a2274657374222c227061796d656e745f61646472\
+657373223a227964354b4d52457333474c4d65366d544a597233597248316a75774e7772464\
+36642222c227061796d656e745f616d6f756e74223a352c2273746172745f65706f6368223a\
+313536303435333439302c2274797065223a312c2275726c223a22687474703a2f2f7465737\
+42e636f6d227d \
+3fd758e7a5761bb07b2850b8ba432ef42c1ea80f0921d2eab0682697dda78262
+```
+
+Result (Governance Object Hash):
+``` bash
+e353b2ab5f7e7cb24b95e00e153ec2a6339249672f18b8e8e144aa711678710d
+```
+
+*See also:*
+
+* [GObject Prepared](#gobject-prepare): prepares a governance object by signing and creating a collateral transaction
 
 ## GObject Vote-alias
 
@@ -1021,22 +1026,24 @@ dash-cli -testnet gobject vote-many \
 
 *See also:*
 
-* [GetGovernanceInfo](/docs/core-api-ref-remote-procedure-calls-dash#getgovernanceinfo): returns an object containing governance parameters.
-* [GetSuperblockBudget](/docs/core-api-ref-remote-procedure-calls-dash#getsuperblockbudget): returns the absolute maximum sum of superblock payments allowed.
+* [GetGovernanceInfo](#getgovernanceinfo): returns an object containing governance parameters.
+* [GetSuperblockBudget](#getsuperblockbudget): returns the absolute maximum sum of superblock payments allowed.
 
 # Masternode
 
-The [`masternode` RPC](core-api-ref-remote-procedure-calls-dash#masternode) provides a set of commands for managing masternodes and displaying information about them.
+The [`masternode` RPC](#masternode) provides a set of commands for managing masternodes and displaying information about them.
 
 ## Masternode Count
 
 The `masternode count` RPC prints the number of all known masternodes.
-
-*Parameter #1---mode*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Mode | string (hex) | Deprecated | Which masternodes to count:<br>`total` - Pre-0.12.3 default result,<br>`ps` - PrivateSend capable,<br>`enabled` - Enabled,<br>`all` - All,<br>`qualify` - Eligible for payment
+[block:callout]
+{
+  "type": "warning",
+  "title": "Dash Core 0.17.0 change",
+  "body": "The previously deprecated `mode` parameter was removed in Dash Core 0.17.0. Information regarding the previous functionality is available in [an older version of the documentation](https://dashcore.readme.io/v0.16.0/docs/core-api-ref-remote-procedure-calls-dash#masternode-count)."
+}
+[/block]
+*Parameters: none*
 
 *Result---number of known masternodes*
 
@@ -1046,7 +1053,7 @@ Name | Type | Presence | Description
 →<br>`total` | int | Required<br>(exactly 1) | Count of all masternodes
 →<br>`enabled` | int | Required<br>(exactly 1) | Count of enabled masternodes
 
-*Example from Dash Core 0.14.0*
+*Example from Dash Core 0.17.0*
 
 ``` bash
 dash-cli -testnet masternode count
@@ -1060,46 +1067,14 @@ Result:
 }
 ```
 
-**Get summarized count of all masternodes**
-
-*Result---summary of known masternodes*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string | Required<br>(exactly 1) | Summary of masternodes in each state
-
-*Example from Dash Core 0.14.0*
-
-``` bash
-dash-cli -testnet masternode count all
-```
-
-Result:
-``` bash
-Total: 185 (Enabled: 130)
-```
-
-**Get total count of all masternodes (default output of `masternode count` pre-0.12.3)**
-
-*Result---number of known masternodes in mode*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | int | Required<br>(exactly 1) | Number of masternodes
-
-*Example from Dash Core 0.12.3*
-
-``` bash
-dash-cli -testnet masternode count total
-```
-
-Result:
-``` bash
-142
-```
-
 ## Masternode Current
-
+[block:callout]
+{
+  "type": "danger",
+  "title": "Deprecated in Dash Core 0.17.0",
+  "body": "This RPC has been deprecated and will be removed in a future version of Dash Core"
+}
+[/block]
 The `masternode current` RPC prints info on current masternode winner to be paid the next block (calculated locally).
 
 *Parameters: none*
@@ -1132,6 +1107,27 @@ Result:
 }
 ```
 
+## Masternode List
+
+The `masternode list` prints a list of all known masternodes.
+
+This RPC uses the same parameters and returns the same data as
+[masternodelist](#masternodelist). Please reference it for full details.
+
+*Example from Dash Core 0.12.2*
+
+``` bash
+dash-cli -testnet masternode list \
+	rank f6c83fd96bfaa47887c4587cceadeb9af6238a2c86fe36b883c4d7a6867eab0f
+```
+
+Result:
+``` json
+{
+  "f6c83fd96bfaa47887c4587cceadeb9af6238a2c86fe36b883c4d7a6867eab0f-1": 11
+}
+```
+
 ## Masternode Outputs
 
 The `masternode outputs` RPC prints masternode compatible outputs.
@@ -1157,6 +1153,82 @@ Result:
   "f6c83fd96bfaa47887c4587cceadeb9af6238a2c86fe36b883c4d7a6867eab0f": "1"
 }
 ```
+
+## Masternode Payments
+[block:callout]
+{
+  "type": "success",
+  "body": "Added in Dash Core 0.17.0"
+}
+[/block]
+The `masternode payments` RPC prints an array of deterministic masternodes and their payments for the specified block.
+
+By default, payment information is returned for only the chain tip. More block winners can be requested via the optional `count` parameter.
+
+*Parameter #1---block hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Block Hash | string (hex) | Optional<br>(exactly 1) | The hash of the starting block (default: tip)
+
+*Parameter #2---count*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Count | number (int) | Optional<br>(exactly 1) | The number of blocks to return (default: 1). Will return <count> previous blocks if <count> is negative. Both 1 and -1 correspond to the chain tip.
+. 
+*Result---masternode payments*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | array of objects | Required<br>(exactly 1) | List of masternode payment info
+→<br>Block Payment | object | Optional<br>(0 or more) | Masternode payment info for a block
+→→<br>`height` | number (int) | Required<br>(exactly 1) | The height of the block
+→→<br>`blockhash` | number (int) | Required<br>(exactly 1) | The hash of the block
+→→<br>`amount` | number (int) | Required<br>(exactly 1) | Amount received in this block by all masternodes
+→→<br>`masternodes` | array of objects | Required<br>(exactly 1) | Masternodes that received payments in this block
+→→→<br>Masternode | object | Required<br>(1 or more) | Masternode info
+→→→→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the corresponding ProRegTx
+→→→→<br>`amount` | number (int) | Required<br>(exactly 1) | Amount received by this masternode
+→→→→<br>`payees` | array of objects | Required<br>(exactly 1) | Payees who received a share of this payment
+→→→→→<br>Payee | objects | Required<br>(1 or more) | Payee info→→→→→<br>`address` | string | Required<br>(exactly 1) | Payee address
+→→→→→→<br>`script` | string | Required<br>(exactly 1) | Payee scriptPubKey
+→→→→→→<br>`amount` | number (int) | Required<br>(exactly 1) | Amount received by this payee
+
+*Example from Dash Core 0.17.0*
+
+``` bash
+dash-cli -testnet masternode payments
+```
+
+Result (block 407822):
+``` json
+[
+  {
+    "height": 407822,
+    "blockhash": "0000030ae0ca262af12918eac9069e61c481e17ac65a26c87ee44427699c3f3a",
+    "amount": 1253571429,
+    "masternodes": [
+      {
+        "proTxHash": "c865b48a09801c61dce5804f28fe994c72577254ea1859cf1c37fe92b428e757",
+        "amount": 1253571429,
+        "payees": [
+          {
+            "address": "yP72QU7PMG8wNQVTtaQrCLVKCmbuDeAK91",
+            "script": "76a9141e8efb321d5cad77e28e4e6b51546932579d02f588ac",
+            "amount": 1253571429
+          }
+        ]
+      }
+    ]
+  }
+]
+```
+
+*See also:*
+
+* [Masternode Winner](#masternode-winner): prints info on the next masternode winner to vote for.
+* [Masternode Winners](#masternode-winners): prints the list of masternode winners.
 
 ## Masternode Status
 
@@ -1221,29 +1293,14 @@ Result:
 }
 ```
 
-## Masternode List
-
-The `masternode list` prints a list of all known masternodes.
-
-This RPC uses the same parameters and returns the same data as
-[masternodelist](/docs/core-api-ref-remote-procedure-calls-dash#masternodelist). Please reference it for full details.
-
-*Example from Dash Core 0.12.2*
-
-``` bash
-dash-cli -testnet masternode list \
-	rank f6c83fd96bfaa47887c4587cceadeb9af6238a2c86fe36b883c4d7a6867eab0f
-```
-
-Result:
-``` json
-{
-  "f6c83fd96bfaa47887c4587cceadeb9af6238a2c86fe36b883c4d7a6867eab0f-1": 11
-}
-```
-
 ## Masternode Winner
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "This RPC has been deprecated and will be removed in a future version of Dash Core",
+  "title": "Deprecated in Dash Core 0.17.0"
+}
+[/block]
 The `masternode winner` RPC prints info on the next masternode winner to vote for.
 
 *Parameters: none*
@@ -1276,6 +1333,12 @@ Result:
 }
 ```
 
+*See also:*
+
+* [Masternode Payments](#masternode-payments): prints an array of deterministic masternodes and their payments for the specified block.
+* [Masternode Winners](#masternode-winners): prints the list of masternode winners.
+
+
 ## Masternode Winners
 
 The `masternode winners` RPC prints the list of masternode winners.
@@ -1301,9 +1364,9 @@ Filter | string | Optional<br>(exactly 1) | Payment address to filter by
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Result | object | Required<br>(exactly 1) | Winning masternode info
-→<br>Masternode Winner | int | Required<br>(exactly 1) | Key: Block height<br>Value: payee address
+→<br>Masternode Winner | int | Required<br>(exactly 1) | Key: Block height<br>Value: payee address. As of Dash Core 0.17.0, all payees will be listed (e.g. both owner and operator where applicable).
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 ``` bash
 dash-cli -testnet masternode winners
@@ -1312,27 +1375,27 @@ dash-cli -testnet masternode winners
 Result (current block - 37458):
 ``` json
 {
-  "37448": "ygSWwhyzU61FNEta8gDh8gfoH5EZZUvc5m:8",
-  "37449": "yjGZLzSSoFfTFgLDJrgniXfYxu3xF9xKQg:5",
-  "37450": "yRTo1wXWoNnPFWcQVepKGXuLsoypnPkGWj:7",
-  "37451": "yYMFRAYZ25XspHZ1EXC39wUMx9FhoC5VT2:9",
-  "37452": "yX5y3otE4LitGYiSfZhVH4LdbwHShdzQ8v:7",
-  "37453": "yX5y3otE4LitGYiSfZhVH4LdbwHShdzQ8v:4",
-  "37454": "yUamtYUFhqUxCMny3JTcZJTyttVt8SYFug:9",
-  "37455": "yU35XcdGMnj8Exa2ZZqCg4ongiNqQwpeUZ:9",
-  "37456": "yaJc6tADbEjxQBAC69ugWNoTFpzxqkcgWd:7",
-  "37457": "yf4WpwRX17p7YRkHJPQpHMXTwzi5s2VDcR:7",
-  "37458": "ydbfUYWfLm6xg7Y5aBLjy38DvksrvNcHEc:9",
-  "37459": "yYp9k2iuDptT2MB7qVZtVy6ModHtLXFjio:6",
-  "37460": "yP1UHNx26ShYLej56SbHiTiPAUv2QppbUv:6",
-  "37461": "yaCtZRpiYnVFMyWELHZF74v9ayLKCLPcC9:8",
-  "37462": "ygYFnLHoVRyhRoxd6fXQ9nmEafX4eLoWkB:6",
-  "37463": "yM5kTThWi8MnAFtZqx98Zipp1BbyypUZGK:7",
-  "37464": "yeDY39aiqbBHbJft5F6rokR23EaZca6UTU:9",
-  "37465": "yMME1ns1xfpGS2XbFPktsNyp7Cjr1BoJxb:8",
-  "37466": "ycn5RWc4Ruo35FTS8bJwugVyCEkfVcrw9a:6",
-  "37467": "yUTDkKKhbvDrnwkiaoP8HvqxTNC6rNnUe2:6",
-  "37468": "yTstes2nSaSpvu9nTapiCGnjCLvLD5fUqt:5",
+  "37448": "ygSWwhyzU61FNEta8gDh8gfoH5EZZUvc5m,yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr",
+  "37449": "yjGZLzSSoFfTFgLDJrgniXfYxu3xF9xKQg",
+  "37450": "yRTo1wXWoNnPFWcQVepKGXuLsoypnPkGWj",
+  "37451": "yYMFRAYZ25XspHZ1EXC39wUMx9FhoC5VT2",
+  "37452": "yX5y3otE4LitGYiSfZhVH4LdbwHShdzQ8v",
+  "37453": "yX5y3otE4LitGYiSfZhVH4LdbwHShdzQ8v",
+  "37454": "yUamtYUFhqUxCMny3JTcZJTyttVt8SYFug",
+  "37455": "yU35XcdGMnj8Exa2ZZqCg4ongiNqQwpeUZ",
+  "37456": "yaJc6tADbEjxQBAC69ugWNoTFpzxqkcgWd",
+  "37457": "yf4WpwRX17p7YRkHJPQpHMXTwzi5s2VDcR",
+  "37458": "ydbfUYWfLm6xg7Y5aBLjy38DvksrvNcHEc",
+  "37459": "yYp9k2iuDptT2MB7qVZtVy6ModHtLXFjio",
+  "37460": "yP1UHNx26ShYLej56SbHiTiPAUv2QppbUv",
+  "37461": "yaCtZRpiYnVFMyWELHZF74v9ayLKCLPcC9",
+  "37462": "ygYFnLHoVRyhRoxd6fXQ9nmEafX4eLoWkB",
+  "37463": "yM5kTThWi8MnAFtZqx98Zipp1BbyypUZGK",
+  "37464": "yeDY39aiqbBHbJft5F6rokR23EaZca6UTU",
+  "37465": "yMME1ns1xfpGS2XbFPktsNyp7Cjr1BoJxb",
+  "37466": "ycn5RWc4Ruo35FTS8bJwugVyCEkfVcrw9a",
+  "37467": "yUTDkKKhbvDrnwkiaoP8HvqxTNC6rNnUe2",
+  "37468": "yTstes2nSaSpvu9nTapiCGnjCLvLD5fUqt",
   "37469": "Unknown",
   "37470": "Unknown",
   "37471": "Unknown",
@@ -1354,20 +1417,22 @@ dash-cli -testnet masternode winners 150 "yTZ99"
 Result:
 ``` json
 {
-  "37338": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM:9",
-  "37339": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM:8",
-  "37432": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM:6",
-  "37433": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM:9"
+  "37338": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM",
+  "37339": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM",
+  "37432": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM",
+  "37433": "yTZ99fCnjNu33RDRtawf81iwJ9uxXFmkgM"
 }
 ```
 
 *See also:*
 
-* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#masternodelist): returns a list of masternodes in different modes.
+* [MasternodeList](#masternodelist): returns a list of masternodes in different modes.
+* [Masternode Payments](#masternode-payments): prints an array of deterministic masternodes and their payments for the specified block.
+* [Masternode Winner](#masternode-winner): prints info on the next masternode winner to vote for.
 
 # Masternodelist
 
-The [`masternodelist` RPC](core-api-ref-remote-procedure-calls-dash#masternodelist) returns a list of masternodes in different modes.
+The [`masternodelist` RPC](#masternodelist) returns a list of masternodes in different modes.
 
 *Parameter #1---List mode*
 
@@ -1476,12 +1541,12 @@ Result:
 
 *See also:*
 
-* [Masternode](/docs/core-api-ref-remote-procedure-calls-dash#masternode): provides a set of commands for managing masternodes and displaying information about them.
-* [MnSync](/docs/core-api-ref-remote-procedure-calls-dash#mnsync): returns the sync status, updates to the next step or resets it entirely.
+* [Masternode](#masternode): provides a set of commands for managing masternodes and displaying information about them.
+* [MnSync](#mnsync): returns the sync status, updates to the next step or resets it entirely.
 
 # MnSync
 
-The [`mnsync` RPC](core-api-ref-remote-procedure-calls-dash#mnsync) returns the sync status, updates to the next step or resets it entirely.
+The [`mnsync` RPC](#mnsync) returns the sync status, updates to the next step or resets it entirely.
 
 *Parameter #1---Command mode*
 
@@ -1574,18 +1639,19 @@ success
 
 *See also:*
 
-* [Masternode](/docs/core-api-ref-remote-procedure-calls-dash#masternode): provides a set of commands for managing masternodes and displaying information about them.
-* [MasternodeList](/docs/core-api-ref-remote-procedure-calls-dash#masternodelist): returns a list of masternodes in different modes.
+* [Masternode](#masternode): provides a set of commands for managing masternodes and displaying information about them.
+* [MasternodeList](#masternodelist): returns a list of masternodes in different modes.
 
-# PrivateSend
+<span id="privatesend"></span>
+# CoinJoin
 
-As of Dash Core 0.12.3, client-side mixing is not supported on masternodes.
+As of Dash Core 0.12.3, this is not supported on masternodes since wallet functionality is disabled on them for security reasons.
 
-The [`privatesend` RPC](core-api-ref-remote-procedure-calls-dash#privatesend) controls the mixing process.
+The [`coinjoin` RPC](#coinjoin) controls the CoinJoin process (previously named `privatesend` prior to Dash Core 0.17.0).
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`mode` | string | Required<br>(exactly 1) | The command mode to use:<br>`start` - Start mixing<br>`stop` - Stop mixing<br>`reset` - Reset mixing
+`mode` | string | Required<br>(exactly 1) | The command mode to use:<br>`start` - Start CoinJoin<br>`stop` - Stop CoinJoin<br>`reset` - Reset CoinJoin
 
 **Command Mode - `start`**
 
@@ -1595,10 +1661,10 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(exactly 1) | Command return status
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 ``` bash
-dash-cli -testnet privatesend start
+dash-cli -testnet coinjoin start
 ```
 
 Result:
@@ -1614,10 +1680,10 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(exactly 1) | Command return status
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 ``` bash
-dash-cli -testnet privatesend stop
+dash-cli -testnet coinjoin stop
 ```
 
 Result:
@@ -1633,10 +1699,10 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(exactly 1) | Command return status
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 ``` bash
-dash-cli -testnet privatesend reset
+dash-cli -testnet coinjoin reset
 ```
 
 Result:
@@ -1648,7 +1714,7 @@ Mixing was reset
 
 # Spork
 
-The [`spork` RPC](core-api-ref-remote-procedure-calls-dash#spork) reads or updates spork settings on the network.
+The [`spork` RPC](#spork) reads or updates spork settings on the network.
 
 To display the status of sporks, use the `show` or `active` syntax.
 
@@ -1751,7 +1817,7 @@ failure
 
 # VoteRaw
 
-The [`voteraw` RPC](core-api-ref-remote-procedure-calls-dash#voteraw) compiles and relays a governance vote with provided external signature instead of signing vote internally
+The [`voteraw` RPC](#voteraw) compiles and relays a governance vote with provided external signature instead of signing vote internally
 
 *Parameter #1---masternode collateral transaction hash*
 
@@ -1818,4 +1884,4 @@ Voted successfully
 
 *See also:*
 
-* [GObject](/docs/core-api-ref-remote-procedure-calls-dash#gobject): provides a set of commands for managing governance objects and displaying information about them.
+* [GObject](#gobject): provides a set of commands for managing governance objects and displaying information about them.

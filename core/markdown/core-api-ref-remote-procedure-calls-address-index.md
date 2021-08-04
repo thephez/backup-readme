@@ -15,20 +15,16 @@ Name | Type | Presence | Description
 →Address | string (base58) | Required<br>(1 or more) | The base58check encoded address
 
 *Result---the current balance in <<glossary:duffs>> and the total number of duffs received (including change)*
-[block:callout]
-{
-  "type": "warning",
-  "title": "Immature coins",
-  "body": "The balance returned may include immature coins (i.e. from a coinbase transaction) that are not yet spendable."
-}
-[/block]
+
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | An object listing the current balance and total amount received (including change), or an error if any address is invalid
 →<br>`balance` | string | Required<br>(exactly 1) | The current balance in duffs
+→<br>`balance_immature` | string | Required<br>(exactly 1) | The current immature balance in duffs
+→<br>`balance_spendable` | string | Required<br>(exactly 1) | The current spendable balance in duffs
 →<br>`received` | string | Required<br>(exactly 1) | The total number of duffs received (including change)
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 Get the balance for an address:
 
@@ -40,8 +36,10 @@ Result:
 
 ```json
 {
-  "balance": 0,
-  "received": 10000100
+  "balance": 876020488,
+  "balance_immature": 776020488,
+  "balance_spendable": 100000000,
+  "received": 876020488
 }
 ```
 
@@ -129,6 +127,8 @@ Result:
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
 }
 [/block]
+
+
 The [`getaddressmempool` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressmempool) returns all mempool deltas for an address.
 
 *Parameter #1---an array of addresses*
@@ -181,6 +181,8 @@ Result:
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
 }
 [/block]
+
+
 The [`getaddresstxids` RPC](core-api-ref-remote-procedure-calls-address-index#getaddresstxids) returns the txids for an address(es).
 
 *Parameter #1---an array of addresses*
@@ -233,6 +235,8 @@ Result:
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**) and `-addressindex` Dash Core command-line/configuration-file parameter to be enabled."
 }
 [/block]
+
+
 The [`getaddressutxos` RPC](core-api-ref-remote-procedure-calls-address-index#getaddressutxos) returns all unspent outputs for an address.
 
 *Parameter #1---an array of addresses*

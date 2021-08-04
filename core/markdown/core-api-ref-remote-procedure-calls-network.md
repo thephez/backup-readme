@@ -264,6 +264,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | Information about this node's connection to the network
 →<br>`version` | number | Required<br>(exactly 1) | This node's version of Dash Core in its internal integer format.  For example, Dash Core 0.12.2 has the integer version number 120200
+→<br>`buildversion` | string | Required<br>(exactly 1) | The node's build version including RC info or commit as relevant
 →<br>`subversion` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
 →<br>`localservices` | string (hex) | Required<br>(exactly 1) | The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
@@ -288,7 +289,7 @@ Name | Type | Presence | Description
 → → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>A plain-text description of any network warnings. If there are no warnings, an empty string will be returned.
 
-*Example from Dash Core 0.16.0*
+*Example from Dash Core 0.17.0*
 
 ```bash
 dash-cli getnetworkinfo
@@ -298,9 +299,10 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
 
 ```json
 {
-  "version": 160000,
-  "subversion": "/Dash Core:0.16.0/",
-  "protocolversion": 70217,
+  "version": 170000,
+  "buildversion": "v0.17.0.0-79ef4f8de",
+  "subversion": "/Dash Core:0.17.0.0/",
+  "protocolversion": 70218,
   "localservices": "0000000000000405",
   "localrelay": true,
   "timeoffset": 0,
@@ -335,7 +337,7 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
   "localaddresses": [
     {
       "address": "192.0.2.113",
-      "port": 19999,
+      "port": 18999,
       "score": 4
     }
   ],
@@ -366,6 +368,8 @@ Name | Type | Presence | Description
 → →<br>`addrlocal` | string | Optional<br>(0 or 1) | Our IP address and port number according to the remote node.  May be incorrect due to error or lying.  Most SPV nodes set this to `127.0.0.1:9999`
 → →<br>`addrbind` | string | Optional<br>(0 or 1) | Bind address of the connection to the peer
 → →<br>`services` | string (hex) | Required<br>(exactly 1) | The services advertised by the remote node in its [`version` message](core-ref-p2p-network-control-messages#version)
+→ →<br>`verified_proregtx_hash` | string (hex) | Optional<br>(0 or 1) | The ProRegTx of the masternode
+→ →<br>`verified_pubkey_hash` | string (hex) | Optional<br>(0 or 1) | The hashed operator public key of the masternode
 → →<br>`lastsend` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we last successfully sent data to the TCP socket for this node
 → →<br>`lastrecv` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we last received data from this node
 → →<br>`bytessent` | number (int) | Required<br>(exactly 1) | The total number of bytes we've sent to this node
@@ -408,69 +412,71 @@ Result (edited to show only a single entry, with IP addresses changed to
     "addr": "192.0.2.113:19999",
     "addrlocal": "127.0.0.1:56332",
     "addrbind": "192.168.10.111:56332",
-    "services": "0000000000000005",
+    "services": "0000000000000405",
+    "verified_proregtx_hash": "109e45aedfa3b9eeda9bf3a12d392b3db711eb9c248db5fc5c878703496621e9",
+    "verified_pubkey_hash": "48563ca7b0b42e4447a00578456fad06c5ed0c6965cdba170f7c84be7df204e3",
     "relaytxes": true,
-    "lastsend": 1507818327,
-    "lastrecv": 1507818327,
-    "bytessent": 844135,
-    "bytesrecv": 887651,
-    "conntime": 1507808575,
-    "timeoffset": 0,
-    "pingtime": 0.113646,
-    "minping": 0.106826,
-    "version": 70215,
-    "subver": "/Dash Core:0.14.0.3/",
+    "lastsend": 1611582718,
+    "lastrecv": 1611582718,
+    "bytessent": 10598,
+    "bytesrecv": 32442,
+    "conntime": 1611582087,
+    "timeoffset": -2,
+    "pingtime": 0.08229,
+    "minping": 0.081689,
+    "version": 70218,
+    "subver": "/Dash Core:0.17.0/",
     "inbound": false,
     "addnode": false,
     "masternode": false,
-    "startingheight": 159292,
+    "startingheight": 432836,
     "banscore": 0,
-    "synced_headers": 159350,
-    "synced_blocks": 159350,
+    "synced_headers": 432843,
+    "synced_blocks": 432843,
     "inflight": [
     ],
     "whitelisted": false,
     "bytessent_per_msg": {
-      "addr": 55,
-      "dsq": 69530,
+      "addr": 110,
+      "dsq": 6800,
       "getaddr": 24,
-      "getdata": 9224,
-      "getheaders": 989,
+      "getdata": 926,
+      "getheaders": 1021,
       "getsporks": 24,
       "govsync": 66,
-      "headers": 6148,
-      "inv": 837,
-      "ping": 1856,
-      "pong": 1856,
+      "headers": 742,
+      "inv": 183,
+      "mempool": 24,
+      "ping": 192,
+      "pong": 192,
       "qsendrecsigs": 25,
       "sendcmpct": 33,
       "senddsq": 25,
       "sendheaders": 24,
-      "tx": 5808,
       "verack": 24,
-      "version": 160
+      "version": 163
     },
     "bytesrecv_per_msg": {
       "*other*": 25,
-      "addr": 17362,
-      "clsig": 3276,
-      "getdata": 122,
-      "getheaders": 989,
-      "headers": 5300,
-      "inv": 24611,
-      "islock": 3249,
+      "addr": 12022,
+      "clsig": 312,
+      "dsq": 7310,
+      "getheaders": 1021,
+      "headers": 424,
+      "inv": 4189,
+      "islock": 378,
       "mnauth": 152,
-      "ping": 1856,
-      "pong": 1856,
-      "qsigrec": 16492,
+      "ping": 192,
+      "pong": 192,
+      "qsigrec": 1519,
       "sendcmpct": 33,
       "senddsq": 25,
       "sendheaders": 24,
-      "spork": 2090,
+      "spork": 2420,
       "ssc": 32,
-      "tx": 11523,
+      "tx": 1987,
       "verack": 24,
-      "version": 162
+      "version": 161
     }
   }
 ]

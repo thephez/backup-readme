@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5e96055329a18c0025d391f2", 
+ "parentDoc": "5fce5c21ec64d90073aa880b", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-05-28T17:45:09.911Z", 
- "id": "5e96055329a18c0025d391fa", 
+ "id": "5fce5c21ec64d90073aa8813", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T16:11:28.615Z", 
- "category": "5e96055329a18c0025d391e2", 
+ "category": "5fce5c21ec64d90073aa87fa", 
  "title": "Raw Transaction Format", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T22:17:52.228Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:13.387Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5e96055329a18c0025d391fa", 
+ "_id": "5fce5c21ec64d90073aa8813", 
  "order": 2, 
  "user": "5af39863989da435b05d284d"
 }

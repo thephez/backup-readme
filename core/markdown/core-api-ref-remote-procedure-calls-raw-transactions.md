@@ -51,6 +51,7 @@ a8f027d8a77cbdcb88ac00000000
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
@@ -72,9 +73,10 @@ Transactions | array | Required<br>(exactly 1) | An array of objects, each one t
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Outputs | object | Required<br>(exactly 1) | The addresses and amounts to pay
-→<br>Address/Amount | string : number (Dash) | Required<br>(1 or more) | A key/value pair with the address to pay as a string (key) and the amount to pay that address (value) in Dash
-→<br>Data/Hex | data : hex | Required<br>(1 or more) | A key/value pair where the key is 'data' and the value is hex encoded data
+Outputs | array | Required<br>(exactly 1) | A JSON array with outputs as key-value pairs
+→ Output | object | Required<br>(1 or more) | An object describing a particular output
+→ →<br>Address | string : number (Dash) | Optional<br>(0 or 1) | A key-value pair. The key (string) is the Dash address, the value (float or string) is the amount in DASH
+→ →<br>Data | `data` : string (hex) | Optional<br>(0 or 1) | A key-value pair. The key must be `data`, the value is hex encoded data
 
 *Parameter #3---locktime*
 
@@ -88,7 +90,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as hex.  If the transaction couldn't be generated, this will be set to JSON `null` and the JSON-RPC error field may contain an error message
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 ``` bash
 dash-cli -testnet createrawtransaction '''
@@ -98,17 +100,24 @@ dash-cli -testnet createrawtransaction '''
       "vout" : 1
     }
   ]''' \
-  '{"ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv": 800, "yY6AmGopsZS31wy1JLHR9P6AC6owFaXwuh":74.99}' '0'
-
+  '''
+  [
+    {
+      "ySutkc49Khpz1HQN8AfWNitVBLwqtyaxvv": 800
+    },
+    {
+      "yY6AmGopsZS31wy1JLHR9P6AC6owFaXwuh": 74.99
+    }
+  ]''' \
+  0
 ```
 
 Result (wrapped):
 
 ``` text
-01000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e06\
-0100000000ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3\
-cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b4\
-28a488ac00000000
+02000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e06010000\
+0000ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388\
+acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
 ```
 
 *See also*
@@ -116,6 +125,7 @@ cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b4\
 * [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
@@ -311,6 +321,7 @@ Result:
 * [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 
 # DecodeScript
@@ -384,20 +395,20 @@ All existing inputs must have their previous output transaction be in the wallet
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Hexstring | string (hex) | Required<br>(exactly 1) | The hex string of the raw transaction
+Hex string | string (hex) | Required<br>(exactly 1) | The hex string of the raw transaction
 
 *Parameter #2---Additional options*
 
-Note: For backwards compatibility, passing in a `true` instead of an object will result in {\"includeWatching\":true}\n"
+Note: For backwards compatibility, passing in a `true` instead of an object will result in `{"includeWatching": true}`.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Options | Object | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.13.0*<br><br>Additional options
+Options | Object | Optional<br>(0 or 1) | Additional options
 → <br>`changeAddress` | string | Optional<br>(0 or 1) | The address to receive the change. If not set, the address is chosen from address pool
 → <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
 `includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
 → <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
-→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | *Deprecated and ignored in Dash Core 0.15.0*<br><br>Reserves the change output key from the keypool. The default is `true`. Before Bitcoin Core 0.14.0, the used keypool key was never marked as change-address key and directly returned to the keypool (leading to address reuse).  
+→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**
 → <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay (BTC per KB). If not set, the wallet determines the fee
 → <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added.
 → →<br>Output index | numeric (int) | Optional<br>(0 or more) | A output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
@@ -434,6 +445,7 @@ Result:
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
@@ -792,16 +804,23 @@ Result:
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 
 # SignRawTransaction
-
+[block:callout]
+{
+  "type": "warning",
+  "title": "Deprecated RPC",
+  "body": "This RPC is deprecated as of Dash Core 0.17.0. It will be removed in a future release."
+}
+[/block]
 The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 
 *Parameter #1---the transaction to sign*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Transaction | string (hex | Required<br>(exactly 1) | The transaction to sign as a serialized transaction
+Transaction | string (hex) | Required<br>(exactly 1) | The transaction to sign as a serialized transaction
 
 *Parameter #2---unspent transaction output details*
 
@@ -853,6 +872,82 @@ Result:
 ``` json
 {
   "hex": "01000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e060100000069463043022033a61c56fa0867ed67b76b023204a9dc0ee6b0d63305dc5f65fe94335445ff2f021f712f55399d5238fc7146497c431fc4182a1de0b96fc22716e0845f561d542e012102eacba539d92eb88d4e73bb32749d79f53f6e8d7947ac40a71bd4b26c13b6ec29ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000",
+  "complete": true
+}
+```
+
+*See also*
+
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+
+# SignRawTransactionWithKey
+[block:callout]
+{
+  "type": "success",
+  "body": "Add in Dash Core 0.17.0"
+}
+[/block]
+The [`signrawtransactionwithkey` RPC](#signrawtransactionwithkey) signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+
+*Parameter #1---the transaction to sign*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Transaction | string (hex) | Required<br>(exactly 1) | The transaction to sign as a serialized transaction
+
+*Parameter #2---private keys for signing*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Private Keys | array | Required<br>(exactly 1) | An array holding private keys.  If any keys are provided, only they will be used to sign the transaction (even if the wallet has other matching keys).  If this array is empty or not used, and wallet support is enabled, keys from the wallet will be used
+→<br>Key | string (base58) | Required<br>(1 or more) | A private key in base58check format to use to create a signature for this transaction
+
+*Parameter #3---unspent transaction output details*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Dependencies | array | Optional<br>(0 or 1) | The previous outputs being spent by this transaction
+→<br>Output | object | Optional<br>(0 or more) | An output being spent
+→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
+→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The index number of the output (vout) as it appeared in its transaction, with the first output being 0
+→ →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output's pubkey script encoded as hex
+→ →<br>`redeemScript` | string (hex) | Optional<br>(0 or 1) | If the pubkey script was a script hash, this must be the corresponding redeem script
+→ →<br>`amount` | numeric | Required<br>(exactly 1) | The amount of Dash spent
+
+*Parameter #4---signature hash type*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
+
+*Result---the transaction with any signatures made*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | The results of the signature
+→<br>`hex` | string (hex) | Required<br>(exactly 1) | The resulting serialized transaction encoded as hex with any signatures made inserted.  If no signatures were made, this will be the same transaction provided in parameter #1
+→<br>`complete` | bool | Required<br>(exactly 1) | The value `true` if transaction is fully signed; the value `false` if more signatures are required. Once `true` the transaction can be sent using the [`sendrawtransaction` RPC](#sendrawtransaction).
+
+*Example from Dash Core 0.17.0*
+
+Sign the raw transaction hex generated from the [`createrawtransaction` RPC](#createrawtransaction):
+
+``` bash
+dash-cli -testnet signrawtransactionwithkey 020000000121f39228a11ddf197ac3658e\
+93bd264d0afd927f0cdfc7caeb760537e529c94a0100000000ffffffff01809698000000000019\
+76a914fe64a96d6660e30c433e1189082466a95bdf9ceb88ac00000000 \
+[\"cSxm6ji1SQ7vF1r8QhcsE1AZ42ZJqs5CEAAnD18iV18ZCQ2u3gGa\"]
+```
+
+Result:
+
+``` json
+{
+  "hex": "020000000121f39228a11ddf197ac3658e93bd264d0afd927f0cdfc7caeb760537e529c94a010000006b483045022100811c5679ef097b0e5a338fc3cd05ee50e1802680ea8a172d0fd3a81da3c1fc2002204804b18a44e888ac1ee9b6a7cbadc211ecdc30f8c889938c95125206e39554220121025d81ce6581e547dd34194385352053abb17f0246768d75443b25ded5e37d594fffffffff0180969800000000001976a914fe64a96d6660e30c433e1189082466a95bdf9ceb88ac00000000",
   "complete": true
 }
 ```

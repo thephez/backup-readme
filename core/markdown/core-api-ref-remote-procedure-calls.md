@@ -2,15 +2,80 @@
 
 Dash Core provides a remote procedure call (RPC) interface for various administrative tasks, <<glossary:wallet>> operations, and queries about <<glossary:network>> and <<glossary:block chain>> data.
 
+Open-source client libraries for the RPC interface are readily available in most modern programming languages, so you probably don't need to write your own from scratch. Dash Core also ships with its own compiled C++ RPC client, `dash-cli`, located in the `bin` directory alongside `dashd` and `dash-qt`. The `dash-cli` program can be used as a command-line interface (CLI) to Dash Core or for making RPC calls from applications written in languages lacking a suitable native client. The remainder of this section describes the Dash Core RPC protocol in detail.
+[block:callout]
+{
+  "type": "info",
+  "body": "The following subsections reference setting configuration values. See the [Examples Page](core-examples-introduction) for more information about setting Dash Core configuration values.",
+  "title": "Dash Core Configuration"
+}
+[/block]
+## Enabling RPC
+
 If you start Dash Core using `dash-qt`, the RPC interface is disabled by default. To enable it, set `server=1` in `dash.conf` or supply the `-server` argument when invoking the program. If you start Dash Core using `dashd`, the RPC interface is enabled by default.
 
-The interface requires the user to provide a password for authenticating RPC requests. This password can be set either using the `rpcpassword` property in `dash.conf` or by supplying the `-rpcpassword` program argument. Optionally a username can be set using the `rpcuser` configuration value. See the [Examples Page](core-examples-introduction) for more information about setting Dash Core configuration values.
+## Basic Security
 
-Open-source client libraries for the RPC interface are readily available in most modern programming languages, so you probably don't need to write your own from scratch. Dash Core also ships with its own compiled C++ RPC client, `dash-cli`, located in the `bin` directory alongside `dashd` and `dash-qt`. The `dash-cli` program can be used as a command-line interface (CLI) to Dash Core or for making RPC calls from applications written in languages lacking a suitable native client. The remainder of this section describes the Dash Core RPC protocol in detail.
+The interface requires the user to provide a password for authenticating RPC requests. This password can be set either using the `rpcpassword` property in `dash.conf` or by supplying the `-rpcpassword` program argument. Optionally a username can be set using the `rpcuser` configuration value. 
+
+## RPC-Auth Security
+
+Alternatively, the authentication details can be provided using the `rpcauth` property. This removes the need to include a plaintext password in the dash.conf file by instead including a salt and hash of the password along with a username in the format:
+`<USERNAME>:<SALT>$<HASH>`
+
+``` shell
+# Example dash.conf rpcauth entry
+rpcauth=myuser:933fff1aaefa1fc5b3e981fd3ceacf03$f799757c0d36be8f1faa1dd3a01562b17ada82f2ff6c968c959103afda9e7c6f
+```
+[block:callout]
+{
+  "type": "info",
+  "body": "The `rpcauth` option can be specified multiple times if multiple users are required."
+}
+[/block]
+A canonical python script is included in Dash Core's repository under [share/rpcuser](https://github.com/dashpay/dash/tree/master/share/rpcauth) to generate the information required for the dash.conf file as well as the password required by clients using the rpcauth name.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "String to be appended to dash.conf:\nrpcauth=myuser:b87393f6957f80448f8a0aba5eb8cc00$f67a3321106b13acc2a8881c9eb64e7bbc6eeb4681261b2918cc54da8915be6e\nYour password:\n2-Cl0O92-MT-XavyEIkkV_hxqdC_7fag8w7EF7t3UVg=\n",
+      "language": "text",
+      "name": "Example output when running './rpcauth.py myuser'"
+    }
+  ]
+}
+[/block]
+## Restricted Access Users
+[block:callout]
+{
+  "type": "warning",
+  "body": "This feature is only available on masternodes"
+}
+[/block]
+As of Dash Core 0.17.0, an option is provided to add an RPC user that is restricted to a small subset of RPCs that will be used by Dash Platform. The `platform-user` configuration value sets the name of the RPC user to be restricted.
+
+The `platform-user` configuration value must be set to a previously configured [rpcauth user](#rpc-auth-security).
+
+Only the following RPCs are accessible to the restricted user:
+- [`getbestblockhash`](core-api-ref-remote-procedure-calls-blockchain#getbestblockhash)
+- [`getblockhash`](core-api-ref-remote-procedure-calls-blockchain#getblockhash)
+- [`getblockcount`](core-api-ref-remote-procedure-calls-blockchain#getblockcount)
+- [`getbestchainlock`](core-api-ref-remote-procedure-calls-blockchain#getbestchainlock)
+- [`quorum sign 4`](core-api-ref-remote-procedure-calls-evo#quorum-sign) - The restricted user can only request quorum signatures from the Platform quorum (LLMQ type 4)
+- [`quorum verify`](core-api-ref-remote-procedure-calls-evo#quorum-verify)
+- [`verifyislock`](core-api-ref-remote-procedure-calls-evo#verifyislock)
+
+ ## Default Connection Info
 
 The Dash Core RPC service listens for HTTP `POST` requests on port 9998 in <<glossary:mainnet>> mode, 19998 in <<glossary:testnet>>, or 19898 in <<glossary:regression test mode>>. The port number can be changed by setting `rpcport` in `dash.conf`. By default the RPC service binds to your server's [localhost](https://en.wikipedia.org/wiki/Localhost) loopback network interface so it's not accessible from other servers. Authentication is implemented using [HTTP basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). RPC HTTP requests must include a `Content-Type` header set to `text/plain` and a `Content-Length` header set to the size of the request body.
 
-The format of the request body and response data is based on [version 1.0 of the JSON-RPC specification](http://json-rpc.org/wiki/specification). Specifically, the HTTP `POST` data of a request must be a JSON object with the following format:
+# Data Formats
+
+The format of the request body and response data is based on [version 1.0 of the JSON-RPC specification](http://json-rpc.org/wiki/specification). 
+
+## Request Format
+
+Specifically, the HTTP `POST` data of a request must be a JSON object with the following format:
 
 | Name                 | Type            | Presence                    | Description
 |----------------------|-----------------|-----------------------------|----------------
@@ -33,6 +98,8 @@ In the table above and in other tables describing RPC input and output, we use t
 * "Type" is the JSON data type and the specific Dash Core type.
 
 * "Presence" indicates whether or not a field must be present within its containing array or object. Note that an optional object may still have required children.
+
+## Response Format
 
 The HTTP response data for a RPC request is a JSON object with the following format:
 

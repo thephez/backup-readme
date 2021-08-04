@@ -12,16 +12,22 @@ Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction 
 
 The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
 
-Sporks 2 (`SPORK_2_INSTANTSEND_ENABLED`) and 20 (`SPORK_20_INSTANTSEND_LLMQ_BASED`) are used to manage InstantSend. <<glossary:Spork>> 2 enables or disables the entire InstantSend feature. Spork 20 was used to support the transition to LLMQ-based InstantSend and is currently retained for backward compatibility. It will be deprecated in a future release.
+# Management via Spork
+
+Spork 2 (`SPORK_2_INSTANTSEND_ENABLED`) is used to manage InstantSend. <<glossary:Spork>> 2 enables or disables the entire InstantSend feature. As of Dash Core 0.17.0, it also can be used to limit locking to transactions found in blocks. 
+
+In the event of a sustained overload of InstantSend, the spork can be set to a value of `1`. This mode enables a clean transition to fully disabling InstantSend without interfering with ChainLocks. In this mode masternodes will stop creating locks for new transactions when they enter the mempool and will only lock them once mined into a block. Once all existing locked transactions are mined into blocks, InstantSend can then be disabled by setting the spork value to `0` without disrupting ChainLocks.
+
+# Mining Considerations
 
 Note: A transaction will __not__ be included in the block template (from the [`getblocktemplate` RPC](core-api-ref-remote-procedure-calls-mining#getblocktemplate)) unless it:
 
  1. Has been locked, or 
  2. Has been in the mempool for >=10 minutes (`WAIT_FOR_ISLOCK_TIMEOUT`)
 
-A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> containing only locked transactions (or ones older than the timeout) should achieve a ChainLock faster. This is desirable to miners since it prevents any reorgs that might orphan their block.
+A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> containing only locked transactions (or ones older than the timeout) should achieve a ChainLock faster. This is desirable to miners since it prevents any blockchain reorganizations that might orphan their block.
 
-## *InstantSend Data Flow*
+# InstantSend Data Flow
 
 | **InstantSend Client** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |

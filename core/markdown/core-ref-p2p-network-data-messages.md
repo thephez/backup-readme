@@ -13,42 +13,31 @@ The currently-available type identifiers are:
 
 | Type Identifier | Name                                                                          | Description
 |-----------------|-------------------------------------------------------------------------------|---------------
-| 1               | `<<glossary:MSG_TX>>`                                     | The hash is a TXID.
-| 2               | `<<glossary:MSG_BLOCK>>`                            | The hash is of a block header.
-| 3               | `<<glossary:MSG_FILTERED_BLOCK>>` | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#getdata), this indicates the response should be a [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) rather than a [`block` message](core-ref-p2p-network-data-messages#block) (but this only works if a bloom filter was previously configured).  **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#getdata).**
-| 4               | `<<glossary:MSG_LEGACY_TXLOCK_REQUEST>>` | `MSG_TXLOCK_REQUEST` prior to Dash Core 0.15.0. The hash is an Instant Send transaction lock request. Transactions received this way are automatically converted to a standard [`tx` message](core-ref-p2p-network-data-messages#tx) as of Dash Core 0.15.0.
-| 6               | `<<glossary:MSG_SPORK>>`                            | The hash is Spork ID.
-| 16               | `<<glossary:MSG_DSTX>>`                              | The hash is Private Send (Dark Send) Broadcast TX.
-| 17               | `<<glossary:MSG_GOVERNANCE_OBJECT>>`                                     | The hash is a Governance Object.
-| 18               | `<<glossary:MSG_GOVERNANCE_OBJECT_VOTE>>`                                     | The hash is a Governance Object Vote.
-| 20               | `<<glossary:MSG_CMPCT_BLOCK>>`                                     | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#getdata), this indicates the response should be a [`cmpctblock` message](core-ref-p2p-network-data-messages#cmpctblock). **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#getdata).**
-| 21               | `<<glossary:MSG_QUORUM_FINAL_COMMITMENT>>`                | The hash is a long-living masternode quorum final commitment.<br>_Added in 0.13.0_
-| 23               | `<<glossary:MSG_QUORUM_CONTRIB>>`                                     | The hash is a long-living masternode quorum contribution.<br>_Added in 0.14.0_
-| 24               | `<<glossary:MSG_QUORUM_COMPLAINT>>`                                     | The hash is a long-living masternode quorum complaint.<br>_Added in 0.14.0_
-| 25               | `<<glossary:MSG_QUORUM_JUSTIFICATION>>`                   | The hash is a long-living masternode quorum justification.<br>_Added in 0.14.0_
-| 26               | `<<glossary:MSG_QUORUM_PREMATURE_COMMITMENT>>`    | The hash is a long-living masternode quorum premature commitment.<br>_Added in 0.14.0_
-| 28               | `<<glossary:MSG_QUORUM_RECOVERED_SIG>>`                        | The hash is a long-living masternode quorum recovered signature.<br>_Added in 0.14.0_
-| 29               | `<<glossary:MSG_CLSIG>>`                                     | The hash is a ChainLock signature.<br>_Added in 0.14.0_
-| 30               | `<<glossary:MSG_ISLOCK>>`                                   | The hash is an LLMQ-based InstantSend lock.<br>_Added in 0.14.0_
+| 1               | <<glossary:MSG_TX>>                                     | The hash is a TXID.
+| 2               | <<glossary:MSG_BLOCK>>                            | The hash is of a block header.
+| 3               | <<glossary:MSG_FILTERED_BLOCK>> | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#getdata), this indicates the response should be a [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) rather than a [`block` message](core-ref-p2p-network-data-messages#block) (but this only works if a bloom filter was previously configured).  **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#getdata).**
+| 4               | <<glossary:MSG_LEGACY_TXLOCK_REQUEST>> | `MSG_TXLOCK_REQUEST` prior to Dash Core 0.15.0. The hash is an Instant Send transaction lock request. Transactions received this way are automatically converted to a standard [`tx` message](core-ref-p2p-network-data-messages#tx) as of Dash Core 0.15.0.
+| 6               | <<glossary:MSG_SPORK>>                            | The hash is Spork ID.
+| 16              | <<glossary:MSG_DSTX>>                              | The hash is CoinJoin Broadcast TX.
+| 17               | <<glossary:MSG_GOVERNANCE_OBJECT>>                                     | The hash is a Governance Object.
+| 18               | <<glossary:MSG_GOVERNANCE_OBJECT_VOTE>>                                     | The hash is a Governance Object Vote.
+| 20               | <<glossary:MSG_CMPCT_BLOCK>>                                     | The hash is of a block header; identical to `MSG_BLOCK`. When used in a [`getdata` message](core-ref-p2p-network-data-messages#getdata), this indicates the response should be a [`cmpctblock` message](core-ref-p2p-network-data-messages#cmpctblock). **Only for use in [`getdata` messages](core-ref-p2p-network-data-messages#getdata).**
+| 21               | <<glossary:MSG_QUORUM_FINAL_COMMITMENT>>                | The hash is a long-living masternode quorum final commitment.<br>_Added in 0.13.0_
+| 23               | <<glossary:MSG_QUORUM_CONTRIB>>                                     | The hash is a long-living masternode quorum contribution.<br>_Added in 0.14.0_
+| 24               | <<glossary:MSG_QUORUM_COMPLAINT>>                                     | The hash is a long-living masternode quorum complaint.<br>_Added in 0.14.0_
+| 25               | <<glossary:MSG_QUORUM_JUSTIFICATION>>                   | The hash is a long-living masternode quorum justification.<br>_Added in 0.14.0_
+| 26               | <<glossary:MSG_QUORUM_PREMATURE_COMMITMENT>>    | The hash is a long-living masternode quorum premature commitment.<br>_Added in 0.14.0_
+| 28               | <<glossary:MSG_QUORUM_RECOVERED_SIG>>                        | The hash is a long-living masternode quorum recovered signature. <br><br>**Note**: Only relayed to other masternodes in the same quorum and nodes that have sent a [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch) as of Dash Core 0.17.0<br>_Added in 0.14.0_
+| 29               | <<glossary:MSG_CLSIG>>                                     | The hash is a ChainLock signature.<br>_Added in 0.14.0_
+| 30               | <<glossary:MSG_ISLOCK>>                                   | The hash is an LLMQ-based InstantSend lock.<br>_Added in 0.14.0_
 
-The deprecated type identifiers are:
+**Deprecated Type Identifiers**
+
+The following type identifiers have been deprecated recently. To see type identifiers removed longer ago, please see the [previous version of documentation](https://dashcore.readme.io/v0.16.0/docs/core-ref-p2p-network-data-messages).
 
 | Type Identifier | Name                                                                          | Description
 |-----------------|-------------------------------------------------------------------------------|---------------
-| 5               | `<<glossary:MSG_TXLOCK_VOTE>>`          | **Deprecated in 0.15.0**<br><br>The hash is an Instant Send transaction vote.
-| 7               | `<<glossary:MSG_MASTERNODE_PAYMENT_VOTE>>`                                     | **Deprecated in 0.14.0**<br><br>The hash is a Masternode Payment Vote.
-| 8               | `<<glossary:MSG_MASTERNODE_PAYMENT_BLOCK>>`                                     | **Deprecated in 0.14.0**<br><br>The hash is a Masternode Payment Block.
-| 8               | `MSG_MASTERNODE_SCANNING_ERROR`                                             | Replaced by `MSG_MASTERNODE_PAYMENT_BLOCK`
-| 9               | `<<glossary:MSG_BUDGET_VOTE>>`          | Deprecated
-| 10               | `<<glossary:MSG_BUDGET_PROPOSAL>>`                                     | Deprecated
-| 11               | `<<glossary:MSG_BUDGET_FINALIZED>>`                                     | Deprecated
-| 12               | `<<glossary:MSG_BUDGET_FINALIZED_VOTE>>`                                     | Deprecated
-| 13               | `<<glossary:MSG_MASTERNODE_QUORUM>>`                                     | Not Implemented
-| 14               | `<<glossary:MSG_MASTERNODE_ANNOUNCE>>`                                     | **Deprecated in 0.14.0**<br><br>The hash is a Masternode Broadcast.
-| 15               | `<<glossary:MSG_MASTERNODE_PING>>`                                     | **Deprecated in 0.14.0**<br><br>The hash is a Masternode Ping.
-| 19               | `<<glossary:MSG_MASTERNODE_VERIFY>>`                                     | **Deprecated in 0.14.0**<br><br>The hash is a Masternode Verify.
-| 22               | `MSG_QUORUM_DUMMY_COMMITMENT`                                     | **Deprecated in 0.14.0**<br><br>Temporarily used on Testnet only.
-| 27               | `<<glossary:MSG_QUORUM_DEBUG_STATUS>>`                            | **Deprecated in 0.14.0**<br><br>Temporarily used on Testnet only.
+| 5               | <<glossary:MSG_TXLOCK_VOTE>>          | **Deprecated in 0.15.0**<br><br>The hash is an Instant Send transaction vote.
 
 Type identifier zero and type identifiers greater than those shown in the table above are reserved for future implementations. Dash Core ignores all inventories with one of these unknown types.
 
@@ -386,8 +375,8 @@ Sending the [`mempool` message](core-ref-p2p-network-data-messages#mempool) is m
 [block:callout]
 {
   "type": "info",
-  "body": "Since Dash Core 0.15.0, the mempool message was expanded to include syncing of [InstantSend Lock](docs/core-ref-p2p-network-instantsend-messages#islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default (limited to peers using protocol version 70216 or higher). This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.",
-  "title": "Mempool Synchronization"
+  "body": "Dash Core 0.15.0 expanded the mempool message to include syncing of [InstantSend Lock](core-ref-p2p-network-instantsend-messages#islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default (limited to peers using protocol version 70216 or higher). This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.\n\nDash Core 0.17.0 expanded the mempool message to include syncing of [ChainLock](core-ref-p2p-network-instantsend-messages#clsig) inventories. This allows nodes to more quickly show ChainLock status correctly after being offline.",
+  "title": "InstantSend and ChainLock Synchronization"
 }
 [/block]
 The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages#mempool) is, at best, one node's view of the network---not a complete list of every <<glossary:unconfirmed transaction>> on the network. Here are some additional reasons the list might not be complete:
@@ -400,8 +389,13 @@ There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#
 
 *Added in protocol version 70001 as described by BIP37.*
 
-The [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) which requested a <<glossary:block>> using the inventory type `MSG_MERKLEBLOCK`.  It is only part of the reply: if any matching transactions are found, they will be sent separately as [`tx` messages](core-ref-p2p-network-data-messages#tx).
-
+The [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) which requested a <<glossary:block>> using the inventory type `MSG_MERKLEBLOCK`.  It is only part of the reply: if any matching transactions are found, they will be sent separately as [`tx` messages](core-ref-p2p-network-data-messages#tx). As of Dash Core 0.17.0 [`islock` messages](core-ref-p2p-network-instantsend-messages#islock) for matching transactions are sent if present.
+[block:callout]
+{
+  "type": "warning",
+  "body": "Note: `islock` messages are currently dropped once a ChainLock is present so in most cases they will not actually be provided in response to a merkleblock request. Future updates may modify this behavior."
+}
+[/block]
 If a filter has been previously set with the [`filterload` message](core-ref-p2p-network-control-messages#filterload), the [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) will contain the <<glossary:TXIDs>> of any transactions in the requested block that matched the filter, as well as any parts of the block's <<glossary:merkle tree>> necessary to connect those transactions to the block header's <<glossary:merkle root>>. The message also contains a complete copy of the <<glossary:block header>> to allow the client to hash it and confirm its <<glossary:proof of work>>.
 
 | Bytes    | Name               | Data Type        | Description

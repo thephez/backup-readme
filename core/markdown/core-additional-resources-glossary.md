@@ -102,6 +102,10 @@ The current block's height encoded into the first bytes of the coinbase field.
 
 The first transaction in a block. Always created by a miner, it includes a single coinbase.
 
+# CoinJoin
+
+A masternode managed, decentralized [CoinJoin](https://en.bitcoin.it/wiki/CoinJoin) service for creating an on-demand system of removing the history from coins on the network. CoinJoin processes inputs while allowing each participant to retain control of their coins at all times so the process can be done without trusting a third party.
+
 # CompactSize
 
 A type of variable-length integer commonly used in the Dash P2P protocol and Dash serialized data structures.
@@ -304,7 +308,7 @@ In HD wallets, the master chain code and master private key are the two pieces o
 
 # Masternode
 
-A computer that provides second-tier Dash functionality (InstantSend, PrivateSend, decentralized governance). Masternodes are incentivized by receiving part of the block reward, but must hold 1000 Dash as collateral to prevent sybil attacks.
+A computer that provides second-tier Dash functionality (InstantSend, CoinJoin, decentralized governance). Masternodes are incentivized by receiving part of the block reward, but must hold 1000 Dash as collateral to prevent sybil attacks.
 
 # Merkle block
 
@@ -464,7 +468,7 @@ The private portion of a keypair which can create signatures that other people c
 
 # PrivateSend
 
-PrivateSend is a masternode managage, decentralized mixer for creating an on-demand system of removing the history from coins on the network. PrivateSend mixes inputs while allowing each participant to retain control of their coins at all times so the process can be done without trusting a third party.
+A masternode managed, decentralized CoinJoin service for creating an on-demand system of removing the history from coins on the network. CoinJoin processes inputs while allowing each participant to retain control of their coins at all times so the process can be done without trusting a third party.
 
 # Proof of work
 

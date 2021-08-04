@@ -9,18 +9,20 @@
 # GetAccount
 [block:callout]
 {
+  "type": "danger",
+  "body": "**Warning:** `setaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
 }
 [/block]
 
 The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount) returns the name of the account associated with the given address.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
+
 
 *Parameter #1---a Dash address*
 
@@ -51,6 +53,14 @@ doc test
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
 
 # GetAccountAddress
+
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** `getaccountaddress` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
 [block:callout]
 {
   "type": "info",
@@ -59,12 +69,6 @@ doc test
 [/block]
 
 The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccountaddress) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `getaccountaddress` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---an account name*
 
@@ -101,18 +105,19 @@ yNUQ6RzTpNj5GP5ebdRcusJ7K9JJKx6VvV
 # GetAddressesByAccount
 [block:callout]
 {
+  "type": "danger",
+  "body": "**Warning:** `getaddressesbyaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
 }
 [/block]
 
 The [`getaddressesbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount) returns a list of every address assigned to a particular account.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `getaddressesbyaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---the account name*
 
@@ -152,18 +157,19 @@ Result:
 # GetReceivedByAccount
 [block:callout]
 {
+  "type": "danger",
+  "body": "**Warning:** `getreceivedbyaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
 }
 [/block]
 
 The [`getreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount) returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `getreceivedbyaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---the account name*
 
@@ -213,18 +219,19 @@ Result:
 # ListAccounts
 [block:callout]
 {
+  "type": "danger",
+  "body": "**Warning:** `listaccounts` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
 }
 [/block]
 
 The [`listaccounts` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts) lists accounts and their balances.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `listaccounts` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---the minimum number of confirmations a transaction must have*
 
@@ -277,8 +284,17 @@ Result:
 * [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount): returns the name of the account associated with the given address.
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
 * [ListReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listreceivedbyaccount): lists the total number of dash received by each account.
+* [ListReceivedByLabel](core-api-ref-remote-procedure-calls-wallet#listreceivedbylabel): lists the total number of dash received by each label.
+
 
 # ListReceivedByAccount
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** `listreceivedbyaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
 [block:callout]
 {
   "type": "info",
@@ -287,12 +303,6 @@ Result:
 [/block]
 
 The [`listreceivedbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#listreceivedbyaccount) lists the total number of dash received by each account.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `listreceivedbyaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---the minimum number of confirmations a transaction must have to be counted*
 
@@ -359,10 +369,18 @@ Result (edited to only show the first two results):
 *See also*
 
 * [ListReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#listreceivedbyaddress): lists the total number of dash received by each address.
+* [ListReceivedByLabel](core-api-ref-remote-procedure-calls-wallet#listreceivedbylabel): lists the total number of dash received by each label.
 * [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetReceivedByAddress](/docs/core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
 # Move
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** `move` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
 [block:callout]
 {
   "type": "info",
@@ -371,12 +389,6 @@ Result (edited to only show the first two results):
 [/block]
 
 The [`move` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#move) moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `move` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 [block:callout]
 {
@@ -445,19 +457,19 @@ true
 # SendFrom
 [block:callout]
 {
+  "type": "danger",
+  "body": "**Warning:** `sendfrom` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**). Requires an unlocked wallet or an unencrypted wallet."
 }
 [/block]
 
 The [`sendfrom` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#sendfrom) spends an amount from a local account to a dash address.
-
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `sendfrom` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---from account*
 
@@ -544,18 +556,19 @@ cd64b9d55c63bf247f2eca32f978e340622107b607a46c422dabcdc20c0571fe
 # SetAccount
 [block:callout]
 {
+  "type": "warning",
+  "body": "**Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
+}
+[/block]
+
+[block:callout]
+{
   "type": "info",
   "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
 }
 [/block]
 
 The [`setaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#setaccount) puts the specified address in the given account.
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
 *Parameter #1---a dash address*
 
@@ -591,3 +604,4 @@ dash-cli -testnet setaccount \
 * [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount): returns the name of the account associated with the given address.
 * [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
+* [SetLabels](/docs/core-api-ref-remote-procedure-calls-wallet#setlabels): sets the label associated with the given address.

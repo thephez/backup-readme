@@ -40,7 +40,7 @@ Dash Platform names make cryptographic identities easy to remember and communica
       "name": "Register Name for Identity"
     },
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with evonet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerAlias = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const aliasRegistration = await platform.names.register(\n    '<identity alias goes here>.dash',\n    { dashAliasIdentityId: identity.getId() },\n    identity,\n  );\n\n  return aliasRegistration;\n};\n\nregisterAlias()\n  .then((d) => console.log('Alias registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerAlias = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const aliasRegistration = await platform.names.register(\n    '<identity alias goes here>.dash',\n    { dashAliasIdentityId: identity.getId() },\n    identity,\n  );\n\n  return aliasRegistration;\n};\n\nregisterAlias()\n  .then((d) => console.log('Alias registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "Register Alias for Identity"
     }

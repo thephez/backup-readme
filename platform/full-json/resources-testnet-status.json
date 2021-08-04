@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "testnet-status", 
  "updatedAt": "2021-02-24T16:07:03.541Z", 
- "id": "60906294cda28200612695e1", 
+ "id": "60e604b4762bd40057ebe13c", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2021-02-24T16:07:03.541Z", 
- "category": "60906294cda2820061269580", 
+ "category": "60e604b4762bd40057ebe0db", 
  "title": "Testnet Status", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2021-02-24T16:07:59.270Z", 
  "hidden": false, 
  "type": "link", 
@@ -54,7 +54,7 @@
  "link_url": "https://dash-testnet.freshstatus.io/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695e1", 
+ "_id": "60e604b4762bd40057ebe13c", 
  "order": 3, 
  "updates": []
 }

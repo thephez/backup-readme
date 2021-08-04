@@ -4,7 +4,7 @@ If the same public key is reused often, as happens when people use Dash addresse
 
 It doesn't have to be that way. If each public key is used exactly twice---once to receive a payment and once to spend that payment---the user can gain a significant amount of financial privacy.
 
-Even better, using new public keys or <<glossary:unique addresses>> when accepting payments or creating change outputs can be combined with other techniques discussed later, such as <<glossary:PrivateSend>> or merge avoidance, to make it extremely difficult to use the block chain by itself to reliably track how users receive and spend their duffs.
+Even better, using new public keys or <<glossary:unique addresses>> when accepting payments or creating change outputs can be combined with other techniques discussed later, such as CoinJoin or merge avoidance, to make it extremely difficult to use the block chain by itself to reliably track how users receive and spend their duffs.
 
 Avoiding key reuse can also provide security against attacks which might allow reconstruction of <<glossary:private keys>> from public keys (hypothesized) or from signature comparisons (possible today under certain circumstances described below, with more general attacks hypothesized).
 

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "60906294cda2820061269591", 
+ "parentDoc": "60e604b4762bd40057ebe0ec", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-24T00:34:59.017Z", 
- "id": "60906294cda28200612695b6", 
+ "id": "60e604b4762bd40057ebe111", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-24T00:34:59.017Z", 
- "category": "60906294cda2820061269580", 
+ "category": "60e604b4762bd40057ebe0db", 
  "title": "DPNS Client", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
- "slugUpdatedAt": "2021-08-03T22:12:29.189Z", 
+ "version": "60e604b4762bd40057ebe142", 
+ "slugUpdatedAt": "2021-08-04T16:05:14.541Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "https://github.com/dashevo/js-dpns-client", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695b6", 
+ "_id": "60e604b4762bd40057ebe111", 
  "order": 5, 
  "updates": []
 }

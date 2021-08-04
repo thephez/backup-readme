@@ -5,7 +5,13 @@ The Dash Platform Protocol (DPP) defines a protocol for the data objects (e.g.  
 Dash Platform data objects consist of JSON and are validated using the JSON Schema specification via pre-defined JSON Schemas and meta-schemas described in these sections. The meta-schemas allow for creation of DPP-compliant schemas which define fields for third-party Dash Platform applications.
 
 In addition to ensuring data complies with predefined JSON Schemas, DPP also defines rules for hashing and serialization of these objects.
-
+[block:callout]
+{
+  "type": "danger",
+  "title": "Breaking changes in Dash Platform Protocol 0.20",
+  "body": "A number of breaking changes were introduced in DPP 0.20 which updated to a newer version of JSON Schema (2020-12 spec) and also switched to a new regex module (Re2) for improved security. More details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.20.0)."
+}
+[/block]
 # Reference Implementation
 
 The current reference implementation is the (JavaScript) [js-dpp](https://github.com/dashevo/js-dpp) library. The schemas and meta-schemas referred to in this specification can be found here in the reference implementation: https://github.com/dashevo/js-dpp/tree/master/schema.

@@ -20,7 +20,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  apps: {\n    tutorialContract: {\n      contractId: 'C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get(\n    'tutorialContract.note',\n    {\n      limit: 2, // Only retrieve 1 document\n    },\n  );\n};\n\ngetDocuments()\n  .then((d) => {\n    for (const n of d) {\n      console.log('Document(s):\\n', n.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get(\n    'tutorialContract.note',\n    {\n      limit: 2, // Only retrieve 1 document\n    },\n  );\n};\n\ngetDocuments()\n  .then((d) => {\n    for (const n of d) {\n      console.log('Document(s):\\n', n.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
@@ -46,22 +46,22 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 {
   "codes": [
     {
-      "code": "{\n  '$protocolVersion': 0,\n  '$id': 'H1WzTmPnHnM8oitLVXa7oZG7ZrrunkxChGqHXdh1U8QC',\n  '$type': 'note',\n  '$dataContractId': 'C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi',\n  '$ownerId': 'FgPx8YHbWv4rMeiP52DfmnAXGtjiCiSaNKCbgT7eCRxh',\n  '$revision': 1,\n  message: 'Tutorial CI Test @ Mon, 08 Mar 2021 14:34:45 GMT'\n}",
+      "code": "{\n  '$protocolVersion': 0,\n  '$id': '6LpCQhkXYV2vqkv1UWByew4xQ6BaxxnGkhfMZsN3SV9u',\n  '$type': 'note',\n  '$dataContractId': '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n  '$ownerId': 'CEPMcuBgAWeaCXiP2gJJaStANRHW6b158UPvL1C8zw2W',\n  '$revision': 1,\n  message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'\n}",
       "language": "json",
       "name": ".toJSON()"
     },
     {
-      "code": "{\n  message: 'Tutorial CI Test @ Mon, 08 Mar 2021 14:34:45 GMT'\n}",
+      "code": "{\n  'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'\n}",
       "language": "json",
       "name": ".getData()"
     },
     {
-      "code": "Tutorial CI Test @ Mon, 08 Mar 2021 14:34:45 GMT",
+      "code": "Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT",
       "language": "text",
       "name": ".data.message"
     },
     {
-      "code": "Document {\n  dataContract: DataContract {\n    protocolVersion: 0,\n    id: Identifier(32) [Uint8Array] [\n      165, 131, 208, 183,  34, 175, 156, 255,\n      138,  15, 177, 121, 155, 214,  14, 208,\n      114, 110, 251, 113, 225,  37, 161, 163,\n      232,   3,  56,  20,  98,  91, 250,  15\n    ],\n    ownerId: Identifier(32) [Uint8Array] [\n      218,  27, 56,   0,  87, 229, 149,  21,\n      146, 180, 72, 240, 101,  46, 163, 209,\n        9, 132, 87,   7,  55,  33, 235,  71,\n      209, 147, 84, 126, 169,  89,   8, 198\n    ],\n    schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    documents: { note: [Object] },\n    definitions: undefined,\n    binaryProperties: { note: {} }\n  },\n  entropy: undefined,\n  protocolVersion: 0,\n  id: Identifier(32) [Uint8Array] [\n    237, 220, 230, 196,  50, 167, 132,\n      8, 188, 140,  16,  42, 131,  66,\n     10,  36, 145, 124, 245,  37, 243,\n    139, 252, 222, 119, 221,  98, 224,\n    110, 246, 156, 117\n  ],\n  type: 'note',\n  dataContractId: Identifier(32) [Uint8Array] [\n    165, 131, 208, 183,  34, 175, 156, 255,\n    138,  15, 177, 121, 155, 214,  14, 208,\n    114, 110, 251, 113, 225,  37, 161, 163,\n    232,   3,  56,  20,  98,  91, 250,  15\n  ],\n  ownerId: Identifier(32) [Uint8Array] [\n    218,  27, 56,   0,  87, 229, 149,  21,\n    146, 180, 72, 240, 101,  46, 163, 209,\n      9, 132, 87,   7,  55,  33, 235,  71,\n    209, 147, 84, 126, 169,  89,   8, 198\n  ],\n  revision: 1,\n  data: { message: 'Tutorial CI Test @ Mon, 08 Mar 2021 14:34:45 GMT' }\n}",
+      "code": "Document {\n  dataContract: DataContract {\n    protocolVersion: 0,\n    id: Identifier(32) [Uint8Array] [\n       40,  93, 196, 112,  38, 188,  51, 122,\n      149,  59,  21,  39, 147, 119,  87,  53,\n      236,  60,  97,  42,  31,  82, 135, 120,\n       68, 188,  55, 153, 226, 198, 181, 139\n    ],\n    ownerId: Identifier(32) [Uint8Array] [\n      166, 222,  98,  87, 193,  19,  82,  37,\n       50, 118, 210,  64, 103, 122,  28, 155,\n      168,  21, 198, 134, 142, 151, 153, 136,\n       46,  64, 223,  74, 215, 153, 158, 167\n    ],\n    schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    documents: { note: [Object] },\n    '$defs': undefined,\n    binaryProperties: { note: {} },\n    metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }\n  },\n  entropy: undefined,\n  protocolVersion: 0,\n  id: Identifier(32) [Uint8Array] [\n     79,  93, 213, 226,  76,  79, 205, 191,\n    165, 190,  68,  28,   8,  83,  61, 226,\n    222, 248,  48, 235, 147, 110, 181, 229,\n      7,  66,  65, 230, 100, 194, 192, 156\n  ],\n  type: 'note',\n  dataContractId: Identifier(32) [Uint8Array] [\n     40,  93, 196, 112,  38, 188,  51, 122,\n    149,  59,  21,  39, 147, 119,  87,  53,\n    236,  60,  97,  42,  31,  82, 135, 120,\n     68, 188,  55, 153, 226, 198, 181, 139\n  ],\n  ownerId: Identifier(32) [Uint8Array] [\n    166, 222,  98,  87, 193,  19,  82,  37,\n     50, 118, 210,  64, 103, 122,  28, 155,\n    168,  21, 198, 134, 142, 151, 153, 136,\n     46,  64, 223,  74, 215, 153, 158, 167\n  ],\n  revision: 1,\n  data: { message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT' },\n  metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }\n}",
       "language": "json",
       "name": "console.dir(document)"
     }

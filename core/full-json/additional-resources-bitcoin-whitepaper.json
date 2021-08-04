@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-27T22:20:14.856Z", 
- "id": "5e96055329a18c0025d39255", 
+ "id": "5fce5c21ec64d90073aa886e", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-11-07T13:32:50.650Z", 
- "category": "5e96055329a18c0025d391e8", 
+ "category": "5fce5c21ec64d90073aa8800", 
  "title": "Bitcoin Whitepaper", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T22:17:53.412Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-03-03T23:00:14.417Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -46,15 +46,15 @@
   "title": ""
  }, 
  "body": "", 
- "link_external": false, 
+ "link_external": true, 
  "body_html": "&nbsp;", 
  "updates": [], 
  "isReference": false, 
  "slug": "additional-resources-bitcoin-whitepaper", 
- "link_url": "https://dash-docs.github.io/en/bitcoin-paper", 
+ "link_url": "https://bitcoin.org/bitcoin.pdf", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5e96055329a18c0025d39255", 
- "order": 4, 
+ "_id": "5fce5c21ec64d90073aa886e", 
+ "order": 7, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

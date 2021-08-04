@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-12-30T20:25:03.206Z", 
- "id": "60906294cda28200612695de", 
+ "id": "60e604b4762bd40057ebe139", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-30T20:25:03.206Z", 
- "category": "60906294cda2820061269580", 
+ "category": "60e604b4762bd40057ebe0db", 
  "title": "Testnet Block Explorer", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2020-12-29T22:47:20.568Z", 
  "hidden": false, 
  "type": "link", 
@@ -54,7 +54,7 @@
  "link_url": "http://testnet-452625393.us-west-2.elb.amazonaws.com:3001/insight/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695de", 
+ "_id": "60e604b4762bd40057ebe139", 
  "order": 2, 
  "updates": []
 }

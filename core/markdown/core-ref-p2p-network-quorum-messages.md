@@ -142,6 +142,124 @@ bb632eeb60f29e351963032a673abd61
 0efe3fcb8d7042da624f7298876cc98e ........... BLS signature (Operator Key)
 ```
 
+## qdata
+
+*Added in protocol version 70219 of Dash Core*
+
+[block:callout]
+{
+  "type": "warning",
+  "body": "This message is used for intra-quorum communication and is only sent to the <<glossary:masternodes>> in the LLMQ and <<glossary:nodes>> that are monitoring in Watch Mode for auditing/debugging purposes."
+}
+[/block]
+
+The [`qdata` message](core-ref-p2p-network-quorum-messages#qdata) is used to send quorum DKG data to a node that has requested it via a [`qgetdata` message](core-ref-p2p-network-quorum-messages#qgetdata). The response will include one or more of the following depending on what was requested:
+- Quorum verification vector for the request quorum
+- Encrypted contributions for the request Protx hash
+
+| Bytes | Name | Data type | Description |
+| --- | --- | --- | --- |
+| 1 byte | quorumType | uint8_t | Type of the quorum the data is about.
+| 32 bytes | quorumHash | uint256 | Hash of the quorum the data is about.
+| 2 bytes | dataMask | uint16 | This value should be equal to the `dataMask` value of the requesting QGETDATA.
+| 32 bytes | protxHash | uint256 | This is the protx hash of the member which can decrypt the data in `data_0002`. Included if 0x0002 is set in dataMask.
+| 1 byte | error | uint8 | See [Possible error codes](#possible-error-codes)
+| Variable | data_0001 | BLSVerificationVector | Included if `0x0001` is set in the `dataMask` value of the requesting QGETDATA.
+| Variable | data_0002 | `<CBLSIESEncryptedObject`<br>`<CBLSSecretKey>>[]` | Included if `0x0002` is set in the `dataMask` value of the requesting QGETDATA.
+
+**Verification Vector**
+
+| Bytes | Name | Data type | Description |
+| --- | --- | --- | --- |
+| 1-9 | vvecSize | compactSize uint | The size of the verification vector
+| 48 * `vvecSize` | vvec | BLSPubKey[] | The verification vector
+
+
+**Encrypted Contributions**
+
+| Bytes | Name | Data type | Description |
+| --- | --- | --- | --- |
+| 48 | ephemeralPubKey | BLSPubKey | Ephemeral BLS public key used to encrypt secret key contributions
+| 32 | ivSeed | uint256 | Seed used to create the AES initialization vectors
+| 1-9 | dataSize | compactSize uint | The size of the data
+| Variable | data | unsigned char[] | Encrypted data
+
+### Possible Error Codes
+
+| Value | Name | Description |
+| - | - | - |
+| 0x00 | None | No error, this value will be represented if the QGETDATA request could be processed successfully.
+| 0x01 | `QUORUM_TYPE_INVALID` | The quorum type provided in the `quorumType` field is invalid.
+| 0x02 | `QUORUM_BLOCK_NOT_FOUND` | The hash provided in the `quorumHash` field wasn’t found in the active chain.
+| 0x03 | `QUORUM_NOT_FOUND` | The quorum (combination of type and hash) wasn’t found in the active chain.
+| 0x04 | `MASTERNODE_IS_NO_MEMBER` | The masternode with the protx-hash provided in the `protxHash` field is not a valid member of the requested quorum.
+| 0x05 | `QUORUM_VERIFICATION_VECTOR_MISSING` | The quorum verification vector for the requested quorum is missing internally.
+| 0x06 | `ENCRYPTED_CONTRIBUTIONS_MISSING` | The encrypted contributions for the requested member are missing for the requested quorum internally.
+
+The following annotated hexdump shows a [`qdata` message](core-ref-p2p-network-quorum-messages#qdata). (The message header has been omitted.)
+
+``` text
+04 ......................................... LLMQ Type: 4 (LLMQ_100_67)
+
+250ff2f885949154570edb272d3bf64e
+5fc3d8d63c4705aac106cd57da000000 ........... Quorum Hash
+
+0100 ....................................... Data mask: 1 (Verification Vector)
+
+8d7d9e4d9a10b8d5a1d2035d5427f8bb
+c7ccb13df0c0e950b4d1b737808c2c72 ........... ProRegTx hash
+
+00 ......................................... Error Code: 0 (None)
+
+Data (Verification Vectors)
+| 43 ....................................... Verification vector size: 0x43 (67)
+|
+| 0c59f5450d17b2b21e7ddccc8f86eb96
+| 20c02af428fc1c2fefe4a04fb2803025 ......... Verification vector 1
+| 
+| 9dcfe843af100de279ed9e7eb50cdebf
+| 8158abdc37872fac3269d70a7a9ea462 ......... Verification vector 2
+| 
+| Data truncated
+|
+| e8d3467d381a2069c3006db78a099ba3
+| a1064d8d6782b8be7de610b37308a715 ......... Verification vector 67
+```
+
+## qgetdata
+
+*Added in protocol version 70219 of Dash Core*
+
+[block:callout]
+{
+  "type": "warning",
+  "body": "This message is used for intra-quorum communication and is only sent to the <<glossary:masternodes>> in the LLMQ and <<glossary:nodes>> that are monitoring in Watch Mode for auditing/debugging purposes."
+}
+[/block]
+
+The [`qgetdata` message](core-ref-p2p-network-quorum-messages#qgetdata) is used to request DKG data from a masternode. The response to a `qgetdata` message is a [`qdata` message](core-ref-p2p-network-quorum-messages#qdata). These messages allows an LLMQ member to recover its DKG data if needed with the help of other members of that LLMQ type.
+
+| Bytes | Name | Data type | Description |
+| --- | --- | --- | --- |
+| 1 | llmqType | uint8_t | The type of LLMQ
+| 32 | quorumHash | uint256 | The quorum identifier
+| 2 | dataMask | uint16_t | Specifies what data to request:<br>`1` - Quorum verification vector<br>`2` - Encrypted contributions for member defined by `proTxHash`  (`proTxHash` must be specified if this option is used)<br>`3` - Both verification vector and encrypted contributions
+| 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#proregtx) hash the contributions will be requested for. Must be a member of the specified LLMQ.
+
+The following annotated hexdump shows a [`qgetdata` message](core-ref-p2p-network-quorum-messages#qgetdata). (The message header has been omitted.)
+
+``` text
+04 ......................................... LLMQ Type: 4 (LLMQ_100_67)
+
+250ff2f885949154570edb272d3bf64e
+5fc3d8d63c4705aac106cd57da000000 ........... Quorum Hash
+
+0100 ....................................... Data mask: 1
+
+8d7d9e4d9a10b8d5a1d2035d5427f8bb
+c7ccb13df0c0e950b4d1b737808c2c72 ........... ProRegTx hash
+```
+
 ## qjustify
 
 *Added in protocol version 70214 of Dash Core*
@@ -663,6 +781,8 @@ The following annotated hexdump shows a [`qsigsinv` message](core-ref-p2p-networ
 
 *Added in protocol version 70214 of Dash Core*
 
-The [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch) tells the receiving <<glossary:peer>> to relay <<glossary:LLMQ>> messages (`qcontrib` messages, [`qcomplaint` messages](core-ref-p2p-network-quorum-messages#qcomplaint), [`qjustify` messages](core-ref-p2p-network-quorum-messages#qjustify), and [`qpcommit` messages](core-ref-p2p-network-quorum-messages#qpcommit)).
+The [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch) tells the receiving <<glossary:peer>> to relay <<glossary:LLMQ>> [DKG messages](#distributed-key-generation) and [Signing session messages](#signing-sessions) (e.g., [`qcontrib`](core-ref-p2p-network-quorum-messages#qcontrib)).
+
+This message is sent when a Dash Core node is started with the [`-watchquorums` option](dash-core-wallet-arguments-and-commands-dashd#debuggingtesting-options) enabled.
 
 There is no payload in a [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.

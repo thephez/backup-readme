@@ -57,7 +57,7 @@ The code below may help you check byte order by generating hashes from raw hex.
 {
   "codes": [
     {
-      "code": "from sys import byteorder\nfrom hashlib import sha256\n\n## You can put in $data an 80-byte block header to get its header hash,\n## or a raw transaction to get its txid\ndata = \"00\".decode(\"hex\")\nhash = sha256(sha256(data).digest()).digest()\n\nprint \"Warning: this code only tested on a little-endian x86_64 arch\"\nprint\nprint \"System byte order:\", byteorder\nprint \"Internal-Byte-Order Hash: \", hash.encode('hex_codec')\nprint \"RPC-Byte-Order Hash:      \", hash[::-1].encode('hex_codec')",
+      "code": "from sys import byteorder\nfrom hashlib import sha256\nimport codecs\n\ndecode_hex = codecs.getdecoder('hex_codec')\nencode_hex = codecs.getencoder('hex_codec')\n\n# You can put in $data an 80-byte block header to get its header hash,\n# or a raw transaction to get its txid\ndata = decode_hex('00')[0]\ndata_hash = sha256(sha256(data).digest()).digest()\n\nprint(\"Warning: this code only tested on a little-endian x86_64 arch\")\nprint()\nprint(\"System byte order:        \", byteorder)\nprint(\"Internal-Byte-Order Hash: \", encode_hex(data_hash)[0])\nprint(\"RPC-Byte-Order Hash:      \", encode_hex(data_hash[::-1])[0])",
       "language": "python"
     }
   ]

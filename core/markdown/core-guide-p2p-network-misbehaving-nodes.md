@@ -48,6 +48,6 @@ Take note that for both types of broadcasting, mechanisms are in place to punish
 | Governance | Invalid Object | 20 | Peer relayed an invalid governance object (`govobj` message)
 | Governance | Invalid Vote | 20 | Peer relayed an invalid/invalid old vote(`govobjvote` message)
 | Governance | Unsupported Vote Signal | 20 | Vote signal outside the accepted range (see [`govobjvote` message](core-ref-p2p-network-governance-messages#govobjvote))
-| PrivateSend | Signature  | 10 | Peer relayed a message with an invalid signature (`dsq` message)
+| CoinJoin | Signature  | 10 | Peer relayed a message with an invalid signature (`dsq` message)
 | Spork | Invalid Time | **100** | Peer relayed a spork with a timestamp too far in the future (`spork` message)
 | Spork | Signature  | **100** | Peer relayed a spork with an invalid signature (`spork` message)

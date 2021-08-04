@@ -23,7 +23,7 @@
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst { Transaction } = require('@dashevo/dashcore-lib');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nconst tx = Transaction('02000000022fd1c4583099109524b8216d712373bd837d24a502414fcadd8ae94753c3d87e010000006a47304402202cbdc560898ad389005fbe231fb345da503d838cfadab738a7d2f57bdd7ff77c02206e02b9f05c3dfb380d158949407372f26fa8ecc66956297792509c2f700723d1012103422fa857d5049000c22c3188e84557da5b783c2ef54b83a76a2933a0564c22dafeffffff07e987f3bb114c4370b937915e980657e2706135e21fbd8972a5534c804d5495000000006a473044022041a69c058035a2a8c88715c018efcb77a9ee3a08b72fd24afe8591364cee8dc002203026f115ac9c7206a985f71422ac38d451bde092d708bfb81ef35b2968f4ee34012102f0ce58f50515d04d4ff01a550a4d3246fbdc9d27031ef7d883e845b6b41f0e4efeffffff0269440f00000000001976a91465f6a3d634ba58247825c6fd55174ca72fdcdbd988ac00e1f505000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac4d5b0600');\n\nclient.core.broadcastTransaction(tx.toBuffer())\n  .then((response) => console.log(response));",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst { Transaction } = require('@dashevo/dashcore-lib');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000,\n  }],\n});\n\nconst tx = Transaction('02000000022fd1c4583099109524b8216d712373bd837d24a502414fcadd8ae94753c3d87e010000006a47304402202cbdc560898ad389005fbe231fb345da503d838cfadab738a7d2f57bdd7ff77c02206e02b9f05c3dfb380d158949407372f26fa8ecc66956297792509c2f700723d1012103422fa857d5049000c22c3188e84557da5b783c2ef54b83a76a2933a0564c22dafeffffff07e987f3bb114c4370b937915e980657e2706135e21fbd8972a5534c804d5495000000006a473044022041a69c058035a2a8c88715c018efcb77a9ee3a08b72fd24afe8591364cee8dc002203026f115ac9c7206a985f71422ac38d451bde092d708bfb81ef35b2968f4ee34012102f0ce58f50515d04d4ff01a550a4d3246fbdc9d27031ef7d883e845b6b41f0e4efeffffff0269440f00000000001976a91465f6a3d634ba58247825c6fd55174ca72fdcdbd988ac00e1f505000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac4d5b0600');\n\nclient.core.broadcastTransaction(tx.toBuffer())\n  .then((response) => console.log(response));",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
@@ -63,7 +63,7 @@
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nclient.core.getStatus()\n  .then((response) => console.log(response));",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000,\n  }],\n});\n\nclient.core.getStatus()\n  .then((response) => console.log(response));",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
@@ -81,16 +81,23 @@
 }
 [/block]
 
+[block:callout]
+{
+  "type": "info",
+  "body": "**Note:** The gRPCurl response `bestBlockHash`, `chainWork`, and `proTxHash` data is Base64 encoded"
+}
+[/block]
+
 [block:code]
 {
   "codes": [
     {
-      "code": "{\n   \"version\":{\n      \"protocol\":70219,\n      \"software\":170000,\n      \"agent\":\"/Dash Core:0.17.0.0/\"\n   },\n   \"time\":{\n      \"now\":1620322175,\n      \"offset\":0,\n      \"median\":1620321299\n   },\n   \"status\":\"READY\",\n   \"syncProgress\":0.9999994872058411,\n   \"chain\":{\n      \"name\":\"test\",\n      \"headersCount\":494825,\n      \"blocksCount\":494825,\n      \"bestBlockHash\":<Buffer 00 00 00 82 7f 8d ac 9a b0 71 e5 4c 91 f5 1b 07 60 46 48 25 bc 08 72 f8 2e 49 23 30 3d 0b e7 9d>,\n      \"difficulty\":0.00279997477523297,\n      \"chainWork\":<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 2f 14 da c3 9c f1 bb>,\n      \"isSynced\":true,\n      \"syncProgress\":0.9999994872058411\n   },\n   \"masternode\":{\n      \"status\":\"READY\",\n      \"proTxHash\":<Buffer aa 9b 76 35 e2 ba 2b ac 54 a1 f9 90 fc 88 92 d5 a8 ae c4 78 f7 7c c1 da 00 b9 f0 3d 9b 18 b3 58>,\n      \"posePenalty\":0,\n      \"isSynced\":true,\n      \"syncProgress\":1\n   },\n   \"network\":{\n      \"peersCount\":167,\n      \"fee\":{\n         \"relay\":0.00001,\n         \"incremental\":0.00001\n      }\n   }\n}",
+      "code": "{\n  \"version\":{\n    \"protocol\":70219,\n    \"software\":170003,\n    \"agent\":\"/Dash Core:0.17.0.3/\"\n  },\n  \"time\":{\n    \"now\":1627313884,\n    \"offset\":0,\n    \"median\":1627313175\n  },\n  \"status\":\"READY\",\n  \"syncProgress\":0.9999992137956843,\n  \"chain\":{\n    \"name\":\"test\",\n    \"headersCount\":544700,\n    \"blocksCount\":544700,\n    \"bestBlockHash\":<Buffer 00 00 01 9f 39 5a 78 7a fa a9 d3 5b 1d 30 1d 1c 37 2a 03 97 24 31 ee 8c 47 e2 b9 25 ca 5a a5 a0>,\n    \"difficulty\":0.001875704086679367,\n    \"chainWork\":<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 2f 15 da 49 09 6b 68>,\n    \"isSynced\":true,\n    \"syncProgress\":0.9999992137956843\n  },\n  \"masternode\":{\n    \"status\":\"READY\",\n    \"proTxHash\":<Buffer a1 27 b0 f6 c4 db d2 66 a1 8f a2 fb 3b 6b b7 8f 5c 38 18 6c 48 10 f1 55 1e 49 eb 3c 68 09 d5 23>,\n    \"posePenalty\":0,\n    \"isSynced\":true,\n    \"syncProgress\":1\n  },\n  \"network\":{\n    \"peersCount\":145,\n    \"fee\":{\n      \"relay\":0.00001,\n      \"incremental\":0.00001\n    }\n  }\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n   \"version\":{\n      \"protocol\":70219,\n      \"software\":170000,\n      \"agent\":\"/Dash Core:0.17.0.0/\"\n   },\n   \"time\":{\n      \"now\":1620322383,\n      \"median\":1620321517\n   },\n   \"status\":\"READY\",\n   \"syncProgress\":0.9999996782468702,\n   \"chain\":{\n      \"name\":\"test\",\n      \"headersCount\":494826,\n      \"blocksCount\":494826,\n      \"bestBlockHash\":\"AAAAX/TonwIUBy4PtB2r7DPd8uuKBbOLgJZk8zqXoms=\",\n      \"difficulty\":0.002842032681099084,\n      \"chainWork\":\"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi8U2sRXM9o=\",\n      \"isSynced\":true,\n      \"syncProgress\":0.9999996782468702\n   },\n   \"masternode\":{\n      \"status\":\"READY\",\n      \"proTxHash\":\"vMf8qFk4MHCWATHJ0bMWAm/RVove6LNMNXpcVko3YaY=\",\n      \"isSynced\":true,\n      \"syncProgress\":1\n   },\n   \"network\":{\n      \"peersCount\":172,\n      \"fee\":{\n         \"relay\":1e-05,\n         \"incremental\":1e-05\n      }\n   }\n}",
+      "code": "{\n \t\"version\": {\n    \"protocol\": 70219,\n    \"software\": 170003,\n    \"agent\": \"/Dash Core:0.17.0.3/\"\n  },\n  \"time\": {\n    \"now\": 1626972817,\n    \"median\": 1626972367\n  },\n  \"status\": \"READY\",\n  \"syncProgress\": 0.9999999881972154,\n  \"chain\": {\n    \"name\": \"test\",\n    \"headersCount\": 542260,\n    \"blocksCount\": 542260,\n    \"bestBlockHash\": \"AAABpMcUDETRYHpIpp7oIuSuCI2Ky0N+0XMlGZqoQXY=\",\n    \"difficulty\": 0.001271379585851713,\n    \"chainWork\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi8V1fYcn9E=\",\n    \"isSynced\": true,\n    \"syncProgress\": 0.9999999881972154\n  },\n  \"masternode\": {\n    \"status\": \"READY\",\n    \"proTxHash\": \"W+WigTimWKgCoehx17tKXooWfv/p5mW0ouyqVZ0Bc04=\",\n    \"isSynced\": true,\n    \"syncProgress\": 1\n  },\n  \"network\": {\n    \"peersCount\": 177,\n    \"fee\": {\n      \"relay\": 1e-05,\n      \"incremental\": 1e-05\n    }\n  }\n}\n",
       "language": "json",
       "name": "Response (gRPCurl)"
     }
@@ -113,7 +120,7 @@
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nclient.core.getBlockByHeight(1)\n  .then((response) => console.log(response.toString('hex')));",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000,\n  }],\n});\n\nclient.core.getBlockByHeight(1)\n  .then((response) => console.log(response.toString('hex')));",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
@@ -162,7 +169,13 @@
 [/block]
 
 ## getTransaction
-
+[block:callout]
+{
+  "type": "success",
+  "title": "Updated in Dash Platform 0.20.0",
+  "body": "Dash Platform 0.20.0 added block hash, height, confirmation count, InstantSend lock status, and ChainLock status to the `getTransaction` response."
+}
+[/block]
 **Returns**: A raw transaction
 **Parameters**:
 
@@ -175,12 +188,12 @@
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000\n  }],\n});\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\nclient.core.getTransaction(txid)\n  .then((response) => console.log(response.toString('hex')));",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\n\nconst client = new DAPIClient({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    port: 3000,\n  }],\n});\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\nclient.core.getTransaction(txid)\n  .then((response) => console.dir(response, { length: 0 }));",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\n\ncorePromiseClient.client.getTransaction({ id: txid })\n  .then((response) => console.log(response.transaction.toString('hex')));",
+      "code": "const {\n  v0: {\n    CorePromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\n\nconst corePromiseClient = new CorePromiseClient('http://seed-1.testnet.networks.dash.org:3010');\n\nconst txid = '4004d3f9f1b688f2babb1f98ea48e1472be51e29712f942fc379c6e996cdd308';\n\ncorePromiseClient.client.getTransaction({ id: txid })\n  .then((response) => console.dir(response, { length: 0 }));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
@@ -196,7 +209,7 @@
 [block:callout]
 {
   "type": "info",
-  "body": "**Note:** The gRPCurl response transaction data is Base64 encoded",
+  "body": "**Note:** The gRPCurl response `transaction` and `blockHash` data are Base64 encoded",
   "title": "Transaction Encoding"
 }
 [/block]
@@ -205,12 +218,12 @@
 {
   "codes": [
     {
-      "code": "03000500010000000000000000000000000000000000000000000000000000000000000000ffffffff0603c25a060109ffffffff02eefccf31000000001976a9147eb25dc5af472d6bf19a877a96f0a707c2c61b7688ac65fbb74a000000001976a9141ec5c66e9789c655ae068d35088b4073345fe0b088ac00000000460200c25a0600df34a6b9c99dbbbf82698fba9f86861f24891e16c0c5e881de034c192220600d5ceaadc37b4c316e2ec7a407f8838060494aa19a403155f95c43275da3edb318",
+      "code": "GetTransactionResponse {\n  transaction: Buffer(196) [Uint8Array] [\n      3,   0,   5,   0,   1,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0, 255, 255, 255, 255,   6,   3, 194,  90,   6,   1,  9,\n    255, 255, 255, 255,   2, 238, 252, 207,  49,   0,   0,  0,\n      0,  25, 118, 169,  20, 126, 178,  93, 197, 175,  71, 45,\n    107, 241, 154, 135, 122, 150, 240, 167,   7, 194, 198, 27,\n    118, 136, 172, 101, 251, 183,  74,   0,   0,   0,   0, 25,\n    118, 169,  20,  30,\n    ... 96 more items\n  ],\n  blockHash: Buffer(32) [Uint8Array] [\n      0,   0,   2,   9, 133, 199, 245,  83,\n    191, 120, 191, 203, 109, 166,   9, 115,\n    193, 152, 249,  11,   7, 245, 126,  31,\n     55,  65,  10, 150, 205, 150, 131, 213\n  ],\n  height: 416450,\n  confirmations: 128257,\n  instantLocked: false,\n  chainLocked: true\n}",
       "language": "text",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"transaction\": \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8GA8JaBgEJ/////wLu/M8xAAAAABl2qRR+sl3Fr0cta/Gah3qW8KcHwsYbdoisZfu3SgAAAAAZdqkUHsXGbpeJxlWuBo01CItAczRf4LCIrAAAAABGAgDCWgYA3zSmucmdu7+CaY+6n4aGHySJHhbAxeiB3gNMGSIgYA1c6q3De0wxbi7HpAf4g4BgSUqhmkAxVflcQyddo+2zGA==\"\n}",
+      "code": "{\n  \"transaction\": \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8GA8JaBgEJ/////wLu/M8xAAAAABl2qRR+sl3Fr0cta/Gah3qW8KcHwsYbdoisZfu3SgAAAAAZdqkUHsXGbpeJxlWuBo01CItAczRf4LCIrAAAAABGAgDCWgYA3zSmucmdu7+CaY+6n4aGHySJHhbAxeiB3gNMGSIgYA1c6q3De0wxbi7HpAf4g4BgSUqhmkAxVflcQyddo+2zGA==\",\n  \"blockHash\": \"AAACCYXH9VO/eL/LbaYJc8GY+QsH9X4fN0EKls2Wg9U=\",\n  \"height\": 416450,\n  \"confirmations\": 125820,\n  \"isChainLocked\": true\n}\n",
       "language": "json",
       "name": "Response (gRPCurl)"
     }
@@ -256,6 +269,13 @@
 }
 [/block]
 
+[block:callout]
+{
+  "type": "info",
+  "body": "**Note:** The gRPCurl response `transactions` and `rawMerkleBlock` data is Base64 encoded"
+}
+[/block]
+
 [block:code]
 {
   "codes": [
@@ -275,7 +295,7 @@
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.19.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
 
 # Code Reference
 

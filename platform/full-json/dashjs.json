@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-08-24T13:59:12.221Z", 
- "id": "60906294cda28200612695c3", 
+ "id": "60e604b4762bd40057ebe11e", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-02-10T08:47:42.947Z", 
- "category": "60906294cda2820061269580", 
+ "category": "60e604b4762bd40057ebe0db", 
  "title": "JavaScript SDK", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2020-08-23T23:33:06.360Z", 
  "hidden": false, 
  "type": "link", 
@@ -54,7 +54,7 @@
  "link_url": "https://dashevo.github.io/js-dash-sdk/#/", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695c3", 
+ "_id": "60e604b4762bd40057ebe11e", 
  "order": 4, 
  "updates": []
 }

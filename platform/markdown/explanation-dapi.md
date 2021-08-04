@@ -7,11 +7,11 @@ Historically, nodes in most cryptocurrency networks communicated with each other
   "images": [
     {
       "image": [
-        "https://files.readme.io/9fc50c7-DAPI_Overview.png",
-        "DAPI Overview.png",
-        689,
-        174,
-        "#e6e8e8"
+        "https://files.readme.io/e011783-Decentralized_API_DAPI.svg",
+        "Decentralized API (DAPI).svg",
+        613,
+        193,
+        "#fafafc"
       ],
       "caption": "DAPI Overview"
     }

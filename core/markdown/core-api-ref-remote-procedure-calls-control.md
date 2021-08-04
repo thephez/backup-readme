@@ -6,7 +6,7 @@ The [`debug` RPC](core-api-ref-remote-procedure-calls-control#debug) changes the
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `db` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `keepass` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `privatesend` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
+Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `db` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `keepass` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `coinjoin` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
 
 *Example from Dash Core 0.15.0*
 
@@ -78,11 +78,17 @@ Result:
 
 The [`help` RPC](core-api-ref-remote-procedure-calls-control#help) lists all available public RPC commands, or gets help for the specified RPC.  Commands which are unavailable will not be listed, such as wallet RPCs if wallet support is disabled.
 
-*Parameter---the name of the RPC to get help for*
+*Parameter #1---the name of the RPC to get help for*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 RPC | string | Optional<br>(0 or 1) | The name of the RPC to get help for.  If omitted, Dash Core 0.10x will display an alphabetical list of commands; Dash Core 0.11.0 will display a categorized list of commands
+
+*Parameter #2---the name of the subcommand to get help for*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Sub-command | string | Optional<br>(0 or 1) | The subcommand to get help on. Please note that not all subcommands support this at the moment
 
 *Result---a list of RPCs or detailed help for a specific RPC*
 
@@ -90,7 +96,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(exactly 1) | The help text for the specified RPC or the list of commands.  The `dash-cli` command will parse this text and format it as human-readable text
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.17.0*
 
 Command to get help about the [`help` RPC](core-api-ref-remote-procedure-calls-control#help):
 
@@ -101,16 +107,16 @@ dash-cli -testnet help help
 Result:
 
 ```text
-help ( "command" )
+help ( "command" "subcommand" )
 
 List all commands, or get help for a specified command.
 
 Arguments:
 1. "command"     (string, optional) The command to get help on
+2. "subcommand"  (string, optional) The subcommand to get help on. Please note that not all subcommands support this at the moment
 
 Result:
 "text"     (string) The help text
-
 ```
 
 *See also*
@@ -139,7 +145,7 @@ The categories are:
 | - | - |
 | Special | • `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `dash` - Enables/disables all Dash categories |
 | Standard | `addrman`, `bench` <br>`cmpctblock`, `coindb`, `db`, `estimatefee`, `http`, `leveldb`, `libevent`, `mempool`, `mempoolrej`, `net`, `proxy`, `prune`, `qt`, `rand`, `reindex`, `rpc`, `selectcoins`, `tor`, `zmq`|
-| Dash | <br>`chainlocks`, `gobject`, `instantsend`, `keepass`, `llmq`, `llmq-dkg`, `llmq-sigs`, `mnpayments`, `mnsync`, `privatesend`, `spork` |
+| Dash | <br>`chainlocks`, `gobject`, `instantsend`, `keepass`, `llmq`, `llmq-dkg`, `llmq-sigs`, `mnpayments`, `mnsync`, `coinjoin`, `spork` |
 
 *Result---a list of the logging categories that are active*
 
@@ -188,7 +194,7 @@ Result:
   "llmq-sigs": 0,
   "mnpayments": 0,
   "mnsync": 0,
-  "privatesend": 0,
+  "coinjoin": 0,
   "spork": 1
 }
 ```
@@ -232,7 +238,7 @@ Result:
   "llmq-sigs": 0,
   "mnpayments": 0,
   "mnsync": 0,
-  "privatesend": 0,
+  "coinjoin": 0,
   "spork": 0
 }
 ```

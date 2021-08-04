@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-02-24T16:09:56.448Z", 
- "id": "60906294cda28200612695e2", 
+ "id": "60e604b4762bd40057ebe13d", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2021-02-24T16:09:56.448Z", 
- "category": "60906294cda282006126957d", 
+ "category": "60e604b4762bd40057ebe0d8", 
  "title": "Intro to Evonet Archived", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2021-02-24T05:03:33.634Z", 
  "hidden": true, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695e2", 
+ "_id": "60e604b4762bd40057ebe13d", 
  "order": 4, 
  "updates": []
 }

@@ -12,16 +12,17 @@ Identities consist of three components that are described in further detail in f
 | balance | integer | Credit balance associated with the identity |
 | revision | integer | Identity update revision |
 
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/identity.json):
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/identity.json):
 [block:callout]
 {
-  "type": "warning",
+  "type": "info",
   "body": "Note: as of Dash Platform 0.17.0, the maximum number of publicKeys is 32"
 }
 [/block]
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
   "properties": {
     "protocolVersion": {
       "type": "integer",
@@ -96,7 +97,7 @@ The identity `id` is calculated by Base58 encoding the double sha256 hash of the
     );
 ```
 
-**Note:** The identity `id` uses the Dash Platform specific `application/x.dash.dpp.identifier` content media type. For additional information, please refer to the [js-dpp PR 252](https://github.com/dashevo/js-dpp/pull/252) that introduced it and [Identifier.js](https://github.com/dashevo/js-dpp/blob/v0.19.1/lib/identifier/Identifier.js).
+**Note:** The identity `id` uses the Dash Platform specific `application/x.dash.dpp.identifier` content media type. For additional information, please refer to the [js-dpp PR 252](https://github.com/dashevo/js-dpp/pull/252) that introduced it and [Identifier.js](https://github.com/dashevo/js-dpp/blob/v0.20.0/lib/identifier/Identifier.js).
 
 ## Identity publicKeys
 
@@ -112,11 +113,11 @@ Each item in the `publicKeys` array consists an object containing:
 | type | integer | Type of key (default: 0 - ECDSA) |
 | data | array of bytes | Public key (ECDSA: 33 bytes; BLS: 48 bytes) |
 
-Each identity public key must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/publicKey.json):
+Each identity public key must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/publicKey.json):
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "id": {
@@ -134,12 +135,7 @@ Each identity public key must comply with this JSON-Schema definition establishe
       "description": "Public key type. 0 - ECDSA Secp256k1, 1 - BLS 12-381",
       "$comment": "It can't be changed after adding a key"
     },
-    "data": {
-      "type": "array",
-      "byteArray": true,
-      "description": "Raw public key",
-      "$commit": "It must be a valid key of the specified type and unique for the identity. It can’t be changed after adding a key"
-    }
+    "data": true
   },
   "allOf": [
     {
@@ -153,9 +149,12 @@ Each identity public key must comply with this JSON-Schema definition establishe
       "then": {
         "properties": {
           "data": {
+            "type": "array",
             "byteArray": true,
             "minItems": 33,
-            "maxItems": 33
+            "maxItems": 33,
+            "description": "Raw ECDSA public key",
+            "$comment": "It must be a valid key of the specified type and unique for the identity. It can’t be changed after adding a key"
           }
         }
       }
@@ -171,9 +170,12 @@ Each identity public key must comply with this JSON-Schema definition establishe
       "then": {
         "properties": {
           "data": {
+            "type": "array",
             "byteArray": true,
             "minItems": 48,
-            "maxItems": 48
+            "maxItems": 48,
+            "description": "Raw BLS public key",
+            "$comment": "It must be a valid key of the specified type and unique for the identity. It can’t be changed after adding a key"
           }
         }
       }
@@ -247,11 +249,12 @@ Identities are created on the platform by submitting the identity information in
 | publicKeys | array of keys | [Public key(s)](#identity-publickeys) associated with the identity |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/stateTransition/identityCreate.json):
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/stateTransition/identityCreate.json):
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
   "properties": {
     "protocolVersion": {
       "type": "integer",
@@ -325,11 +328,12 @@ Identity credit balances are increased by submitting the topup information in an
 | identityId | array of bytes | An [Identity ID](#identity-id) for the identity receiving the topup (can be any identity) (32 bytes) |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
-Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/stateTransition/identityTopUp.json):
+Each identity must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/stateTransition/identityTopUp.json):
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
   "properties": {
     "protocolVersion": {
       "type": "integer",
@@ -389,7 +393,7 @@ Each identity must comply with this JSON-Schema definition established in [js-dp
 ## Asset Lock
 [block:callout]
 {
-  "type": "warning",
+  "type": "info",
   "body": "Updated in Dash Platform 0.19"
 }
 [/block]
@@ -408,11 +412,12 @@ The InstantSend asset lock proof is used for transactions that have received an 
 | transaction | array of bytes | The asset lock transaction |
 | outputIndex | integer | Index of the transaction output to be used |
 
-Asset locks using an InstantSend lock as proof must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/stateTransition/assetLockProof/instantAssetLockProof.json):
+Asset locks using an InstantSend lock as proof must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/stateTransition/assetLockProof/instantAssetLockProof.json):
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
   "properties": {
     "type": {
       "type": "integer",
@@ -460,11 +465,12 @@ The ChainLock asset lock proof is used for transactions that have note received 
 | coreChainLockedHeight | integer | Height of the ChainLocked Core block containing the transaction  |
 | outPoint | object | The  [outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#outpoint) being used as the asset lock |
 
-Asset locks using a ChainLock as proof must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.19.1/schema/identity/stateTransition/assetLockProof/chainAssetLockProof.json):
+Asset locks using a ChainLock as proof must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/js-dpp/blob/v0.20.0/schema/identity/stateTransition/assetLockProof/chainAssetLockProof.json):
 
 ```json
 {
-  "$schema": "http://json-schema.org/draft-07/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
   "properties": {
     "type": {
       "type": "integer",

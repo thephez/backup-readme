@@ -45,11 +45,12 @@ rpcport=19998
 }
 [/block]
 Since Dash Core 0.16 it is possible for a single configuration file to set different options for different networks. This is done by using sections or by prefixing the option with the network as shown below:
+
 [block:callout]
 {
   "type": "danger",
   "title": "Valid Section Names",
-  "body": "Please note that the valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**."
+  "body": "Please note that the only valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**."
 }
 [/block]
 
@@ -68,6 +69,6 @@ With this configuration file, dashd, dash-qt, or dash-cli can be run with the `-
 [block:callout]
 {
   "type": "danger",
-  "body": "If the following options are not in a section, they will only apply to mainnet: `addnode=`, `connect=`, `port=`, `bind=`, `rpcport=`, `rpcbind=` and `wallet=`. The options to choose a network (`regtest=` and `testnet=`) must be specified outside of sections."
+  "body": "The following options will only apply to mainnet **_unless they are in a section_** (e.g., `[test]`): `addnode=`, `connect=`, `port=`, `bind=`, `rpcport=`, `rpcbind=` and `wallet=`. \nThe options to choose a network (`regtest=` and `testnet=`) must be specified outside of sections."
 }
 [/block]

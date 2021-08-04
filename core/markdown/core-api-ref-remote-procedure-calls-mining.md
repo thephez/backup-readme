@@ -40,7 +40,6 @@ Name | Type | Presence | Description
 → → → →<br>Transaction number | number | Optional<br>(1 or more) | Transactions before this one (by 1-based index in `transactions` list) that must be present in the final block if this one is
 → → →<br>`fee` | number | Required<br>(exactly 1) | The difference in value between transaction inputs and outputs (in duffs). For coinbase transactions, this is a negative number of the total collected block fees (ie., not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn't one
 → → →<br>`sigops` | number | Required<br>(exactly 1) | Total SigOps. If not present, the count is unknown (clients MUST NOT assume there aren't any)
-→ → →<br>`required` | boolean | Optional<br>(exactly 1) | If provided and true, this transaction must be in the final block
 →<br>`coinbaseaux` | object | Required<br>(exactly 1) | A object containing data that should be included in the coinbase scriptSig content
 → →<br>Flags | string | Required<br>(0 or more) |
 →<br>`coinbasevalue` | number | Required<br>(exactly 1) | The maximum allowable input to coinbase transaction, including the generation award and transaction fees (in duffs)
@@ -158,12 +157,11 @@ Name | Type | Presence | Description
 →<br>`difficulty` | number (real) | Required<br>(exactly 1) | If generation was enabled since the last time this node was restarted, this is the difficulty of the highest-height block in the local best block chain.  Otherwise, this is the value `0`
 →<br>`networkhashps` | number (int) | Required<br>(exactly 1) | An estimate of the number of hashes per second the network is generating to maintain the current difficulty.  See the [`getnetworkhashps` RPC](core-api-ref-remote-procedure-calls-mining#getnetworkhashps) for configurable access to this data
 →<br>`pooledtx` | number (int) | Required<br>(exactly 1) | The number of transactions in the memory pool
-→<br>`testnet` | bool | Required<br>(exactly 1) | **_Removed in Bitcoin Core 0.14.0_**<br><br>Set to `true` if this node is running on testnet.  Set to `false` if this node is on mainnet or a regtest
 →<br>`chain` | string | Required<br>(exactly 1) | Set to `main` for mainnet, `test` for testnet, and `regtest` for regtest
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Any network or blockchain warnings
-→<br>`errors` | string | Optional<br>(0 or 1) | _Deprecated in Dash Core 0.16.0_<br><br>Only shown when dashd is started with `-deprecatedrpc=getmininginfo`
+→<br>`errors` | string | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**<br><br>Only shown when dashd is started with `-deprecatedrpc=getmininginfo`
 
-*Example from Dash Core 0.16.0*
+*Example from Dash Core 0.17.0*
 
 ```bash
 dash-cli getmininginfo

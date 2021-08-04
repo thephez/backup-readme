@@ -7,14 +7,12 @@ For example, Alice may have already added Bob and Carol as friends in DashPay wh
   "images": [
     {
       "image": [
-        "https://files.readme.io/74f641a-State_Transition_example_4.png",
-        "State Transition example (4).png",
-        644,
-        258,
-        "#d7e1e9"
+        "https://files.readme.io/48c666f-State_Transition.svg",
+        "State Transition.svg",
+        610,
+        262,
+        "#e9f0fd"
       ],
-      "sizing": "smart",
-      "border": false,
       "caption": "State Transition Example"
     }
   ]

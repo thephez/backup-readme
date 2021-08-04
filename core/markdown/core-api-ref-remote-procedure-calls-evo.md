@@ -4,34 +4,6 @@
 
 The [`bls` RPC](core-api-ref-remote-procedure-calls-evo#bls) provides a set of commands to execute BLS-related actions.
 
-## BLS Generate
-
-The `bls generate` RPC creates a new BLS secret/public key pair.
-
-*Parameters: none*
-
-*Result---a secret/public key pair*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | BLS key pair
-→<br>`secret` | string (hex) | Required<br>(exactly 1) | A BLS secret key
-→<br>`public` | string (hex) | Required<br>(exactly 1) | A BLS public key
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet bls generate
-```
-
-Result:
-```json
-{
-  "secret": "52f35cd3d977a505485f2474e7e71ef3f60f859603d72ad6b0fa7f7bd163e144",
-  "public": "885d01d746c3e4d2093b0975de2d8c1f3e5a2c3e8fdaaed929f86fc9fbb278a095248163c101a2456650b415776b7990"
-}
-```
-
 ## BLS FromSecret
 
 The `bls fromsecret` RPC parses a BLS secret key and returns the secret/public key pair.
@@ -64,6 +36,34 @@ Result:
 }
 ```
 
+## BLS Generate
+
+The `bls generate` RPC creates a new BLS secret/public key pair.
+
+*Parameters: none*
+
+*Result---a secret/public key pair*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | BLS key pair
+→<br>`secret` | string (hex) | Required<br>(exactly 1) | A BLS secret key
+→<br>`public` | string (hex) | Required<br>(exactly 1) | A BLS public key
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet bls generate
+```
+
+Result:
+```json
+{
+  "secret": "52f35cd3d977a505485f2474e7e71ef3f60f859603d72ad6b0fa7f7bd163e144",
+  "public": "885d01d746c3e4d2093b0975de2d8c1f3e5a2c3e8fdaaed929f86fc9fbb278a095248163c101a2456650b415776b7990"
+}
+```
+
 *See also: none*
 
 # ProTx
@@ -71,690 +71,6 @@ Result:
 *Added in Dash Core 0.13.0*
 
 The [`protx` RPC](core-api-ref-remote-procedure-calls-evo#protx) provides a set of commands to execute ProTx related actions.
-
-## ProTx Register
-
-The `protx register` RPC creates a ProRegTx referencing an existing collateral and and sends it to the network.
-
-*Parameter #1---collateral address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`collateralHash` | string (hex) | Required<br>(exactly 1) | The collateral transaction hash
-
-*Parameter #2---collateral index*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`collateralIndex` | string (hex) | Required<br>(exactly 1) | The collateral transaction output index
-
-*Parameter #3---IP Address and port*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.<br>Can be set to '0', which will require a ProUpServTx afterwards.
-
-*Parameter #4---owner address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner key used for payee updates and proposal voting. The private key belonging to this address be known in your wallet. The address must be unused and must differ from the `collateralAddress`.
-
-*Parameter #5---operator public key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
-
-*Parameter #6---voting address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
-
-*Parameter #7---operator reward*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator. If non-zero, `ipAndPort` must be zero as well.<br>The value must be between '0.00' and '100.00'.
-
-*Parameter #8---payout address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`payoutAddress` | string | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
-
-*Parameter #9---fee source address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx register\
- 8b2eab3413abb6e04d17d1defe2b71039ba6b6f72ea1e5dab29bb10e7b745948 1\
- 2.3.4.5:2345 yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6\
- 88d719278eef605d9c19037366910b59bc28d437de4a8db4d76fda6d6985dbdf10404fb9bb5cd0e8c22f4a914a6c5566\
- yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6 5 yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt
-```
-
-Result:
-```text
-61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929
-```
-
-## ProTx Register Fund
-
-The `protx register_fund` RPC creates and funds a ProRegTx with the 1,000 DASH necessary for a masternode and then sends it to the network.
-
-*Parameter #1---collateral address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`collateralAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to send the collateral to
-
-*Parameter #2---IP Address and port*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.<br>Can be set to '0', which will require a ProUpServTx afterwards.
-
-*Parameter #3---owner address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner key used for payee updates and proposal voting. The private key belonging to this address be known in your wallet. The address must be unused and must differ from the `collateralAddress`.
-
-*Parameter #4---operator public key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
-
-*Parameter #5---voting address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
-
-*Parameter #6---operator reward*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator.<br>The value must be between '0.00' and '100.00'.
-
-*Parameter #7---payout address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`payoutAddress` | string | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
-
-*Parameter #8---fund address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`fundAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx register_fund yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7\
- 3.4.5.6:3456 yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw\
- 0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51\
- yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw 5 yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7
-```
-
-Result:
-```text
-ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd
-```
-
-## ProTx Register Prepare
-
-The `protx register_prepare` RPC creates an unsigned ProTx and
-returns it. The ProTx must be signed externally with the collateral key and then
-passed to "protx register_submit". The prepared transaction will also contain inputs
-and outputs to cover fees.
-
-*Parameter #1---collateral address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`collateralHash` | string (hex) | Required<br>(exactly 1) | The collateral transaction hash
-
-*Parameter #2---collateral index*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`collateralIndex` | string (hex) | Required<br>(exactly 1) | The collateral transaction output index
-
-*Parameter #3---IP Address and port*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.<br>Can be set to '0', which will require a ProUpServTx afterwards.
-
-*Parameter #4---owner address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner key used for payee updates and proposal voting. The private key belonging to this address be known in your wallet. The address must be unused and must differ from the `collateralAddress`.
-
-*Parameter #5---operator public key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
-
-*Parameter #6---voting address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
-
-*Parameter #7---operator reward*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator.<br>The value must be between '0.00' and '100.00'.
-
-*Parameter #8---payout address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`payoutAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
-
-*Parameter #9---fee source address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---unsigned transaction and message to sign*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | JSON object containing an unsigned provider transaction and the message to be signed externally, or JSON `null` if an error occurred
-→<br>`tx` | string (hex) | Required<br>(exactly 1) | The serialized ProRegTx in hex format
-→<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
-→<br>`signMessage` | string (base64) | Required<br>(exactly 1) | The string message that needs to be signed with the collateral key.
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx register_prepare\
- df41e398bb245e973340d434d386f431dbd69735a575721b0b6833856e7d31ec 1 \
- 9.8.7.6:9876 yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz\
- 06849865d01e4f73a6d5a025117e48f50b897e14235800501c8bfb8a6365cc8dbf5ddb67a3635d0f1dcc7d46a7ee280c\
- yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz 1.2 yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt
-```
-
-Result:
-```json
-{
-  "tx": "0300010001912b88876fee2f8e43e23b5e81276c163cf23d867bad4148170cb106ef9023700000000000feffffff0125623ba40b0000001976a914736e155c1039a269d4019c66219d2a18f0fee27588ac00000000d1010000000000ec317d6e8533680b1b7275a53597d6db31f486d334d44033975e24bb98e341df0100000000000000000000000000ffff090807062694ca6b243168b30461d1f19e2bb89a965a5bac067e06849865d01e4f73a6d5a025117e48f50b897e14235800501c8bfb8a6365cc8dbf5ddb67a3635d0f1dcc7d46a7ee280cca6b243168b30461d1f19e2bb89a965a5bac067e78001976a914fc136008111fcc7a05be6cec66f97568727a9e5188ace5f6b70ac55411727e25178bd417b9b03f837ad7155d90ad286f3a427203fb9f00",
-  "collateralAddress": "yWuKWhDzGQqZL8rw6kGxGrfe6P8bUC2S4f",
-  "signMessage": "yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt|120|yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz|yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz|69a49e18c1253b90d39322f7e2f7af74524401bc33a27645e697e74a214e3e1e"
-}
-```
-
-## ProTx Register Submit
-
-The `protx register_submit` RPC submits the specified ProTx to the
-network. This command will also sign the inputs of the transaction which were
-previously added by `protx register_prepare` to cover transaction fees.
-
-*Parameter #1---collateral address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`tx` | string (hex) | Required<br>(exactly 1) | The serialized transaction previously returned by `protx register_prepare`
-
-*Parameter #2---collateral index*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`sig` | string (base64) | Required<br>(exactly 1) | The signature signed with the collateral key. Must be in base64 format.
-
-*Result---provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx register_submit\
- 03000100012d988526d5d1efd32320023c92eff09c2963dcb021b0de9761\
- 17e5e37dc7a7870000000000feffffff015f603ba40b0000001976a9140c\
- 37e07eb5c608961769e6506c23c11e9f9fe00988ac00000000d101000000\
- 00002d988526d5d1efd32320023c92eff09c2963dcb021b0de976117e5e3\
- 7dc7a7870100000000000000000000000000ffff05060708162e243dd366\
- bf4a329968d77eac9fb63481a600938d125e1b7cba03ca2a097e402185e6\
- 160232ea53e6d62898a3be8617b06ff347d967543228bd9b605547c3d478\
- b0a838ca243dd366bf4a329968d77eac9fb63481a600938dc4091976a914\
- e9bf4e6f26fecf1dfc1e04dde43472df378628b888ac6a048e7f645e8adc\
- 305ccfd8652066046a0702596af13b8ac97803ade256da2900\
- \
- H90IvqVtFjZkwLJb08yMEgGixs0/FpcdvwImBcir4cYLJhD3pdX+lKD2GsPl6KNxghVXNk5/HpOdBoWAHo9u++Y=
-```
-
-Result:
-```text
-273ce3ebe24183ee4117b10e054cdbb108a3bde5d2f286129e29480d46a3f573
-```
-
-## ProTx List
-
-The `protx list` RPC returns a list of provider transactions.
-
-Lists all ProTxs in your wallet or on-chain, depending on the given type. If
-`type` is not specified, it defaults to `registered`. All types have the optional
-argument `detailed` which if set to `true` will result in a detailed list being
-returned. If set to `false`, only the hashes of the ProTx will be returned.
-
-*Parameter #1---type*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`type` | string | Optional<br>(0 or 1) | The type of ProTxs to list:<br>`registered` - all ProTxs registered at height<br>`valid` - all active/valid ProTxs at height<br>`wallet` - all ProTxs found in the current wallet<br><br>Height defaults to current chain-tip if one is not provided
-
-*Parameter #2---detailed*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`detailed` | bool | Optional<br>(0 or 1) | If set to `false` (default), only ProTx hashes are returned. If set to `true`, a detailed list of ProTx details is returned.
-
-*Parameter #3---height*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`height` | bool | Optional<br>(0 or 1) | List ProTxs from this height (default: current chain tip).
-
-*Result (if `detailed` was `false`)---provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex): array | Required<br>(exactly 1) | Array of provider transaction (ProTx) hashes
-
-*Result (if `detailed` was `true`)---JSON provider registration transaction details*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | array | Required<br>(exactly 1) | An array of objects each containing a provider transaction, or JSON `null` if an error occurred
-<br>Provider Transaction | object/null | Required<br>(exactly 1) | An object containing a provider transaction
-→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
-→<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | The hash of the collateral transaction as hex in RPC byte order
-→<br>`collateralIndex` | number (int) | Required<br>(exactly 1) | The collateral index
-→ →<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
-→<br>`operatorReward` | number (int) | Required<br>(exactly 1) | The operator reward %
-→<br>`state` | object/null | Required<br>(exactly 1) | An object containing a provider transaction state
-→ →<br>`service` | string | Required<br>(exactly 1) | The masternode's IP:Port
-→ →<br>`registeredHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was registered
-→ →<br>`lastPaidHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was last paid
-→ →<br>`PoSePenalty` | number (int) | Required<br>(exactly 1) | The masternode's proof of service penalty
-→ →<br>`PoSeRevivedHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode recovered from a proof of service ban
-→ →<br>`PoSeBanHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was banned for proof of service violations
-→ →<br>`revocationReason` | number (int) | Required<br>(exactly 1) | The reason for a ProUpRegTx revocation
-→ →<br>`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner address
-→ →<br>`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address
-→ →<br>`payoutAddress` | string (hex) | Required<br>(exactly 1) | The owner's payout address
-→ →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | The operator public key
-→ →<br>`operatorPayoutAddress` | string (hex) | Required<br>(exactly 1) | The operator's payout address
-→<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations this ProTx has
-→<br>`wallet` | object/null | Required<br>(exactly 1) | An object containing a wallet details related to this ProTx
-→ →<br>`hasOwnerKey` | bool | Required<br>(exactly 1) | The owner key is present in this wallet
-→ →<br>`hasOperatorKey` | bool | Required<br>(exactly 1) | The operator key is present in this wallet
-→ →<br>`hasVotingKey` | bool | Required<br>(exactly 1) | The voting key is present in this wallet
-→ →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
-→ →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
-→ →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
-→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
-→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
-→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
-→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
-→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
-→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
-→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
-
-*Example from Dash Core 0.16.0*
-
-```bash
-dash-cli -testnet protx list
-```
-
-Result:
-```json
-[
-  "2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2",
-  "61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929",
-  "ca193751f3cbed2aa4f1b33b0acc48c7ed8b9a3679858d69cf23157a4f545176",
-  "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"
-]
-```
-
-List of ProTxs which are active/valid at the given chain height.
-
-```bash
-dash-cli -testnet protx list valid false 7090
-```
-
-Result:
-```json
-[
-  "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f"
-]
-```
-
-Detailed list of ProTxs which are active/valid at the given chain height.
-
-```bash
-dash-cli -testnet protx list valid true 7090
-```
-
-Result:
-```json
-[
-  {
-    "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
-    "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
-    "collateralIndex": 3,
-    "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
-    "operatorReward": 0,
-    "state": {
-      "service": "173.61.30.231:19013",
-      "registeredHeight": 7090,
-      "lastPaidHeight": 0,
-      "PoSePenalty": 0,
-      "PoSeRevivedHeight": -1,
-      "PoSeBanHeight": -1,
-      "revocationReason": 0,
-      "ownerAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
-      "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
-      "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
-      "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
-    },
-    "confirmations": 292830,
-    "wallet": {
-      "hasOwnerKey": false,
-      "hasOperatorKey": false,
-      "hasVotingKey": false,
-      "ownsCollateral": false,
-      "ownsPayeeScript": false,
-      "ownsOperatorRewardScript": false
-    },
-    "metaInfo": {
-      "lastDSQ": 0,
-      "mixingTxCount": 0,
-      "lastOutboundAttempt": 0,
-      "lastOutboundAttemptElapsed": 1588171141,
-      "lastOutboundSuccess": 0,
-      "lastOutboundSuccessElapsed": 1588171141
-    }
-  }
-]
-```
-
-## ProTx Info
-
-The `protx info` RPC returns detailed information about a deterministic masternode.
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | An JSON object containing a provider transaction, or JSON `null` if an error occurred
-<br>Provider Transaction | object/null | Required<br>(exactly 1) | An object containing a provider transaction
-→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
-→<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | The hash of the collateral transaction as hex in RPC byte order
-→<br>`collateralIndex` | number (int) | Required<br>(exactly 1) | The collateral index
-→ →<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
-→<br>`operatorReward` | number (int) | Required<br>(exactly 1) | The operator reward %
-→<br>`state` | object/null | Required<br>(exactly 1) | An object containing a provider transaction state
-→ →<br>`service` | string | Required<br>(exactly 1) | The masternode's IP:Port
-→ →<br>`registeredHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was registered
-→ →<br>`lastPaidHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was last paid
-→ →<br>`PoSePenalty` | number (int) | Required<br>(exactly 1) | The masternode's proof of service penalty
-→ →<br>`PoSeRevivedHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode recovered from a proof of service ban
-→ →<br>`PoSeBanHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was banned for proof of service violations
-→ →<br>`revocationReason` | number (int) | Required<br>(exactly 1) | The reason for a ProUpRegTx revocation
-→ →<br>`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner address
-→ →<br>`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address
-→ →<br>`payoutAddress` | string (hex) | Required<br>(exactly 1) | The owner's payout address
-→ →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | The operator public key
-→ →<br>`operatorPayoutAddress` | string (hex) | Required<br>(exactly 1) | The operator's payout address
-→<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations this ProTx has
-→<br>`wallet` | object/null | Required<br>(exactly 1) | An object containing a wallet details related to this ProTx
-→ →<br>`hasOwnerKey` | bool | Required<br>(exactly 1) | The owner key is present in this wallet
-→ →<br>`hasOperatorKey` | bool | Required<br>(exactly 1) | The operator key is present in this wallet
-→ →<br>`hasVotingKey` | bool | Required<br>(exactly 1) | The voting key is present in this wallet
-→ →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
-→ →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
-→ →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
-→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
-→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
-→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
-→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
-→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
-→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
-→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
-
-
-*Example from Dash Core 0.16.0*
-
-```bash
-dash-cli -testnet protx info\
- c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
-```
-
-Result:
-```json
-{
-  "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
-  "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
-  "collateralIndex": 3,
-  "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
-  "operatorReward": 0,
-  "state": {
-    "service": "173.61.30.231:19013",
-    "registeredHeight": 7090,
-    "lastPaidHeight": 134608,
-    "PoSePenalty": 334,
-    "PoSeRevivedHeight": 96516,
-    "PoSeBanHeight": 134819,
-    "revocationReason": 0,
-    "ownerAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
-    "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
-    "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
-    "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
-  },
-  "confirmations": 292831,
-  "wallet": {
-    "hasOwnerKey": false,
-    "hasOperatorKey": false,
-    "hasVotingKey": false,
-    "ownsCollateral": false,
-    "ownsPayeeScript": false,
-    "ownsOperatorRewardScript": false
-  },
-  "metaInfo": {
-    "lastDSQ": 0,
-    "mixingTxCount": 0,
-    "lastOutboundAttempt": 0,
-    "lastOutboundAttemptElapsed": 1588171300,
-    "lastOutboundSuccess": 0,
-    "lastOutboundSuccessElapsed": 1588171300
-  }
-}
-```
-
-## ProTx Update Service
-
-The `protx update_service` RPC creates and sends a ProUpServTx to the network.
-
-*Parameter #1---initial provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
-
-*Parameter #2---IP Address and port*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.
-
-*Parameter #3---operator public key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
-
-*Parameter #4---operator payout address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPayoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address used for operator reward payments. Only allowed when the ProRegTx had a non-zero `operatorReward` value. If set to an empty string, the currently active payout address is reused.
-
-*Parameter #5---fee source address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `operatorPayoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---provider update service transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider update service transaction (ProUpServTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx update_service\
- ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd\
- "4.3.2.1:4321"\
- 4da7e1ea30fb9e55c73ad23df0b9d3d34342acb24facf4b19420e1a26ae272d1
-```
-
-Result:
-```bash
-5b6cfa1bdd3c8b7e0b9550b9c4e809381f81a410bc7f241d3879dd736fd51270
-```
-
-## ProTx Update Registrar
-
-The `protx update_registrar` RPC creates and sends a ProUpRegTx to the network.
-
-*Parameter #1---initial provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
-
-*Parameter #2---operator public key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) | The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode. If set to an empty string, the currently active operator BLS public key is reused.
-
-*Parameter #3---voting address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, the currently active voting key address is reused.
-
-*Parameter #4---operator payout address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`payoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address to use for masternode reward payments. If set to an empty string, the currently active payout address is reused.
-
-*Parameter #5---fee source address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---provider update registrar transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider update registrar transaction (ProUpRegTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx update_registrar\
- "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
- "0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51"\
- "yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw" "yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7"
-```
-
-Result:
-```bash
-702390ef06b10c174841ad7b863df23c166c27815e3be2438e2fee6f87882b91
-```
-
-## ProTx Revoke
-
-The `protx revoke` RPC creates and sends a ProUpRevTx to the network.
-
-*Parameter #1---initial provider registration transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
-
-*Parameter #2---operator private key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator private key belonging to the registered operator public key.
-
-*Parameter #3---reason*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`reason` | number | Required<br>(exactly 1) | The reason for revocation.
-
-*Parameter #4---fee source address*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
-
-*Result---provider update revoke transaction hash*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | string (hex) | Required<br>(exactly 1) | Provider update revoke transaction (ProUpRevTx) hash
-
-*Example from Dash Core 0.13.0*
-
-```bash
-dash-cli -testnet protx revoke\
- "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
- "4da7e1ea30fb9e55c73ad23df0b9d3d34342acb24facf4b19420e1a26ae272d1"
-```
-
-Result:
-```bash
-2aad36dd2ab254bee06b0b5dad51e7603691b72058d5806fd94e1d2d19a7c209
-```
 
 ## ProTx Diff
 
@@ -926,6 +242,766 @@ Result (truncated):
 
 *See also: none*
 
+## ProTx Info
+
+The `protx info` RPC returns detailed information about a deterministic masternode.
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An JSON object containing a provider transaction, or JSON `null` if an error occurred
+<br>Provider Transaction | object/null | Required<br>(exactly 1) | An object containing a provider transaction
+→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+→<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | The hash of the collateral transaction as hex in RPC byte order
+→<br>`collateralIndex` | number (int) | Required<br>(exactly 1) | The collateral index
+→ →<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
+→<br>`operatorReward` | number (int) | Required<br>(exactly 1) | The operator reward %
+→<br>`state` | object/null | Required<br>(exactly 1) | An object containing a provider transaction state
+→ →<br>`service` | string | Required<br>(exactly 1) | The masternode's IP:Port
+→ →<br>`registeredHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was registered
+→ →<br>`lastPaidHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was last paid
+→ →<br>`PoSePenalty` | number (int) | Required<br>(exactly 1) | The masternode's proof of service penalty
+→ →<br>`PoSeRevivedHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode recovered from a proof of service ban
+→ →<br>`PoSeBanHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was banned for proof of service violations
+→ →<br>`revocationReason` | number (int) | Required<br>(exactly 1) | The reason for a ProUpRegTx revocation
+→ →<br>`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner address
+→ →<br>`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address
+→ →<br>`payoutAddress` | string (hex) | Required<br>(exactly 1) | The owner's payout address
+→ →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | The operator public key
+→ →<br>`operatorPayoutAddress` | string (hex) | Required<br>(exactly 1) | The operator's payout address
+→<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations this ProTx has
+→<br>`wallet` | object/null | Required<br>(exactly 1) | An object containing a wallet details related to this ProTx
+→ →<br>`hasOwnerKey` | bool | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`hasOperatorKey` | bool | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`hasVotingKey` | bool | Required<br>(exactly 1) | The voting key is present in this wallet
+→ →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
+→ →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
+→ →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
+→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
+→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
+→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
+→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
+→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
+
+
+*Example from Dash Core 0.16.0*
+
+```bash
+dash-cli -testnet protx info\
+ c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
+```
+[block:callout]
+{
+  "type": "info"
+}
+[/block]
+Result:
+```json
+{
+  "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
+  "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
+  "collateralIndex": 3,
+  "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
+  "operatorReward": 0,
+  "state": {
+    "service": "173.61.30.231:19013",
+    "registeredHeight": 7090,
+    "lastPaidHeight": 134608,
+    "PoSePenalty": 334,
+    "PoSeRevivedHeight": 96516,
+    "PoSeBanHeight": 134819,
+    "revocationReason": 0,
+    "ownerAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+    "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+    "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
+    "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
+  },
+  "confirmations": 292831,
+  "wallet": {
+    "hasOwnerKey": false,
+    "hasOperatorKey": false,
+    "hasVotingKey": false,
+    "ownsCollateral": false,
+    "ownsPayeeScript": false,
+    "ownsOperatorRewardScript": false
+  },
+  "metaInfo": {
+    "lastDSQ": 0,
+    "mixingTxCount": 0,
+    "lastOutboundAttempt": 0,
+    "lastOutboundAttemptElapsed": 1588171300,
+    "lastOutboundSuccess": 0,
+    "lastOutboundSuccessElapsed": 1588171300
+  }
+}
+```
+
+## ProTx List
+
+The `protx list` RPC returns a list of provider transactions.
+
+Lists all ProTxs in your wallet or on-chain, depending on the given type. If
+`type` is not specified, it defaults to `registered`. All types have the optional
+argument `detailed` which if set to `true` will result in a detailed list being
+returned. If set to `false`, only the hashes of the ProTx will be returned.
+
+*Parameter #1---type*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`type` | string | Optional<br>(0 or 1) | The type of ProTxs to list:<br>`registered` - all ProTxs registered at height<br>`valid` - all active/valid ProTxs at height<br>`wallet` - all ProTxs found in the current wallet<br><br>Height defaults to current chain-tip if one is not provided
+
+*Parameter #2---detailed*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`detailed` | bool | Optional<br>(0 or 1) | If set to `false` (default), only ProTx hashes are returned. If set to `true`, a detailed list of ProTx details is returned.
+
+*Parameter #3---height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`height` | bool | Optional<br>(0 or 1) | List ProTxs from this height (default: current chain tip).
+
+*Result (if `detailed` was `false`)---provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex): array | Required<br>(exactly 1) | Array of provider transaction (ProTx) hashes
+
+*Result (if `detailed` was `true`)---JSON provider registration transaction details*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | An array of objects each containing a provider transaction, or JSON `null` if an error occurred
+<br>Provider Transaction | object/null | Required<br>(exactly 1) | An object containing a provider transaction
+→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+→<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | The hash of the collateral transaction as hex in RPC byte order
+→<br>`collateralIndex` | number (int) | Required<br>(exactly 1) | The collateral index
+→ →<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
+→<br>`operatorReward` | number (int) | Required<br>(exactly 1) | The operator reward %
+→<br>`state` | object/null | Required<br>(exactly 1) | An object containing a provider transaction state
+→ →<br>`service` | string | Required<br>(exactly 1) | The masternode's IP:Port
+→ →<br>`registeredHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was registered
+→ →<br>`lastPaidHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was last paid
+→ →<br>`PoSePenalty` | number (int) | Required<br>(exactly 1) | The masternode's proof of service penalty
+→ →<br>`PoSeRevivedHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode recovered from a proof of service ban
+→ →<br>`PoSeBanHeight` | number (int) | Required<br>(exactly 1) | The height where the masternode was banned for proof of service violations
+→ →<br>`revocationReason` | number (int) | Required<br>(exactly 1) | The reason for a ProUpRegTx revocation
+→ →<br>`ownerAddress` | string (hex) | Required<br>(exactly 1) | The owner address
+→ →<br>`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address
+→ →<br>`payoutAddress` | string (hex) | Required<br>(exactly 1) | The owner's payout address
+→ →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | The operator public key
+→ →<br>`operatorPayoutAddress` | string (hex) | Required<br>(exactly 1) | The operator's payout address
+→<br>`confirmations` | number (int) | Required<br>(exactly 1) | The number of confirmations this ProTx has
+→<br>`wallet` | object/null | Required<br>(exactly 1) | An object containing a wallet details related to this ProTx
+→ →<br>`hasOwnerKey` | bool | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`hasOperatorKey` | bool | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`hasVotingKey` | bool | Required<br>(exactly 1) | The voting key is present in this wallet
+→ →<br>`ownsCollateral` | bool | Required<br>(exactly 1) | The collateral is owned by this wallet
+→ →<br>`ownsPayeeScript` | bool | Required<br>(exactly 1) | The payee script is owned by this wallet
+→ →<br>`ownsOperatorRewardScript` | bool | Required<br>(exactly 1) | The operator reward script is owned by this wallet
+→<br>`metaInfo` | object/null | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object containing a metainfo related to this ProTx
+→ →<br>`lastDSQ` | string | Required<br>(exactly 1) | The owner key is present in this wallet
+→ →<br>`mixingTxCount` | string | Required<br>(exactly 1) | The operator key is present in this wallet
+→ →<br>`lastOutboundAttempt` | integer | Required<br>(exactly 1) | Unix epoch time of the last outbound attempted
+→ →<br>`lastOutboundAttemptElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last outbound attempt
+→ →<br>`lastOutboundSuccess` | integer | Required<br>(exactly 1) |  Unix epoch time of the last successful outbound connection
+→ →<br>`lastOutboundSuccessElapsed` | integer | Required<br>(exactly 1) | Elapsed time since last successful outbound attempt
+
+*Example from Dash Core 0.16.0*
+
+```bash
+dash-cli -testnet protx list
+```
+
+Result:
+```json
+[
+  "2b4a07a9b04dc42a0c19b85edb60954a27acaadfe3ee21d0171385778f34e1c2",
+  "61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929",
+  "ca193751f3cbed2aa4f1b33b0acc48c7ed8b9a3679858d69cf23157a4f545176",
+  "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"
+]
+```
+
+List of ProTxs which are active/valid at the given chain height.
+
+```bash
+dash-cli -testnet protx list valid false 7090
+```
+
+Result:
+```json
+[
+  "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f"
+]
+```
+
+Detailed list of ProTxs which are active/valid at the given chain height.
+
+```bash
+dash-cli -testnet protx list valid true 7090
+```
+
+Result:
+```json
+[
+  {
+    "proTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
+    "collateralHash": "e3270ff48c4b802d56ee58d3d53777f7f9c289964e4df0842518075fc81345b1",
+    "collateralIndex": 3,
+    "collateralAddress": "yYpzTXjVx7A5uohsmW8sRy7TJp4tihVuZg",
+    "operatorReward": 0,
+    "state": {
+      "service": "173.61.30.231:19013",
+      "registeredHeight": 7090,
+      "lastPaidHeight": 0,
+      "PoSePenalty": 0,
+      "PoSeRevivedHeight": -1,
+      "PoSeBanHeight": -1,
+      "revocationReason": 0,
+      "ownerAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+      "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
+      "payoutAddress": "yU3UdrmS6KpWwBDLQTkp1KjXePwWsMbYdj",
+      "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e"
+    },
+    "confirmations": 292830,
+    "wallet": {
+      "hasOwnerKey": false,
+      "hasOperatorKey": false,
+      "hasVotingKey": false,
+      "ownsCollateral": false,
+      "ownsPayeeScript": false,
+      "ownsOperatorRewardScript": false
+    },
+    "metaInfo": {
+      "lastDSQ": 0,
+      "mixingTxCount": 0,
+      "lastOutboundAttempt": 0,
+      "lastOutboundAttemptElapsed": 1588171141,
+      "lastOutboundSuccess": 0,
+      "lastOutboundSuccessElapsed": 1588171141
+    }
+  }
+]
+```
+
+## ProTx Register
+
+The `protx register` RPC creates a ProRegTx referencing an existing collateral and and sends it to the network.
+
+*Parameter #1---collateral address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`collateralHash` | string (hex) | Required<br>(exactly 1) | The collateral transaction hash
+
+*Parameter #2---collateral index*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`collateralIndex` | string (hex) | Required<br>(exactly 1) | The collateral transaction output index
+
+*Parameter #3---IP Address and port*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form `IP:PORT`.<br>Must be unique on the network.<br>Can be set to `0`, which will require a ProUpServTx afterwards.
+
+*Parameter #4---owner address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ownerAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to use for payee updates and proposal voting. The corresponding private key does not have to be known by this wallet. The address must be unused and must differ from the `collateralAddress`.
+
+*Parameter #5---operator public key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
+
+*Parameter #6---voting address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
+
+*Parameter #7---operator reward*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator. The value must be between `0.00` and `100.00`.<br>**Note**: If non-zero, `ipAndPort` must be zero as well.
+
+*Parameter #8---payout address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`payoutAddress` | string | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
+
+*Parameter #9---fee source address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Parameter #10---whether to submit to the network or not*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`submit` | bool | Optional<br>(0 or 1) |  If `true` (default), the resulting transaction is sent to the network.
+
+*Result if `submit` is not set or set to `true`---provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx register\
+ 8b2eab3413abb6e04d17d1defe2b71039ba6b6f72ea1e5dab29bb10e7b745948 1\
+ 2.3.4.5:2345 yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6\
+ 88d719278eef605d9c19037366910b59bc28d437de4a8db4d76fda6d6985dbdf10404fb9bb5cd0e8c22f4a914a6c5566\
+ yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6 5 yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt
+```
+
+Result:
+```text
+61e6d780178d353940c4cb9b3073ac0c50792bbcf0b15c1750d2028b71e34929
+```
+
+*Result if `submit` set to `false`---serialized and signed provider registration transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Serialized and signed provider registration transaction (ProRegTx)
+
+*Example from Dash Core 0.17.0*
+
+```bash
+dash-cli -testnet protx register\ 
+b16e6f6ac71d16a8be46a78491bbdba20910287f59471a46514b88d7203bac6b 1 2.3.4.5:2345\ 
+yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6\ 
+8ae227ffcbd4cbdc7ae2fe3e63264701ef6af1de71e6cade51867ecb7ed58b63862568522bab933987d0d043fa5590e1\ 
+yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6 5 yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt\ 
+yUYTxqjpCfAAK4vgxXtBPywRBtZqsxN7Vy false
+```
+
+Result:
+```text
+0300010001fe1caa50e5b8181be868fbd9fbd93affeb6c4a91a3c73373a6b25d548c7e6d41010000\
+006b48304502210081d206a8332d5b8715ca831155ef5c7e339d33cde2b0b27310b95aafc8c560f9\
+02204029d00d2b5515565321ec1fd6748fa0544b7356d9a389e4d1ce6ab4bb64d364012103c67d86\
+944315838aea7ec80d390b5d09b91b62483370d4979da5ccf7a7df77a9feffffff01a6f0433e0000\
+00001976a9145a375814e9caf5b8575a8221be246457e5c5c28d88ac00000000fd12010100000000\
+006bac3b20d7884b51461a47597f281009a2dbbb9184a746bea8161dc76a6f6eb101000000000000\
+00000000000000ffff0203040509291636e84d02310b0b458f3eb51d8ea8b2e684b7ce8ae227ffcb\
+d4cbdc7ae2fe3e63264701ef6af1de71e6cade51867ecb7ed58b63862568522bab933987d0d043fa\
+5590e11636e84d02310b0b458f3eb51d8ea8b2e684b7cef4011976a914fc136008111fcc7a05be6c\
+ec66f97568727a9e5188acb3ccf680086ae11217236efcccd67b0b72e83c79a043d6c6d064378fdd\
+5f21204120fac89c76d3f116d95a675e112ddbdbb7a78f957506299fe592662acd44b46f262d1c4d\
+47d9401e0a569a5488728e09542d0545ab56f8249a4b21e03445fa411e
+```
+
+
+## ProTx Register Fund
+
+The `protx register_fund` RPC creates and funds a ProRegTx with the 1,000 DASH necessary for a masternode and then sends it to the network.
+
+*Parameter #1---collateral address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`collateralAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to send the collateral to
+
+*Parameter #2---IP Address and port*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form `IP:PORT`.<br>Must be unique on the network.<br>Can be set to `0`, which will require a ProUpServTx afterwards.
+
+*Parameter #3---owner address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ownerAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to use for payee updates and proposal voting. The corresponding private key does not have to be known by this wallet. The address must be unused and must differ from the `collateralAddress`.
+
+*Parameter #4---operator public key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
+
+*Parameter #5---voting address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
+
+*Parameter #6---operator reward*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator.<br>The value must be between `0.00` and `100.00`.
+
+*Parameter #7---payout address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`payoutAddress` | string | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
+
+*Parameter #8---fund address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`fundAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Parameter #9---whether to submit to the network or not*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`submit` | bool | Optional<br>(0 or 1) |  If `true` (default), the resulting transaction is sent to the network.
+
+*Result if `submit` is not set or set to `true`---provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx register_fund yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7\
+ 3.4.5.6:3456 yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw\
+ 0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51\
+ yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw 5 yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7
+```
+
+Result:
+```text
+ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd
+```
+
+*Result if `submit` set to `false`---serialized and signed provider registration transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Serialized and signed provider registration transaction (ProRegTx)
+
+*Example from Dash Core 0.17.0*
+
+```bash
+dash-cli -testnet protx register_fund yNLuVTXJbjbxgrQX5LSMi7hV19We8hT2d6\ 
+3.4.5.6:3456 yURczr3qY31xkQZfFu8eZvKz19eAEPQxsd\ 
+0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51\
+yURczr3qY31xkQZfFu8eZvKz19eAEPQxsd 5 yUYTxqjpCfAAK4vgxXtBPywRBtZqsxN7Vy\ 
+yRMFHxcJ2aS2vfo5whhE2Gg73dfQVm8LAF 0
+```
+
+Result:
+```text
+030001000156701575e76bca5720fa364ea6efc4b713279710dd1b8906797d18bd7048b71a010000\
+006b4830450221009178a387b3d82e3606e6484373508ef1ed4c1d7d98f8a0ca0851687c59edacaa\
+02204d245d20689b5be1100536faaadbb1781e3a67a55e9ecc613adb2a34f419c3cd012103109325\
+a92f9e6d31d2ebd0595d471275ae8d635db2a0c42358f387e1af69c14dfeffffff0200e876481700\
+00001976a9141636e84d02310b0b458f3eb51d8ea8b2e684b7ce88ac8c7a918b300000001976a914\
+372fd07f715c33ce88873a8e758d890e017cf02588ac00000000d101000000000000000000000000\
+000000000000000000000000000000000000000000000000000000000000000000000000000000ff\
+ff030405060d8058ebf95961c207ebd525793ccb43f60ce34a5cd50e02146e9c34cfbcb3f3037574\
+a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d5158ebf95961\
+c207ebd525793ccb43f60ce34a5cd5f4011976a9145a375814e9caf5b8575a8221be246457e5c5c2\
+8d88ac45084a0f63d6f06767c941ffd5af4ed17ea0e28afa481e46b2bdbadbd8446c8c00\
+```
+
+## ProTx Register Prepare
+
+The `protx register_prepare` RPC creates an unsigned ProTx and a message that must be signed externally with the private key that corresponds to `collateralAddress` to prove collateral ownership. The prepared transaction will also contain inputs and outputs to cover fees. The ProTx must be passed to [`protx register_submit`](#protx-register-submit).
+
+*Parameter #1---collateral address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`collateralHash` | string (hex) | Required<br>(exactly 1) | The collateral transaction hash
+
+*Parameter #2---collateral index*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`collateralIndex` | string (hex) | Required<br>(exactly 1) | The collateral transaction output index
+
+*Parameter #3---IP Address and port*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.<br>Can be set to '0', which will require a ProUpServTx afterwards.
+
+*Parameter #4---owner address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ownerAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to use for payee updates and proposal voting. The corresponding private key does not have to be known by this wallet. The address must be unused and must differ from the `collateralAddress`.
+
+*Parameter #5---operator public key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
+
+*Parameter #6---voting address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, `ownerAddress` will be used.
+
+*Parameter #7---operator reward*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorReward` | number | Required<br>(exactly 1) | The fraction in % to share with the operator.<br>The value must be between '0.00' and '100.00'.
+
+*Parameter #8---payout address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`payoutAddress` | string (hex) | Required<br>(exactly 1) | The Dash address to use for masternode reward payments.
+
+*Parameter #9---fee source address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Result---unsigned transaction and message to sign*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | JSON object containing an unsigned provider transaction and the message to be signed externally, or JSON `null` if an error occurred
+→<br>`tx` | string (hex) | Required<br>(exactly 1) | The serialized unsigned ProRegTx in hex format
+→<br>`collateralAddress` | string (hex) | Required<br>(exactly 1) | The collateral address
+→<br>`signMessage` | string (base64) | Required<br>(exactly 1) | The string message that needs to be signed with the collateral key.
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx register_prepare\
+ df41e398bb245e973340d434d386f431dbd69735a575721b0b6833856e7d31ec 1 \
+ 9.8.7.6:9876 yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz\
+ 06849865d01e4f73a6d5a025117e48f50b897e14235800501c8bfb8a6365cc8dbf5ddb67a3635d0f1dcc7d46a7ee280c\
+ yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz 1.2 yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt
+```
+
+Result:
+```json
+{
+  "tx": "0300010001912b88876fee2f8e43e23b5e81276c163cf23d867bad4148170cb106ef9023700000000000feffffff0125623ba40b0000001976a914736e155c1039a269d4019c66219d2a18f0fee27588ac00000000d1010000000000ec317d6e8533680b1b7275a53597d6db31f486d334d44033975e24bb98e341df0100000000000000000000000000ffff090807062694ca6b243168b30461d1f19e2bb89a965a5bac067e06849865d01e4f73a6d5a025117e48f50b897e14235800501c8bfb8a6365cc8dbf5ddb67a3635d0f1dcc7d46a7ee280cca6b243168b30461d1f19e2bb89a965a5bac067e78001976a914fc136008111fcc7a05be6cec66f97568727a9e5188ace5f6b70ac55411727e25178bd417b9b03f837ad7155d90ad286f3a427203fb9f00",
+  "collateralAddress": "yWuKWhDzGQqZL8rw6kGxGrfe6P8bUC2S4f",
+  "signMessage": "yjJJLkYDUN6X8gWjXbCoKEXoiLeKxxMMRt|120|yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz|yemjhGQ99V5ayJMjoyGGPtxteahii6G1Jz|69a49e18c1253b90d39322f7e2f7af74524401bc33a27645e697e74a214e3e1e"
+}
+```
+
+## ProTx Register Submit
+
+The `protx register_submit` RPC combines the unsigned ProTx and a signature of the signMessage, signs all inputs which were added to cover fees and submits the resulting transaction to the network. Note: See [`protx register_prepare`](#protx-register-prepare) for more info about creating a ProTx and a message to sign.
+
+*Parameter #1---collateral address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`tx` | string (hex) | Required<br>(exactly 1) | The serialized unsigned transaction previously returned by `protx register_prepare`
+
+*Parameter #2---collateral index*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`sig` | string (base64) | Required<br>(exactly 1) | The signature signed with the collateral key. Must be in base64 format.
+
+*Result---provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider registration transaction (ProRegTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx register_submit\
+ 03000100012d988526d5d1efd32320023c92eff09c2963dcb021b0de9761\
+ 17e5e37dc7a7870000000000feffffff015f603ba40b0000001976a9140c\
+ 37e07eb5c608961769e6506c23c11e9f9fe00988ac00000000d101000000\
+ 00002d988526d5d1efd32320023c92eff09c2963dcb021b0de976117e5e3\
+ 7dc7a7870100000000000000000000000000ffff05060708162e243dd366\
+ bf4a329968d77eac9fb63481a600938d125e1b7cba03ca2a097e402185e6\
+ 160232ea53e6d62898a3be8617b06ff347d967543228bd9b605547c3d478\
+ b0a838ca243dd366bf4a329968d77eac9fb63481a600938dc4091976a914\
+ e9bf4e6f26fecf1dfc1e04dde43472df378628b888ac6a048e7f645e8adc\
+ 305ccfd8652066046a0702596af13b8ac97803ade256da2900\
+ \
+ H90IvqVtFjZkwLJb08yMEgGixs0/FpcdvwImBcir4cYLJhD3pdX+lKD2GsPl6KNxghVXNk5/HpOdBoWAHo9u++Y=
+```
+
+Result:
+```text
+273ce3ebe24183ee4117b10e054cdbb108a3bde5d2f286129e29480d46a3f573
+```
+
+## ProTx Revoke
+
+The `protx revoke` RPC creates and sends a ProUpRevTx to the network.
+
+*Parameter #1---initial provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+
+*Parameter #2---operator private key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator private key belonging to the registered operator public key.
+
+*Parameter #3---reason*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`reason` | number | Required<br>(exactly 1) | The reason for revocation.
+
+*Parameter #4---fee source address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Result---provider update revoke transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider update revoke transaction (ProUpRevTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx revoke\
+ "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
+ "4da7e1ea30fb9e55c73ad23df0b9d3d34342acb24facf4b19420e1a26ae272d1"
+```
+
+Result:
+```bash
+2aad36dd2ab254bee06b0b5dad51e7603691b72058d5806fd94e1d2d19a7c209
+```
+
+## ProTx Update Registrar
+
+The `protx update_registrar` RPC creates and sends a ProUpRegTx to the network.
+
+*Parameter #1---initial provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+
+*Parameter #2---operator public key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) | The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode. If set to an empty string, the currently active operator BLS public key is reused.
+
+*Parameter #3---voting address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address. The private key does not have to be known by your wallet. It has to match the private key which is later used when voting on proposals. If set to an empty string, the currently active voting key address is reused.
+
+*Parameter #4---operator payout address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`payoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address to use for masternode reward payments. If set to an empty string, the currently active payout address is reused.
+
+*Parameter #5---fee source address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `payoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Result---provider update registrar transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider update registrar transaction (ProUpRegTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx update_registrar\
+ "ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd"\
+ "0e02146e9c34cfbcb3f3037574a1abb35525e2ca0c3c6901dbf82ac591e30218d1711223b7ca956edf39f3d984d06d51"\
+ "yX2cDS4kcJ4LK4uq9Hd4TG7kURV3sGLZrw" "yakx4mMRptKhgfjedNzX5FGQq7kSSBF2e7"
+```
+
+Result:
+```bash
+702390ef06b10c174841ad7b863df23c166c27815e3be2438e2fee6f87882b91
+```
+
+## ProTx Update Service
+
+The `protx update_service` RPC creates and sends a ProUpServTx to the network.
+
+*Parameter #1---initial provider registration transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the provider transaction as hex in RPC byte order
+
+*Parameter #2---IP Address and port*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.
+
+*Parameter #3---operator public key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
+
+*Parameter #4---operator payout address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`operatorPayoutAddress` | string (hex) | Optional<br>(0 or 1) | The Dash address used for operator reward payments. Only allowed when the ProRegTx had a non-zero `operatorReward` value. If set to an empty string, the currently active payout address is reused.
+
+*Parameter #5---fee source address*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`feeSourceAddress` | string | Optional<br>(0 or 1) | If specified, the wallet will only use coins from this address to fund the ProTx. If not specified, `operatorPayoutAddress` will be used. The private key belonging to this address must be known in your wallet.
+
+*Result---provider update service transaction hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string (hex) | Required<br>(exactly 1) | Provider update service transaction (ProUpServTx) hash
+
+*Example from Dash Core 0.13.0*
+
+```bash
+dash-cli -testnet protx update_service\
+ ba1b3330e16a0876b7a186e7ceb689f03ec646e611e91d7139de021bbf13afdd\
+ "4.3.2.1:4321"\
+ 4da7e1ea30fb9e55c73ad23df0b9d3d34342acb24facf4b19420e1a26ae272d1
+```
+
+Result:
+```bash
+5b6cfa1bdd3c8b7e0b9550b9c4e809381f81a410bc7f241d3879dd736fd51270
+```
+
 # Quorum
 
 *Added in Dash Core 0.14.0*
@@ -987,7 +1063,7 @@ The `quorum info` RPC returns information about a specific quorum.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) to list:<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) to list:<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---quorum hash*
 
@@ -1076,7 +1152,7 @@ Name | Type | Presence | Description
 →<br>`timeStr` | string (hex) | Required<br>(exactly 1) | The UTC time as a string
 →<br>`session` | object | Required<br>(exactly 1) | Object containing DKG Session information
 → →<br>LLMQ Type | object | Required<br>(exactly 1) | Object
-→ → →<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+→ → →<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 → → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
 → → →<br>`quorumHeight` | number | Required<br>(exactly 1) | The block height of the quorum
 → → →<br>`phase` | number | Required<br>(exactly 1) | The active DKG phase<br>`1` - Initialized<br>`2` - Contributing<br>`3` - Complaining<br>`4` - Justifying<br>`5` - Committing<br>`6` - Finalizing
@@ -1234,7 +1310,7 @@ Result (truncated):
 dash-cli -testnet quorum dkgstatus 1
 ```
 
-Result:
+Result (truncated):
 ```json
 {
   "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
@@ -1261,49 +1337,6 @@ Result:
         0,
         1,
         2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        32,
-        33,
-        34,
-        36,
-        37,
-        38,
-        39,
-        40,
-        41,
-        43,
-        44,
-        45,
-        46,
-        47,
         48,
         49
       ],
@@ -1311,45 +1344,6 @@ Result:
         0,
         1,
         2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        33,
-        34,
-        36,
-        37,
-        38,
-        39,
-        40,
-        41,
-        43,
-        44,
-        45,
-        46,
-        47,
         48,
         49
       ],
@@ -1359,45 +1353,6 @@ Result:
         0,
         1,
         2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        24,
-        25,
-        26,
-        27,
-        28,
-        29,
-        30,
-        31,
-        33,
-        34,
-        36,
-        37,
-        38,
-        39,
-        40,
-        41,
-        43,
-        44,
-        45,
-        46,
-        47,
         48,
         49
       ]
@@ -1422,7 +1377,7 @@ Result:
 dash-cli -testnet quorum dkgstatus 2
 ```
 
-Result:
+Result (truncated):
 ```json
 {
   "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
@@ -1465,178 +1420,6 @@ Result:
           "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
         },
         {
-          "memberIndex": 3,
-          "proTxHash": "596be0851532a66037744afa694e4de6485f326f4638e704db93cc726866cda3"
-        },
-        {
-          "memberIndex": 4,
-          "proTxHash": "51c11d287dfa85aef3eebb5420834c8e443e01d15c0b0a8e397d67e2e51aa239"
-        },
-        {
-          "memberIndex": 5,
-          "proTxHash": "9f4f9f83ecbcd5739d7f1479ee14b508f2414d044a717acba0960566c4e6091d"
-        },
-        {
-          "memberIndex": 6,
-          "proTxHash": "21c0923badd20f953360c586edfcbb1a830be83206e30b3f65765f7794f2a640"
-        },
-        {
-          "memberIndex": 7,
-          "proTxHash": "cc36055f36345b85a2b8176e79feff0ff822c490691c7f8e8d3348b4b1a1d8ac"
-        },
-        {
-          "memberIndex": 8,
-          "proTxHash": "4636ed7acbacbc76aba60aa7a1011688fe9ad5fd701d0bf8fc42a502ea3e6543"
-        },
-        {
-          "memberIndex": 9,
-          "proTxHash": "32e5ad5cf9a06eb13e0f65cb7ecde1a93ef24995d07355fac2ff05ebd5b9ddbf"
-        },
-        {
-          "memberIndex": 10,
-          "proTxHash": "0022afbe93054ca11ce9b67892661af4558597bacff0ab82bff05a2b4a89ca2d"
-        },
-        {
-          "memberIndex": 11,
-          "proTxHash": "2523dc6e034911b9004862e87b4d23a32ed6198aec177915df7893f51cd645bd"
-        },
-        {
-          "memberIndex": 12,
-          "proTxHash": "abe5d16432915b201cf6f11299a1abd62e5f69a2c4e8717694d1e42d96dbd580"
-        },
-        {
-          "memberIndex": 13,
-          "proTxHash": "f443dd87ec7981e8630ae957f295d9d226d4bd3895f59dbd80b30137a92b3735"
-        },
-        {
-          "memberIndex": 14,
-          "proTxHash": "6a5be5c068a0be432b7db0772b25094a59ce1f433dd2df0d410511ac641c3768"
-        },
-        {
-          "memberIndex": 15,
-          "proTxHash": "84435c41688c8021a25a644e6b94c9f5159aff5658ee2e12f5cea5c714c21aa3"
-        },
-        {
-          "memberIndex": 16,
-          "proTxHash": "2db238aa40837319ca13e27aae4333d1248475546be6cfad985a3785c0ac9bd6"
-        },
-        {
-          "memberIndex": 17,
-          "proTxHash": "cefb7c69f75d9fbba21f648c6205bebf9b16325956404c70af03144c1135c7d7"
-        },
-        {
-          "memberIndex": 18,
-          "proTxHash": "cc7041c869c7c1c0bae7c137f0cda708ad492bc89c4b8f7a40a353d90335febf"
-        },
-        {
-          "memberIndex": 19,
-          "proTxHash": "24e642275f5d5f17f67db502d905153cfd83ffbd3d49c90196ec01200917fb31"
-        },
-        {
-          "memberIndex": 20,
-          "proTxHash": "bc5c77926b0ccfcb742123a1edf2c27147888f694701df399982a862309921c8"
-        },
-        {
-          "memberIndex": 21,
-          "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63"
-        },
-        {
-          "memberIndex": 22,
-          "proTxHash": "11eabc1e72394af02bbe86815975d054816fe69006fdc64c6d7a06b585e5c311"
-        },
-        {
-          "memberIndex": 23,
-          "proTxHash": "71cf5017c4c5f69db5c17a8cfb4c28ffc14ad1715dba2a83f0c30e534291f828"
-        },
-        {
-          "memberIndex": 24,
-          "proTxHash": "d567ac9cc7437848210365a0225271ec26a6a6c7d852544a6e9cbd40756075b3"
-        },
-        {
-          "memberIndex": 25,
-          "proTxHash": "16ef804605595f67a0e078f7ffbdd93ac55bcd22d9094cb8b61ef527c48f4c44"
-        },
-        {
-          "memberIndex": 26,
-          "proTxHash": "f51b426420ac4c518ad07c2bb03e434389337b4e2977d39233114d5e8ef21f69"
-        },
-        {
-          "memberIndex": 27,
-          "proTxHash": "2460848868c210d23c68460050f83f47a7ad00db2c47ad6f223a9b1eb04c8d54"
-        },
-        {
-          "memberIndex": 28,
-          "proTxHash": "49d94e4c584929320cfe159faf4f6e398f1b2d1fdaa413c01345ce23870d2ca9"
-        },
-        {
-          "memberIndex": 29,
-          "proTxHash": "e8b039ce3f1016b7caf781d1b0efbc11191860ec3b131fc49591402a260ba638"
-        },
-        {
-          "memberIndex": 30,
-          "proTxHash": "5ab82a5348b5d4c126b0c172665d364352be37c96ce442e710d4a844a6f80bf9"
-        },
-        {
-          "memberIndex": 31,
-          "proTxHash": "05b83104eea971582c803ded305109ecb734b582da93b8e301c6f00d6be6c496"
-        },
-        {
-          "memberIndex": 32,
-          "proTxHash": "c98c6303af03f7f3b2673ceece962134088e5dcc3c69a0977069c6201b26dc9b"
-        },
-        {
-          "memberIndex": 33,
-          "proTxHash": "f933d592d677f3409274646ddea2ffaaca77dfd4ceab7c54037a04e05fc7ee8b"
-        },
-        {
-          "memberIndex": 34,
-          "proTxHash": "5d40e68f65e7263d91e114b644ff7f8c9c376db63550d5ef9bc4228870c4f053"
-        },
-        {
-          "memberIndex": 36,
-          "proTxHash": "a36edfac56f7f1b0f58aa793115fbd53d792315857033fb32a862507a3f060ff"
-        },
-        {
-          "memberIndex": 37,
-          "proTxHash": "c9d43a69bd9effdaed579edc901c5d848711481047c9cc76bad8232d8f329dcd"
-        },
-        {
-          "memberIndex": 38,
-          "proTxHash": "d82152084615c73d79f3eb8b0ec6a61e6d0f94c4cdcf26f773f0e42b72176f6f"
-        },
-        {
-          "memberIndex": 39,
-          "proTxHash": "869f7f2054a6ed4241967afb74c3b1a07701d2772b368eb0bbfd2e3365adf6f3"
-        },
-        {
-          "memberIndex": 40,
-          "proTxHash": "5f1a70a350d21f673d93fae45a50c0362947366e46c96bade51b7933f0cada3e"
-        },
-        {
-          "memberIndex": 41,
-          "proTxHash": "024608d03beb6a6065f14a29a837c68ae449ac1e17056819366ca0b72b6dd81f"
-        },
-        {
-          "memberIndex": 43,
-          "proTxHash": "254bcd3b28d696ce9d468cd521e6be3f7eb01da32d8bf9fdf34868baaf09d9e7"
-        },
-        {
-          "memberIndex": 44,
-          "proTxHash": "0ae626ed4ee06c1f042b2eaa9669302a2e60a0df8137843b39de53f2c3e265aa"
-        },
-        {
-          "memberIndex": 45,
-          "proTxHash": "cfa6f7b58c78f827c15e8f1b6a5a2a3a92140101719006d8226a363e2c0c8e5c"
-        },
-        {
-          "memberIndex": 46,
-          "proTxHash": "03811a53a20289799f56227f576915492d2cede48522cd1b3f67c6c89cdacf83"
-        },
-        {
-          "memberIndex": 47,
-          "proTxHash": "f989866b2fadb674a1ca63746ff8bb97232d6843c95f9e805b8bc2a5ae8e768d"
-        },
-        {
           "memberIndex": 48,
           "proTxHash": "9de76b8291d00026ab0af86306023c7b90f8e9229dc04916fe1335bf5e11f15d"
         },
@@ -1657,162 +1440,6 @@ Result:
         {
           "memberIndex": 2,
           "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
-        },
-        {
-          "memberIndex": 3,
-          "proTxHash": "596be0851532a66037744afa694e4de6485f326f4638e704db93cc726866cda3"
-        },
-        {
-          "memberIndex": 4,
-          "proTxHash": "51c11d287dfa85aef3eebb5420834c8e443e01d15c0b0a8e397d67e2e51aa239"
-        },
-        {
-          "memberIndex": 5,
-          "proTxHash": "9f4f9f83ecbcd5739d7f1479ee14b508f2414d044a717acba0960566c4e6091d"
-        },
-        {
-          "memberIndex": 6,
-          "proTxHash": "21c0923badd20f953360c586edfcbb1a830be83206e30b3f65765f7794f2a640"
-        },
-        {
-          "memberIndex": 7,
-          "proTxHash": "cc36055f36345b85a2b8176e79feff0ff822c490691c7f8e8d3348b4b1a1d8ac"
-        },
-        {
-          "memberIndex": 8,
-          "proTxHash": "4636ed7acbacbc76aba60aa7a1011688fe9ad5fd701d0bf8fc42a502ea3e6543"
-        },
-        {
-          "memberIndex": 9,
-          "proTxHash": "32e5ad5cf9a06eb13e0f65cb7ecde1a93ef24995d07355fac2ff05ebd5b9ddbf"
-        },
-        {
-          "memberIndex": 10,
-          "proTxHash": "0022afbe93054ca11ce9b67892661af4558597bacff0ab82bff05a2b4a89ca2d"
-        },
-        {
-          "memberIndex": 11,
-          "proTxHash": "2523dc6e034911b9004862e87b4d23a32ed6198aec177915df7893f51cd645bd"
-        },
-        {
-          "memberIndex": 12,
-          "proTxHash": "abe5d16432915b201cf6f11299a1abd62e5f69a2c4e8717694d1e42d96dbd580"
-        },
-        {
-          "memberIndex": 14,
-          "proTxHash": "6a5be5c068a0be432b7db0772b25094a59ce1f433dd2df0d410511ac641c3768"
-        },
-        {
-          "memberIndex": 15,
-          "proTxHash": "84435c41688c8021a25a644e6b94c9f5159aff5658ee2e12f5cea5c714c21aa3"
-        },
-        {
-          "memberIndex": 16,
-          "proTxHash": "2db238aa40837319ca13e27aae4333d1248475546be6cfad985a3785c0ac9bd6"
-        },
-        {
-          "memberIndex": 17,
-          "proTxHash": "cefb7c69f75d9fbba21f648c6205bebf9b16325956404c70af03144c1135c7d7"
-        },
-        {
-          "memberIndex": 18,
-          "proTxHash": "cc7041c869c7c1c0bae7c137f0cda708ad492bc89c4b8f7a40a353d90335febf"
-        },
-        {
-          "memberIndex": 19,
-          "proTxHash": "24e642275f5d5f17f67db502d905153cfd83ffbd3d49c90196ec01200917fb31"
-        },
-        {
-          "memberIndex": 20,
-          "proTxHash": "bc5c77926b0ccfcb742123a1edf2c27147888f694701df399982a862309921c8"
-        },
-        {
-          "memberIndex": 21,
-          "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63"
-        },
-        {
-          "memberIndex": 24,
-          "proTxHash": "d567ac9cc7437848210365a0225271ec26a6a6c7d852544a6e9cbd40756075b3"
-        },
-        {
-          "memberIndex": 25,
-          "proTxHash": "16ef804605595f67a0e078f7ffbdd93ac55bcd22d9094cb8b61ef527c48f4c44"
-        },
-        {
-          "memberIndex": 26,
-          "proTxHash": "f51b426420ac4c518ad07c2bb03e434389337b4e2977d39233114d5e8ef21f69"
-        },
-        {
-          "memberIndex": 27,
-          "proTxHash": "2460848868c210d23c68460050f83f47a7ad00db2c47ad6f223a9b1eb04c8d54"
-        },
-        {
-          "memberIndex": 28,
-          "proTxHash": "49d94e4c584929320cfe159faf4f6e398f1b2d1fdaa413c01345ce23870d2ca9"
-        },
-        {
-          "memberIndex": 29,
-          "proTxHash": "e8b039ce3f1016b7caf781d1b0efbc11191860ec3b131fc49591402a260ba638"
-        },
-        {
-          "memberIndex": 30,
-          "proTxHash": "5ab82a5348b5d4c126b0c172665d364352be37c96ce442e710d4a844a6f80bf9"
-        },
-        {
-          "memberIndex": 31,
-          "proTxHash": "05b83104eea971582c803ded305109ecb734b582da93b8e301c6f00d6be6c496"
-        },
-        {
-          "memberIndex": 33,
-          "proTxHash": "f933d592d677f3409274646ddea2ffaaca77dfd4ceab7c54037a04e05fc7ee8b"
-        },
-        {
-          "memberIndex": 34,
-          "proTxHash": "5d40e68f65e7263d91e114b644ff7f8c9c376db63550d5ef9bc4228870c4f053"
-        },
-        {
-          "memberIndex": 36,
-          "proTxHash": "a36edfac56f7f1b0f58aa793115fbd53d792315857033fb32a862507a3f060ff"
-        },
-        {
-          "memberIndex": 37,
-          "proTxHash": "c9d43a69bd9effdaed579edc901c5d848711481047c9cc76bad8232d8f329dcd"
-        },
-        {
-          "memberIndex": 38,
-          "proTxHash": "d82152084615c73d79f3eb8b0ec6a61e6d0f94c4cdcf26f773f0e42b72176f6f"
-        },
-        {
-          "memberIndex": 39,
-          "proTxHash": "869f7f2054a6ed4241967afb74c3b1a07701d2772b368eb0bbfd2e3365adf6f3"
-        },
-        {
-          "memberIndex": 40,
-          "proTxHash": "5f1a70a350d21f673d93fae45a50c0362947366e46c96bade51b7933f0cada3e"
-        },
-        {
-          "memberIndex": 41,
-          "proTxHash": "024608d03beb6a6065f14a29a837c68ae449ac1e17056819366ca0b72b6dd81f"
-        },
-        {
-          "memberIndex": 43,
-          "proTxHash": "254bcd3b28d696ce9d468cd521e6be3f7eb01da32d8bf9fdf34868baaf09d9e7"
-        },
-        {
-          "memberIndex": 44,
-          "proTxHash": "0ae626ed4ee06c1f042b2eaa9669302a2e60a0df8137843b39de53f2c3e265aa"
-        },
-        {
-          "memberIndex": 45,
-          "proTxHash": "cfa6f7b58c78f827c15e8f1b6a5a2a3a92140101719006d8226a363e2c0c8e5c"
-        },
-        {
-          "memberIndex": 46,
-          "proTxHash": "03811a53a20289799f56227f576915492d2cede48522cd1b3f67c6c89cdacf83"
-        },
-        {
-          "memberIndex": 47,
-          "proTxHash": "f989866b2fadb674a1ca63746ff8bb97232d6843c95f9e805b8bc2a5ae8e768d"
         },
         {
           "memberIndex": 48,
@@ -1837,162 +1464,6 @@ Result:
         {
           "memberIndex": 2,
           "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
-        },
-        {
-          "memberIndex": 3,
-          "proTxHash": "596be0851532a66037744afa694e4de6485f326f4638e704db93cc726866cda3"
-        },
-        {
-          "memberIndex": 4,
-          "proTxHash": "51c11d287dfa85aef3eebb5420834c8e443e01d15c0b0a8e397d67e2e51aa239"
-        },
-        {
-          "memberIndex": 5,
-          "proTxHash": "9f4f9f83ecbcd5739d7f1479ee14b508f2414d044a717acba0960566c4e6091d"
-        },
-        {
-          "memberIndex": 6,
-          "proTxHash": "21c0923badd20f953360c586edfcbb1a830be83206e30b3f65765f7794f2a640"
-        },
-        {
-          "memberIndex": 7,
-          "proTxHash": "cc36055f36345b85a2b8176e79feff0ff822c490691c7f8e8d3348b4b1a1d8ac"
-        },
-        {
-          "memberIndex": 8,
-          "proTxHash": "4636ed7acbacbc76aba60aa7a1011688fe9ad5fd701d0bf8fc42a502ea3e6543"
-        },
-        {
-          "memberIndex": 9,
-          "proTxHash": "32e5ad5cf9a06eb13e0f65cb7ecde1a93ef24995d07355fac2ff05ebd5b9ddbf"
-        },
-        {
-          "memberIndex": 10,
-          "proTxHash": "0022afbe93054ca11ce9b67892661af4558597bacff0ab82bff05a2b4a89ca2d"
-        },
-        {
-          "memberIndex": 11,
-          "proTxHash": "2523dc6e034911b9004862e87b4d23a32ed6198aec177915df7893f51cd645bd"
-        },
-        {
-          "memberIndex": 12,
-          "proTxHash": "abe5d16432915b201cf6f11299a1abd62e5f69a2c4e8717694d1e42d96dbd580"
-        },
-        {
-          "memberIndex": 14,
-          "proTxHash": "6a5be5c068a0be432b7db0772b25094a59ce1f433dd2df0d410511ac641c3768"
-        },
-        {
-          "memberIndex": 15,
-          "proTxHash": "84435c41688c8021a25a644e6b94c9f5159aff5658ee2e12f5cea5c714c21aa3"
-        },
-        {
-          "memberIndex": 16,
-          "proTxHash": "2db238aa40837319ca13e27aae4333d1248475546be6cfad985a3785c0ac9bd6"
-        },
-        {
-          "memberIndex": 17,
-          "proTxHash": "cefb7c69f75d9fbba21f648c6205bebf9b16325956404c70af03144c1135c7d7"
-        },
-        {
-          "memberIndex": 18,
-          "proTxHash": "cc7041c869c7c1c0bae7c137f0cda708ad492bc89c4b8f7a40a353d90335febf"
-        },
-        {
-          "memberIndex": 19,
-          "proTxHash": "24e642275f5d5f17f67db502d905153cfd83ffbd3d49c90196ec01200917fb31"
-        },
-        {
-          "memberIndex": 20,
-          "proTxHash": "bc5c77926b0ccfcb742123a1edf2c27147888f694701df399982a862309921c8"
-        },
-        {
-          "memberIndex": 21,
-          "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63"
-        },
-        {
-          "memberIndex": 24,
-          "proTxHash": "d567ac9cc7437848210365a0225271ec26a6a6c7d852544a6e9cbd40756075b3"
-        },
-        {
-          "memberIndex": 25,
-          "proTxHash": "16ef804605595f67a0e078f7ffbdd93ac55bcd22d9094cb8b61ef527c48f4c44"
-        },
-        {
-          "memberIndex": 26,
-          "proTxHash": "f51b426420ac4c518ad07c2bb03e434389337b4e2977d39233114d5e8ef21f69"
-        },
-        {
-          "memberIndex": 27,
-          "proTxHash": "2460848868c210d23c68460050f83f47a7ad00db2c47ad6f223a9b1eb04c8d54"
-        },
-        {
-          "memberIndex": 28,
-          "proTxHash": "49d94e4c584929320cfe159faf4f6e398f1b2d1fdaa413c01345ce23870d2ca9"
-        },
-        {
-          "memberIndex": 29,
-          "proTxHash": "e8b039ce3f1016b7caf781d1b0efbc11191860ec3b131fc49591402a260ba638"
-        },
-        {
-          "memberIndex": 30,
-          "proTxHash": "5ab82a5348b5d4c126b0c172665d364352be37c96ce442e710d4a844a6f80bf9"
-        },
-        {
-          "memberIndex": 31,
-          "proTxHash": "05b83104eea971582c803ded305109ecb734b582da93b8e301c6f00d6be6c496"
-        },
-        {
-          "memberIndex": 33,
-          "proTxHash": "f933d592d677f3409274646ddea2ffaaca77dfd4ceab7c54037a04e05fc7ee8b"
-        },
-        {
-          "memberIndex": 34,
-          "proTxHash": "5d40e68f65e7263d91e114b644ff7f8c9c376db63550d5ef9bc4228870c4f053"
-        },
-        {
-          "memberIndex": 36,
-          "proTxHash": "a36edfac56f7f1b0f58aa793115fbd53d792315857033fb32a862507a3f060ff"
-        },
-        {
-          "memberIndex": 37,
-          "proTxHash": "c9d43a69bd9effdaed579edc901c5d848711481047c9cc76bad8232d8f329dcd"
-        },
-        {
-          "memberIndex": 38,
-          "proTxHash": "d82152084615c73d79f3eb8b0ec6a61e6d0f94c4cdcf26f773f0e42b72176f6f"
-        },
-        {
-          "memberIndex": 39,
-          "proTxHash": "869f7f2054a6ed4241967afb74c3b1a07701d2772b368eb0bbfd2e3365adf6f3"
-        },
-        {
-          "memberIndex": 40,
-          "proTxHash": "5f1a70a350d21f673d93fae45a50c0362947366e46c96bade51b7933f0cada3e"
-        },
-        {
-          "memberIndex": 41,
-          "proTxHash": "024608d03beb6a6065f14a29a837c68ae449ac1e17056819366ca0b72b6dd81f"
-        },
-        {
-          "memberIndex": 43,
-          "proTxHash": "254bcd3b28d696ce9d468cd521e6be3f7eb01da32d8bf9fdf34868baaf09d9e7"
-        },
-        {
-          "memberIndex": 44,
-          "proTxHash": "0ae626ed4ee06c1f042b2eaa9669302a2e60a0df8137843b39de53f2c3e265aa"
-        },
-        {
-          "memberIndex": 45,
-          "proTxHash": "cfa6f7b58c78f827c15e8f1b6a5a2a3a92140101719006d8226a363e2c0c8e5c"
-        },
-        {
-          "memberIndex": 46,
-          "proTxHash": "03811a53a20289799f56227f576915492d2cede48522cd1b3f67c6c89cdacf83"
-        },
-        {
-          "memberIndex": 47,
-          "proTxHash": "f989866b2fadb674a1ca63746ff8bb97232d6843c95f9e805b8bc2a5ae8e768d"
         },
         {
           "memberIndex": 48,
@@ -2078,14 +1549,19 @@ The `quorum sign` RPC requests threshold-signing for a message.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---id*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`id` | string (hex) | Required<br>(exactly 1) | Signing request ID
-
+`id` | string (hex) | Required<br>(exactly 1) | Signing request ID. Signing request ids for ChainLocks and InstantSend are calculated as described in:<br> \* The [ChainLocks DIP](https://github.com/dashpay/dips/blob/master/dip-0008.md#signing-attempts)<br> \* The [LLMQ InstantSend DIP](https://github.com/dashpay/dips/blob/master/dip-0010.md#finalization-and-creation-of-islock-messages).
+[block:callout]
+{
+  "type": "info",
+  "body": "For general signing requests, any 32 byte hex string can be provided as the request id. Note that if a quorum hash is not specified in parameter 4, a quorum will be selected automatically based in part on this value."
+}
+[/block]
 *Parameter #3---message hash*
 
 Name | Type | Presence | Description
@@ -2096,15 +1572,36 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`quorumHash` | string (hex) | Optional<br>(0 or 1) | **Added in Dash Core 0.16.0**<br><br>The quorum identifier. Used by [Dash Platform](https://dashplatform.readme.io/docs/introduction-what-is-dash-platform) to direct layer 2 signing requests to a specific quorum.
+`quorumHash` | string (hex) | Optional<br>(0 or 1) | The quorum identifier
 
-*Result---status*
+*Parameter #5---submit*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`submit` | bool | Optional<br>(0 or 1) | **Added in Dash Core 0.17.0**<br><br>Submits the signature share to the network if this is `true` (default). Returns an object containing the signature share if this is `false`.
+
+*Result---(if submit = `true`) status*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 result | bool | Required<br>(exactly 1) | True or false depending on success
 
-*Example from Dash Core 0.14.0*
+*Result---(if submit = `false`) signature share JSON object*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+result | object | Required<br>(exactly 1) | JSON object containing signature share details
+→<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
+→<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The quorum identifier
+→<br>`quorumMember` | number | Required<br>(exactly 1) | Which quorum member created this signature share
+→<br>`id` | string (hex) | Required<br>(exactly 1) | Signing request ID
+→<br>`msgHash` | string (hex) | Required<br>(exactly 1) | Hash of the message that was signed
+→<br>`signHash` | string (hex) | Required<br>(exactly 1) | Hash of `llmqType`, `quorumHash`, `id`, and `msgHash`
+→<br>`signature` | string (hex) | Required<br>(exactly 1) | Signature share
+
+*Example from Dash Core 0.17.0*
+
+Submit signature share to network (default):
 
 ```bash
 dash-cli -testnet quorum sign 1 \
@@ -2117,6 +1614,29 @@ Result:
 false
 ```
 
+Return signature share object: 
+
+```bash
+dash-cli -testnet quorum sign 100 \
+  "0000000000000000000000000000000000000000000000000000000000000001" \
+  "0000000000000000000000000000000000000000000000000000000000000002" \
+  "53d959f609a654cf4e5e3c083fd6c47b7ec6cb73af4ac7329149688337b8ef9a" false
+```
+
+Result:
+```json
+{
+  "llmqType": 100,
+  "quorumHash": "53d959f609a654cf4e5e3c083fd6c47b7ec6cb73af4ac7329149688337b8ef9a",
+  "quorumMember": 2,
+  "id": "0000000000000000000000000000000000000000000000000000000000000001",
+  "msgHash": "0000000000000000000000000000000000000000000000000000000000000002",
+  "signHash": "39458221939396a45a2e348caada646eabd52849990827d40e33eb1399097b3c",
+  "signature": "9716545a0c28ff70900a71fabbadf3c13e4ae562032122902405365f1ebf3da813c8a97d765eb8b167ff339c1638550c13822217cf06b609ba6a78f0035684ca7b4afdb7146ce74a30cfb6770f852aade8c27ffec67c79f85be31964573fb51c"
+}
+```
+
+
 ## Quorum GetRecSig
 
 The `quorum getrecsig` RPC gets the recovered signature for a previous threshold-signing message request.
@@ -2125,7 +1645,7 @@ The `quorum getrecsig` RPC gets the recovered signature for a previous threshold
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---id*
 
@@ -2144,7 +1664,7 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 result | bool | Required<br>(exactly 1) | Recovered signature details
-→<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+→<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum  
 →<br>`id` | string (hex) | Required<br>(exactly 1) | The signing session ID
 →<br>`msgHash` | string (hex) | Required<br>(exactly 1) | The message hash
@@ -2186,7 +1706,7 @@ The `quorum hasrecsig` RPC checks for a recovered signature for a previous thres
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---id*
 
@@ -2234,7 +1754,7 @@ The `quorum isconflicting` RPC checks if there is a conflict for a threshold-sig
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---id*
 
@@ -2329,7 +1849,7 @@ The `quorum selectquorum` RPC returns information about the quorum that would/sh
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`llmqType` | number | Required<br>(exactly 1) | [Type of quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) to list:<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorums](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) to list:<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 
 *Parameter #2---request id*
 
@@ -2389,3 +1909,173 @@ Result:
 ```
 
 *See also: none*
+
+## Quorum Verify
+[block:callout]
+{
+  "type": "success",
+  "body": "Added in Dash Core 0.17.0"
+}
+[/block]
+The `quorum verify` RPC tests if a quorum signature is valid for a request id and a message hash.
+
+*Parameter #1---LLMQ Type*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
+
+*Parameter #2---id*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`id` | string (hex) | Required<br>(exactly 1) | Signing request ID
+
+*Parameter #3---message hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`msgHash` | string (hex) | Required<br>(exactly 1) | Hash of the message to be signed
+
+*Parameter #4---signature*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`signature` | string (hex) | Required<br>(exactly 1) | Quorum signature to verify
+
+*Parameter #5---quorum hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`quorumHash` | string (hex) | Optional<br>(0 or 1) | The quorum identifier. Set to `""` if you want to specify `signHeight` instead.
+
+*Parameter #6---sign height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`signHeight` | number | Optional<br>(0 or 1) | The height at which the message was signed. Only works when `quorumHash` is `""`.
+
+*Result---status*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+result | bool | Required<br>(exactly 1) | True or false depending on verification success
+
+*Example from Dash Core 0.17.0*
+
+Verify the provided signature was valid:
+
+```bash
+dash-cli -testnet quorum verify 1 \
+  "2ceeaa7ff20de327ef65b14de692199d15b67b9458d0ded7d68735cce98dd039" \
+  "8b5174d0e95b5642ebec23c3fe8f0bbf8f6993502f4210322871bba0e818ff3b" \
+  "99cf2a0deb08286a2d1ffdd2564b35522fd748c8802e561abed330dea20df5cb5a5dffeddbe627ea32cb36de13d5b4a516fdfaebae9886b2f7969a5d112416cf8d1983ebcbf1463a64f7522505627e08b9c76c036616fbb1649271a2773a1653" \
+  "000000583a348d1a0a5f753ef98e6a69f9bcd9b27919f10eb1a1c3edb6c79182"
+```
+
+Result:
+```json
+true
+```
+
+# VerifyChainLock
+[block:callout]
+{
+  "type": "success",
+  "body": "Added in Dash Core 0.17.0"
+}
+[/block]
+The `verifychainlock` RPC tests if a quorum signature is valid for a ChainLock.
+
+*Parameter #1---block hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`blockhash` | string (hex) | Required<br>(exactly 1) | The block hash of the ChainLock
+
+*Parameter #2---signature*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`signature` | string (hex) | Required<br>(exactly 1) | The ChainLock signature to verify
+
+*Parameter #3---block height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`blockHeight` | number | Optional<br>(0 or 1) | The height of the ChainLock. There will be an internal lookup of `blockHash` if this is not provided.
+
+*Result---status*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+result | bool | Required<br>(exactly 1) | True or false depending on verification success
+
+*Example from Dash Core 0.17.0*
+
+Verify the provided signature was valid:
+
+```bash
+dash-cli -testnet verifychainlock \
+  "00000036d5c520be6e9a32d3829efc983a7b5e88052bf138f80a2b3988689a24" \
+  "97ec34efd1615b84af62495e54024880752f57790cf450ae974b80002440963592d96826e24f109e6c149411b70bb9a0035443752368590adae60365cf4251464e0423c1263e9c56a33eae9be9e9c79a117151b2173bcee93497008cace8d793"
+```
+
+Result:
+```json
+true
+```
+
+# VerifyISLock
+[block:callout]
+{
+  "type": "success",
+  "body": "Added in Dash Core 0.17.0"
+}
+[/block]
+The `verifyislock` RPC tests if a quorum signature is valid for an InstantSend Lock.
+
+*Parameter #1---id*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`id` | string (hex) | Required<br>(exactly 1) | Signing request ID
+
+*Parameter #2---transaction id*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`txid` | string (hex) | Required<br>(exactly 1) | The transaction id (TXID)
+
+*Parameter #3---signature*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`signature` | string (hex) | Required<br>(exactly 1) | The InstantSend Lock signature to verify
+
+*Parameter #4---maximum height*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`maxHeight` | number | Optional<br>(0 or 1) | The maximum height to search quorums from
+
+*Result---status*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+result | bool | Required<br>(exactly 1) | True or false depending on verification success
+
+*Example from Dash Core 0.17.0*
+
+Verify the provided signature was valid:
+
+```bash
+dash-cli -testnet verifyislock \
+  "d0b1a9c70fdfff6bf7f6cbe3d1fe33a4ca44ceb17059b6381a4ac25d9c9b6495" \
+  "8b5174d0e95b5642ebec23c3fe8f0bbf8f6993502f4210322871bba0e818ff3b"
+```
+
+Result:
+```json
+false
+```

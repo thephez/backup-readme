@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5ebc1f1e39065f00110c31d2", 
+ "parentDoc": "5fce5c21ec64d90073aa887a", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-05-13T16:26:12.078Z", 
- "id": "5ebc1fa0d24ce30409d3f9a5", 
+ "id": "5fce5c21ec64d90073aa887b", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-05-13T14:44:00.426Z", 
- "category": "5e96055329a18c0025d391e6", 
+ "category": "5fce5c21ec64d90073aa87fe", 
  "title": "ZMQ Example", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T22:17:54.373Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:07.063Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5ebc1fa0d24ce30409d3f9a5", 
+ "_id": "5fce5c21ec64d90073aa887b", 
  "order": 0, 
  "updates": []
 }

@@ -23,7 +23,7 @@ The block reward is divided into three parts: <<glossary:miner>>, <<glossary:mas
 | Payee | Subsidy | Description |
 | ----- | -------- | ----------- |
 | Miner | 45% | Payment for mining
-| Masternode | 45% | Payment for masternode services ([PrivateSend](core-guide-dash-features-privatesend), [InstantSend](core-guide-dash-features-instantsend), [Governance](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance), etc.)
+| Masternode | 45% | Payment for masternode services ([CoinJoin](core-guide-dash-features-privatesend), [InstantSend](core-guide-dash-features-instantsend), [Governance](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance), etc.)
 | Superblock | 10% | Payment for maintenance/expansion of the ecosystem (Core development, marketing, integration, etc.)
 [block:image]
 {
@@ -55,8 +55,8 @@ Reward reallocation changes began at the first superblock following activation (
 | :-: | :-: | :-: | :-: | :-:
 | -               | -                    | 50     | 50          | 0.00%      |
 | Q4 2020 | 1,379,128      | 48.7   | 51.3        | 1.30%       |
-| **Q1 2021**   | **1,428,976**    | **47.4**    | **52.6**        | **1.30%**      |
-| Q2 2021  | 1,478,824     | 46.7   | 53.3        | 0.70%      |
+| Q1 2021   | 1,428,976    | 47.4    | 52.6        | 1.30%      |
+| **Q2 2021**  | **1,478,824**     | **46.7**   | **53.3**        | **0.70%**      |
 | Q3 2021  | 1,528,672     | 46.0  | 54.0         | 0.70%      |
 | Q4 2021  | 1,578,520     | 45.4   | 54.6        | 0.60%     |
 | Q1 2022  | 1,628,368     | 44.8   | 55.2        | 0.60%     |

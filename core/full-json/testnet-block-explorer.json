@@ -1,5 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -24,19 +25,19 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2021-03-04T13:40:01.098Z", 
- "id": "6040e331fca1bf004888263e", 
+ "updatedAt": "2021-03-04T13:40:31.535Z", 
+ "id": "6040e34f719f70005d3a6958", 
  "sync_unique": "", 
  "isApi": false, 
- "createdAt": "2021-03-04T13:40:01.098Z", 
- "category": "5e96055329a18c0025d391e8", 
+ "createdAt": "2021-03-04T13:40:31.535Z", 
+ "category": "5fce5c21ec64d90073aa8800", 
  "title": "Testnet Block Explorer", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-03-03T22:56:08.513Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-03-03T23:03:16.204Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -50,10 +51,10 @@
  "user": "5b8400d7185d5e00036dcc3b", 
  "isReference": false, 
  "slug": "testnet-block-explorer", 
- "link_url": "http://testnet-452625393.us-west-2.elb.amazonaws.com:3001/insight/", 
+ "link_url": "https://testnet-insight.dashevo.org/insight/", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "6040e331fca1bf004888263e", 
- "order": 999, 
+ "_id": "6040e34f719f70005d3a6958", 
+ "order": 4, 
  "updates": []
 }

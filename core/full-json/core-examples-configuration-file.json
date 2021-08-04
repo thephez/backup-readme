@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-11T20:05:15.974Z", 
- "id": "5e96055329a18c0025d3920d", 
+ "id": "5fce5c21ec64d90073aa8826", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T12:55:04.227Z", 
- "category": "5e96055329a18c0025d391e5", 
+ "category": "5fce5c21ec64d90073aa87fd", 
  "title": "Configuration File", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T22:12:29.189Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:06.642Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5e96055329a18c0025d3920d", 
+ "_id": "5fce5c21ec64d90073aa8826", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

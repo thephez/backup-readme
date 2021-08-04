@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "60906294cda28200612695d9", 
+ "parentDoc": "60e604b4762bd40057ebe134", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-05-17T16:16:02.928Z", 
- "id": "60a296039ffb0f00167ce375", 
+ "id": "60e604b4762bd40057ebe141", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2021-05-17T16:12:51.193Z", 
- "category": "60906294cda282006126957f", 
+ "category": "60e604b4762bd40057ebe0da", 
  "title": "Client App options", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2021-05-17T06:59:56.629Z", 
  "hidden": true, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60a296039ffb0f00167ce375", 
+ "_id": "60e604b4762bd40057ebe141", 
  "order": 999, 
  "updates": []
 }

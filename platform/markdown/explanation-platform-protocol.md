@@ -1,7 +1,13 @@
 # Overview
 
 To ensure the consistency and integrity of data stored on Layer 2, all data is governed by the Dash Platform Protocol (DPP). Dash Platform Protocol describes serialization and validation rules for the platform's 3 core data structures: data contracts, documents, and state transitions. Each of these structures are briefly described below.
-
+[block:callout]
+{
+  "type": "danger",
+  "title": "Breaking changes in Dash Platform 0.20",
+  "body": "A number of breaking changes were introduced in DPP 0.20 which updated to a newer version of JSON Schema and also switched to a new regex module for improved security. More details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.20.0)."
+}
+[/block]
 # Structure Descriptions
 
 ## Data Contract

@@ -8,11 +8,11 @@ The Platform Chain is processed by a state machine in Drive to reach consensus o
   "images": [
     {
       "image": [
-        "https://files.readme.io/e7d2198-Drive_Details.png",
-        "Drive Details.png",
-        733,
-        606,
-        "#eaeee8"
+        "https://files.readme.io/c4cdfb5-Platform_State.svg",
+        "Platform State.svg",
+        612,
+        517,
+        "#fafafc"
       ],
       "caption": "Platform State Propagation"
     }

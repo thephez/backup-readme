@@ -1,3 +1,59 @@
+# EstimateFee
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.17.0._**"
+}
+[/block]
+The [`estimatefee` RPC](core-api-ref-remote-procedure-calls-util#estimatefee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks.
+
+*Parameter #1---how many blocks the transaction may wait before being included*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Blocks | number (int) | Required<br>(exactly 1) | The maximum number of blocks a transaction should have to wait before it is predicted to be included in a block. Has to be between 2 and 25 blocks
+
+*Result---the fee the transaction needs to pay per kilobyte*
+[block:callout]
+{
+  "type": "danger",
+  "body": "If the node doesn't have enough information to make an estimate, the value `-1` will be returned.",
+  "title": "Inability to estimate"
+}
+[/block]
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | number (Dash) | Required<br>(exactly 1) | The estimated fee the transaction should pay in order to be included within the specified number of blocks.  
+
+*Examples from Dash Core 0.12.2*
+
+``` bash
+dash-cli estimatefee 6
+```
+
+Result:
+
+``` json
+0.00044345
+```
+
+Requesting data the node can't calculate (out of range):
+
+``` bash
+dash-cli estimatefee 100
+```
+
+Result:
+
+``` json
+-1
+```
+
+*See also*
+
+* [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+
+
 # EstimatePriority
 [block:callout]
 {
@@ -178,6 +234,74 @@ Result:
 * [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information.
 * [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#getnetworkinfo): returns information about the node's connection to the network.
 * [GetWalletInfo](/docs/core-api-ref-remote-procedure-calls-wallet#getwalletinfo): provides information about the wallet.
+
+# GetPoolInfo
+
+The [`getpoolinfo` RPC](#getpoolinfo) returns an object containing CoinJoin pool related information.
+
+*Parameters: none*
+
+*Result---information about the CoinJoin pool*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Information about the pool
+→<br>`state` | string | Required<br>(exactly 1) | Pool state.  Will be one of the following:<br>• `IDLE` <br>• `QUEUE` <br>• `ACCEPTING_ENTRIES` <br>• `SIGNING` <br>• `ERROR` <br>• `SUCCESS` <br>• `UNKNOWN` <br>
+→<br>`mixing_mode` | string | Required<br>(exactly 1) | One of the following:<br>• `normal` <br>• `multi-session` <br>
+→<br>`queue` | number (int) | Required<br>(exactly 1) | Queue size
+→<br>`entries` | number (int) | Required<br>(exactly 1) | The number of entries
+→<br>`status` | string | Required<br>(exactly 1) | A more detailed description of the current state
+→<br>`outpoint` | string (hex) | Optional<br>(exactly 1) | Previous output
+→<br>`addr` | string | Optional<br>(exactly 1) | Address
+→<br>`keys_left` | number (int) | Optional<br>(exactly 1) | The number of keys left in the local wallet
+→<br>`warnings` | number (int) | Optional<br>(exactly 1) | Warnings related to local wallet
+
+*Example from Dash Core 0.12.2*
+
+``` bash
+dash-cli -testnet getpoolinfo
+```
+
+Result:
+``` json
+{
+  "state": "IDLE",
+  "mixing_mode": "normal",
+  "queue": 0,
+  "entries": 0,
+  "status": "PrivateSend is idle.",
+  "keys_left": 617,
+  "warnings": ""
+}
+```
+
+``` json
+{
+  "state": "QUEUE",
+  "mixing_mode": "normal",
+  "queue": 1,
+  "entries": 0,
+  "status": "Submitted to masternode, waiting in queue .",
+  "outpoint": "e3a6b7878a7e9413898bb379b323c521676f9d460db17ec3bf42d9ac0c9a432f-1",
+  "addr": "217.182.229.146:19999",
+  "keys_left": 571,
+  "warnings": ""
+}
+```
+
+``` json
+{
+  "state": "ERROR",
+  "mixing_mode": "normal",
+  "queue": 0,
+  "entries": 0,
+  "status": "PrivateSend request incomplete: Session timed out. Will retry...",
+  "keys_left": 571,
+  "warnings": ""
+}
+```
+
+*See also:*
 
 # MasternodeBroadcast
 [block:callout]

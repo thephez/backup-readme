@@ -24,6 +24,7 @@ Currently, the following notifications are supported:
 | zmqpubhashgovernancevote | Governance vote hash |
 | zmqpubhashgovernanceobject | Governance object hash |
 | zmqpubhashinstantsend<br>doublespend | Hash of a transaction attempting to double-spend an InstantSend-locked input |
+| zmqpubhashrecoveredsig | Hash of recovered signatures (recovered by LLMQs)
 | zmqpubrawblock | Raw [`block`](core-ref-p2p-network-data-messages#block) |
 | zmqpubrawchainlock | Raw [`block`](core-ref-p2p-network-data-messages#block) receiving a ChainLock |
 | zmqpubrawchainlocksig | Raw [`block`](core-ref-p2p-network-data-messages#block) with ChainLock signature ([`clsig`](core-ref-p2p-network-instantsend-messages#clsig)) concatenated |
@@ -33,6 +34,7 @@ Currently, the following notifications are supported:
 | zmqpubrawgovernancevote | Raw governance vote ([`govobjvote`](core-ref-p2p-network-governance-messages#govobjvote)) |
 | zmqpubrawgovernanceobject | Raw governance object ([`govobject`](core-ref-p2p-network-governance-messages#govobj)) |
 | zmqpubrawinstantsend<br>doublespend | Raw transaction ([`tx`](core-ref-transactions-raw-transaction-format)) attempting to double-spend an InstantSend-locked input |
+| zmqpubrawrecoveredsig | Raw recovered signatures (recovered by LLMQs)
 
 # Dash Core Configuration
 

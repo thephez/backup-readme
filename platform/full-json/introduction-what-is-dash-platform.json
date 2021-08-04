@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-11-23T14:32:56.792Z", 
- "id": "60906294cda282006126958a", 
+ "id": "60e604b4762bd40057ebe0e5", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-01-07T15:48:05.850Z", 
- "category": "60906294cda282006126957d", 
+ "category": "60e604b4762bd40057ebe0d8", 
  "title": "What is Dash Platform?", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2020-11-23T04:32:55.902Z", 
  "hidden": false, 
  "type": "basic", 
@@ -64,7 +64,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 5, 
- "_id": "60906294cda282006126958a", 
+ "_id": "60e604b4762bd40057ebe0e5", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

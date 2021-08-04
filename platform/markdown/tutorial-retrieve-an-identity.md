@@ -26,7 +26,7 @@ The following example response shows a retrieved identity:
 {
   "codes": [
     {
-      "code": "{\n   \"protocolVersion\":0,\n   \"id\":\"DVNRfGUspUc6r1CiUFN92zNMBh5Y5jc5cZqCiP1XSJ7G\",\n   \"publicKeys\":[\n      {\n         \"id\":0,\n         \"type\":0,\n         \"data\":\"A5IZf6peksdOOH2Qcuh2VDH+m5n52bL6dW6Xt1oMGWjq\"\n      }\n   ],\n   \"balance\":10998939,\n   \"revision\":0\n}",
+      "code": "{\n   \"protocolVersion\":0,\n   \"id\":\"6Jz8pFZFhssKSTacgQmZP14zGZNnFYZFKSbx4WVAJFy3\",\n   \"publicKeys\":[\n      {\n         \"id\":0,\n         \"type\":0,\n         \"data\":\"A4zZl0EaRBB6IlDbyR80YUM2l02qqNUCoIizkQxubtxi\"\n      }\n   ],\n   \"balance\":10997588,\n   \"revision\":0\n}",
       "language": "json"
     }
   ]

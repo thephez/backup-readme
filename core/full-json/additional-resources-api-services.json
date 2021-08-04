@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-27T22:20:14.855Z", 
- "id": "5e96055329a18c0025d39256", 
+ "id": "5fce5c21ec64d90073aa886f", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-11-07T13:36:43.831Z", 
- "category": "5e96055329a18c0025d391e8", 
+ "category": "5fce5c21ec64d90073aa8800", 
  "title": "API Services", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T22:17:54.436Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-03-03T22:56:07.452Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -46,15 +46,15 @@
   "title": ""
  }, 
  "body": "", 
- "link_external": false, 
+ "link_external": true, 
  "body_html": "&nbsp;", 
  "updates": [], 
  "isReference": false, 
  "slug": "additional-resources-api-services", 
- "link_url": "https://docs.dash.org/en/stable/developers/integration.html#api-services", 
+ "link_url": "https://www.dash.org/providers-and-tools/#custody-and-api", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5e96055329a18c0025d39256", 
- "order": 2, 
+ "_id": "5fce5c21ec64d90073aa886f", 
+ "order": 5, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-02-09T18:23:04.431Z", 
- "id": "60906294cda28200612695da", 
+ "id": "60e604b4762bd40057ebe135", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-17T19:30:17.137Z", 
- "category": "60906294cda282006126957f", 
+ "category": "60e604b4762bd40057ebe0da", 
  "title": "Identities and Names", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
+ "version": "60e604b4762bd40057ebe142", 
  "slugUpdatedAt": "2020-12-17T17:27:48.598Z", 
  "hidden": false, 
  "type": "basic", 
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
- "_id": "60906294cda28200612695da", 
+ "_id": "60e604b4762bd40057ebe135", 
  "order": 5, 
  "updates": []
 }

@@ -26,9 +26,6 @@ Usage:
 
 ## Chain selection options:
 ```
-  -testnet
-       Use the test chain
-
   -devnet=<name>
        Use devnet chain with provided name
 
@@ -36,6 +33,9 @@ Usage:
        Enter regression test mode, which uses a special chain in which blocks
        can be solved instantly. This is intended for regression testing
        tools and app development.
+
+  -testnet
+       Use the test chain
 ```
 
 ## Commands:
@@ -58,21 +58,21 @@ Usage:
   outaddr=VALUE:ADDRESS
        Add address-based output to TX
 
-  outpubkey=VALUE:PUBKEY[:FLAGS]
-       Add pay-to-pubkey output to TX. Optionally add the "S" flag to wrap the
-       output in a pay-to-script-hash.
-
   outdata=[VALUE:]DATA
        Add data-based output to TX
-
-  outscript=VALUE:SCRIPT[:FLAGS]
-       Add raw script output to TX. Optionally add the "S" flag to wrap the
-       output in a pay-to-script-hash.
 
   outmultisig=VALUE:REQUIRED:PUBKEYS:PUBKEY1:PUBKEY2:....[:FLAGS]
        Add Pay To n-of-m Multi-sig output to TX. n = REQUIRED, m = PUBKEYS.
        Optionally add the "S" flag to wrap the output in a
        pay-to-script-hash.
+
+  outpubkey=VALUE:PUBKEY[:FLAGS]
+       Add pay-to-pubkey output to TX. Optionally add the "S" flag to wrap the
+       output in a pay-to-script-hash.
+
+  outscript=VALUE:SCRIPT[:FLAGS]
+       Add raw script output to TX. Optionally add the "S" flag to wrap the
+       output in a pay-to-script-hash.
 
   sign=SIGHASH-FLAGS
        Add zero or more signatures to transaction. This command requires JSON

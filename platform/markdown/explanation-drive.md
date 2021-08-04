@@ -27,11 +27,11 @@ The process of adding or updating data in Drive consists of several steps to ens
   "images": [
     {
       "image": [
-        "https://files.readme.io/39ff0e6-Drive_-_Writing_Data.png",
-        "Drive - Writing Data.png",
-        1019,
-        346,
-        "#e5eae3"
+        "https://files.readme.io/5e35fd4-Drive.svg",
+        "Drive.svg",
+        612,
+        492,
+        "#fafafc"
       ],
       "caption": "Storing data in Drive"
     }

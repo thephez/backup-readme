@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-10-08T13:37:23.281Z", 
- "id": "60906294cda28200612695a0", 
+ "id": "60e604b4762bd40057ebe0fb", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-08T10:43:25.811Z", 
- "category": "60906294cda2820061269581", 
+ "category": "60e604b4762bd40057ebe0dc", 
  "title": "Key Concepts", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60906294cda28200612695e5", 
- "slugUpdatedAt": "2021-08-03T22:17:54.873Z", 
+ "version": "60e604b4762bd40057ebe142", 
+ "slugUpdatedAt": "2021-08-04T16:05:07.383Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -54,7 +54,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60906294cda28200612695a0", 
+ "_id": "60e604b4762bd40057ebe0fb", 
  "order": 5, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

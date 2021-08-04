@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-13T21:39:28.937Z", 
- "id": "5e96055329a18c0025d39232", 
+ "id": "5fce5c21ec64d90073aa884b", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T12:56:38.049Z", 
- "category": "5e96055329a18c0025d391e3", 
+ "category": "5fce5c21ec64d90073aa87fb", 
  "title": "Mining", 
  "next": {
   "description": "", 
@@ -58,8 +58,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T21:17:56.521Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:34:58.761Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -76,7 +76,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5e96055329a18c0025d39232", 
+ "_id": "5fce5c21ec64d90073aa884b", 
  "order": 8, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

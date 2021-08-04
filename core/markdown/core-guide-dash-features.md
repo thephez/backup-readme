@@ -10,7 +10,7 @@ While Dash is based on Bitcoin and compatible with many key components of the Bi
 
 The most important differentiating feature of the Dash payments network is the concept of a masternode. On a traditional p2p network, nodes participate equally in the sharing of data and network resources.
 
-However, the Dash network has a second layer of network participants that provide enhanced functionality in exchange for compensation. This second layer of masternodes enables the industry-leading features described in this section - most notably: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [PrivateSend](core-guide-dash-features-privatesend), and [Governance](core-guide-dash-features-governance).
+However, the Dash network has a second layer of network participants that provide enhanced functionality in exchange for compensation. This second layer of masternodes enables the industry-leading features described in this section - most notably: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [CoinJoin](core-guide-dash-features-privatesend), and [Governance](core-guide-dash-features-governance).
 
 ## Full nodes
 
@@ -24,7 +24,7 @@ Full nodes in Dash are equivalent to full nodes in Bitcoin. They download and va
   "body": "New in Dash Core v0.16.0"
 }
 [/block]
-Prior to Dash Core v0.16.0, Lite Mode disabled all Dash-specific functionality. Dash Core v0.16.0 introduced Disable Governance Mode to replace Lite Mode. This mode enables access to most Dash features (e.g., InstantSend, ChainLocks, and PrivateSend) while also supporting block pruning.
+Prior to Dash Core v0.16.0, Lite Mode disabled all Dash-specific functionality. Dash Core v0.16.0 introduced Disable Governance Mode to replace Lite Mode. This mode enables access to most Dash features (e.g., InstantSend, ChainLocks, and CoinJoin) while also supporting block pruning.
 
 As with the previous Lite Mode, masternodes **_cannot_** be run in disable governance mode since they are paid to provide governance services that the mode disables.
 
@@ -38,7 +38,7 @@ Disable governance mode is enable by setting `disablegovernance=1` in the `dash.
   "title": "Deprecated in Dash Core v0.16.0"
 }
 [/block]
-Lite mode provides a way to run Dash Core full nodes with Dash-specific functionality disabled. Masternodes **_cannot_** be run in lite mode since they are paid to provide the services that lite mode disables. Disabled items include: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [PrivateSend](core-guide-dash-features-privatesend), Masternode-related information, and [Governance](core-guide-dash-features-governance) details.
+Lite mode provides a way to run Dash Core full nodes with Dash-specific functionality disabled. Masternodes **_cannot_** be run in lite mode since they are paid to provide the services that lite mode disables. Disabled items include: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [CoinJoin](core-guide-dash-features-privatesend), Masternode-related information, and [Governance](core-guide-dash-features-governance) details.
 [block:callout]
 {
   "type": "danger",

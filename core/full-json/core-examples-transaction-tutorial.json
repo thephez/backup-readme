@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-11T20:17:35.253Z", 
- "id": "5e96055329a18c0025d39219", 
+ "id": "5fce5c21ec64d90073aa8832", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-24T15:49:13.283Z", 
- "category": "5e96055329a18c0025d391e5", 
+ "category": "5fce5c21ec64d90073aa87fd", 
  "title": "Transaction Tutorial", 
  "next": {
   "description": "", 
@@ -79,8 +79,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-03T21:17:54.875Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:07.469Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -97,7 +97,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 
- "_id": "5e96055329a18c0025d39219", 
+ "_id": "5fce5c21ec64d90073aa8832", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5e96055329a18c0025d3924c", 
+ "parentDoc": "5fce5c21ec64d90073aa8865", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-13T20:40:57.589Z", 
- "id": "5e96055329a18c0025d3924e", 
+ "id": "5fce5c21ec64d90073aa8867", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T19:38:07.723Z", 
- "category": "5e96055329a18c0025d391e3", 
+ "category": "5fce5c21ec64d90073aa87fb", 
  "title": "Micropayment Channel", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5e96055329a18c0025d39261", 
- "slugUpdatedAt": "2021-08-04T14:08:04.030Z", 
+ "version": "5fce5c21ec64d90073aa8883", 
+ "slugUpdatedAt": "2021-08-04T16:05:17.342Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -62,7 +62,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5e96055329a18c0025d3924e", 
+ "_id": "5fce5c21ec64d90073aa8867", 
  "order": 1, 
  "user": "5b8400d7185d5e00036dcc3b"
 }
