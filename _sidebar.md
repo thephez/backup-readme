@@ -115,3 +115,11 @@
         - [Retrieving A MerkleBlock](core/markdown/core-examples-p2p-network-retrieving-a-merkleblock.md)
         - [Parsing A MerkleBlock](core/markdown/core-examples-p2p-network-parsing-a-merkleblock.md)
     - [Receiving ZMQ Notifications](core/markdown/core-examples-receiving-zmq-notifications.md)
+
+- Core Wallet
+    - [Arguments and Commands](core/markdown/dash-core-wallet-arguments-and-commands.md)
+        - [dashd](core/markdown/dash-core-wallet-arguments-and-commands-dashd.md)
+        - [dash-qt](core/markdown/dash-core-wallet-arguments-and-commands-dash-qt.md)
+        - [dash-cli](core/markdown/dash-core-wallet-arguments-and-commands-dash-cli.md)
+        - [dash-tx](core/markdown/dash-core-wallet-arguments-and-commands-dash-tx.md)
+    - [Configuration File](core/markdown/dash-core-wallet-configuration-file.md)
