@@ -51,6 +51,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "reference-glossary", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 

@@ -48,13 +48,14 @@
  "body": "", 
  "link_external": true, 
  "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "mainnet-block-explorer", 
+ "deprecated": false, 
  "link_url": "https://insight.dashevo.org/insight/", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "6040e598bf635000828d24f4", 
  "order": 2, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

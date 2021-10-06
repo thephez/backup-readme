@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-09-29T05:24:19.500Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:51.606Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -51,6 +51,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "resources-source-code-decentralized-api-dapi", 
+ "deprecated": false, 
  "link_url": "https://github.com/dashevo/dapi", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 

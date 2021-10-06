@@ -48,13 +48,14 @@
  "body": "", 
  "link_external": true, 
  "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "testnet-faucet", 
+ "deprecated": false, 
  "link_url": "http://faucet.testnet.networks.dash.org/", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
  "_id": "6040e36345c38a0049af48f3", 
  "order": 3, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

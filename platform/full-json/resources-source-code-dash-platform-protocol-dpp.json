@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-09-29T05:06:59.107Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:53.793Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -48,13 +48,14 @@
  "body": "", 
  "link_external": true, 
  "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "resources-source-code-dash-platform-protocol-dpp", 
+ "deprecated": false, 
  "link_url": "https://github.com/dashevo/js-dpp", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe10e", 
  "order": 2, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

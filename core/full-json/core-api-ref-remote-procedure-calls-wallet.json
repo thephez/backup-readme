@@ -61,6 +61,7 @@
  ], 
  "isReference": false, 
  "slug": "core-api-ref-remote-procedure-calls-wallet", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 

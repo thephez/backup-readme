@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-09-29T02:26:21.908Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:53.080Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -48,13 +48,14 @@
  "body": "", 
  "link_external": false, 
  "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "explanation-credits", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe125", 
  "order": 7, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

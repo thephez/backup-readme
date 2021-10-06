@@ -52,7 +52,7 @@
   ]
  }, 
  "version": "5fce5c21ec64d90073aa8883", 
- "slugUpdatedAt": "2021-09-29T06:30:00.329Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:52.547Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -66,6 +66,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "core-api-ref-http-rest", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 

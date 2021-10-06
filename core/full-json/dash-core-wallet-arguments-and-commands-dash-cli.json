@@ -51,6 +51,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "dash-core-wallet-arguments-and-commands-dash-cli", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 

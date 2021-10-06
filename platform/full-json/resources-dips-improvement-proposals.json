@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-09-29T04:27:10.783Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:52.859Z", 
  "hidden": true, 
  "type": "link", 
  "metadata": {
@@ -51,6 +51,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "resources-dips-improvement-proposals", 
+ "deprecated": false, 
  "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 

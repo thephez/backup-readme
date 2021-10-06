@@ -48,13 +48,14 @@
  "body": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```", 
  "link_external": false, 
  "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "tutorial-update-client-app-options", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe141", 
  "order": 999, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

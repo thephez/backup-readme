@@ -37,7 +37,7 @@
   "pages": []
  }, 
  "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-09-29T05:29:09.826Z", 
+ "slugUpdatedAt": "2021-10-05T21:23:51.606Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -53,6 +53,7 @@
  ], 
  "isReference": false, 
  "slug": "explanation-drive-platform-chain", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 

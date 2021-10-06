@@ -48,13 +48,14 @@
  "body": "[block:callout]\n{\n  \"type\": \"warning\",\n  \"body\": \"\",\n  \"title\": \"Under construction\"\n}\n[/block]", 
  "link_external": false, 
  "body_html": "<div class=\"magic-block-callout type-warning \">\n\t<h3><i title=\"Warning\" class=\"fa fa-exclamation-circle\"></i>Under construction\n\t</h3>\n</div>", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "reference-debugging", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe13f", 
  "order": 7, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

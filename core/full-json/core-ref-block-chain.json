@@ -73,6 +73,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "core-ref-block-chain", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 2, 

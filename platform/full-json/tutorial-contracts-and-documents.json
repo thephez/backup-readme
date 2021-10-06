@@ -48,13 +48,14 @@
  "body": "The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.\n\n- [Register a Data Contract](doc:tutorial-register-a-data-contract) \n- [Retrieve a Data Contract](doc:tutorial-retrieve-a-data-contract) \n- [Submit Documents](doc:tutorial-submit-documents) \n- [Retrieve Documents](doc:tutorial-retrieve-documents) \n- [Update Documents](doc:tutorial-update-documents) \n- [Delete Documents](doc:tutorial-delete-documents)", 
  "link_external": false, 
  "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-data-contract\">Register a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-data-contract\">Retrieve a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-submit-documents\" class=\"doc-link\" data-sidebar=\"tutorial-submit-documents\">Submit Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-documents\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-documents\">Retrieve Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-update-documents\" class=\"doc-link\" data-sidebar=\"tutorial-update-documents\">Update Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-delete-documents\" class=\"doc-link\" data-sidebar=\"tutorial-delete-documents\">Delete Documents</a></li></ul>\n\n</div>", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "tutorial-contracts-and-documents", 
+ "deprecated": false, 
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe134", 
  "order": 6, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

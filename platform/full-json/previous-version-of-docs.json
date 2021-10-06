@@ -48,13 +48,14 @@
  "body": "", 
  "link_external": false, 
  "body_html": "&nbsp;", 
- "user": "5b8400d7185d5e00036dcc3b", 
+ "updates": [], 
  "isReference": false, 
  "slug": "previous-version-of-docs", 
+ "deprecated": false, 
  "link_url": "https://dashplatform.readme.io/v0.19.0/docs", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "60e604b4762bd40057ebe13a", 
  "order": 8, 
- "updates": []
+ "user": "5b8400d7185d5e00036dcc3b"
 }

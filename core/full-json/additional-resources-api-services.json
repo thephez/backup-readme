@@ -51,6 +51,7 @@
  "updates": [], 
  "isReference": false, 
  "slug": "additional-resources-api-services", 
+ "deprecated": false, 
  "link_url": "https://www.dash.org/providers-and-tools/#custody-and-api", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
