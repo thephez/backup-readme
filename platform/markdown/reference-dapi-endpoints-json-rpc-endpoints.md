@@ -1,13 +1,7 @@
 # Overview
 
 The endpoints described on this page provide access to information from the Core chain (layer 1).
-[block:callout]
-{
-  "type": "warning",
-  "title": "gRPC Migration",
-  "body": "The remaining JSON-RPC endpoints will be migrated to gRPC in a future release"
-}
-[/block]
+
 ## Required Parameters
 All valid JSON-RPC requests require the inclusion the parameters listed in the following table.
 
