@@ -72,7 +72,7 @@ Tool providing a convenient JavaScript interface for configuration and interacti
 
 https://github.com/dashevo/js-dp-services-ctl
 
-## mn-bootstrap
+## dashmate
 A distribution package for Dash masternode installation.
 
-https://github.com/dashevo/mn-bootstrap/
+https://github.com/dashevo/dashmate/

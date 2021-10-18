@@ -1,6 +1,6 @@
 # Data Trigger Overview
 
-Although [data contracts](platform-protocol-reference-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](https://dashplatform.readme.io/docs/explanation-dpns) must enforce some rules to ensure names remain [DNS](https://cybernews.com/resources/web-hosting-glossary/#dns) compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.
+Although [data contracts](platform-protocol-reference-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](https://dashplatform.readme.io/docs/explanation-dpns) must enforce some rules to ensure names remain DNS compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.
 
 # Details
 
@@ -16,10 +16,10 @@ As an example, DPP contains several data triggers for DPNS. The `domain` documen
 
 | Data Contract | Document | Action(s) | Trigger Description |
 | - | - | - | - |
-| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/js-dpp/blob/v0.20.0/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |
+| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/js-dpp/blob/v0.21.0/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |
 | ---- | ----| ---- | ---- |
-| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/js-dpp/blob/v0.20.0/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |
-| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/js-dpp/blob/v0.20.0/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |
+| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/js-dpp/blob/v0.21.0/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |
+| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/js-dpp/blob/v0.21.0/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |
 
 **DPNS Trigger Constraints**
 

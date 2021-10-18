@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-02-24T20:38:23.405Z", 
- "id": "60e604b4762bd40057ebe0f5", 
+ "id": "612fe724e9fa2b0026f5fa80", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-09-02T13:19:55.966Z", 
- "category": "60e604b4762bd40057ebe0dc", 
+ "category": "612fe724e9fa2b0026f5fa67", 
  "title": "Glossary", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
+ "version": "612fe724e9fa2b0026f5face", 
  "slugUpdatedAt": "2020-09-03T19:44:57.162Z", 
  "hidden": false, 
  "type": "basic", 
@@ -55,7 +55,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60e604b4762bd40057ebe0f5", 
- "order": 3, 
+ "_id": "612fe724e9fa2b0026f5fa80", 
+ "order": 4, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

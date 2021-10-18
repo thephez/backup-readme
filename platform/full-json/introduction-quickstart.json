@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-12T18:01:43.907Z", 
- "id": "60e604b4762bd40057ebe0e4", 
+ "id": "612fe724e9fa2b0026f5fa6f", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-01-07T15:46:42.687Z", 
- "category": "60e604b4762bd40057ebe0d8", 
+ "category": "612fe724e9fa2b0026f5fa63", 
  "title": "Quickstart", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-10-12T19:24:09.284Z", 
+ "version": "612fe724e9fa2b0026f5face", 
+ "slugUpdatedAt": "2021-10-17T22:38:16.761Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -55,7 +55,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 6, 
- "_id": "60e604b4762bd40057ebe0e4", 
+ "_id": "612fe724e9fa2b0026f5fa6f", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

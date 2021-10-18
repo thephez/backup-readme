@@ -113,7 +113,7 @@ The query modifiers described here determine how query results will be sorted an
 [block:callout]
 {
   "type": "danger",
-  "body": "Currently inverse sort functionality for compound indices is not available on Evonet. [Drive PR #313](https://github.com/dashevo/drive/pull/313) will enable this functionality once deployed.",
+  "body": "Inverse sort functionality for compound indices is not available.",
   "title": "Compound Index Inverse Sort"
 }
 [/block]

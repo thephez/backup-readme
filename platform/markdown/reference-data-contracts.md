@@ -160,7 +160,7 @@ The `indices` array consists of:
 [block:callout]
 {
   "type": "warning",
-  "body": "For performance and security reasons, Evonet places the following constraints on indices. These constraints are subject to change over time."
+  "body": "For performance and security reasons, indices have the following constraints. These constraints are subject to change over time."
 }
 [/block]
 | Description | Value |

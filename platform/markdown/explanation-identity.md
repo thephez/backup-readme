@@ -20,7 +20,7 @@ Once an identity is created, its credit balance is used to pay for platform acti
 [block:callout]
 {
   "type": "info",
-  "title": "Evonet Faucet",
+  "title": "Testnet Faucet",
   "body": "On Testnet, a [test Dash faucet](https://testnet-faucet.dash.org/) is available. It dispenses small amounts to enable all users to directly acquire the funds necessary to create an identity and username."
 }
 [/block]

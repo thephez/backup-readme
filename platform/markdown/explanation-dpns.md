@@ -40,7 +40,7 @@ DPNS names currently have several constraints as defined in the [DPNS data contr
   "body": "Note: Use of `-` as a prefix/suffix to a name is _not_ allowed (e.g. `-name` or `name-`). This constraint is defined by this JSON-Schema [pattern](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json#L34) in the DPNS data contract:\n```\n\"^((?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9])$\"\n```"
 }
 [/block]
-Additionally, the DPNS [data triggers](explanation-platform-protocol-data-trigger) defined in [js-dpp](https://github.com/dashevo/js-dpp/tree/v0.17.0/lib/dataTrigger/dpnsTriggers) enforce additional validation rules related to the `domain` document.
+Additionally, the DPNS [data triggers](explanation-platform-protocol-data-trigger) defined in [js-dpp](https://github.com/dashevo/js-dpp/tree/master/lib/dataTrigger/dpnsTriggers) enforce additional validation rules related to the `domain` document.
 
 For more implementation details, please reference the open-source JavaScript DPNS client reference implementation found in the [js-dpns-client](https://github.com/dashevo/js-dpns-client) repository. Additionally, the DPNS data contract is available in the [dpns-contract](https://github.com/dashevo/dpns-contract/blob/master/schema/dpns-contract-documents.json) repository.
 

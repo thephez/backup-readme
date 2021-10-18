@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-12-30T22:23:46.347Z", 
- "id": "60e604b4762bd40057ebe13a", 
+ "id": "612fe724e9fa2b0026f5fac5", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-30T22:23:46.347Z", 
- "category": "60e604b4762bd40057ebe0db", 
+ "category": "612fe724e9fa2b0026f5fa66", 
  "title": "Previous Version of Docs", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
+ "version": "612fe724e9fa2b0026f5face", 
  "slugUpdatedAt": "2020-12-29T23:43:01.883Z", 
  "hidden": false, 
  "type": "link", 
@@ -52,10 +52,10 @@
  "isReference": false, 
  "slug": "previous-version-of-docs", 
  "deprecated": false, 
- "link_url": "https://dashplatform.readme.io/v0.19.0/docs", 
+ "link_url": "https://dashplatform.readme.io/v0.20.0/docs", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60e604b4762bd40057ebe13a", 
+ "_id": "612fe724e9fa2b0026f5fac5", 
  "order": 8, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

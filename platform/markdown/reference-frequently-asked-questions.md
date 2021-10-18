@@ -29,7 +29,3 @@ Right now there's only IP based rate limits. Generally Core team wants platform 
 
 This can be caused by loading the script with the wrong character encoding. The `dash` npm package uses UTF-8 encoding. Try this:
 `<script src="https://unpkg.com/dash" encoding="UTF-8"></script>`
-
-## What is the difference between Testnet and Evonet?
-
-Testnet is larger and easier for external participants to join, it also closely resembles mainnet in that only two services are required: dashd and sentinel. Evonet is a public testing ground for the services that make up Dash Platform, so masternodes on Evonet can also be expected to provide access to the layer 2 tendermint blockchain, respond to DAPI requests, etc. in addition to dashd and sentinel.

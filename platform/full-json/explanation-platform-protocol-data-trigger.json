@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "60e604b4762bd40057ebe108", 
+ "parentDoc": "612fe724e9fa2b0026f5fa93", 
  "excerpt": "Data Contract related custom logic", 
  "api": {
   "url": "", 
@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-01-19T20:32:16.521Z", 
- "id": "60e604b4762bd40057ebe11d", 
+ "id": "612fe724e9fa2b0026f5faa8", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-02-03T23:07:47.869Z", 
- "category": "60e604b4762bd40057ebe0dd", 
+ "category": "612fe724e9fa2b0026f5fa68", 
  "title": "Data Trigger", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
+ "version": "612fe724e9fa2b0026f5face", 
  "slugUpdatedAt": "2020-09-21T17:11:39.843Z", 
  "hidden": false, 
  "type": "basic", 
@@ -55,7 +55,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60e604b4762bd40057ebe11d", 
+ "_id": "612fe724e9fa2b0026f5faa8", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

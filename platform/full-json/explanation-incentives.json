@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-16T18:25:56.355Z", 
- "id": "60e604b4762bd40057ebe107", 
+ "id": "612fe724e9fa2b0026f5fa92", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-12-02T22:25:41.773Z", 
- "category": "60e604b4762bd40057ebe0dd", 
+ "category": "612fe724e9fa2b0026f5fa68", 
  "title": "Incentives", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-10-12T19:24:08.295Z", 
+ "version": "612fe724e9fa2b0026f5face", 
+ "slugUpdatedAt": "2021-10-17T22:38:16.966Z", 
  "hidden": true, 
  "type": "basic", 
  "metadata": {
@@ -57,7 +57,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
- "_id": "60e604b4762bd40057ebe107", 
+ "_id": "612fe724e9fa2b0026f5fa92", 
  "order": 8, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

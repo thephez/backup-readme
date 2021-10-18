@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-03-02T17:33:23.881Z", 
- "id": "60e604b4762bd40057ebe137", 
+ "id": "612fe724e9fa2b0026f5fac2", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-30T20:21:27.070Z", 
- "category": "60e604b4762bd40057ebe0d8", 
+ "category": "612fe724e9fa2b0026f5fa63", 
  "title": "Intro to Testnet", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "60e604b4762bd40057ebe142", 
+ "version": "612fe724e9fa2b0026f5face", 
  "slugUpdatedAt": "2020-12-29T22:47:20.954Z", 
  "hidden": false, 
  "type": "basic", 
@@ -63,7 +63,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 2, 
- "_id": "60e604b4762bd40057ebe137", 
+ "_id": "612fe724e9fa2b0026f5fac2", 
  "order": 2, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

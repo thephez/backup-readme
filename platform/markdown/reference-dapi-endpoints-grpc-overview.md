@@ -32,7 +32,7 @@ To use gRPCurl as shown in the detailed examples, clone the [dapi-grpc](https://
 The data submitted/received from the gRPC endpoints is encoded using both [CBOR](https://tools.ietf.org/html/rfc7049) and Base64. Data is first encoded with CBOR and the resulting output is then encoded in Base64 before being sent. 
 [block:callout]
 {
-  "type": "info",
+  "type": "warning",
   "title": "Canonical Encoding",
   "body": "Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data."
 }

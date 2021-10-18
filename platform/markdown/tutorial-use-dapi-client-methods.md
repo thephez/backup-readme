@@ -4,7 +4,7 @@ In addition to the SDK methods for interacting with identities, names, contracts
 ## Prerequisites
 - [node.js](https://nodejs.org/en/) (v12+)
 - Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to EvoNet](tutorial-connecting-to-evonet))
+- The Dash JavaScript SDK is initialized (covered in [Connect to a Network](tutorial-connecting-to-testnet))
 
 # Code
 The following example demonstrates several of the Core DAPI client methods. DAPI client also has several Platform methods accessible via `getDAPIClient().platform.*`. The methods can be found here in the [js-dapi-client repository](https://github.com/dashevo/js-dapi-client/tree/master/lib/methods).

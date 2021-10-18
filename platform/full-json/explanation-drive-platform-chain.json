@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "60e604b4762bd40057ebe106", 
+ "parentDoc": "612fe724e9fa2b0026f5fa91", 
  "excerpt": "Distributed ledger for tracking state transitions", 
  "api": {
   "url": "", 
@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-05-27T20:30:39.120Z", 
- "id": "60e604b4762bd40057ebe105", 
+ "id": "612fe724e9fa2b0026f5fa90", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-11-25T19:13:07.522Z", 
- "category": "60e604b4762bd40057ebe0dd", 
+ "category": "612fe724e9fa2b0026f5fa68", 
  "title": "Platform Chain", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-10-12T19:24:09.182Z", 
+ "version": "612fe724e9fa2b0026f5face", 
+ "slugUpdatedAt": "2021-10-17T22:19:38.864Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -57,7 +57,7 @@
  "link_url": "", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 1, 
- "_id": "60e604b4762bd40057ebe105", 
+ "_id": "612fe724e9fa2b0026f5fa90", 
  "order": 0, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

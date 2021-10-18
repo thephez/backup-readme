@@ -50,9 +50,9 @@
 ## getStatus
 [block:callout]
 {
-  "type": "warning",
+  "type": "info",
   "title": "Breaking change in Dash Platform 0.19.0",
-  "body": "The structure of the response has been reformatted in Dash Platform 0.19.0 ([PR 107](https://github.com/dashevo/dapi-grpc/pull/107)). See the [previous version](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints#getstatus) of documentation for details of the older format."
+  "body": "The structure of the response was reformatted in Dash Platform 0.19.0 ([PR 107](https://github.com/dashevo/dapi-grpc/pull/107)). See the [previous version](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints#getstatus) of documentation for details of the older format."
 }
 [/block]
 **Returns**: Status information from the Core chain
@@ -171,7 +171,7 @@
 ## getTransaction
 [block:callout]
 {
-  "type": "success",
+  "type": "info",
   "title": "Updated in Dash Platform 0.20.0",
   "body": "Dash Platform 0.20.0 added block hash, height, confirmation count, InstantSend lock status, and ChainLock status to the `getTransaction` response."
 }
@@ -295,7 +295,7 @@
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.19.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
+There are no recently deprecated endpoints, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
 
 # Code Reference
 

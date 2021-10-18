@@ -48,6 +48,41 @@ Create a file with the following contents. Then run it by typing `node <file.js>
 [/block]
 Once this returns successfully, you're ready to begin developing! For details on all SDK options and methods, please refer to the [SDK documentation](https://dashevo.github.io/js-dash-sdk).
 
+# Connect to a Devnet
+
+The SDK also supports connecting to development networks (devnets). Since devnets can be created by anyone, the client library will be unaware of them unless connection information is provided using one of the options described below.
+[block:callout]
+{
+  "type": "info",
+  "body": "Devnets may not be configured provide seed node capabilities (e.g. local devnets created using the [dashmate tool](tutorial-connect-to-a-network-dash-masternode#local-development-network)). In these cases, use the second method described below ([connect via address](#connect-via-address))."
+}
+[/block]
+## Connect via Seed
+
+Using a seed node is the preferred method when one is available. The client uses the provided seed node to a retrieve a list of available masternodes on the network so requests can be spread across the entire network.
+[block:code]
+{
+  "codes": [
+    {
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    httpPort: 3000,\n    grpcPort: 3010,\n  }],\n});\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
+## Connect via Address
+
+Custom addresses may be directly specified via `dapiAddresses` on networks that do not provide a seed node or in cases where it is beneficial to know exactly what node(s) are being accessed (e.g. debugging, local development, etc.).
+[block:code]
+{
+  "codes": [
+    {
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  dapiAddresses: [\n    '127.0.0.1:3000:3010',\n    '127.0.0.2:3000:3010',\n  ],\n});\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "language": "javascript"
+    }
+  ]
+}
+[/block]
 # Connect Directly to DAPI (Optional) 
 [block:callout]
 {

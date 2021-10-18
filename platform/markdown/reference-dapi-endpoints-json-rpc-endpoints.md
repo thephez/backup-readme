@@ -148,7 +148,7 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.19.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
 
 # Code Reference
 

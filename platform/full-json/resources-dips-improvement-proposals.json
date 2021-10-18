@@ -26,18 +26,18 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-10T15:11:45.441Z", 
- "id": "60e604b4762bd40057ebe0eb", 
+ "id": "612fe724e9fa2b0026f5fa76", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-08-01T13:32:23.391Z", 
- "category": "60e604b4762bd40057ebe0db", 
+ "category": "612fe724e9fa2b0026f5fa66", 
  "title": "DIPs (Improvement Proposals)", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
- "slugUpdatedAt": "2021-10-12T19:24:07.914Z", 
+ "version": "612fe724e9fa2b0026f5face", 
+ "slugUpdatedAt": "2021-10-17T21:54:19.071Z", 
  "hidden": true, 
  "type": "link", 
  "metadata": {
@@ -55,7 +55,7 @@
  "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60e604b4762bd40057ebe0eb", 
+ "_id": "612fe724e9fa2b0026f5fa76", 
  "order": 7, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

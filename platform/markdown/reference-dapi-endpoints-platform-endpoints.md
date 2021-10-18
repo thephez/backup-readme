@@ -1,18 +1,20 @@
 Please refer to the [gRPC Overview](reference-dapi-endpoints-grpc-overview) for details regarding running the examples shown below, encoding/decoding the request/response data, and clients available for several languages.
 
+# Data Proofs and Metadata
+
+Since Dash Platform 0.20.0, Platform gRPC endpoints can provide [proofs](https://github.com/dashevo/dapi-grpc/blob/v0.21.0/protos/platform/v0/platform.proto#L16-L28) so the data returned for a request can be verified as being valid. Full support is not yet available in the JavaScript client, but can be used via the low level [dapi-grpc library](https://github.com/dashevo/dapi-grpc). Additional information about proofs is available on the [Platform Proofs page](reference-platform-proofs).
+
+Some [additional metadata](https://github.com/dashevo/dapi-grpc/blob/v0.21.0/protos/platform/v0/platform.proto#L30-L33) is also provided with responses:
+ - `height`: the last committed platform chain height
+ - `coreChainLockedHeight`: height of the most recent ChainLock on the core chain
+
 # Endpoint Details
-[block:callout]
-{
-  "type": "success",
-  "body": "Dash Platform 0.20.0 introduced [proofs](https://github.com/dashevo/dapi-grpc/blob/v0.20.0/protos/platform/v0/platform.proto#L15-L20) to Platform gRPC endpoints so the data returned for a request can be verified as being valid. Full support is not yet available in the JavaScript client, but can be used via the low level via dapi-grpc library. Additional information about proofs is available on the [Platform Proofs page](reference-dapi-endpoints-platform-proofs).\n\nThis version also added some [additional metadata](https://github.com/dashevo/dapi-grpc/blob/v0.20.0/protos/platform/v0/platform.proto#L22-L25) to responses:\n - `height`: the last committed platform chain height\n - `coreChainLockedHeight`: height of the most recent ChainLock on the core chain",
-  "title": "Added in Dash Platform 0.20.0"
-}
-[/block]
+
 ## broadcastStateTransition
 [block:callout]
 {
   "type": "info",
-  "body": "Since Dash Platform 0.18.0 `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. \n\n**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
+  "body": "Since Dash Platform 0.18.0, `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. \n\n**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
   "title": "Updated in Dash Platform 0.18.0"
 }
 [/block]
@@ -61,8 +63,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 
@@ -127,8 +129,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 
@@ -200,8 +202,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 
@@ -273,8 +275,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 ** Example Request and Response **
@@ -354,8 +356,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 
@@ -411,7 +413,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 ## waitForStateTransitionResult
 [block:callout]
 {
-  "type": "success",
+  "type": "info",
   "body": "",
   "title": "Added in Dash Platform 0.18.0"
 }
@@ -426,8 +428,8 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 [block:callout]
 {
-  "type": "warning",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-dapi-endpoints-platform-proofs) for details on decoding the data."
+  "type": "info",
+  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
 }
 [/block]
 
@@ -477,7 +479,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.19.0/docs/reference-dapi-endpoints-platform-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints-platform-endpoints).
 
 # Code Reference
 Implementation details related to the information on this page can be found in:

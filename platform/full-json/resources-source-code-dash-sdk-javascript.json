@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "60e604b4762bd40057ebe0ec", 
+ "parentDoc": "612fe724e9fa2b0026f5fa77", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-12-10T15:11:45.444Z", 
- "id": "60e604b4762bd40057ebe0fa", 
+ "id": "612fe724e9fa2b0026f5fa85", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-08T10:40:40.478Z", 
- "category": "60e604b4762bd40057ebe0db", 
+ "category": "612fe724e9fa2b0026f5fa66", 
  "title": "Dash SDK (Javascript)", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "60e604b4762bd40057ebe142", 
+ "version": "612fe724e9fa2b0026f5face", 
  "slugUpdatedAt": "2020-09-03T17:49:06.994Z", 
  "hidden": false, 
  "type": "link", 
@@ -55,7 +55,7 @@
  "link_url": "https://github.com/dashevo/js-dash-sdk", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
- "_id": "60e604b4762bd40057ebe0fa", 
+ "_id": "612fe724e9fa2b0026f5fa85", 
  "order": 0, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

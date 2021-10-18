@@ -151,6 +151,17 @@ To make the Dash SDK connect to your local devnet, use the `dapiAddresses` optio
 }
 [/block]
 
+# Remote Development Network
+[block:callout]
+{
+  "type": "info",
+  "body": "In order to connect to a remote devnet (e.g. one run by Dash Core Group), please use one of the methods described in the [Connect to a Devnet](tutorial-connecting-to-testnet#connect-to-a-devnet) section.",
+  "title": "Connecting to a remote development network"
+}
+[/block]
+For development we recommend using either a local devnet created via dashmate as [described above](#local-development-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).
+
+
 # Testnet Masternode Setup
 [block:callout]
 {

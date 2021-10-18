@@ -29,9 +29,9 @@
 ## Platform gRPC Service
 [block:callout]
 {
-  "type": "success",
+  "type": "info",
   "title": "Response Proofs",
-  "body": "Dash Platform 0.20.0 introduced [proofs](reference-dapi-endpoints-platform-proofs) to Platform gRPC endpoints so the data returned for a request can be verified as being valid."
+  "body": "Dash Platform 0.20.0 introduced [proofs](reference-platform-proofs) to Platform gRPC endpoints so the data returned for a request can be verified as being valid."
 }
 [/block]
 | Layer | Endpoint | |
@@ -52,6 +52,6 @@
 [block:callout]
 {
   "type": "info",
-  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.19.0/docs/reference-dapi-endpoints)."
+  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints)."
 }
 [/block]

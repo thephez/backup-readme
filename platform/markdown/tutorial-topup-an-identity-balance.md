@@ -24,7 +24,7 @@ As users interact with Dash Platform applications, the credit balance associated
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 415000, // only sync from start of 2021\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst topupIdentity = async () => {\n  const identityId = 'an identity ID goes here';\n  const topUpAmount = 1000; // Number of duffs\n\n  await client.platform.identities.topUp(identityId, topUpAmount);\n  return client.platform.identities.get(identityId);\n};\n\ntopupIdentity()\n  .then((d) => console.log('Identity credit balance: ', d.balance))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 500000, // only sync from mid-2021\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst topupIdentity = async () => {\n  const identityId = 'an identity ID goes here';\n  const topUpAmount = 1000; // Number of duffs\n\n  await client.platform.identities.topUp(identityId, topUpAmount);\n  return client.platform.identities.get(identityId);\n};\n\ntopupIdentity()\n  .then((d) => console.log('Identity credit balance: ', d.balance))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]
