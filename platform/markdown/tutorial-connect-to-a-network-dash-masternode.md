@@ -36,7 +36,7 @@ Dashmate can be used to create a local development network (devnet) containing m
 
 ## Setup
 
-Run the following command to start the setup wizard, then accept the default values at each step to create a local devnet:
+Run the following command to start the setup wizard, then accept the default values at each step to create a local network:
 [block:code]
 {
   "codes": [
@@ -83,7 +83,7 @@ Example (partial) output of the setup wizard showing important information:
 
 ## Operation
 
-Once the setup completes, start/stop/restart the devnet via the following commands:
+Once the setup completes, start/stop/restart the network via the following commands:
 [block:code]
 {
   "codes": [
@@ -94,7 +94,7 @@ Once the setup completes, start/stop/restart the devnet via the following comman
   ]
 }
 [/block]
-The status of the devnet nodes can be check via the group status command:
+The status of the network's nodes can be check via the group status command:
 [block:code]
 {
   "codes": [
@@ -139,12 +139,12 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
 
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
-To make the Dash SDK connect to your local devnet, use the `dapiAddresses` option and set the DPNS contract ID when configuring your client:
+To make the Dash SDK connect to your local development network, use the `dapiAddresses` option and set the DPNS contract ID when configuring your client:
 [block:code]
 {
   "codes": [
     {
-      "code": "const clientOpts = {\n  dapiAddresses: ['127.0.0.1:3000'],\n  // Set DPNS contract ID to the one output during devnet setup\n  apps: {\n    dpns: {\n  \t\tcontractId: 'DPNS contract ID displayed during the setup step',\n    },\n\t},  \n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
+      "code": "const clientOpts = {\n  dapiAddresses: ['127.0.0.1:3000'],\n  // Set DPNS contract ID to the one output during setup\n  apps: {\n    dpns: {\n  \t\tcontractId: 'DPNS contract ID displayed during the setup step',\n    },\n\t},  \n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
       "language": "javascript"
     }
   ]
@@ -159,7 +159,7 @@ To make the Dash SDK connect to your local devnet, use the `dapiAddresses` optio
   "title": "Connecting to a remote development network"
 }
 [/block]
-For development we recommend using either a local devnet created via dashmate as [described above](#local-development-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).
+For development we recommend using either a local development network created via dashmate as [described above](#local-development-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).
 
 
 # Testnet Masternode Setup

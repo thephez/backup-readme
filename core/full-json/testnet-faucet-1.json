@@ -25,19 +25,19 @@
   }
  }, 
  "previousSlug": "", 
- "updatedAt": "2019-11-27T22:20:14.855Z", 
- "id": "5fce5c21ec64d90073aa8870", 
+ "updatedAt": "2021-10-25T12:02:34.483Z", 
+ "id": "61769cdaf82f68001d3cacdd", 
  "sync_unique": "", 
  "isApi": false, 
- "createdAt": "2019-11-07T13:37:25.809Z", 
+ "createdAt": "2021-10-25T12:02:34.483Z", 
  "category": "5fce5c21ec64d90073aa8800", 
- "title": "SDK Resources", 
+ "title": "Testnet Faucet 1", 
  "next": {
   "description": "", 
   "pages": []
  }, 
  "version": "5fce5c21ec64d90073aa8883", 
- "slugUpdatedAt": "2021-03-03T23:25:01.681Z", 
+ "slugUpdatedAt": "2021-10-24T22:26:05.646Z", 
  "hidden": false, 
  "type": "link", 
  "metadata": {
@@ -50,12 +50,12 @@
  "body_html": "&nbsp;", 
  "updates": [], 
  "isReference": false, 
- "slug": "additional-resources-sdk-resources", 
+ "slug": "testnet-faucet-1", 
  "deprecated": false, 
- "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources", 
+ "link_url": "https://testnet-faucet.dash.org/", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5fce5c21ec64d90073aa8870", 
- "order": 7, 
+ "_id": "61769cdaf82f68001d3cacdd", 
+ "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

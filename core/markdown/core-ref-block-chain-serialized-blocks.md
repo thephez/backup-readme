@@ -18,12 +18,12 @@ The block subsidy declines by ~7.1% per year until all Dash is mined. Subsidy ca
 ## Block Reward
 Together, the transaction fees and block subsidy are called the <<glossary:block reward>>. A coinbase transaction is invalid if it tries to spend more value than is available from the block reward.
 
-The block reward is divided into three parts: <<glossary:miner>>, <<glossary:masternode>>, and <<glossary:superblock>>. 
+The block reward is divided into three parts: <<glossary:miner>>, <<glossary:masternode>>, and <<glossary:superblock>>. The miner and masternode portions add up to 90% of the block subsidy with the remaining 10% allocated to the governance system.
 
 | Payee | Subsidy | Description |
 | ----- | -------- | ----------- |
-| Miner | 45% | Payment for mining
-| Masternode | 45% | Payment for masternode services ([CoinJoin](core-guide-dash-features-privatesend), [InstantSend](core-guide-dash-features-instantsend), [Governance](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance), etc.)
+| Miner | Varies | Payment for mining
+| Masternode | Varies | Payment for masternode services ([CoinJoin](core-guide-dash-features-privatesend), [InstantSend](core-guide-dash-features-instantsend), [Governance](https://docs.dash.org/en/stable/introduction/features.html#decentralized-governance), etc.)
 | Superblock | 10% | Payment for maintenance/expansion of the ecosystem (Core development, marketing, integration, etc.)
 [block:image]
 {

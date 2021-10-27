@@ -54,7 +54,7 @@ The SDK also supports connecting to development networks (devnets). Since devnet
 [block:callout]
 {
   "type": "info",
-  "body": "Devnets may not be configured provide seed node capabilities (e.g. local devnets created using the [dashmate tool](tutorial-connect-to-a-network-dash-masternode#local-development-network)). In these cases, use the second method described below ([connect via address](#connect-via-address))."
+  "body": "Some devnets may not be configured provide seed node capabilities (e.g. local development networks created using the [dashmate tool](tutorial-connect-to-a-network-dash-masternode#local-development-network)). In these cases, use the second method described below ([connect via address](#connect-via-address))."
 }
 [/block]
 ## Connect via Seed
