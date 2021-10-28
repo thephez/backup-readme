@@ -1,10 +1,11 @@
 # Dash Protocol Versions
 The table below lists some notable versions of the P2P network protocol, with the most recent versions listed first.
 
-As of Dash Core 0.17.0, the most recent protocol version is 70219.
+As of Dash Core 0.18.0, the most recent protocol version is 70220.
 
 | Version | Initial Release                    | Major Changes
 |---------|------------------------------------|--------------
+| 70220 | Dash Core 0.18.0 <br> (Q4 2021) | • Deterministic InstantSend<br>• Proposal fee reduction<br>•<br>
 | 70219  | Dash Core 0.17.0 <br>(Q2 2021)  | • [DIP 20](https://github.com/dashpay/dips/blob/master/dip-0020.md) Opcode [additions](core-ref-transactions-opcodes#expanded-opcodes) <br>• Governance system improvements <br>• Add LLMQ for Dash Platform <br>• RPC updates to support Dash Platform <br>• Removal of [spork](core-ref-p2p-network-control-messages#spork) 22 <br>• Hard fork auto-recovery <br>• Non-HD to HD wallet upgrade option <br>• [DIP 21](https://github.com/dashpay/dips/blob/master/dip-0021.md) DKG data sharing/recovery
 | 70218  | Dash Core 0.16.0 <br>(Q3 2020)  | • Block reward [reallocation](core-ref-block-chain-serialized-blocks#block-reward-reallocation)<br>• Concentrated recovery for LLMQ signatures<br>• Wallet GUI refresh<br>• Expanded [PoSe](core-guide-dash-features-proof-of-service) (masternode version checks) <br>• Removal of [sporks](core-ref-p2p-network-control-messages#spork) 15, 16, and 20<br>• PrivateSend updates
 | 70216  | Dash Core 0.15.0 <br>(Q1 2020)  | • Mempool sync (via [`mempool` message](core-ref-p2p-network-data-messages#mempool))<br>• Updated [default P2P/RPC ports](core-ref-p2p-network-constants-and-defaults) for RegTest and Devnet networks<br>• Removal of `alert` message<br>• Removal of legacy InstantSend<br>• Removal of [sporks](core-ref-p2p-network-control-messages#spork) 5 and 12<br>• Deprecation of [sporks](core-ref-p2p-network-control-messages#spork) 15, 16, and 20

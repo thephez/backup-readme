@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2019-11-05T15:23:19.871Z", 
- "id": "5fce5c21ec64d90073aa880c", 
+ "id": "61549206c31f6b00207cf243", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T16:04:18.401Z", 
- "category": "5fce5c21ec64d90073aa87fa", 
+ "category": "61549205c31f6b00207cf231", 
  "title": "Wallets", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
- "slugUpdatedAt": "2021-10-26T19:42:06.321Z", 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-10-28T17:00:31.163Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -63,7 +63,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 3, 
- "_id": "5fce5c21ec64d90073aa880c", 
+ "_id": "61549206c31f6b00207cf243", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

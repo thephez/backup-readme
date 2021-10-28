@@ -1,3 +1,39 @@
+# CombinePSBT
+
+The [`combinepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt) combines multiple partially-signed Dash transactions into one transaction. Implements the Combiner role. This should be used only with `createrawtransaction` and `fundrawtransaction`. 
+`createpsbt` and `walletcreatefundedpsbt` should be used for new applications.
+
+*Parameter #1---txs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Transactions | string | Required<br>(exactly 1) | An array of base64 strings of partially signed transactions
+→ psbt | string | Required<br>(exactly 1) | A base64 string of a PSBT
+
+*Result---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string | Required<br>(Exactly 1) | The base64-encoded partially signed transaction
+
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet combinepsbt '["cHNidP8BAFUCAAAAAQcxBA7Cdee2EvS1IyiRPzCVxbt9wFnrqry3AMUBOYvqAAAAAAD/////AQDh9QUAAAAAGXapFLBKVDBt/eE2UU3EUaAiMeuIUMC1iKwAAAAAAAEA3wIAAAAB9LcsqdmAuKwHgkt0HMpJuSx8RnBxL73+ORGz4ogdt+gBAAAAakcwRAIgJR7zIP4o/GRTAyvswKmdFDx+PBO/tB24s0ydQcRpOZECIAvm3Q2xMIpdAAhl17yQAkQjElRbZEIbcr7pGCpNbzqsASEDIcX0+C0b8ib3pvxlx809S7xOmAj0NH3i9vFe8pUTvHX+////AgBlzR0AAAAAF6kUJOSskBQ3xyDtInRjI2eW1QraJ9eHIcmaOwAAAAAZdqkUPU2zmkAo79MmS8yW1oYUjb7jz0qIrOosCQAiAgN+48COTyy1UqO7c63g5A9YEMnBIiYF+FcREEaGgxAHukcwRAIgfwcMEFPrmy81y5NWFj8M0CHUBlzzQxr4RoxSmzvmVIQCIH22f9/A/K0keQ7rKcya0E5zTlnYDnly8VJIrj2yUgflAQEER1IhA37jwI5PLLVSo7tzreDkD1gQycEiJgX4VxEQRoaDEAe6IQK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vFKuAAA=", "cHNidP8BAFUCAAAAAQcxBA7Cdee2EvS1IyiRPzCVxbt9wFnrqry3AMUBOYvqAAAAAAD/////AQDh9QUAAAAAGXapFLBKVDBt/eE2UU3EUaAiMeuIUMC1iKwAAAAAAAEA3wIAAAAB9LcsqdmAuKwHgkt0HMpJuSx8RnBxL73+ORGz4ogdt+gBAAAAakcwRAIgJR7zIP4o/GRTAyvswKmdFDx+PBO/tB24s0ydQcRpOZECIAvm3Q2xMIpdAAhl17yQAkQjElRbZEIbcr7pGCpNbzqsASEDIcX0+C0b8ib3pvxlx809S7xOmAj0NH3i9vFe8pUTvHX+////AgBlzR0AAAAAF6kUJOSskBQ3xyDtInRjI2eW1QraJ9eHIcmaOwAAAAAZdqkUPU2zmkAo79MmS8yW1oYUjb7jz0qIrOosCQAiAgK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vEcwRAIgP3PuTCqVSU0Cx5UDknTwmAFJ6N80sV+YiUmy392/4BUCIEB6QOZe3SJeJ3OVmBCmoEPWcHqbstIvxhCxJ2h+fkSZAQEER1IhA37jwI5PLLVSo7tzreDkD1gQycEiJgX4VxEQRoaDEAe6IQK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vFKuAAA="]'
+```
+
+Result:
+```
+cHNidP8BAFUCAAAAAQcxBA7Cdee2EvS1IyiRPzCVxbt9wFnrqry3AMUBOYvqAAAAAAD/////AQDh9QUAAAAAGXapFLBKVDBt/eE2UU3EUaAiMeuIUMC1iKwAAAAAAAEA3wIAAAAB9LcsqdmAuKwHgkt0HMpJuSx8RnBxL73+ORGz4ogdt+gBAAAAakcwRAIgJR7zIP4o/GRTAyvswKmdFDx+PBO/tB24s0ydQcRpOZECIAvm3Q2xMIpdAAhl17yQAkQjElRbZEIbcr7pGCpNbzqsASEDIcX0+C0b8ib3pvxlx809S7xOmAj0NH3i9vFe8pUTvHX+////AgBlzR0AAAAAF6kUJOSskBQ3xyDtInRjI2eW1QraJ9eHIcmaOwAAAAAZdqkUPU2zmkAo79MmS8yW1oYUjb7jz0qIrOosCQAiAgN+48COTyy1UqO7c63g5A9YEMnBIiYF+FcREEaGgxAHukcwRAIgfwcMEFPrmy81y5NWFj8M0CHUBlzzQxr4RoxSmzvmVIQCIH22f9/A/K0keQ7rKcya0E5zTlnYDnly8VJIrj2yUgflASICArUHlNX7apOZT79zc/OXrVuSVht+P3KD6Nt0bIygoT+8RzBEAiA/c+5MKpVJTQLHlQOSdPCYAUno3zSxX5iJSbLf3b/gFQIgQHpA5l7dIl4nc5WYEKagQ9Zwepuy0i/GELEnaH5+RJkBAQRHUiEDfuPAjk8stVKju3Ot4OQPWBDJwSImBfhXERBGhoMQB7ohArUHlNX7apOZT79zc/OXrVuSVht+P3KD6Nt0bIygoT+8Uq4AAA==
+```
+
+*See also:*
+
+* [CreatePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createpsbt): creates a transaction in the Partially Signed Transaction (PST) format.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
 # CombineRawTransaction
 
 The [`combinerawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction) combine multiple partially signed transactions into one transaction.
@@ -25,7 +61,7 @@ the transaction with only the first input signed. The second hex-encoded string 
 the transaction with only the second input signed.
 
 ``` bash
-dash-cli combinerawtransaction '[
+dash-cli -testnet combinerawtransaction '[
  "0200000002fdb27b4f2b80a5fd3b96602618a6ccf7bdde504bf90989610b19ed6ecd769520010000006b483045022100f8770316327966fb1972338d14db8d38048455da8b62f6350b117c797cea459e02206c63c103cf53ce1d24a313b3e6853913fa14febafd733e683b6eb46a7beec0fa012103c67d86944315838aea7ec80d390b5d09b91b62483370d4979da5ccf7a7df77a9ffffffff0d052e9b13c53bb342d772767732ffe4fa9f1c150629d3fa79655267baa7c86a0100000000ffffffff0200ca9a3b000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac00daf89a000000001976a91465f53f2095c99ce152ff3bc8a8f027d8a77cbdcb88ac00000000",
  "0200000002fdb27b4f2b80a5fd3b96602618a6ccf7bdde504bf90989610b19ed6ecd7695200100000000ffffffff0d052e9b13c53bb342d772767732ffe4fa9f1c150629d3fa79655267baa7c86a010000006b4830450221008c3abc11ea84cc98cf674afc5b6d3d078d672768d289f2ab976ea4b2a49129fc022008470458b1b179800e7f5348196d510d2f147e69fe836c94135fc5c620312acd012102912ba98d6641f79864d04d41523167f5db267e45d1633e9243a0be7efb675719ffffffff0200ca9a3b000000001976a9144139b147b5cef5fef5bcdb02fcdf55e426f74dbb88ac00daf89a000000001976a91465f53f2095c99ce152ff3bc8a8f027d8a77cbdcb88ac00000000"
 ]'
@@ -50,14 +86,60 @@ a8f027d8a77cbdcb88ac00000000
 
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
 
-# CreateRawTransaction
+# ConvertToPSBT
 
-The [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction) creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+The [`converttopsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt) converts a network serialized transaction to a PSBT. This should be used only with `createrawtransaction` and `fundrawtransaction`. `createpsbt` and `walletcreatefundedpsbt` should be used for new applications.
+
+*Parameter #1---hexstring*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+hex | string | Required | The hex string of a raw transaction
+
+*Parameter #2---permitsigdata*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+data | bool | Optional | If true, any signatures in the input will be discarded and conversion will continue. If false, RPC will fail if any signatures are present.
+
+*Result---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string | Required<br>(Exactly 1) | The resulting raw transaction is a base64-encoded
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet converttopsbt 02000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e060100000000ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
+```
+
+Result:
+```
+cHNidP8BAHcCAAAAAWtJCIbAGYsCjGxcsUXE6zsQVaIkp6EFqt7/QbaeyR4GAQAAAAD/////AgAgX6ASAAAAGXapFEhUhUJfqZUE7BY4rEIT88/J8y7ziKzAqPm+AQAAABl2qRSBHqzBTbjrtbZEhtxDQAwCJrQopIisAAAAAAAAAAA=
+```
+
+*See also:*
+
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [CreatePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createpsbt): creates a transaction in the Partially Signed Transaction (PST) format.
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+* [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
+# CreatePSBT
+
+The [`createpsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#createpsbt) creates a transaction in the Partially Signed Transaction (PST) format.
+
+Implements the Creator role.
 
 *Parameter #1---Inputs*
 
@@ -67,7 +149,7 @@ Transactions | array | Required<br>(exactly 1) | An array of objects, each one t
 → Input | object | Required<br>(1 or more) | An object describing a particular input
 → →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the outpoint to be spent encoded as hex in RPC byte order
 → →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the outpoint to be spent; the first output in a transaction is index `0`
-→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | Added in Dash Core 0.12.3.0.<br><br>The sequence number to use for the input
+→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | The sequence number to use for the input
 
 *Parameter #2---P2PKH or P2SH addresses and amounts*
 
@@ -90,7 +172,62 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as hex.  If the transaction couldn't be generated, this will be set to JSON `null` and the JSON-RPC error field may contain an error message
 
-*Example from Dash Core 0.17.0*
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet createpsbt "[{\"txid\":\"2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
+```
+
+Result:
+```
+cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=
+```
+
+*See also*
+
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [ConvertToPSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
+# CreateRawTransaction
+
+The [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction) creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+
+*Parameter #1---Inputs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Transactions | array | Required<br>(exactly 1) | An array of objects, each one to be used as an input to the transaction
+→ Input | object | Required<br>(1 or more) | An object describing a particular input
+→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the outpoint to be spent encoded as hex in RPC byte order
+→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the outpoint to be spent; the first output in a transaction is index `0`
+→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | Added in Dash Core 0.12.3.0.<br><br>The sequence number to use for the input
+
+*Parameter #2---Outputs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Outputs | array | Required<br>(exactly 1) | A JSON array with outputs as key-value pairs
+→ Output | object | Required<br>(1 or more) | An object describing a particular output
+→ →<br>Address | string : number (Dash) | Optional<br>(0 or 1) | A key-value pair. The key (string) is the Dash address, the value (float or string) is the amount in DASH
+→ →<br>Data | `data` : string (hex) | Optional<br>(0 or 1) | A key-value pair. The key must be `data`, the value is hex encoded data
+
+*Parameter #3---locktime*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Locktime | numeric (int) | Optional<br>(0 or 1) | Indicates the earliest time a transaction can be added to the block chain
+
+*Result---the unsigned raw transaction in hex*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | string | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as base-64.  If the transaction couldn't be generated, this will be set to JSON `null` and the JSON-RPC error field may contain an error message
+
+*Example from Dash Core 0.18.0*
 
 ``` bash
 dash-cli -testnet createrawtransaction '''
@@ -112,7 +249,7 @@ dash-cli -testnet createrawtransaction '''
   0
 ```
 
-Result (wrapped):
+Result:
 
 ``` text
 02000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e06010000\
@@ -124,7 +261,6 @@ acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
 
 * [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
@@ -145,9 +281,9 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | An object describing the decoded transaction, or JSON `null` if the transaction could not be decoded
 →<br>`txid` | string (hex) | Required<br>(exactly 1) | The transaction's TXID encoded as hex in RPC byte order
-→<br>`size` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The serialized transaction size
 →<br>`version` | number (int) | Required<br>(exactly 1) | The transaction format version number
 →<br>`type` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.13.0.0*<br><br>The transaction format type
+→<br>`size` | number (int) | Required<br>(exactly 1) | *Added in Bitcoin Core 0.12.0*<br><br>The serialized transaction size
 →<br>`locktime` | number (int) | Required<br>(exactly 1) | The transaction's locktime: either a Unix epoch date or block height; see the [locktime parsing rules](core-guide-transactions-locktime-and-sequence-number#locktime_parsing_rules)
 →<br>`vin` | array | Required<br>(exactly 1) | An array of objects with each object being an input vector (vin) for this transaction.  Input objects will have the same order within the array as they have in the transaction, so the first input listed will be input 0
 → →<br>Input | object | Required<br>(1 or more) | An object describing one of this transaction's inputs.  May be a regular input or a coinbase
@@ -182,7 +318,7 @@ Name | Type | Presence | Description
 Decode a signed one-input, two-output transaction:
 
 ``` bash
-dash-cli decoderawtransaction 02000000015d0b26079696875e9fc3cb480420aae3c8\
+dash-cli -testnet decoderawtransaction 02000000015d0b26079696875e9fc3cb480420aae3c8\
 b1da628fbb14cc718066df7fe7c5fd010000006a47304402202cfa683981898ad9adb89534\
 23a38f7185ed41e163aa195d608fbe5bc3034910022034e2376aaed1c6576c0dad79d626ee\
 27f706baaed86dabb105979c3e6f6e1cb9012103d14eb001cf0908f3a2333d171f6236497a\
@@ -196,9 +332,9 @@ Result:
 ``` json
 {
   "txid": "f4de3be04efa18e203c9d0b7ad11bb2517f5889338918ed300a374f5bd736ed7",
-  "size": 225,
   "version": 2,
   "type": 0,
+  "size": 225,
   "locktime": 15764,
   "vin": [
     {
@@ -240,15 +376,14 @@ Result:
         ]
       }
     }
-  ],
-  "instantlock": true
+  ]
 }
 ```
 
 Decode a coinbase special transaction (CbTx):
 
 ``` bash
-dash-cli decoderawtransaction 03000500010000000000000000000000000000000000\
+dash-cli -testnet decoderawtransaction 03000500010000000000000000000000000000000000\
 000000000000000000000000000000ffffffff2703ae50011a4d696e656420627920416e74\
 506f6f6c2021000b01201da9196f0000000007000000ffffffff02809e4730000000001976\
 a914cbd7bfcc50351180132b2c0698cb90ad74c473c788ac809e4730000000001976a91488\
@@ -262,9 +397,9 @@ Result:
 ``` json
 {
   "txid": "25632685ed0d7286901a80961c924c1ddd952e764754dbd8b40d0956413c8b56",
-  "size": 229,
   "version": 3,
   "type": 5,
+  "size": 229,
   "locktime": 0,
   "vin": [
     {
@@ -309,10 +444,7 @@ Result:
     "height": 86190,
     "merkleRootMNList": "877392defa24888af72aa15f92b6609e71db1b385c1895bf870896398bc0e578",
     "merkleRootQuorums": "a320b95dab4963ca2547434d63ac8203835dfd0ce245924fa83dc6bab6ac57c7"
-  },
-  "instantlock": false,
-  "instantlock_internal": false,  
-  "chainlock": false
+  }
 }
 ```
 
@@ -320,7 +452,6 @@ Result:
 
 * [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 
@@ -377,7 +508,54 @@ Result:
 
 * [CreateMultiSig](/docs/core-api-ref-remote-procedure-calls-util#createmultisig): creates a P2SH multi-signature address.
 
-﻿
+# FinalizePSBT
+
+The [`finalizepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt) finalizes the inputs of a PSBT. The PSBT produces a network serialized transaction if the transaction is fully signed. This can broadcast with `sendrawtransaction`. Otherwise, a PSBT will be created which has the `final_scriptSig` fields filled for inputs that are complete.
+Implements the Finalizer and Extractor roles.
+
+*Parameter #1---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+psbt | string | Required | A base64 string of a PSBT
+
+*Parameter #2---extract*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+data | bool | Optional | If true, and the transaction is complete, extract and return the complete transaction in normal network serialization instead of the PSBT.
+
+*Result---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+→ <br>psbt | string | Required<br>(Exactly 1) | The base64-encoded partially signed transaction if not extracted
+→ <br>hex |  string (hex) | Required<br>(Exactly 1) | The hex-encoded network transaction if extracted
+→ <br>complete | bool | Required<br>(Exactly 1) | If the transaction has a complete set of signatures
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet finalizepsbt cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAQDhAgAAAAGUi7dQLNEVUajA9jcftG9LmDpAZzvVlgQVcitxL418QgEAAABqRzBEAiBP5PxIjJVfKGxSyEjseVC0DsR24bQ0xq3WhrR0vd4JqQIgYiLSkf2do0FAiqikcg9aaVmZdxWh3fgYfnUne2v8rn4BIQPGfYaUQxWDiup+yA05C10JuRtiSDNw1Jedpcz3p993qf7///8CtOfGCQAAAAAZdqkUzvxGSQTAOBTAGQbhl9x1mnReR+6IrADKmjsAAAAAGXapFD75vL6S93yPrdBWbup/+NR/Ir3giKxVSAgAAQdqRzBEAiAF1fgBDg2M/WAeYTYzCkEiSSrDVzcYoe8wwrw/MbdgOQIgJzoYBQ9hAm6jqk2cLFitUd1/iL1ku8w9unadjNfsCdoBIQJn2pETmk8U2X6veADqnny5/6j8Iy7Oizij0SeJHm9x6AAA
+```
+
+Result:
+```json
+{
+  "hex": "02000000017811c736d2854962bd514a8282f2864d1108260b64a0984e5fed61177ec86226000000006a473044022005d5f8010e0d8cfd601e6136330a4122492ac3573718a1ef30c2bc3f31b760390220273a18050f61026ea3aa4d9c2c58ad51dd7f88bd64bbcc3dba769d8cd7ec09da01210267da91139a4f14d97eaf7800ea9e7cb9ffa8fc232ece8b38a3d127891e6f71e8ffffffff010000000000000000066a040001020300000000",
+  "complete": true
+}
+```
+
+*See also:*
+
+* [CreatePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createpsbt): creates a transaction in the Partially Signed Transaction (PST) format.
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [ConvertToPSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
 
 # FundRawTransaction
 [block:callout]
@@ -427,7 +605,6 @@ Name | Type | Presence | Description
 ``` bash
 dash-cli -testnet fundrawtransaction 01000000000100205fa012000000\
 1976a914485485425fa99504ec1638ac4213f3cfc9f32ef388ac00000000
-
 ```
 
 Result:
@@ -444,7 +621,6 @@ Result:
 
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
@@ -457,6 +633,7 @@ The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactio
 
 Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if -txindex is enabled and the transaction is in a block in the blockchain.
 
+As of Dash Core 0.18.0, transactions with unspent outputs will no longer be included unless -txindex is enabled.
 [block:callout]
 {
   "type": "warning",
@@ -803,85 +980,6 @@ Result:
 * [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SignRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
-
-# SignRawTransaction
-[block:callout]
-{
-  "type": "warning",
-  "title": "Deprecated RPC",
-  "body": "This RPC is deprecated as of Dash Core 0.17.0. It will be removed in a future release."
-}
-[/block]
-The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.
-
-*Parameter #1---the transaction to sign*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Transaction | string (hex) | Required<br>(exactly 1) | The transaction to sign as a serialized transaction
-
-*Parameter #2---unspent transaction output details*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Dependencies | array | Optional<br>(0 or 1) | The previous outputs being spent by this transaction
-→<br>Output | object | Optional<br>(0 or more) | An output being spent
-→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
-→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The index number of the output (vout) as it appeared in its transaction, with the first output being 0
-→ →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output's pubkey script encoded as hex
-→ →<br>`redeemScript` | string (hex) | Optional<br>(0 or 1) | If the pubkey script was a script hash, this must be the corresponding redeem script
-→ →<br>`amount` | numeric | Required<br>(exactly 1) | The amount of Dash spent
-
-*Parameter #3---private keys for signing*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Private Keys | array | Optional<br>(0 or 1) | An array holding private keys.  If any keys are provided, only they will be used to sign the transaction (even if the wallet has other matching keys).  If this array is empty or not used, and wallet support is enabled, keys from the wallet will be used
-→<br>Key | string (base58) | Required<br>(1 or more) | A private key in base58check format to use to create a signature for this transaction
-
-*Parameter #4---signature hash type*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
-
-*Result---the transaction with any signatures made*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`result` | object | Required<br>(exactly 1) | The results of the signature
-→<br>`hex` | string (hex) | Required<br>(exactly 1) | The resulting serialized transaction encoded as hex with any signatures made inserted.  If no signatures were made, this will be the same transaction provided in parameter #1
-→<br>`complete` | bool | Required<br>(exactly 1) | The value `true` if transaction is fully signed; the value `false` if more signatures are required
-
-*Example from Dash Core 0.12.2*
-
-Sign the hex generated in the example section for the `createrawtransaction`
-RPC:
-
-``` bash
-dash-cli -testnet signrawtransaction 01000000016b490886c0198b028c6c5cb14\
-5c4eb3b1055a224a7a105aadeff41b69ec91e060100000000ffffffff0200205fa012000\
-0001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388acc0a8f9be010000001\
-976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
-```
-
-Result:
-
-``` json
-{
-  "hex": "01000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e060100000069463043022033a61c56fa0867ed67b76b023204a9dc0ee6b0d63305dc5f65fe94335445ff2f021f712f55399d5238fc7146497c431fc4182a1de0b96fc22716e0845f561d542e012102eacba539d92eb88d4e73bb32749d79f53f6e8d7947ac40a71bd4b26c13b6ec29ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000",
-  "complete": true
-}
-```
-
-*See also*
-
-* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
-* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
-* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
-* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 
 # SignRawTransactionWithKey
@@ -958,3 +1056,54 @@ Result:
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+
+# TestMemPoolAccept
+
+The [`testmempoolaccept` RPC](core-api-ref-remote-procedure-calls-raw-transactions#testmempoolaccept) returns the results of mempool acceptance tests indicating if raw transaction (serialized, hex-encoded) would be accepted by mempool.
+
+*Parameter #1---raw txs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`rawtxs` | array | Required<br>(exactly 1) | An array of hex strings of raw transactions (the length must be one for now)
+
+*Parameter #2---allow high fees*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`allowhighfees` | bool | Optional<br>(0 or 1) | Allow high fees (default=false)
+
+*Result---mempool acceptance test results*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | The result of the mempool acceptance test for each raw transaction in the input array.
+→<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
+→<br>`allowed` | bool | Required<br>(exactly 1) | If the mempool allows this tx to be inserted
+→<br>`reject-reason` | string (hex) | Required<br>(exactly 1) | A rejection string that is only present when 'allowed' is false.
+
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet testmempoolaccept [\"020000000234a2863f9781a7200330e700e684804bb2407d225c4e940c9cfb772f22fc0748000000006a47304402203b5a7899b6be2f33d30c1a71940c51f38074f4224a1ad6dee03dcc65f8646072022050d711115cd7291c2f094e3a3cfda14441721b1438e406b963b5660274ba4475012103e2fe477e31365d784d98514c7c9294283620d4a9775f01da5d3ba52f4c7286f5feffffff34a2863f9781a7200330e700e684804bb2407d225c4e940c9cfb772f22fc0748010000006a473044022018901985d2c94492111a45ed51bac88e02f1bb4a8382eacf5f474d70878c19f4022046e309e548f95a64b05e8ef70fae0ff86bf83cbed3055591580e0b5f5597c3a2012103109325a92f9e6d31d2ebd0595d471275ae8d635db2a0c42358f387e1af69c14dfeffffff020f530f00000000001976a9145799a5df43d34b05cdf03347af9102b67a6d154a88ac00e1f505000000001976a91464d51a27c8b8434458bac0193039bae55ca023c388ac151c0900\"]
+```
+
+Result:
+
+```json
+[
+  {
+    "txid": "06464b9c80413a49ab3c618f769a11647b6011f9ad15094eb423916ae5bc0c23",
+    "allowed": false,
+    "reject-reason": "18: txn-already-in-mempool"
+  }
+]
+```
+
+*See also*
+
+* [CombineRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction.
+* [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
+* [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
+* [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
+* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fce5c21ec64d90073aa8839", 
+ "parentDoc": "61549206c31f6b00207cf270", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "zeromq-zmq-rpcs", 
  "updatedAt": "2020-12-16T16:32:32.925Z", 
- "id": "5fda288ba09d16007c5422d6", 
+ "id": "61549206c31f6b00207cf2b9", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-12-16T15:32:27.582Z", 
- "category": "5fce5c21ec64d90073aa87fe", 
+ "category": "61549205c31f6b00207cf235", 
  "title": "ZeroMQ (ZMQ) RPCs", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
+ "version": "61549206c31f6b00207cf2be", 
  "slugUpdatedAt": "2020-12-16T15:32:37.958Z", 
  "hidden": false, 
  "type": "basic", 
@@ -55,7 +55,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5fda288ba09d16007c5422d6", 
+ "_id": "61549206c31f6b00207cf2b9", 
  "order": 14, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

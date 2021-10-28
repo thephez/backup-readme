@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fce5c21ec64d90073aa887e", 
+ "parentDoc": "61549206c31f6b00207cf2b4", 
  "excerpt": "Dash Core transaction utility", 
  "api": {
   "url": "", 
@@ -26,17 +26,17 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-01-26T15:12:16.646Z", 
- "id": "5fce5c21ec64d90073aa887f", 
+ "id": "61549206c31f6b00207cf2b5", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2020-06-04T13:40:40.435Z", 
- "category": "5fce5c21ec64d90073aa8801", 
+ "category": "61549205c31f6b00207cf238", 
  "title": "dash-tx", 
  "next": {
   "description": "", 
   "pages": []
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
+ "version": "61549206c31f6b00207cf2be", 
  "slugUpdatedAt": "2020-10-06T21:19:25.877Z", 
  "hidden": false, 
  "type": "basic", 
@@ -55,7 +55,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 0, 
- "_id": "5fce5c21ec64d90073aa887f", 
+ "_id": "61549206c31f6b00207cf2b5", 
  "order": 3, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

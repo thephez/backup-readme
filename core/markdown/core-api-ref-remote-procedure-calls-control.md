@@ -6,7 +6,7 @@ The [`debug` RPC](core-api-ref-remote-procedure-calls-control#debug) changes the
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `db` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `keepass` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `coinjoin` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
+Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `walletdb` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `keepass` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `coinjoin` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
 
 *Example from Dash Core 0.15.0*
 
@@ -144,7 +144,7 @@ The categories are:
 | Type | Category |
 | - | - |
 | Special | • `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `dash` - Enables/disables all Dash categories |
-| Standard | `addrman`, `bench` <br>`cmpctblock`, `coindb`, `db`, `estimatefee`, `http`, `leveldb`, `libevent`, `mempool`, `mempoolrej`, `net`, `proxy`, `prune`, `qt`, `rand`, `reindex`, `rpc`, `selectcoins`, `tor`, `zmq`|
+| Standard | `addrman`, `bench` <br>`cmpctblock`, `coindb`, `walletdb`, `estimatefee`, `http`, `leveldb`, `libevent`, `mempool`, `mempoolrej`, `net`, `proxy`, `prune`, `qt`, `rand`, `reindex`, `rpc`, `selectcoins`, `tor`, `zmq`|
 | Dash | <br>`chainlocks`, `gobject`, `instantsend`, `keepass`, `llmq`, `llmq-dkg`, `llmq-sigs`, `mnpayments`, `mnsync`, `coinjoin`, `spork` |
 
 *Result---a list of the logging categories that are active*
@@ -170,7 +170,7 @@ Result:
   "http": 0,
   "bench": 0,
   "zmq": 0,
-  "db": 0,
+  "walletdb": 0,
   "rpc": 0,
   "estimatefee": 0,
   "addrman": 0,
@@ -214,7 +214,7 @@ Result:
   "http": 0,
   "bench": 0,
   "zmq": 0,
-  "db": 0,
+  "walletdb": 0,
   "rpc": 0,
   "estimatefee": 0,
   "addrman": 0,

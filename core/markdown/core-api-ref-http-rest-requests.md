@@ -339,6 +339,65 @@ Result (whitespace added):
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash) RPC: returns the header hash of a block at the given height in the local best block chain.
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getbestblockhash) RPC: returns the header hash of the most recent block on the best block chain.
 
+# GET BlockHashByHeight
+
+The `GET blockhashbyheight` operation returns the hash of a block in best-block-chain at the height provided. The hash can be returned as a JSON object or serialized as binary or hex.
+
+*Request*
+
+``` text
+GET /blockhashbyheight/<height>.<format>
+```
+
+*Parameter #1---the header hash of the block to retrieve*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Block Height | number (int) | Required<br>(exactly 1) | The height of the block hash to get
+
+*Parameter #2---the output format*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Format | suffix | Required<br>(exactly 1) | Set to `.json` for decoded block hash contents in JSON, or `.bin` or `hex` for a serialized block hash in binary or hex
+
+*Response as JSON*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object containing the block hash for the requested height
+→<br>`blockhash` | string | Required<br>(exactly 1) | Block hash for the requested height
+
+*Examples from Dash Core 0.18.0*
+
+Request a block hash in hex-encoded serialized block hash format:
+
+``` bash
+curl http://localhost:19998/rest/blockhashbyheight/1.hex
+```
+
+Result:
+```text
+0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1
+```
+
+Get the same block hash in JSON:
+
+``` bash
+curl http://localhost:19998/rest/blockhashbyheight/1.json
+```
+
+Result:
+```json
+{
+  "blockhash": "0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1"
+}
+```
+
+*See also*
+
+* [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash) RPC: returns the header hash of a block at the given height in the local best block chain.
+
 # GET ChainInfo
 
 The `GET chaininfo` operation returns information about the current state of the block chain.  Supports only `json` as output format.

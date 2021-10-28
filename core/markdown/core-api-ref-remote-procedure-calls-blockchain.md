@@ -545,6 +545,52 @@ Result:
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBestBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getbestblockhash): returns the header hash of the most recent block on the best block chain.
 
+# GetBlockFilter
+
+*Added in Dash Core 0.18.0*
+
+The [`getblockfilter` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockfilter) retrieves a BIP 157 content filter for a particular block.
+[block:callout]
+{
+  "type": "info",
+  "body": "Requires -blockfilterindex Dash Core command-line/configuration-file parameter to be enabled."
+}
+[/block]
+*Parameter #1---blockhash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Hash | string | Required<br>(exactly 1) | The hash of the block
+
+*Parameter #2---filtertype*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Filter type | string | Optional<br>(0 or 1) | The type name of the filter (default: basic).
+
+*Result---A JSON object with the encoded filter data*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | The hex-encoded filter data.
+→<br>`filter` | string (hex) | Required<br>(exactly 1) | The hex-encoded filter data
+→<br>`header` | string (hex) | Required<br>(exactly 1) | The hex-encoded filter header
+
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet getblockfilter 0000004bb972bddf8d5b2bce517db07ff4c69a04e74e9c0bd2caa11ee23d0323 basic
+```
+
+Result:
+
+``` json
+{
+  "filter": "038c72a18c696aca7a",
+  "header": "f80b699589d1bfb1b269f948e9114034686c110273b01b6e4c0026ade1d6b968"
+}
+```
+
 # GetBlockHashes
 [block:callout]
 {
@@ -871,13 +917,18 @@ Name | Type | Presence | Description
 →<br>`avgfeerate` | numeric | Required<br>(exactly 1) | Average feerate (in duffs per byte)
 →<br>`avgtxsize` | numeric | Required<br>(exactly 1) | Average transaction size
 →<br>`blockhash` | string (hex) | Required<br>(exactly 1) | The block hash (to check for potential reorgs)
+→<br>`feerate_percentiles` | array (num) | Required<br>(exactly 1) | Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit, which are in duffs per byte.
+→ → <br>`10th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 10th percentile feerate
+→ → <br>`25th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 25th percentile feerate
+→ → <br>`50th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 50th percentile feerate
+→ → <br>`75th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 75th percentile feerate
+→ → <br>`90th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 90th percentile feerate
 →<br>`height` | numeric | Required<br>(exactly 1) | The height of the block
 →<br>`ins` | numeric | Required<br>(exactly 1) | The number of inputs (excluding coinbase)
 →<br>`maxfee` | numeric | Required<br>(exactly 1) | Maximum fee in the block
 →<br>`maxfeerate` | numeric | Required<br>(exactly 1) | Maximum feerate (in duffs per byte)
 →<br>`maxtxsize` | numeric | Required<br>(exactly 1) | Maximum transaction size
 →<br>`medianfee` | numeric | Required<br>(exactly 1) | Truncated median fee in the block
-→<br>`medianfeerate` | numeric | Required<br>(exactly 1) | Truncated median feerate (in duffs per byte)
 →<br>`mediantime` | numeric | Required<br>(exactly 1) | The block median time past
 →<br>`mediantxsize` | numeric | Required<br>(exactly 1) | Truncated median transaction size
 →<br>`minfee` | numeric | Required<br>(exactly 1) | Minimum fee in the block
@@ -893,18 +944,17 @@ Name | Type | Presence | Description
 →<br>`utxo_increase` | numeric | Required<br>(exactly 1) | The increase/decrease in the number of unspent outputs
 →<br>`utxo_size_inc` | numeric | Required<br>(exactly 1) | The increase/decrease in size for the utxo index (not discounting op_return and similar)
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.18.0*
 
 ``` bash
-dash-cli getblockstats 1000 '["blockhash","subsidy", "txs"]'
+dash-cli getblockstats 1000 '["minfeerate","avgfeerate"]'
 ```
 
 Result:
 ``` json
 {
-  "blockhash": "000004e906762c8c70583418d46915b4271fa83c29d5b88544d05e09e3f3621d",
-  "subsidy": 50000000000,
-  "txs": 1
+  "avgfeerate": 0,
+  "minfeerate": 0
 }
 ```
 
@@ -981,11 +1031,12 @@ Name | Type | Presence | Description
 →<br>`txcount` | number (int) | Required<br>(exactly 1) | The total number of transactions in the chain up to that point
 →<br>`window_final_block_hash` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.17.0*<br><br>The hash of the final block in the window
 →<br>`window_block_count` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Size of the window in number of blocks
+→<br>`window_final_block_height` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.18.0*<br><br>Height of the final block in window
 →<br>`window_tx_count` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The number of transactions in the window. Only returned if `window_block_count` is > 0
 →<br>`window_interval` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The elapsed time in the window in seconds. Only returned if `window_block_count` is > 0
 →<br>`txrate` | number (int) | Optional<br>(0 or 1) | The average rate of transactions per second in the window. Only returned if `window_interval` is > 0
 
-*Example from Dash Core 0.17.0*
+*Example from Dash Core 0.18.0*
 
 ``` bash
 dash-cli -testnet getchaintxstats
@@ -994,13 +1045,14 @@ dash-cli -testnet getchaintxstats
 Result:
 ``` json
 {
-  "time": 1607535744,
-  "txcount": 3490507,
-  "window_final_block_hash": "000003cfecf1f8e6d62a21c1f7c98be3442cdb8955beecbecb7f32d2c62082f5",
+  "time": 1634200935,
+  "txcount": 5255650,
+  "window_final_block_hash": "0000013524141f0e54137d266088c3d042cca340eabc4393414d7d0560866239",
+  "window_final_block_height": 593815,
   "window_block_count": 17280,
-  "window_tx_count": 161907,
-  "window_interval": 6406989,
-  "txrate": 0.02527037271329793
+  "window_tx_count": 33384,
+  "window_interval": 2417430,
+  "txrate": 0.0138097070028915
 }
 
 ```

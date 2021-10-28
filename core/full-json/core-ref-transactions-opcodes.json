@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fce5c21ec64d90073aa880b", 
+ "parentDoc": "61549206c31f6b00207cf242", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-01-19T14:52:47.721Z", 
- "id": "5fce5c21ec64d90073aa8811", 
+ "id": "61549206c31f6b00207cf248", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-23T16:10:33.564Z", 
- "category": "5fce5c21ec64d90073aa87fa", 
+ "category": "61549205c31f6b00207cf231", 
  "title": "OpCodes", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
+ "version": "61549206c31f6b00207cf2be", 
  "slugUpdatedAt": "2021-01-06T20:42:42.049Z", 
  "hidden": false, 
  "type": "basic", 
@@ -63,7 +63,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5fce5c21ec64d90073aa8811", 
+ "_id": "61549206c31f6b00207cf248", 
  "order": 0, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fce5c21ec64d90073aa884f", 
+ "parentDoc": "61549206c31f6b00207cf286", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2020-05-28T20:44:14.291Z", 
- "id": "5fce5c21ec64d90073aa8851", 
+ "id": "61549206c31f6b00207cf288", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-28T13:45:54.394Z", 
- "category": "5fce5c21ec64d90073aa87fb", 
+ "category": "61549205c31f6b00207cf232", 
  "title": "Simplified Payment Verification (SPV)", 
  "next": {
   "description": "", 
@@ -44,8 +44,8 @@
    }
   ]
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
- "slugUpdatedAt": "2021-10-27T03:04:41.455Z", 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-10-28T16:57:48.479Z", 
  "hidden": false, 
  "type": "basic", 
  "metadata": {
@@ -63,7 +63,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5fce5c21ec64d90073aa8851", 
+ "_id": "61549206c31f6b00207cf288", 
  "order": 1, 
  "user": "5af39863989da435b05d284d"
 }

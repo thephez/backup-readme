@@ -201,6 +201,45 @@ Result:
 * [GetPeerInfo](/docs/core-api-ref-remote-procedure-calls-network#getpeerinfo): returns data about each connected network node.
 * [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#getnetworkinfo): returns information about the node's connection to the network.
 
+# GetNodeAddresses
+
+The [`getnodeaddresses` RPC](core-api-ref-remote-procedure-calls-network#getnodeaddresses) returns the known addresses which can potentially be used to find new nodes in the network.
+
+*Parameter #1---count*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+TXID | number (int) | Optional<br>(0 or 1) | The number of addresses to return. Limited to the smaller of 2500 or 23% of all known addresses (default = 1).
+
+*Result---the current bytes in, bytes out, and current time*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | An array containing information about the known addresses.
+→<br>`time` | number (int) | Required<br>(exactly 1) | The epoch time of when the node was last seen (in Unix)
+→<br>`services` | number (int) | Required<br>(exactly 1) | The services offered
+→<br>`address` | string | Required<br>(exactly 1) | The address of the node
+→<br>`port` | number (int) | Required<br>(exactly 1) | The port of the node
+  
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet getnodeaddresses
+```
+
+Result:
+
+```json
+[
+  {
+    "time": 1634187034,
+    "services": 1029,
+    "address": "34.214.102.160",
+    "port": 19999
+  }
+]
+```
+
 # GetNetTotals
 
 The [`getnettotals` RPC](core-api-ref-remote-procedure-calls-network#getnettotals) returns information about network traffic, including bytes in, bytes out, and the current time.
@@ -390,16 +429,17 @@ Name | Type | Presence | Description
 → →<br>`synced_blocks` | number (int) | Required<br>(exactly 1) | The highest-height block we have in common with this node based on P2P [`inv` messages](core-ref-p2p-network-data-messages#inv) this node sent us.  If no block [`inv` messages](core-ref-p2p-network-data-messages#inv) have been received from this node, this will be set to `-1`
 → →<br>`inflight` | array | Required<br>(exactly 1) | An array of blocks which have been requested from this peer.  May be empty
 → → →<br>Blocks | number (int) | Optional<br>(0 or more) | The height of a block being requested from the remote peer
-→ →<br>`whitelisted` | bool | Required<br>(exactly 1) | Set to `true` if the remote peer has been whitelisted; otherwise, set to `false`.  Whitelisted peers will not be banned if their ban score exceeds the maximum (100 by default).  By default, peers connecting from localhost are whitelisted
+  * → →<br>`whitelisted` | bool | Required<br>(exactly 1) | Set to `true` if the remote peer has been whitelisted; otherwise, set to `false`.  Whitelisted peers will not be banned if their ban score exceeds the maximum (100 by default).  By default, peers connecting from localhost are whitelisted
+→ →<br>`permissions` | array | Required<br>(exactly 1) | *Added in Bitcoin Core 0.19.0*<br><br>Any special permissions that have been granted to this peer
 → →<br>`bytessent_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total sent bytes aggregated by message type
 → → →<br>Message Type | number (int) | Required<br>(1 or more) | Total sent bytes aggregated by message type. One field for every used message type
 → →<br>`bytesrecv_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total received bytes aggregated by message type
 → → →<br>Message Type | number (int) | Required<br>(1 or more) | Total received bytes aggregated by message type. One field for every used message type
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.18.0*
 
 ```bash
-dash-cli getpeerinfo
+dash-cli -testnet getpeerinfo
 ```
 
 Result (edited to show only a single entry, with IP addresses changed to
@@ -408,75 +448,80 @@ Result (edited to show only a single entry, with IP addresses changed to
 ```json
 [
   {
-    "id": 3,
-    "addr": "192.0.2.113:19999",
-    "addrlocal": "127.0.0.1:56332",
-    "addrbind": "192.168.10.111:56332",
+    "id": 28,
+    "addr": "34.217.98.54:19999",
+    "addrlocal": "99.235.23.127:56865",
+    "addrbind": "10.0.0.111:56865",
     "services": "0000000000000405",
-    "verified_proregtx_hash": "109e45aedfa3b9eeda9bf3a12d392b3db711eb9c248db5fc5c878703496621e9",
-    "verified_pubkey_hash": "48563ca7b0b42e4447a00578456fad06c5ed0c6965cdba170f7c84be7df204e3",
+    "servicesnames": [
+      "NETWORK",
+      "BLOOM",
+      "NETWORK_LIMITED"
+    ],
     "relaytxes": true,
-    "lastsend": 1611582718,
-    "lastrecv": 1611582718,
-    "bytessent": 10598,
-    "bytesrecv": 32442,
-    "conntime": 1611582087,
-    "timeoffset": -2,
-    "pingtime": 0.08229,
-    "minping": 0.081689,
-    "version": 70218,
-    "subver": "/Dash Core:0.17.0/",
+    "lastsend": 1634805868,
+    "lastrecv": 1634805868,
+    "bytessent": 71058,
+    "bytesrecv": 115054,
+    "conntime": 1634801665,
+    "timeoffset": 0,
+    "pingtime": 0.092595,
+    "minping": 0.083287,
+    "version": 70219,
+    "subver": "/Dash Core:0.17.0.3/",
     "inbound": false,
     "addnode": false,
     "masternode": false,
-    "startingheight": 432836,
+    "startingheight": 598074,
     "banscore": 0,
-    "synced_headers": 432843,
-    "synced_blocks": 432843,
+    "synced_headers": 598106,
+    "synced_blocks": 598106,
     "inflight": [
     ],
     "whitelisted": false,
+    "permissions": [
+    ],
     "bytessent_per_msg": {
       "addr": 110,
-      "dsq": 6800,
+      "dsq": 65280,
       "getaddr": 24,
-      "getdata": 926,
-      "getheaders": 1021,
+      "getdata": 1045,
+      "getheaders": 1053,
       "getsporks": 24,
       "govsync": 66,
-      "headers": 742,
-      "inv": 183,
+      "headers": 717,
+      "inv": 341,
       "mempool": 24,
-      "ping": 192,
-      "pong": 192,
-      "qsendrecsigs": 25,
-      "sendcmpct": 33,
+      "ping": 1024,
+      "pong": 1024,
+      "sendaddrv2": 24,
+      "sendcmpct": 66,
       "senddsq": 25,
       "sendheaders": 24,
       "verack": 24,
       "version": 163
     },
     "bytesrecv_per_msg": {
-      "*other*": 25,
-      "addr": 12022,
-      "clsig": 312,
-      "dsq": 7310,
-      "getheaders": 1021,
-      "headers": 424,
-      "inv": 4189,
+      "addr": 11272,
+      "block": 3104,
+      "clsig": 780,
+      "cmpctblock": 10012,
+      "dsq": 79730,
+      "getheaders": 1053,
+      "headers": 754,
+      "inv": 2745,
       "islock": 378,
       "mnauth": 152,
-      "ping": 192,
-      "pong": 192,
-      "qsigrec": 1519,
+      "notfound": 305,
+      "ping": 1024,
+      "pong": 1024,
       "sendcmpct": 33,
       "senddsq": 25,
       "sendheaders": 24,
       "spork": 2420,
       "ssc": 32,
-      "tx": 1987,
       "verack": 24,
-      "version": 161
+      "version": 163
     }
   }
 ]

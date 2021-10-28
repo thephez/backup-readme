@@ -107,7 +107,6 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [FundRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#fundrawtransaction): adds inputs to a transaction until it has enough in value to meet its out value. **Updated in Dash Core 0.17.0**
 * [GetRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings. **_Updated in Dash Core 0.16.0_**
 * [SendRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network. _Updated in Dash Core 0.15.0_
-* [SignRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call. **_Deprecated_**
 * [SignRawTransactionWithKey](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey): signs a transaction in the serialized transaction format using private keys provided in the call. **Added in Dash Core 0.17.0**
 
 # [Utility RPCs](core-api-ref-remote-procedure-calls-util)
@@ -184,11 +183,6 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount): returns the name of the account associated with the given address. **_Deprecated_**
 * [GetAccountAddress](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccountaddress): returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address. **_Deprecated_**
 * [GetAddressesByAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account. **_Deprecated_**
-* [GetReceivedByAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions. *Updated in Dash Core 0.13.0* **_Deprecated_**
-* [ListAccounts](core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances. *Updated in Dash Core 0.13.0* **_Deprecated_**
-* [ListReceivedByAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#listreceivedbyaccount): lists the total number of dash received by each account. *Updated in Dash Core 0.13.0* **_Deprecated_**
-* [Move](core-api-ref-remote-procedure-calls-wallet-deprecated#move): moves a specified amount from one account in your wallet to another using an off-block-chain transaction. **_Deprecated_**
-* [SendFrom](core-api-ref-remote-procedure-calls-wallet-deprecated#sendfrom): spends an amount from a local account to a dash address. *Updated in Dash Core 0.13.0* **_Deprecated_**
 * [SetAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#setaccount): puts the specified address in the given account. **_Deprecated_**
 
 # [ZeroMQ (ZMQ) RPCs](core-api-ref-remote-procedure-calls-zmq)
@@ -200,7 +194,6 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [EstimateFee](core-api-ref-remote-procedure-calls-removed#estimatefee): **was removed in Dash Core 0.17.0.**
 * [EstimatePriority](core-api-ref-remote-procedure-calls-removed#estimatepriority): was removed in Dash Core 0.14.0.
 * [EstimateSmartPriority](core-api-ref-remote-procedure-calls-removed#estimatesmartpriority): was removed in Dash Core 0.14.0.
-* [GetInfo](core-api-ref-remote-procedure-calls-removed#getinfo): was removed in Dash Core 0.16.0.
 * [GetPoolInfo](core-api-ref-remote-procedure-calls-dash#getpoolinfo): returns an object containing pool related information. **_Deprecated in 0.15.0_**
 * [MasternodeBroadcast](core-api-ref-remote-procedure-calls-removed#masternodebroadcast): was removed in Dash Core 0.14.0.
 * [SentinelPing](core-api-ref-remote-procedure-calls-removed#sentinelping): was removed in Dash Core 0.14.0.

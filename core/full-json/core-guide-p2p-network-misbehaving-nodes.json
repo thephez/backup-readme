@@ -1,6 +1,6 @@
 {
  "pendingAlgoliaPublish": false, 
- "parentDoc": "5fce5c21ec64d90073aa8829", 
+ "parentDoc": "61549206c31f6b00207cf260", 
  "excerpt": "", 
  "api": {
   "url": "", 
@@ -26,11 +26,11 @@
  }, 
  "previousSlug": "", 
  "updatedAt": "2021-03-24T20:39:52.793Z", 
- "id": "5fce5c21ec64d90073aa884a", 
+ "id": "61549206c31f6b00207cf281", 
  "sync_unique": "", 
  "isApi": false, 
  "createdAt": "2019-10-25T19:15:03.242Z", 
- "category": "5fce5c21ec64d90073aa87fb", 
+ "category": "61549205c31f6b00207cf232", 
  "title": "Misbehaving Nodes", 
  "next": {
   "description": "", 
@@ -44,7 +44,7 @@
    }
   ]
  }, 
- "version": "5fce5c21ec64d90073aa8883", 
+ "version": "61549206c31f6b00207cf2be", 
  "slugUpdatedAt": "2021-03-24T15:50:50.997Z", 
  "hidden": false, 
  "type": "basic", 
@@ -63,7 +63,7 @@
  "link_url": "", 
  "project": "5daf2e65f4109c0040fd51e1", 
  "__v": 1, 
- "_id": "5fce5c21ec64d90073aa884a", 
+ "_id": "61549206c31f6b00207cf281", 
  "order": 5, 
  "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -52,7 +52,13 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 **Response**: No response except on error
 
 ## getIdentity
-
+[block:callout]
+{
+  "type": "warning",
+  "body": "As of Dash Platform 0.21 the `protocolVersion` is no longer included in the CBOR-encoded data. It is instead prepended to the data following CBOR encoding.",
+  "title": "Breaking changes"
+}
+[/block]
 **Returns**: [Identity](explanation-identity) information for the requested identity
 **Parameters**:
 
@@ -73,22 +79,22 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst identityId = Identifier.from('BbSrAN8tKaoQgFxV9T1as8vKSTxRVYx5bWxDqJoVv5jQ');\nclient.platform.getIdentity(identityId).then((response) => {\n  const identity = cbor.decode(response.identity);\n  console.log(identity);\n});",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst identityId = Identifier.from('3nJjUPiVbwvKRpZ6pLUwVjcFoEJdeqPqakobctF3uECU');\nclient.platform.getIdentity(identityId).then((response) => {\n  // Strip off protocol version (leading 4 bytes) and decode\n  const identity = cbor.decode(response.identity.slice(4, response.identity.length));\n  console.log(identity);\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst id = Identifier.from('BbSrAN8tKaoQgFxV9T1as8vKSTxRVYx5bWxDqJoVv5jQ');\nconst idBuffer = Buffer.from(id);\nconst getIdentityRequest = new GetIdentityRequest();\ngetIdentityRequest.setId(idBuffer);\ngetIdentityRequest.setProve(false);\n\nplatformPromiseClient.getIdentity(getIdentityRequest)\n  .then((response) => {\n    const identityResponse = response.getIdentity();\n    const identityBuffer = Buffer.from(identityResponse);\n    console.log(cbor.decode(identityBuffer));\n  })\n  .catch((e) => console.error(e));",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst id = Identifier.from('3nJjUPiVbwvKRpZ6pLUwVjcFoEJdeqPqakobctF3uECU');\nconst idBuffer = Buffer.from(id);\nconst getIdentityRequest = new GetIdentityRequest();\ngetIdentityRequest.setId(idBuffer);\ngetIdentityRequest.setProve(false);\n\nplatformPromiseClient.getIdentity(getIdentityRequest)\n  .then((response) => {\n    const identityResponse = response.getIdentity();\n    const identityBuffer = Buffer.from(identityResponse);\n    // Strip off protocol version (leading 4 bytes) and decode\n    console.log(cbor.decode(identityBuffer.slice(4, identityBuffer.length)));\n  })\n  .catch((e) => console.error(e));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"nWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITM=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
+      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"KVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q0=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "gRPCurl"
     },
     {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"nWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITM=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
+      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"KVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q0=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "gRPCurl with Proof"
     }
@@ -100,17 +106,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "{\n  id: <Buffer 9d 67 d7 bf 13 95 1d 28 02 59 e6 48 2a e6 09 a7 b5 06 ce 1d eb 4f fa f2 8f 7f 0a 58 9f b3 21 33>,\n  balance: 10996072,\n  revision: 0,\n  publicKeys: [\n    {\n      id: 0,\n      data: <Buffer 03 17 4b f2 6e e7 cb 22 06 03 d6 3c a3 64 3d 2c 48 ff 69 43 1d ac c7 71 5b 2e b4 c1 e9 0d 3a 7e 49>,\n      type: 0\n    }\n  ],\n  protocolVersion: 0\n}",
+      "code": "{\n  id: <Buffer 29 52 8f 6a 38 f9 ad 08 79 2e 9a 03 2d 99 3c 76 d1 c5 6c 04 9a 77 3c cf be 02 cf 16 6e 0f f6 ad>,\n  balance: 48570,\n  revision: 0,\n  publicKeys: [\n    {\n      id: 0,\n      data: <Buffer 02 f2 3b 65 31 e0 46 01 e4 ee ed 53 c1 44 e0 6a 28 2e e0 56 40 8a 8b 22 97 9c a7 85 c8 11 b9 9c 59>,\n      type: 0\n    }\n  ]\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"identity\": \"pWJpZFggnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITNnYmFsYW5jZRoAp8loaHJldmlzaW9uAGpwdWJsaWNLZXlzgaNiaWQAZGRhdGFYIQMXS/Ju58siBgPWPKNkPSxI/2lDHazHcVsutMHpDTp+SWR0eXBlAG9wcm90b2NvbFZlcnNpb24A\",\n  \"metadata\": {\n    \"height\": 115,\n    \"coreChainLockedHeight\": 545261\n  }\n}",
+      "code": "{\n  \"identity\": \"AQAAAKRiaWRYIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atZ2JhbGFuY2UZvbpocmV2aXNpb24AanB1YmxpY0tleXOBo2JpZABkZGF0YVghAvI7ZTHgRgHk7u1TwUTgaigu4FZAiosil5ynhcgRuZxZZHR5cGUA\",\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     },
     {
-      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"AQAAAAO/730XK2ZpQ8M/rke2FCWUEvUkNe3Zm7+TMURBHDrqtPcn5nTrzcUK8RoqqZvgwYyvERWIxOuojAWh9JxFPs4on5yLLeYx9zIJIAv5uUESaTlcLrm5kWqtzGcwvrp3rg4BAw==\",\n    \"storeTreeProof\": \"AWyO60NAEaeZnR0hsk6K4NIzhxgC/SxLM4XGAGJpnptfAqshUDZ+353VykAJTytGq/tbOq3wOGwdkljpOZfB+6j/EAFKHml+7jyjG8o3OFVcNZkLd1ZGxu/vwiDRG4p0iXkVXgMgnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITMAjaViaWRYIJ1n178TlR0oAlnmSCrmCae1Bs4d60/68o9/ClifsyEzZ2JhbGFuY2UaAKfJaGhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEDF0vybufLIgYD1jyjZD0sSP9pQx2sx3FbLrTB6Q06fklkdHlwZQBvcHJvdG9jb2xWZXJzaW9uABABJwjSChrmnHIgWreCpNnrdgp5+5QBlr+oeoxemFrpoRcREQ==\",\n    \"signatureLlmqHash\": \"AAAAU76r1uJML75iJSdN/Ev94VMJtsl4KH9m/ULmCII=\",\n    \"signature\": \"lbOEbMLb2xr0Swq8k1yD2F2MOl8jwSH255O0ZNw2b3HEGv02j+zwE092pCzlJYNhBKk0orXtLSQwMHV51WQ/SKBQnYTlt4GAbyjall5fQJc5mzP5SVIx9MbBUEdwL8Jg\"\n  },\n  \"metadata\": {\n    \"height\": 116,\n    \"coreChainLockedHeight\": 545262\n  }\n}",
+      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"v+99FytmaUPDP65HthQllBL1JDXt2Zu/kzFEQRw66rQYEo4ebstz3CguuRKrBP2Cf9cMMDexKgMIX8a4ZnbtzoRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"identitiesProof\": \"Ab3+9XLi6seGGvOeC+YPa6820TTQJg+/VLMTI1l+Aa8uAkoa3iCpnFGnKNsuN3kmkoZziG5966ZPSns0QhkuLhcMEAHqjSiFz+M0EUzxVwMmeYDzBJtbkAf1Dt5ZV0wHrPSy/gJQNWR9nfgU8mqYVkQZvn+cgnUW+ZfuJItL0Vihkm7sbhABLEnf8Xpnpkn4RBFx+7Ftc9+kA+AeukotY1n+Cry0f/kDIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atAH4BAAAApGJpZFggKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q1nYmFsYW5jZRm9umhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEC8jtlMeBGAeTu7VPBROBqKC7gVkCKiyKXnKeFyBG5nFlkdHlwZQAQAYr7Kwts+/MCvdAEAfe0qlM939luA/bmFk/NWn3j+4XMERERAk89CgifO1qwuFxa+KOoekT9JZIRnwerQ3sSHCSWvqliEAHjXdp0pKgcIEmQaWfWG970qaHE8iQWEjp0z9WXkJYAxBECJq4BeR3ucca+V5J1neVZaj8NTzLC7tTtPzMDJ1udK3sQAVSpKcwG23rP77Wl0GF9QCtgi7AMuIA4W6ZDlpJ5guKKEQ==\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lk8TENYBLqhmBaw/IzyR8IjCM7aBhMne/EMwocLs0oQ+JyOKrNTJ8giIgc1aXAKCFDdqgpOMZNPnZcdgcnqJVUpRqIAebTlVdvIZODYpG8LZTA+cQtOqTwVkH3A3c+tr\"\n  },\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl with Proof)"
     }
@@ -146,22 +152,22 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\nconst publicKeyHash = 'bfb0b2a54a8d020b6c68fa4e20cbedcafc8422e0';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\ndpp.initialize().then(() => {\n  client.platform.getIdentitiesByPublicKeyHashes(publicKeysBuffer)\n    .then((response) => {\n      const retrievedIdentity = dpp.identity.createFromBuffer(response.identities[0]);\n      console.log(retrievedIdentity.toJSON());\n    });\n});",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\nconst publicKeyHash = '1e5debba672f105e6f0635fa21a6491d459b8d83';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\ndpp.initialize().then(() => {\n  client.platform.getIdentitiesByPublicKeyHashes(publicKeysBuffer)\n    .then((response) => {\n      const retrievedIdentity = dpp.identity.createFromBuffer(response.identities[0]);\n      console.log(retrievedIdentity.toJSON());\n    });\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentitiesByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst cbor = require('cbor');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst dpp = new DashPlatformProtocol();\n\ndpp.initialize()\n  .then(() => {\n    const platformPromiseClient = new PlatformPromiseClient(\n      'http://seed-1.testnet.networks.dash.org:3010',\n    );\n\n    const publicKeyHash = 'bfb0b2a54a8d020b6c68fa4e20cbedcafc8422e0';\n    const publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\n    const getIdentitiesByPublicKeyHashesRequest = new GetIdentitiesByPublicKeyHashesRequest();\n    getIdentitiesByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\n    platformPromiseClient.getIdentitiesByPublicKeyHashes(getIdentitiesByPublicKeyHashesRequest)\n      .then((response) => {\n        const identitiesResponse = response.getIdentitiesList();\n        const identities = identitiesResponse\n          .map((identity) => (identity.length > 0 ? cbor.decode(Buffer.from(identity)) : null));\n        console.log(dpp.identity.createFromObject(identities[0]).toJSON());\n      })\n      .catch((e) => console.error(e));\n  \t});",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentitiesByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst cbor = require('cbor');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst dpp = new DashPlatformProtocol();\n\ndpp.initialize()\n  .then(() => {\n    const platformPromiseClient = new PlatformPromiseClient(\n      'http://seed-1.testnet.networks.dash.org:3010',\n    );\n\n    const publicKeyHash = '1e5debba672f105e6f0635fa21a6491d459b8d83';\n    const publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\n    const getIdentitiesByPublicKeyHashesRequest = new GetIdentitiesByPublicKeyHashesRequest();\n    getIdentitiesByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\n    platformPromiseClient.getIdentitiesByPublicKeyHashes(getIdentitiesByPublicKeyHashesRequest)\n      .then((response) => {\n        const identitiesResponse = response.getIdentitiesList();\n        const identities = identitiesResponse\n        \t.map((identity) => (identity.length > 0 ? Buffer.from(identity) : null));\n        console.log(dpp.identity.createFromBuffer(identityBuffers[0]).toJSON());\n      })\n      .catch((e) => console.error(e));\n  \t});",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"v7CypUqNAgtsaPpOIMvtyvyEIuA=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
+      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n      \"public_key_hashes\":\"Hl3rumcvEF5vBjX6IaZJHUWbjYM=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl"
     },
     {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"v7CypUqNAgtsaPpOIMvtyvyEIuA=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
+      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"Hl3rumcvEF5vBjX6IaZJHUWbjYM=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl with Proof"
     }
@@ -173,17 +179,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "{\n  protocolVersion: 0,\n  id: 'BbSrAN8tKaoQgFxV9T1as8vKSTxRVYx5bWxDqJoVv5jQ',\n  publicKeys: [\n    {\n      id: 0,\n      type: 0,\n      data: 'AxdL8m7nyyIGA9Y8o2Q9LEj/aUMdrMdxWy60wekNOn5J'\n    }\n  ],\n  balance: 10996072,\n  revision: 0\n}",
+      "code": "{\n  protocolVersion: 1,\n  id: '3nJjUPiVbwvKRpZ6pLUwVjcFoEJdeqPqakobctF3uECU',\n  publicKeys: [\n    {\n      id: 0,\n      type: 0,\n      data: 'AvI7ZTHgRgHk7u1TwUTgaigu4FZAiosil5ynhcgRuZxZ'\n    }\n  ],\n  balance: 48570,\n  revision: 0\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"identities\": [\n    \"pWJpZFggnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITNnYmFsYW5jZRoAp8loaHJldmlzaW9uAGpwdWJsaWNLZXlzgaNiaWQAZGRhdGFYIQMXS/Ju58siBgPWPKNkPSxI/2lDHazHcVsutMHpDTp+SWR0eXBlAG9wcm90b2NvbFZlcnNpb24A\"\n  ],\n  \"metadata\": {\n    \"height\": 121,\n    \"coreChainLockedHeight\": 545274\n  }\n}",
+      "code": "{\n  \"identities\": [\n    \"AQAAAKRiaWRYIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atZ2JhbGFuY2UZvbpocmV2aXNpb24AanB1YmxpY0tleXOBo2JpZABkZGF0YVghAvI7ZTHgRgHk7u1TwUTgaigu4FZAiosil5ynhcgRuZxZZHR5cGUA\"\n  ],\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     },
     {
-      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"AQAAAAO/730XK2ZpQ8M/rke2FCWUEvUkNe3Zm7+TMURBHDrqtPcn5nTrzcUK8RoqqZvgwYyvERWIxOuojAWh9JxFPs4on5yLLeYx9zIJIAv5uUESaTlcLrm5kWqtzGcwvrp3rg4BAw==\",\n    \"storeTreeProof\": \"AWyO60NAEaeZnR0hsk6K4NIzhxgC/SxLM4XGAGJpnptfAqshUDZ+353VykAJTytGq/tbOq3wOGwdkljpOZfB+6j/EAFKHml+7jyjG8o3OFVcNZkLd1ZGxu/vwiDRG4p0iXkVXgMgnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITMAjaViaWRYIJ1n178TlR0oAlnmSCrmCae1Bs4d60/68o9/ClifsyEzZ2JhbGFuY2UaAKfJaGhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEDF0vybufLIgYD1jyjZD0sSP9pQx2sx3FbLrTB6Q06fklkdHlwZQBvcHJvdG9jb2xWZXJzaW9uABABJwjSChrmnHIgWreCpNnrdgp5+5QBlr+oeoxemFrpoRcREQ==\",\n    \"signatureLlmqHash\": \"AAAAU76r1uJML75iJSdN/Ev94VMJtsl4KH9m/ULmCII=\",\n    \"signature\": \"CWqlvjvKTbQIeVPElzK2aOoktOzN2CHOjIXb8JH6HhwtdmtuD5ePY60B9GO8OGwdDjj03Cy6pEa0xksdrWWfDgRVZLFKWPXLGWqldUdJDtAMmhVFk4LaDk5JnaA7fB3f\"\n  },\n  \"metadata\": {\n    \"height\": 121,\n    \"coreChainLockedHeight\": 545274\n  }\n}\n",
+      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"v+99FytmaUPDP65HthQllBL1JDXt2Zu/kzFEQRw66rS90a8Geh7WyM0bzw8iZZtO9TOcTRdGxiKyNu1w1SZtmoRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"identitiesProof\": \"Ab3+9XLi6seGGvOeC+YPa6820TTQJg+/VLMTI1l+Aa8uAkoa3iCpnFGnKNsuN3kmkoZziG5966ZPSns0QhkuLhcMEAHqjSiFz+M0EUzxVwMmeYDzBJtbkAf1Dt5ZV0wHrPSy/gJQNWR9nfgU8mqYVkQZvn+cgnUW+ZfuJItL0Vihkm7sbhABLEnf8Xpnpkn4RBFx+7Ftc9+kA+AeukotY1n+Cry0f/kDIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atAH4BAAAApGJpZFggKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q1nYmFsYW5jZRm9umhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEC8jtlMeBGAeTu7VPBROBqKC7gVkCKiyKXnKeFyBG5nFlkdHlwZQAQAYr7Kwts+/MCvdAEAfe0qlM939luA/bmFk/NWn3j+4XMERERAk89CgifO1qwuFxa+KOoekT9JZIRnwerQ3sSHCSWvqliEAHjXdp0pKgcIEmQaWfWG970qaHE8iQWEjp0z9WXkJYAxBECJq4BeR3ucca+V5J1neVZaj8NTzLC7tTtPzMDJ1udK3sQAVSpKcwG23rP77Wl0GF9QCtgi7AMuIA4W6ZDlpJ5guKKEQ==\",\n      \"publicKeyHashesToIdentityIdsProof\": \"AVVHdharvPK/abcB6ecVTNNxm3n21DO7rsQ8CYCtIDXOAvvzK1glOGZsp5eAfNCH334Wyu/+v8QKlESPYuNw73u6EAHiHt1xB1elAoisxa5A7aamXJFlnDVp+fO+39Dww8/ANxE=\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lk8TENYBLqhmBaw/IzyR8IjCM7aBhMne/EMwocLs0oQ+JyOKrNTJ8giIgc1aXAKCFDdqgpOMZNPnZcdgcnqJVUpRqIAebTlVdvIZODYpG8LZTA+cQtOqTwVkH3A3c+tr\"\n  },\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl with Proof)"
     }
@@ -219,22 +225,22 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst client = new DAPIClient();\n\n// Get identity from hex public key hash\nconst publicKeyHash = 'bfb0b2a54a8d020b6c68fa4e20cbedcafc8422e0';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nclient.platform.getIdentityIdsByPublicKeyHashes(publicKeysBuffer)\n  .then((response) => {\n    for (const r of response) {\n      console.log(`Identity ID: ${Identifier.from(r).toString()}`);\n    }\n  });",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst client = new DAPIClient();\n\n// Get identity from hex public key hash\nconst publicKeyHash = '1e5debba672f105e6f0635fa21a6491d459b8d83';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nclient.platform.getIdentityIdsByPublicKeyHashes(publicKeysBuffer)\n  .then((response) => {\n    for (const r of response) {\n      console.log(`Identity ID: ${Identifier.from(r).toString()}`);\n    }\n  });",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentityIdsByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst publicKeyHash = 'bfb0b2a54a8d020b6c68fa4e20cbedcafc8422e0';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nconst getIdentityIdsByPublicKeyHashesRequest = new GetIdentityIdsByPublicKeyHashesRequest();\ngetIdentityIdsByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\nplatformPromiseClient.getIdentityIdsByPublicKeyHashes(getIdentityIdsByPublicKeyHashesRequest)\n  .then((response) => {\n    for (const r of response.getIdentityIdsList()) {\n      const id = Buffer.from(r);\n      console.log(`Identity ID: ${Identifier.from(id).toString()}`);\n    }\n  })\n  .catch((e) => console.error(e));",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentityIdsByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst publicKeyHash = '1e5debba672f105e6f0635fa21a6491d459b8d83';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nconst getIdentityIdsByPublicKeyHashesRequest = new GetIdentityIdsByPublicKeyHashesRequest();\ngetIdentityIdsByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\nplatformPromiseClient.getIdentityIdsByPublicKeyHashes(getIdentityIdsByPublicKeyHashesRequest)\n  .then((response) => {\n    for (const r of response.getIdentityIdsList()) {\n      const id = Buffer.from(r);\n      console.log(`Identity ID: ${Identifier.from(id).toString()}`);\n    }\n  })\n  .catch((e) => console.error(e));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"v7CypUqNAgtsaPpOIMvtyvyEIuA=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
+      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"Hl3rumcvEF5vBjX6IaZJHUWbjYM=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl"
     },
     {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"v7CypUqNAgtsaPpOIMvtyvyEIuA=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
+      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"Hl3rumcvEF5vBjX6IaZJHUWbjYM=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl with Proof"
     }
@@ -246,17 +252,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "Identity ID: BbSrAN8tKaoQgFxV9T1as8vKSTxRVYx5bWxDqJoVv5jQ",
+      "code": "Identity ID: 3nJjUPiVbwvKRpZ6pLUwVjcFoEJdeqPqakobctF3uECU",
       "language": "text",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"identityIds\": [\n    \"nWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITM=\"\n  ],\n  \"metadata\": {\n    \"height\": 126,\n    \"coreChainLockedHeight\": 545280\n  }\n}",
+      "code": "{\n  \"identityIds\": [\n    \"KVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q0=\"\n  ],\n  \"metadata\": {\n    \"height\": \"4086\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     },
     {
-      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"AQAAAAPx389OUoMhPwNQz096/f4Ng4i2iIG260YscRpZcUMmKR7NvS3i3YD4jguNQuAcb+uPhaG29YHrd2EG45KSLM8Tn5yLLeYx9zIJIAv5uUESaTlcLrm5kWqtzGcwvrp3rg4BBQ==\",\n    \"storeTreeProof\": \"ATeFN5n8xiKvWvMdvzysqD5u3DkaJAPvATjxds7IrqGlAo4LrtGX49t4RVNwm0NwwqysyHYeIke8adCFBPWk5squEAMUh1EY/fMYJqrQ3x52Svn/D0nJ/1IAIIUxI566SJ8tHo+d5bbQBlOESYAZy+tdC39j2P85E22uAxS/sLKlSo0CC2xo+k4gy+3K/IQi4AAgnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITMQAQJ61gkGg2cKVHGmUNUFZ04yHdDjj89QyjTdejs9b1pJERE=\",\n    \"signatureLlmqHash\": \"AAAAABuz53KkQFcbIKei9yoOTb6Nj1/skLoLHj3T+Lc=\",\n    \"signature\": \"Dm3nKYPP3trGIodvTgzm74qJk/NyGUOHQJrgJYW3z93NH0sRkil9U7y0dbQ8bJImBn/qMbpoqq9eIikYk/RV3MjX22GIf+b/ItSH/XQ6DaKce/B69sGTeFW1MmvPiUNX\"\n  },\n  \"metadata\": {\n    \"height\": 126,\n    \"coreChainLockedHeight\": 545280\n  }\n}",
+      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"vdGvBnoe1sjNG88PImWbTvUznE0XRsYisjbtcNUmbZoi9eaFSC/P2CNfdJ0+uFFYwUMpSE/op2o70wTCcKKFboRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"publicKeyHashesToIdentityIdsProof\": \"ASl+f/bOOvYpB1UPrhD+OWx78EIJRDRlDQ3t81EFtxDwAxQeXeu6Zy8QXm8GNfohpkkdRZuNgwAgKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q0QAQw3DUjb35EbQujSCMbYJoBVowJeJYuF/n52Fs7SZxW7EQL78ytYJThmbKeXgHzQh99+Fsrv/r/ECpREj2LjcO97uhAB4h7dcQdXpQKIrMWuQO2mplyRZZw1afnzvt/Q8MPPwDcR\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lPD7ukoFs+mbUonBdnfn95pqFK2J06DBtjtMZro+KNY7pVy4waMx057mjc8boZoOBjT9Fo0XXqGrE9JLY7cGEITd6k3KpS2kMP9/SSgnm7L/7S9LRqPnMlUF5j2Ihusl\"\n  },\n  \"metadata\": {\n    \"height\": \"4086\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl with Proof)"
     }
@@ -284,22 +290,22 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst contractId = Identifier.from('2aSUdJhasGANowpgjxARDY8N94dJYQNmp7VbH2WEXkmj');\nclient.platform.getDataContract(contractId).then((response) => {\n  const contract = cbor.decode(response.dataContract);\n  console.dir(contract, { depth: 10 });\n});",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst contractId = Identifier.from('7sGiwoT8QaMAqEcuhB9UXLYq4oNG3r87up8fK2vvADXc');\nclient.platform.getDataContract(contractId).then((response) => {\n  const contract = cbor.decode(response.dataContract);\n  console.dir(contract, { depth: 10 });\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetDataContractRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst contractId = Identifier.from('2aSUdJhasGANowpgjxARDY8N94dJYQNmp7VbH2WEXkmj');\nconst contractIdBuffer = Buffer.from(contractId);\nconst getDataContractRequest = new GetDataContractRequest();\ngetDataContractRequest.setId(contractIdBuffer);\n\nplatformPromiseClient.getDataContract(getDataContractRequest)\n  .then((response) => {\n    const contractResponse = response.getDataContract();\n    const contractBuffer = Buffer.from(contractResponse);\n    console.dir(cbor.decode(contractBuffer), { depth: 5 });\n  })\n  .catch((e) => console.error(e));",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetDataContractRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst contractId = Identifier.from('7sGiwoT8QaMAqEcuhB9UXLYq4oNG3r87up8fK2vvADXc');\nconst contractIdBuffer = Buffer.from(contractId);\nconst getDataContractRequest = new GetDataContractRequest();\ngetDataContractRequest.setId(contractIdBuffer);\n\nplatformPromiseClient.getDataContract(getDataContractRequest)\n  .then((response) => {\n    const contractResponse = response.getDataContract();\n    const contractBuffer = Buffer.from(contractResponse);\n  \t// Strip off protocol version (leading 4 bytes) and decode\n  \tconsole.dir(cbor.decode(contractBuffer.slice(4, contractBuffer.length)), { depth: 5 });\n  })\n  .catch((e) => console.error(e));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"F2yo52VQu4BQJomGoOrPEyrPVkOifemB5Eswr1oCRQ4=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
+      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"Zgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bc=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "gRPCurl"
     },
     {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"F2yo52VQu4BQJomGoOrPEyrPVkOifemB5Eswr1oCRQ4=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
+      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"Zgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bc=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "gRPCurl with Proof"
     }
@@ -311,17 +317,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "{\n  '$id': Buffer(32) [Uint8Array] [\n     23, 108, 168, 231, 101,  80, 187, 128,\n     80,  38, 137, 134, 160, 234, 207,  19,\n     42, 207,  86,  67, 162, 125, 233, 129,\n    228,  75,  48, 175,  90,   2,  69,  14\n  ],\n  '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n  ownerId: Buffer(32) [Uint8Array] [\n    157, 103, 215, 191,  19, 149,  29,  40,\n      2,  89, 230,  72,  42, 230,   9, 167,\n    181,   6, 206,  29, 235,  79, 250, 242,\n    143, 127,  10,  88, 159, 179,  33,  51\n  ],\n  documents: {\n    note: {\n      type: 'object',\n      properties: { message: { type: 'string' } },\n      additionalProperties: false\n    }\n  },\n  protocolVersion: 0\n}",
+      "code": "{\n  '$id': Buffer(32) [Uint8Array] [\n    102,   6, 240, 181, 237, 221, 232,  56,\n     66, 221, 125,  91,  51, 112,  86, 128,\n    147, 214,  20, 176,   0, 252,  41, 119,\n     72, 190, 104, 222,  90,  75, 249, 183\n  ],\n  '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n  ownerId: Buffer(32) [Uint8Array] [\n    145, 119, 123, 174, 134,  75, 184,  15,\n    197, 162, 149, 223,  43, 213, 181, 107,\n     93, 222, 219, 162, 204, 166, 175,  99,\n     46,  49, 177,  86,  41,  54,  19, 232\n  ],\n  documents: {\n    note: {\n      type: 'object',\n      properties: { message: { type: 'string' } },\n      additionalProperties: false\n    }\n  }\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"dataContract\": \"pWMkaWRYIBdsqOdlULuAUCaJhqDqzxMqz1ZDon3pgeRLMK9aAkUOZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZFggnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITNpZG9jdW1lbnRzoWRub3Rlo2R0eXBlZm9iamVjdGpwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/RvcHJvdG9jb2xWZXJzaW9uAA==\",\n  \"metadata\": {\n    \"height\": 129,\n    \"coreChainLockedHeight\": 545286\n  }\n}",
+      "code": "{\n  \"dataContract\": \"AQAAAKRjJGlkWCBmBvC17d3oOELdfVszcFaAk9YUsAD8KXdIvmjeWkv5t2ckc2NoZW1heDRodHRwczovL3NjaGVtYS5kYXNoLm9yZy9kcHAtMC00LTAvbWV0YS9kYXRhLWNvbnRyYWN0Z293bmVySWRYIJF3e66GS7gPxaKV3yvVtWtd3tuizKavYy4xsVYpNhPoaWRvY3VtZW50c6Fkbm90ZaNkdHlwZWZvYmplY3RqcHJvcGVydGllc6FnbWVzc2FnZaFkdHlwZWZzdHJpbmd0YWRkaXRpb25hbFByb3BlcnRpZXP0\",\n  \"metadata\": {\n    \"height\": \"4126\",\n    \"coreChainLockedHeight\": 602597\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     },
     {
-      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"AQAAAAMue8f0VKLw60DfGDnhpCHhLJj5g7fILfFlHx0Uvb7i8B7NvS3i3YD4jguNQuAcb+uPhaG29YHrd2EG45KSLM8Tn5yLLeYx9zIJIAv5uUESaTlcLrm5kWqtzGcwvrp3rg4BAQ==\",\n    \"storeTreeProof\": \"AyAXbKjnZVC7gFAmiYag6s8TKs9WQ6J96YHkSzCvWgJFDgD0pWMkaWRYIBdsqOdlULuAUCaJhqDqzxMqz1ZDon3pgeRLMK9aAkUOZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZFggnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITNpZG9jdW1lbnRzoWRub3Rlo2R0eXBlZm9iamVjdGpwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/RvcHJvdG9jb2xWZXJzaW9uAAKebAzm7RJJgwTqwNdlS3NJee8Xt5BYqDoWBIf3sSWG1BACRMS8jo36RpN7TSh79+gQL+UYqhYT7Waqmrb6cuysD4cQAQqdbDdz4OKqh5J81U6ndGXvGUb0V3NkxHagzQ7Vcb7GEQ==\",\n    \"signatureLlmqHash\": \"AAAAABuz53KkQFcbIKei9yoOTb6Nj1/skLoLHj3T+Lc=\",\n    \"signature\": \"hy3QXOZ+pcUbqL1wjGtLeFF8wTgTr0/locJKH4ITLvU9y5dh9l6Kllj21rmpGUHCEuqc6hvni7uWHSwZCo914agNFStRFmJIQxdb37oTIXvo6JFg4dOgXpJe/s+EfwLD\"\n  },\n  \"metadata\": {\n    \"height\": 130,\n    \"coreChainLockedHeight\": 545289\n  }\n}",
+      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"UoUWcVFiOzWnTwE0g+mU5HoRsBjGYxCBMTawVvEiihQi9eaFSC/P2CNfdJ0+uFFYwUMpSE/op2o70wTCcKKFboRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"dataContractsProof\": \"AWTLA9zhqX/Iv1xWjFje9RO1gvSDeR2Nozr0jJ54zC2WAtmQfNDX/4w3ZxzF6l+WrJ6zCXaoSgj+usc/W8Sq1wAZEAFw8dhrMeRmw/D5phVlzDMTz3+GPl6bragUf98TjetMHAKAHGP8oviChW1cszz/Z3X6JNqLu0cZvbKjVqg4XTOQ0BADIGYG8LXt3eg4Qt19WzNwVoCT1hSwAPwpd0i+aN5aS/m3AOcBAAAApGMkaWRYIGYG8LXt3eg4Qt19WzNwVoCT1hSwAPwpd0i+aN5aS/m3ZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZFggkXd7roZLuA/FopXfK9W1a13e26LMpq9jLjGxVik2E+hpZG9jdW1lbnRzoWRub3Rlo2R0eXBlZm9iamVjdGpwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/QCajFnEzRfWdMz9eb04hV6NkJ7/WnRLZapbVLvbDjP+LAQAYChpQAdFW0BPcHA4K544kYqtHtZpMvE7zyN13z6i0DEEREC1f4FCxWur82ee+34+KBPfEyNPiVO5N6/Ri9fg0zTss4QATcPUokVmwwBNhZJYxh9hWOBbVkeUYlJnMoWMHNlOE0gEQL5aC0sNYefYm/7IxrFWDfk5UOpT1Xev55SxLVAcigOCRABwxylhTyqpev1DMfV8Z/QWCjr3bZWmWqafhooeOrG75ARAkLyTiNKYJZUXcOGs3Ba+UOX2LqBnK2Mh5ZKaDl1omAbEAHpUHg/nWE0DXbMghdB9OX5WB9sKyqQciNAlX3PrpDAqhECGn4Eb3qGrD88QyS5a6hjzlfCgURpHHU3bSmITL5IR+gQAbBk1WCyJTCDPtv+5KEJRdI9YliOesShZrZIJwcZrJpEERE=\"\n    },\n    \"signatureLlmqHash\": \"AAAA8+9g8wrkwRLpHCZTI3kZr3wCIEgIAyPgwXDe/JU=\",\n    \"signature\": \"E5kGj0PbY4aHm3+3Ps8s5oM5XkIc8gpt7zgjDvyjVXqlmFD1fMgISjKtownBrDCIEXr6TjoMfpPwyG98IXe5xfeiYoUH4ZF7qElh9xt0nd+OXcmu/wznf7TTwt0+FvD/\"\n  },\n  \"metadata\": {\n    \"height\": \"4158\",\n    \"coreChainLockedHeight\": 602638\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl with Proof)"
     }
@@ -366,22 +372,22 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst contractId = Identifier.from('2aSUdJhasGANowpgjxARDY8N94dJYQNmp7VbH2WEXkmj');\nclient.platform.getDocuments(contractId, 'note', { limit: 10 }).then((response) => {\n  for (const rawData of response) {\n    console.log(cbor.decode(rawData));\n  }\n});",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\nconst cbor = require('cbor');\n\nconst client = new DAPIClient();\n\nconst contractId = Identifier.from('7sGiwoT8QaMAqEcuhB9UXLYq4oNG3r87up8fK2vvADXc');\nclient.platform.getDocuments(contractId, 'note', { limit: 10 }).then((response) => {\n  for (const rawData of response.documents) {\n    console.log(cbor.decode(rawData.slice(4, rawData.length)));\n  }\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetDocumentsRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst cbor = require('cbor');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst contractId = Identifier.from('2aSUdJhasGANowpgjxARDY8N94dJYQNmp7VbH2WEXkmj');\nconst contractIdBuffer = Buffer.from(contractId);\nconst getDocumentsRequest = new GetDocumentsRequest();\nconst type = 'note';\nconst limit = 10;\n\ngetDocumentsRequest.setDataContractId(contractIdBuffer);\ngetDocumentsRequest.setDocumentType(type);\n// getDocumentsRequest.setWhere(whereSerialized);\n// getDocumentsRequest.setOrderBy(orderBySerialized);\ngetDocumentsRequest.setLimit(limit);\n// getDocumentsRequest.setStartAfter(startAfter);\n// getDocumentsRequest.setStartAt(startAt);\n\nplatformPromiseClient.getDocuments(getDocumentsRequest)\n  .then((response) => {\n    for (const document of response.getDocumentsList()) {\n      console.log(cbor.decode(Buffer.from(document)));\n    }\n  })\n  .catch((e) => console.error(e));",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetDocumentsRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst cbor = require('cbor');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst contractId = Identifier.from('7sGiwoT8QaMAqEcuhB9UXLYq4oNG3r87up8fK2vvADXc');\nconst contractIdBuffer = Buffer.from(contractId);\nconst getDocumentsRequest = new GetDocumentsRequest();\nconst type = 'note';\nconst limit = 10;\n\ngetDocumentsRequest.setDataContractId(contractIdBuffer);\ngetDocumentsRequest.setDocumentType(type);\n// getDocumentsRequest.setWhere(whereSerialized);\n// getDocumentsRequest.setOrderBy(orderBySerialized);\ngetDocumentsRequest.setLimit(limit);\n// getDocumentsRequest.setStartAfter(startAfter);\n// getDocumentsRequest.setStartAt(startAt);\n\nplatformPromiseClient.getDocuments(getDocumentsRequest)\n  .then((response) => {\n    for (const document of response.getDocumentsList()) {\n      const documentBuffer = Buffer.from(document);\n      // Strip off protocol version (leading 4 bytes) and decode\n      console.log(cbor.decode(documentBuffer.slice(4, documentBuffer.length)));\n    }\n  })\n  .catch((e) => console.error(e));",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# Request one DPNS document\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"F2yo52VQu4BQJomGoOrPEyrPVkOifemB5Eswr1oCRQ4=\",\n    \"document_type\":\"note\",\n    \"limit\":10\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
+      "code": "# Request documents\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"Zgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bc=\",\n    \"document_type\":\"note\",\n    \"limit\":10\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl)"
     },
     {
-      "code": "# Request one DPNS document\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"F2yo52VQu4BQJomGoOrPEyrPVkOifemB5Eswr1oCRQ4=\",\n    \"document_type\":\"note\",\n    \"limit\":10,\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
+      "code": "# Request documents\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"Zgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bc=\",\n    \"document_type\":\"note\",\n    \"limit\":10,\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl with Proof)"
     }
@@ -393,17 +399,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "{\n  '$id': <Buffer 3c a1 b4 cc cf 7a cd c2 d5 a6 d5 3a 3b 69 66 ad 75 c6 24 d0 45 05 aa e6 22 8e f5 83 25 9f 0a d7>,\n  '$type': 'note',\n  message: 'Tutorial CI Test @ Tue, 27 Jul 2021 13:06:35 GMT',\n  '$ownerId': <Buffer 9d 67 d7 bf 13 95 1d 28 02 59 e6 48 2a e6 09 a7 b5 06 ce 1d eb 4f fa f2 8f 7f 0a 58 9f b3 21 33>,\n  '$revision': 1,\n  '$dataContractId': <Buffer 17 6c a8 e7 65 50 bb 80 50 26 89 86 a0 ea cf 13 2a cf 56 43 a2 7d e9 81 e4 4b 30 af 5a 02 45 0e>,\n  '$protocolVersion': 0\n}",
+      "code": "{\n  '$id': <Buffer f6 28 4c ec 6a 42 e8 49 b5 97 91 80 dc 4e 6d c3 61 eb 16 f0 f1 17 06 5e 6b fc a8 2f 13 1f 47 ab>,\n  '$type': 'note',\n  message: 'Tutorial CI Test @ Wed, 27 Oct 2021 18:07:32 GMT',\n  '$ownerId': <Buffer 91 77 7b ae 86 4b b8 0f c5 a2 95 df 2b d5 b5 6b 5d de db a2 cc a6 af 63 2e 31 b1 56 29 36 13 e8>,\n  '$revision': 1,\n  '$dataContractId': <Buffer 66 06 f0 b5 ed dd e8 38 42 dd 7d 5b 33 70 56 80 93 d6 14 b0 00 fc 29 77 48 be 68 de 5a 4b f9 b7>\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"documents\": [\n    \"p2MkaWRYIDyhtMzPes3C1abVOjtpZq11xiTQRQWq5iKO9YMlnwrXZSR0eXBlZG5vdGVnbWVzc2FnZXgwVHV0b3JpYWwgQ0kgVGVzdCBAIFR1ZSwgMjcgSnVsIDIwMjEgMTM6MDY6MzUgR01UaCRvd25lcklkWCCdZ9e/E5UdKAJZ5kgq5gmntQbOHetP+vKPfwpYn7MhM2kkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZFggF2yo52VQu4BQJomGoOrPEyrPVkOifemB5Eswr1oCRQ5wJHByb3RvY29sVmVyc2lvbgA=\"\n  ],\n  \"metadata\": {\n    \"height\": 132,\n    \"coreChainLockedHeight\": 545298\n  }\n}",
+      "code": "{\n  \"documents\": [\n    \"AQAAAKZjJGlkWCD2KEzsakLoSbWXkYDcTm3DYesW8PEXBl5r/KgvEx9Hq2UkdHlwZWRub3RlZ21lc3NhZ2V4MFR1dG9yaWFsIENJIFRlc3QgQCBXZWQsIDI3IE9jdCAyMDIxIDE4OjA3OjMyIEdNVGgkb3duZXJJZFggkXd7roZLuA/FopXfK9W1a13e26LMpq9jLjGxVik2E+hpJHJldmlzaW9uAW8kZGF0YUNvbnRyYWN0SWRYIGYG8LXt3eg4Qt19WzNwVoCT1hSwAPwpd0i+aN5aS/m3\"\n  ],\n  \"metadata\": {\n    \"height\": \"4181\",\n    \"coreChainLockedHeight\": 602674\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
     },
     {
-      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"AQAAAAI3K3b38xhhvsh49mtplZhoX9g81EXJEjxwHeuku+QsJdUkWafhJfD3uDjsl+ZmSHUDrjn7xwbwAozYDr1Uv6b4AQI=\",\n    \"storeTreeProof\": \"AXNwJkbsrxIoxhurh+nOi7+LkOqQidT6rmHnqJqr0KfkAin9QcwUR4nCi2beKYCsCrARr2lAa2YnJY2BJu2lM2MbEAEraKbQuKTiu9dsfWhOKKFL3+XuAOO4s8EMWSMItNzOsQMgPKG0zM96zcLVptU6O2lmrXXGJNBFBarmIo71gyWfCtcA5qdjJGlkWCA8obTMz3rNwtWm1To7aWatdcYk0EUFquYijvWDJZ8K12UkdHlwZWRub3RlZ21lc3NhZ2V4MFR1dG9yaWFsIENJIFRlc3QgQCBUdWUsIDI3IEp1bCAyMDIxIDEzOjA2OjM1IEdNVGgkb3duZXJJZFggnWfXvxOVHSgCWeZIKuYJp7UGzh3rT/ryj38KWJ+zITNpJHJldmlzaW9uAW8kZGF0YUNvbnRyYWN0SWRYIBdsqOdlULuAUCaJhqDqzxMqz1ZDon3pgeRLMK9aAkUOcCRwcm90b2NvbFZlcnNpb24AEAF05KHTyyYguECyveRfD5nB+umrpuE+NUtdZ+bLsim0VRERAsf6E4Sx5AJ0bCpD6L4YbAeocPL1FqWExMMpKk/LYiYrEAFWv4FD9lfbosegLN5/13ajFH2I7XJ9gD2r3kx8KKRyMBE=\",\n    \"signatureLlmqHash\": \"AAAAABuz53KkQFcbIKei9yoOTb6Nj1/skLoLHj3T+Lc=\",\n    \"signature\": \"iHkJflUfSQ98L6gPVFu03s+ZuMM6L4VXgFs6KifrkLLFAhYPI8goe63AZKiePCoTDv/aaEr0oWTQT53WNrRuEabI0ABn8KZE4BndkTTn0FmIgQ7T6eg+pqFuTtrptBqM\"\n  },\n  \"metadata\": {\n    \"height\": 132,\n    \"coreChainLockedHeight\": 545298\n  }\n}\n",
+      "code": "// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"OROtAnUrAkPl0DYUzlsMB9LhJZ06ru05bOPqkHVYo+31K6UWyw8x5nPaeBOdpn9MFo4KoyAeMuO6RJhg6uhR6g==\",\n    \"storeTreeProofs\": {\n      \"documentsProof\": \"Af3qHY9UTnuT73Ae0Z/XjDkekjlH1FfZguvcpoReGdogAjr5vfOseSD5G5S0Dkw1g34k0sczimEtHbGtYcyZ7icBEAGGyGfN3RmR58TRbLWh5UAS/+BLFIFYlQ2PJQ4h6NkWxgIPfn+kvIrzjO5P4NYObIRV0+xxCl0XKmHjzWHA3rXBqRABgJ8gC7AGyacDWJHJQKx+kdMeqmOYWyO99CBLFrJZnDgCHw+XhxBZjK7OJKbo3FXfiNzBN7YvAz3gxTqaIiWknNoQAVhIL5S6zg6v57CLmcP+ve+VDXdVexvBLGfImbrJ+Z1/AqLtr92YXdne0HIJNybRNY9W6dq1zPX8IpmLihMVt+4/EAE2BzKOaX9r6X+0zBVEAXuRHEI7jhpjmPhljWlAINlI/gIRmjuSsyX7cN/ADIM0LpiCR6xmd0h/x6y+DCo/8j8KqBABHrWz3C6kWbMLNPxATaDV6CiSti/3HFNa4fkCFzBs2F8DIPYoTOxqQuhJtZeRgNxObcNh6xbw8RcGXmv8qC8TH0erANgBAAAApmMkaWRYIPYoTOxqQuhJtZeRgNxObcNh6xbw8RcGXmv8qC8TH0erZSR0eXBlZG5vdGVnbWVzc2FnZXgwVHV0b3JpYWwgQ0kgVGVzdCBAIFdlZCwgMjcgT2N0IDIwMjEgMTg6MDc6MzIgR01UaCRvd25lcklkWCCRd3uuhku4D8Wild8r1bVrXd7bosymr2MuMbFWKTYT6GkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZFggZgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bcQARO6Fxi1e5WmcVHGtcGZVW//UkDG3e5s51hmYBmrw4CxEQJKYPVW7qYg9EU9ycHP1kpqW8gIlajI7snfor/ZTlcbWxAB/YH69QkKkpIg6ZV3EoEsr4CpY6Yg/LziAypgUbGeEwIRAhI5xb5+Cfsd2m8dJ0CXWWVIPPMNFzzip3H0rJvP9kQzEAGNmmazyIMJvTKmXDKxCAol5Cbgpp/3SBf6L4tyq5gZxhEREREREQ==\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"k6o6k3BHGFcKU5fbdIH6wCu1dA+5WwgYlwMF9u1yvUeUn+KqzIZ+ijwlaQp5kSc+CVdFgMyVH4E5uysp+6fHSp8l1B47EdcHwe9CahdnlB4pGDA6RtCxCHLa5rrv6/eK\"\n  },\n  \"metadata\": {\n    \"height\": \"4181\",\n    \"coreChainLockedHeight\": 602674\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl with Proof)"
     }

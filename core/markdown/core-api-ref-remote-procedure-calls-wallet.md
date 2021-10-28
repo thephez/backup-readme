@@ -188,6 +188,12 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `wallet_name` | string | Required<br>(exactly 1) | The name for the new wallet. If this is a path, the wallet will be created at the path location.
 
+*Parameter #2---disable private keys*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`disable_private_keys` | bool | Optional<br>(0 or 1) | Disable the possibility of private keys. Only watchonlys are possible in this mode.
+
 *Result---wallet name and any warnings*
 
 Name | Type | Presence | Description
@@ -433,7 +439,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Address | string (base58) | Required<br>(exactly 1) | The P2PKH or P2SH address encoded in base58check format
 
-*Result---information about the address*
+*Result---returns information about the address*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -443,6 +449,7 @@ Name | Type | Presence | Description
 →<br>`ismine` | bool | Required<br>(exactly 1) | Set to `true` if the address belongs to the wallet; set to false if it does not.  Only returned if wallet support enabled
 →<br>`iswatchonly` | bool | Required<br>(exactly 1) | Set to `true` if the address is watch-only.  Otherwise set to `false`.  Only returned if address is in the wallet
 →<br>`isscript` | bool | Required<br>(exactly 1) | Set to `true` if a P2SH address; otherwise set to `false`.  Only returned if the address is in the wallet
+→<br>`ischange` | bool | Required<br>(exactly 1) | Set to `true` if the address was used for change output.
 →<br>`script` | string | Optional<br>(0 or 1) | Only returned for P2SH addresses belonging to this wallet. This is the type of script:<br>• `pubkey` for a P2PK script inside P2SH<br>• `pubkeyhash` for a P2PKH script inside P2SH<br>• `multisig` for a multisig script inside P2SH<br>• `nonstandard` for unknown scripts
 →<br>`hex` | string (hex) | Optional<br>(0 or 1) | Only returned for P2SH addresses belonging to this wallet.  This is the redeem script encoded as hex
 →<br>`pubkeys` | array | Optional<br>(0 or 1) | Array of pubkeys associated with the known redeemscript (only if `script` is "multisig")
@@ -461,24 +468,34 @@ Name | Type | Presence | Description
 →→→<br>`name` | string | Optional<br>(0 or 1) | The label
 →→→<br>`purpose` | string | Optional<br>(0 or 1) | Purpose of address (`send` for sending address, `receive` for receiving address
 
-*Example from Dash Core 0.17.0*
+*Example from Dash Core 0.18.0*
 
 Get info for the following P2PKH address from the wallet:
 
 ``` bash
-dash-cli getaddressinfo yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb
+dash-cli getaddressinfo ycb5zTBeknxdQn226fQzxZ1JLXTgctW86G
 ```
 
 Result:
 
 ``` json
 {
-  "address": "yNpezfFDfoikDuT1f4iK75AiLp2YLPsGAb",
-  "scriptPubKey": "76a9141b767409bd8717b56cfcb00747811432ab1aa8a788ac",
-  "ismine": false,
+  "address": "ycb5zTBeknxdQn226fQzxZ1JLXTgctW86G",
+  "scriptPubKey": "76a914b27741b98cb78b39b7b4e17bd56e8a133b3d435e88ac",
+  "ismine": true,
   "iswatchonly": false,
+  "solvable": true,
   "isscript": false,
+  "pubkey": "021ef464e022c3d99ee6275d04b289d9b4171e98e670eef3aaff29710295d853fd",
+  "iscompressed": true,
+  "label": "",
+  "ischange": false,
+  "timestamp": 1633502158,
   "labels": [
+    {
+      "name": "",
+      "purpose": "receive"
+    }
   ]
 }
 ```
@@ -2305,6 +2322,42 @@ Result:
 
 *See also: none*
 
+# ListWalletDir
+
+The [`listwalletdir` RPC](core-api-ref-remote-procedure-calls-wallet#listwalletdir) returns a list of wallets in the wallet directory.
+
+For full information on the wallet, use the [`getwalletinfo` RPC](core-api-ref-remote-procedure-calls-wallet#getwalletinfo).
+
+*Parameters: none*
+
+*Result*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | A JSON array of objects containing a list of wallets in the wallet directory.
+→<br>name | string | Required<br>(0 or more) | The wallet name
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet listwalletdir
+```
+
+Result:
+```json
+{
+  "wallets": [
+    {
+      "name": "demo"
+    }
+  ]
+}
+```
+
+*See also*
+
+* [GetWalletInfo](core-api-ref-remote-procedure-calls-wallet#getwalletinfo): provides information about the wallet.
+
 # LoadWallet
 [block:callout]
 {
@@ -2545,6 +2598,78 @@ Result:
 *See also*
 
 * [AbortRescan](core-api-ref-remote-procedure-calls-wallet#abortrescan): stops current wallet rescan.
+
+# ScanTXOutset
+[block:callout]
+{
+  "type": "danger",
+  "body": "Experimental warning: this call may be removed or changed in future releases."
+}
+[/block]
+The [`scantxoutset` RPC](core-api-ref-remote-procedure-calls-wallet#scantxoutset) scans the unspent transaction output set for entries that match certain output descriptors.
+
+*Parameter #1---action*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Action | string | Required<br>(exactly 1) | The action to execute: "start" for starting a scan, "abort" for aborting the current scan (returns true when abort was successful), "status" for progress report (in %) of the current scan
+
+*Parameter #2---scan objects*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Scan Objects | array | Required<br>(exactly 1) | An array of scan objects
+→<br>descriptor | string: object | Required<br>(1 or more) | An output descriptor; an object with output descriptor and metadata<br>Examples of output descriptors are:<br> - `addr(<address>)`: Outputs whose scriptPubKey corresponds to the specified address (does not include P2PK)<br> - `raw(<hex script>)`: Outputs whose scriptPubKey equals the specified hex scripts<br> - `combo(<pubkey>)`: P2PK and P2PKH outputs for the given pubkey<br> - `pkh(<pubkey>)`: P2PKH outputs for the given pubkey<br> - `sh(multi(<n>,<pubkey>,<pubkey>,...))`: P2SH-multisig outputs for the given threshold and pubkeys
+→ →<br>desc | string | Required<br>(exactly 1) | An output descriptor
+→ →<br>range | number (int) | Optional<br>(0 or 1) | The child index HD that chains should be explored (default: 1000)
+
+In the above, <pubkey> either refers to a fixed public key in hexadecimal notation, or to an xpub/xprv optionally followed by one or more path elements separated by "/", and optionally ending in "/*" (unhardened), or "/*'" or "/*h" (hardened) to specify all unhardened or hardened child keys. In the latter case, a range needs to be specified by below if different from 1000.
+
+*Result---The unspent and total amount*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | An array containing the the unspent and total amounts.
+→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
+→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The index number of the output (vout) as it appeared in its transaction, with the first output being 0
+→ →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output's pubkey script encoded as hex
+→ →<br>`amount` | number (int) | Required<br>(exactly 1) | The total amount in DASH of the unspent output
+→ →<br>`height` | number (int) | Required<br>(exactly 1) | The height of the unspent transaction output
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet scantxoutset start '["addr(yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ)"]'
+```
+
+Result:
+```json
+{
+  "success": true,
+  "searched_items": 564008,
+  "unspents": [
+    {
+      "txid": "571028a9a2f69c5eec75dbae10c8724b8afd44530fac97936ae6676a9c61e03c",
+      "vout": 0,
+      "scriptPubKey": "76a914724c86a5dc23ecac05474d9be3ac76a6aa4bcb4488ac",
+      "amount": 1.00000000,
+      "height": 494777
+    },
+    {
+      "txid": "3e76165230a3ff5bb8df0a9e278caa81f9a653c2b7a075f8dc16e56103c8f68e",
+      "vout": 0,
+      "scriptPubKey": "76a914724c86a5dc23ecac05474d9be3ac76a6aa4bcb4488ac",
+      "amount": 7.76020488,
+      "height": 494777
+    }
+  ],
+  "total_amount": 8.76020488
+}
+```
+
+*See also*
+
+* [ListUnspent](/docs/core-api-ref-remote-procedure-calls-wallet#listunspent): returns an array of unspent transaction outputs belonging to this wallet.
 
 # SendMany
 [block:callout]
@@ -3147,6 +3272,83 @@ true
 
 * [DumpHDInfo](core-api-ref-remote-procedure-calls-wallet#dumphdinfo):  returns an object containing sensitive private info about this HD wallet
 
+# WalletCreateFundedPSBT
+
+The [`walletcreatefundedpsbt` RPC](core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt) creates and funds a transaction in the Partially Signed Transaction (PST) format. Inputs will be added if supplied inputs are not enough
+
+Implements the Creator and Updater roles.
+
+*Parameter #1---Inputs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Transactions | array | Required<br>(exactly 1) | An array of objects, each one to be used as an input to the transaction
+→ Input | object | Required<br>(1 or more) | An object describing a particular input
+→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the outpoint to be spent encoded as hex in RPC byte order
+→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the outpoint to be spent; the first output in a transaction is index `0`
+→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | Added in Dash Core 0.12.3.0.<br><br>The sequence number to use for the input
+
+*Parameter #2---P2PKH or P2SH addresses and amounts*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Outputs | array | Required<br>(exactly 1) | A JSON array with outputs as key-value pairs
+→ Output | object | Required<br>(1 or more) | An object describing a particular output
+→ →<br>Address | string : number (Dash) | Optional<br>(0 or 1) | A key-value pair. The key (string) is the Dash address, the value (float or string) is the amount in DASH
+→ →<br>Data | `data` : string (hex) | Optional<br>(0 or 1) | A key-value pair. The key must be `data`, the value is hex encoded data
+
+*Parameter #3---locktime*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Locktime | numeric (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.12.0*<br><br>Indicates the earliest time a transaction can be added to the block chain
+
+*Parameter #4---Additional options*
+
+Note: For backwards compatibility, passing in a `true` instead of an object will result in `{"includeWatching": true}`.
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Options | Object | Optional<br>(0 or 1) | Additional options
+→ <br>`changeAddress` | string | Optional<br>(0 or 1) | The address to receive the change. If not set, the address is chosen from address pool
+→ <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
+`includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
+→ <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
+→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**
+→ <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay (BTC per KB). If not set, the wallet determines the fee
+→ <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added.
+→ →<br>Output index | numeric (int) | Optional<br>(0 or more) | A output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
+
+*Parameter #5---bip32derivs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known.
+
+*Result---information about the created transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object including information about the created transaction
+→ <br>hex | string (hex) | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as hex
+→ <br>fee | numeric (bitcoins) | Required<br>(Exactly 1) | Fee in BTC the resulting transaction pays
+→ <br>changepos | numeric (int) | Required<br>(Exactly 1) | The position of the added change output, or `-1` if no change output was added
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet walletcreatefundedpsbt "[{\"txid\":\"2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
+```
+
+Result:
+```json
+{
+  "psbt": "cHNidP8BAGQCAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AgAAAAAAAAAABmoEAAECA6PmxgkAAAAAGXapFFNPqpebN9gMkzsFJWixaDCZ3S8OiKwAAAAAAAEA4QIAAAABlIu3UCzRFVGowPY3H7RvS5g6QGc71ZYEFXIrcS+NfEIBAAAAakcwRAIgT+T8SIyVXyhsUshI7HlQtA7EduG0NMat1oa0dL3eCakCIGIi0pH9naNBQIqopHIPWmlZmXcVod34GH51J3tr/K5+ASEDxn2GlEMVg4rqfsgNOQtdCbkbYkgzcNSXnaXM96ffd6n+////ArTnxgkAAAAAGXapFM78RkkEwDgUwBkG4ZfcdZp0XkfuiKwAypo7AAAAABl2qRQ++by+kvd8j63QVm7qf/jUfyK94IisVUgIAAAAAA==",
+  "fee": 0.00000273,
+  "changepos": 1
+}
+```
+
 # WalletLock
 [block:callout]
 {
@@ -3294,3 +3496,64 @@ dash-cli -testnet walletpassphrasechange "test" "example"
 * [EncryptWallet](core-api-ref-remote-procedure-calls-wallet#encryptwallet): encrypts the wallet with a passphrase.  This is only to enable encryption for the first time. After encryption is enabled, you will need to enter the passphrase to use private keys.
 * [WalletLock](core-api-ref-remote-procedure-calls-wallet#walletlock): removes the wallet encryption key from memory, locking the wallet. After calling this method, you will need to call `walletpassphrase` again before being able to call any methods which require the wallet to be unlocked.
 * [WalletPassphrase](core-api-ref-remote-procedure-calls-wallet#walletpassphrase): stores the wallet decryption key in memory for the indicated number of seconds. Issuing the `walletpassphrase` command while the wallet is already unlocked will set a new unlock time that overrides the old one.
+
+# WalletProcessPSBT
+
+The [`walletprocesspsbt` RPC](core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt) updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
+*Parameter #1---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+psbt | string | Required<br>(exactly 1) | The transaction base64 string
+
+*Parameter #2---sign*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+signature | bool | Optional<br>(exactly 0 or 1) | Sign the transaction when updating
+
+*Parameter #3---sighashtype*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+hashtype | string | Optional<br>(exactly 0 or 1) | he signature hash type to sign with if not specified by the PSBT. Must be one of the following: "ALL", "NONE", "SINGLE", "ALL|ANYONECANPAY", "NONE|ANYONECANPAY" or "SINGLE|ANYONECANPAY".
+
+*Parameter #4---bip32derivs*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known.
+
+*Result---the processed wallet*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | The results of the signature
+→<br>`psbt` | string | Required<br>(exactly 1) | The partially signed transaction
+→<br>`complete` | bool | Required<br>(exactly 1) | If the transaction has a complete set of signatures
+
+*Example from Dash Core 0.18.0*
+
+Change the wallet passphrase from "test" to "example":
+
+```bash
+dash-cli walletprocesspsbt "cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA="
+```
+
+Result:
+```json
+{
+  "psbt": "cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAQDhAgAAAAGUi7dQLNEVUajA9jcftG9LmDpAZzvVlgQVcitxL418QgEAAABqRzBEAiBP5PxIjJVfKGxSyEjseVC0DsR24bQ0xq3WhrR0vd4JqQIgYiLSkf2do0FAiqikcg9aaVmZdxWh3fgYfnUne2v8rn4BIQPGfYaUQxWDiup+yA05C10JuRtiSDNw1Jedpcz3p993qf7///8CtOfGCQAAAAAZdqkUzvxGSQTAOBTAGQbhl9x1mnReR+6IrADKmjsAAAAAGXapFD75vL6S93yPrdBWbup/+NR/Ir3giKxVSAgAAQdqRzBEAiAF1fgBDg2M/WAeYTYzCkEiSSrDVzcYoe8wwrw/MbdgOQIgJzoYBQ9hAm6jqk2cLFitUd1/iL1ku8w9unadjNfsCdoBIQJn2pETmk8U2X6veADqnny5/6j8Iy7Oizij0SeJHm9x6AAA",
+  "complete": true
+}
+```
+
+*See also*
+
+* [CreatePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createpsbt): creates a transaction in the Partially Signed Transaction (PST) format.
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [ConvertToPSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.

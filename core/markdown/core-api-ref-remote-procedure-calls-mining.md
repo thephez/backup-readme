@@ -71,7 +71,7 @@ Name | Type | Presence | Description
 →<br>`superblocks_enabled` | boolean | Required<br>(exactly 1) | True if superblock payments enabled
 →<br>`coinbase_payload` | string | Required<br>(exactly 1) | _Added in Dash Core 0.13.0_<br><br>Coinbase transaction payload data encoded in hexadecimal
 
-*Example from Dash Core 0.13.0*
+*Example from Dash Core 0.18.0*
 
 ```bash
 dash-cli -testnet getblocktemplate
@@ -84,26 +84,28 @@ Result:
   "capabilities": [
     "proposal"
   ],
-  "version": 536870920,
+  "version": 536870912,
   "rules": [
     "csv",
     "dip0001",
-    "bip147"
+    "bip147",
+    "dip0003",
+    "dip0008",
+    "realloc",
+    "dip0020"
   ],
   "vbavailable": {
-    "dip0003": 3
   },
   "vbrequired": 0,
-  "previousblockhash": "0000000004dd4bf3ed4f4bac4a8f8c781a73bff32886390ec15fa0c5686476ac",
+  "previousblockhash": "00000095eeee2f2bc39ab1ed8a79de49873ba229c0478ce818b633622ce2e85a",
   "transactions": [
   ],
   "coinbaseaux": {
-    "flags": ""
   },
-  "coinbasevalue": 2089285715,
-  "longpollid": "0000000004dd4bf3ed4f4bac4a8f8c781a73bff32886390ec15fa0c5686476ac4",
-  "target": "000000000eeb4b00000000000000000000000000000000000000000000000000",
-  "mintime": 1542118149,
+  "coinbasevalue": 1940051022,
+  "longpollid": "00000095eeee2f2bc39ab1ed8a79de49873ba229c0478ce818b633622ce2e85a4853",
+  "target": "0000013769000000000000000000000000000000000000000000000000000000",
+  "mintime": 1634806658,
   "mutable": [
     "time",
     "transactions",
@@ -112,15 +114,15 @@ Result:
   "noncerange": "00000000ffffffff",
   "sigoplimit": 40000,
   "sizelimit": 2000000,
-  "curtime": 1542119335,
-  "bits": "1c0eeb4b",
-  "previousbits": "1c0e639b",
-  "height": 263905,
+  "curtime": 1634807374,
+  "bits": "1e013769",
+  "previousbits": "1e01509f",
+  "height": 598118,
   "masternode": [
     {
-      "payee": "yedxgyCLu7BpxBbpeLUw4vAkxNrcEgHt57",
-      "script": "76a914c8f2a948efe84e9d9795aa473c5afb6023d6c07488ac",
-      "amount": 1044642850
+      "payee": "yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr",
+      "script": "76a9141ec5c66e9789c655ae068d35088b4073345fe0b088ac",
+      "amount": 1164030613
     }
   ],
   "masternode_payments_started": true,
@@ -129,7 +131,7 @@ Result:
   ],
   "superblocks_started": true,
   "superblocks_enabled": true,
-  "coinbase_payload": ""
+  "coinbase_payload": "020066200900ecefd0a51bcbfbcafae011bb82d17afdd1c66a8b2446dc43cc89d0477af9513099b3c4c068b72430f94334d5a7e6186bdea617578d0e1812377369d7941b395a"
 }
 ```
 
@@ -327,3 +329,33 @@ duplicate
 *See also*
 
 * [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software.
+
+# SubmitHeader
+
+The [`submitheader` RPC](core-api-ref-remote-procedure-calls-mining#submitheader) decodes the given hexdata as a header and submits it as a candidate chain tip if valid. 
+If invalid, it  throws.
+
+ *Parameter #1---hexdata*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+hexdata | string (hex) | Required<br>(exactly 1) | The block header data
+
+*Result---`None`*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | None | Not Required<br> | N/A
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet submitheader 0000002037f7981be497c71524bb9f7454d80b1448f46b6f99c3cadfee4367f0c201000007a95ed6e4d19efa99f33c93b45ee2eab5b5a0ef230ac9c03ecc8a3b5ef8938f5b1978614745021ed6cb0000
+```
+
+Result:
+```
+null
+```
+
+*See also: none*
