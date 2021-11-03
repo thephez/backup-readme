@@ -164,7 +164,7 @@ Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-tra
 
 # 5. Sign transaction
 
-Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
+Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-removed#signrawtransaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
 [block:code]
 {
   "codes": [

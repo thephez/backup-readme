@@ -209,7 +209,7 @@ The [`getnodeaddresses` RPC](core-api-ref-remote-procedure-calls-network#getnode
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-TXID | number (int) | Optional<br>(0 or 1) | The number of addresses to return. Limited to the smaller of 2500 or 23% of all known addresses (default = 1).
+`count` | number (int) | Optional<br>(0 or 1) | The number of addresses to return. Limited to the smaller of 2500 or 23% of all known addresses (default = 1).
 
 *Result---the current bytes in, bytes out, and current time*
 
@@ -430,7 +430,7 @@ Name | Type | Presence | Description
 → →<br>`inflight` | array | Required<br>(exactly 1) | An array of blocks which have been requested from this peer.  May be empty
 → → →<br>Blocks | number (int) | Optional<br>(0 or more) | The height of a block being requested from the remote peer
   * → →<br>`whitelisted` | bool | Required<br>(exactly 1) | Set to `true` if the remote peer has been whitelisted; otherwise, set to `false`.  Whitelisted peers will not be banned if their ban score exceeds the maximum (100 by default).  By default, peers connecting from localhost are whitelisted
-→ →<br>`permissions` | array | Required<br>(exactly 1) | *Added in Bitcoin Core 0.19.0*<br><br>Any special permissions that have been granted to this peer
+→ →<br>`permissions` | array | Required<br>(exactly 1) | Any special permissions that have been granted to this peer
 → →<br>`bytessent_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total sent bytes aggregated by message type
 → → →<br>Message Type | number (int) | Required<br>(1 or more) | Total sent bytes aggregated by message type. One field for every used message type
 → →<br>`bytesrecv_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total received bytes aggregated by message type

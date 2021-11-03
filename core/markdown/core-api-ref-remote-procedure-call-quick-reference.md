@@ -1,5 +1,6 @@
 # [Addressindex RPCs](core-api-ref-remote-procedure-calls-address-index)
 
+
 These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [GetAddressBalance](core-api-ref-remote-procedure-calls-address-index#getaddressbalance): returns the balance for address(es).
@@ -191,9 +192,11 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 # [Removed RPCs](core-api-ref-remote-procedure-calls-removed)
 
-* [EstimateFee](core-api-ref-remote-procedure-calls-removed#estimatefee): **was removed in Dash Core 0.17.0.**
-* [EstimatePriority](core-api-ref-remote-procedure-calls-removed#estimatepriority): was removed in Dash Core 0.14.0.
-* [EstimateSmartPriority](core-api-ref-remote-procedure-calls-removed#estimatesmartpriority): was removed in Dash Core 0.14.0.
+* [EstimateFee](core-api-ref-remote-procedure-calls-removed#estimatefee): **_was removed in Dash Core 0.17.0._**
 * [GetPoolInfo](core-api-ref-remote-procedure-calls-dash#getpoolinfo): returns an object containing pool related information. **_Deprecated in 0.15.0_**
-* [MasternodeBroadcast](core-api-ref-remote-procedure-calls-removed#masternodebroadcast): was removed in Dash Core 0.14.0.
-* [SentinelPing](core-api-ref-remote-procedure-calls-removed#sentinelping): was removed in Dash Core 0.14.0.
+* [GetReceivedByAccount](core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): **was removed in Dash Core 0.18.0.**
+* [ListAccounts](core-api-ref-remote-procedure-calls-removed#listaccounts): **was removed in Dash Core 0.18.0.**
+* [ListReceivedByAccount](core-api-ref-remote-procedure-calls-removed#listreceivedbyaccount): **was removed in Dash Core 0.18.0.**
+* [Move](core-api-ref-remote-procedure-calls-removed#move): **was removed in Dash Core 0.18.0.**
+* [SendFrom](core-api-ref-remote-procedure-calls-removed#sendfrom): **was removed in Dash Core 0.18.0.**
+* [SignRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction): **was removed in Dash Core 0.18.0.**

@@ -2612,14 +2612,14 @@ The [`scantxoutset` RPC](core-api-ref-remote-procedure-calls-wallet#scantxoutset
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Action | string | Required<br>(exactly 1) | The action to execute: "start" for starting a scan, "abort" for aborting the current scan (returns true when abort was successful), "status" for progress report (in %) of the current scan
+Action | string | Required<br>(exactly 1) | The action to execute:<br> - "start" for starting a scan,<br> - "abort" for aborting the current scan (returns true when abort was successful),<br> - "status" for progress report (in %) of the current scan
 
 *Parameter #2---scan objects*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Scan Objects | array | Required<br>(exactly 1) | An array of scan objects
-→<br>descriptor | string: object | Required<br>(1 or more) | An output descriptor; an object with output descriptor and metadata<br>Examples of output descriptors are:<br> - `addr(<address>)`: Outputs whose scriptPubKey corresponds to the specified address (does not include P2PK)<br> - `raw(<hex script>)`: Outputs whose scriptPubKey equals the specified hex scripts<br> - `combo(<pubkey>)`: P2PK and P2PKH outputs for the given pubkey<br> - `pkh(<pubkey>)`: P2PKH outputs for the given pubkey<br> - `sh(multi(<n>,<pubkey>,<pubkey>,...))`: P2SH-multisig outputs for the given threshold and pubkeys
+Scan Objects | array | Required<br>(exactly 1) | An array of scan objects. Every scan object is either a string descriptor or an object.
+→<br>descriptor | string: object | Required<br>(1 or more) | An output descriptor; an object with output descriptor and metadata.<br>Examples of output descriptors are:<br> - `addr(<address>)`: Outputs whose scriptPubKey corresponds to the specified address (does not include P2PK)<br> - `raw(<hex script>)`: Outputs whose scriptPubKey equals the specified hex scripts<br> - `combo(<pubkey>)`: P2PK and P2PKH outputs for the given pubkey<br> - `pkh(<pubkey>)`: P2PKH outputs for the given pubkey<br> - `sh(multi(<n>,<pubkey>,<pubkey>,...))`: P2SH-multisig outputs for the given threshold and pubkeys
 → →<br>desc | string | Required<br>(exactly 1) | An output descriptor
 → →<br>range | number (int) | Optional<br>(0 or 1) | The child index HD that chains should be explored (default: 1000)
 
@@ -2629,12 +2629,15 @@ In the above, <pubkey> either refers to a fixed public key in hexadecimal notati
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | array | Required<br>(exactly 1) | An array containing the the unspent and total amounts.
-→ →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
-→ →<br>`vout` | number (int) | Required<br>(exactly 1) | The index number of the output (vout) as it appeared in its transaction, with the first output being 0
-→ →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output's pubkey script encoded as hex
-→ →<br>`amount` | number (int) | Required<br>(exactly 1) | The total amount in DASH of the unspent output
-→ →<br>`height` | number (int) | Required<br>(exactly 1) | The height of the unspent transaction output
+`result` | object | Required<br>(exactly 1) | An object containing the the unspent and total amounts.
+→<br>`unspents` | array | Required<br>(exactly 1) | An array containing unspent output objects
+→ →<br>Unspent output | array | Required<br>(1 or more) | An object containing unspent output information
+→ → →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
+→ → →<br>`vout` | number (int) | Required<br>(exactly 1) | The index number of the output (vout) as it appeared in its transaction, with the first output being 0
+→ → →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output's pubkey script encoded as hex
+→ → →<br>`amount` | number (int) | Required<br>(exactly 1) | The total amount in DASH of the unspent output
+→ → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of the unspent transaction output
+→<br>`total_amount` | numeric | Required<br>(exactly 1) | The total amount of all found unspent outputs in DASH
 
 *Example from Dash Core 0.18.0*
 
@@ -3282,57 +3285,56 @@ Implements the Creator and Updater roles.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Transactions | array | Required<br>(exactly 1) | An array of objects, each one to be used as an input to the transaction
+Inputs | array | Required<br>(exactly 1) | An array of objects, each one to be used as an input to the transaction
 → Input | object | Required<br>(1 or more) | An object describing a particular input
 → →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the outpoint to be spent encoded as hex in RPC byte order
 → →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the outpoint to be spent; the first output in a transaction is index `0`
-→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | Added in Dash Core 0.12.3.0.<br><br>The sequence number to use for the input
+→ →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | The sequence number to use for the input
 
-*Parameter #2---P2PKH or P2SH addresses and amounts*
+*Parameter #2---Outputs*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Outputs | array | Required<br>(exactly 1) | A JSON array with outputs as key-value pairs
 → Output | object | Required<br>(1 or more) | An object describing a particular output
-→ →<br>Address | string : number (Dash) | Optional<br>(0 or 1) | A key-value pair. The key (string) is the Dash address, the value (float or string) is the amount in DASH
-→ →<br>Data | `data` : string (hex) | Optional<br>(0 or 1) | A key-value pair. The key must be `data`, the value is hex encoded data
+→ →<br>Address | string: number (Dash) | Optional<br>(0 or 1) | A key-value pair. The key (string) is the Dash address, the value (float or string) is the amount in DASH
+→ →<br>Data | `data`: string (hex) | Optional<br>(0 or 1) | A key-value pair. The key must be `data`, the value is hex encoded data
 
 *Parameter #3---locktime*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Locktime | numeric (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.12.0*<br><br>Indicates the earliest time a transaction can be added to the block chain
+Locktime | numeric (int) | Optional<br>(0 or 1) | Indicates the earliest time a transaction can be added to the block chain (default=`0`). Non-0 value also locktime-activates inputs.
 
 *Parameter #4---Additional options*
-
-Note: For backwards compatibility, passing in a `true` instead of an object will result in `{"includeWatching": true}`.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Options | Object | Optional<br>(0 or 1) | Additional options
-→ <br>`changeAddress` | string | Optional<br>(0 or 1) | The address to receive the change. If not set, the address is chosen from address pool
-→ <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
-`includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
-→ <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
-→ <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**
-→ <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay (BTC per KB). If not set, the wallet determines the fee
-→ <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added.
-→ →<br>Output index | numeric (int) | Optional<br>(0 or more) | A output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
+→ <br>`changeAddress` | string (hex) | Optional<br>(0 or 1) | The dash address to receive the change (default=pool address)
+→ <br>`changePosition` | numeric (int) | Optional<br>(0 or 1) | The index of the change output (default=random)
+→ <br>`includeWatching` | bool | Optional<br>(0 or 1) | Also select inputs which are watch only (default=`false`)
+→ <br>`lockUnspents` | bool | Optional<br>(0 or 1) | Lock selected unspent outputs (default=`false`)
+→ <br>`feeRate` | numeric or string | Optional<br>(0 or 1) | Set a specific fee rate in DASH/kB
+→ <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added. Those recipients will receive less Dash than you enter in their corresponding amount field. If no outputs are specified here, the sender pays the fee.
+→ →<br>Output index | numeric (int) | Optional<br>(0 or more) | An output index number (vout) from which the fee should be subtracted. If multiple vouts are provided, the total fee will be divided by the number of vouts listed and each vout will have that amount subtracted from it.
+→ <br>`conf_target` | numeric (int) | Optional<br>(0 or 1) | Confirmation target (in blocks)
+→ <br>`estimate_mode` | numeric (int) | Optional<br>(0 or 1) | The fee estimate mode, must be one of:<br>`UNSET` (default),<br>`ECONOMICAL`,<br>`CONSERVATIVE`
 
 *Parameter #5---bip32derivs*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known.
+`bip32derivs` | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP32 derivation paths for public keys if we know them
 
 *Result---information about the created transaction*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | An object including information about the created transaction
-→ <br>hex | string (hex) | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as hex
-→ <br>fee | numeric (bitcoins) | Required<br>(Exactly 1) | Fee in BTC the resulting transaction pays
-→ <br>changepos | numeric (int) | Required<br>(Exactly 1) | The position of the added change output, or `-1` if no change output was added
+→ <br>`psbt` | string (base64) | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
+→ <br>`fee` | numeric (bitcoins) | Required<br>(Exactly 1) | Fee in DASH the resulting transaction pays
+→ <br>`changepos` | numeric (int) | Required<br>(Exactly 1) | The position of the added change output, or `-1` if no change output was added
 
 *Example from Dash Core 0.18.0*
 
