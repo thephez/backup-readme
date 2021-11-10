@@ -72,7 +72,7 @@ The `properties` object defines each field that will be used by a document. Each
 [block:callout]
 {
   "type": "warning",
-  "body": "The `object` type is required to have properties defined either directly or via the data contract's [$defs](#definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):\n```javascript\nconst contractDocuments = {\n  message: {\n    properties: {\n      body: {\n        type: \"object\",\n        properties: {\n          objectProperty: {\n            type: \"string\"\n          },\n        },\n        additionalProperties: false,\n      },\n      header: {\n        type: \"string\"\n      }\n    },\n    additionalProperties: false\n  }\n};\n```",
+  "body": "The `object` type is required to have properties defined either directly or via the data contract's [$defs](#definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):\n```javascript\nconst contractDocuments = {\n  message: {\n    type: \"object\",\n    properties: {\n      body: {\n        type: \"object\",\n        properties: {\n          objectProperty: {\n            type: \"string\"\n          },\n        },\n        additionalProperties: false,\n      },\n      header: {\n        type: \"string\"\n      }\n    },\n    additionalProperties: false\n  }\n};\n```",
   "title": "Property type: `object`"
 }
 [/block]

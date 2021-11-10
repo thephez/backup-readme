@@ -139,12 +139,12 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
 
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
-To make the Dash SDK connect to your local development network, use the `dapiAddresses` option and set the DPNS contract ID when configuring your client:
+To make the Dash SDK connect to your local development network, set the `network` option to `'local'` and set the DPNS contract ID when configuring your client:
 [block:code]
 {
   "codes": [
     {
-      "code": "const clientOpts = {\n  dapiAddresses: ['127.0.0.1:3000'],\n  // Set DPNS contract ID to the one output during setup\n  apps: {\n    dpns: {\n  \t\tcontractId: 'DPNS contract ID displayed during the setup step',\n    },\n\t},  \n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
+      "code": "const clientOpts = {\n  network: 'local',\n  // Set DPNS contract ID to the one output during setup\n  apps: {\n    dpns: {\n      contractId: 'DPNS contract ID displayed during the setup step',\n    },\n  },\n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
       "language": "javascript"
     }
   ]

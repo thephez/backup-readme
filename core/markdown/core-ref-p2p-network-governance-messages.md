@@ -24,7 +24,7 @@ Governance Object Types (defined by `src/governance-object.h`)
 | Type | Name                    | Description
 |------|-------------------------|------------
 | 0 | `GOVERNANCE_OBJECT_UNKNOWN`  |
-| 1 | `GOVERNANCE_OBJECT_PROPOSAL` | Submitted proposal (requires collateral transaction - currently 5 Dash)
+| 1 | `GOVERNANCE_OBJECT_PROPOSAL` | Submitted proposal (requires a collateral transaction - 1 Dash)
 | 2 | `GOVERNANCE_OBJECT_TRIGGER`  | Masternode generated. Removed after activation/execution. Used for superblocks.
 
 The following annotated hexdump shows a [`govobj` message](core-ref-p2p-network-governance-messages#govobj) for a Proposal object. Notice the presence of a non-zero collateral hash, a masternodeOutPoint that is an empty Outpoint (hash of all zeros), and no vchSig. (The message header has been omitted.)

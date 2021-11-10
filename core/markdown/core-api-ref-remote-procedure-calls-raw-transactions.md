@@ -151,7 +151,7 @@ Transactions | array | Required<br>(exactly 1) | An array of objects, each one t
 → →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the outpoint to be spent; the first output in a transaction is index `0`
 → →<br>`Sequence` | number (int) | Optional<br>(0 or 1) | The sequence number to use for the input
 
-*Parameter #2---P2PKH or P2SH addresses and amounts*
+*Parameter #2---Outputs*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -164,13 +164,13 @@ Outputs | array | Required<br>(exactly 1) | A JSON array with outputs as key-val
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Locktime | numeric (int) | Optional<br>(0 or 1) | *Added in Bitcoin Core 0.12.0*<br><br>Indicates the earliest time a transaction can be added to the block chain
+Locktime | numeric (int) | Optional<br>(0 or 1) | Indicates the earliest time a transaction can be added to the block chain. Non-0 value also locktime-activates inputs.
 
-*Result---the unsigned raw transaction in hex*
+*Result---the raw transaction in base64*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`result` | string | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as hex.  If the transaction couldn't be generated, this will be set to JSON `null` and the JSON-RPC error field may contain an error message
+Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
 
 *Example from Dash Core 0.18.0*
 
@@ -264,6 +264,164 @@ acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [Serialized Transaction Format](core-ref-transactions-raw-transaction-format)
+
+# DecodePSBT
+
+The [`decodepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt) returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+
+*Parameter #1---The PSBT base64 string*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`psbt` | string | Required<br>(exactly 1) | The PSBT base64 string
+
+*Result---the decoded transaction*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object describing the decoded transaction, or JSON `null` if the transaction could not be decoded
+→<br>`tx` | string (hex) | Required<br>(exactly 1) | The decoded network-serialized unsigned transaction. The layout is the same as the output of [decoderawtransaction](#decoderawtransaction).
+→<br>`unknown` | object | Required<br>(exactly 1) | The unknown global fields
+→→<br>Unknown | object | Required<br>(0 or more) | An unknown key-value pair
+→<br>`inputs` | array | Required<br>(exactly 1) | An array of objects with each object being an input vector (vin) for this transaction
+→ →<br>Input | object | Required<br>(1 or more) | An object describing one of this transaction's inputs.  May be a regular input or a coinbase
+→ → →<br>`non_witness_utxo` | object | Optional<br>(0 or more) | Decoded network transaction for non-witness UTXOs
+→ → →<br>`partial_signatures` | object | Optional<br>(0 or more) | An object containing partial signatures
+→ → →→<br>`pubkey` | string | Required<br>(1 or more) | The public key and signature that corresponds to it
+→ → →<br>`sighash` | string | Optional<br>(0 or 1) | The sighash type to be used
+→ → →<br>`redeem_script` | object | Optional<br>(0 or more) | 
+→ → → →<br>`asm` | string | Required<br>(exactly 1) | The signature script in decoded form with non-data-pushing opcodes listed
+→ → → →<br>`hex` | string (hex) | Required<br>(exactly 1) | The signature script encoded as hex
+→ → → →<br>`type` | string | Optional<br>(0 or 1) | The type of script.  This will be one of the following:<br>• `pubkey` for a P2PK script<br>• `pubkeyhash` for a P2PKH script<br>• `scripthash` for a P2SH script<br>• `multisig` for a bare multisig script<br>• `nulldata` for nulldata scripts<br>• `nonstandard` for unknown scripts
+→ → →<br>`bip32_derivs` | object | Optional<br>(0 or more) | 
+→ → →→<br>`pubkey` | object | Optional<br>(0 or more) | The public key with the derivation path as the value.
+→ → →→→<br>`master_fingerprint` | object | Optional<br>(0 or more) | The fingerprint of the master key
+→ → →→→<br>`path` | object | Optional<br>(0 or more) | The public key's path
+→ → →<br>`final_scriptsig` | object | Optional<br>(0 or more) | 
+→ → → →<br>`asm` | string | Required<br>(exactly 1) | The signature script in decoded form with non-data-pushing opcodes listed
+→ → → →<br>`hex` | string (hex) | Required<br>(exactly 1) | The signature script encoded as hex
+→ → →<br>`unknown` | object | Optional<br>(0 or more) | The unknown global fields
+→ → → →<br>Unknown | object | Required<br>(0 or more) | An unknown key-value pair
+→<br>`vout` | array | Required<br>(exactly 1) | An array of objects each describing an output vector (vout) for this transaction.  Output objects will have the same order within the array as they have in the transaction, so the first output listed will be output 0
+→ →<br>Output | object | Required<br>(1 or more) | An object describing one of this transaction's outputs
+→ → →<br>`redeem_script` | object | Required<br>(exactly 1) | An object describing the pubkey script
+→ → → →<br>`asm` | string | Required<br>(exactly 1) | The pubkey script in decoded form with non-data-pushing opcodes listed
+→ → → →<br>`hex` | string (hex) | Required<br>(exactly 1) | The pubkey script encoded as hex
+→ → → →<br>`type` | string | Optional<br>(0 or 1) | The type of script.  This will be one of the following:<br>• `pubkey` for a P2PK script<br>• `pubkeyhash` for a P2PKH script<br>• `scripthash` for a P2SH script<br>• `multisig` for a bare multisig script<br>• `nulldata` for nulldata scripts<br>• `nonstandard` for unknown scripts
+→ → →<br>`bip32_derivs` | array | Optional<br>(0 or more) | Array of JSON objects
+→ → →→<br>BIP32 Deriv | object | Optional<br>(0 or more) | An object containing BIP32 derivation infomation
+→→  → →→<br>`pubkey` | object | Optional<br>(0 or more) | The public key this path corresponds to
+→ → → →→<br>`master_fingerprint` | object | Optional<br>(0 or more) | The fingerprint of the master key
+→ → →→→<br>`path` | object | Optional<br>(0 or more) | The public key's path
+→<br>`fee` | number (int) | Optional<br>(0 or 1) | The transaction fee paid if all UTXOs slots in the PSBT have been filled
+
+*Example from Dash Core 0.18.0*
+
+Decode a one-input, one-output transaction:
+
+``` bash
+dash-cli -testnet decodepsbt cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=
+```
+
+Result:
+
+``` json
+{
+  "tx": {
+    "txid": "5954a007baf3f012af1484b42d24057f9b1541dd65003bababb1a53c9f7eabe4",
+    "version": 2,
+    "type": 0,
+    "size": 66,
+    "locktime": 0,
+    "vin": [
+      {
+        "txid": "2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178",
+        "vout": 0,
+        "scriptSig": {
+          "asm": "",
+          "hex": ""
+        },
+        "sequence": 4294967295
+      }
+    ],
+    "vout": [
+      {
+        "value": 0.00000000,
+        "valueSat": 0,
+        "n": 0,
+        "scriptPubKey": {
+          "asm": "OP_RETURN 50462976",
+          "hex": "6a0400010203",
+          "type": "nulldata"
+        }
+      }
+    ]
+  },
+  "unknown": {
+  },
+  "inputs": [
+    {
+      "non_witness_utxo": {
+        "txid": "2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178",
+        "version": 2,
+        "type": 0,
+        "size": 225,
+        "locktime": 542805,
+        "vin": [
+          {
+            "txid": "427c8d2f712b72150496d53b67403a984b6fb41f37f6c0a85115d12c50b78b94",
+            "vout": 1,
+            "scriptSig": {
+              "asm": "304402204fe4fc488c955f286c52c848ec7950b40ec476e1b434c6add686b474bdde09a902206222d291fd9da341408aa8a4720f5a6959997715a1ddf8187e75277b6bfcae7e[ALL] 03c67d86944315838aea7ec80d390b5d09b91b62483370d4979da5ccf7a7df77a9",
+              "hex": "47304402204fe4fc488c955f286c52c848ec7950b40ec476e1b434c6add686b474bdde09a902206222d291fd9da341408aa8a4720f5a6959997715a1ddf8187e75277b6bfcae7e012103c67d86944315838aea7ec80d390b5d09b91b62483370d4979da5ccf7a7df77a9"
+            },
+            "sequence": 4294967294
+          }
+        ],
+        "vout": [
+          {
+            "value": 1.64030388,
+            "valueSat": 164030388,
+            "n": 0,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 cefc464904c03814c01906e197dc759a745e47ee OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a914cefc464904c03814c01906e197dc759a745e47ee88ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "yfBtG4d5ZRWXWo8JQrbVcCzpKyJRhcGyYk"
+              ]
+            }
+          },
+          {
+            "value": 10.00000000,
+            "valueSat": 1000000000,
+            "n": 1,
+            "scriptPubKey": {
+              "asm": "OP_DUP OP_HASH160 3ef9bcbe92f77c8fadd0566eea7ff8d47f22bde0 OP_EQUALVERIFY OP_CHECKSIG",
+              "hex": "76a9143ef9bcbe92f77c8fadd0566eea7ff8d47f22bde088ac",
+              "reqSigs": 1,
+              "type": "pubkeyhash",
+              "addresses": [
+                "yS4Rv9VJnUvwcwggLzi88pu6jTPVya52Ba"
+              ]
+            }
+          }
+        ]
+      },
+      "final_scriptSig": {
+        "asm": "3044022005d5f8010e0d8cfd601e6136330a4122492ac3573718a1ef30c2bc3f31b760390220273a18050f61026ea3aa4d9c2c58ad51dd7f88bd64bbcc3dba769d8cd7ec09da[ALL] 0267da91139a4f14d97eaf7800ea9e7cb9ffa8fc232ece8b38a3d127891e6f71e8",
+        "hex": "473044022005d5f8010e0d8cfd601e6136330a4122492ac3573718a1ef30c2bc3f31b760390220273a18050f61026ea3aa4d9c2c58ad51dd7f88bd64bbcc3dba769d8cd7ec09da01210267da91139a4f14d97eaf7800ea9e7cb9ffa8fc232ece8b38a3d127891e6f71e8"
+      }
+    }
+  ],
+  "outputs": [
+    {
+    }
+  ],
+  "fee": 1.64030388
+}
+```
 
 # DecodeRawTransaction
 

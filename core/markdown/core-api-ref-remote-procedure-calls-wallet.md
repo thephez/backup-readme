@@ -3503,36 +3503,36 @@ dash-cli -testnet walletpassphrasechange "test" "example"
 
 The [`walletprocesspsbt` RPC](core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt) updates a PSBT with input information from a wallet and then allows the signing of inputs.
 
-*Parameter #1---psbt*
+*Parameter #1---PSBT*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-psbt | string | Required<br>(exactly 1) | The transaction base64 string
+`psbt` | string | Required<br>(exactly 1) | The transaction base64 string
 
-*Parameter #2---sign*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-signature | bool | Optional<br>(exactly 0 or 1) | Sign the transaction when updating
-
-*Parameter #3---sighashtype*
+*Parameter #2---Sign Transaction*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-hashtype | string | Optional<br>(exactly 0 or 1) | he signature hash type to sign with if not specified by the PSBT. Must be one of the following: "ALL", "NONE", "SINGLE", "ALL|ANYONECANPAY", "NONE|ANYONECANPAY" or "SINGLE|ANYONECANPAY".
+`sign` | bool | Optional<br>(exactly 0 or 1) | Sign the transaction when updating (default = `true`)
+
+*Parameter #3---Signature Hash Type*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`sighashtype` | string | Optional<br>(exactly 0 or 1) | he signature hash type to sign with if not specified by the PSBT. Must be one of the following (default = ALL):<br> - ALL<br> - NONE<br> - SINGLE<br> - ALL\|ANYONECANPAY<br> - NONE\|ANYONECANPAY<br> - SINGLE\|ANYONECANPAY
 
 *Parameter #4---bip32derivs*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known.
+bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known (default = `false`).
 
 *Result---the processed wallet*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | The results of the signature
-→<br>`psbt` | string | Required<br>(exactly 1) | The partially signed transaction
+→<br>`psbt` | string | Required<br>(exactly 1) | The base64-encoded partially signed transaction
 →<br>`complete` | bool | Required<br>(exactly 1) | If the transaction has a complete set of signatures
 
 *Example from Dash Core 0.18.0*

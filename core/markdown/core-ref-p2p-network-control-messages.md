@@ -37,6 +37,41 @@ d91f4854 ........................... Epoch time: 1414012889
 [...] .............................. (999 more addresses omitted)
 ```
 
+# addrv2
+
+*Added in protocol version 70220 of Dash Core*
+
+The `addrv2` message relays connection information for peers on the network just like the [`addr` message](#addr), but is extended to allow gossiping of longer node addresses as described in [BIP155](https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki).
+
+Each encapsulated network IP address currently uses the following structure:
+
+| Bytes | Name       | Data Type | Description
+|-------|------------|-----------|---------------
+| 4     | time       | uint32_t    | A time in Unix epoch time format.  Nodes advertising their own IP address set this to the current time.  Nodes advertising IP addresses they've connected to set this to the last time they connected to that node.  Other nodes just relaying the IP address should not change the time.
+| Varies     | services   | compactSize uint  | The services the node advertised in its [`version` message](core-ref-p2p-network-control-messages#version).
+| 1    | networkID | uint8_t      | Network identifier. An 8-bit value that specifies which network is addressed. Network ID types may be found in [BIP155](https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki#specification).
+| Varies | addr | Vector<uint8_t> | Network address. The interpretation depends on networkID.
+| 2     | port       | uint16_t  | Port number in **big endian byte order**.  Note that Dash Core will only connect to nodes with non-standard port numbers as a last resort for finding peers.  This is to prevent anyone from trying to use the network to disrupt non-Dash services that run on other ports.
+
+
+The following annotated hexdump shows part of an `addrv2` message. (The <<glossary:message header>> has been omitted.)
+
+``` text
+01 ................................. Address count: 1
+
+1a2a8961 ........................... Epoch time: 1636379162
+
+Services information
+| fd ............................... Number of service bytes (2)
+| 0504 ............................. Service bits: 10000000101 (network, bloom, network_limited)
+
+Peer address details
+| 01 ............................... Network ID (1 - IPv4)
+| 04 ............................... Address length
+| 2d20ed4c ......................... IP Address: 45.32.237.76
+| 4a37 ............................. Port: 18999
+```
+
 # filteradd
 
 *Added in protocol version 70001 as described by BIP37.*
@@ -324,6 +359,14 @@ The annotated hexdump below shows a [`reject` message](core-ref-p2p-network-cont
 394715fcab51093be7bfca5a31005972
 947baf86a31017939575fb2354222821 ... TXID
 ```
+
+# sendaddrv2
+
+*Added in protocol version 70220 of Dash Core*
+
+The `sendaddrv2` message signals support for receiving [`addrv2` messages](#addrv2) (defined in [BIP155](https://github.com/bitcoin/bips/blob/master/bip-0155.mediawiki)). It also implies that its sender can encode as `addrv2` and would send `addrv2` messages instead of [`addr` messages](#addr) to a peer that has signaled `addrv2` support by sending a `sendaddrv2` message.
+
+There is no payload in a `sendaddrv2` message. See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
 # sendcmpct
 
