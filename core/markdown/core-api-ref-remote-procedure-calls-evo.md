@@ -964,11 +964,11 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `ipAndPort` | string | Required<br>(exactly 1) | IP and port in the form 'IP:PORT'.<br>Must be unique on the network.
 
-*Parameter #3---operator public key*
+*Parameter #3---operator key*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`operatorPubKey` | string (hex) | Required<br>(exactly 1) |  The operator public key. The private key does not have to be known. It has to match the private key which is later used when operating the masternode.
+`operatorKey` | string (hex) | Required<br>(exactly 1) |  The operator BLS private key associated with the registered operator public key.
 
 *Parameter #4---operator payout address*
 

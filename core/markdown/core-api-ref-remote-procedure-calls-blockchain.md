@@ -549,7 +549,7 @@ Result:
 
 *Added in Dash Core 0.18.0*
 
-The [`getblockfilter` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockfilter) retrieves a BIP 157 content filter for a particular block.
+The [`getblockfilter` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockfilter) retrieves a [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) content filter for a particular block.
 [block:callout]
 {
   "type": "info",

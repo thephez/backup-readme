@@ -3277,7 +3277,7 @@ true
 
 # WalletCreateFundedPSBT
 
-The [`walletcreatefundedpsbt` RPC](core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt) creates and funds a transaction in the Partially Signed Transaction (PST) format. Inputs will be added if supplied inputs are not enough
+The [`walletcreatefundedpsbt` RPC](core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt) creates and funds a transaction in the Partially Signed Transaction (PST) format. Inputs will be added if supplied inputs are not enough.
 
 Implements the Creator and Updater roles.
 
