@@ -56,6 +56,68 @@ Result:
 * [AddMultiSigAddress](/docs/core-api-ref-remote-procedure-calls-wallet#addmultisigaddress): adds a P2SH multisig address to the wallet.
 * [DecodeScript](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodescript): decodes a hex-encoded P2SH redeem script.
 
+# DeriveAddresses
+
+*Added in Dash Core 0.18.0*
+
+The [`deriveaddresses` RPC](core-api-ref-remote-procedure-calls-util#deriveaddresses) derives one or more addresses corresponding to an output [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md).
+
+Examples of output descriptors are:
+
+| Descriptor format | Description |
+| - | - |
+| `pkh(<pubkey>)` | P2PKH outputs for the given pubkey |
+| `sh(multi(<n>,<pubkey>,<pubkey>,...))` | P2SH-multisig outputs for the given threshold and pubkeys |
+| `raw(<hex script>)` | Outputs whose scriptPubKey equals the specified hex scripts |
+
+In the above, <pubkey> either refers to a fixed public key in hexadecimal notation, or to an xpub/xprv optionally followed by one or more path elements separated by "/", where "h" represents a hardened child key. For more information on output descriptors, see the documentation in the [doc/descriptors.md](https://github.com/dashpay/dash/blob/master/doc/descriptors.md) file.
+
+*Parameter #1---the descriptor*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`descriptor` | string | Required<br>(exactly 1) | The [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md)
+
+*Parameter #2---beginning of range*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`begin` | number | Optional<br>(0 or 1) | If a ranged descriptor is used, this specifies the beginning of the range to import
+
+*Parameter #3---end of range*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`end` | number | Optional<br>(0 or 1) | If a ranged descriptor is used, this specifies the end of the range to import
+
+*Result---the derived addresses*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | Array of derived addresses
+→<br>Address | string | Required<br>(0 or more) | The derived address(es)
+
+*Example from Dash Core 0.18.0*
+
+Analyse a descriptor:
+
+``` bash
+dash-cli  deriveaddresses "pkh([8a54e0c5]0214889c34100d00aca6e7cbfe0fa72d83c28857585740bff5f3db6b37e51d9aaa)#wyvgzv2k"
+```
+
+Result:
+
+``` json
+[
+  "yYvsn6vdnkeq9VG1JbkfqKbjv3gUmFmnny"
+]
+```
+
+*See also*
+
+* [GetDescriptorInfo](#getdescriptorinfo): analyses a descriptor.
+* [ScanTxOutset](/docs/core-api-ref-remote-procedure-calls-wallet#scantxoutset): signs a message with the private key of an address.
+
 # EstimateSmartFee
 
 The [`estimatesmartfee` RPC](core-api-ref-remote-procedure-calls-util#estimatesmartfee) estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid.
@@ -116,6 +178,53 @@ Result:
 *See also*
 
 * [SetTxFee](/docs/core-api-ref-remote-procedure-calls-wallet#settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
+
+# GetDescriptorInfo
+
+*Added in Dash Core 0.18.0*
+
+The [`getdescriptorinfo` RPC](core-api-ref-remote-procedure-calls-util#getdescriptorinfo) analyses a [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md).
+
+*Parameter #1---the descriptor*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`descriptor` | string | Required<br>(exactly 1) | The [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md)
+
+*Result---the descriptor info*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Information about the descriptor
+→<br>`descriptor` | string | Required<br>(exactly 1) | The descriptor in canonical form, without private keys
+→<br>`checksum` | string | Required<br>(exactly 1) | The checksum for the input descriptor
+→<br>`isrange` | bool | Required<br>(exactly 1) | Whether the descriptor is ranged
+→<br>`issolvable` | bool | Required<br>(exactly 1) | Whether the descriptor is solvable
+→<br>`hasprivatekeys` | bool | Required<br>(exactly 1) | Whether the input descriptor contained at least one private key
+
+*Example from Dash Core 0.18.0*
+
+Analyse a descriptor:
+
+``` bash
+dash-cli getdescriptorinfo "pkh([d34db33f/84h/0h/0h]0279be667ef9dcbbac55a06295Ce870b07029Bfcdb2dce28d959f2815b16f81798)"
+```
+
+Result:
+
+``` json
+{
+  "descriptor": "pkh([d34db33f/84'/0'/0']0279be667ef9dcbbac55a06295ce870b07029bfcdb2dce28d959f2815b16f81798)#9ffuvyvv",
+  "checksum": "yrc20h56",
+  "isrange": false,
+  "issolvable": true,
+  "hasprivatekeys": false
+}
+```
+
+*See also*
+
+* [ScanTxOutset](/docs/core-api-ref-remote-procedure-calls-wallet#scantxoutset): signs a message with the private key of an address.
 
 # SignMessageWithPrivKey
 

@@ -94,7 +94,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetAddedNodeInfo](core-api-ref-remote-procedure-calls-network#getaddednodeinfo): returns information about the given added node, or all added nodes (except onetry nodes). Only nodes which have been manually added using the [`addnode` RPC](core-api-ref-remote-procedure-calls-network#addnode) will have their information displayed. *Updated in Dash Core 0.12.3*
 * [GetConnectionCount](core-api-ref-remote-procedure-calls-network#getconnectioncount): returns the number of connections to other nodes.
 * [GetNetTotals](core-api-ref-remote-procedure-calls-network#getnettotals): returns information about network traffic, including bytes in, bytes out, and the current time.
-* [GetNetworkInfo](core-api-ref-remote-procedure-calls-network#getnetworkinfo): returns information about the node's connection to the network. **_Updated in Dash Core 0.17.0_**
+* [GetNetworkInfo](core-api-ref-remote-procedure-calls-network#getnetworkinfo): returns information about the node's connection to the network. **Updated in Dash Core 0.18.0**
 * [GetNodeAddresses](core-api-ref-remote-procedure-calls-network#getnodeaddresses): returns the known addresses which can potentially be used to find new nodes in the network. **New in Dash Core 0.18.0**
 * [GetPeerInfo](core-api-ref-remote-procedure-calls-network#getpeerinfo): returns data about each connected network node. **Updated in Dash Core 0.18.0**
 * [ListBanned](core-api-ref-remote-procedure-calls-network#listbanned): lists all banned IPs/Subnets.
@@ -122,7 +122,9 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 # [Utility RPCs](core-api-ref-remote-procedure-calls-util)
 
 * [CreateMultiSig](core-api-ref-remote-procedure-calls-util#createmultisig): creates a P2SH multi-signature address. **_Updated in Dash Core 0.17.0_**
+* [DeriveAddresses](core-api-ref-remote-procedure-calls-util#deriveaddresses): derives one or more addresses corresponding to an output descriptor. **New in Dash Core 0.18.0**
 * [EstimateSmartFee](core-api-ref-remote-procedure-calls-util#estimatesmartfee): estimates the transaction fee per kilobyte that needs to be paid for a transaction to begin confirmation within a certain number of blocks and returns the number of blocks for which the estimate is valid. _Updated in Dash Core 0.15.0_
+* [GetDescriptorInfo](core-api-ref-remote-procedure-calls-util#getdescriptorinfo): analyses a descriptor. **New in Dash Core 0.18.0**
 * [SignMessageWithPrivKey](core-api-ref-remote-procedure-calls-util#signmessagewithprivkey): signs a message with a given private key.  *New in Dash Core 0.12.3*
 * [ValidateAddress](core-api-ref-remote-procedure-calls-util#validateaddress): returns information about the given Dash address. **_Updated in Dash Core 0.17.0_**
 * [VerifyMessage](core-api-ref-remote-procedure-calls-util#verifymessage): verifies a signed message.
@@ -201,7 +203,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 # [ZeroMQ (ZMQ) RPCs](core-api-ref-remote-procedure-calls-zmq)
 
-* [GetZmqNotifications](core-api-ref-remote-procedure-calls-zmq#getzmqnotifications): returns information about the active ZeroMQ notifications. **_New in Dash Core 0.17.0_**
+* [GetZmqNotifications](core-api-ref-remote-procedure-calls-zmq#getzmqnotifications): returns information about the active ZeroMQ notifications. **Updated in Dash Core 0.18.0**
 
 # [Removed RPCs](core-api-ref-remote-procedure-calls-removed)
 

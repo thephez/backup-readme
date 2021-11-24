@@ -307,6 +307,8 @@ Name | Type | Presence | Description
 →<br>`subversion` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
 →<br>`localservices` | string (hex) | Required<br>(exactly 1) | The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
+→<br>`localservicesnames` | array | Required<br>(exactly 1) | An array of strings describing the services offered, in human-readable form.
+→ →<br>SERVICE_NAME | string | Required<br>(exactly 1) | The service name.
 →<br>`localrelay` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
 →<br>`networkactive` | bool | Required<br>(exactly 1) | Set to `true` if P2P networking is enabled.  Set to `false` if P2P networking is disabled. Enabling/disabling done via [SetNetworkActive](/docs/core-api-ref-remote-procedure-calls-network#setnetworkactive)
@@ -328,7 +330,7 @@ Name | Type | Presence | Description
 → → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>A plain-text description of any network warnings. If there are no warnings, an empty string will be returned.
 
-*Example from Dash Core 0.17.0*
+*Example from Dash Core 0.18.0*
 
 ```bash
 dash-cli getnetworkinfo
@@ -338,11 +340,17 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
 
 ```json
 {
-  "version": 170000,
-  "buildversion": "v0.17.0.0-79ef4f8de",
-  "subversion": "/Dash Core:0.17.0.0/",
-  "protocolversion": 70218,
-  "localservices": "0000000000000405",
+  "version": 170003,
+  "buildversion": "v0.17.0.3-649273e70",
+  "subversion": "/Dash Core:0.17.0.3/",
+  "protocolversion": 70220,
+  "localservices": "0000000000000445",
+  "localservicesnames": [
+    "NETWORK",
+    "BLOOM",
+    "COMPACT_FILTERS",
+    "NETWORK_LIMITED"
+  ],
   "localrelay": true,
   "timeoffset": 0,
   "networkactive": true,
@@ -369,16 +377,25 @@ Result (actual addresses have been replaced with [RFC5737](http://tools.ietf.org
       "reachable": false,
       "proxy": "",
       "proxy_randomize_credentials": false
+    },
+    {
+      "name": "",
+      "limited": false,
+      "reachable": true,
+      "proxy": "",
+      "proxy_randomize_credentials": false
+    },
+    {
+      "name": "",
+      "limited": false,
+      "reachable": true,
+      "proxy": "",
+      "proxy_randomize_credentials": false
     }
   ],
   "relayfee": 0.00001000,
   "incrementalfee": 0.00001000,
   "localaddresses": [
-    {
-      "address": "192.0.2.113",
-      "port": 18999,
-      "score": 4
-    }
   ],
   "warnings": "Warning: unknown new rules activated (versionbit 3)"
 }
@@ -407,6 +424,8 @@ Name | Type | Presence | Description
 → →<br>`addrlocal` | string | Optional<br>(0 or 1) | Our IP address and port number according to the remote node.  May be incorrect due to error or lying.  Most SPV nodes set this to `127.0.0.1:9999`
 → →<br>`addrbind` | string | Optional<br>(0 or 1) | Bind address of the connection to the peer
 → →<br>`services` | string (hex) | Required<br>(exactly 1) | The services advertised by the remote node in its [`version` message](core-ref-p2p-network-control-messages#version)
+→ →<br>`servicesnames` | array | Required<br>(exactly 1) | An array of strings describing the services offered, in human-readable form.
+→ → →<br>SERVICE_NAME | string | Required<br>(exactly 1) | The service name if it is recognised.
 → →<br>`verified_proregtx_hash` | string (hex) | Optional<br>(0 or 1) | The ProRegTx of the masternode
 → →<br>`verified_pubkey_hash` | string (hex) | Optional<br>(0 or 1) | The hashed operator public key of the masternode
 → →<br>`lastsend` | number (int) | Required<br>(exactly 1) | The Unix epoch time when we last successfully sent data to the TCP socket for this node
