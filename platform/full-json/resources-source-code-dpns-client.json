@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "612fe724e9fa2b0026f5fa77", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-24T00:34:59.017Z", 
- "id": "612fe724e9fa2b0026f5fa9c", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-24T00:34:59.017Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "DPNS Client", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-11-30T18:53:00.308Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-source-code-dpns-client", 
- "deprecated": false, 
- "link_url": "https://github.com/dashevo/js-dpns-client", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa9c", 
- "order": 5, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "DPNS Client",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-dpns-client",
+ "excerpt": "",
+ "body": "",
+ "order": 5,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/js-dpns-client",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-01T11:27:25.556Z",
+ "_id": "612fe724e9fa2b0026f5fa9c",
+ "version": "612fe724e9fa2b0026f5face",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "updatedAt": "2019-12-24T00:34:59.017Z",
+ "createdAt": "2019-12-24T00:34:59.017Z",
+ "__v": 0,
+ "parentDoc": "612fe724e9fa2b0026f5fa77",
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa9c",
+ "body_html": "&nbsp;"
 }

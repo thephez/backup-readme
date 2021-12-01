@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf242", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-11-05T18:14:48.364Z", 
- "id": "61549206c31f6b00207cf24c", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-23T16:11:59.520Z", 
- "category": "61549205c31f6b00207cf231", 
- "title": "CompactSize Unsigned Integers", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Reference", 
-    "slug": "core-ref-wallets", 
-    "type": "doc", 
-    "name": "Wallets", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Wallets",
+    "slug": "core-ref-wallets",
+    "category": "Core Reference"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-11-30T18:53:16.978Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "The <<glossary:raw transaction>> format and several peer-to-peer network messages use a type of variable-length integer to indicate the number of bytes in a following piece of data.\n\nDash Core code and this document refers to these variable length integers as compactSize. Many other documents refer to them as var_int or varInt, but this risks conflation with other variable-length integer encodings---such as the CVarInt class used in Dash Core for serializing data to disk.  Because it's used in the transaction format, the format of compactSize unsigned integers is part of the <<glossary:consensus rules>>.\n\nFor numbers from 0 to 252 (0xfc), compactSize unsigned integers look like regular unsigned integers. For other numbers up to 0xffffffffffffffff, a byte is prefixed to the number to indicate its length---but otherwise the numbers look like regular unsigned integers in little-endian order.\n\n| Value                                   | Bytes Used | Format\n|-----------------------------------------|------------|-----------------------------------------\n| >= 0 && <= 0xfc (252)                   | 1          | uint8_t\n| >= 0xfd (253) && <= 0xffff              | 3          | 0xfd followed by the number as uint16_t\n| >= 0x10000 && <= 0xffffffff             | 5          | 0xfe followed by the number as uint32_t\n| >= 0x100000000 && <= 0xffffffffffffffff | 9          | 0xff followed by the number as uint64_t\n\nFor example, the number 515 is encoded as 0xfd0302.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The &lt;&lt;glossary:raw transaction&gt;&gt; format and several peer-to-peer network messages use a type of variable-length integer to indicate the number of bytes in a following piece of data.</p>\n<p>Dash Core code and this document refers to these variable length integers as compactSize. Many other documents refer to them as var_int or varInt, but this risks conflation with other variable-length integer encodings---such as the CVarInt class used in Dash Core for serializing data to disk.  Because it&#39;s used in the transaction format, the format of compactSize unsigned integers is part of the &lt;&lt;glossary:consensus rules&gt;&gt;.</p>\n<p>For numbers from 0 to 252 (0xfc), compactSize unsigned integers look like regular unsigned integers. For other numbers up to 0xffffffffffffffff, a byte is prefixed to the number to indicate its length---but otherwise the numbers look like regular unsigned integers in little-endian order.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Value</th>\n<th>Bytes Used</th>\n<th>Format</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;= 0 &amp;&amp; &lt;= 0xfc (252)</td>\n<td>1</td>\n<td>uint8_t</td>\n</tr>\n<tr>\n<td>&gt;= 0xfd (253) &amp;&amp; &lt;= 0xffff</td>\n<td>3</td>\n<td>0xfd followed by the number as uint16_t</td>\n</tr>\n<tr>\n<td>&gt;= 0x10000 &amp;&amp; &lt;= 0xffffffff</td>\n<td>5</td>\n<td>0xfe followed by the number as uint32_t</td>\n</tr>\n<tr>\n<td>&gt;= 0x100000000 &amp;&amp; &lt;= 0xffffffffffffffff</td>\n<td>9</td>\n<td>0xff followed by the number as uint64_t</td>\n</tr>\n</tbody>\n</table></div>\n<p>For example, the number 515 is encoded as 0xfd0302.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-ref-transactions-compactsize-unsigned-integers", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 2, 
- "_id": "61549206c31f6b00207cf24c", 
- "order": 4, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "CompactSize Unsigned Integers",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-ref-transactions-compactsize-unsigned-integers",
+ "excerpt": "",
+ "body": "The <<glossary:raw transaction>> format and several peer-to-peer network messages use a type of variable-length integer to indicate the number of bytes in a following piece of data.\n\nDash Core code and this document refers to these variable length integers as compactSize. Many other documents refer to them as var_int or varInt, but this risks conflation with other variable-length integer encodings---such as the CVarInt class used in Dash Core for serializing data to disk.  Because it's used in the transaction format, the format of compactSize unsigned integers is part of the <<glossary:consensus rules>>.\n\nFor numbers from 0 to 252 (0xfc), compactSize unsigned integers look like regular unsigned integers. For other numbers up to 0xffffffffffffffff, a byte is prefixed to the number to indicate its length---but otherwise the numbers look like regular unsigned integers in little-endian order.\n\n| Value                                   | Bytes Used | Format\n|-----------------------------------------|------------|-----------------------------------------\n| >= 0 && <= 0xfc (252)                   | 1          | uint8_t\n| >= 0xfd (253) && <= 0xffff              | 3          | 0xfd followed by the number as uint16_t\n| >= 0x10000 && <= 0xffffffff             | 5          | 0xfe followed by the number as uint32_t\n| >= 0x100000000 && <= 0xffffffffffffffff | 9          | 0xff followed by the number as uint64_t\n\nFor example, the number 515 is encoded as 0xfd0302.",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-01T09:36:27.233Z",
+ "_id": "61549206c31f6b00207cf24c",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2019-11-05T18:14:48.364Z",
+ "createdAt": "2019-10-23T16:11:59.520Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf242",
+ "category": "61549205c31f6b00207cf231",
+ "__v": 2,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf24c",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The &lt;&lt;glossary:raw transaction&gt;&gt; format and several peer-to-peer network messages use a type of variable-length integer to indicate the number of bytes in a following piece of data.</p>\n<p>Dash Core code and this document refers to these variable length integers as compactSize. Many other documents refer to them as var_int or varInt, but this risks conflation with other variable-length integer encodings---such as the CVarInt class used in Dash Core for serializing data to disk.  Because it&#39;s used in the transaction format, the format of compactSize unsigned integers is part of the &lt;&lt;glossary:consensus rules&gt;&gt;.</p>\n<p>For numbers from 0 to 252 (0xfc), compactSize unsigned integers look like regular unsigned integers. For other numbers up to 0xffffffffffffffff, a byte is prefixed to the number to indicate its length---but otherwise the numbers look like regular unsigned integers in little-endian order.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Value</th>\n<th>Bytes Used</th>\n<th>Format</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>&gt;= 0 &amp;&amp; &lt;= 0xfc (252)</td>\n<td>1</td>\n<td>uint8_t</td>\n</tr>\n<tr>\n<td>&gt;= 0xfd (253) &amp;&amp; &lt;= 0xffff</td>\n<td>3</td>\n<td>0xfd followed by the number as uint16_t</td>\n</tr>\n<tr>\n<td>&gt;= 0x10000 &amp;&amp; &lt;= 0xffffffff</td>\n<td>5</td>\n<td>0xfe followed by the number as uint32_t</td>\n</tr>\n<tr>\n<td>&gt;= 0x100000000 &amp;&amp; &lt;= 0xffffffffffffffff</td>\n<td>9</td>\n<td>0xff followed by the number as uint64_t</td>\n</tr>\n</tbody>\n</table></div>\n<p>For example, the number 515 is encoded as 0xfd0302.</p>\n\n</div>"
 }

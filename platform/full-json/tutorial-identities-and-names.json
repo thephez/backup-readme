@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2021-02-09T18:23:04.431Z", 
- "id": "612fe724e9fa2b0026f5fac0", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-12-17T19:30:17.137Z", 
- "category": "612fe724e9fa2b0026f5fa65", 
- "title": "Identities and Names", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-12-17T17:27:48.598Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "The following tutorials cover creating and managing identities as well as creating and retrieving names.\n\n- [Register an Identity](doc:tutorial-register-an-identity) \n- [Topup an Identity's Balance](doc:tutorial-topup-an-identity-balance) \n- [Retrieve an Account's Identities](doc:tutorial-retrieve-an-accounts-identities) \n- [Register a Name for an Identity](doc:tutorial-register-a-name-for-an-identity) \n- [Retrieve a Name](doc:tutorial-retrieve-a-name)", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover creating and managing identities as well as creating and retrieving names.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-an-identity\">Register an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-topup-an-identity-balance\" class=\"doc-link\" data-sidebar=\"tutorial-topup-an-identity-balance\">Topup an Identity&#39;s Balance</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-an-accounts-identities\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-an-accounts-identities\">Retrieve an Account&#39;s Identities</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-name-for-an-identity\">Register a Name for an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-name\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-name\">Retrieve a Name</a></li></ul>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "tutorial-identities-and-names", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 2, 
- "_id": "612fe724e9fa2b0026f5fac0", 
- "order": 5, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Identities and Names",
+ "updates": [],
+ "type": "basic",
+ "slug": "tutorial-identities-and-names",
+ "excerpt": "",
+ "body": "The following tutorials cover creating and managing identities as well as creating and retrieving names.\n\n- [Register an Identity](doc:tutorial-register-an-identity) \n- [Topup an Identity's Balance](doc:tutorial-topup-an-identity-balance) \n- [Retrieve an Account's Identities](doc:tutorial-retrieve-an-accounts-identities) \n- [Register a Name for an Identity](doc:tutorial-register-a-name-for-an-identity) \n- [Retrieve a Name](doc:tutorial-retrieve-a-name)",
+ "order": 5,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-12-17T17:27:48.598Z",
+ "_id": "612fe724e9fa2b0026f5fac0",
+ "createdAt": "2020-12-17T19:30:17.137Z",
+ "updatedAt": "2021-02-09T18:23:04.431Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa65",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 2,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fac0",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover creating and managing identities as well as creating and retrieving names.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-an-identity\">Register an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-topup-an-identity-balance\" class=\"doc-link\" data-sidebar=\"tutorial-topup-an-identity-balance\">Topup an Identity&#39;s Balance</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-an-accounts-identities\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-an-accounts-identities\">Retrieve an Account&#39;s Identities</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-name-for-an-identity\">Register a Name for an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-name\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-name\">Retrieve a Name</a></li></ul>\n\n</div>"
 }

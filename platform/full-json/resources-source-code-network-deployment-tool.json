@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "612fe724e9fa2b0026f5fa77", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-24T21:22:52.657Z", 
- "id": "612fe724e9fa2b0026f5fa9d", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-12-24T21:22:52.657Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "Network Deployment Tool", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-11-30T18:53:01.189Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-source-code-network-deployment-tool", 
- "deprecated": false, 
- "link_url": "https://github.com/dashevo/dash-network-deploy", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa9d", 
- "order": 7, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Network Deployment Tool",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-network-deployment-tool",
+ "excerpt": "",
+ "body": "",
+ "order": 7,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/dash-network-deploy",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-11-30T18:53:01.278Z",
+ "_id": "612fe724e9fa2b0026f5fa9d",
+ "version": "612fe724e9fa2b0026f5face",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "612fe724e9fa2b0026f5fa77",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "updatedAt": "2019-12-24T21:22:52.657Z",
+ "createdAt": "2019-12-24T21:22:52.657Z",
+ "__v": 0,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa9d",
+ "body_html": "&nbsp;"
 }

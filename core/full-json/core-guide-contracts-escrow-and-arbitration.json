@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf29c", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-11-13T20:33:08.419Z", 
- "id": "61549206c31f6b00207cf29d", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T19:37:49.672Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Escrow and Arbitration", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-contracts-micropayment-channel", 
-    "type": "doc", 
-    "name": "Micropayment Channel", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Micropayment Channel",
+    "slug": "core-guide-contracts-micropayment-channel",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-11-30T18:53:01.783Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Charlie-the-customer wants to buy a product from Bob-the-businessman, but neither of them trusts the other person, so they use a contract to help ensure Charlie gets his merchandise and Bob gets his payment.\n\nA simple contract could say that Charlie will spend <<glossary:duffs>> to an <<glossary:output>> which can only be spent if Charlie and Bob both sign the <<glossary:input>> spending it. That means Bob won't get paid unless Charlie gets his merchandise, but Charlie can't get the merchandise and keep his payment.\n\nThis simple contract isn't much help if there's a dispute, so Bob and Charlie enlist the help of Alice-the-arbitrator to create an <<glossary:escrow contract>>. Charlie spends his duffs to an output which can only be spent if two of the three people sign the input. Now Charlie can pay Bob if everything is ok, Bob can refund Charlie's money if there's a problem, or Alice can arbitrate and decide who should get the duffs if there's a dispute.\n\nTo create a multiple-signature (<<glossary:multisig>>) output, they each give the others a <<glossary:public key>>. Then Bob creates the following <<glossary:P2SH multisig>> <<glossary:redeem script>>:\n\n```\nOP_2 [A's pubkey] [B's pubkey] [C's pubkey] OP_3 OP_CHECKMULTISIG\n```\n\n(Opcodes to push the public keys onto the stack are not shown.)\n\n`OP_2` and `OP_3` push the actual numbers 2 and 3 onto the stack. `OP_2` specifies that 2 signatures are required to sign; `OP_3` specifies that 3 public keys (unhashed) are being provided. This is a 2-of-3 multisig pubkey script, more generically called a m-of-n pubkey script (where *m* is the *minimum* matching signatures required and *n* in the *number* of public keys provided).\n\nBob gives the redeem script to Charlie, who checks to make sure his public key and Alice's public key are included. Then he hashes the redeem script to create a <<glossary:P2SH>> redeem script and pays the duffs to it. Bob sees the payment get added to the <<glossary:block chain>> and ships the merchandise.\n\nUnfortunately, the merchandise gets slightly damaged in transit. Charlie wants a full refund, but Bob thinks a 10% refund is sufficient. They turn to Alice to resolve the issue. Alice asks for photo evidence from Charlie along with a copy of the redeem script Bob created and Charlie checked.\n\nAfter looking at the evidence, Alice thinks a 40% refund is sufficient, so she creates and signs a transaction with two outputs, one that spends 60% of the duffs to Bob's public key and one that spends the remaining 40% to Charlie's public key.\n\nIn the <<glossary:signature script>> Alice puts her signature and a copy of the unhashed serialized redeem script that Bob created.  She gives a copy of the incomplete transaction to both Bob and Charlie.  Either one of them can complete it by adding his signature to create the following signature script:\n\n```\nOP_0 [A's signature] [B's or C's signature] [serialized redeem script]\n```\n\n(Opcodes to push the signatures and redeem script onto the stack are not shown. `OP_0` is a workaround for an off-by-one error in the original implementation which must be preserved for compatibility.  Note that the signature script must provide signatures in the same order as the corresponding public keys appear in the redeem script.  See the description in [`OP_CHECKMULTISIG`](core-ref-transactions-opcodes) for details.)\n\nWhen the transaction is broadcast to the <<glossary:network>>, each <<glossary:peer>> checks the signature script against the P2SH output Charlie previously paid, ensuring that the redeem script matches the redeem script hash previously provided. Then the redeem script is evaluated, with the two signatures being used as input data. Assuming the redeem script validates, the two transaction outputs show up in Bob's and Charlie's wallets as spendable balances.\n\nHowever, if Alice created and signed a transaction neither of them would agree to, such as spending all the duffs to herself, Bob and Charlie can find a new arbitrator and sign a transaction spending the duffs to another 2-of-3 multisig redeem script hash, this one including a public key from that second arbitrator. This means that Bob and Charlie never need to worry about their arbitrator stealing their money.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Charlie-the-customer wants to buy a product from Bob-the-businessman, but neither of them trusts the other person, so they use a contract to help ensure Charlie gets his merchandise and Bob gets his payment.</p>\n<p>A simple contract could say that Charlie will spend &lt;&lt;glossary:duffs&gt;&gt; to an &lt;&lt;glossary:output&gt;&gt; which can only be spent if Charlie and Bob both sign the &lt;&lt;glossary:input&gt;&gt; spending it. That means Bob won&#39;t get paid unless Charlie gets his merchandise, but Charlie can&#39;t get the merchandise and keep his payment.</p>\n<p>This simple contract isn&#39;t much help if there&#39;s a dispute, so Bob and Charlie enlist the help of Alice-the-arbitrator to create an &lt;&lt;glossary:escrow contract&gt;&gt;. Charlie spends his duffs to an output which can only be spent if two of the three people sign the input. Now Charlie can pay Bob if everything is ok, Bob can refund Charlie&#39;s money if there&#39;s a problem, or Alice can arbitrate and decide who should get the duffs if there&#39;s a dispute.</p>\n<p>To create a multiple-signature (&lt;&lt;glossary:multisig&gt;&gt;) output, they each give the others a &lt;&lt;glossary:public key&gt;&gt;. Then Bob creates the following &lt;&lt;glossary:P2SH multisig&gt;&gt; &lt;&lt;glossary:redeem script&gt;&gt;:</p>\n<pre><code>OP_2 [A&#39;s pubkey] [B&#39;s pubkey] [C&#39;s pubkey] OP_3 OP_CHECKMULTISIG\n</code></pre><p>(Opcodes to push the public keys onto the stack are not shown.)</p>\n<p><code>OP_2</code> and <code>OP_3</code> push the actual numbers 2 and 3 onto the stack. <code>OP_2</code> specifies that 2 signatures are required to sign; <code>OP_3</code> specifies that 3 public keys (unhashed) are being provided. This is a 2-of-3 multisig pubkey script, more generically called a m-of-n pubkey script (where <em>m</em> is the <em>minimum</em> matching signatures required and <em>n</em> in the <em>number</em> of public keys provided).</p>\n<p>Bob gives the redeem script to Charlie, who checks to make sure his public key and Alice&#39;s public key are included. Then he hashes the redeem script to create a &lt;&lt;glossary:P2SH&gt;&gt; redeem script and pays the duffs to it. Bob sees the payment get added to the &lt;&lt;glossary:block chain&gt;&gt; and ships the merchandise.</p>\n<p>Unfortunately, the merchandise gets slightly damaged in transit. Charlie wants a full refund, but Bob thinks a 10% refund is sufficient. They turn to Alice to resolve the issue. Alice asks for photo evidence from Charlie along with a copy of the redeem script Bob created and Charlie checked.</p>\n<p>After looking at the evidence, Alice thinks a 40% refund is sufficient, so she creates and signs a transaction with two outputs, one that spends 60% of the duffs to Bob&#39;s public key and one that spends the remaining 40% to Charlie&#39;s public key.</p>\n<p>In the &lt;&lt;glossary:signature script&gt;&gt; Alice puts her signature and a copy of the unhashed serialized redeem script that Bob created.  She gives a copy of the incomplete transaction to both Bob and Charlie.  Either one of them can complete it by adding his signature to create the following signature script:</p>\n<pre><code>OP_0 [A&#39;s signature] [B&#39;s or C&#39;s signature] [serialized redeem script]\n</code></pre><p>(Opcodes to push the signatures and redeem script onto the stack are not shown. <code>OP_0</code> is a workaround for an off-by-one error in the original implementation which must be preserved for compatibility.  Note that the signature script must provide signatures in the same order as the corresponding public keys appear in the redeem script.  See the description in <a href=\"core-ref-transactions-opcodes\"><code>OP_CHECKMULTISIG</code></a> for details.)</p>\n<p>When the transaction is broadcast to the &lt;&lt;glossary:network&gt;&gt;, each &lt;&lt;glossary:peer&gt;&gt; checks the signature script against the P2SH output Charlie previously paid, ensuring that the redeem script matches the redeem script hash previously provided. Then the redeem script is evaluated, with the two signatures being used as input data. Assuming the redeem script validates, the two transaction outputs show up in Bob&#39;s and Charlie&#39;s wallets as spendable balances.</p>\n<p>However, if Alice created and signed a transaction neither of them would agree to, such as spending all the duffs to herself, Bob and Charlie can find a new arbitrator and sign a transaction spending the duffs to another 2-of-3 multisig redeem script hash, this one including a public key from that second arbitrator. This means that Bob and Charlie never need to worry about their arbitrator stealing their money.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-contracts-escrow-and-arbitration", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 1, 
- "_id": "61549206c31f6b00207cf29d", 
- "order": 0, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Escrow and Arbitration",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-contracts-escrow-and-arbitration",
+ "excerpt": "",
+ "body": "Charlie-the-customer wants to buy a product from Bob-the-businessman, but neither of them trusts the other person, so they use a contract to help ensure Charlie gets his merchandise and Bob gets his payment.\n\nA simple contract could say that Charlie will spend <<glossary:duffs>> to an <<glossary:output>> which can only be spent if Charlie and Bob both sign the <<glossary:input>> spending it. That means Bob won't get paid unless Charlie gets his merchandise, but Charlie can't get the merchandise and keep his payment.\n\nThis simple contract isn't much help if there's a dispute, so Bob and Charlie enlist the help of Alice-the-arbitrator to create an <<glossary:escrow contract>>. Charlie spends his duffs to an output which can only be spent if two of the three people sign the input. Now Charlie can pay Bob if everything is ok, Bob can refund Charlie's money if there's a problem, or Alice can arbitrate and decide who should get the duffs if there's a dispute.\n\nTo create a multiple-signature (<<glossary:multisig>>) output, they each give the others a <<glossary:public key>>. Then Bob creates the following <<glossary:P2SH multisig>> <<glossary:redeem script>>:\n\n```\nOP_2 [A's pubkey] [B's pubkey] [C's pubkey] OP_3 OP_CHECKMULTISIG\n```\n\n(Opcodes to push the public keys onto the stack are not shown.)\n\n`OP_2` and `OP_3` push the actual numbers 2 and 3 onto the stack. `OP_2` specifies that 2 signatures are required to sign; `OP_3` specifies that 3 public keys (unhashed) are being provided. This is a 2-of-3 multisig pubkey script, more generically called a m-of-n pubkey script (where *m* is the *minimum* matching signatures required and *n* in the *number* of public keys provided).\n\nBob gives the redeem script to Charlie, who checks to make sure his public key and Alice's public key are included. Then he hashes the redeem script to create a <<glossary:P2SH>> redeem script and pays the duffs to it. Bob sees the payment get added to the <<glossary:block chain>> and ships the merchandise.\n\nUnfortunately, the merchandise gets slightly damaged in transit. Charlie wants a full refund, but Bob thinks a 10% refund is sufficient. They turn to Alice to resolve the issue. Alice asks for photo evidence from Charlie along with a copy of the redeem script Bob created and Charlie checked.\n\nAfter looking at the evidence, Alice thinks a 40% refund is sufficient, so she creates and signs a transaction with two outputs, one that spends 60% of the duffs to Bob's public key and one that spends the remaining 40% to Charlie's public key.\n\nIn the <<glossary:signature script>> Alice puts her signature and a copy of the unhashed serialized redeem script that Bob created.  She gives a copy of the incomplete transaction to both Bob and Charlie.  Either one of them can complete it by adding his signature to create the following signature script:\n\n```\nOP_0 [A's signature] [B's or C's signature] [serialized redeem script]\n```\n\n(Opcodes to push the signatures and redeem script onto the stack are not shown. `OP_0` is a workaround for an off-by-one error in the original implementation which must be preserved for compatibility.  Note that the signature script must provide signatures in the same order as the corresponding public keys appear in the redeem script.  See the description in [`OP_CHECKMULTISIG`](core-ref-transactions-opcodes) for details.)\n\nWhen the transaction is broadcast to the <<glossary:network>>, each <<glossary:peer>> checks the signature script against the P2SH output Charlie previously paid, ensuring that the redeem script matches the redeem script hash previously provided. Then the redeem script is evaluated, with the two signatures being used as input data. Assuming the redeem script validates, the two transaction outputs show up in Bob's and Charlie's wallets as spendable balances.\n\nHowever, if Alice created and signed a transaction neither of them would agree to, such as spending all the duffs to herself, Bob and Charlie can find a new arbitrator and sign a transaction spending the duffs to another 2-of-3 multisig redeem script hash, this one including a public key from that second arbitrator. This means that Bob and Charlie never need to worry about their arbitrator stealing their money.",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-11-30T18:53:03.961Z",
+ "_id": "61549206c31f6b00207cf29d",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2019-11-13T20:33:08.419Z",
+ "createdAt": "2019-10-28T19:37:49.672Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf29c",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 1,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf29d",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Charlie-the-customer wants to buy a product from Bob-the-businessman, but neither of them trusts the other person, so they use a contract to help ensure Charlie gets his merchandise and Bob gets his payment.</p>\n<p>A simple contract could say that Charlie will spend &lt;&lt;glossary:duffs&gt;&gt; to an &lt;&lt;glossary:output&gt;&gt; which can only be spent if Charlie and Bob both sign the &lt;&lt;glossary:input&gt;&gt; spending it. That means Bob won&#39;t get paid unless Charlie gets his merchandise, but Charlie can&#39;t get the merchandise and keep his payment.</p>\n<p>This simple contract isn&#39;t much help if there&#39;s a dispute, so Bob and Charlie enlist the help of Alice-the-arbitrator to create an &lt;&lt;glossary:escrow contract&gt;&gt;. Charlie spends his duffs to an output which can only be spent if two of the three people sign the input. Now Charlie can pay Bob if everything is ok, Bob can refund Charlie&#39;s money if there&#39;s a problem, or Alice can arbitrate and decide who should get the duffs if there&#39;s a dispute.</p>\n<p>To create a multiple-signature (&lt;&lt;glossary:multisig&gt;&gt;) output, they each give the others a &lt;&lt;glossary:public key&gt;&gt;. Then Bob creates the following &lt;&lt;glossary:P2SH multisig&gt;&gt; &lt;&lt;glossary:redeem script&gt;&gt;:</p>\n<pre><code>OP_2 [A&#39;s pubkey] [B&#39;s pubkey] [C&#39;s pubkey] OP_3 OP_CHECKMULTISIG\n</code></pre><p>(Opcodes to push the public keys onto the stack are not shown.)</p>\n<p><code>OP_2</code> and <code>OP_3</code> push the actual numbers 2 and 3 onto the stack. <code>OP_2</code> specifies that 2 signatures are required to sign; <code>OP_3</code> specifies that 3 public keys (unhashed) are being provided. This is a 2-of-3 multisig pubkey script, more generically called a m-of-n pubkey script (where <em>m</em> is the <em>minimum</em> matching signatures required and <em>n</em> in the <em>number</em> of public keys provided).</p>\n<p>Bob gives the redeem script to Charlie, who checks to make sure his public key and Alice&#39;s public key are included. Then he hashes the redeem script to create a &lt;&lt;glossary:P2SH&gt;&gt; redeem script and pays the duffs to it. Bob sees the payment get added to the &lt;&lt;glossary:block chain&gt;&gt; and ships the merchandise.</p>\n<p>Unfortunately, the merchandise gets slightly damaged in transit. Charlie wants a full refund, but Bob thinks a 10% refund is sufficient. They turn to Alice to resolve the issue. Alice asks for photo evidence from Charlie along with a copy of the redeem script Bob created and Charlie checked.</p>\n<p>After looking at the evidence, Alice thinks a 40% refund is sufficient, so she creates and signs a transaction with two outputs, one that spends 60% of the duffs to Bob&#39;s public key and one that spends the remaining 40% to Charlie&#39;s public key.</p>\n<p>In the &lt;&lt;glossary:signature script&gt;&gt; Alice puts her signature and a copy of the unhashed serialized redeem script that Bob created.  She gives a copy of the incomplete transaction to both Bob and Charlie.  Either one of them can complete it by adding his signature to create the following signature script:</p>\n<pre><code>OP_0 [A&#39;s signature] [B&#39;s or C&#39;s signature] [serialized redeem script]\n</code></pre><p>(Opcodes to push the signatures and redeem script onto the stack are not shown. <code>OP_0</code> is a workaround for an off-by-one error in the original implementation which must be preserved for compatibility.  Note that the signature script must provide signatures in the same order as the corresponding public keys appear in the redeem script.  See the description in <a href=\"core-ref-transactions-opcodes\"><code>OP_CHECKMULTISIG</code></a> for details.)</p>\n<p>When the transaction is broadcast to the &lt;&lt;glossary:network&gt;&gt;, each &lt;&lt;glossary:peer&gt;&gt; checks the signature script against the P2SH output Charlie previously paid, ensuring that the redeem script matches the redeem script hash previously provided. Then the redeem script is evaluated, with the two signatures being used as input data. Assuming the redeem script validates, the two transaction outputs show up in Bob&#39;s and Charlie&#39;s wallets as spendable balances.</p>\n<p>However, if Alice created and signed a transaction neither of them would agree to, such as spending all the duffs to herself, Bob and Charlie can find a new arbitrator and sign a transaction spending the duffs to another 2-of-3 multisig redeem script hash, this one including a public key from that second arbitrator. This means that Bob and Charlie never need to worry about their arbitrator stealing their money.</p>\n\n</div>"
 }

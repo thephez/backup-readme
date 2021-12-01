@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf2b4", 
- "excerpt": "Dash Core transaction utility", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2021-01-26T15:12:16.646Z", 
- "id": "61549206c31f6b00207cf2b5", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-06-04T13:40:40.435Z", 
- "category": "61549205c31f6b00207cf238", 
- "title": "dash-tx", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2020-10-06T21:19:25.877Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "The `dash-tx` application provides a command-line option for creating, parsing, or modifying transactions.\n\n# Usage\n\n```bash\nUsage:\n  dash-tx [options] <hex-tx> [commands]  Update hex-encoded dash transaction\n  dash-tx [options] -create [commands]   Create hex-encoded dash transaction\n```\n\n## Options:\n\n```\n  -?\n       This help message\n\n  -create\n       Create new, empty TX.\n\n  -json\n       Select JSON output\n\n  -txid\n       Output only the hex-encoded transaction id of the resultant transaction.\n```\n\n## Chain selection options:\n```\n  -devnet=<name>\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n```\n\n## Commands:\n```\n  delin=N\n       Delete input N from TX\n\n  delout=N\n       Delete output N from TX\n\n  in=TXID:VOUT(:SEQUENCE_NUMBER)\n       Add input to TX\n\n  locktime=N\n       Set TX lock time to N\n\n  nversion=N\n       Set TX version to N\n\n  outaddr=VALUE:ADDRESS\n       Add address-based output to TX\n\n  outdata=[VALUE:]DATA\n       Add data-based output to TX\n\n  outmultisig=VALUE:REQUIRED:PUBKEYS:PUBKEY1:PUBKEY2:....[:FLAGS]\n       Add Pay To n-of-m Multi-sig output to TX. n = REQUIRED, m = PUBKEYS.\n       Optionally add the \"S\" flag to wrap the output in a\n       pay-to-script-hash.\n\n  outpubkey=VALUE:PUBKEY[:FLAGS]\n       Add pay-to-pubkey output to TX. Optionally add the \"S\" flag to wrap the\n       output in a pay-to-script-hash.\n\n  outscript=VALUE:SCRIPT[:FLAGS]\n       Add raw script output to TX. Optionally add the \"S\" flag to wrap the\n       output in a pay-to-script-hash.\n\n  sign=SIGHASH-FLAGS\n       Add zero or more signatures to transaction. This command requires JSON\n       registers:prevtxs=JSON object, privatekeys=JSON object. See\n       signrawtransaction docs for format of sighash flags, JSON\n       objects.\n```\n\n## Register Commands:\n```\n  load=NAME:FILENAME\n       Load JSON file FILENAME into register NAME\n\n  set=NAME:JSON-STRING\n       Set register NAME to given JSON-STRING\n```", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The <code>dash-tx</code> application provides a command-line option for creating, parsing, or modifying transactions.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-usage\"></div>Usage<a class=\"fa fa-anchor\" href=\"#section-usage\"></a></h1>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-tx [options] &lt;hex-tx&gt; [commands]  Update hex-encoded dash transaction\n  dash-tx [options] <span class=\"cm-attribute\">-create</span> [commands]   Create hex-encoded dash transaction</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-options\"></div>Options:<a class=\"fa fa-anchor\" href=\"#section-options\"></a></h2>\n<pre><code>  -?\n       This help message\n\n  -create\n       Create new, empty TX.\n\n  -json\n       Select JSON output\n\n  -txid\n       Output only the hex-encoded transaction id of the resultant transaction.\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-chain-selection-options\"></div>Chain selection options:<a class=\"fa fa-anchor\" href=\"#section-chain-selection-options\"></a></h2>\n<pre><code>  -devnet=&lt;name&gt;\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-commands\"></div>Commands:<a class=\"fa fa-anchor\" href=\"#section-commands\"></a></h2>\n<pre><code>  delin=N\n       Delete input N from TX\n\n  delout=N\n       Delete output N from TX\n\n  in=TXID:VOUT(:SEQUENCE_NUMBER)\n       Add input to TX\n\n  locktime=N\n       Set TX lock time to N\n\n  nversion=N\n       Set TX version to N\n\n  outaddr=VALUE:ADDRESS\n       Add address-based output to TX\n\n  outdata=[VALUE:]DATA\n       Add data-based output to TX\n\n  outmultisig=VALUE:REQUIRED:PUBKEYS:PUBKEY1:PUBKEY2:....[:FLAGS]\n       Add Pay To n-of-m Multi-sig output to TX. n = REQUIRED, m = PUBKEYS.\n       Optionally add the &quot;S&quot; flag to wrap the output in a\n       pay-to-script-hash.\n\n  outpubkey=VALUE:PUBKEY[:FLAGS]\n       Add pay-to-pubkey output to TX. Optionally add the &quot;S&quot; flag to wrap the\n       output in a pay-to-script-hash.\n\n  outscript=VALUE:SCRIPT[:FLAGS]\n       Add raw script output to TX. Optionally add the &quot;S&quot; flag to wrap the\n       output in a pay-to-script-hash.\n\n  sign=SIGHASH-FLAGS\n       Add zero or more signatures to transaction. This command requires JSON\n       registers:prevtxs=JSON object, privatekeys=JSON object. See\n       signrawtransaction docs for format of sighash flags, JSON\n       objects.\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-register-commands\"></div>Register Commands:<a class=\"fa fa-anchor\" href=\"#section-register-commands\"></a></h2>\n<pre><code>  load=NAME:FILENAME\n       Load JSON file FILENAME into register NAME\n\n  set=NAME:JSON-STRING\n       Set register NAME to given JSON-STRING\n</code></pre>\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "dash-core-wallet-arguments-and-commands-dash-tx", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 0, 
- "_id": "61549206c31f6b00207cf2b5", 
- "order": 3, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "dash-tx",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-core-wallet-arguments-and-commands-dash-tx",
+ "excerpt": "Dash Core transaction utility",
+ "body": "The `dash-tx` application provides a command-line option for creating, parsing, or modifying transactions.\n\n# Usage\n\n```bash\nUsage:\n  dash-tx [options] <hex-tx> [commands]  Update hex-encoded dash transaction\n  dash-tx [options] -create [commands]   Create hex-encoded dash transaction\n```\n\n## Options:\n\n```\n  -?\n       This help message\n\n  -create\n       Create new, empty TX.\n\n  -json\n       Select JSON output\n\n  -txid\n       Output only the hex-encoded transaction id of the resultant transaction.\n```\n\n## Chain selection options:\n```\n  -devnet=<name>\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n```\n\n## Commands:\n```\n  delin=N\n       Delete input N from TX\n\n  delout=N\n       Delete output N from TX\n\n  in=TXID:VOUT(:SEQUENCE_NUMBER)\n       Add input to TX\n\n  locktime=N\n       Set TX lock time to N\n\n  nversion=N\n       Set TX version to N\n\n  outaddr=VALUE:ADDRESS\n       Add address-based output to TX\n\n  outdata=[VALUE:]DATA\n       Add data-based output to TX\n\n  outmultisig=VALUE:REQUIRED:PUBKEYS:PUBKEY1:PUBKEY2:....[:FLAGS]\n       Add Pay To n-of-m Multi-sig output to TX. n = REQUIRED, m = PUBKEYS.\n       Optionally add the \"S\" flag to wrap the output in a\n       pay-to-script-hash.\n\n  outpubkey=VALUE:PUBKEY[:FLAGS]\n       Add pay-to-pubkey output to TX. Optionally add the \"S\" flag to wrap the\n       output in a pay-to-script-hash.\n\n  outscript=VALUE:SCRIPT[:FLAGS]\n       Add raw script output to TX. Optionally add the \"S\" flag to wrap the\n       output in a pay-to-script-hash.\n\n  sign=SIGHASH-FLAGS\n       Add zero or more signatures to transaction. This command requires JSON\n       registers:prevtxs=JSON object, privatekeys=JSON object. See\n       signrawtransaction docs for format of sighash flags, JSON\n       objects.\n```\n\n## Register Commands:\n```\n  load=NAME:FILENAME\n       Load JSON file FILENAME into register NAME\n\n  set=NAME:JSON-STRING\n       Set register NAME to given JSON-STRING\n```",
+ "order": 3,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-10-06T21:19:25.877Z",
+ "_id": "61549206c31f6b00207cf2b5",
+ "createdAt": "2020-06-04T13:40:40.435Z",
+ "updatedAt": "2021-01-26T15:12:16.646Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf2b4",
+ "category": "61549205c31f6b00207cf238",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "version": "61549206c31f6b00207cf2be",
+ "__v": 0,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf2b5",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The <code>dash-tx</code> application provides a command-line option for creating, parsing, or modifying transactions.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-usage\"></div>Usage<a class=\"fa fa-anchor\" href=\"#section-usage\"></a></h1>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-tx [options] &lt;hex-tx&gt; [commands]  Update hex-encoded dash transaction\n  dash-tx [options] <span class=\"cm-attribute\">-create</span> [commands]   Create hex-encoded dash transaction</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-options\"></div>Options:<a class=\"fa fa-anchor\" href=\"#section-options\"></a></h2>\n<pre><code>  -?\n       This help message\n\n  -create\n       Create new, empty TX.\n\n  -json\n       Select JSON output\n\n  -txid\n       Output only the hex-encoded transaction id of the resultant transaction.\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-chain-selection-options\"></div>Chain selection options:<a class=\"fa fa-anchor\" href=\"#section-chain-selection-options\"></a></h2>\n<pre><code>  -devnet=&lt;name&gt;\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-commands\"></div>Commands:<a class=\"fa fa-anchor\" href=\"#section-commands\"></a></h2>\n<pre><code>  delin=N\n       Delete input N from TX\n\n  delout=N\n       Delete output N from TX\n\n  in=TXID:VOUT(:SEQUENCE_NUMBER)\n       Add input to TX\n\n  locktime=N\n       Set TX lock time to N\n\n  nversion=N\n       Set TX version to N\n\n  outaddr=VALUE:ADDRESS\n       Add address-based output to TX\n\n  outdata=[VALUE:]DATA\n       Add data-based output to TX\n\n  outmultisig=VALUE:REQUIRED:PUBKEYS:PUBKEY1:PUBKEY2:....[:FLAGS]\n       Add Pay To n-of-m Multi-sig output to TX. n = REQUIRED, m = PUBKEYS.\n       Optionally add the &quot;S&quot; flag to wrap the output in a\n       pay-to-script-hash.\n\n  outpubkey=VALUE:PUBKEY[:FLAGS]\n       Add pay-to-pubkey output to TX. Optionally add the &quot;S&quot; flag to wrap the\n       output in a pay-to-script-hash.\n\n  outscript=VALUE:SCRIPT[:FLAGS]\n       Add raw script output to TX. Optionally add the &quot;S&quot; flag to wrap the\n       output in a pay-to-script-hash.\n\n  sign=SIGHASH-FLAGS\n       Add zero or more signatures to transaction. This command requires JSON\n       registers:prevtxs=JSON object, privatekeys=JSON object. See\n       signrawtransaction docs for format of sighash flags, JSON\n       objects.\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-register-commands\"></div>Register Commands:<a class=\"fa fa-anchor\" href=\"#section-register-commands\"></a></h2>\n<pre><code>  load=NAME:FILENAME\n       Load JSON file FILENAME into register NAME\n\n  set=NAME:JSON-STRING\n       Set register NAME to given JSON-STRING\n</code></pre>\n</div>"
 }
