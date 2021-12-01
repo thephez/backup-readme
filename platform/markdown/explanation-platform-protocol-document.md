@@ -8,7 +8,7 @@ Documents are defined in an application's [Data Contract](explanation-platform-p
 
 ## Base Fields
 
-Dash Platform Protocol (DPP) defines a set of base fields that must be present in all documents. For the [`js-dpp` reference implementation](https://github.com/dashevo/js-dpp/), the base fields shown below are defined in the [document base schema](https://github.com/dashevo/js-dpp/blob/v0.17.0/schema/document/documentBase.json).
+Dash Platform Protocol (DPP) defines a set of base fields that must be present in all documents. For the [`js-dpp` reference implementation](https://github.com/dashevo/platform/tree/master/packages/js-dpp), the base fields shown below are defined in the [document base schema](https://github.com/dashevo/platform/blob/master/packages/js-dpp/schema/document/documentBase.json).
 
 | Field Name | Description |
 | - | - |

@@ -153,4 +153,4 @@ There are no recently deprecated endpoint, but the previous version of documenta
 # Code Reference
 
 Implementation details related to the information on this page can be found in:
-- The [DAPI repository](https://github.com/dashevo/dapi) `lib/rpcServer/commands` folder
+- The [DAPI repository](https://github.com/dashevo/platform/tree/master/packages/dapi) `lib/rpcServer/commands` folder

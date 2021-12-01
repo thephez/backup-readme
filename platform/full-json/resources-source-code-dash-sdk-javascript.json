@@ -52,7 +52,7 @@
  "isReference": false, 
  "slug": "resources-source-code-dash-sdk-javascript", 
  "deprecated": false, 
- "link_url": "https://github.com/dashevo/js-dash-sdk", 
+ "link_url": "https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk#readme", 
  "project": "5bda01cad172e200499a20a9", 
  "__v": 0, 
  "_id": "612fe724e9fa2b0026f5fa85", 

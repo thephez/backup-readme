@@ -6,23 +6,19 @@ This handles core network functions like managing private keys, creating and sig
 npm: `@dashevo/dash-spv`
 This offers [SPV](glossary#section-simple-payment-verification) functions on top of dashcore-lib to enable lightweight wallet clients that can start quickly and don't need to download the whole Dash blockchain.
 
-## [dapi-client](https://github.com/dashevo/dapi-client)
+## [dapi-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client)
 npm: `@dashevo/dapi-client`
 Enables interaction with Dash platform through the DAPI hosted on masternodes. Provides automatic masternode discovery starting from any initial masternode.
 Uses dash-spv and dashcore-lib.
 
-## [js-dpp](https://github.com/dashevo/js-dpp)
+## [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp)
 npm: `@dashevo/dpp`
-Implements the [Dash Platform Protocol](https://github.com/dashevo/dpp-spec)
 
-## [wallet-lib](https://github.com/dashevo/wallet-lib)
+## [wallet-lib](https://github.com/dashevo/platform/tree/master/packages/wallet-lib)
 npm: `@dashevo/wallet-lib`
 Provides layer-1 spv wallet functions
 Uses dapi-client, dashcore-lib, and js-dpp.
 
-## [DashJS](https://github.com/dashevo/DashJS)
+## [DashJS](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk)
 npm: `dash`
 uses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers
-
-Obsolete:
-dashpay-wallet: react-native platform wallet

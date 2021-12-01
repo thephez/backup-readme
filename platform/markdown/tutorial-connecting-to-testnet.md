@@ -2,7 +2,7 @@ The purpose of this tutorial is to walk through the steps necessary to access th
 
 # Overview
 
-Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, or by using [DAPI-client](https://github.com/dashevo/dapi-client), the easiest approach is to use the [JavaScript Dash SDK](https://github.com/dashevo/js-dash-sdk/).
+Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, or by using [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client), the easiest approach is to use the [JavaScript Dash SDK](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).
 
 # Prerequisites
 - An installation of [NodeJS](https://nodejs.org/en/download/)
@@ -46,7 +46,7 @@ Create a file with the following contents. Then run it by typing `node <file.js>
   ]
 }
 [/block]
-Once this returns successfully, you're ready to begin developing! For details on all SDK options and methods, please refer to the [SDK documentation](https://dashevo.github.io/js-dash-sdk).
+Once this returns successfully, you're ready to begin developing! For details on all SDK options and methods, please refer to the [SDK documentation](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).
 
 # Connect to a Devnet
 

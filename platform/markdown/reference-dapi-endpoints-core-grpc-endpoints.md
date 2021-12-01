@@ -300,5 +300,5 @@ There are no recently deprecated endpoints, but the previous version of document
 # Code Reference
 
 Implementation details related to the information on this page can be found in:
-- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer/handlers/core` folder
-- The [DAPI-gRPC repository](https://github.com/dashevo/dapi-grpc) `protos` folder
+- The [Platform repository](https://github.com/dashevo/platform/tree/master/packages/dapi) `packages/dapi/lib/grpcServer/handlers/core` folder
+- The [Platform repository](https://github.com/dashevo/platform/tree/master/packages/dapi-grpc) `packages/dapi-grpc/protos` folder

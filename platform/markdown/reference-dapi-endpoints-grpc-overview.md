@@ -4,7 +4,7 @@ The gRPC endpoints provide access to information from Dash Platform (layer 2) as
 
 ## Auto-generated Clients
 
-Clients for a number of languages are built automatically from the protocol definitions and are available in the `clients` folder of the [dapi-grpc repository](https://github.com/dashevo/dapi-grpc/). The protocol definitions are available in the `protos` folder of the repository.
+Clients for a number of languages are built automatically from the protocol definitions and are available in the `packages/dapi-grpc/clients` folder of the [platform](https://github.com/dashevo/platform/) repository. The protocol definitions are available in the `protos` folder.
 [block:callout]
 {
   "type": "info",
@@ -16,12 +16,12 @@ Clients for a number of languages are built automatically from the protocol defi
 
 Some examples shown in the endpoint details pages use a command-line tool named [gRPCurl](https://github.com/fullstorydev/grpcurl) that allows interacting with gRPC servers in a similar way as `curl` does for the [JSON-RPCs](reference-dapi-endpoints-json-rpc-endpoints). Additional information may be found in the [gRPC documentation](https://grpc.io/docs/guides/).
 
-To use gRPCurl as shown in the detailed examples, clone the [dapi-grpc](https://github.com/dashevo/dapi-grpc) repository and execute the example requests from the root directory of that repository as shown in this example:
+To use gRPCurl as shown in the detailed examples, clone the [platform](https://github.com/dashevo/platform/) repository and execute the example requests from the `packages/dapi-grpc` directory of that repository as shown in this example:
 [block:code]
 {
   "codes": [
     {
-      "code": "# Clone the dapi-grpc repository\ngit clone https://github.com/dashevo/dapi-grpc.git\ncd dapi-grpc\n\n# Execute gRPCurl command\ngrpcurl -plaintext -proto protos/...",
+      "code": "# Clone the dapi-grpc repository\ngit clone https://github.com/dashevo/platform.git\ncd platform/packages/dapi-grpc\n\n# Execute gRPCurl command\ngrpcurl -plaintext -proto protos/...",
       "language": "shell"
     }
   ]

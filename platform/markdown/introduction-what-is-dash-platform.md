@@ -38,8 +38,8 @@ DAPI provides developers with the same access and security of a full node, witho
 Developers have the option to connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.
 
 The source for both DAPI and dapi-client are available on GitHub:
- - DAPI: https://github.com/dashevo/dapi
- - DAPI-Client: https://github.com/dashevo/dapi-client
+ - DAPI: https://github.com/dashevo/platform/tree/master/packages/dapi
+ - DAPI-Client: https://github.com/dashevo/platform/tree/master/packages/js-dapi-client
 
 ## Drive - Decentralized Storage
 
@@ -48,4 +48,4 @@ Drive is Dash Platform's storage component, allowing for consensus-based verific
 Data created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is uploaded to Drive, where it is stored on the masternode network.
 
 The source is available on GitHub: 
- - Drive: https://github.com/dashevo/drive
+ - Drive: https://github.com/dashevo/platform/tree/master/packages/js-drive

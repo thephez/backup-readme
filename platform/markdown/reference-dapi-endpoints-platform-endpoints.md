@@ -2,9 +2,9 @@ Please refer to the [gRPC Overview](reference-dapi-endpoints-grpc-overview) for 
 
 # Data Proofs and Metadata
 
-Since Dash Platform 0.20.0, Platform gRPC endpoints can provide [proofs](https://github.com/dashevo/dapi-grpc/blob/v0.21.0/protos/platform/v0/platform.proto#L16-L28) so the data returned for a request can be verified as being valid. Full support is not yet available in the JavaScript client, but can be used via the low level [dapi-grpc library](https://github.com/dashevo/dapi-grpc). Additional information about proofs is available on the [Platform Proofs page](reference-platform-proofs).
+Since Dash Platform 0.20.0, Platform gRPC endpoints can provide [proofs](https://github.com/dashevo/platform/blob/master/packages/dapi-grpc/protos/platform/v0/platform.proto#L16-L28) so the data returned for a request can be verified as being valid. Full support is not yet available in the JavaScript client, but can be used via the low level [dapi-grpc library](https://github.com/dashevo/platform/tree/master/packages/dapi-grpc). Additional information about proofs is available on the [Platform Proofs page](reference-platform-proofs).
 
-Some [additional metadata](https://github.com/dashevo/dapi-grpc/blob/v0.21.0/protos/platform/v0/platform.proto#L30-L33) is also provided with responses:
+Some [additional metadata](https://github.com/dashevo/platform/blob/master/packages/dapi-grpc/protos/platform/v0/platform.proto#L30-L33) is also provided with responses:
  - `height`: the last committed platform chain height
  - `coreChainLockedHeight`: height of the most recent ChainLock on the core chain
 
@@ -143,7 +143,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [block:callout]
 {
   "type": "info",
-  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  data: 'A/Wmv+LhxAjSBE19d3OJCUawUiYORF5HDDetZbvTDgQQ'\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/js-dpp/blob/master/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
+  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  data: 'A/Wmv+LhxAjSBE19d3OJCUawUiYORF5HDDetZbvTDgQQ'\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
   "title": "Public key hash"
 }
 [/block]
@@ -216,7 +216,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [block:callout]
 {
   "type": "info",
-  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  data: 'A/Wmv+LhxAjSBE19d3OJCUawUiYORF5HDDetZbvTDgQQ'\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/js-dpp/blob/master/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
+  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  data: 'A/Wmv+LhxAjSBE19d3OJCUawUiYORF5HDDetZbvTDgQQ'\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
   "title": "Public key hash"
 }
 [/block]
@@ -489,5 +489,5 @@ There are no recently deprecated endpoint, but the previous version of documenta
 
 # Code Reference
 Implementation details related to the information on this page can be found in:
-- The [DAPI repository](https://github.com/dashevo/dapi) `lib/grpcServer/handlers/platform` folder
-- The [dapi-grpc repository](https://github.com/dashevo/dapi-grpc/) `protos` folder
+- The [Platform repository](https://github.com/dashevo/platform/tree/master/packages/dapi) `packages/dapi/lib/grpcServer/handlers/core` folder
+- The [Platform repository](https://github.com/dashevo/platform/tree/master/packages/dapi-grpc) `packages/dapi-grpc/protos` folder

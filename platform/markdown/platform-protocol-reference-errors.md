@@ -1,6 +1,6 @@
 # Platform Error Codes
 
-A comprehensive set of consensus error codes were introduced  in Dash Platform v0.21. The tables below follow the codes found in [code.js](https://github.com/dashevo/js-dpp/blob/v0.21.0/lib/errors/consensus/codes.js) of the consensus source code.
+A comprehensive set of consensus error codes were introduced  in Dash Platform v0.21. The tables below follow the codes found in [code.js](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/errors/consensus/codes.js) of the consensus source code.
 
 The error codes are organized into four categories that each span 1000 error codes. Each category may be further divided into sub-categories. The four categories and their error code ranges are:
 

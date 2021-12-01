@@ -18,13 +18,13 @@ Although [data contracts](explanation-platform-protocol-data-contract) provide m
 # Details
 Since all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the document `action` so separate triggers can be created for the `CREATE`, `REPLACE`, or `DELETE` actions.
 
-As an example, DPP contains several [data triggers for DPNS](https://github.com/dashevo/js-dpp/tree/master/lib/dataTrigger/dpnsTriggers). The `domain` document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:
+As an example, DPP contains several [data triggers for DPNS](https://github.com/dashevo/platform/tree/master/packages/js-dpp/lib/dataTrigger/). The `domain` document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:
 
 | Data Contract | Document | Action(s) | Trigger Description |
 | - | - | - |
-| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validate provided hashes, and restrict top-level domain (TLD) registration |
+| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validate provided hashes, and restrict top-level domain (TLD) registration |
 | ---- | ----| ---- | ---- |
-| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to any DPNS document type |
-| DPNS | All Document Types | [`DELETE`](https://github.com/dashevo/js-dpp/blob/master/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of any DPNS document type |
+| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to any DPNS document type |
+| DPNS | All Document Types | [`DELETE`](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of any DPNS document type |
 
 When document state transitions are received, DPP checks if there is a trigger associated with the document type and action. If there is, it then executes the trigger logic. Successful execution of the trigger logic is necessary for the document to be accepted and applied to the [platform state](explanation-drive-platform-state).

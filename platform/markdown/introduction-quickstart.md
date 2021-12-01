@@ -15,7 +15,7 @@ Require the Dash SDK by adding the following code to your project’s index:
 
 ** add code to project index **
 
-See the library source on [GitHub](https://github.com/dashevo/dashjs/).
+See the library source on [GitHub](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).
 
 # 2. Verify a successful API response
 

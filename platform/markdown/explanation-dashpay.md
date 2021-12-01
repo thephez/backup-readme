@@ -50,7 +50,7 @@ The contract defines three document types: `contactRequest`, `profile` and `cont
 [/block]
 ## Implementation
 
-DashPay has many constraints as defined in the [DashPay data contract](https://github.com/dashevo/dashpay-contract/blob/master/schema/dashpay.schema.json). Additionally, the DashPay data triggers defined in [js-dpp](https://github.com/dashevo/js-dpp/tree/master/lib/dataTrigger/dashpayDataTriggers) enforce additional validation rules related to the `contactRequest` document.
+DashPay has many constraints as defined in the [DashPay data contract](https://github.com/dashevo/platform/blob/master/packages/dashpay-contract/schema/dashpay.schema.json). Additionally, the DashPay data triggers defined in [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp/lib/dataTrigger/dashpayDataTriggers) enforce additional validation rules related to the `contactRequest` document.
 
 [block:callout]
 {

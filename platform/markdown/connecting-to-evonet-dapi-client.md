@@ -9,7 +9,7 @@ EvoNet is the initial development network provided for experimentation and evalu
   "title": "EvoNet Stability"
 }
 [/block]
-Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it's easier to use [DAPI-client](https://github.com/dashevo/dapi-client).
+Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it's easier to use [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client).
 
 # Connect via DAPI-client
 

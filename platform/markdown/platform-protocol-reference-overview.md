@@ -14,7 +14,7 @@ In addition to ensuring data complies with predefined JSON Schemas, DPP also def
 [/block]
 # Reference Implementation
 
-The current reference implementation is the (JavaScript) [js-dpp](https://github.com/dashevo/js-dpp) library. The schemas and meta-schemas referred to in this specification can be found here in the reference implementation: https://github.com/dashevo/js-dpp/tree/master/schema.
+The current reference implementation is the (JavaScript) [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp) library. The schemas and meta-schemas referred to in this specification can be found here in the reference implementation: https://github.com/dashevo/platform/tree/master/packages/js-dpp/schema.
 
 # Topics
 
