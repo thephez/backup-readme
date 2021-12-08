@@ -1,61 +1,61 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "61549206c31f6b00207cf2b4", 
+ "excerpt": "Dash Core RPC client", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-06-08T13:08:19.047Z", 
+ "id": "61549206c31f6b00207cf2b6", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2020-06-04T13:51:43.087Z", 
+ "category": "61549205c31f6b00207cf238", 
+ "title": "dash-cli", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "dash-cli",
- "updates": [],
- "type": "basic",
- "slug": "dash-core-wallet-arguments-and-commands-dash-cli",
- "excerpt": "Dash Core RPC client",
- "body": "The `dash-cli` application provides a command-line option for accessing Dash Core RPCs.\n\n# Usage\n\n```bash Send command\ndash-cli [options] <command> [params]\n```\n```bash Send command (with named arguments)\n  dash-cli [options] -named <command> [name=value] ... \n```\n```bash List commands\ndash-cli [options] help\n```\n```bash Get help for command\ndash-cli [options] help <command>\n```\n[block:callout]\n{\n  \"type\": \"info\",\n  \"title\": \"RPC Details\",\n  \"body\": \"The list of RPCs can be found [here](core-api-ref-remote-procedure-call-quick-reference) with links to more detailed information. Using dash-cli, this information is available using the `dash-cli [options] help` and `dash-cli [options] help <command>` commands.\"\n}\n[/block]\n## Options:\n\n```text\n  -?\n       This help message\n\n  -conf=<file>\n       Specify configuration file. Relative paths will be prefixed by datadir\n       location. (default: dash.conf)\n\n  -datadir=<dir>\n       Specify data directory\n\n  -getinfo\n       Get general information from the remote server. Note that unlike\n       server-side RPC calls, the results of -getinfo is the result of\n       multiple non-atomic requests. Some entries in the result may\n       represent results from different states (e.g. wallet balance may\n       be as of a different block from the chain state reported)\n\n  -named\n       Pass named instead of positional arguments (default: false)\n\n  -rpcclienttimeout=<n>\n       Timeout in seconds during HTTP requests, or 0 for no timeout. (default:\n       900)\n\n  -rpcconnect=<ip>\n       Send commands to node running on <ip> (default: 127.0.0.1)\n\n  -rpcpassword=<pw>\n       Password for JSON-RPC connections\n\n  -rpcport=<port>\n       Connect to JSON-RPC on <port> (default: 9998 or testnet: 19998)\n\n  -rpcuser=<user>\n       Username for JSON-RPC connections\n\n  -rpcwait\n       Wait for RPC server to start\n\n  -rpcwallet=<walletname>\n       Send RPC for non-default wallet on RPC server (needs to exactly match\n       corresponding -wallet option passed to dashd)\n\n  -stdin\n       Read extra arguments from standard input, one per line until EOF/Ctrl-D\n       (recommended for sensitive information such as passphrases). \n       When combined with -stdinrpcpass, the first line from standard\n       input is used for the RPC password.\n\n  -stdinrpcpass\n       Read RPC password from standard input as a single line.  When combined\n       with -stdin, the first line from standard input is used for the\n       RPC password.\n```\n\n## Chain selection options:\n\n```text\n  -devnet=<name>\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n```",
- "order": 2,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2020-10-06T21:18:37.098Z",
- "_id": "61549206c31f6b00207cf2b6",
- "parentDoc": "61549206c31f6b00207cf2b4",
- "createdAt": "2020-06-04T13:51:43.087Z",
- "updatedAt": "2021-06-08T13:08:19.047Z",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf238",
- "project": "5daf2e65f4109c0040fd51e1",
- "version": "61549206c31f6b00207cf2be",
- "__v": 0,
- "isApi": false,
- "id": "61549206c31f6b00207cf2b6",
- "body_html": "<div class=\"magic-block-textarea\"><p>The <code>dash-cli</code> application provides a command-line option for accessing Dash Core RPCs.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-usage\"></div>Usage<a class=\"fa fa-anchor\" href=\"#section-usage\"></a></h1>\n<p>```bash Send command<br>dash-cli [options] &lt;command&gt; [params]</p>\n<pre><code>```bash Send command (with named arguments)\n  dash-cli [options] -named &lt;command&gt; [name=value] ...\n</code></pre><p>```bash List commands<br>dash-cli [options] help</p>\n<pre><code>```bash Get help for command\ndash-cli [options] help &lt;command&gt;\n</code></pre>\n</div>\n<div class=\"magic-block-callout type-info \">\n\t<h3><i title=\"Info\" class=\"fa fa-info-circle\"></i>RPC Details\n\t</h3>\n\t<div class=\"callout-body\"><p>The list of RPCs can be found <a href=\"core-api-ref-remote-procedure-call-quick-reference\">here</a> with links to more detailed information. Using dash-cli, this information is available using the <code>dash-cli [options] help</code> and <code>dash-cli [options] help &lt;command&gt;</code> commands.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-options\"></div>Options:<a class=\"fa fa-anchor\" href=\"#section-options\"></a></h2>\n<pre><code class=\"lang-text\">  -?\n       This help message\n\n  -conf=&lt;file&gt;\n       Specify configuration file. Relative paths will be prefixed by datadir\n       location. (default: dash.conf)\n\n  -datadir=&lt;dir&gt;\n       Specify data directory\n\n  -getinfo\n       Get general information from the remote server. Note that unlike\n       server-side RPC calls, the results of -getinfo is the result of\n       multiple non-atomic requests. Some entries in the result may\n       represent results from different states (e.g. wallet balance may\n       be as of a different block from the chain state reported)\n\n  -named\n       Pass named instead of positional arguments (default: false)\n\n  -rpcclienttimeout=&lt;n&gt;\n       Timeout in seconds during HTTP requests, or 0 for no timeout. (default:\n       900)\n\n  -rpcconnect=&lt;ip&gt;\n       Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)\n\n  -rpcpassword=&lt;pw&gt;\n       Password for JSON-RPC connections\n\n  -rpcport=&lt;port&gt;\n       Connect to JSON-RPC on &lt;port&gt; (default: 9998 or testnet: 19998)\n\n  -rpcuser=&lt;user&gt;\n       Username for JSON-RPC connections\n\n  -rpcwait\n       Wait for RPC server to start\n\n  -rpcwallet=&lt;walletname&gt;\n       Send RPC for non-default wallet on RPC server (needs to exactly match\n       corresponding -wallet option passed to dashd)\n\n  -stdin\n       Read extra arguments from standard input, one per line until EOF&#x2F;Ctrl-D\n       (recommended for sensitive information such as passphrases). \n       When combined with -stdinrpcpass, the first line from standard\n       input is used for the RPC password.\n\n  -stdinrpcpass\n       Read RPC password from standard input as a single line.  When combined\n       with -stdin, the first line from standard input is used for the\n       RPC password.\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-chain-selection-options\"></div>Chain selection options:<a class=\"fa fa-anchor\" href=\"#section-chain-selection-options\"></a></h2>\n<pre><code class=\"lang-text\">  -devnet=&lt;name&gt;\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n</code></pre>\n\n</div>"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2020-10-06T21:18:37.098Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "The `dash-cli` application provides a command-line option for accessing Dash Core RPCs.\n\n# Usage\n\n```bash Send command\ndash-cli [options] <command> [params]\n```\n```bash Send command (with named arguments)\n  dash-cli [options] -named <command> [name=value] ... \n```\n```bash List commands\ndash-cli [options] help\n```\n```bash Get help for command\ndash-cli [options] help <command>\n```\n[block:callout]\n{\n  \"type\": \"info\",\n  \"title\": \"RPC Details\",\n  \"body\": \"The list of RPCs can be found [here](core-api-ref-remote-procedure-call-quick-reference) with links to more detailed information. Using dash-cli, this information is available using the `dash-cli [options] help` and `dash-cli [options] help <command>` commands.\"\n}\n[/block]\n## Options:\n\n```text\n  -?\n       This help message\n\n  -conf=<file>\n       Specify configuration file. Relative paths will be prefixed by datadir\n       location. (default: dash.conf)\n\n  -datadir=<dir>\n       Specify data directory\n\n  -getinfo\n       Get general information from the remote server. Note that unlike\n       server-side RPC calls, the results of -getinfo is the result of\n       multiple non-atomic requests. Some entries in the result may\n       represent results from different states (e.g. wallet balance may\n       be as of a different block from the chain state reported)\n\n  -named\n       Pass named instead of positional arguments (default: false)\n\n  -rpcclienttimeout=<n>\n       Timeout in seconds during HTTP requests, or 0 for no timeout. (default:\n       900)\n\n  -rpcconnect=<ip>\n       Send commands to node running on <ip> (default: 127.0.0.1)\n\n  -rpcpassword=<pw>\n       Password for JSON-RPC connections\n\n  -rpcport=<port>\n       Connect to JSON-RPC on <port> (default: 9998 or testnet: 19998)\n\n  -rpcuser=<user>\n       Username for JSON-RPC connections\n\n  -rpcwait\n       Wait for RPC server to start\n\n  -rpcwallet=<walletname>\n       Send RPC for non-default wallet on RPC server (needs to exactly match\n       corresponding -wallet option passed to dashd)\n\n  -stdin\n       Read extra arguments from standard input, one per line until EOF/Ctrl-D\n       (recommended for sensitive information such as passphrases). \n       When combined with -stdinrpcpass, the first line from standard\n       input is used for the RPC password.\n\n  -stdinrpcpass\n       Read RPC password from standard input as a single line.  When combined\n       with -stdin, the first line from standard input is used for the\n       RPC password.\n```\n\n## Chain selection options:\n\n```text\n  -devnet=<name>\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>The <code>dash-cli</code> application provides a command-line option for accessing Dash Core RPCs.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-usage\"></div>Usage<a class=\"fa fa-anchor\" href=\"#section-usage\"></a></h1>\n<p>```bash Send command<br>dash-cli [options] &lt;command&gt; [params]</p>\n<pre><code>```bash Send command (with named arguments)\n  dash-cli [options] -named &lt;command&gt; [name=value] ...\n</code></pre><p>```bash List commands<br>dash-cli [options] help</p>\n<pre><code>```bash Get help for command\ndash-cli [options] help &lt;command&gt;\n</code></pre>\n</div>\n<div class=\"magic-block-callout type-info \">\n\t<h3><i title=\"Info\" class=\"fa fa-info-circle\"></i>RPC Details\n\t</h3>\n\t<div class=\"callout-body\"><p>The list of RPCs can be found <a href=\"core-api-ref-remote-procedure-call-quick-reference\">here</a> with links to more detailed information. Using dash-cli, this information is available using the <code>dash-cli [options] help</code> and <code>dash-cli [options] help &lt;command&gt;</code> commands.</p>\n\n\t</div>\n</div>\n<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-options\"></div>Options:<a class=\"fa fa-anchor\" href=\"#section-options\"></a></h2>\n<pre><code class=\"lang-text\">  -?\n       This help message\n\n  -conf=&lt;file&gt;\n       Specify configuration file. Relative paths will be prefixed by datadir\n       location. (default: dash.conf)\n\n  -datadir=&lt;dir&gt;\n       Specify data directory\n\n  -getinfo\n       Get general information from the remote server. Note that unlike\n       server-side RPC calls, the results of -getinfo is the result of\n       multiple non-atomic requests. Some entries in the result may\n       represent results from different states (e.g. wallet balance may\n       be as of a different block from the chain state reported)\n\n  -named\n       Pass named instead of positional arguments (default: false)\n\n  -rpcclienttimeout=&lt;n&gt;\n       Timeout in seconds during HTTP requests, or 0 for no timeout. (default:\n       900)\n\n  -rpcconnect=&lt;ip&gt;\n       Send commands to node running on &lt;ip&gt; (default: 127.0.0.1)\n\n  -rpcpassword=&lt;pw&gt;\n       Password for JSON-RPC connections\n\n  -rpcport=&lt;port&gt;\n       Connect to JSON-RPC on &lt;port&gt; (default: 9998 or testnet: 19998)\n\n  -rpcuser=&lt;user&gt;\n       Username for JSON-RPC connections\n\n  -rpcwait\n       Wait for RPC server to start\n\n  -rpcwallet=&lt;walletname&gt;\n       Send RPC for non-default wallet on RPC server (needs to exactly match\n       corresponding -wallet option passed to dashd)\n\n  -stdin\n       Read extra arguments from standard input, one per line until EOF&#x2F;Ctrl-D\n       (recommended for sensitive information such as passphrases). \n       When combined with -stdinrpcpass, the first line from standard\n       input is used for the RPC password.\n\n  -stdinrpcpass\n       Read RPC password from standard input as a single line.  When combined\n       with -stdin, the first line from standard input is used for the\n       RPC password.\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-chain-selection-options\"></div>Chain selection options:<a class=\"fa fa-anchor\" href=\"#section-chain-selection-options\"></a></h2>\n<pre><code class=\"lang-text\">  -devnet=&lt;name&gt;\n       Use devnet chain with provided name\n\n  -regtest\n       Enter regression test mode, which uses a special chain in which blocks\n       can be solved instantly. This is intended for regression testing\n       tools and app development.\n\n  -testnet\n       Use the test chain\n</code></pre>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "dash-core-wallet-arguments-and-commands-dash-cli", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "61549206c31f6b00207cf2b6", 
+ "order": 2, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

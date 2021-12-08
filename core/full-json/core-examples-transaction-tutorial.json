@@ -1,104 +1,104 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-11T20:17:35.253Z", 
+ "id": "61549206c31f6b00207cf269", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-24T15:49:13.283Z", 
+ "category": "61549205c31f6b00207cf234", 
+ "title": "Transaction Tutorial", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "category": "Core Examples",
-    "slug": "core-examples-transaction-tutorial-simple-spending",
-    "name": "Simple Spending",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Examples", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-examples-transaction-tutorial-simple-spending", 
+    "name": "Simple Spending"
+   }, 
    {
-    "category": "Core Examples",
-    "slug": "core-examples-transaction-tutorial-simple-raw-transaction",
-    "name": "Simple Raw Transaction",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Examples", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-examples-transaction-tutorial-simple-raw-transaction", 
+    "name": "Simple Raw Transaction"
+   }, 
    {
-    "category": "Core Examples",
-    "slug": "core-examples-transaction-tutorial-complex-raw-transaction",
-    "name": "Complex Raw Transaction",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Examples", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-examples-transaction-tutorial-complex-raw-transaction", 
+    "name": "Complex Raw Transaction"
+   }, 
    {
-    "category": "Core Examples",
-    "slug": "core-examples-transaction-tutorial-offline-signing",
-    "name": "Offline Signing",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Examples", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-examples-transaction-tutorial-offline-signing", 
+    "name": "Offline Signing"
+   }, 
    {
-    "category": "Core Examples",
-    "slug": "core-examples-transaction-tutorial-p2sh-multisig",
-    "name": "P2SH Multisig",
-    "icon": "file-text-o",
-    "type": "doc"
-   },
+    "category": "Core Examples", 
+    "icon": "file-text-o", 
+    "type": "doc", 
+    "slug": "core-examples-transaction-tutorial-p2sh-multisig", 
+    "name": "P2SH Multisig"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "P2P Network",
-    "slug": "core-examples-p2p-network",
-    "category": "Core Examples"
+    "category": "Core Examples", 
+    "slug": "core-examples-p2p-network", 
+    "type": "doc", 
+    "name": "P2P Network", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Transaction Tutorial",
- "updates": [],
- "type": "basic",
- "slug": "core-examples-transaction-tutorial",
- "excerpt": "",
- "body": "Creating transactions is something most Dash applications do. This section describes how to use Dash Core's RPC interface to create transactions with various attributes.\n\nYour applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.\n\nIn order to use this tutorial, you will need to setup [Dash Core](https://www.dash.org/wallets/#wallets) and create a <<glossary:regression test mode>> environment with 500 DASH in your test wallet.",
- "order": 3,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-12-02T23:52:17.775Z",
- "_id": "61549206c31f6b00207cf269",
- "version": "61549206c31f6b00207cf2be",
- "updatedAt": "2019-11-11T20:17:35.253Z",
- "createdAt": "2019-10-24T15:49:13.283Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf234",
- "__v": 2,
- "parentDoc": null,
- "isApi": false,
- "id": "61549206c31f6b00207cf269",
- "body_html": "<div class=\"magic-block-textarea\"><p>Creating transactions is something most Dash applications do. This section describes how to use Dash Core&#39;s RPC interface to create transactions with various attributes.</p>\n<p>Your applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.</p>\n<p>In order to use this tutorial, you will need to setup <a href=\"https://www.dash.org/wallets/#wallets\">Dash Core</a> and create a &lt;&lt;glossary:regression test mode&gt;&gt; environment with 500 DASH in your test wallet.</p>\n\n</div>"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-12-08T02:11:54.415Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Creating transactions is something most Dash applications do. This section describes how to use Dash Core's RPC interface to create transactions with various attributes.\n\nYour applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.\n\nIn order to use this tutorial, you will need to setup [Dash Core](https://www.dash.org/wallets/#wallets) and create a <<glossary:regression test mode>> environment with 500 DASH in your test wallet.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Creating transactions is something most Dash applications do. This section describes how to use Dash Core&#39;s RPC interface to create transactions with various attributes.</p>\n<p>Your applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.</p>\n<p>In order to use this tutorial, you will need to setup <a href=\"https://www.dash.org/wallets/#wallets\">Dash Core</a> and create a &lt;&lt;glossary:regression test mode&gt;&gt; environment with 500 DASH in your test wallet.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-examples-transaction-tutorial", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 2, 
+ "_id": "61549206c31f6b00207cf269", 
+ "order": 3, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

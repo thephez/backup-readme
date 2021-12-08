@@ -1,61 +1,61 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-27T22:20:14.854Z", 
+ "id": "61549206c31f6b00207cf2a4", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-11-07T13:31:50.130Z", 
+ "category": "61549205c31f6b00207cf237", 
+ "title": "Dash Whitepaper", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Dash Whitepaper",
- "updates": [],
- "type": "link",
- "slug": "additional-resources-dash-whitepaper",
- "excerpt": "",
- "body": "",
- "order": 1,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "https://docs.dash.org/en/stable/introduction/about.html#whitepaper",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-12-02T23:52:18.684Z",
- "_id": "61549206c31f6b00207cf2a4",
- "version": "61549206c31f6b00207cf2be",
- "updatedAt": "2019-11-27T22:20:14.854Z",
- "createdAt": "2019-11-07T13:31:50.130Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf237",
- "__v": 0,
- "parentDoc": null,
- "isApi": false,
- "id": "61549206c31f6b00207cf2a4",
- "body_html": "&nbsp;"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-12-08T00:42:05.392Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": false, 
+ "body_html": "&nbsp;", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "additional-resources-dash-whitepaper", 
+ "deprecated": false, 
+ "link_url": "https://docs.dash.org/en/stable/introduction/about.html#whitepaper", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "61549206c31f6b00207cf2a4", 
+ "order": 1, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

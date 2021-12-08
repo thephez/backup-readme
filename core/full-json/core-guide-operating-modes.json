@@ -1,76 +1,76 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-11-13T21:26:09.503Z", 
+ "id": "61549206c31f6b00207cf286", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-28T13:43:47.059Z", 
+ "category": "61549205c31f6b00207cf232", 
+ "title": "Operating Modes", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Full Node",
-    "slug": "core-guide-operating-modes-full-node",
-    "category": "Core Guides"
-   },
+    "category": "Core Guides", 
+    "slug": "core-guide-operating-modes-full-node", 
+    "type": "doc", 
+    "name": "Full Node", 
+    "icon": "file-text-o"
+   }, 
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Simplified Payment Verification (SPV)",
-    "slug": "core-guide-operating-modes-simplified-payment-verification-spv",
-    "category": "Core Guides"
+    "category": "Core Guides", 
+    "slug": "core-guide-operating-modes-simplified-payment-verification-spv", 
+    "type": "doc", 
+    "name": "Simplified Payment Verification (SPV)", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Operating Modes",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-operating-modes",
- "excerpt": "",
- "body": "Currently there are two primary methods of validating the <<glossary:block chain>> as a client: Full <<glossary:nodes>> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.",
- "order": 6,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-12-02T23:52:17.141Z",
- "_id": "61549206c31f6b00207cf286",
- "version": "61549206c31f6b00207cf2be",
- "updatedAt": "2019-11-13T21:26:09.503Z",
- "createdAt": "2019-10-28T13:43:47.059Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf232",
- "__v": 1,
- "parentDoc": null,
- "isApi": false,
- "id": "61549206c31f6b00207cf286",
- "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-12-08T01:45:25.905Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "Currently there are two primary methods of validating the <<glossary:block chain>> as a client: Full <<glossary:nodes>> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-guide-operating-modes", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "61549206c31f6b00207cf286", 
+ "order": 6, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

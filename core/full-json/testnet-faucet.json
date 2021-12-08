@@ -1,61 +1,61 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-03-04T13:40:51.603Z", 
+ "id": "61549206c31f6b00207cf2bb", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-03-04T13:40:51.603Z", 
+ "category": "61549205c31f6b00207cf237", 
+ "title": "Testnet Faucet", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Testnet Faucet",
- "updates": [],
- "type": "link",
- "slug": "testnet-faucet",
- "excerpt": "",
- "body": "",
- "order": 3,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "http://faucet.testnet.networks.dash.org/",
- "link_external": true,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-03-03T22:39:06.967Z",
- "_id": "61549206c31f6b00207cf2bb",
- "createdAt": "2021-03-04T13:40:51.603Z",
- "updatedAt": "2021-03-04T13:40:51.603Z",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf237",
- "project": "5daf2e65f4109c0040fd51e1",
- "version": "61549206c31f6b00207cf2be",
- "__v": 0,
- "parentDoc": null,
- "isApi": false,
- "id": "61549206c31f6b00207cf2bb",
- "body_html": "&nbsp;"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-03-03T22:39:06.967Z", 
+ "hidden": false, 
+ "type": "link", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "", 
+ "link_external": true, 
+ "body_html": "&nbsp;", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "testnet-faucet", 
+ "deprecated": false, 
+ "link_url": "http://faucet.testnet.networks.dash.org/", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "61549206c31f6b00207cf2bb", 
+ "order": 3, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

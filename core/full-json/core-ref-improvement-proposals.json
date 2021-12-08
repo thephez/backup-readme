@@ -1,61 +1,61 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": null, 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2019-10-24T12:49:14.515Z", 
+ "id": "61549206c31f6b00207cf244", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-23T16:04:54.296Z", 
+ "category": "61549205c31f6b00207cf231", 
+ "title": "Improvement Proposals", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Improvement Proposals",
- "updates": [],
- "type": "basic",
- "slug": "core-ref-improvement-proposals",
- "excerpt": "",
- "body": "# Dash (DIPs)\n\nSimilar to Bitcoin's BIPs, a Dash Improvement Proposal ([DIP](https://github.com/dashpay/dips)) is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment. The DIP should provide a concise technical specification of the feature and a rationale for the feature. Please refer to the <a href=\"https://github.com/dashpay/dips/blob/master/README.md\" target=\"_blank\">Dash DIP repository</a> for details on the status of existing DIPs.\n\n# Bitcoin (BIPs)\n\nA Bitcoin Improvement Proposal (BIP) is a design document providing information to the Bitcoin community, or describing a new feature for Bitcoin or its processes or environment.\n\nSince Dash is forked from Bitcoin, some BIPs are applicable to both. Dash-specific BIP information can be found in <a href=\"https://github.com/dashevo/bips/blob/master/README.mediawiki\" target=\"_blank\">Dash's BIP repository</a>.The repository provides a list of the BIPs that are relevant to Dash. Note that some BIPs may only be partially implemented or modified to meet Dash requirements. The `Dash Status` column indicates if any changes were made.",
- "order": 5,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-12-02T23:52:18.141Z",
- "_id": "61549206c31f6b00207cf244",
- "version": "61549206c31f6b00207cf2be",
- "updatedAt": "2019-10-24T12:49:14.515Z",
- "createdAt": "2019-10-23T16:04:54.296Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "category": "61549205c31f6b00207cf231",
- "__v": 0,
- "parentDoc": null,
- "isApi": false,
- "id": "61549206c31f6b00207cf244",
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-di-ps\"></div>Dash (DIPs)<a class=\"fa fa-anchor\" href=\"#section-dash-di-ps\"></a></h1>\n<p>Similar to Bitcoin&#39;s BIPs, a Dash Improvement Proposal (<a href=\"https://github.com/dashpay/dips\">DIP</a>) is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment. The DIP should provide a concise technical specification of the feature and a rationale for the feature. Please refer to the <a href=\"https://github.com/dashpay/dips/blob/master/README.md\" target=\"_blank\">Dash DIP repository</a> for details on the status of existing DIPs.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-bitcoin-bi-ps\"></div>Bitcoin (BIPs)<a class=\"fa fa-anchor\" href=\"#section-bitcoin-bi-ps\"></a></h1>\n<p>A Bitcoin Improvement Proposal (BIP) is a design document providing information to the Bitcoin community, or describing a new feature for Bitcoin or its processes or environment.</p>\n<p>Since Dash is forked from Bitcoin, some BIPs are applicable to both. Dash-specific BIP information can be found in <a href=\"https://github.com/dashevo/bips/blob/master/README.mediawiki\" target=\"_blank\">Dash&#39;s BIP repository</a>.The repository provides a list of the BIPs that are relevant to Dash. Note that some BIPs may only be partially implemented or modified to meet Dash requirements. The <code>Dash Status</code> column indicates if any changes were made.</p>\n\n</div>"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-12-08T09:11:43.002Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "# Dash (DIPs)\n\nSimilar to Bitcoin's BIPs, a Dash Improvement Proposal ([DIP](https://github.com/dashpay/dips)) is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment. The DIP should provide a concise technical specification of the feature and a rationale for the feature. Please refer to the <a href=\"https://github.com/dashpay/dips/blob/master/README.md\" target=\"_blank\">Dash DIP repository</a> for details on the status of existing DIPs.\n\n# Bitcoin (BIPs)\n\nA Bitcoin Improvement Proposal (BIP) is a design document providing information to the Bitcoin community, or describing a new feature for Bitcoin or its processes or environment.\n\nSince Dash is forked from Bitcoin, some BIPs are applicable to both. Dash-specific BIP information can be found in <a href=\"https://github.com/dashevo/bips/blob/master/README.mediawiki\" target=\"_blank\">Dash's BIP repository</a>.The repository provides a list of the BIPs that are relevant to Dash. Note that some BIPs may only be partially implemented or modified to meet Dash requirements. The `Dash Status` column indicates if any changes were made.", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-di-ps\"></div>Dash (DIPs)<a class=\"fa fa-anchor\" href=\"#section-dash-di-ps\"></a></h1>\n<p>Similar to Bitcoin&#39;s BIPs, a Dash Improvement Proposal (<a href=\"https://github.com/dashpay/dips\">DIP</a>) is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment. The DIP should provide a concise technical specification of the feature and a rationale for the feature. Please refer to the <a href=\"https://github.com/dashpay/dips/blob/master/README.md\" target=\"_blank\">Dash DIP repository</a> for details on the status of existing DIPs.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-bitcoin-bi-ps\"></div>Bitcoin (BIPs)<a class=\"fa fa-anchor\" href=\"#section-bitcoin-bi-ps\"></a></h1>\n<p>A Bitcoin Improvement Proposal (BIP) is a design document providing information to the Bitcoin community, or describing a new feature for Bitcoin or its processes or environment.</p>\n<p>Since Dash is forked from Bitcoin, some BIPs are applicable to both. Dash-specific BIP information can be found in <a href=\"https://github.com/dashevo/bips/blob/master/README.mediawiki\" target=\"_blank\">Dash&#39;s BIP repository</a>.The repository provides a list of the BIPs that are relevant to Dash. Note that some BIPs may only be partially implemented or modified to meet Dash requirements. The <code>Dash Status</code> column indicates if any changes were made.</p>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-ref-improvement-proposals", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 0, 
+ "_id": "61549206c31f6b00207cf244", 
+ "order": 5, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

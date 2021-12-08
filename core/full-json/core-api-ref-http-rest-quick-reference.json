@@ -1,69 +1,69 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "61549206c31f6b00207cf27d", 
+ "excerpt": "List of Dash Core HTTP REST APIs", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "status": 200,
-     "language": "json",
-     "code": "{}",
-     "name": ""
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "status": 400,
-     "language": "json",
-     "code": "{}",
-     "name": ""
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-10-26T21:49:02.265Z", 
+ "id": "61549206c31f6b00207cf2a2", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2019-10-29T13:13:24.347Z", 
+ "category": "61549205c31f6b00207cf235", 
+ "title": "Quick Reference", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": [
    {
-    "type": "doc",
-    "icon": "file-text-o",
-    "name": "Requests",
-    "slug": "core-api-ref-http-rest-requests",
-    "category": "Core API Reference"
+    "category": "Core API Reference", 
+    "slug": "core-api-ref-http-rest-requests", 
+    "type": "doc", 
+    "name": "Requests", 
+    "icon": "file-text-o"
    }
   ]
- },
- "title": "Quick Reference",
- "updates": [],
- "type": "basic",
- "slug": "core-api-ref-http-rest-quick-reference",
- "excerpt": "List of Dash Core HTTP REST APIs",
- "body": "* [GET Block](/docs/core-api-ref-http-rest-requests#get-block) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. _Updated in Bitcoin Core 0.13.0_\n* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#get-blocknotxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#get-block) returns. _Updated in Bitcoin Core 0.13.0_\n* [GET BlockHashByHeight](/docs/core-api-ref-http-rest-requests#get-blockhashbyheight) returns the hash of a block in best-block-chain at the height provided. The hash can be returned as a JSON object or serialized as binary or hex. **Added in Dash Core 0.18.0**\n* [GET ChainInfo](/docs/core-api-ref-http-rest-requests#get-chaininfo) returns information about the current state of the block chain. _Updated in Bitcoin Core 0.12.0_\n* [GET GetUtxos](/docs/core-api-ref-http-rest-requests#get-getutxos) returns an UTXO set given a set of outpoints. _New in Bitcoin Core 0.11.0_\n* [GET Headers](/docs/core-api-ref-http-rest-requests#get-headers) returns a specified amount of block headers in upward direction. _Updated in Bitcoin Core 0.13.0_\n* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#get-mempoolcontents) returns all transaction in the memory pool with detailed information. _New in Bitcoin Core 0.12.0_\n* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#get-mempoolinfo) returns information about the node's current transaction memory pool. _New in Bitcoin Core 0.12.0_\n* [GET Tx](/docs/core-api-ref-http-rest-requests#get-tx) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so this method may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings. _Updated in Bitcoin Core 0.13.0_",
- "order": 0,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-10-26T19:42:05.528Z",
- "_id": "61549206c31f6b00207cf2a2",
- "version": "61549206c31f6b00207cf2be",
- "updatedAt": "2021-10-26T21:49:02.265Z",
- "createdAt": "2019-10-29T13:13:24.347Z",
- "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
- "parentDoc": "61549206c31f6b00207cf27d",
- "category": "61549205c31f6b00207cf235",
- "__v": 1,
- "isApi": false,
- "id": "61549206c31f6b00207cf2a2",
- "body_html": "<div class=\"magic-block-textarea\"><ul>\n<li ><a href=\"/docs/core-api-ref-http-rest-requests#get-block\">GET Block</a> gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-blocknotxdetails\">GET Block/NoTxDetails</a> gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions <a href=\"/docs/core-api-ref-http-rest-requests#get-block\">GET block</a> returns. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-blockhashbyheight\">GET BlockHashByHeight</a> returns the hash of a block in best-block-chain at the height provided. The hash can be returned as a JSON object or serialized as binary or hex. <strong>Added in Dash Core 0.18.0</strong></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-chaininfo\">GET ChainInfo</a> returns information about the current state of the block chain. <em>Updated in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-getutxos\">GET GetUtxos</a> returns an UTXO set given a set of outpoints. <em>New in Bitcoin Core 0.11.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-headers\">GET Headers</a> returns a specified amount of block headers in upward direction. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-mempoolcontents\">GET MemPool/Contents</a> returns all transaction in the memory pool with detailed information. <em>New in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-mempoolinfo\">GET MemPool/Info</a> returns information about the node&#39;s current transaction memory pool. <em>New in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-tx\">GET Tx</a> gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so this method may fail on historic transactions unless you use the non-default <code>txindex=1</code> in your Dash Core startup settings. <em>Updated in Bitcoin Core 0.13.0</em></li></ul>\n\n</div>"
+ }, 
+ "version": "61549206c31f6b00207cf2be", 
+ "slugUpdatedAt": "2021-10-26T19:42:05.528Z", 
+ "hidden": false, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "* [GET Block](/docs/core-api-ref-http-rest-requests#get-block) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. _Updated in Bitcoin Core 0.13.0_\n* [GET Block/NoTxDetails](/docs/core-api-ref-http-rest-requests#get-blocknotxdetails) gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions [GET block](/docs/core-api-ref-http-rest-requests#get-block) returns. _Updated in Bitcoin Core 0.13.0_\n* [GET BlockHashByHeight](/docs/core-api-ref-http-rest-requests#get-blockhashbyheight) returns the hash of a block in best-block-chain at the height provided. The hash can be returned as a JSON object or serialized as binary or hex. **Added in Dash Core 0.18.0**\n* [GET ChainInfo](/docs/core-api-ref-http-rest-requests#get-chaininfo) returns information about the current state of the block chain. _Updated in Bitcoin Core 0.12.0_\n* [GET GetUtxos](/docs/core-api-ref-http-rest-requests#get-getutxos) returns an UTXO set given a set of outpoints. _New in Bitcoin Core 0.11.0_\n* [GET Headers](/docs/core-api-ref-http-rest-requests#get-headers) returns a specified amount of block headers in upward direction. _Updated in Bitcoin Core 0.13.0_\n* [GET MemPool/Contents](/docs/core-api-ref-http-rest-requests#get-mempoolcontents) returns all transaction in the memory pool with detailed information. _New in Bitcoin Core 0.12.0_\n* [GET MemPool/Info](/docs/core-api-ref-http-rest-requests#get-mempoolinfo) returns information about the node's current transaction memory pool. _New in Bitcoin Core 0.12.0_\n* [GET Tx](/docs/core-api-ref-http-rest-requests#get-tx) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so this method may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings. _Updated in Bitcoin Core 0.13.0_", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><ul>\n<li ><a href=\"/docs/core-api-ref-http-rest-requests#get-block\">GET Block</a> gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-blocknotxdetails\">GET Block/NoTxDetails</a> gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.  The JSON object includes TXIDs for transactions within the block rather than the complete transactions <a href=\"/docs/core-api-ref-http-rest-requests#get-block\">GET block</a> returns. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-blockhashbyheight\">GET BlockHashByHeight</a> returns the hash of a block in best-block-chain at the height provided. The hash can be returned as a JSON object or serialized as binary or hex. <strong>Added in Dash Core 0.18.0</strong></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-chaininfo\">GET ChainInfo</a> returns information about the current state of the block chain. <em>Updated in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-getutxos\">GET GetUtxos</a> returns an UTXO set given a set of outpoints. <em>New in Bitcoin Core 0.11.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-headers\">GET Headers</a> returns a specified amount of block headers in upward direction. <em>Updated in Bitcoin Core 0.13.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-mempoolcontents\">GET MemPool/Contents</a> returns all transaction in the memory pool with detailed information. <em>New in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-mempoolinfo\">GET MemPool/Info</a> returns information about the node&#39;s current transaction memory pool. <em>New in Bitcoin Core 0.12.0</em></li><li ><a href=\"/docs/core-api-ref-http-rest-requests#get-tx\">GET Tx</a> gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so this method may fail on historic transactions unless you use the non-default <code>txindex=1</code> in your Dash Core startup settings. <em>Updated in Bitcoin Core 0.13.0</em></li></ul>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "core-api-ref-http-rest-quick-reference", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5daf2e65f4109c0040fd51e1", 
+ "__v": 1, 
+ "_id": "61549206c31f6b00207cf2a2", 
+ "order": 0, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }

@@ -17,10 +17,11 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 | v0.13.0 | 3 | 4 | [ProUpRevTx](#prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
 | v0.13.0 | 3 | 5 | [CbTx](#cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
 | v0.13.0 | 3 | 6 | [QcTx](#qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
+| v0.18.0 | 3 | 7 | [MnHfTx](#mnhftx) | Masternode hard fork signal | hex |  |
 
 # ProRegTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP3*
+*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
 
 The <<glossary:masternode>> Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
 
@@ -163,7 +164,7 @@ ProRegTx Payload
 
 # ProUpServTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP3*
+*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
 
 The <<glossary:masternode>> Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial [ProRegTx](#proregtx), the operator may also set the scriptOperatorPayout field in the ProUpServTx.
 
@@ -225,7 +226,7 @@ ProUpServTx Payload
 
 # ProUpRegTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP3*
+*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
 
 The <<glossary:masternode>> Provider Update Registrar (ProUpRegTx) special transaction is used by a masternode owner to update masternode metadata (e.g. operator/voting key details or the payout script).
 
@@ -296,7 +297,7 @@ ProRegTx Payload
 
 # ProUpRevTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP3*
+*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
 
 The <<glossary:masternode>> Operator Revocation (ProUpRevTx) special transaction allows an operator to revoke their key in case of compromise or if they wish to terminate service. If a masternode's operator key is revoked, the masternode becomes ineligible for payment until the owner provides a new operator key (via a ProUpRegTx).
 
@@ -348,7 +349,7 @@ ProUpRevTx Payload
 
 # CbTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP4*
+*Added in protocol version 70213 of Dash Core as described by [DIP4](https://github.com/dashpay/dips/blob/master/dip-0004.md)*
 
 The Coinbase (CbTx) special transaction adds information to the <<glossary:block>> <<glossary:coinbase transaction>> that enables verification of the deterministic masternode list without the full chain (e.g. from <<glossary:SPV>> clients). This allows light-clients to properly verify <<glossary:InstantSend>> transactions and support additional deterministic masternode list functionality in the future.
 
@@ -418,7 +419,7 @@ Coinbase Transaction Payload
 
 # QcTx
 
-*Added in protocol version 70213 of Dash Core as described by DIP6*
+*Added in protocol version 70213 of Dash Core as described by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md)*
 [block:callout]
 {
   "type": "warning",
@@ -432,14 +433,13 @@ Since this special transaction pays no fees, it is mandatory by <<glossary:conse
 
 If a DKG failed or a <<glossary:miner>> did not receive a final commitment in-time, a null commitment has to be included in the special transaction payload. A null commitment must have the `signers` and `validMembers` bitsets set to the `quorumSize` and all bits set to zero. All other fields must be set to the null representation of the field’s types.
 
-The special transaction type used for Quorum Commitment Transactions is 6 and
-the extra payload consists of the following data:
+The special transaction type used for Quorum Commitment Transactions is 6 and the extra payload consists of the following data:
 
 | Bytes | Name | Data type |  Description |
 | ---------- | ----------- | -------- | -------- |
 | 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
 | 4 | height | uint32_t | Height of the block
-| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](quorum-messages#qfcommit)
+| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit)
 
 The following annotated hexdump shows a QcTx transaction.
 
@@ -497,4 +497,39 @@ Quorum Commitment Transaction Payload
 | | 0f4eac88ee8fd7779e32e4f0be704078
 | | df31601b87b95374cebb4b304afc543e
 | | e0d4f461a2ba0e32a711197ca559dacf ....... BLS Signature (96 bytes)
+```
+
+# MnHfTx
+
+*Added in protocol version 70220 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)*
+[block:callout]
+{
+  "type": "warning",
+  "body": "This special transaction has no inputs and no outputs and thus also pays no fee",
+  "title": "Note"
+}
+[/block]
+The Masternode Hard Fork Signal (MnHfTx) special transaction adds the masternode hard fork signal produced by an LLMQ_400_85 quorum to the chain. Since this special transaction pays no fees, it is mandatory by consensus rules to ensure that miners include it. This can be done by any miner in any block, but it should only be included once.
+[block:callout]
+{
+  "type": "info",
+  "body": "Dash Core 0.18 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 0.19. The `mnhfsignal` P2P message referenced below is not included in Dash Core 0.18.",
+  "title": "Partial implementation in Dash Core 0.18"
+}
+[/block]
+The special transaction type used for Quorum Commitment Transactions is 7 and the extra payload consists of the following data:
+
+| Bytes | Name | Data type |  Description |
+| ---------- | ----------- | -------- | -------- |
+| 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
+| Variable | commitment | mnhfsignal | The payload of the `mnhfsignal` message (defined in [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md#new-system) but not yet implemented)
+
+The following annotated hexdump shows a MnHfTx transaction.
+
+An itemized masternode hard fork signal transaction:
+
+``` text
+0300 ....................................... Version (3)
+0700 ....................................... Type (7 - Masternode Hard Fork Signal)
+<Add example mnhfsignal when available>
 ```

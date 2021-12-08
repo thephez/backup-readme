@@ -312,6 +312,25 @@ The following annotated hexdump shows a [`getmnlistd` message](core-ref-p2p-netw
 db3fe368976296fd3b6d73fdaf898cc0 ........... Block hash
 ```
 
+# getquorumrotationinfo
+
+*Added in protocol version 70220 of Dash Core.*
+
+The `getquorumrotationinfo` message requests a [`quorumrotationinfo` message](core-ref-p2p-network-data-messages#quorumrotationinfo) that provides the information required to verify quorum details for quorums formed using the quorum rotation process.
+
+| Bytes | Name | Data type | Required | Description |
+| ---------- | ----------- | --------- | -------- | -------- |
+| 1 | baseBlockHashesNb | uint | Required | Number of masternode lists the light client already knows (up to 4)
+| Varies | baseBlockHashes | uint256[] | Required | Array of base block hashes for the masternode lists the light client already knows
+| 32 | blockRequestHash | uint256 | Required | Hash of the block for which the masternode list diff is requested
+
+The following annotated hexdump shows a [`getquorumrotationinfo` message](core-ref-p2p-network-data-messages#getquorumrotationinfo). (The message header has been omitted.)
+
+``` text
+TBD
+```
+
+
 # headers
 
 *Added in protocol version 31800 (of Bitcoin).*
@@ -611,6 +630,33 @@ Masternode List
 The [`notfound` message](core-ref-p2p-network-data-messages#notfound) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) which requested an object the receiving <<glossary:node>> does not have available for relay. (Nodes are not expected to relay historic transactions which are no longer in the memory pool or relay set. Nodes may also have pruned spent transactions from older <<glossary:blocks>>, making them unable to send those blocks.)
 
 The format and maximum size limitations of the [`notfound` message](core-ref-p2p-network-data-messages#notfound) are identical to the [`inv` message](core-ref-p2p-network-data-messages#inv); only the message header differs.
+
+# quorumrotationinfo
+
+*Added in protocol version 70220 of Dash Core.*
+
+The `quorumrotationinfo` message sends quorum information to a node which previously requested it with a [`getquorumrotationinfo` message](core-ref-p2p-network-data-messages#getquorumrotationinfo).
+
+Note: In the following fields, `c` refers to the quorum cycle length (**_???_** for InstantSend quorums).
+
+| Bytes | Name | Data type | Required | Description |
+| ---------- | ----------- | --------- | -------- | -------- |
+| 4 | creationHeight | int | Required | The creation height for the LLMQ active at height `h`
+| Varies | quorumSnapshot<br>AtHMinusC | CQuorumSnapshot | Required | Quorum snapshot for height `h-c`
+| Varies | quorumSnapshot<br>AtHMinus2C | CQuorumSnapshot | Required | Quorum snapshot for height `h-2c`
+| Varies | quorumSnapshot<br>AtHMinus3C | CQuorumSnapshot | Required | Quorum snapshot for height `h-3c`
+| Varies | mnListDiffTip | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h`. 
+| Varies | mnListDiffAtHMinusC | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-c`
+| Varies | mnListDiffAtHMinus2C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-2c`
+| Varies | mnListDiffAtHMinus3C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-3c`
+
+
+The following annotated hexdump shows a [`quorumrotationinfo` message](core-ref-p2p-network-data-messages#quorumrotationinfo). (The message header has been omitted.)
+
+``` text
+TBD
+```
+
 
 # tx
 

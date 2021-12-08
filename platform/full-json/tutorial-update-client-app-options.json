@@ -1,61 +1,61 @@
 {
- "metadata": {
-  "image": [],
-  "title": "",
-  "description": ""
- },
+ "pendingAlgoliaPublish": false, 
+ "parentDoc": "612fe724e9fa2b0026f5fabf", 
+ "excerpt": "", 
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
+  "url": "", 
+  "params": [], 
+  "method": "get", 
+  "auth": "required", 
   "results": {
    "codes": [
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 200
-    },
+     "status": 200, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
+    }, 
     {
-     "name": "",
-     "code": "{}",
-     "language": "json",
-     "status": 400
+     "status": 400, 
+     "code": "{}", 
+     "name": "", 
+     "language": "json"
     }
    ]
-  },
-  "params": []
- },
+  }
+ }, 
+ "previousSlug": "", 
+ "updatedAt": "2021-05-17T16:16:02.928Z", 
+ "id": "612fe724e9fa2b0026f5facc", 
+ "sync_unique": "", 
+ "isApi": false, 
+ "createdAt": "2021-05-17T16:12:51.193Z", 
+ "category": "612fe724e9fa2b0026f5fa65", 
+ "title": "Client App options", 
  "next": {
-  "description": "",
+  "description": "", 
   "pages": []
- },
- "title": "Client App options",
- "updates": [],
- "type": "basic",
- "slug": "tutorial-update-client-app-options",
- "excerpt": "",
- "body": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```",
- "order": 6,
- "isReference": false,
- "deprecated": false,
- "hidden": true,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "pendingAlgoliaPublish": false,
- "previousSlug": "",
- "slugUpdatedAt": "2021-05-17T06:59:56.629Z",
- "_id": "612fe724e9fa2b0026f5facc",
- "createdAt": "2021-05-17T16:12:51.193Z",
- "updatedAt": "2021-05-17T16:16:02.928Z",
- "user": "5b8400d7185d5e00036dcc3b",
- "parentDoc": "612fe724e9fa2b0026f5fabf",
- "category": "612fe724e9fa2b0026f5fa65",
- "project": "5bda01cad172e200499a20a9",
- "version": "612fe724e9fa2b0026f5face",
- "__v": 0,
- "isApi": false,
- "id": "612fe724e9fa2b0026f5facc",
- "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>"
+ }, 
+ "version": "612fe724e9fa2b0026f5face", 
+ "slugUpdatedAt": "2021-05-17T06:59:56.629Z", 
+ "hidden": true, 
+ "type": "basic", 
+ "metadata": {
+  "image": [], 
+  "description": "", 
+  "title": ""
+ }, 
+ "body": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```", 
+ "link_external": false, 
+ "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>", 
+ "updates": [], 
+ "isReference": false, 
+ "slug": "tutorial-update-client-app-options", 
+ "deprecated": false, 
+ "link_url": "", 
+ "project": "5bda01cad172e200499a20a9", 
+ "__v": 0, 
+ "_id": "612fe724e9fa2b0026f5facc", 
+ "order": 6, 
+ "user": "5b8400d7185d5e00036dcc3b"
 }
