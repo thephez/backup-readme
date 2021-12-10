@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf260", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2020-02-18T15:23:14.707Z", 
- "id": "61549206c31f6b00207cf261", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-24T14:15:14.671Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Peer Discovery", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-p2p-network-connecting-to-peers", 
-    "type": "doc", 
-    "name": "Connecting to Peers", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Connecting to Peers",
+    "slug": "core-guide-p2p-network-connecting-to-peers",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T06:52:53.317Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "# DNS Seeds\n\nWhen started for the first time, programs don't know the IP addresses of any active full <<glossary:nodes>>. In order to discover some IP addresses, they query one or more DNS names (called <<glossary:DNS seeds>>) hardcoded into Dash Core. The response to the lookup should include one or more DNS A records with the IP addresses of full nodes that may accept new incoming connections. For example, using the Unix `dig`command:\n\n```\n;; QUESTION SECTION:\n;dnsseed.dash.org.\t\tIN\tA\n\n;; ANSWER SECTION:\ndnsseed.dash.org.\t3600\tIN\tA\t140.82.38.181\ndnsseed.dash.org.\t3600\tIN\tA\t142.93.141.81\ndnsseed.dash.org.\t3600\tIN\tA\t144.76.117.234\n\n[...]\n```\n\nThe <<glossary:DNS seeds>> are maintained by Dash community members: some of them provide dynamic DNS seed servers which automatically get IP addresses of active nodes by scanning the network; others provide static DNS seeds that are updated manually and are more likely to provide IP addresses for inactive nodes. In either case, nodes are added to the DNS seed if they run on the default Dash ports of 9999 for <<glossary:mainnet>> or 19999 for <<glossary:testnet>>.\n\nDNS seed results are not authenticated and a malicious seed operator or network man-in-the-middle attacker could return only IP addresses of nodes controlled by the attacker, isolating a program on the attacker's own network and allowing the attacker to feed it bogus transactions and blocks. For this reason, programs should not rely on DNS seeds exclusively.\n\n# P2P Peer List Broadcast\n\nOnce a program has connected to the <<glossary:network>>, its <<glossary:peers>> can begin to send it `addr` (address) messages with the IP addresses and port numbers of other peers on the network, providing a fully decentralized method of peer discovery. Dash Core keeps a record of known peers in a persistent on-disk database which usually allows it to connect directly to those peers on subsequent startups without having to use DNS seeds.\n\nHowever, peers often leave the network or change IP addresses, so programs may need to make several different connection attempts at startup before a successful connection is made. This can add a significant delay to the amount of time it takes to connect to the network, forcing a user to wait before sending a transaction or checking the status of payment.\n\nDash Core tries to strike a balance between minimizing delays and avoiding unnecessary DNS seed use: if Dash Core has entries in its peer database, it spends up to 11 seconds attempting to connect to at least one of them before falling back to seeds; if a connection is made within that time, it does not query any seeds.\n\n# Hardcoded Masternode IPs\n\nDash Core also includes a hardcoded list of IP addresses and port numbers to several dozen nodes which were active around the time that particular version of the software was first released. Starting with Dash Core 0.12.3, <<glossary:masternodes>> are used for the seed list since they must remain online to receive their portion of the block reward (good availability) and must be compliant with <<glossary:consensus rules>> (reliable). Dash Core will start attempting to connect to these nodes if none of the DNS seed servers have responded to a query within 60 seconds, providing an automatic fallback option.\n\nAs a manual fallback option, Dash Core also provides several command-line connection options, including the ability to get a list of peers from a specific node by IP address, or to make a persistent connection to a specific node by IP address.  See the `-help` text for details.\n\n**Resources:** [Dash Seeder](https://github.com/nightlydash/dash-seeder/tree/master), the program run by several of the seeds used by Dash Core. The Dash Core [DNS Seed Policy](https://github.com/dashpay/dash/blob/master/doc/dnsseed-policy.md). The hardcoded list of IP addresses used by Dash Core is generated using the [makeseeds script](https://github.com/dashpay/dash/tree/master/contrib/seeds).", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dns-seeds\"></div>DNS Seeds<a class=\"fa fa-anchor\" href=\"#section-dns-seeds\"></a></h1>\n<p>When started for the first time, programs don&#39;t know the IP addresses of any active full &lt;&lt;glossary:nodes&gt;&gt;. In order to discover some IP addresses, they query one or more DNS names (called &lt;&lt;glossary:DNS seeds&gt;&gt;) hardcoded into Dash Core. The response to the lookup should include one or more DNS A records with the IP addresses of full nodes that may accept new incoming connections. For example, using the Unix <code>dig</code>command:</p>\n<pre><code>;; QUESTION SECTION:\n;dnsseed.dash.org.        IN    A\n\n;; ANSWER SECTION:\ndnsseed.dash.org.    3600    IN    A    140.82.38.181\ndnsseed.dash.org.    3600    IN    A    142.93.141.81\ndnsseed.dash.org.    3600    IN    A    144.76.117.234\n\n[...]\n</code></pre><p>The &lt;&lt;glossary:DNS seeds&gt;&gt; are maintained by Dash community members: some of them provide dynamic DNS seed servers which automatically get IP addresses of active nodes by scanning the network; others provide static DNS seeds that are updated manually and are more likely to provide IP addresses for inactive nodes. In either case, nodes are added to the DNS seed if they run on the default Dash ports of 9999 for &lt;&lt;glossary:mainnet&gt;&gt; or 19999 for &lt;&lt;glossary:testnet&gt;&gt;.</p>\n<p>DNS seed results are not authenticated and a malicious seed operator or network man-in-the-middle attacker could return only IP addresses of nodes controlled by the attacker, isolating a program on the attacker&#39;s own network and allowing the attacker to feed it bogus transactions and blocks. For this reason, programs should not rely on DNS seeds exclusively.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-p-2-p-peer-list-broadcast\"></div>P2P Peer List Broadcast<a class=\"fa fa-anchor\" href=\"#section-p-2-p-peer-list-broadcast\"></a></h1>\n<p>Once a program has connected to the &lt;&lt;glossary:network&gt;&gt;, its &lt;&lt;glossary:peers&gt;&gt; can begin to send it <code>addr</code> (address) messages with the IP addresses and port numbers of other peers on the network, providing a fully decentralized method of peer discovery. Dash Core keeps a record of known peers in a persistent on-disk database which usually allows it to connect directly to those peers on subsequent startups without having to use DNS seeds.</p>\n<p>However, peers often leave the network or change IP addresses, so programs may need to make several different connection attempts at startup before a successful connection is made. This can add a significant delay to the amount of time it takes to connect to the network, forcing a user to wait before sending a transaction or checking the status of payment.</p>\n<p>Dash Core tries to strike a balance between minimizing delays and avoiding unnecessary DNS seed use: if Dash Core has entries in its peer database, it spends up to 11 seconds attempting to connect to at least one of them before falling back to seeds; if a connection is made within that time, it does not query any seeds.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-hardcoded-masternode-i-ps\"></div>Hardcoded Masternode IPs<a class=\"fa fa-anchor\" href=\"#section-hardcoded-masternode-i-ps\"></a></h1>\n<p>Dash Core also includes a hardcoded list of IP addresses and port numbers to several dozen nodes which were active around the time that particular version of the software was first released. Starting with Dash Core 0.12.3, &lt;&lt;glossary:masternodes&gt;&gt; are used for the seed list since they must remain online to receive their portion of the block reward (good availability) and must be compliant with &lt;&lt;glossary:consensus rules&gt;&gt; (reliable). Dash Core will start attempting to connect to these nodes if none of the DNS seed servers have responded to a query within 60 seconds, providing an automatic fallback option.</p>\n<p>As a manual fallback option, Dash Core also provides several command-line connection options, including the ability to get a list of peers from a specific node by IP address, or to make a persistent connection to a specific node by IP address.  See the <code>-help</code> text for details.</p>\n<p><strong>Resources:</strong> <a href=\"https://github.com/nightlydash/dash-seeder/tree/master\">Dash Seeder</a>, the program run by several of the seeds used by Dash Core. The Dash Core <a href=\"https://github.com/dashpay/dash/blob/master/doc/dnsseed-policy.md\">DNS Seed Policy</a>. The hardcoded list of IP addresses used by Dash Core is generated using the <a href=\"https://github.com/dashpay/dash/tree/master/contrib/seeds\">makeseeds script</a>.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-p2p-network-peer-discovery", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 3, 
- "_id": "61549206c31f6b00207cf261", 
- "order": 0, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Peer Discovery",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-p2p-network-peer-discovery",
+ "excerpt": "",
+ "body": "# DNS Seeds\n\nWhen started for the first time, programs don't know the IP addresses of any active full <<glossary:nodes>>. In order to discover some IP addresses, they query one or more DNS names (called <<glossary:DNS seeds>>) hardcoded into Dash Core. The response to the lookup should include one or more DNS A records with the IP addresses of full nodes that may accept new incoming connections. For example, using the Unix `dig`command:\n\n```\n;; QUESTION SECTION:\n;dnsseed.dash.org.\t\tIN\tA\n\n;; ANSWER SECTION:\ndnsseed.dash.org.\t3600\tIN\tA\t140.82.38.181\ndnsseed.dash.org.\t3600\tIN\tA\t142.93.141.81\ndnsseed.dash.org.\t3600\tIN\tA\t144.76.117.234\n\n[...]\n```\n\nThe <<glossary:DNS seeds>> are maintained by Dash community members: some of them provide dynamic DNS seed servers which automatically get IP addresses of active nodes by scanning the network; others provide static DNS seeds that are updated manually and are more likely to provide IP addresses for inactive nodes. In either case, nodes are added to the DNS seed if they run on the default Dash ports of 9999 for <<glossary:mainnet>> or 19999 for <<glossary:testnet>>.\n\nDNS seed results are not authenticated and a malicious seed operator or network man-in-the-middle attacker could return only IP addresses of nodes controlled by the attacker, isolating a program on the attacker's own network and allowing the attacker to feed it bogus transactions and blocks. For this reason, programs should not rely on DNS seeds exclusively.\n\n# P2P Peer List Broadcast\n\nOnce a program has connected to the <<glossary:network>>, its <<glossary:peers>> can begin to send it `addr` (address) messages with the IP addresses and port numbers of other peers on the network, providing a fully decentralized method of peer discovery. Dash Core keeps a record of known peers in a persistent on-disk database which usually allows it to connect directly to those peers on subsequent startups without having to use DNS seeds.\n\nHowever, peers often leave the network or change IP addresses, so programs may need to make several different connection attempts at startup before a successful connection is made. This can add a significant delay to the amount of time it takes to connect to the network, forcing a user to wait before sending a transaction or checking the status of payment.\n\nDash Core tries to strike a balance between minimizing delays and avoiding unnecessary DNS seed use: if Dash Core has entries in its peer database, it spends up to 11 seconds attempting to connect to at least one of them before falling back to seeds; if a connection is made within that time, it does not query any seeds.\n\n# Hardcoded Masternode IPs\n\nDash Core also includes a hardcoded list of IP addresses and port numbers to several dozen nodes which were active around the time that particular version of the software was first released. Starting with Dash Core 0.12.3, <<glossary:masternodes>> are used for the seed list since they must remain online to receive their portion of the block reward (good availability) and must be compliant with <<glossary:consensus rules>> (reliable). Dash Core will start attempting to connect to these nodes if none of the DNS seed servers have responded to a query within 60 seconds, providing an automatic fallback option.\n\nAs a manual fallback option, Dash Core also provides several command-line connection options, including the ability to get a list of peers from a specific node by IP address, or to make a persistent connection to a specific node by IP address.  See the `-help` text for details.\n\n**Resources:** [Dash Seeder](https://github.com/nightlydash/dash-seeder/tree/master), the program run by several of the seeds used by Dash Core. The Dash Core [DNS Seed Policy](https://github.com/dashpay/dash/blob/master/doc/dnsseed-policy.md). The hardcoded list of IP addresses used by Dash Core is generated using the [makeseeds script](https://github.com/dashpay/dash/tree/master/contrib/seeds).",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:59.233Z",
+ "_id": "61549206c31f6b00207cf261",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2020-02-18T15:23:14.707Z",
+ "createdAt": "2019-10-24T14:15:14.671Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf260",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 3,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf261",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dns-seeds\"></div>DNS Seeds<a class=\"fa fa-anchor\" href=\"#section-dns-seeds\"></a></h1>\n<p>When started for the first time, programs don&#39;t know the IP addresses of any active full &lt;&lt;glossary:nodes&gt;&gt;. In order to discover some IP addresses, they query one or more DNS names (called &lt;&lt;glossary:DNS seeds&gt;&gt;) hardcoded into Dash Core. The response to the lookup should include one or more DNS A records with the IP addresses of full nodes that may accept new incoming connections. For example, using the Unix <code>dig</code>command:</p>\n<pre><code>;; QUESTION SECTION:\n;dnsseed.dash.org.        IN    A\n\n;; ANSWER SECTION:\ndnsseed.dash.org.    3600    IN    A    140.82.38.181\ndnsseed.dash.org.    3600    IN    A    142.93.141.81\ndnsseed.dash.org.    3600    IN    A    144.76.117.234\n\n[...]\n</code></pre><p>The &lt;&lt;glossary:DNS seeds&gt;&gt; are maintained by Dash community members: some of them provide dynamic DNS seed servers which automatically get IP addresses of active nodes by scanning the network; others provide static DNS seeds that are updated manually and are more likely to provide IP addresses for inactive nodes. In either case, nodes are added to the DNS seed if they run on the default Dash ports of 9999 for &lt;&lt;glossary:mainnet&gt;&gt; or 19999 for &lt;&lt;glossary:testnet&gt;&gt;.</p>\n<p>DNS seed results are not authenticated and a malicious seed operator or network man-in-the-middle attacker could return only IP addresses of nodes controlled by the attacker, isolating a program on the attacker&#39;s own network and allowing the attacker to feed it bogus transactions and blocks. For this reason, programs should not rely on DNS seeds exclusively.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-p-2-p-peer-list-broadcast\"></div>P2P Peer List Broadcast<a class=\"fa fa-anchor\" href=\"#section-p-2-p-peer-list-broadcast\"></a></h1>\n<p>Once a program has connected to the &lt;&lt;glossary:network&gt;&gt;, its &lt;&lt;glossary:peers&gt;&gt; can begin to send it <code>addr</code> (address) messages with the IP addresses and port numbers of other peers on the network, providing a fully decentralized method of peer discovery. Dash Core keeps a record of known peers in a persistent on-disk database which usually allows it to connect directly to those peers on subsequent startups without having to use DNS seeds.</p>\n<p>However, peers often leave the network or change IP addresses, so programs may need to make several different connection attempts at startup before a successful connection is made. This can add a significant delay to the amount of time it takes to connect to the network, forcing a user to wait before sending a transaction or checking the status of payment.</p>\n<p>Dash Core tries to strike a balance between minimizing delays and avoiding unnecessary DNS seed use: if Dash Core has entries in its peer database, it spends up to 11 seconds attempting to connect to at least one of them before falling back to seeds; if a connection is made within that time, it does not query any seeds.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-hardcoded-masternode-i-ps\"></div>Hardcoded Masternode IPs<a class=\"fa fa-anchor\" href=\"#section-hardcoded-masternode-i-ps\"></a></h1>\n<p>Dash Core also includes a hardcoded list of IP addresses and port numbers to several dozen nodes which were active around the time that particular version of the software was first released. Starting with Dash Core 0.12.3, &lt;&lt;glossary:masternodes&gt;&gt; are used for the seed list since they must remain online to receive their portion of the block reward (good availability) and must be compliant with &lt;&lt;glossary:consensus rules&gt;&gt; (reliable). Dash Core will start attempting to connect to these nodes if none of the DNS seed servers have responded to a query within 60 seconds, providing an automatic fallback option.</p>\n<p>As a manual fallback option, Dash Core also provides several command-line connection options, including the ability to get a list of peers from a specific node by IP address, or to make a persistent connection to a specific node by IP address.  See the <code>-help</code> text for details.</p>\n<p><strong>Resources:</strong> <a href=\"https://github.com/nightlydash/dash-seeder/tree/master\">Dash Seeder</a>, the program run by several of the seeds used by Dash Core. The Dash Core <a href=\"https://github.com/dashpay/dash/blob/master/doc/dnsseed-policy.md\">DNS Seed Policy</a>. The hardcoded list of IP addresses used by Dash Core is generated using the <a href=\"https://github.com/dashpay/dash/tree/master/contrib/seeds\">makeseeds script</a>.</p>\n\n</div>"
 }

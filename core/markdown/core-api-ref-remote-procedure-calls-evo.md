@@ -1085,6 +1085,7 @@ Name | Type | Presence | Description
 →<br>`height` | number | Required<br>(exactly 1) | Block height of the quorum
 →<br>`type` | string | Required<br>(exactly 1) | Type of LLMQ
 →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
+→<br>`quorumIndex` | number | Required<br>(exactly 1) | *Added in Dash Core 0.18.0*<br><br>The index of the quorum
 →<br>`minedBlock` | string (hex) | Required<br>(exactly 1) | The hash of the block that established the quorum
 →<br>`members` | array | Required<br>(exactly 1) | An array containing quorum member details
 → →<br>Member | object | Required<br>(1 or more) | An object describing a particular member

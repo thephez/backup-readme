@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-10-08T10:19:40.324Z", 
- "id": "612fe724e9fa2b0026f5fa81", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-02T18:08:36.879Z", 
- "category": "612fe724e9fa2b0026f5fa65", 
- "title": "Onboarding Users", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-12-08T02:00:56.643Z", 
- "hidden": true, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Because most actions in a decentralized application require some kind of funding, DAPs have unique constraints that should be carefully considered in order to maintain a good user experience. When you onboard new users, most likely they will not have existing Dash funds. The best option for most apps is to cover users' account creation fee for them. This is similar to operating a Dash faucet (a service that sends small amounts of Dash for free), with similar risks and challenges. In order to reduce these risks, Dash has an invite system that makes it possible to pay for another user's account creation or other network activity.\n\nIn this system, the sponsor creates a special transaction, funding it with a small amount of Dash. The transaction has a metadata field for details such as the sponsor's username, reason for invitation, and a memo. After the sponsor has created the special transaction, it broadcasts it to the network, then gives the user the special transaction's ID, and the private key of the funds it contains. These details could be communicated in a QR code. When the user scans the QR code, their wallet would have everything it needed to create a new username.\n\nTechnical description of the invitation process: https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Because most actions in a decentralized application require some kind of funding, DAPs have unique constraints that should be carefully considered in order to maintain a good user experience. When you onboard new users, most likely they will not have existing Dash funds. The best option for most apps is to cover users&#39; account creation fee for them. This is similar to operating a Dash faucet (a service that sends small amounts of Dash for free), with similar risks and challenges. In order to reduce these risks, Dash has an invite system that makes it possible to pay for another user&#39;s account creation or other network activity.</p>\n<p>In this system, the sponsor creates a special transaction, funding it with a small amount of Dash. The transaction has a metadata field for details such as the sponsor&#39;s username, reason for invitation, and a memo. After the sponsor has created the special transaction, it broadcasts it to the network, then gives the user the special transaction&#39;s ID, and the private key of the funds it contains. These details could be communicated in a QR code. When the user scans the QR code, their wallet would have everything it needed to create a new username.</p>\n<p>Technical description of the invitation process: <a href=\"https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/\">https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/</a></p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "tutorials-onboarding-users", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa81", 
- "order": 9, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Onboarding Users",
+ "updates": [],
+ "type": "basic",
+ "slug": "tutorials-onboarding-users",
+ "excerpt": "",
+ "body": "Because most actions in a decentralized application require some kind of funding, DAPs have unique constraints that should be carefully considered in order to maintain a good user experience. When you onboard new users, most likely they will not have existing Dash funds. The best option for most apps is to cover users' account creation fee for them. This is similar to operating a Dash faucet (a service that sends small amounts of Dash for free), with similar risks and challenges. In order to reduce these risks, Dash has an invite system that makes it possible to pay for another user's account creation or other network activity.\n\nIn this system, the sponsor creates a special transaction, funding it with a small amount of Dash. The transaction has a metadata field for details such as the sponsor's username, reason for invitation, and a memo. After the sponsor has created the special transaction, it broadcasts it to the network, then gives the user the special transaction's ID, and the private key of the funds it contains. These details could be communicated in a QR code. When the user scans the QR code, their wallet would have everything it needed to create a new username.\n\nTechnical description of the invitation process: https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/",
+ "order": 9,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:56.765Z",
+ "_id": "612fe724e9fa2b0026f5fa81",
+ "version": "612fe724e9fa2b0026f5face",
+ "updatedAt": "2019-10-08T10:19:40.324Z",
+ "createdAt": "2019-10-02T18:08:36.879Z",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa65",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa81",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Because most actions in a decentralized application require some kind of funding, DAPs have unique constraints that should be carefully considered in order to maintain a good user experience. When you onboard new users, most likely they will not have existing Dash funds. The best option for most apps is to cover users&#39; account creation fee for them. This is similar to operating a Dash faucet (a service that sends small amounts of Dash for free), with similar risks and challenges. In order to reduce these risks, Dash has an invite system that makes it possible to pay for another user&#39;s account creation or other network activity.</p>\n<p>In this system, the sponsor creates a special transaction, funding it with a small amount of Dash. The transaction has a metadata field for details such as the sponsor&#39;s username, reason for invitation, and a memo. After the sponsor has created the special transaction, it broadcasts it to the network, then gives the user the special transaction&#39;s ID, and the private key of the funds it contains. These details could be communicated in a QR code. When the user scans the QR code, their wallet would have everything it needed to create a new username.</p>\n<p>Technical description of the invitation process: <a href=\"https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/\">https://docs.google.com/document/d/16qKmly2NCKnD5aWBGSw51hE45L0szB2A54Z-HIg7ZPM/</a></p>\n\n</div>"
 }

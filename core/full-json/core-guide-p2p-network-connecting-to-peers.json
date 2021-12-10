@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf260", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2020-05-28T20:45:01.058Z", 
- "id": "61549206c31f6b00207cf262", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-24T14:17:25.543Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Connecting to Peers", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-p2p-network-initial-block-download", 
-    "type": "doc", 
-    "name": "Initial Block Download", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Initial Block Download",
+    "slug": "core-guide-p2p-network-initial-block-download",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T02:00:57.158Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Connecting to a <<glossary:peer>> is done by sending a [`version` message](core-ref-p2p-network-control-messages#version), which contains your version number, block, and current time to the remote node. The remote node responds with its own [`version` message](core-ref-p2p-network-control-messages#version). Then both nodes send a [`verack` message](core-ref-p2p-network-control-messages#verack) to the other node to indicate the connection has been established.\n\nOnce connected, the client can send to the remote node `getaddr` and [`addr` messages](core-ref-p2p-network-control-messages#addr) to gather additional peers.\n\nIn order to maintain a connection with a peer, nodes by default will send a message to peers before 30 minutes of inactivity. If 90 minutes pass without a message being received by a peer, the client will assume that connection has closed.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Connecting to a &lt;&lt;glossary:peer&gt;&gt; is done by sending a <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>, which contains your version number, block, and current time to the remote node. The remote node responds with its own <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>. Then both nodes send a <a href=\"core-ref-p2p-network-control-messages#verack\"><code>verack</code> message</a> to the other node to indicate the connection has been established.</p>\n<p>Once connected, the client can send to the remote node <code>getaddr</code> and <a href=\"core-ref-p2p-network-control-messages#addr\"><code>addr</code> messages</a> to gather additional peers.</p>\n<p>In order to maintain a connection with a peer, nodes by default will send a message to peers before 30 minutes of inactivity. If 90 minutes pass without a message being received by a peer, the client will assume that connection has closed.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-p2p-network-connecting-to-peers", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 1, 
- "_id": "61549206c31f6b00207cf262", 
- "order": 1, 
- "user": "5af39863989da435b05d284d"
+ },
+ "title": "Connecting to Peers",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-p2p-network-connecting-to-peers",
+ "excerpt": "",
+ "body": "Connecting to a <<glossary:peer>> is done by sending a [`version` message](core-ref-p2p-network-control-messages#version), which contains your version number, block, and current time to the remote node. The remote node responds with its own [`version` message](core-ref-p2p-network-control-messages#version). Then both nodes send a [`verack` message](core-ref-p2p-network-control-messages#verack) to the other node to indicate the connection has been established.\n\nOnce connected, the client can send to the remote node `getaddr` and [`addr` messages](core-ref-p2p-network-control-messages#addr) to gather additional peers.\n\nIn order to maintain a connection with a peer, nodes by default will send a message to peers before 30 minutes of inactivity. If 90 minutes pass without a message being received by a peer, the client will assume that connection has closed.",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:55.736Z",
+ "_id": "61549206c31f6b00207cf262",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2020-05-28T20:45:01.058Z",
+ "createdAt": "2019-10-24T14:17:25.543Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5af39863989da435b05d284d",
+ "parentDoc": "61549206c31f6b00207cf260",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 1,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf262",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Connecting to a &lt;&lt;glossary:peer&gt;&gt; is done by sending a <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>, which contains your version number, block, and current time to the remote node. The remote node responds with its own <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>. Then both nodes send a <a href=\"core-ref-p2p-network-control-messages#verack\"><code>verack</code> message</a> to the other node to indicate the connection has been established.</p>\n<p>Once connected, the client can send to the remote node <code>getaddr</code> and <a href=\"core-ref-p2p-network-control-messages#addr\"><code>addr</code> messages</a> to gather additional peers.</p>\n<p>In order to maintain a connection with a peer, nodes by default will send a message to peers before 30 minutes of inactivity. If 90 minutes pass without a message being received by a peer, the client will assume that connection has closed.</p>\n\n</div>"
 }

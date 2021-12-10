@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf291", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-11-13T17:55:08.996Z", 
- "id": "61549206c31f6b00207cf297", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T17:24:54.282Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Transaction Fees and Change", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-transactions-avoiding-key-reuse", 
-    "type": "doc", 
-    "name": "Avoiding Key Reuse", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Avoiding Key Reuse",
+    "slug": "core-guide-transactions-avoiding-key-reuse",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T02:11:54.415Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Transactions pay fees based on the total byte size of the signed transaction. Fees per byte are calculated based on current demand for space in mined blocks with fees rising as demand increases.  The <<glossary:transaction fee>> is given to the Dash miner, as explained in the [block chain section](core-guide-block-chain), and so it is ultimately up to each <<glossary:miner>> to choose the minimum transaction fee they will accept.\n\nAll transactions are prioritized based on their fee per byte, with higher-paying transactions being added in sequence until all of the available space is filled.\n\nAs of Dash Core 0.12.2.x, a <<glossary:minimum relay fee>> (1,000 <<glossary:duffs>> following [DIP1](https://github.com/dashpay/dips/blob/master/dip-0001.md) activation) is required to broadcast a transaction across the <<glossary:network>>. Any transaction paying only the minimum fee should be prepared to wait a long time before there's enough spare space in a block to include it.\n\nSince each transaction spends Unspent Transaction Outputs (UTXOs) and because a UTXO can only be spent once, the full value of the included UTXOs must be spent or given to a miner as a <<glossary:transaction fee>>.  Few people will have UTXOs that exactly match the amount they want to pay, so most transactions include a change output.\n\nA <<glossary:change output>> is a regular output which spends the surplus duffs from the UTXOs back to the spender. Change outputs can reuse the same P2PKH pubkey hash or P2SH script hash as was used in the UTXO, but for the reasons described in the [next subsection](core-guide-transactions-avoiding-key-reuse), it is highly recommended that change outputs be sent to a new <<glossary:P2PKH>> or <<glossary:P2SH>> <<glossary:address>>.", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Transactions pay fees based on the total byte size of the signed transaction. Fees per byte are calculated based on current demand for space in mined blocks with fees rising as demand increases.  The &lt;&lt;glossary:transaction fee&gt;&gt; is given to the Dash miner, as explained in the <a href=\"core-guide-block-chain\">block chain section</a>, and so it is ultimately up to each &lt;&lt;glossary:miner&gt;&gt; to choose the minimum transaction fee they will accept.</p>\n<p>All transactions are prioritized based on their fee per byte, with higher-paying transactions being added in sequence until all of the available space is filled.</p>\n<p>As of Dash Core 0.12.2.x, a &lt;&lt;glossary:minimum relay fee&gt;&gt; (1,000 &lt;&lt;glossary:duffs&gt;&gt; following <a href=\"https://github.com/dashpay/dips/blob/master/dip-0001.md\">DIP1</a> activation) is required to broadcast a transaction across the &lt;&lt;glossary:network&gt;&gt;. Any transaction paying only the minimum fee should be prepared to wait a long time before there&#39;s enough spare space in a block to include it.</p>\n<p>Since each transaction spends Unspent Transaction Outputs (UTXOs) and because a UTXO can only be spent once, the full value of the included UTXOs must be spent or given to a miner as a &lt;&lt;glossary:transaction fee&gt;&gt;.  Few people will have UTXOs that exactly match the amount they want to pay, so most transactions include a change output.</p>\n<p>A &lt;&lt;glossary:change output&gt;&gt; is a regular output which spends the surplus duffs from the UTXOs back to the spender. Change outputs can reuse the same P2PKH pubkey hash or P2SH script hash as was used in the UTXO, but for the reasons described in the <a href=\"core-guide-transactions-avoiding-key-reuse\">next subsection</a>, it is highly recommended that change outputs be sent to a new &lt;&lt;glossary:P2PKH&gt;&gt; or &lt;&lt;glossary:P2SH&gt;&gt; &lt;&lt;glossary:address&gt;&gt;.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-transactions-transaction-fees-and-change", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 1, 
- "_id": "61549206c31f6b00207cf297", 
- "order": 6, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Transaction Fees and Change",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-transactions-transaction-fees-and-change",
+ "excerpt": "",
+ "body": "Transactions pay fees based on the total byte size of the signed transaction. Fees per byte are calculated based on current demand for space in mined blocks with fees rising as demand increases.  The <<glossary:transaction fee>> is given to the Dash miner, as explained in the [block chain section](core-guide-block-chain), and so it is ultimately up to each <<glossary:miner>> to choose the minimum transaction fee they will accept.\n\nAll transactions are prioritized based on their fee per byte, with higher-paying transactions being added in sequence until all of the available space is filled.\n\nAs of Dash Core 0.12.2.x, a <<glossary:minimum relay fee>> (1,000 <<glossary:duffs>> following [DIP1](https://github.com/dashpay/dips/blob/master/dip-0001.md) activation) is required to broadcast a transaction across the <<glossary:network>>. Any transaction paying only the minimum fee should be prepared to wait a long time before there's enough spare space in a block to include it.\n\nSince each transaction spends Unspent Transaction Outputs (UTXOs) and because a UTXO can only be spent once, the full value of the included UTXOs must be spent or given to a miner as a <<glossary:transaction fee>>.  Few people will have UTXOs that exactly match the amount they want to pay, so most transactions include a change output.\n\nA <<glossary:change output>> is a regular output which spends the surplus duffs from the UTXOs back to the spender. Change outputs can reuse the same P2PKH pubkey hash or P2SH script hash as was used in the UTXO, but for the reasons described in the [next subsection](core-guide-transactions-avoiding-key-reuse), it is highly recommended that change outputs be sent to a new <<glossary:P2PKH>> or <<glossary:P2SH>> <<glossary:address>>.",
+ "order": 6,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-10T01:09:02.375Z",
+ "_id": "61549206c31f6b00207cf297",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2019-11-13T17:55:08.996Z",
+ "createdAt": "2019-10-28T17:24:54.282Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf291",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 1,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf297",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Transactions pay fees based on the total byte size of the signed transaction. Fees per byte are calculated based on current demand for space in mined blocks with fees rising as demand increases.  The &lt;&lt;glossary:transaction fee&gt;&gt; is given to the Dash miner, as explained in the <a href=\"core-guide-block-chain\">block chain section</a>, and so it is ultimately up to each &lt;&lt;glossary:miner&gt;&gt; to choose the minimum transaction fee they will accept.</p>\n<p>All transactions are prioritized based on their fee per byte, with higher-paying transactions being added in sequence until all of the available space is filled.</p>\n<p>As of Dash Core 0.12.2.x, a &lt;&lt;glossary:minimum relay fee&gt;&gt; (1,000 &lt;&lt;glossary:duffs&gt;&gt; following <a href=\"https://github.com/dashpay/dips/blob/master/dip-0001.md\">DIP1</a> activation) is required to broadcast a transaction across the &lt;&lt;glossary:network&gt;&gt;. Any transaction paying only the minimum fee should be prepared to wait a long time before there&#39;s enough spare space in a block to include it.</p>\n<p>Since each transaction spends Unspent Transaction Outputs (UTXOs) and because a UTXO can only be spent once, the full value of the included UTXOs must be spent or given to a miner as a &lt;&lt;glossary:transaction fee&gt;&gt;.  Few people will have UTXOs that exactly match the amount they want to pay, so most transactions include a change output.</p>\n<p>A &lt;&lt;glossary:change output&gt;&gt; is a regular output which spends the surplus duffs from the UTXOs back to the spender. Change outputs can reuse the same P2PKH pubkey hash or P2SH script hash as was used in the UTXO, but for the reasons described in the <a href=\"core-guide-transactions-avoiding-key-reuse\">next subsection</a>, it is highly recommended that change outputs be sent to a new &lt;&lt;glossary:P2PKH&gt;&gt; or &lt;&lt;glossary:P2SH&gt;&gt; &lt;&lt;glossary:address&gt;&gt;.</p>\n\n</div>"
 }

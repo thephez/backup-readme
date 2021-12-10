@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2020-06-02T21:01:20.910Z", 
- "id": "612fe724e9fa2b0026f5fab0", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-06-02T21:01:13.824Z", 
- "category": "612fe724e9fa2b0026f5fa68", 
- "title": "Credits", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-12-08T06:31:24.000Z", 
- "hidden": true, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": false, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "explanation-credits", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fab0", 
- "order": 7, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Credits",
+ "updates": [],
+ "type": "basic",
+ "slug": "explanation-credits",
+ "excerpt": "",
+ "body": "",
+ "order": 7,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:57.491Z",
+ "_id": "612fe724e9fa2b0026f5fab0",
+ "createdAt": "2020-06-02T21:01:13.824Z",
+ "updatedAt": "2020-06-02T21:01:20.910Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa68",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fab0",
+ "body_html": "&nbsp;"
 }

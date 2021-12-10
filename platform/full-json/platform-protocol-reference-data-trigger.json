@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "reference-data-trigger", 
- "updatedAt": "2021-11-29T21:11:07.784Z", 
- "id": "612fe724e9fa2b0026f5fab6", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-09-02T14:39:03.052Z", 
- "category": "612fe724e9fa2b0026f5fa6a", 
- "title": "Data Trigger", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-11-17T18:27:47.606Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "# Data Trigger Overview\n\nAlthough [data contracts](platform-protocol-reference-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](https://dashplatform.readme.io/docs/explanation-dpns) must enforce some rules to ensure names remain DNS compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.\n\n# Details\n\nSince all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the [document transition action](platform-protocol-reference-document#document-transition-action) so separate triggers can be created for the CREATE, REPLACE, or DELETE actions.\n\nWhen document state transitions are received, DPP checks if there is a trigger associated with the document transition type and action. If there is, it then executes the trigger logic.\n\n**Note:** Successful execution of the trigger logic is necessary for the document to be accepted and applied to the platform state.\n\n## Example\n\nAs an example, DPP contains several data triggers for DPNS. The `domain` document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:\n\n| Data Contract | Document | Action(s) | Trigger Description |\n| - | - | - | - |\n| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |\n| ---- | ----| ---- | ---- |\n| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |\n| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |\n\n**DPNS Trigger Constraints**\n\nThe following table details the DPNS constraints applied via data triggers. These constraints are in addition to the ones applied directly by the DPNS data contract.\n\n| Document | Action | Constraint |\n| - | - | - |\n| `domain` | `CREATE` | Full domain length <= 253 characters |\n| `domain` | `CREATE` | `normalizedLabel` matches lowercase `label` |\n| `domain` | `CREATE` | `ownerId` matches `records.dashUniqueIdentityId` or `dashAliasIdentityId` (whichever one is present) |\n| `domain` | `CREATE` | Only creating a top-level domain with an authorized identity |\n| `domain` | `CREATE` | Referenced `normalizedParentDomainName` must be an existing parent domain |\n| `domain` | `CREATE` | Subdomain registration for non top level domains prevented if `subdomainRules.allowSubdomains` is true |\n| `domain` | `CREATE` | Subdomain registration only allowed by the parent domain owner if `subdomainRules.allowSubdomains` is false |\n| `domain` | `CREATE` | Referenced `preorder` document must exist |\n| `domain` | `REPLACE` | Action not allowed |\n| `domain` | `DELETE` | Action not allowed |\n| `preorder` | `REPLACE` | Action not allowed |\n| `perorder` | `DELETE` | Action not allowed |", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-data-trigger-overview\"></div>Data Trigger Overview<a class=\"fa fa-anchor\" href=\"#section-data-trigger-overview\"></a></h1>\n<p>Although <a href=\"platform-protocol-reference-data-contract\">data contracts</a> provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, <a href=\"https://dashplatform.readme.io/docs/explanation-dpns\">DPNS</a> must enforce some rules to ensure names remain DNS compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-details\"></div>Details<a class=\"fa fa-anchor\" href=\"#section-details\"></a></h1>\n<p>Since all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the <a href=\"platform-protocol-reference-document#document-transition-action\">document transition action</a> so separate triggers can be created for the CREATE, REPLACE, or DELETE actions.</p>\n<p>When document state transitions are received, DPP checks if there is a trigger associated with the document transition type and action. If there is, it then executes the trigger logic.</p>\n<p><strong>Note:</strong> Successful execution of the trigger logic is necessary for the document to be accepted and applied to the platform state.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-example\"></div>Example<a class=\"fa fa-anchor\" href=\"#section-example\"></a></h2>\n<p>As an example, DPP contains several data triggers for DPNS. The <code>domain</code> document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Data Contract</th>\n<th>Document</th>\n<th>Action(s)</th>\n<th>Trigger Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>DPNS</td>\n<td><code>domain</code></td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js\"><code>CREATE</code></a></td>\n<td>Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration</td>\n</tr>\n<tr>\n<td>----</td>\n<td>----</td>\n<td>----</td>\n<td>----</td>\n</tr>\n<tr>\n<td>DPNS</td>\n<td>All Document Types</td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js\"><code>REPLACE</code></a></td>\n<td>Prevents updates to existing documents</td>\n</tr>\n<tr>\n<td>DPNS</td>\n<td>All Document Types</td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js\"><code>DELETE</code></a></td>\n<td>Prevents deletion of existing documents</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>DPNS Trigger Constraints</strong></p>\n<p>The following table details the DPNS constraints applied via data triggers. These constraints are in addition to the ones applied directly by the DPNS data contract.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Document</th>\n<th>Action</th>\n<th>Constraint</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Full domain length &lt;= 253 characters</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td><code>normalizedLabel</code> matches lowercase <code>label</code></td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td><code>ownerId</code> matches <code>records.dashUniqueIdentityId</code> or <code>dashAliasIdentityId</code> (whichever one is present)</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Only creating a top-level domain with an authorized identity</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Referenced <code>normalizedParentDomainName</code> must be an existing parent domain</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Subdomain registration for non top level domains prevented if <code>subdomainRules.allowSubdomains</code> is true</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Subdomain registration only allowed by the parent domain owner if <code>subdomainRules.allowSubdomains</code> is false</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Referenced <code>preorder</code> document must exist</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>REPLACE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>DELETE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>preorder</code></td>\n<td><code>REPLACE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>perorder</code></td>\n<td><code>DELETE</code></td>\n<td>Action not allowed</td>\n</tr>\n</tbody>\n</table></div>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "platform-protocol-reference-data-trigger", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fab6", 
- "order": 5, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Data Trigger",
+ "updates": [],
+ "type": "basic",
+ "slug": "platform-protocol-reference-data-trigger",
+ "excerpt": "",
+ "body": "# Data Trigger Overview\n\nAlthough [data contracts](platform-protocol-reference-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](https://dashplatform.readme.io/docs/explanation-dpns) must enforce some rules to ensure names remain DNS compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.\n\n# Details\n\nSince all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the [document transition action](platform-protocol-reference-document#document-transition-action) so separate triggers can be created for the CREATE, REPLACE, or DELETE actions.\n\nWhen document state transitions are received, DPP checks if there is a trigger associated with the document transition type and action. If there is, it then executes the trigger logic.\n\n**Note:** Successful execution of the trigger logic is necessary for the document to be accepted and applied to the platform state.\n\n## Example\n\nAs an example, DPP contains several data triggers for DPNS. The `domain` document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:\n\n| Data Contract | Document | Action(s) | Trigger Description |\n| - | - | - | - |\n| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |\n| ---- | ----| ---- | ---- |\n| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |\n| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |\n\n**DPNS Trigger Constraints**\n\nThe following table details the DPNS constraints applied via data triggers. These constraints are in addition to the ones applied directly by the DPNS data contract.\n\n| Document | Action | Constraint |\n| - | - | - |\n| `domain` | `CREATE` | Full domain length <= 253 characters |\n| `domain` | `CREATE` | `normalizedLabel` matches lowercase `label` |\n| `domain` | `CREATE` | `ownerId` matches `records.dashUniqueIdentityId` or `dashAliasIdentityId` (whichever one is present) |\n| `domain` | `CREATE` | Only creating a top-level domain with an authorized identity |\n| `domain` | `CREATE` | Referenced `normalizedParentDomainName` must be an existing parent domain |\n| `domain` | `CREATE` | Subdomain registration for non top level domains prevented if `subdomainRules.allowSubdomains` is true |\n| `domain` | `CREATE` | Subdomain registration only allowed by the parent domain owner if `subdomainRules.allowSubdomains` is false |\n| `domain` | `CREATE` | Referenced `preorder` document must exist |\n| `domain` | `REPLACE` | Action not allowed |\n| `domain` | `DELETE` | Action not allowed |\n| `preorder` | `REPLACE` | Action not allowed |\n| `perorder` | `DELETE` | Action not allowed |",
+ "order": 5,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "reference-data-trigger",
+ "slugUpdatedAt": "2020-11-17T18:27:47.606Z",
+ "_id": "612fe724e9fa2b0026f5fab6",
+ "createdAt": "2020-09-02T14:39:03.052Z",
+ "updatedAt": "2021-11-29T21:11:07.784Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa6a",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fab6",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-data-trigger-overview\"></div>Data Trigger Overview<a class=\"fa fa-anchor\" href=\"#section-data-trigger-overview\"></a></h1>\n<p>Although <a href=\"platform-protocol-reference-data-contract\">data contracts</a> provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, <a href=\"https://dashplatform.readme.io/docs/explanation-dpns\">DPNS</a> must enforce some rules to ensure names remain DNS compatible. Dash Platform Protocol (DPP) supports this application-specific custom logic using Data Triggers.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-details\"></div>Details<a class=\"fa fa-anchor\" href=\"#section-details\"></a></h1>\n<p>Since all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the <a href=\"platform-protocol-reference-document#document-transition-action\">document transition action</a> so separate triggers can be created for the CREATE, REPLACE, or DELETE actions.</p>\n<p>When document state transitions are received, DPP checks if there is a trigger associated with the document transition type and action. If there is, it then executes the trigger logic.</p>\n<p><strong>Note:</strong> Successful execution of the trigger logic is necessary for the document to be accepted and applied to the platform state.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-example\"></div>Example<a class=\"fa fa-anchor\" href=\"#section-example\"></a></h2>\n<p>As an example, DPP contains several data triggers for DPNS. The <code>domain</code> document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Data Contract</th>\n<th>Document</th>\n<th>Action(s)</th>\n<th>Trigger Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>DPNS</td>\n<td><code>domain</code></td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js\"><code>CREATE</code></a></td>\n<td>Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration</td>\n</tr>\n<tr>\n<td>----</td>\n<td>----</td>\n<td>----</td>\n<td>----</td>\n</tr>\n<tr>\n<td>DPNS</td>\n<td>All Document Types</td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js\"><code>REPLACE</code></a></td>\n<td>Prevents updates to existing documents</td>\n</tr>\n<tr>\n<td>DPNS</td>\n<td>All Document Types</td>\n<td><a href=\"https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js\"><code>DELETE</code></a></td>\n<td>Prevents deletion of existing documents</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>DPNS Trigger Constraints</strong></p>\n<p>The following table details the DPNS constraints applied via data triggers. These constraints are in addition to the ones applied directly by the DPNS data contract.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Document</th>\n<th>Action</th>\n<th>Constraint</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Full domain length &lt;= 253 characters</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td><code>normalizedLabel</code> matches lowercase <code>label</code></td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td><code>ownerId</code> matches <code>records.dashUniqueIdentityId</code> or <code>dashAliasIdentityId</code> (whichever one is present)</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Only creating a top-level domain with an authorized identity</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Referenced <code>normalizedParentDomainName</code> must be an existing parent domain</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Subdomain registration for non top level domains prevented if <code>subdomainRules.allowSubdomains</code> is true</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Subdomain registration only allowed by the parent domain owner if <code>subdomainRules.allowSubdomains</code> is false</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>CREATE</code></td>\n<td>Referenced <code>preorder</code> document must exist</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>REPLACE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>domain</code></td>\n<td><code>DELETE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>preorder</code></td>\n<td><code>REPLACE</code></td>\n<td>Action not allowed</td>\n</tr>\n<tr>\n<td><code>perorder</code></td>\n<td><code>DELETE</code></td>\n<td>Action not allowed</td>\n</tr>\n</tbody>\n</table></div>\n\n</div>"
 }

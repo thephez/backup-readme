@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-10T15:11:45.441Z", 
- "id": "612fe724e9fa2b0026f5fa76", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-08-01T13:32:23.391Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "DIPs (Improvement Proposals)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-12-08T00:42:05.429Z", 
- "hidden": true, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": false, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-dips-improvement-proposals", 
- "deprecated": false, 
- "link_url": "https://github.com/dashpay/dips/blob/master/README.md", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa76", 
- "order": 7, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "DIPs (Improvement Proposals)",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-dips-improvement-proposals",
+ "excerpt": "",
+ "body": "",
+ "order": 7,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashpay/dips/blob/master/README.md",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:58.525Z",
+ "_id": "612fe724e9fa2b0026f5fa76",
+ "version": "612fe724e9fa2b0026f5face",
+ "updatedAt": "2019-12-10T15:11:45.441Z",
+ "createdAt": "2019-08-01T13:32:23.391Z",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa76",
+ "body_html": "&nbsp;"
 }

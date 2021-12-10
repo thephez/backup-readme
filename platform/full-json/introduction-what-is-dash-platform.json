@@ -1,71 +1,71 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2021-11-30T18:20:41.467Z", 
- "id": "612fe724e9fa2b0026f5fa70", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-01-07T15:48:05.850Z", 
- "category": "612fe724e9fa2b0026f5fa63", 
- "title": "What is Dash Platform?", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Introduction", 
-    "slug": "intro-to-testnet", 
-    "type": "doc", 
-    "name": "Intro to Testnet", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Intro to Testnet",
+    "slug": "intro-to-testnet",
+    "category": "Introduction"
    }
   ]
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-11-23T04:32:55.902Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Dash Platform is a technology stack for building decentralized applications on the Dash network. The two main architectural components, [Drive](explanation-drive) and [DAPI](explanation-dapi), turn the Dash P2P network into a cloud that developers can integrate with their applications. \n\n# Key Advantages\n## Decentralized Cloud Storage\nStore your application data in the safest place on the Internet. All data stored on the Dash network is protected by Dash's consensus algorithm, ensuring data integrity and availability.\n\n## Reduced Data Silos\nBecause your application data is decentralized among the nodes of the Dash network, your data is safe and always available for customers, business partners, and investors.\n\n## Client Libraries \nWrite code and integrate with Dash Platform using the languages that matter to your business. Don't worry about understanding blockchain infrastructure: a growing number of client libraries abstract away the complexity typically associated with working on blockchain-based networks.\n\n## Instant Data Confirmation\nUnlike many blockchain-based networks, data stored on the platform is instantly confirmed by the Dash consensus algorithm to ensure the best user experience for users. With Dash Platform, you can gain the advantages of a blockchain-based storage network without the usual UX compromises.\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/2213390-join-community.svg\",\n        \"join-community.svg\",\n        171,\n        150,\n        \"#ffffff\"\n      ],\n      \"sizing\": \"60\"\n    }\n  ]\n}\n[/block]\n# Key Components\n## DAPI - A decentralized API\n\nDAPI is an HTTP API exposing [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/) endpoints. Through these endpoints, developers can send and retrieve application data, as well as query the Dash blockchain.\n\nDAPI provides developers with the same access and security of a full node, without the cost and maintenance overhead. Unlike traditional APIs which have a single point of failure, DAPI allows clients to connect to different instances depending on resource availability in the Dash network.\n\nDevelopers have the option to connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.\n\nThe source for both DAPI and dapi-client are available on GitHub:\n - DAPI: https://github.com/dashevo/platform/tree/master/packages/dapi\n - DAPI-Client: https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\n\n## Drive - Decentralized Storage\n\nDrive is Dash Platform's storage component, allowing for consensus-based verification and validation of user created data. In order for this to occur, developers create a [data contract](explanation-platform-protocol-data-contract). This data contract describes the data structures that comprise an application, similar to creating a schema for a document-oriented database like MongoDB.\n\nData created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is uploaded to Drive, where it is stored on the masternode network.\n\nThe source is available on GitHub: \n - Drive: https://github.com/dashevo/platform/tree/master/packages/js-drive", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Dash Platform is a technology stack for building decentralized applications on the Dash network. The two main architectural components, <a href=\"explanation-drive\">Drive</a> and <a href=\"explanation-dapi\">DAPI</a>, turn the Dash P2P network into a cloud that developers can integrate with their applications. </p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-key-advantages\"></div>Key Advantages<a class=\"fa fa-anchor\" href=\"#section-key-advantages\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-decentralized-cloud-storage\"></div>Decentralized Cloud Storage<a class=\"fa fa-anchor\" href=\"#section-decentralized-cloud-storage\"></a></h2>\n<p>Store your application data in the safest place on the Internet. All data stored on the Dash network is protected by Dash&#39;s consensus algorithm, ensuring data integrity and availability.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-reduced-data-silos\"></div>Reduced Data Silos<a class=\"fa fa-anchor\" href=\"#section-reduced-data-silos\"></a></h2>\n<p>Because your application data is decentralized among the nodes of the Dash network, your data is safe and always available for customers, business partners, and investors.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-client-libraries\"></div>Client Libraries<a class=\"fa fa-anchor\" href=\"#section-client-libraries\"></a></h2>\n<p>Write code and integrate with Dash Platform using the languages that matter to your business. Don&#39;t worry about understanding blockchain infrastructure: a growing number of client libraries abstract away the complexity typically associated with working on blockchain-based networks.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-instant-data-confirmation\"></div>Instant Data Confirmation<a class=\"fa fa-anchor\" href=\"#section-instant-data-confirmation\"></a></h2>\n<p>Unlike many blockchain-based networks, data stored on the platform is instantly confirmed by the Dash consensus algorithm to ensure the best user experience for users. With Dash Platform, you can gain the advantages of a blockchain-based storage network without the usual UX compromises.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/2213390-join-community.svg\" class=\"block-display-image-parent block-display-image-size-60 \"><img src=\"https://files.readme.io/2213390-join-community.svg\"/></a>\n\t</figure>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-key-components\"></div>Key Components<a class=\"fa fa-anchor\" href=\"#section-key-components\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dapi-a-decentralized-api\"></div>DAPI - A decentralized API<a class=\"fa fa-anchor\" href=\"#section-dapi-a-decentralized-api\"></a></h2>\n<p>DAPI is an HTTP API exposing <a href=\"https://www.jsonrpc.org/\">JSON-RPC</a> and <a href=\"https://grpc.io/\">gRPC</a> endpoints. Through these endpoints, developers can send and retrieve application data, as well as query the Dash blockchain.</p>\n<p>DAPI provides developers with the same access and security of a full node, without the cost and maintenance overhead. Unlike traditional APIs which have a single point of failure, DAPI allows clients to connect to different instances depending on resource availability in the Dash network.</p>\n<p>Developers have the option to connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.</p>\n<p>The source for both DAPI and dapi-client are available on GitHub:</p>\n<ul>\n<li >DAPI: <a href=\"https://github.com/dashevo/platform/tree/master/packages/dapi\">https://github.com/dashevo/platform/tree/master/packages/dapi</a></li><li >DAPI-Client: <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\">https://github.com/dashevo/platform/tree/master/packages/js-dapi-client</a></li></ul>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-drive-decentralized-storage\"></div>Drive - Decentralized Storage<a class=\"fa fa-anchor\" href=\"#section-drive-decentralized-storage\"></a></h2>\n<p>Drive is Dash Platform&#39;s storage component, allowing for consensus-based verification and validation of user created data. In order for this to occur, developers create a <a href=\"explanation-platform-protocol-data-contract\">data contract</a>. This data contract describes the data structures that comprise an application, similar to creating a schema for a document-oriented database like MongoDB.</p>\n<p>Data created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is uploaded to Drive, where it is stored on the masternode network.</p>\n<p>The source is available on GitHub: </p>\n<ul>\n<li >Drive: <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-drive\">https://github.com/dashevo/platform/tree/master/packages/js-drive</a></li></ul>\n\n</div>", 
+ },
+ "title": "What is Dash Platform?",
  "updates": [
   "5dfae1a49603b400186b2219"
- ], 
- "isReference": false, 
- "slug": "introduction-what-is-dash-platform", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 5, 
- "_id": "612fe724e9fa2b0026f5fa70", 
- "order": 1, 
- "user": "5b8400d7185d5e00036dcc3b"
+ ],
+ "type": "basic",
+ "slug": "introduction-what-is-dash-platform",
+ "excerpt": "",
+ "body": "Dash Platform is a technology stack for building decentralized applications on the Dash network. The two main architectural components, [Drive](explanation-drive) and [DAPI](explanation-dapi), turn the Dash P2P network into a cloud that developers can integrate with their applications. \n\n# Key Advantages\n## Decentralized Cloud Storage\nStore your application data in the safest place on the Internet. All data stored on the Dash network is protected by Dash's consensus algorithm, ensuring data integrity and availability.\n\n## Reduced Data Silos\nBecause your application data is decentralized among the nodes of the Dash network, your data is safe and always available for customers, business partners, and investors.\n\n## Client Libraries \nWrite code and integrate with Dash Platform using the languages that matter to your business. Don't worry about understanding blockchain infrastructure: a growing number of client libraries abstract away the complexity typically associated with working on blockchain-based networks.\n\n## Instant Data Confirmation\nUnlike many blockchain-based networks, data stored on the platform is instantly confirmed by the Dash consensus algorithm to ensure the best user experience for users. With Dash Platform, you can gain the advantages of a blockchain-based storage network without the usual UX compromises.\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/2213390-join-community.svg\",\n        \"join-community.svg\",\n        171,\n        150,\n        \"#ffffff\"\n      ],\n      \"sizing\": \"60\"\n    }\n  ]\n}\n[/block]\n# Key Components\n## DAPI - A decentralized API\n\nDAPI is an HTTP API exposing [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/) endpoints. Through these endpoints, developers can send and retrieve application data, as well as query the Dash blockchain.\n\nDAPI provides developers with the same access and security of a full node, without the cost and maintenance overhead. Unlike traditional APIs which have a single point of failure, DAPI allows clients to connect to different instances depending on resource availability in the Dash network.\n\nDevelopers have the option to connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.\n\nThe source for both DAPI and dapi-client are available on GitHub:\n - DAPI: https://github.com/dashevo/platform/tree/master/packages/dapi\n - DAPI-Client: https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\n\n## Drive - Decentralized Storage\n\nDrive is Dash Platform's storage component, allowing for consensus-based verification and validation of user created data. In order for this to occur, developers create a [data contract](explanation-platform-protocol-data-contract). This data contract describes the data structures that comprise an application, similar to creating a schema for a document-oriented database like MongoDB.\n\nData created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is uploaded to Drive, where it is stored on the masternode network.\n\nThe source is available on GitHub: \n - Drive: https://github.com/dashevo/platform/tree/master/packages/js-drive",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-11-23T04:32:55.902Z",
+ "_id": "612fe724e9fa2b0026f5fa70",
+ "version": "612fe724e9fa2b0026f5face",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "612fe724e9fa2b0026f5fa63",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "createdAt": "2019-01-07T15:48:05.850Z",
+ "__v": 5,
+ "parentDoc": null,
+ "updatedAt": "2021-11-30T18:20:41.467Z",
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa70",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Dash Platform is a technology stack for building decentralized applications on the Dash network. The two main architectural components, <a href=\"explanation-drive\">Drive</a> and <a href=\"explanation-dapi\">DAPI</a>, turn the Dash P2P network into a cloud that developers can integrate with their applications. </p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-key-advantages\"></div>Key Advantages<a class=\"fa fa-anchor\" href=\"#section-key-advantages\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-decentralized-cloud-storage\"></div>Decentralized Cloud Storage<a class=\"fa fa-anchor\" href=\"#section-decentralized-cloud-storage\"></a></h2>\n<p>Store your application data in the safest place on the Internet. All data stored on the Dash network is protected by Dash&#39;s consensus algorithm, ensuring data integrity and availability.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-reduced-data-silos\"></div>Reduced Data Silos<a class=\"fa fa-anchor\" href=\"#section-reduced-data-silos\"></a></h2>\n<p>Because your application data is decentralized among the nodes of the Dash network, your data is safe and always available for customers, business partners, and investors.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-client-libraries\"></div>Client Libraries<a class=\"fa fa-anchor\" href=\"#section-client-libraries\"></a></h2>\n<p>Write code and integrate with Dash Platform using the languages that matter to your business. Don&#39;t worry about understanding blockchain infrastructure: a growing number of client libraries abstract away the complexity typically associated with working on blockchain-based networks.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-instant-data-confirmation\"></div>Instant Data Confirmation<a class=\"fa fa-anchor\" href=\"#section-instant-data-confirmation\"></a></h2>\n<p>Unlike many blockchain-based networks, data stored on the platform is instantly confirmed by the Dash consensus algorithm to ensure the best user experience for users. With Dash Platform, you can gain the advantages of a blockchain-based storage network without the usual UX compromises.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/2213390-join-community.svg\" class=\"block-display-image-parent block-display-image-size-60 \"><img src=\"https://files.readme.io/2213390-join-community.svg\"/></a>\n\t</figure>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-key-components\"></div>Key Components<a class=\"fa fa-anchor\" href=\"#section-key-components\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dapi-a-decentralized-api\"></div>DAPI - A decentralized API<a class=\"fa fa-anchor\" href=\"#section-dapi-a-decentralized-api\"></a></h2>\n<p>DAPI is an HTTP API exposing <a href=\"https://www.jsonrpc.org/\">JSON-RPC</a> and <a href=\"https://grpc.io/\">gRPC</a> endpoints. Through these endpoints, developers can send and retrieve application data, as well as query the Dash blockchain.</p>\n<p>DAPI provides developers with the same access and security of a full node, without the cost and maintenance overhead. Unlike traditional APIs which have a single point of failure, DAPI allows clients to connect to different instances depending on resource availability in the Dash network.</p>\n<p>Developers have the option to connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.</p>\n<p>The source for both DAPI and dapi-client are available on GitHub:</p>\n<ul>\n<li >DAPI: <a href=\"https://github.com/dashevo/platform/tree/master/packages/dapi\">https://github.com/dashevo/platform/tree/master/packages/dapi</a></li><li >DAPI-Client: <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\">https://github.com/dashevo/platform/tree/master/packages/js-dapi-client</a></li></ul>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-drive-decentralized-storage\"></div>Drive - Decentralized Storage<a class=\"fa fa-anchor\" href=\"#section-drive-decentralized-storage\"></a></h2>\n<p>Drive is Dash Platform&#39;s storage component, allowing for consensus-based verification and validation of user created data. In order for this to occur, developers create a <a href=\"explanation-platform-protocol-data-contract\">data contract</a>. This data contract describes the data structures that comprise an application, similar to creating a schema for a document-oriented database like MongoDB.</p>\n<p>Data created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is uploaded to Drive, where it is stored on the masternode network.</p>\n<p>The source is available on GitHub: </p>\n<ul>\n<li >Drive: <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-drive\">https://github.com/dashevo/platform/tree/master/packages/js-drive</a></li></ul>\n\n</div>"
 }

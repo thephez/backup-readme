@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "612fe724e9fa2b0026f5fa77", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-10T15:11:45.444Z", 
- "id": "612fe724e9fa2b0026f5fa85", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-08T10:40:40.478Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "Dash SDK (Javascript)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-09-03T17:49:06.994Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-source-code-dash-sdk-javascript", 
- "deprecated": false, 
- "link_url": "https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk#readme", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa85", 
- "order": 0, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Dash SDK (Javascript)",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-source-code-dash-sdk-javascript",
+ "excerpt": "",
+ "body": "",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk#readme",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-09-03T17:49:06.994Z",
+ "_id": "612fe724e9fa2b0026f5fa85",
+ "version": "612fe724e9fa2b0026f5face",
+ "updatedAt": "2019-12-10T15:11:45.444Z",
+ "createdAt": "2019-10-08T10:40:40.478Z",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "612fe724e9fa2b0026f5fa77",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "__v": 0,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa85",
+ "body_html": "&nbsp;"
 }

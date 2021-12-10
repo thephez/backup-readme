@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf28b", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-11-12T22:13:44.056Z", 
- "id": "61549206c31f6b00207cf28f", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T15:47:25.038Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Transaction Data", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-block-chain-consensus-rule-changes", 
-    "type": "doc", 
-    "name": "Consensus Rule Changes", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "Consensus Rule Changes",
+    "slug": "core-guide-block-chain-consensus-rule-changes",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T01:45:25.608Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "Every <<glossary:block>> must include one or more <<glossary:transactions>>. The first one of these transactions must be a <<glossary:coinbase transaction>>, also called a generation transaction, which should collect and spend the <<glossary:block reward>> (comprised of a block subsidy and any transaction fees paid by transactions included in this block).\n\nThe UTXO of a coinbase transaction has the special condition that it cannot be spent (used as an input) for at least 100 blocks. This temporarily prevents a <<glossary:miner>> from spending the transaction fees and block reward from a block that may later be determined to be stale (and therefore the coinbase transaction destroyed) after a block chain <<glossary:fork>>.\n\nBlocks are not required to include any non-coinbase transactions, but miners almost always do include additional transactions in order to collect their transaction fees.\n\nAll transactions, including the coinbase transaction, are encoded into blocks in binary <<glossary:raw transaction>> format.\n\nThe rawtransaction format is hashed to create the transaction identifier (<<glossary:TXID>>). From these txids, the <<glossary:merkle tree>> is constructed by pairing each txid with one other txid and then hashing them together. If there are an odd number of txids, the txid without a partner is hashed with a copy of itself.\n\nThe resulting hashes themselves are each paired with one other hash and hashed together. Any hash without a partner is hashed with itself. The process repeats until only one hash remains, the <<glossary:merkle root>>.\n\nFor example, if transactions were merely joined (not hashed), a five-transaction merkle tree would look like the following text diagram:\n\n```\n       ABCDEEEE .......Merkle root\n      /        \\\n   ABCD        EEEE\n  /    \\      /\n AB    CD    EE .......E is paired with itself\n/  \\  /  \\  /\nA  B  C  D  E .........Transactions\n```\n\nAs discussed in the <<glossary:Simplified Payment Verification>> (SPV) subsection, the merkle tree allows clients to verify for themselves that a transaction was included in a block by obtaining the merkle root from a <<glossary:block header>> and a list of the intermediate hashes from a full <<glossary:peer>>. The full peer does not need to be trusted: it is expensive to fake block headers and the intermediate hashes cannot be faked or the verification will fail.\n\nFor example, to verify transaction D was added to the block, an SPV client only needs a copy of the C, AB, and EEEE hashes in addition to the merkle root; the client doesn't need to know anything about any of the other transactions. If the five transactions in this block were all at the maximum size, downloading the entire block would require over 500,000 bytes---but downloading three hashes plus the block header requires only 140 bytes.\n\nNote: If identical txids are found within the same block, there is a possibility that the merkle tree may collide with a block with some or all duplicates removed due to how unbalanced merkle trees are implemented (duplicating the lone hash). Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached; otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as [CVE-2012-2459](https://en.bitcoin.it/wiki/CVEs#CVE-2012-2459).", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>Every &lt;&lt;glossary:block&gt;&gt; must include one or more &lt;&lt;glossary:transactions&gt;&gt;. The first one of these transactions must be a &lt;&lt;glossary:coinbase transaction&gt;&gt;, also called a generation transaction, which should collect and spend the &lt;&lt;glossary:block reward&gt;&gt; (comprised of a block subsidy and any transaction fees paid by transactions included in this block).</p>\n<p>The UTXO of a coinbase transaction has the special condition that it cannot be spent (used as an input) for at least 100 blocks. This temporarily prevents a &lt;&lt;glossary:miner&gt;&gt; from spending the transaction fees and block reward from a block that may later be determined to be stale (and therefore the coinbase transaction destroyed) after a block chain &lt;&lt;glossary:fork&gt;&gt;.</p>\n<p>Blocks are not required to include any non-coinbase transactions, but miners almost always do include additional transactions in order to collect their transaction fees.</p>\n<p>All transactions, including the coinbase transaction, are encoded into blocks in binary &lt;&lt;glossary:raw transaction&gt;&gt; format.</p>\n<p>The rawtransaction format is hashed to create the transaction identifier (&lt;&lt;glossary:TXID&gt;&gt;). From these txids, the &lt;&lt;glossary:merkle tree&gt;&gt; is constructed by pairing each txid with one other txid and then hashing them together. If there are an odd number of txids, the txid without a partner is hashed with a copy of itself.</p>\n<p>The resulting hashes themselves are each paired with one other hash and hashed together. Any hash without a partner is hashed with itself. The process repeats until only one hash remains, the &lt;&lt;glossary:merkle root&gt;&gt;.</p>\n<p>For example, if transactions were merely joined (not hashed), a five-transaction merkle tree would look like the following text diagram:</p>\n<pre><code>       ABCDEEEE .......Merkle root\n      /        \\\n   ABCD        EEEE\n  /    \\      /\n AB    CD    EE .......E is paired with itself\n/  \\  /  \\  /\nA  B  C  D  E .........Transactions\n</code></pre><p>As discussed in the &lt;&lt;glossary:Simplified Payment Verification&gt;&gt; (SPV) subsection, the merkle tree allows clients to verify for themselves that a transaction was included in a block by obtaining the merkle root from a &lt;&lt;glossary:block header&gt;&gt; and a list of the intermediate hashes from a full &lt;&lt;glossary:peer&gt;&gt;. The full peer does not need to be trusted: it is expensive to fake block headers and the intermediate hashes cannot be faked or the verification will fail.</p>\n<p>For example, to verify transaction D was added to the block, an SPV client only needs a copy of the C, AB, and EEEE hashes in addition to the merkle root; the client doesn&#39;t need to know anything about any of the other transactions. If the five transactions in this block were all at the maximum size, downloading the entire block would require over 500,000 bytes---but downloading three hashes plus the block header requires only 140 bytes.</p>\n<p>Note: If identical txids are found within the same block, there is a possibility that the merkle tree may collide with a block with some or all duplicates removed due to how unbalanced merkle trees are implemented (duplicating the lone hash). Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached; otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as <a href=\"https://en.bitcoin.it/wiki/CVEs#CVE-2012-2459\">CVE-2012-2459</a>.</p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-block-chain-transaction-data", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 5, 
- "_id": "61549206c31f6b00207cf28f", 
- "order": 3, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Transaction Data",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-block-chain-transaction-data",
+ "excerpt": "",
+ "body": "Every <<glossary:block>> must include one or more <<glossary:transactions>>. The first one of these transactions must be a <<glossary:coinbase transaction>>, also called a generation transaction, which should collect and spend the <<glossary:block reward>> (comprised of a block subsidy and any transaction fees paid by transactions included in this block).\n\nThe UTXO of a coinbase transaction has the special condition that it cannot be spent (used as an input) for at least 100 blocks. This temporarily prevents a <<glossary:miner>> from spending the transaction fees and block reward from a block that may later be determined to be stale (and therefore the coinbase transaction destroyed) after a block chain <<glossary:fork>>.\n\nBlocks are not required to include any non-coinbase transactions, but miners almost always do include additional transactions in order to collect their transaction fees.\n\nAll transactions, including the coinbase transaction, are encoded into blocks in binary <<glossary:raw transaction>> format.\n\nThe rawtransaction format is hashed to create the transaction identifier (<<glossary:TXID>>). From these txids, the <<glossary:merkle tree>> is constructed by pairing each txid with one other txid and then hashing them together. If there are an odd number of txids, the txid without a partner is hashed with a copy of itself.\n\nThe resulting hashes themselves are each paired with one other hash and hashed together. Any hash without a partner is hashed with itself. The process repeats until only one hash remains, the <<glossary:merkle root>>.\n\nFor example, if transactions were merely joined (not hashed), a five-transaction merkle tree would look like the following text diagram:\n\n```\n       ABCDEEEE .......Merkle root\n      /        \\\n   ABCD        EEEE\n  /    \\      /\n AB    CD    EE .......E is paired with itself\n/  \\  /  \\  /\nA  B  C  D  E .........Transactions\n```\n\nAs discussed in the <<glossary:Simplified Payment Verification>> (SPV) subsection, the merkle tree allows clients to verify for themselves that a transaction was included in a block by obtaining the merkle root from a <<glossary:block header>> and a list of the intermediate hashes from a full <<glossary:peer>>. The full peer does not need to be trusted: it is expensive to fake block headers and the intermediate hashes cannot be faked or the verification will fail.\n\nFor example, to verify transaction D was added to the block, an SPV client only needs a copy of the C, AB, and EEEE hashes in addition to the merkle root; the client doesn't need to know anything about any of the other transactions. If the five transactions in this block were all at the maximum size, downloading the entire block would require over 500,000 bytes---but downloading three hashes plus the block header requires only 140 bytes.\n\nNote: If identical txids are found within the same block, there is a possibility that the merkle tree may collide with a block with some or all duplicates removed due to how unbalanced merkle trees are implemented (duplicating the lone hash). Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached; otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as [CVE-2012-2459](https://en.bitcoin.it/wiki/CVEs#CVE-2012-2459).",
+ "order": 3,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:58.854Z",
+ "_id": "61549206c31f6b00207cf28f",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2019-11-12T22:13:44.056Z",
+ "createdAt": "2019-10-28T15:47:25.038Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf28b",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 5,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf28f",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Every &lt;&lt;glossary:block&gt;&gt; must include one or more &lt;&lt;glossary:transactions&gt;&gt;. The first one of these transactions must be a &lt;&lt;glossary:coinbase transaction&gt;&gt;, also called a generation transaction, which should collect and spend the &lt;&lt;glossary:block reward&gt;&gt; (comprised of a block subsidy and any transaction fees paid by transactions included in this block).</p>\n<p>The UTXO of a coinbase transaction has the special condition that it cannot be spent (used as an input) for at least 100 blocks. This temporarily prevents a &lt;&lt;glossary:miner&gt;&gt; from spending the transaction fees and block reward from a block that may later be determined to be stale (and therefore the coinbase transaction destroyed) after a block chain &lt;&lt;glossary:fork&gt;&gt;.</p>\n<p>Blocks are not required to include any non-coinbase transactions, but miners almost always do include additional transactions in order to collect their transaction fees.</p>\n<p>All transactions, including the coinbase transaction, are encoded into blocks in binary &lt;&lt;glossary:raw transaction&gt;&gt; format.</p>\n<p>The rawtransaction format is hashed to create the transaction identifier (&lt;&lt;glossary:TXID&gt;&gt;). From these txids, the &lt;&lt;glossary:merkle tree&gt;&gt; is constructed by pairing each txid with one other txid and then hashing them together. If there are an odd number of txids, the txid without a partner is hashed with a copy of itself.</p>\n<p>The resulting hashes themselves are each paired with one other hash and hashed together. Any hash without a partner is hashed with itself. The process repeats until only one hash remains, the &lt;&lt;glossary:merkle root&gt;&gt;.</p>\n<p>For example, if transactions were merely joined (not hashed), a five-transaction merkle tree would look like the following text diagram:</p>\n<pre><code>       ABCDEEEE .......Merkle root\n      /        \\\n   ABCD        EEEE\n  /    \\      /\n AB    CD    EE .......E is paired with itself\n/  \\  /  \\  /\nA  B  C  D  E .........Transactions\n</code></pre><p>As discussed in the &lt;&lt;glossary:Simplified Payment Verification&gt;&gt; (SPV) subsection, the merkle tree allows clients to verify for themselves that a transaction was included in a block by obtaining the merkle root from a &lt;&lt;glossary:block header&gt;&gt; and a list of the intermediate hashes from a full &lt;&lt;glossary:peer&gt;&gt;. The full peer does not need to be trusted: it is expensive to fake block headers and the intermediate hashes cannot be faked or the verification will fail.</p>\n<p>For example, to verify transaction D was added to the block, an SPV client only needs a copy of the C, AB, and EEEE hashes in addition to the merkle root; the client doesn&#39;t need to know anything about any of the other transactions. If the five transactions in this block were all at the maximum size, downloading the entire block would require over 500,000 bytes---but downloading three hashes plus the block header requires only 140 bytes.</p>\n<p>Note: If identical txids are found within the same block, there is a possibility that the merkle tree may collide with a block with some or all duplicates removed due to how unbalanced merkle trees are implemented (duplicating the lone hash). Since it is impractical to have separate transactions with identical txids, this does not impose a burden on honest software, but must be checked if the invalid status of a block is to be cached; otherwise, a valid block with the duplicates eliminated could have the same merkle root and block hash, but be rejected by the cached invalid outcome, resulting in security bugs such as <a href=\"https://en.bitcoin.it/wiki/CVEs#CVE-2012-2459\">CVE-2012-2459</a>.</p>\n\n</div>"
 }

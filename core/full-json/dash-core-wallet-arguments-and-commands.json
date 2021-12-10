@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2020-06-05T14:11:12.694Z", 
- "id": "61549206c31f6b00207cf2b4", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-06-04T12:41:03.811Z", 
- "category": "61549205c31f6b00207cf238", 
- "title": "Arguments and Commands", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T11:54:42.595Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "# Overview\n\nAll command-line options (except for `-conf`) may be specified in a configuration file, and all configuration file options may also be specified on the command line. Command-line options override values set in the configuration file. The configuration file is a list of `<setting>=<value>` pairs, one per line, with optional comments starting with the `#` character.\n\nThe configuration file is not automatically created; you can create it using your favorite plain-text editor. By default, dash-qt (or dashd) will look for a file named `dash.conf` in the Dash data directory, but both the data directory and the configuration file path may be changed using the `-datadir` and `-conf` command-line arguments.\n\n| Platform | Path to data folder | Typical path to configuration file |\n| - | - | - |\n| Linux | ~/ | /home/username/.dashcore/dash.conf |\n| macOS | ~/Library/Application Support/ | /Users/username/Library/Application Support/DashCore/dash.conf |\n| Windows | %APPDATA% | _(Vista-10)_ C:\\\\Users\\\\username\\\\AppData\\\\Roaming\\\\DashCore\\\\dash.conf |\n| Windows | %APPDATA% | _(2000-XP)_ C:\\\\Documents and Settings\\\\username\\\\Application Data\\\\DashCore\\\\dash.conf |\n\n> \ud83d\udcd8 Testnet/Devnet modes\n>\n> Note: if running Dash in testnet mode, the sub-folder `testnet3` will be appended to the data directory automatically. Likewise, if running in devnet mode, the subfolder `devnet-\"devnet name\"` will be appended to the data directory.\n\n# Command Line Arguments\n\nThe following sections provide details of the command line arguments for each of the four components distributed in Dash Core releases.\n\n| Component | Description |\n| - | - |\n| dashd | Dash Core daemon |\n| dash-qt | Dash Core wallet GUI |\n| dash-cli | Dash Core RPC Client |\n| dash-tx | Dash Core transaction utility |\n\n## dashd\n\nSee [here](dash-core-wallet-arguments-and-commands-dashd) for all option details.\n\n```bash \nUsage:\n  dashd [options]                     Start Dash Core Daemon\n```\n\n## dash-qt\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-qt) for all option details.\n\n```bash\nUsage:\n  dash-qt [command-line options]                     \n```\n\n## dash-cli\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-cli) for all option details.\n\n```bash\nUsage:\n  dash-cli [options] <command> [params]  Send command to Dash Core\n  dash-cli [options] -named <command> [name=value] ... Send command to Dash Core (with named arguments)\n  dash-cli [options] help                List commands\n  dash-cli [options] help <command>      Get help for a command\n```\n\n## dash-tx\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-tx) for all option details.\n\n```bash\nUsage:\n  dash-tx [options] <hex-tx> [commands]  Update hex-encoded dash transaction\n  dash-tx [options] -create [commands]   Create hex-encoded dash transaction\n```", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>All command-line options (except for <code>-conf</code>) may be specified in a configuration file, and all configuration file options may also be specified on the command line. Command-line options override values set in the configuration file. The configuration file is a list of <code>&lt;setting&gt;=&lt;value&gt;</code> pairs, one per line, with optional comments starting with the <code>#</code> character.</p>\n<p>The configuration file is not automatically created; you can create it using your favorite plain-text editor. By default, dash-qt (or dashd) will look for a file named <code>dash.conf</code> in the Dash data directory, but both the data directory and the configuration file path may be changed using the <code>-datadir</code> and <code>-conf</code> command-line arguments.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Platform</th>\n<th>Path to data folder</th>\n<th>Typical path to configuration file</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Linux</td>\n<td>~/</td>\n<td>/home/username/.dashcore/dash.conf</td>\n</tr>\n<tr>\n<td>macOS</td>\n<td>~/Library/Application Support/</td>\n<td>/Users/username/Library/Application Support/DashCore/dash.conf</td>\n</tr>\n<tr>\n<td>Windows</td>\n<td>%APPDATA%</td>\n<td><em>(Vista-10)</em> C:\\Users\\username\\AppData\\Roaming\\DashCore\\dash.conf</td>\n</tr>\n<tr>\n<td>Windows</td>\n<td>%APPDATA%</td>\n<td><em>(2000-XP)</em> C:\\Documents and Settings\\username\\Application Data\\DashCore\\dash.conf</td>\n</tr>\n</tbody>\n</table></div>\n<blockquote>\n<p>\ud83d\udcd8 Testnet/Devnet modes</p>\n<p>Note: if running Dash in testnet mode, the sub-folder <code>testnet3</code> will be appended to the data directory automatically. Likewise, if running in devnet mode, the subfolder <code>devnet-&quot;devnet name&quot;</code> will be appended to the data directory.</p>\n</blockquote>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-command-line-arguments\"></div>Command Line Arguments<a class=\"fa fa-anchor\" href=\"#section-command-line-arguments\"></a></h1>\n<p>The following sections provide details of the command line arguments for each of the four components distributed in Dash Core releases.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>dashd</td>\n<td>Dash Core daemon</td>\n</tr>\n<tr>\n<td>dash-qt</td>\n<td>Dash Core wallet GUI</td>\n</tr>\n<tr>\n<td>dash-cli</td>\n<td>Dash Core RPC Client</td>\n</tr>\n<tr>\n<td>dash-tx</td>\n<td>Dash Core transaction utility</td>\n</tr>\n</tbody>\n</table></div>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dashd\"></div>dashd<a class=\"fa fa-anchor\" href=\"#section-dashd\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dashd\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dashd [options]                     Start Dash Core Daemon</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-qt\"></div>dash-qt<a class=\"fa fa-anchor\" href=\"#section-dash-qt\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-qt\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-qt [command-line options]</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-cli\"></div>dash-cli<a class=\"fa fa-anchor\" href=\"#section-dash-cli\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-cli\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-cli [options] &lt;command&gt; [params]  Send command to Dash Core\n  dash-cli [options] <span class=\"cm-attribute\">-named</span> &lt;command&gt; <span class=\"cm-def\">[name</span><span class=\"cm-operator\">=</span>value] ... Send command to Dash Core (with named arguments)\n  dash-cli [options] help                List commands\n  dash-cli [options] help &lt;command&gt;      Get help <span class=\"cm-keyword\">for</span> a command</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-tx\"></div>dash-tx<a class=\"fa fa-anchor\" href=\"#section-dash-tx\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-tx\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-tx [options] &lt;hex-tx&gt; [commands]  Update hex-encoded dash transaction\n  dash-tx [options] <span class=\"cm-attribute\">-create</span> [commands]   Create hex-encoded dash transaction</span>\n</code></pre>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "dash-core-wallet-arguments-and-commands", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 0, 
- "_id": "61549206c31f6b00207cf2b4", 
- "order": 0, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Arguments and Commands",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-core-wallet-arguments-and-commands",
+ "excerpt": "",
+ "body": "# Overview\n\nAll command-line options (except for `-conf`) may be specified in a configuration file, and all configuration file options may also be specified on the command line. Command-line options override values set in the configuration file. The configuration file is a list of `<setting>=<value>` pairs, one per line, with optional comments starting with the `#` character.\n\nThe configuration file is not automatically created; you can create it using your favorite plain-text editor. By default, dash-qt (or dashd) will look for a file named `dash.conf` in the Dash data directory, but both the data directory and the configuration file path may be changed using the `-datadir` and `-conf` command-line arguments.\n\n| Platform | Path to data folder | Typical path to configuration file |\n| - | - | - |\n| Linux | ~/ | /home/username/.dashcore/dash.conf |\n| macOS | ~/Library/Application Support/ | /Users/username/Library/Application Support/DashCore/dash.conf |\n| Windows | %APPDATA% | _(Vista-10)_ C:\\\\Users\\\\username\\\\AppData\\\\Roaming\\\\DashCore\\\\dash.conf |\n| Windows | %APPDATA% | _(2000-XP)_ C:\\\\Documents and Settings\\\\username\\\\Application Data\\\\DashCore\\\\dash.conf |\n\n> \ud83d\udcd8 Testnet/Devnet modes\n>\n> Note: if running Dash in testnet mode, the sub-folder `testnet3` will be appended to the data directory automatically. Likewise, if running in devnet mode, the subfolder `devnet-\"devnet name\"` will be appended to the data directory.\n\n# Command Line Arguments\n\nThe following sections provide details of the command line arguments for each of the four components distributed in Dash Core releases.\n\n| Component | Description |\n| - | - |\n| dashd | Dash Core daemon |\n| dash-qt | Dash Core wallet GUI |\n| dash-cli | Dash Core RPC Client |\n| dash-tx | Dash Core transaction utility |\n\n## dashd\n\nSee [here](dash-core-wallet-arguments-and-commands-dashd) for all option details.\n\n```bash \nUsage:\n  dashd [options]                     Start Dash Core Daemon\n```\n\n## dash-qt\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-qt) for all option details.\n\n```bash\nUsage:\n  dash-qt [command-line options]                     \n```\n\n## dash-cli\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-cli) for all option details.\n\n```bash\nUsage:\n  dash-cli [options] <command> [params]  Send command to Dash Core\n  dash-cli [options] -named <command> [name=value] ... Send command to Dash Core (with named arguments)\n  dash-cli [options] help                List commands\n  dash-cli [options] help <command>      Get help for a command\n```\n\n## dash-tx\n\nSee [here](dash-core-wallet-arguments-and-commands-dash-tx) for all option details.\n\n```bash\nUsage:\n  dash-tx [options] <hex-tx> [commands]  Update hex-encoded dash transaction\n  dash-tx [options] -create [commands]   Create hex-encoded dash transaction\n```",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:57.028Z",
+ "_id": "61549206c31f6b00207cf2b4",
+ "createdAt": "2020-06-04T12:41:03.811Z",
+ "updatedAt": "2020-06-05T14:11:12.694Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "61549205c31f6b00207cf238",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "version": "61549206c31f6b00207cf2be",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf2b4",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>All command-line options (except for <code>-conf</code>) may be specified in a configuration file, and all configuration file options may also be specified on the command line. Command-line options override values set in the configuration file. The configuration file is a list of <code>&lt;setting&gt;=&lt;value&gt;</code> pairs, one per line, with optional comments starting with the <code>#</code> character.</p>\n<p>The configuration file is not automatically created; you can create it using your favorite plain-text editor. By default, dash-qt (or dashd) will look for a file named <code>dash.conf</code> in the Dash data directory, but both the data directory and the configuration file path may be changed using the <code>-datadir</code> and <code>-conf</code> command-line arguments.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Platform</th>\n<th>Path to data folder</th>\n<th>Typical path to configuration file</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Linux</td>\n<td>~/</td>\n<td>/home/username/.dashcore/dash.conf</td>\n</tr>\n<tr>\n<td>macOS</td>\n<td>~/Library/Application Support/</td>\n<td>/Users/username/Library/Application Support/DashCore/dash.conf</td>\n</tr>\n<tr>\n<td>Windows</td>\n<td>%APPDATA%</td>\n<td><em>(Vista-10)</em> C:\\Users\\username\\AppData\\Roaming\\DashCore\\dash.conf</td>\n</tr>\n<tr>\n<td>Windows</td>\n<td>%APPDATA%</td>\n<td><em>(2000-XP)</em> C:\\Documents and Settings\\username\\Application Data\\DashCore\\dash.conf</td>\n</tr>\n</tbody>\n</table></div>\n<blockquote>\n<p>\ud83d\udcd8 Testnet/Devnet modes</p>\n<p>Note: if running Dash in testnet mode, the sub-folder <code>testnet3</code> will be appended to the data directory automatically. Likewise, if running in devnet mode, the subfolder <code>devnet-&quot;devnet name&quot;</code> will be appended to the data directory.</p>\n</blockquote>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-command-line-arguments\"></div>Command Line Arguments<a class=\"fa fa-anchor\" href=\"#section-command-line-arguments\"></a></h1>\n<p>The following sections provide details of the command line arguments for each of the four components distributed in Dash Core releases.</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>Component</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>dashd</td>\n<td>Dash Core daemon</td>\n</tr>\n<tr>\n<td>dash-qt</td>\n<td>Dash Core wallet GUI</td>\n</tr>\n<tr>\n<td>dash-cli</td>\n<td>Dash Core RPC Client</td>\n</tr>\n<tr>\n<td>dash-tx</td>\n<td>Dash Core transaction utility</td>\n</tr>\n</tbody>\n</table></div>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dashd\"></div>dashd<a class=\"fa fa-anchor\" href=\"#section-dashd\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dashd\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dashd [options]                     Start Dash Core Daemon</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-qt\"></div>dash-qt<a class=\"fa fa-anchor\" href=\"#section-dash-qt\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-qt\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-qt [command-line options]</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-cli\"></div>dash-cli<a class=\"fa fa-anchor\" href=\"#section-dash-cli\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-cli\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-cli [options] &lt;command&gt; [params]  Send command to Dash Core\n  dash-cli [options] <span class=\"cm-attribute\">-named</span> &lt;command&gt; <span class=\"cm-def\">[name</span><span class=\"cm-operator\">=</span>value] ... Send command to Dash Core (with named arguments)\n  dash-cli [options] help                List commands\n  dash-cli [options] help &lt;command&gt;      Get help <span class=\"cm-keyword\">for</span> a command</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-tx\"></div>dash-tx<a class=\"fa fa-anchor\" href=\"#section-dash-tx\"></a></h2>\n<p>See <a href=\"dash-core-wallet-arguments-and-commands-dash-tx\">here</a> for all option details.</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-tx [options] &lt;hex-tx&gt; [commands]  Update hex-encoded dash transaction\n  dash-tx [options] <span class=\"cm-attribute\">-create</span> [commands]   Create hex-encoded dash transaction</span>\n</code></pre>\n\n</div>"
 }

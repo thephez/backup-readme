@@ -1,69 +1,69 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": "61549206c31f6b00207cf286", 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-10-28T13:49:20.578Z", 
- "id": "61549206c31f6b00207cf289", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-10-28T13:48:59.176Z", 
- "category": "61549205c31f6b00207cf232", 
- "title": "Future Proposals", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": [
    {
-    "category": "Core Guides", 
-    "slug": "core-guide-p2p-network", 
-    "type": "doc", 
-    "name": "P2P Network", 
-    "icon": "file-text-o"
+    "type": "doc",
+    "icon": "file-text-o",
+    "name": "P2P Network",
+    "slug": "core-guide-p2p-network",
+    "category": "Core Guides"
    }
   ]
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-12-08T01:45:25.924Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "There are future proposals such as Unspent Transaction Output (UTXO) commitments in the block chain to find a more satisfactory middle-ground for clients between needing a complete copy of the block chain, or trusting that a majority of your connected peers are not lying. UTXO commitments would enable a very secure client using a finite amount of storage using a data structure that is authenticated in the block chain. These type of proposals are, however, in very early stages, and will require soft forks in the network.\n\nUntil these types of operating modes are implemented, modes should be chosen based on the likely threat model, computing and bandwidth constraints, and liability in Dash value.\n\n**Resources:** [Original Thread on UTXO Commitments](https://bitcointalk.org/index.php?topic=88208.0), [Authenticated Prefix Trees BIP Proposal](https://github.com/maaku/bips/blob/master/drafts/auth-trie.mediawiki)", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>There are future proposals such as Unspent Transaction Output (UTXO) commitments in the block chain to find a more satisfactory middle-ground for clients between needing a complete copy of the block chain, or trusting that a majority of your connected peers are not lying. UTXO commitments would enable a very secure client using a finite amount of storage using a data structure that is authenticated in the block chain. These type of proposals are, however, in very early stages, and will require soft forks in the network.</p>\n<p>Until these types of operating modes are implemented, modes should be chosen based on the likely threat model, computing and bandwidth constraints, and liability in Dash value.</p>\n<p><strong>Resources:</strong> <a href=\"https://bitcointalk.org/index.php?topic=88208.0\">Original Thread on UTXO Commitments</a>, <a href=\"https://github.com/maaku/bips/blob/master/drafts/auth-trie.mediawiki\">Authenticated Prefix Trees BIP Proposal</a></p>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "core-guide-operating-modes-future-proposals", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 1, 
- "_id": "61549206c31f6b00207cf289", 
- "order": 2, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Future Proposals",
+ "updates": [],
+ "type": "basic",
+ "slug": "core-guide-operating-modes-future-proposals",
+ "excerpt": "",
+ "body": "There are future proposals such as Unspent Transaction Output (UTXO) commitments in the block chain to find a more satisfactory middle-ground for clients between needing a complete copy of the block chain, or trusting that a majority of your connected peers are not lying. UTXO commitments would enable a very secure client using a finite amount of storage using a data structure that is authenticated in the block chain. These type of proposals are, however, in very early stages, and will require soft forks in the network.\n\nUntil these types of operating modes are implemented, modes should be chosen based on the likely threat model, computing and bandwidth constraints, and liability in Dash value.\n\n**Resources:** [Original Thread on UTXO Commitments](https://bitcointalk.org/index.php?topic=88208.0), [Authenticated Prefix Trees BIP Proposal](https://github.com/maaku/bips/blob/master/drafts/auth-trie.mediawiki)",
+ "order": 2,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:57.765Z",
+ "_id": "61549206c31f6b00207cf289",
+ "version": "61549206c31f6b00207cf2be",
+ "updatedAt": "2019-10-28T13:49:20.578Z",
+ "createdAt": "2019-10-28T13:48:59.176Z",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "61549206c31f6b00207cf286",
+ "category": "61549205c31f6b00207cf232",
+ "__v": 1,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf289",
+ "body_html": "<div class=\"magic-block-textarea\"><p>There are future proposals such as Unspent Transaction Output (UTXO) commitments in the block chain to find a more satisfactory middle-ground for clients between needing a complete copy of the block chain, or trusting that a majority of your connected peers are not lying. UTXO commitments would enable a very secure client using a finite amount of storage using a data structure that is authenticated in the block chain. These type of proposals are, however, in very early stages, and will require soft forks in the network.</p>\n<p>Until these types of operating modes are implemented, modes should be chosen based on the likely threat model, computing and bandwidth constraints, and liability in Dash value.</p>\n<p><strong>Resources:</strong> <a href=\"https://bitcointalk.org/index.php?topic=88208.0\">Original Thread on UTXO Commitments</a>, <a href=\"https://github.com/maaku/bips/blob/master/drafts/auth-trie.mediawiki\">Authenticated Prefix Trees BIP Proposal</a></p>\n\n</div>"
 }

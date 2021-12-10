@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2021-03-24T16:37:39.145Z", 
- "id": "61549206c31f6b00207cf2bd", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2021-03-24T16:37:39.145Z", 
- "category": "61549205c31f6b00207cf237", 
- "title": "Previous Version of Docs", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "61549206c31f6b00207cf2be", 
- "slugUpdatedAt": "2021-03-24T15:50:39.496Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": false, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "previous-version-of-docs", 
- "deprecated": false, 
- "link_url": "https://dashcore.readme.io/v0.16.0/docs/", 
- "project": "5daf2e65f4109c0040fd51e1", 
- "__v": 0, 
- "_id": "61549206c31f6b00207cf2bd", 
- "order": 8, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Previous Version of Docs",
+ "updates": [],
+ "type": "link",
+ "slug": "previous-version-of-docs",
+ "excerpt": "",
+ "body": "",
+ "order": 8,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://dashcore.readme.io/v0.16.0/docs/",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-03-24T15:50:39.496Z",
+ "_id": "61549206c31f6b00207cf2bd",
+ "createdAt": "2021-03-24T16:37:39.145Z",
+ "updatedAt": "2021-03-24T16:37:39.145Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "61549205c31f6b00207cf237",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "version": "61549206c31f6b00207cf2be",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "61549206c31f6b00207cf2bd",
+ "body_html": "&nbsp;"
 }

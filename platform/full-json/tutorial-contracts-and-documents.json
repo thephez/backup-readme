@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "contracts-and-documents", 
- "updatedAt": "2020-12-21T19:34:41.839Z", 
- "id": "612fe724e9fa2b0026f5fabf", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-12-17T19:28:18.074Z", 
- "category": "612fe724e9fa2b0026f5fa65", 
- "title": "Contracts and Documents", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-12-17T19:28:37.093Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.\n\n- [Register a Data Contract](doc:tutorial-register-a-data-contract) \n- [Retrieve a Data Contract](doc:tutorial-retrieve-a-data-contract) \n- [Submit Documents](doc:tutorial-submit-documents) \n- [Retrieve Documents](doc:tutorial-retrieve-documents) \n- [Update Documents](doc:tutorial-update-documents) \n- [Delete Documents](doc:tutorial-delete-documents)", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-data-contract\">Register a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-data-contract\">Retrieve a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-submit-documents\" class=\"doc-link\" data-sidebar=\"tutorial-submit-documents\">Submit Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-documents\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-documents\">Retrieve Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-update-documents\" class=\"doc-link\" data-sidebar=\"tutorial-update-documents\">Update Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-delete-documents\" class=\"doc-link\" data-sidebar=\"tutorial-delete-documents\">Delete Documents</a></li></ul>\n\n</div>", 
- "updates": [], 
- "isReference": false, 
- "slug": "tutorial-contracts-and-documents", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fabf", 
- "order": 6, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Contracts and Documents",
+ "updates": [],
+ "type": "basic",
+ "slug": "tutorial-contracts-and-documents",
+ "excerpt": "",
+ "body": "The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.\n\n- [Register a Data Contract](doc:tutorial-register-a-data-contract) \n- [Retrieve a Data Contract](doc:tutorial-retrieve-a-data-contract) \n- [Submit Documents](doc:tutorial-submit-documents) \n- [Retrieve Documents](doc:tutorial-retrieve-documents) \n- [Update Documents](doc:tutorial-update-documents) \n- [Delete Documents](doc:tutorial-delete-documents)",
+ "order": 6,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "contracts-and-documents",
+ "slugUpdatedAt": "2020-12-17T19:28:37.093Z",
+ "_id": "612fe724e9fa2b0026f5fabf",
+ "createdAt": "2020-12-17T19:28:18.074Z",
+ "updatedAt": "2020-12-21T19:34:41.839Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa65",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fabf",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-data-contract\">Register a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-data-contract\">Retrieve a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-submit-documents\" class=\"doc-link\" data-sidebar=\"tutorial-submit-documents\">Submit Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-documents\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-documents\">Retrieve Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-update-documents\" class=\"doc-link\" data-sidebar=\"tutorial-update-documents\">Update Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-delete-documents\" class=\"doc-link\" data-sidebar=\"tutorial-delete-documents\">Delete Documents</a></li></ul>\n\n</div>"
 }

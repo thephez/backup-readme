@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2019-12-10T15:11:45.430Z", 
- "id": "612fe724e9fa2b0026f5fa7c", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-08-01T13:51:31.997Z", 
- "category": "612fe724e9fa2b0026f5fa67", 
- "title": "DAPI Reference", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-12-08T10:04:45.675Z", 
- "hidden": true, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "reference-decentralized-api-api-reference", 
- "deprecated": false, 
- "link_url": "https://dash-docs.readme.io/v0.0.2/reference", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fa7c", 
- "order": 7, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "DAPI Reference",
+ "updates": [],
+ "type": "link",
+ "slug": "reference-decentralized-api-api-reference",
+ "excerpt": "",
+ "body": "",
+ "order": 7,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "https://dash-docs.readme.io/v0.0.2/reference",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-12-09T21:24:58.287Z",
+ "_id": "612fe724e9fa2b0026f5fa7c",
+ "version": "612fe724e9fa2b0026f5face",
+ "updatedAt": "2019-12-10T15:11:45.430Z",
+ "createdAt": "2019-08-01T13:51:31.997Z",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "612fe724e9fa2b0026f5fa67",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa7c",
+ "body_html": "&nbsp;"
 }

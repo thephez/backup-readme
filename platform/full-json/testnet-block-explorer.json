@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2020-12-30T20:25:03.206Z", 
- "id": "612fe724e9fa2b0026f5fac4", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2020-12-30T20:25:03.206Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "Testnet Block Explorer", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2020-12-29T22:47:20.568Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "testnet-block-explorer", 
- "deprecated": false, 
- "link_url": "https://testnet-insight.dashevo.org/insight/", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fac4", 
- "order": 1, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Testnet Block Explorer",
+ "updates": [],
+ "type": "link",
+ "slug": "testnet-block-explorer",
+ "excerpt": "",
+ "body": "",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://testnet-insight.dashevo.org/insight/",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-12-29T22:47:20.568Z",
+ "_id": "612fe724e9fa2b0026f5fac4",
+ "createdAt": "2020-12-30T20:25:03.206Z",
+ "updatedAt": "2020-12-30T20:25:03.206Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fac4",
+ "body_html": "&nbsp;"
 }

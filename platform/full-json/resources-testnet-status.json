@@ -1,61 +1,61 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
     }
    ]
-  }
- }, 
- "previousSlug": "testnet-status", 
- "updatedAt": "2021-02-24T16:07:03.541Z", 
- "id": "612fe724e9fa2b0026f5fac7", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2021-02-24T16:07:03.541Z", 
- "category": "612fe724e9fa2b0026f5fa66", 
- "title": "Testnet Status", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-02-24T16:07:59.270Z", 
- "hidden": false, 
- "type": "link", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "", 
- "link_external": true, 
- "body_html": "&nbsp;", 
- "updates": [], 
- "isReference": false, 
- "slug": "resources-testnet-status", 
- "deprecated": false, 
- "link_url": "https://dash-testnet.freshstatus.io/", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 0, 
- "_id": "612fe724e9fa2b0026f5fac7", 
- "order": 4, 
- "user": "5b8400d7185d5e00036dcc3b"
+ },
+ "title": "Testnet Status",
+ "updates": [],
+ "type": "link",
+ "slug": "resources-testnet-status",
+ "excerpt": "",
+ "body": "",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "https://dash-testnet.freshstatus.io/",
+ "link_external": true,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "testnet-status",
+ "slugUpdatedAt": "2021-02-24T16:07:59.270Z",
+ "_id": "612fe724e9fa2b0026f5fac7",
+ "createdAt": "2021-02-24T16:07:03.541Z",
+ "updatedAt": "2021-02-24T16:07:03.541Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa66",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "612fe724e9fa2b0026f5face",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fac7",
+ "body_html": "&nbsp;"
 }

@@ -1,64 +1,64 @@
 {
- "pendingAlgoliaPublish": false, 
- "parentDoc": null, 
- "excerpt": "A decentralized API for Dash", 
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
  "api": {
-  "url": "", 
-  "params": [], 
-  "method": "get", 
-  "auth": "required", 
+  "method": "get",
+  "url": "",
+  "auth": "required",
   "results": {
    "codes": [
     {
-     "status": 200, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
-    }, 
+     "status": 200,
+     "language": "json",
+     "code": "{}",
+     "name": ""
+    },
     {
-     "status": 400, 
-     "code": "{}", 
-     "name": "", 
-     "language": "json"
+     "status": 400,
+     "language": "json",
+     "code": "{}",
+     "name": ""
     }
    ]
-  }
- }, 
- "previousSlug": "", 
- "updatedAt": "2021-07-08T13:12:10.828Z", 
- "id": "612fe724e9fa2b0026f5fa8f", 
- "sync_unique": "", 
- "isApi": false, 
- "createdAt": "2019-11-21T17:00:19.885Z", 
- "category": "612fe724e9fa2b0026f5fa68", 
- "title": "Decentralized API (DAPI)", 
+  },
+  "params": []
+ },
  "next": {
-  "description": "", 
+  "description": "",
   "pages": []
- }, 
- "version": "612fe724e9fa2b0026f5face", 
- "slugUpdatedAt": "2021-01-19T02:33:09.283Z", 
- "hidden": false, 
- "type": "basic", 
- "metadata": {
-  "image": [], 
-  "description": "", 
-  "title": ""
- }, 
- "body": "# Overview\n\nHistorically, nodes in most cryptocurrency networks communicated with each other, and the outside world, according to a peer-to-peer (P2P) protocol. The use of P2P protocols presented some downsides for developers, namely, network resources were difficult to access without specialized knowledge or trusted third-party services. To overcome these obstacles, the Dash decentralized API (DAPI) uses Dash's robust masternode infrastructure to provide an API for accessing the network. DAPI supports both layer 1 (Core blockchain) and layer 2 (Dash Platform) functionality so all developers can interact with Dash via a single interface.\n\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\",\n        \"Decentralized API (DAPI).svg\",\n        613,\n        193,\n        \"#fafafc\"\n      ],\n      \"caption\": \"DAPI Overview\"\n    }\n  ]\n}\n[/block]\n# Endpoint Overview\n\nDAPI currently provides 2 types of endpoints: [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/docs/guides/). The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions. For a list of all endpoints and usage details, please see the [DAPI endpoint reference section](reference-dapi-endpoints).", 
- "link_external": false, 
- "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>Historically, nodes in most cryptocurrency networks communicated with each other, and the outside world, according to a peer-to-peer (P2P) protocol. The use of P2P protocols presented some downsides for developers, namely, network resources were difficult to access without specialized knowledge or trusted third-party services. To overcome these obstacles, the Dash decentralized API (DAPI) uses Dash&#39;s robust masternode infrastructure to provide an API for accessing the network. DAPI supports both layer 1 (Core blockchain) and layer 2 (Dash Platform) functionality so all developers can interact with Dash via a single interface.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\" class=\"block-display-image-parent block-display-image-size-smart \"><img src=\"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\" alt=\"DAPI Overview\"/></a>\n\t</figure>\n\t<figcaption><p>DAPI Overview</p>\n</figcaption>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-endpoint-overview\"></div>Endpoint Overview<a class=\"fa fa-anchor\" href=\"#section-endpoint-overview\"></a></h1>\n<p>DAPI currently provides 2 types of endpoints: <a href=\"https://www.jsonrpc.org/\">JSON-RPC</a> and <a href=\"https://grpc.io/docs/guides/\">gRPC</a>. The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions. For a list of all endpoints and usage details, please see the <a href=\"reference-dapi-endpoints\">DAPI endpoint reference section</a>.</p>\n\n</div>", 
+ },
+ "title": "Decentralized API (DAPI)",
  "updates": [
-  "5e026f92c6b339001dcb7560", 
+  "5e026f92c6b339001dcb7560",
   "6083079d6722ae001cd14677"
- ], 
- "isReference": false, 
- "slug": "explanation-dapi", 
- "deprecated": false, 
- "link_url": "", 
- "project": "5bda01cad172e200499a20a9", 
- "__v": 2, 
- "_id": "612fe724e9fa2b0026f5fa8f", 
- "order": 0, 
- "user": "5b8400d7185d5e00036dcc3b"
+ ],
+ "type": "basic",
+ "slug": "explanation-dapi",
+ "excerpt": "A decentralized API for Dash",
+ "body": "# Overview\n\nHistorically, nodes in most cryptocurrency networks communicated with each other, and the outside world, according to a peer-to-peer (P2P) protocol. The use of P2P protocols presented some downsides for developers, namely, network resources were difficult to access without specialized knowledge or trusted third-party services. To overcome these obstacles, the Dash decentralized API (DAPI) uses Dash's robust masternode infrastructure to provide an API for accessing the network. DAPI supports both layer 1 (Core blockchain) and layer 2 (Dash Platform) functionality so all developers can interact with Dash via a single interface.\n\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\",\n        \"Decentralized API (DAPI).svg\",\n        613,\n        193,\n        \"#fafafc\"\n      ],\n      \"caption\": \"DAPI Overview\"\n    }\n  ]\n}\n[/block]\n# Endpoint Overview\n\nDAPI currently provides 2 types of endpoints: [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/docs/guides/). The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions. For a list of all endpoints and usage details, please see the [DAPI endpoint reference section](reference-dapi-endpoints).",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-01-19T02:33:09.283Z",
+ "_id": "612fe724e9fa2b0026f5fa8f",
+ "version": "612fe724e9fa2b0026f5face",
+ "updatedAt": "2021-07-08T13:12:10.828Z",
+ "createdAt": "2019-11-21T17:00:19.885Z",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "612fe724e9fa2b0026f5fa68",
+ "__v": 2,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "612fe724e9fa2b0026f5fa8f",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>Historically, nodes in most cryptocurrency networks communicated with each other, and the outside world, according to a peer-to-peer (P2P) protocol. The use of P2P protocols presented some downsides for developers, namely, network resources were difficult to access without specialized knowledge or trusted third-party services. To overcome these obstacles, the Dash decentralized API (DAPI) uses Dash&#39;s robust masternode infrastructure to provide an API for accessing the network. DAPI supports both layer 1 (Core blockchain) and layer 2 (Dash Platform) functionality so all developers can interact with Dash via a single interface.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\" class=\"block-display-image-parent block-display-image-size-smart \"><img src=\"https://files.readme.io/e011783-Decentralized_API_DAPI.svg\" alt=\"DAPI Overview\"/></a>\n\t</figure>\n\t<figcaption><p>DAPI Overview</p>\n</figcaption>\n</div>\n<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-endpoint-overview\"></div>Endpoint Overview<a class=\"fa fa-anchor\" href=\"#section-endpoint-overview\"></a></h1>\n<p>DAPI currently provides 2 types of endpoints: <a href=\"https://www.jsonrpc.org/\">JSON-RPC</a> and <a href=\"https://grpc.io/docs/guides/\">gRPC</a>. The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions. For a list of all endpoints and usage details, please see the <a href=\"reference-dapi-endpoints\">DAPI endpoint reference section</a>.</p>\n\n</div>"
 }
