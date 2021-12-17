@@ -38,7 +38,7 @@ Valid fields consist of the indices defined for the document being queried. For 
 | < | Matches values that are less than a specified value |
 | <= | Matches values that are less than or equal to a specified value |
 | == | Matches values that are equal to a specified value |
-| => | Matches values that are greater than or equal to a specified value |
+| >= | Matches values that are greater than or equal to a specified value |
 | > | Matches values that are greater than a specified value |
 | in | Matches all document(s) where the value of the field equals any value in the specified array <br>Array may include up to 100 (unique) elements |
 
@@ -138,7 +138,7 @@ Currently Dash Platform uses mongoDB for storage. The following table shows a ma
 | < | [$lt](https://docs.mongodb.com/manual/reference/operator/query/lt) |
 | <= | [$lte](https://docs.mongodb.com/manual/reference/operator/query/lte) |
 | == | [$eq](https://docs.mongodb.com/manual/reference/operator/query/eq) |
-| => | [$gte](https://docs.mongodb.com/manual/reference/operator/query/gte) |
+| >= | [$gte](https://docs.mongodb.com/manual/reference/operator/query/gte) |
 | > | [$gt](https://docs.mongodb.com/manual/reference/operator/query/gt) |
 | in | [$in](https://docs.mongodb.com/manual/reference/operator/query/in) |
 | length | [$size](https://docs.mongodb.com/manual/reference/operator/query/size/) |

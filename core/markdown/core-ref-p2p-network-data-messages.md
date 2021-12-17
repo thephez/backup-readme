@@ -312,11 +312,11 @@ The following annotated hexdump shows a [`getmnlistd` message](core-ref-p2p-netw
 db3fe368976296fd3b6d73fdaf898cc0 ........... Block hash
 ```
 
-# getquorumrotationinfo
+# getqrinfo
 
 *Added in protocol version 70220 of Dash Core.*
 
-The `getquorumrotationinfo` message requests a [`quorumrotationinfo` message](core-ref-p2p-network-data-messages#quorumrotationinfo) that provides the information required to verify quorum details for quorums formed using the quorum rotation process.
+The `getqrinfo` message requests a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo) that provides the information required to verify quorum details for quorums formed using the quorum rotation process.
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
@@ -324,7 +324,7 @@ The `getquorumrotationinfo` message requests a [`quorumrotationinfo` message](co
 | Varies | baseBlockHashes | uint256[] | Required | Array of base block hashes for the masternode lists the light client already knows
 | 32 | blockRequestHash | uint256 | Required | Hash of the block for which the masternode list diff is requested
 
-The following annotated hexdump shows a [`getquorumrotationinfo` message](core-ref-p2p-network-data-messages#getquorumrotationinfo). (The message header has been omitted.)
+The following annotated hexdump shows a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo). (The message header has been omitted.)
 
 ``` text
 TBD
@@ -631,11 +631,11 @@ The [`notfound` message](core-ref-p2p-network-data-messages#notfound) is a reply
 
 The format and maximum size limitations of the [`notfound` message](core-ref-p2p-network-data-messages#notfound) are identical to the [`inv` message](core-ref-p2p-network-data-messages#inv); only the message header differs.
 
-# quorumrotationinfo
+# qrinfo
 
 *Added in protocol version 70220 of Dash Core.*
 
-The `quorumrotationinfo` message sends quorum information to a node which previously requested it with a [`getquorumrotationinfo` message](core-ref-p2p-network-data-messages#getquorumrotationinfo).
+The `qrinfo` message sends quorum rotation information to a node which previously requested it with a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo).
 
 Note: In the following fields, `c` refers to the quorum cycle length (**_???_** for InstantSend quorums).
 
@@ -651,7 +651,7 @@ Note: In the following fields, `c` refers to the quorum cycle length (**_???_** 
 | Varies | mnListDiffAtHMinus3C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-3c`
 
 
-The following annotated hexdump shows a [`quorumrotationinfo` message](core-ref-p2p-network-data-messages#quorumrotationinfo). (The message header has been omitted.)
+The following annotated hexdump shows a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo). (The message header has been omitted.)
 
 ``` text
 TBD

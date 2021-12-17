@@ -392,12 +392,19 @@ b6a5077267fdc61cdb192faffa27bed9
 The [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit) is used to finalize a <<glossary:Long-Living Masternode Quorum>> setup by aggregating the information necessary to mine the on-chain [QcTx](core-ref-transactions-special-transactions#qctx) special transaction. The message contains all the necessary information required to validate the long-living masternode quorum's signing results.
 
 It is possible to receive multiple valid final commitments for the same DKG session. These should only differ in the number of signers, which can be ignored as long as there are at least `quorumThreshold` number of signers. The set of valid members for these final commitments should always be the same, as each member only creates a single premature commitment. This means that only one set of valid members (and thus only one quorum verification vector and quorum <<glossary:public key>>) can gain a majority. If the threshold is not reached, there will be no valid final commitment.
-
+[block:callout]
+{
+  "type": "info",
+  "title": "Version 2",
+  "body": "Dash Core 0.18 updated the `qfcommit` message to support a new message of quorum creation for some quorum types. Note the addition of the `quorumIndex` field in version 2 messages."
+}
+[/block]
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
 | 2 | version | uint16_t | Version of the final commitment message
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | The quorum identifier
+| 4 | quorumIndex | uint32_t | **Added in version 2**<br><br>The quorum index
 | 1-9 | signersSize | compactSize uint | Bit size of the signers bitvector
 | (bitSize + 7) / 8 | signers | byte[] | Bitset representing the aggregated signers of this final commitment
 | 1-9 | validMembersSize | compactSize uint | Bit size of the `validMembers` bitvector
@@ -409,7 +416,7 @@ It is possible to receive multiple valid final commitments for the same DKG sess
 
 More information can be found in the [Finalization phase section of DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#6-finalization-phase).
 
-The following annotated hexdump shows a [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit). (The message header has been omitted.)
+The following annotated hexdump shows a _version 1_ [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit). (The message header has been omitted.)
 
 ``` text
 0100 ....................................... Message Version: 1
@@ -444,6 +451,45 @@ d78dc67e236b55086cbb0624c7f4abcc
 0dda2e73a99ca3d359631cb99a121c5e
 92cea06ef4c03bb18ad9e90559104550
 c8a042dc51aa58a26c134405fc3234ff ........... Quorum Aggregate BLS Sig
+```
+
+The following annotated hexdump shows a _version 2_ [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit). (The message header has been omitted.)
+
+``` text
+0200 ....................................... Message Version: 2
+65 ......................................... LLMQ Type: 101 (LLMQ_DEVNET)
+
+d3b0d23936c7c2f1d3fff8a8b92212af
+511defff89d255e85a4ef8cdfb010000 ........... Quorum Hash
+
+01000000 ................................... Quorum Index (1) **Added in v2 messages**
+
+08 ......................................... Signer bitvector size: 8
+fb ......................................... Signers
+
+08 ......................................... Valid member bitvector size: 8
+fb ......................................... Valid members
+
+165b0f73242d61f89b4eb7d36e25fb01
+808d94c1a2e7c74cd7f6b3fc8e384642
+0da3459f6c0e5a4fc021f4ce9125a10c ........... Quorum BLS Public Key
+
+83846dbe1e0b71ce7011c321810fd7ba
+00768b84bb4c0c6b2ad25dee02c34eed ........... Quorum Verification Vector Hash
+
+14710c202aaae8d3a825afc19a7ea1f9
+be2b567a0423d8cd8c72354e4daa02c4
+65d2e591218a6608722eb40eba322e2a
+0090860548d3b8613a644ed71a4795e3
+37aae3251fe0e077ccaab7432c564e39
+cc427677fd92189c0b41d6f306581577 ........... Quorum BLS Recovered Threshold Sig
+
+9250b9a40b7e0f4773715540256ab99f
+8854970a0fe3313997bac10cef0a5b9f
+f33100bfba8f60342fd3a0cac17af370
+11a7594d8391b6ca1e3b987c5ed1e9d0
+7cb35789e1ab4c340902ae99bce94879
+5ee9bc60d59b3aad2eea15dea15d8093 ........... Quorum Aggregate BLS Sig
 ```
 
 # Signing Sessions
