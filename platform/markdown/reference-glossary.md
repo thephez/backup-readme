@@ -58,6 +58,10 @@ Describes data structures and validation rules for the data structures used by t
 ## Decentralized Autonomous Organization (DAO)
 An organization where decision making is governed according to a set of rules that is transparent, controlled by organization members, and lacking any central authority. Financial records are tracked using a blockchain, which provides the transparency and trust required by organization members. 
 
+## Devnet
+
+A development environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). Multiple independent devnets can coexist without interference. Devnets can be either public or private.
+
 ## Direct Settlement Payment Channel (DSPC)
 
 In DashPay, established contacts have address spaces to send and receive from each other. When these are present either in one way or bi-directional we will call this a direct settlement payment channel.
@@ -78,6 +82,10 @@ Layer 2 platform storage
 
 ## Long Living Masternode Quorum (LLMQ)  
 Deterministic subset of the global deterministic masternode list used to perform threshold signing of consensus-related messages
+
+## Mainnet
+
+The original and main network for Dash transactions, where transaction have real economic value.
 
 ## Masternode  
 2nd-tier collateralized Node in the Dash P2P network, performing additional functions and forming a provision layer
@@ -117,6 +125,12 @@ The change a user does to the application and platforms states. Consists of an a
 
 ## Tenderdash
 Dash fork of [Tendermint](https://tendermint.com/core) modified for use in Dash Platform
+
+## Testnet
+
+A global testing environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). 
+
+See: [Intro to Testnet](doc:intro-to-testnet) for more information
 
 ## Validator Set
 The group of masternodes responsible for the layer 2 blockchain (platform chain) consensus at a given time. They vote on the content of each platform chain block and are analogous to miners on the layer 1's core blockchain

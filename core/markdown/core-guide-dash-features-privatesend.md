@@ -120,8 +120,8 @@ _**General**_
 
 **Processing Fees**
 
-* If processing completes successfully, Dash Core charges the collateral randomly in 1/10 denominate transactions to pay miners ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L400-L417))
-* Clients that abuse the system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 2/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.15.0.0/src/privatesend/privatesend-server.cpp#L330-L347))
+* If processing completes successfully, Dash Core charges the collateral randomly in 1/10 denominate transactions to pay miners ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.17.0.0/src/coinjoin/coinjoin-server.cpp#L427-L444))
+* Clients that abuse the system by failing to respond to [`dsq` messages](core-ref-p2p-network-privatesend-messages#dsq) or [`dsf` messages](core-ref-p2p-network-privatesend-messages#dsf) within the timeout periods may forfeit their collateral. Dash Core charges the abuse fee in 1/3 cases ([Dash Core Reference](https://github.com/dashpay/dash/blob/v0.17.0.0/src/coinjoin/coinjoin-server.cpp#L357-L374))
 
 **Sending Fees**
 
