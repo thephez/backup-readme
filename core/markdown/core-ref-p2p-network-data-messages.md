@@ -29,7 +29,9 @@ The currently-available type identifiers are:
 | 26               | <<glossary:MSG_QUORUM_PREMATURE_COMMITMENT>>    | The hash is a long-living masternode quorum premature commitment.<br>_Added in 0.14.0_
 | 28               | <<glossary:MSG_QUORUM_RECOVERED_SIG>>                        | The hash is a long-living masternode quorum recovered signature. <br><br>**Note**: Only relayed to other masternodes in the same quorum and nodes that have sent a [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch) as of Dash Core 0.17.0<br>_Added in 0.14.0_
 | 29               | <<glossary:MSG_CLSIG>>                                     | The hash is a ChainLock signature.<br>_Added in 0.14.0_
-| 30               | <<glossary:MSG_ISLOCK>>                                   | The hash is an LLMQ-based InstantSend lock.<br>_Added in 0.14.0_
+| 30               | <<glossary:MSG_ISLOCK>>                                   | The hash is an LLMQ-based InstantSend lock ([DIP10](https://github.com/dashpay/dips/blob/master/dip-0010.md)).<br>_Added in 0.14.0_
+| 31               | <<glossary:MSG_ISDLOCK>>                                   | The hash is an LLMQ-based deterministic InstantSend lock ([DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md)).<br>_Added in 0.18.0_
+
 
 **Deprecated Type Identifiers**
 
@@ -274,7 +276,7 @@ b0509e79c8cd3d654cdf3a0100000000 ... Block Hash
 
 The [`getdata` message](core-ref-p2p-network-data-messages#getdata) requests one or more data objects from another <<glossary:node>>. The objects are requested by an inventory, which the requesting node typically previously received by way of an [`inv` message](core-ref-p2p-network-data-messages#inv).
 
-The response to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) can be a [`tx` message](core-ref-p2p-network-data-messages#tx), [`block` message](core-ref-p2p-network-data-messages#block), [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock), `ix` message, `txlvote` message, `mnw` message, `mnb` message, `mnp` message, [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx), [`govobj` message](core-ref-p2p-network-governance-messages#govobj), [`govobjvote` message](core-ref-p2p-network-governance-messages#govobjvote), `mnv` message, [`notfound` message](core-ref-p2p-network-data-messages#notfound), or [`cmpctblock` message](core-ref-p2p-network-data-messages#cmpctblock).
+The response to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) can be a [`tx` message](core-ref-p2p-network-data-messages#tx), [`block` message](core-ref-p2p-network-data-messages#block), [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock), [`dstx` message](core-ref-p2p-network-privatesend-messages#dstx), [`govobj` message](core-ref-p2p-network-governance-messages#govobj), [`govobjvote` message](core-ref-p2p-network-governance-messages#govobjvote), [`notfound` message](core-ref-p2p-network-data-messages#notfound), [`cmpctblock` message](core-ref-p2p-network-data-messages#cmpctblock), or any other messages that are exchanged by way of [`inv` messages](core-ref-p2p-network-data-messages#inv).
 
 This message cannot be used to request arbitrary data, such as historic transactions no longer in the memory pool or relay set. Full nodes may not even be able to provide older <<glossary:blocks>> if they've pruned old transactions from their block database. For this reason, the [`getdata` message](core-ref-p2p-network-data-messages#getdata) should usually only be used to request data from a node which previously advertised it had that data by sending an [`inv` message](core-ref-p2p-network-data-messages#inv).
 

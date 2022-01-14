@@ -9,8 +9,14 @@ Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction 
 | --- | --- |
 | Mainnet | 6 Blocks (normal transactions)<br>**100 Blocks (mining/masternode rewards)** |
 | Testnet / Regtest / Devnet | 2 Blocks |
-
-The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#islock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
+[block:callout]
+{
+  "type": "info",
+  "body": "Protocol version 70220 implements [DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md) which adds the `isdlock` message as a replacement for the `islock` message. Once the transition is complete, the `islock` message will be deprecated.",
+  "title": "Transition to Deterministic InstantSend lock"
+}
+[/block]
+The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#islock) or [`isdlock` message](core-ref-p2p-network-instantsend-messages#isdlock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
 
 # Management via Spork
 
@@ -34,10 +40,10 @@ A <<glossary:miner>> may still include any transaction, but <<glossary:blocks>> 
 | [`tx` message](core-ref-p2p-network-data-messages#tx)                | → |                         | Client sends InstantSend transaction
 | **LLMQ Signing Sessions**   |   |                         | Quorums internally process locking |
 |                             |   |                         | Quorum(s) responsible for the transaction's inputs lock the inputs via LLMQ signing sessions
-|                             |   |                         | Once all inputs are locked, the quorum responsible for the overall transaction creates the transaction lock (`islock`) via an LLMQ signing session
+|                             |   |                         | Once all inputs are locked, the quorum responsible for the overall transaction creates the transaction lock (`islock` or `isdlock`) via an LLMQ signing session
 | **LLMQ Results**             |   |                         | Quorum results broadcast to the network |
-|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#inv) (islock)  | Quorum responds with lock inventory
-| [`getdata` message](core-ref-p2p-network-data-messages#getdata) (islock)  | → |                         | Client requests lock message
-|                             | ← | [`islock` message](core-ref-p2p-network-instantsend-messages#islock)        | Quorum responds with lock message
+|                             | ← | [`inv` message](core-ref-p2p-network-data-messages#inv) (islock or isdlock)  | Quorum responds with lock inventory
+| [`getdata` message](core-ref-p2p-network-data-messages#getdata) (islock or isdlock)  | → |                         | Client requests lock message
+|                             | ← | [`islock` message](core-ref-p2p-network-instantsend-messages#islock) or [`isdlock` message](core-ref-p2p-network-instantsend-messages#isdlock)        | Quorum responds with lock message
 
 Once a transaction lock is approved, the `instantlock` field of various RPCs is set to `true` (e.g. the [`getmempoolentry` RPC](core-api-ref-remote-procedure-calls-blockchain#getmempoolentry)).
