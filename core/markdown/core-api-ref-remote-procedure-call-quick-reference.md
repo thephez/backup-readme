@@ -159,7 +159,6 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [ImportPrunedFunds](core-api-ref-remote-procedure-calls-wallet#importprunedfunds): imports funds without the need of a rescan. Meant for use with pruned wallets. *New in Dash Core 0.12.3*
 * [ImportPubKey](core-api-ref-remote-procedure-calls-wallet#importpubkey): imports a public key (in hex) that can be watched as if it were in your wallet but cannot be used to spend
 * [ImportWallet](core-api-ref-remote-procedure-calls-wallet#importwallet): imports private keys from a file in wallet dump file format (see the [`dumpwallet` RPC](core-api-ref-remote-procedure-calls-wallet#dumpwallet)). These keys will be added to the keys currently in the wallet.  This call may need to rescan all or parts of the block chain for transactions affecting the newly-added keys, which may take several minutes.
-* [KeePass](core-api-ref-remote-procedure-calls-wallet#keepass): provides commands for configuring and managing KeePass authentication. New in Darkcoin Core 0.11.0
 * [KeyPoolRefill](core-api-ref-remote-procedure-calls-wallet#keypoolrefill): fills the cache of unused pre-generated keys (the keypool).
 * [ListAddressBalances](core-api-ref-remote-procedure-calls-wallet#listaddressbalances): lists addresses of this wallet and their balances *New in Dash Core 0.12.3*
 * [ListAddressGroupings](core-api-ref-remote-procedure-calls-wallet#listaddressgroupings): lists groups of addresses that may have had their common ownership made public by common use as inputs in the same transaction or from being used as change from a previous transaction. **_Updated in Dash Core 0.17.0_**
@@ -177,7 +176,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [RemovePrunedFunds](core-api-ref-remote-procedure-calls-wallet#removeprunedfunds): deletes the specified transaction from the wallet. Meant for use with pruned wallets and as a companion to importprunedfunds. *New in Dash Core 0.12.3*
 * [RescanBlockChain](core-api-ref-remote-procedure-calls-wallet#rescanblockchain): rescans the local blockchain for wallet related transactions. _New in Dash Core 0.16.0_
 * [ScanTxOutset](core-api-ref-remote-procedure-calls-wallet#scantxoutset): scans the unspent transaction output set for entries that match certain output descriptors. **New in Dash Core 0.18.0**
-* [SendMany](core-api-ref-remote-procedure-calls-wallet#sendmany): creates and broadcasts a transaction which sends outputs to multiple addresses. **_Updated in Dash Core 0.17.0_**
+* [SendMany](core-api-ref-remote-procedure-calls-wallet#sendmany): creates and broadcasts a transaction which sends outputs to multiple addresses. **_Updated in Dash Core 0.18.0_**
 * [SendToAddress](core-api-ref-remote-procedure-calls-wallet#sendtoaddress): spends an amount to a given address. _Updated in Dash Core 0.15.0_
 * [SetCoinJoinAmount](core-api-ref-remote-procedure-calls-wallet#setcoinjoinamount): sets the amount of DASH to be processed *New in Dash Core 0.13.0*
 * [SetCoinJoinRounds](core-api-ref-remote-procedure-calls-wallet#setcoinjoinrounds): sets the number of rounds to use *New in Dash Core 0.13.0*
@@ -210,6 +209,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [EstimateFee](core-api-ref-remote-procedure-calls-removed#estimatefee): **_was removed in Dash Core 0.17.0._**
 * [GetPoolInfo](core-api-ref-remote-procedure-calls-removed#getpoolinfo): returns an object containing pool related information. _Deprecated in 0.15.0_
 * [GetReceivedByAccount](core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): **was removed in Dash Core 0.18.0.**
+* [KeePass](core-api-ref-remote-procedure-calls-wallet#keepass): **_was removed in Dash Core 0.18.0._**
 * [ListAccounts](core-api-ref-remote-procedure-calls-removed#listaccounts): **was removed in Dash Core 0.18.0.**
 * [ListReceivedByAccount](core-api-ref-remote-procedure-calls-removed#listreceivedbyaccount): **was removed in Dash Core 0.18.0.**
 * [Move](core-api-ref-remote-procedure-calls-removed#move): **was removed in Dash Core 0.18.0.**

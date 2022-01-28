@@ -194,6 +194,18 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `disable_private_keys` | bool | Optional<br>(0 or 1) | Disable the possibility of private keys. Only watchonlys are possible in this mode.
 
+*Parameter #3---blank*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`blank` | bool | Optional<br>(0 or 1) | Create a blank wallet. A blank wallet has no keys or HD seed.
+
+*Parameter #4---passphrase*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`passphrase` | string | Optional<br>(0 or 1) | Encrypt the wallet with this passphrase.
+
 *Result---wallet name and any warnings*
 
 Name | Type | Presence | Description
@@ -1433,97 +1445,6 @@ dash-cli -testnet importwallet /tmp/dump.txt
 * [DumpWallet](core-api-ref-remote-procedure-calls-wallet#dumpwallet): creates or overwrites a file with all wallet keys in a human-readable format.
 * [ImportPrivKey](core-api-ref-remote-procedure-calls-wallet#importprivkey): adds a private key to your wallet. The key should be formatted in the wallet import format created by the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#dumpprivkey).
 
-# KeePass
-
-The [`keepass` RPC](core-api-ref-remote-procedure-calls-wallet#keepass) provides commands for configuring and managing KeePass authentication
-
-*Parameter #1---Command mode*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`mode` | string | Required (exactly 1) | The command mode to use:<br>`genkey`,<br>`init`,<br>`setpassphrase`
-
-*Command Options*
-
-Mode | Description
---- | --- | --- |
-`genkey` | Generates a base64 encoded 256 bit AES key that can be used for the communication with KeePassHttp. This is only necessary for manual configuration.
-`init` | Sets up the association between Dash Core and KeePass by generating an AES key and sending an association message to KeePassHttp. This will trigger KeePass to ask for an Id for the association. Returns the association and the base64 encoded string for the AES key.
-`setpassphrase` | Updates the passphrase in KeePassHttp to a new value. This should match the passphrase you intend to use for the wallet. Please note that the standard RPC commands walletpassphrasechange and the wallet encryption from the QT GUI already send the updates to KeePassHttp, so this is only necessary for manual manipulation of the password.
-
-**Command Mode - `genkey`**
-
-*Result---the new key*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Result | string (base64) | Required (exactly 1) | The new key
-
-*Example from Dash Core 0.12.2*
-
-Manually generate a key
-
-```bash
-dash-cli -testnet keepass genkey
-```
-
-Result:
-
-```bash
-Generated Key: dNjo+J8Jb30txbJiKq4s9H6vEgWq/whb1w9bb2cTOFo=
-```
-
-**Command Mode - `init`**
-
-*Result---initialization response*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Result | string | Required (exactly 1) | The success/error status
-
-*Example from Dash Core 0.12.2*
-
-Automatically initialize
-
-```bash
-dash-cli -testnet keepass init
-```
-
-Result (wrapped):
-```bash
-Association successful. Id: testwalletassociation - \
-Key: MSb+JLygqz7ZH40SyJ1QR62i00IXoa3tmT85MGGI2K0=
-```
-
-**Command Mode - `setpassphrase`**
-
-*Parameter #2---Passphrase*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Passphrase | string | Required (exactly 1) | The passphrase to set
-
-*Result---status*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-Result | string | Required (exactly 1) | The success/error status
-
-*Example from Dash Core 0.12.2*
-
-Set KeePass passphrase
-
-```bash
-dash-cli -testnet keepass setpassphrase 1BWi20Xyk76uWumxJQy4
-```
-
-Result:
-```bash
-setlogin: Updated credentials.
-```
-
-*See also: none*
-
 # KeyPoolRefill
 [block:callout]
 {
@@ -2711,13 +2632,13 @@ Outputs | object | Required<br>(exactly 1) | An object containing key/value pair
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Confirmations | number (int) | Optional<br>(0 or 1) | The minimum number of confirmations an incoming transaction must have for its outputs to be credited to this account's balance. Outgoing transactions are always counted, as are move transactions made with the [`move` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#move). If an account doesn't have a balance high enough to pay for this transaction, the payment will be rejected.  Use `0` to spend unconfirmed incoming payments. Default is `1`
+Confirmations | number (int) | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.18.0*
 
 *Parameter #4--whether to add the balance from transactions locked via InstantSend*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-addlocked | bool | Optional<br>(0 or 1) | If set to `true`, add the balance from InstantSend locked transactions. If set to `false` (the default), InstantSend locked transaction balances are not included.
+addlocked | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.18.0*
 
 *Parameter #5---a comment*
 

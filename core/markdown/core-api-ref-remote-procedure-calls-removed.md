@@ -183,6 +183,105 @@ Result:
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
 * [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
 
+# KeePass
+
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+}
+[/block]
+
+The [`keepass` RPC](core-api-ref-remote-procedure-calls-wallet#keepass) provides commands for configuring and managing KeePass authentication
+
+*Parameter #1---Command mode*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`mode` | string | Required (exactly 1) | The command mode to use:<br>`genkey`,<br>`init`,<br>`setpassphrase`
+
+*Command Options*
+
+Mode | Description
+--- | --- | --- |
+`genkey` | Generates a base64 encoded 256 bit AES key that can be used for the communication with KeePassHttp. This is only necessary for manual configuration.
+`init` | Sets up the association between Dash Core and KeePass by generating an AES key and sending an association message to KeePassHttp. This will trigger KeePass to ask for an Id for the association. Returns the association and the base64 encoded string for the AES key.
+`setpassphrase` | Updates the passphrase in KeePassHttp to a new value. This should match the passphrase you intend to use for the wallet. Please note that the standard RPC commands walletpassphrasechange and the wallet encryption from the QT GUI already send the updates to KeePassHttp, so this is only necessary for manual manipulation of the password.
+
+**Command Mode - `genkey`**
+
+*Result---the new key*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | string (base64) | Required (exactly 1) | The new key
+
+*Example from Dash Core 0.12.2*
+
+Manually generate a key
+
+```bash
+dash-cli -testnet keepass genkey
+```
+
+Result:
+
+```bash
+Generated Key: dNjo+J8Jb30txbJiKq4s9H6vEgWq/whb1w9bb2cTOFo=
+```
+
+**Command Mode - `init`**
+
+*Result---initialization response*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | string | Required (exactly 1) | The success/error status
+
+*Example from Dash Core 0.12.2*
+
+Automatically initialize
+
+```bash
+dash-cli -testnet keepass init
+```
+
+Result (wrapped):
+```bash
+Association successful. Id: testwalletassociation - \
+Key: MSb+JLygqz7ZH40SyJ1QR62i00IXoa3tmT85MGGI2K0=
+```
+
+**Command Mode - `setpassphrase`**
+
+*Parameter #2---Passphrase*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Passphrase | string | Required (exactly 1) | The passphrase to set
+
+*Result---status*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | string | Required (exactly 1) | The success/error status
+
+*Example from Dash Core 0.12.2*
+
+Set KeePass passphrase
+
+```bash
+dash-cli -testnet keepass setpassphrase 1BWi20Xyk76uWumxJQy4
+```
+
+Result:
+```bash
+setlogin: Updated credentials.
+```
+
+*See also: none*
+
+
 
 # ListAccounts
 [block:callout]

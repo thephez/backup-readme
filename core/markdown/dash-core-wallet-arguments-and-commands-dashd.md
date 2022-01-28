@@ -388,26 +388,6 @@ dashd [options]
        Only has effect during wallet creation/first start (default: 0)
 ```
 
-## KeePass options:
-
-```text
-  -keepass
-       Use KeePass 2 integration using KeePassHttp plugin (default: 0)
-
-  -keepassid=<id>
-       KeePassHttp id for the established association
-
-  -keepassname=<name>
-       Name to construct url for KeePass entry that stores the wallet
-       passphrase
-
-  -keepassport=<port>
-       Connect to KeePassHttp on port <port> (default: 19455)
-
-  -keepasskey=<key>
-       KeePassHttp key for AES encrypted communication with KeePass
-```
-
 ## CoinJoin options:
 
 ```
