@@ -46,6 +46,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 * [Debug](core-api-ref-remote-procedure-calls-control#debug): changes the debug category from the console. **Updated in Dash Core 0.18.0**
 * [GetMemoryInfo](core-api-ref-remote-procedure-calls-control#getmemoryinfo): returns information about memory usage. _Updated in Dash Core 0.15.0_
+* [GetRPCInfo](core-api-ref-remote-procedure-calls-control#getrpcinfo): returns details about the RPC server. **New in Dash Core 0.18.0**
 * [Help](core-api-ref-remote-procedure-calls-control#help): lists all available public RPC commands, or gets help for the specified RPC.  Commands which are unavailable will not be listed, such as wallet RPCs if wallet support is disabled. **_Updated in Dash Core 0.17.0_**
 * [Logging](core-api-ref-remote-procedure-calls-control#logging): gets and sets the logging configuration **Updated in Dash Core 0.18.0**
 * [Stop](core-api-ref-remote-procedure-calls-control#stop): safely shuts down the Dash Core server.
@@ -115,9 +116,11 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [FinalizePSBT](core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT. The PSBT produces a network serialized transaction if the transaction is fully signed. **New in Dash Core 0.18.0**
 * [FundRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#fundrawtransaction): adds inputs to a transaction until it has enough in value to meet its out value. **_Updated in Dash Core 0.17.0_**
 * [GetRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings. _Updated in Dash Core 0.16.0_
+* [JoinPSBTs](core-api-ref-remote-procedure-calls-raw-transactions#joinpsbts): joins multiple distinct PSBTs with different inputs and outputs into one PSBT with inputs and outputs from all of the PSBTs.
 * [SendRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network. _Updated in Dash Core 0.15.0_
 * [SignRawTransactionWithKey](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey): signs a transaction in the serialized transaction format using private keys provided in the call. **_New in Dash Core 0.17.0_**
 * [TestMempoolAccept](core-api-ref-remote-procedure-calls-raw-transactions#testmempoolaccept): returns the results of mempool acceptance tests indicating if raw transaction (serialized, hex-encoded) would be accepted by mempool. **New in Dash Core 0.18.0**
+* [UTXOUpdatePSBT](core-api-ref-remote-procedure-calls-raw-transactions#testmempoolaccept): updates a PSBT with UTXOs retrieved from the UTXO set or the mempool. **New in Dash Core 0.18.0**
 
 # [Utility RPCs](core-api-ref-remote-procedure-calls-util)
 

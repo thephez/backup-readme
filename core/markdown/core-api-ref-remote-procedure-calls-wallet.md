@@ -2553,6 +2553,10 @@ In the above, <pubkey> either refers to a fixed public key in hexadecimal notati
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | An object containing the the unspent and total amounts.
+→<br>`success` | bool | Required<br>(exactly 1) | Whether the scan was completed
+→<br>`txouts` | number (int) | Required<br>(exactly 1) | The number of unspent transaction outputs scanned
+→<br>`height` | number (int) | Required<br>(exactly 1) | The current block height (index)
+→<br>`bestblock` | string (hex) | Required<br>(exactly 1) | The hash of the block at the tip of the chain
 →<br>`unspents` | array | Required<br>(exactly 1) | An array containing unspent output objects
 → →<br>Unspent output | array | Required<br>(1 or more) | An object containing unspent output information
 → → →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction the output appeared in.  The TXID must be encoded in hex in RPC byte order
@@ -2573,7 +2577,9 @@ Result:
 ```json
 {
   "success": true,
-  "searched_items": 572864,
+  "txouts": 639756,
+  "height": 667140,
+  "bestblock": "000000ec777dd903c5a378ab209a7815b24a5365b5c53a0c22e64ef3350d33db",
   "unspents": [
     {
       "txid": "571028a9a2f69c5eec75dbae10c8724b8afd44530fac97936ae6676a9c61e03c",

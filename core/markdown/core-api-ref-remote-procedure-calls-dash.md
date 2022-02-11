@@ -269,7 +269,7 @@ Name | Type | Presence | Description
 Result | object | Required<br>(exactly 1) | Array of governance objects
 → →<br>`end_epoch` | string | Required<br>(exactly 1) | Governance object info as string
 → →<br>`name` | string (hex) | Required<br>(exactly 1) | Proposal name
-→ →<br>`payment_address` | string (hex) | Required<br>(exactly 1) | Proposal payment address
+→ →<br>`payment_address` | string (hex) | Required<br>(exactly 1) | Proposal payment address.<br>**_Support for P2SH addresses (e.g. multisig) added in Dash Core v0.18.0._**
 → →<br>`payment_amount` | string | Required<br>(exactly 1) | Proposal payment amount
 → →<br>`start_epoch` | string (hex) | Required<br>(exactly 1) | Proposal start
 → →<br>`type` | int | Required<br>(exactly 1) | Object type
@@ -627,7 +627,12 @@ Result (truncated):
 ## GObject Prepare
 
 The `gobject prepare` RPC prepares a governance object by signing and creating a collateral transaction.
-
+[block:callout]
+{
+  "type": "success",
+  "body": "Note: Dash Core v0.18.0 added support for directing proposal payouts to P2SH addresses such as multisig."
+}
+[/block]
 *Parameter #1---parent hash*
 
 Name | Type | Presence | Description

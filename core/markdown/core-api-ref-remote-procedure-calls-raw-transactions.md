@@ -635,7 +635,7 @@ Name | Type | Presence | Description
 → →<br>Address | string | Required<br>(1 or more) | A P2PKH address
 →<br>`p2sh` | string (hex) | Required<br>(exactly 1) | The P2SH address of this redeem script
 
-*Example from Dash Core 0.12.2*
+*Example from Dash Core 0.18.0*
 
 A 2-of-3 P2SH multisig pubkey script:
 
@@ -1078,6 +1078,45 @@ Result:
 * [GetSpecialTxes](/docs/core-api-ref-remote-procedure-calls-blockchain#getspecialtxes): returns an array of special transactions found in the specified block
 * [GetTransaction](/docs/core-api-ref-remote-procedure-calls-wallet#gettransaction): gets detailed information about an in-wallet transaction.
 
+# JoinPSBTs
+
+The [`joinpsbts` RPC](core-api-ref-remote-procedure-calls-raw-transactions#joinpsbts) joins multiple distinct PSBTs with different inputs and outputs into one PSBT with inputs and outputs from all of the PSBTs. No input in any of the PSBTs can be in more than one of the PSBTs.
+
+*Parameter #1---Transactions*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`txs` | array | Required<br>(exactly 1) | A JSON array of base64 strings of partially signed transactions
+→ PSBT | string | Required<br>(1 or more) | A PSBT base64 string
+
+*Result---the combined raw transaction in base64*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
+
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet joinpsbts "[\"cHNidP8BAEICAAAAAfisRhf3kqdGJdB8vKvQz81ze9cH6bh0RKZfFTMsXatUAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=\", \"cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=\"]"
+```
+
+Result:
+```
+cHNidP8BAHoCAAAAAvisRhf3kqdGJdB8vKvQz81ze9cH6bh0RKZfFTMsXatUAAAAAAD/////eBHHNtKFSWK9UUqCgvKGTREIJgtkoJhOX+1hF37IYiYAAAAAAP////8CAAAAAAAAAAAGagQAAQIDAAAAAAAAAAAGagQAAQIDAAAAAAAAAAAA
+```
+
+*See also*
+
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [ConvertToPSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
+
+
 # SendRawTransaction
 
 The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction) validates a transaction and broadcasts it to the peer-to-peer network.
@@ -1265,3 +1304,39 @@ Result:
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+
+# UTXOUpdatePSBT
+
+The [`utxoupdatepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#utxoupdatepsbt) updates a PSBT with UTXOs retrieved from the UTXO set or the mempool.
+
+*Parameter #1---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+psbt | string | Required | A base64 string of a PSBT
+
+*Result---the raw transaction in base64*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
+
+*Example from Dash Core 0.18.0*
+
+``` bash
+dash-cli -testnet utxoupdatepsbt cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=
+```
+
+Result:
+```
+cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=
+```
+
+*See also*
+
+* [CombinePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combine multiple partially-signed Dash transactions into one transaction.
+* [ConvertToPSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletCreateFundedPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.

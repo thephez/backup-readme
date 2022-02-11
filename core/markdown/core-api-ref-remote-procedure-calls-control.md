@@ -74,6 +74,51 @@ Result:
 
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#getmempoolinfo): returns information about the node's current transaction memory pool.
 
+# GetRPCInfo
+
+*Added in Dash Core 0.18.0*
+
+The [`getrpcinfo` RPC](getrpcinfo) returns details about the RPC server.
+
+*Parameters: none*
+
+*Result---information about the RPC server*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | An object containing information about the RPC server
+→<br>`active_commands` | array of objects | Required<br>(exactly 1) | An object containing information about active RPC commands
+→→<br>Active command | object | Optional<br>(0 or more) | Information about a currently active command
+→→→<br>`method` | number (int) | Required<br>(exactly 1) | Name of the command
+→→→<br>`duration` | number (int) | Required<br>(exactly 1) | Number of microseconds the command has been active
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli getrpcinfo
+```
+
+Result:
+
+```json
+{
+  "active_commands": [
+    {
+      "method": "generate",
+      "duration": 5226138
+    },
+    {
+      "method": "getrpcinfo",
+      "duration": 5
+    }
+  ]
+}
+
+```
+
+*See also: none*
+
+
 # Help
 
 The [`help` RPC](core-api-ref-remote-procedure-calls-control#help) lists all available public RPC commands, or gets help for the specified RPC.  Commands which are unavailable will not be listed, such as wallet RPCs if wallet support is disabled.
