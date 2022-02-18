@@ -47,12 +47,18 @@ Regtest wallets and block chain state (chainstate) are saved in the `regtest` su
 
 ## Overview
 
-Developer networks (devnets) have some aspects of testnet and some aspects of regtest. Unlike testnet, multiple independent devnets can be created and coexist without interference. Each one is identified by a name which is hardened into a "devnet genesis" block, which is automatically positioned at height 1. Validation rules will ensure that a <<glossary:node>> from `devnet=test1` never be able to accept blocks from `devnet=test2`. This is done by checking the expected devnet <<glossary:genesis block>>.
+Developer networks (devnets) have some aspects of testnet and some aspects of regtest. Unlike testnet, multiple independent devnets can be created and coexist without interference. Each one is identified by a name which is hardened into a "devnet genesis" block along with the Dash Core devnet version. The devnet genesis block is automatically positioned at height 1. Validation rules will ensure that a <<glossary:node>> from `devnet=test1` never be able to accept blocks from `devnet=test2`. This is done by checking the expected devnet <<glossary:genesis block>>.
 
 The genesis block of the devnet is the same as the one from regtest. This starts the devnet with a very low <<glossary:difficulty>>, allowing quick generation of a sufficient balance to create a <<glossary:masternode>>.
 
-The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#version). If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
-
+The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#version) along with the devnet version. If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
+[block:callout]
+{
+  "type": "warning",
+  "title": "Breaking changes",
+  "body": "Dash Core 0.18.0 introduced two breaking changes: devnet versioning and difficulty adjustment changes (see details in [pull request 4685](https://github.com/dashpay/dash/pull/4685/)).\n\n- A devnet version is now included in both the devnet genesis block and devnet user agent so peers and clients can easily verify compatibility. This devnet version will only change when Dash Core introduces breaking changes to devnet features.\n\n- Devnets now use the Dark Gravity Wave difficulty from the first block. Previously the bitcoin algorithm was used up to a certain height similar to mainnet."
+}
+[/block]
 ## Configuration
 
 To use devnet, use the argument `-devnet=<name>` with `dash-cli`, `dashd`or `dash-qt` or add `devnet=<name>` to your `dash.conf` file as [described earlier](core-examples-configuration-file).

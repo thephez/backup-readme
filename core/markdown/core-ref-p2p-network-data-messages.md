@@ -322,14 +322,35 @@ The `getqrinfo` message requests a [`qrinfo` message](core-ref-p2p-network-data-
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
-| 1 | baseBlockHashesNb | uint | Required | Number of masternode lists the light client already knows (up to 4)
+| 4 | baseBlockHashesNb | uint32 | Required | Number of masternode lists the light client already knows (up to 4)
 | Varies | baseBlockHashes | uint256[] | Required | Array of base block hashes for the masternode lists the light client already knows
 | 32 | blockRequestHash | uint256 | Required | Hash of the block for which the masternode list diff is requested
+| 1 | extraShare | bool | Optional | Flag to indicate if an extra share is requested |
 
 The following annotated hexdump shows a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo). (The message header has been omitted.)
 
 ``` text
-TBD
+06000000 ........................... Number of base block hashes: 6
+
+06 ................................. Number of base block hashes: 6
+
+8157c193543166dfc23a67fab1378bc5
+1ded183b09c6e932e64a4639d9010000 ... Base block hash 1
+e173b01943fe7b8d2bf5a13c034eafed
+d2708a1a0f9e5104b86439382e050000 ... Base block hash 2
+c2e276c518b3f8484b237e300094e222
+388a095f486c822585a67b1520010000 ... Base block hash 3
+044822e5c6d568af03422edc00ad3ae5
+029a022139e37d06ae587169c8000000 ... Base block hash 4
+60b2c8280d6e59cdee4c65d7fd352c25
+50bb40242fc242bf091872c1bb010000 ... Base block hash 5
+55d37e40ae54e536ccabf964a403c921
+f021a2b0ca82a6ba63022015a8010000 ... Base block hash 6
+
+847b42ae4509c82e8c8ba599f23f15c1
+e34c899a09e4ebf440f6e2ef4b000000 ... Block request hash
+
+01 ................................. Extra share: true
 ```
 
 
@@ -639,24 +660,118 @@ The format and maximum size limitations of the [`notfound` message](core-ref-p2p
 
 The `qrinfo` message sends quorum rotation information to a node which previously requested it with a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo).
 
-Note: In the following fields, `c` refers to the quorum cycle length (**_???_** for InstantSend quorums).
+Note: In the following fields, `c` refers to the quorum cycle length. This is synonymous with the DKG interval (`quorumDkgInterval`) as defined in [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#parametersvariables-of-a-llmq-and-dkg).
 
 | Bytes | Name | Data type | Required | Description |
 | ---------- | ----------- | --------- | -------- | -------- |
-| 4 | creationHeight | int | Required | The creation height for the LLMQ active at height `h`
 | Varies | quorumSnapshot<br>AtHMinusC | CQuorumSnapshot | Required | Quorum snapshot for height `h-c`
 | Varies | quorumSnapshot<br>AtHMinus2C | CQuorumSnapshot | Required | Quorum snapshot for height `h-2c`
 | Varies | quorumSnapshot<br>AtHMinus3C | CQuorumSnapshot | Required | Quorum snapshot for height `h-3c`
-| Varies | mnListDiffTip | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h`. 
-| Varies | mnListDiffAtHMinusC | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-c`
-| Varies | mnListDiffAtHMinus2C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-2c`
-| Varies | mnListDiffAtHMinus3C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-3c`
+| Varies | mnListDiffTip | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height at the tip. 
+| Varies | mnListDiffH | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h`. 
+| Varies | mnListDiff<br>AtHMinusC | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-c`
+| Varies | mnListDiff<br>AtHMinus2C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-2c`
+| Varies | mnListDiff<br>AtHMinus3C | CSimplifiedMNListDiff<br>(see [`mnlistdiff`](#mnlistdiff)) | Required | Masternode list diff at height `h-3c`
+| 1 | extraShare | bool | Required | Flag to indicate if an extra share is requested |
+| Varies | quorumSnapshot<br>AtHMinus4C | CQuorumSnapshot | Optional | Returned only if `extraShare` is on. See below for sub-message contents. |
+| Varies | mnListDiff<br>AtHMinus4C | CSimplifiedMNListDiff | Optional | Returned only if `extraShare` is on. As in DIP-4.
+| 1-9 | blockHashList<br>Size | compactSize uint | Required | Number of elements in `blockHashList` 
+| 32 * `blockHash`<br>`ListSize`  | blockHashList | uint256_t[] |  Required | Contains the last creation block hash of each quorumIndex. Ordered by quorumIndex
+| 1-9 | quorumSnapshot<br>ListSize | compactSize uint | Required | Number of elements in `quorumSnapshotList`
+| Varies | quorumSnapshot<br>List | CQuorumSnapshot[] | Required | The snapshots required to reconstruct the quorums built at `h` in heightsLists. Ordered from oldest to newest
+| 1-9 | mnListDiff<br>ListSize | compactSize uint | Required | Number of elements in `mnListDiffList`
+| Varies | mnListDiffList | CSimplifiedMNListDiff[] | Required | The MNLISTDIFFs required to calculate older quorums. Ordered from oldest to newest
+
+**CQuorumSnapshot**
+
+Note: All fields are required
+
+| Bytes | Name | Data type | Description |
+| ---------- | ----------- | --------- | -------- |
+| 4 | mnSkipListMode | int32_t |  Mode of the skip list
+| 1-9 | activeQuorum<br>MembersSize | compactSize uint | Number of elements in `activeQuorumMembers`
+| (`activeQuorum`<br>`MembersSize`) + 7)/8 | activeQuorumMembers | cbitset |  The bitset of nodes already in quarters at the start of cycle at height n
+| 1-9 | mnSkipListSize | compactSize uint |  Number of elements in mnSkipList
+| 4 * `mnSkipListSize` | mnSkipList | int32_t[] | Skiplist at height n
+
 
 
 The following annotated hexdump shows a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo). (The message header has been omitted.)
 
 ``` text
-TBD
+Quorum snapshot (h-c)
+| 01000000 ................................. Skiplist mode: 1
+| 1f ....................................... Active quorum members: 31
+| bbffff7f ................................. Active quorum members bitset
+| 
+| 01 ....................................... Skip list size: 1
+| 
+| Skip list
+| | 0b000000 ............................... Masternode 11
+
+Quorum snapshot (h-2c)
+| 01000000 ................................. Skiplist mode: 1
+| 1f ....................................... Active quorum members: 31
+| f3ff6f7b ................................. Active quorum members bitset
+|
+| 06 ....................................... Skip list size: 6
+| 
+| Skip list
+| | 05000000 ............................... Masternode 5
+| | 03000000 ............................... Masternode 3
+| | 04000000 ............................... Masternode 4
+| | 06000000 ............................... Masternode 6
+| | 07000000 ............................... Masternode 7
+| | 08000000 ............................... Masternode 8
+
+Quorum snapshot (h-3c) ..................... Not shown for brevity
+
+MnListDiff (Tip)
+| e173b01943fe7b8d2bf5a13c034eafed
+| d2708a1a0f9e5104b86439382e050000 ......... Base block hash
+| 847b42ae4509c82e8c8ba599f23f15c1
+| e34c899a09e4ebf440f6e2ef4b000000 ......... Block hash
+| 01000000 ................................. Transactions: 1
+| 01 ....................................... Merkle hash count: 1
+| c44c59fd87c816506d3890aaf0c8f7df
+| bad10f4a9b3e2b43bc1e9c832e81b381 ......... Merkle hash 1
+| 01 ....................................... Merkle flag count: 1
+| 01 ....................................... Flags: 0 0 0 0 0 0 0 1
+|
+| [...]..................................... Coinbase Tx (Not shown)
+
+MnListDiff (h) ............................. Not shown for brevity
+MnListDiff (h-c) ........................... Not shown for brevity
+MnListDiff (h-2c) .......................... Not shown for brevity
+MnListDiff (h-3c) .......................... Not shown for brevity
+
+01 ....................................... Extra share: true
+
+Quorum snapshot (h-4c)
+| 01000000 ................................. Skiplist mode: 1
+| 1f ....................................... Active quorum members: 31
+| ff7fdd5f ................................. Active quorum members bitset
+|
+| 01 ....................................... Skip list size: 1
+|
+| Skip list
+| | 07000000 ............................... Masternode 7
+
+MnListDiff (h-4c)
+
+Block hash list
+| 04 ....................................... Block hashes: 4
+| c2e276c518b3f8484b237e300094e222
+| 388a095f486c822585a67b1520010000 ......... Block hash 1
+| bb4f0c5a3efb229bd5a4e4e45ca2228e
+| b11f05c3a6e8fdf9d7d4f499b7010000 ......... Block hash 2
+| aca22eb2c63daa5304cb9cbe6089afe3
+| 99e335f73306735718355ad3d9000000 ......... Block hash 3
+| 45bf29bada522857d6e3b2371e1fefc7
+| c01fcef0b6578e7062fd571760010000 ......... Block hash 4
+
+00 ......................................... Quorum snapshot list size: 0
+00 ......................................... Masternode list diff list size: 0
 ```
 
 

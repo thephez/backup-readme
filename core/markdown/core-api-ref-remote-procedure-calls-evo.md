@@ -1096,40 +1096,44 @@ Name | Type | Presence | Description
 →<br>`quorumPublicKey` | string | Required<br>(exactly 1) | Quorum public key
 →<br>`secretKeyShare` | string | Optional<br>(exactly 1) | Quorum secret key share
 
-*Example from Dash Core 0.15.0*
+*Example from Dash Core 0.18.0*
 
 ```bash
 dash-cli -testnet quorum info 1 \
-  000004bfc56646880bfeb80a0b89ad955e557ead7b0f09bcc61e56c8473eaea9 true
+  00000239f771a00b78d80dcacba7a49d2a52d61aade1610e90978c08dd6e8445 true
 ```
 
 Result (truncated):
 ```json
 {
-  "height": 264072,
-  "type": "llmq_50_60",
-  "quorumHash": "000004bfc56646880bfeb80a0b89ad955e557ead7b0f09bcc61e56c8473eaea9",
-  "minedBlock": "000006113a77b35a0ed606b08ecb8e37f1ac7e2d773c365bd07064a72ae9a61d",
+  "height": 6024,
+  "type": "llmq_devnet",
+  "quorumHash": "00000239f771a00b78d80dcacba7a49d2a52d61aade1610e90978c08dd6e8445",
+  "quorumIndex": 0,
+  "minedBlock": "0000012197b7ca6360af3756c6a49c217dbbdf8b595fd55e0fcef7ffcd546044",
   "members": [
     {
-      "proTxHash": "6c91363d97b286e921afb5cf7672c88a2f1614d36d32058c34bef8b44e026007",
-      "pubKeyOperator": "81749ba8363e5c03e9d6318b0491e38305cf59d9d57cea2295a86ecfa696622571f266c28bacc78666e8b9b0fb2b3121",
-      "valid": true
+      "proTxHash": "8abb1f227473e188d0e3ff39201badd49d22f8b323f9cfdd096d109f50614b6c",
+      "pubKeyOperator": "0e61e7e684c5dcfe2864f1fdadd36aa5ec4485cfc38bfdaa65a9cf52aab8da7305b8a5a04dd7521213e41b57e060d8f2",
+      "valid": true,
+      "pubKeyShare": "094f26fcbb01adebf11b810a67f808b4b65de9cfca27674231369b84cdff775cd55105fb552f2c2d63ab9f61d9487530"
     },
     {
-      "proTxHash": "274ae6ab38ea0f3b8fe726b3e52d998443ba0d77e85d88c20d179d4fecd0b96e",
-      "pubKeyOperator": "0db6da5d8ee9fb8925f0818df7553062bf35ec9d62114144bc395980c29fcd06b738beca63faf265d7480106fc6cceea",
-      "valid": true
+      "proTxHash": "8675ed9f95526868ce4cf88ffe5a26ccff90b7623516735219c6e16731e4288a",
+      "pubKeyOperator": "9249c6e4858c09a5c31ea59e7390dea91d3e0a31b3e97d838c0933201893d27d674bf00b3bffc57cb7021a6e7c03b44a",
+      "valid": true,
+      "pubKeyShare": "91f9b4d7213a8f1bcdea2e0784c80e3a9fc0216c8413b86d7a8d954b8cbec4e37dc1ec43dd71712f99f7d1a893933160"
     },
     {"Truncated data":"..."},
     {
-      "proTxHash": "3ecdbedf3d9a13822f437a1f0c5ea44f290ab90f7c3bb42c1b5fd785b5f9596a",
-      "pubKeyOperator": "0634f8b926631cb2b14c81720c6130b3f6f5429da1c9dc9c33918b2474b7ffff239caa9b59c7b1a782565052232d052a",
-      "valid": true
+      "proTxHash": "9c3173a86ef146920ad37f3b0c4f9be0f08063c1d194aaa9602d766a5de782a9",
+      "pubKeyOperator": "935bb9eae3b52bf19057f6276898519fe5549e721d564c9fcf993197a12122e220d876e08d740530177cf409750113dd",
+      "valid": true,
+      "pubKeyShare": "0ca7673309383783e523a318714b93843debbe4b57c51d5642c5b2a72f1947cb7c7680454934e514bf5ece919029a16b"
     }
   ],
-  "quorumPublicKey": "0644ff153b9b92c6a59e2adf4ef0b9836f7f6af05fe432ffdcb69bc9e300a2a70af4a8d9fc61323f6b81074d740033d2",
-  "secretKeyShare": "3da0d8f532309660f7f44aa0ed42c1569773b39c70f5771ce5604be77e50759e"
+  "quorumPublicKey": "092bf17ce141bb46d363c7bb9e0b87985d2faece00f3f2cf5c09bb2aca3a198fb7e856cd038819ee356d191f09f9f6fc",
+  "secretKeyShare": "15df749d58605367732cc1b77f18fa1fbecc368e9dd21343eb1a3b9be3f29b71"
 }
 ```
 
@@ -1148,33 +1152,42 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | array | Required<br>(exactly 1) | An array of objects each containing a provider transaction, or JSON `null` if an error occurred
-→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the initial provider registration transaction as hex in RPC byte order
 →<br>`time` | string (hex) | Required<br>(exactly 1) | The Unix epoch time
 →<br>`timeStr` | string (hex) | Required<br>(exactly 1) | The UTC time as a string
-→<br>`session` | object | Required<br>(exactly 1) | Object containing DKG Session information
-→ →<br>LLMQ Type | object | Required<br>(exactly 1) | Object
-→ → →<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
-→ → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
-→ → →<br>`quorumHeight` | number | Required<br>(exactly 1) | The block height of the quorum
-→ → →<br>`phase` | number | Required<br>(exactly 1) | The active DKG phase<br>`1` - Initialized<br>`2` - Contributing<br>`3` - Complaining<br>`4` - Justifying<br>`5` - Committing<br>`6` - Finalizing
-→ → →<br>`sentContributions` | bool | Required<br>(exactly 1) | True when contributions have been sent
-→ → →<br>`sentComplaint` | bool | Required<br>(exactly 1) | True when complaints have been sent
-→ → →<br>`sentJustification` | bool | Required<br>(exactly 1) | True when justifications have been sent
-→ → →<br>`sentPrematureCommitment` | bool | Required<br>(exactly 1) | True when premature commitments have been sent
-→ → →<br>`aborted` | bool | Required<br>(exactly 1) | True if the DKG session has been aborted
-→ → →<br>`badMembers` | number | Required<br>(exactly 1) | Number of bad members
-→ → →<br>`weComplain` | number | Required<br>(exactly 1) | Number of complaints sent
-→ → →<br>`receivedContributions` | number | Required<br>(exactly 1) | Number of contributions received
-→ → →<br>`receivedComplaints` | number | Required<br>(exactly 1) | Number of complaints received
-→ → →<br>`receivedJustifications` | number | Required<br>(exactly 1) | Number of justifications received
-→ → →<br>`receivedPrematureCommitments` | number | Required<br>(exactly 1) | Number of premature commitments received
+→<br>`session` | array of objects | Required<br>(exactly 1) | Array of objects containing DKG Session information
+→ →<br>Session | object | Required<br>(exactly 1) | DKG session object
+→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
+→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The index of the quorum
+→ → →<br>`status` | object | Required<br>(exactly 1) | DKG session status information
+→ → → →<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
+→ → → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
+→ → → →<br>`quorumHeight` | number | Required<br>(exactly 1) | The block height of the quorum
+→ → → →<br>`phase` | number | Required<br>(exactly 1) | The active DKG phase<br>`1` - Initialized<br>`2` - Contributing<br>`3` - Complaining<br>`4` - Justifying<br>`5` - Committing<br>`6` - Finalizing
+→ → → →<br>`sentContributions` | bool | Required<br>(exactly 1) | True when contributions have been sent
+→ → → →<br>`sentComplaint` | bool | Required<br>(exactly 1) | True when complaints have been sent
+→ → → →<br>`sentJustification` | bool | Required<br>(exactly 1) | True when justifications have been sent
+→ → → →<br>`sentPrematureCommitment` | bool | Required<br>(exactly 1) | True when premature commitments have been sent
+→ → → →<br>`aborted` | bool | Required<br>(exactly 1) | True if the DKG session has been aborted
+→ → → →<br>`badMembers` | number | Required<br>(exactly 1) | Number of bad members
+→ → → →<br>`weComplain` | number | Required<br>(exactly 1) | Number of complaints sent
+→ → → →<br>`receivedContributions` | number | Required<br>(exactly 1) | Number of contributions received
+→ → → →<br>`receivedComplaints` | number | Required<br>(exactly 1) | Number of complaints received
+→ → → →<br>`receivedJustifications` | number | Required<br>(exactly 1) | Number of justifications received
+→ → → →<br>`receivedPrematureCommitments` | number | Required<br>(exactly 1) | Number of premature commitments received
+→<br>`quorumConnections` | array of objects | Required<br>(exactly 1) | **Modified in Dash Core 0.18.0**<br>Array of objects containing quorum connection information
+→ →<br>Quorum type | object | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>An object describing connection information for a quorum index and type
+→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
+→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The index of the quorum
+→ → →<br>`pQuorumBaseBlockIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The height of the quorum's base block
+→ → → <br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
+→ → →<br>`pindexTip` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The height of the quorum's index tip
+→ → →<br>`quorumConnections` | array of objects | Required<br>(exactly 1) | Array of objects containing quorum connection information
+→ → → →<br>Connection | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object describing a quorum connection
+→ → → →→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The hash of the quorum member's provider registration transaction as hex in RPC byte order
+→ → → →→<br>`connected` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not the connection is active
+→ → → →→<br>`address` | string | Optional<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Address
+→ → → →→<br>`outbound` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not this is an outbound connection
 →<br>`minableCommitments` | object | Required<br>(exactly 1) | Object containing minable commitments
-→<br>`quorumConnections` | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Object containing quorum connection information
-→ →<br>Connection | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object describing a quorum connection
-→ → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The hash of the quorum member's provider registration transaction as hex in RPC byte order
-→ → →<br>`connected` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not the connection is active
-→ → →<br>`address` | string | Optional<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Address
-→ → →<br>`outbound` | boolean | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Whether or not this is an outbound connection
 
 *Result (if detail level was 1)---JSON DKG details including member index*
 
@@ -1221,91 +1234,181 @@ Name | Type | Presence | Description
 → → → → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum member's provider registration transaction as hex in RPC byte order
 → → →<br>`allMembers` | array | Required<br>(exactly 1) | Array containing the provider registration transaction hash for all quorum members
 
-*Example from Dash Core 0.14.0*
+*Example from Dash Core 0.18.0*
 
 ```bash
 dash-cli -testnet quorum dkgstatus
 ```
 
 Result (truncated):
-```json
+``` json
 {
-  "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
-  "time": 1555172494,
-  "timeStr": "2019-04-13 16:21:34",
-  "session": {
-    "llmq_50_60": {
-      "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
-      "quorumHeight": 79368,
-      "phase": 6,
-      "sentContributions": true,
-      "sentComplaint": true,
-      "sentJustification": false,
-      "sentPrematureCommitment": true,
-      "aborted": false,
-      "badMembers": 2,
-      "weComplain": 0,
-      "receivedContributions": 48,
-      "receivedComplaints": 44,
-      "receivedJustifications": 0,
-      "receivedPrematureCommitments": 44
+  "time": 1644854935,
+  "timeStr": "2022-02-14T16:08:55Z",
+  "session": [
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 0,
+      "status": {
+        "llmqType": 101,
+        "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+        "quorumHeight": 6072,
+        "phase": 6,
+        "sentContributions": true,
+        "sentComplaint": false,
+        "sentJustification": false,
+        "sentPrematureCommitment": true,
+        "aborted": false,
+        "badMembers": 0,
+        "weComplain": 0,
+        "receivedContributions": 12,
+        "receivedComplaints": 0,
+        "receivedJustifications": 0,
+        "receivedPrematureCommitments": 12
+      }
     }
-  },
-  "minableCommitments": {
-    "llmq_50_60": {
+  ],
+  "quorumConnections": [
+    {
+      "llmqType": "llmq_50_60",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_400_60",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6048,
+      "quorumHash": "0000000a428025892b1d62bd27b0bf8eee521218d12f9a459a7bde20a944a3bc",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_100_67",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "ec4ca45ccce7d7f94ab824a9f4840c3a85731c8bc70ba21953992009214c7e1d",
+          "connected": true,
+          "address": "34.219.73.212:49030",
+          "outbound": false
+        },
+        {
+          "proTxHash": "895cb52efac54f92ed726ad9da15fd6a8c94fcabae2f9c41ad81be0c214e0d1e",
+          "connected": true,
+          "address": "35.88.228.131:46084",
+          "outbound": false
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 1,
+      "pQuorumBaseBlockIndex": 6073,
+      "quorumHash": "000000b1823c0d77dcfbd6a11404ddbcfc259a503aec9a7aadfdfabc7602a7be",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "93b2f08a18d9ac165aad16d66d8492721f4556e53d3a2d28b045cc992ce65725",
+          "connected": true,
+          "address": "54.191.24.26:38528",
+          "outbound": false
+        },
+      ]
+    }
+  ],
+  "minableCommitments": [
+    {
       "version": 1,
       "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
       "signersCount": 0,
+      "signers": "00000000000000",
       "validMembersCount": 0,
-      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "validMembers": "00000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "version": 1,
+      "llmqType": 4,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
+      "signersCount": 0,
+      "signers": "00000000000000000000000000",
+      "validMembersCount": 0,
+      "validMembers": "00000000000000000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     }
-  },
-  "quorumConnections": {
-    "llmq_50_60": [
-    ],
-    "llmq_400_60": [
-      {
-        "proTxHash": "38a22aeedd3bfaa6f2fd8c6859e257b679261ec17c247eb4950af93ab702be28",
-        "connected": false,
-        "outbound": false
-      },
-      {
-        "proTxHash": "f443dd87ec7981e8630ae957f295d9d226d4bd3895f59dbd80b30137a92b3735",
-        "connected": true,
-        "address": "95.183.53.17:10008",
-        "outbound": true
-      },
-      {
-        "proTxHash": "ab0848b6a026d953c334c7a5bd1ebf98909d8dc26994fc42f61aed984acb0c3d",
-        "connected": false,
-        "outbound": false
-      }
-    ],
-    "llmq_400_85": [
-      {
-        "proTxHash": "ed06587e8898754ff9abacdcf19c0870d7a065f4895b936878c8274bed4f9d5e",
-        "connected": true,
-        "address": "3.249.195.183:31145",
-        "outbound": true
-      },
-      {
-        "proTxHash": "bc36e6c0d0c69173ea0c8a9a821548468e7713ab9bf748c117d5404b4450f86b",
-        "connected": false,
-        "outbound": true
-      },
-      {
-        "proTxHash": "0ed3ba3ceac8505f109557157b2e0984812d87b7d83dbd14aab956f21a752a78",
-        "connected": false,
-        "outbound": false
-      },
-    ]
-  }
+  ]
 }
 ```
 
-*Example from Dash Core 0.14.0 (detail_level: 1)*
+*Example from Dash Core 0.18.0 (detail_level: 1)*
 
 ```bash
 dash-cli -testnet quorum dkgstatus 1
@@ -1314,65 +1417,140 @@ dash-cli -testnet quorum dkgstatus 1
 Result (truncated):
 ```json
 {
-  "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
-  "time": 1555172494,
-  "timeStr": "2019-04-13 16:21:34",
-  "session": {
-    "llmq_50_60": {
-      "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
-      "quorumHeight": 79368,
-      "phase": 6,
-      "sentContributions": true,
-      "sentComplaint": true,
-      "sentJustification": false,
-      "sentPrematureCommitment": true,
-      "aborted": false,
-      "badMembers": [
-        35,
-        42
-      ],
-      "weComplain": [
-      ],
-      "receivedContributions": [
-        0,
-        1,
-        2,
-        48,
-        49
-      ],
-      "receivedComplaints": [
-        0,
-        1,
-        2,
-        48,
-        49
-      ],
-      "receivedJustifications": [
-      ],
-      "receivedPrematureCommitments": [
-        0,
-        1,
-        2,
-        48,
-        49
-      ]
+  "time": 1644854935,
+  "timeStr": "2022-02-14T16:08:55Z",
+  "session": [
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 0,
+      "status": {
+        "llmqType": 101,
+        "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+        "quorumHeight": 6072,
+        "phase": 6,
+        "sentContributions": true,
+        "sentComplaint": false,
+        "sentJustification": false,
+        "sentPrematureCommitment": true,
+        "aborted": false,
+        "badMembers": [
+        ],
+        "weComplain": [
+        ],
+        "receivedContributions": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ],
+        "receivedComplaints": [
+        ],
+        "receivedJustifications": [
+        ],
+        "receivedPrematureCommitments": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      }
     }
-  },
-  "minableCommitments": {
-    "llmq_50_60": {
+  ],
+  "quorumConnections": [
+    {
+      "llmqType": "llmq_50_60",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_100_67",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
+        },
+        {
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+],
+  "minableCommitments": [
+    {
       "version": 1,
       "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
       "signersCount": 0,
+      "signers": "00000000000000",
       "validMembersCount": 0,
-      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "validMembers": "00000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "version": 1,
+      "llmqType": 4,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
+      "signersCount": 0,
+      "signers": "00000000000000000000000000",
+      "validMembersCount": 0,
+      "validMembers": "00000000000000000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     }
-  }
+  ]
 }
+
 ```
 
-*Example from Dash Core 0.14.0 (detail_level: 2)*
+*Example from Dash Core 0.18.0 (detail_level: 2)*
 
 ```bash
 dash-cli -testnet quorum dkgstatus 2
@@ -1381,164 +1559,263 @@ dash-cli -testnet quorum dkgstatus 2
 Result (truncated):
 ```json
 {
-  "proTxHash": "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
-  "time": 1555172494,
-  "timeStr": "2019-04-13 16:21:34",
-  "session": {
-    "llmq_50_60": {
-      "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
-      "quorumHeight": 79368,
-      "phase": 6,
-      "sentContributions": true,
-      "sentComplaint": true,
-      "sentJustification": false,
-      "sentPrematureCommitment": true,
-      "aborted": false,
-      "badMembers": [
+  "time": 1644854935,
+  "timeStr": "2022-02-14T16:08:55Z",
+  "session": [
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 0,
+      "status": {
+        "llmqType": 101,
+        "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+        "quorumHeight": 6072,
+        "phase": 6,
+        "sentContributions": true,
+        "sentComplaint": false,
+        "sentJustification": false,
+        "sentPrematureCommitment": true,
+        "aborted": false,
+        "badMembers": [
+        ],
+        "weComplain": [
+        ],
+        "receivedContributions": [
+          {
+            "memberIndex": 0,
+            "proTxHash": "6503cd51fd93d0923eaee599b8f48dceb639b0f1a7e5dfd064d439c9729e1b48"
+          },
+          {
+            "memberIndex": 1,
+            "proTxHash": "f9bf9e69ef111ca5218804f004c5e31abd971699847f52364e88301559cab6f8"
+          },
+          {
+            "memberIndex": 2,
+            "proTxHash": "895cb52efac54f92ed726ad9da15fd6a8c94fcabae2f9c41ad81be0c214e0d1e"
+          },
+          {
+            "memberIndex": 3,
+            "proTxHash": "fd1fe03e178b397baa304fdcb98c7e99b6d39768029490270e17b53f4fef7aa3"
+          },
+          {
+            "memberIndex": 4,
+            "proTxHash": "ec4ca45ccce7d7f94ab824a9f4840c3a85731c8bc70ba21953992009214c7e1d"
+          },
+          {
+            "memberIndex": 5,
+            "proTxHash": "9c3173a86ef146920ad37f3b0c4f9be0f08063c1d194aaa9602d766a5de782a9"
+          },
+          {
+            "memberIndex": 6,
+            "proTxHash": "856c3dd446c0791e800aa24f6a726431a0d4df6ed3cfb3a71b1bf3951764cbf3"
+          },
+          {
+            "memberIndex": 7,
+            "proTxHash": "38e2e295b4ed4f2d93731951537fd2fa31bee87833b61443a6961117a0c970a8"
+          },
+          {
+            "memberIndex": 8,
+            "proTxHash": "e76cdb5c9e004fb9bf83bfcebf7bf59bcbe925a1d348d3e5cfb108910e45d0d1"
+          },
+          {
+            "memberIndex": 9,
+            "proTxHash": "8abb1f227473e188d0e3ff39201badd49d22f8b323f9cfdd096d109f50614b6c"
+          },
+          {
+            "memberIndex": 10,
+            "proTxHash": "8675ed9f95526868ce4cf88ffe5a26ccff90b7623516735219c6e16731e4288a"
+          },
+          {
+            "memberIndex": 11,
+            "proTxHash": "e657b9abffe8326c25236ccfb28408617d3f5c3704d703edc1271db37db62b5d"
+          }
+        ],
+        "receivedComplaints": [
+        ],
+        "receivedJustifications": [
+        ],
+        "receivedPrematureCommitments": [
+          {
+            "memberIndex": 0,
+            "proTxHash": "6503cd51fd93d0923eaee599b8f48dceb639b0f1a7e5dfd064d439c9729e1b48"
+          },
+          {
+            "memberIndex": 1,
+            "proTxHash": "f9bf9e69ef111ca5218804f004c5e31abd971699847f52364e88301559cab6f8"
+          },
+          {
+            "memberIndex": 2,
+            "proTxHash": "895cb52efac54f92ed726ad9da15fd6a8c94fcabae2f9c41ad81be0c214e0d1e"
+          },
+          {
+            "memberIndex": 3,
+            "proTxHash": "fd1fe03e178b397baa304fdcb98c7e99b6d39768029490270e17b53f4fef7aa3"
+          },
+          {
+            "memberIndex": 4,
+            "proTxHash": "ec4ca45ccce7d7f94ab824a9f4840c3a85731c8bc70ba21953992009214c7e1d"
+          },
+          {
+            "memberIndex": 5,
+            "proTxHash": "9c3173a86ef146920ad37f3b0c4f9be0f08063c1d194aaa9602d766a5de782a9"
+          },
+          {
+            "memberIndex": 6,
+            "proTxHash": "856c3dd446c0791e800aa24f6a726431a0d4df6ed3cfb3a71b1bf3951764cbf3"
+          },
+          {
+            "memberIndex": 7,
+            "proTxHash": "38e2e295b4ed4f2d93731951537fd2fa31bee87833b61443a6961117a0c970a8"
+          },
+          {
+            "memberIndex": 8,
+            "proTxHash": "e76cdb5c9e004fb9bf83bfcebf7bf59bcbe925a1d348d3e5cfb108910e45d0d1"
+          },
+          {
+            "memberIndex": 9,
+            "proTxHash": "8abb1f227473e188d0e3ff39201badd49d22f8b323f9cfdd096d109f50614b6c"
+          },
+          {
+            "memberIndex": 10,
+            "proTxHash": "8675ed9f95526868ce4cf88ffe5a26ccff90b7623516735219c6e16731e4288a"
+          },
+          {
+            "memberIndex": 11,
+            "proTxHash": "e657b9abffe8326c25236ccfb28408617d3f5c3704d703edc1271db37db62b5d"
+          }
+        ],
+        "allMembers": [
+          "6503cd51fd93d0923eaee599b8f48dceb639b0f1a7e5dfd064d439c9729e1b48",
+          "f9bf9e69ef111ca5218804f004c5e31abd971699847f52364e88301559cab6f8",
+          "895cb52efac54f92ed726ad9da15fd6a8c94fcabae2f9c41ad81be0c214e0d1e",
+          "fd1fe03e178b397baa304fdcb98c7e99b6d39768029490270e17b53f4fef7aa3",
+          "ec4ca45ccce7d7f94ab824a9f4840c3a85731c8bc70ba21953992009214c7e1d",
+          "9c3173a86ef146920ad37f3b0c4f9be0f08063c1d194aaa9602d766a5de782a9",
+          "856c3dd446c0791e800aa24f6a726431a0d4df6ed3cfb3a71b1bf3951764cbf3",
+          "38e2e295b4ed4f2d93731951537fd2fa31bee87833b61443a6961117a0c970a8",
+          "e76cdb5c9e004fb9bf83bfcebf7bf59bcbe925a1d348d3e5cfb108910e45d0d1",
+          "8abb1f227473e188d0e3ff39201badd49d22f8b323f9cfdd096d109f50614b6c",
+          "8675ed9f95526868ce4cf88ffe5a26ccff90b7623516735219c6e16731e4288a",
+          "e657b9abffe8326c25236ccfb28408617d3f5c3704d703edc1271db37db62b5d"
+        ]
+      }
+    }
+  ],
+  "quorumConnections": [
+    {
+      "llmqType": "llmq_50_60",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
         {
-          "memberIndex": 35,
-          "proTxHash": "c24aea30305d539887223fd923df775644b1d86db0aac8c654026e823b549cd7"
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
         },
         {
-          "memberIndex": 42,
-          "proTxHash": "f0567069d4f2a2e536e46173a097b318daf03edef989f6875ca06f5c4d49abc9"
-        }
-      ],
-      "weComplain": [
-      ],
-      "receivedContributions": [
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_100_67",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
         {
-          "memberIndex": 0,
-          "proTxHash": "a6670caf2842a4ae5cb4bb78b3c10343456922b500693f6da043af541d58d9cb"
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
         },
         {
-          "memberIndex": 1,
-          "proTxHash": "77c0615fb5eb946f7f731a44eb36dc37ee77bf959e7205937d88186cacfbdc7e"
+          "proTxHash": "e3a1bc7820e24820ab557c7dc7650b5a6ec326adac9599f42ed981e4227bdc0e",
+          "connected": true,
+          "address": "54.187.0.112:20001",
+          "outbound": true
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 0,
+      "pQuorumBaseBlockIndex": 6072,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "ec4ca45ccce7d7f94ab824a9f4840c3a85731c8bc70ba21953992009214c7e1d",
+          "connected": true,
+          "address": "34.219.73.212:49030",
+          "outbound": false
         },
         {
-          "memberIndex": 2,
-          "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
+          "proTxHash": "895cb52efac54f92ed726ad9da15fd6a8c94fcabae2f9c41ad81be0c214e0d1e",
+          "connected": true,
+          "address": "35.88.228.131:46084",
+          "outbound": false
+        },
+      ]
+    },
+    {
+      "llmqType": "llmq_devnet",
+      "quorumIndex": 1,
+      "pQuorumBaseBlockIndex": 6073,
+      "quorumHash": "000000b1823c0d77dcfbd6a11404ddbcfc259a503aec9a7aadfdfabc7602a7be",
+      "pindexTip": 6082,
+      "quorumConnections": [
+        {
+          "proTxHash": "bfcfc61bb222d4744276a3591df2239c540da36f4638ce234a4490ac35254607",
+          "connected": true,
+          "address": "54.68.152.187:54748",
+          "outbound": false
         },
         {
-          "memberIndex": 48,
-          "proTxHash": "9de76b8291d00026ab0af86306023c7b90f8e9229dc04916fe1335bf5e11f15d"
+          "proTxHash": "93b2f08a18d9ac165aad16d66d8492721f4556e53d3a2d28b045cc992ce65725",
+          "connected": true,
+          "address": "54.191.24.26:38528",
+          "outbound": false
         },
-        {
-          "memberIndex": 49,
-          "proTxHash": "e441bbb2f056d471ae9fad83b4dd0fa691a0574eb4a373a0e59d6108614ee07e"
-        }
-      ],
-      "receivedComplaints": [
-        {
-          "memberIndex": 0,
-          "proTxHash": "a6670caf2842a4ae5cb4bb78b3c10343456922b500693f6da043af541d58d9cb"
-        },
-        {
-          "memberIndex": 1,
-          "proTxHash": "77c0615fb5eb946f7f731a44eb36dc37ee77bf959e7205937d88186cacfbdc7e"
-        },
-        {
-          "memberIndex": 2,
-          "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
-        },
-        {
-          "memberIndex": 48,
-          "proTxHash": "9de76b8291d00026ab0af86306023c7b90f8e9229dc04916fe1335bf5e11f15d"
-        },
-        {
-          "memberIndex": 49,
-          "proTxHash": "e441bbb2f056d471ae9fad83b4dd0fa691a0574eb4a373a0e59d6108614ee07e"
-        }
-      ],
-      "receivedJustifications": [
-      ],
-      "receivedPrematureCommitments": [
-        {
-          "memberIndex": 0,
-          "proTxHash": "a6670caf2842a4ae5cb4bb78b3c10343456922b500693f6da043af541d58d9cb"
-        },
-        {
-          "memberIndex": 1,
-          "proTxHash": "77c0615fb5eb946f7f731a44eb36dc37ee77bf959e7205937d88186cacfbdc7e"
-        },
-        {
-          "memberIndex": 2,
-          "proTxHash": "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9"
-        },
-        {
-          "memberIndex": 48,
-          "proTxHash": "9de76b8291d00026ab0af86306023c7b90f8e9229dc04916fe1335bf5e11f15d"
-        },
-        {
-          "memberIndex": 49,
-          "proTxHash": "e441bbb2f056d471ae9fad83b4dd0fa691a0574eb4a373a0e59d6108614ee07e"
-        }
-      ],
-      "allMembers": [
-        "a6670caf2842a4ae5cb4bb78b3c10343456922b500693f6da043af541d58d9cb",
-        "77c0615fb5eb946f7f731a44eb36dc37ee77bf959e7205937d88186cacfbdc7e",
-        "8070c631ce9ac8850d2e95d4ed7be70171ead22ccd7f4bc9c3aee0a227f323c9",
-        "596be0851532a66037744afa694e4de6485f326f4638e704db93cc726866cda3",
-        "51c11d287dfa85aef3eebb5420834c8e443e01d15c0b0a8e397d67e2e51aa239",
-        "9f4f9f83ecbcd5739d7f1479ee14b508f2414d044a717acba0960566c4e6091d",
-        "21c0923badd20f953360c586edfcbb1a830be83206e30b3f65765f7794f2a640",
-        "cc36055f36345b85a2b8176e79feff0ff822c490691c7f8e8d3348b4b1a1d8ac",
-        "4636ed7acbacbc76aba60aa7a1011688fe9ad5fd701d0bf8fc42a502ea3e6543",
-        "32e5ad5cf9a06eb13e0f65cb7ecde1a93ef24995d07355fac2ff05ebd5b9ddbf",
-        "0022afbe93054ca11ce9b67892661af4558597bacff0ab82bff05a2b4a89ca2d",
-        "2523dc6e034911b9004862e87b4d23a32ed6198aec177915df7893f51cd645bd",
-        "abe5d16432915b201cf6f11299a1abd62e5f69a2c4e8717694d1e42d96dbd580",
-        "f443dd87ec7981e8630ae957f295d9d226d4bd3895f59dbd80b30137a92b3735",
-        "6a5be5c068a0be432b7db0772b25094a59ce1f433dd2df0d410511ac641c3768",
-        "84435c41688c8021a25a644e6b94c9f5159aff5658ee2e12f5cea5c714c21aa3",
-        "2db238aa40837319ca13e27aae4333d1248475546be6cfad985a3785c0ac9bd6",
-        "cefb7c69f75d9fbba21f648c6205bebf9b16325956404c70af03144c1135c7d7",
-        "cc7041c869c7c1c0bae7c137f0cda708ad492bc89c4b8f7a40a353d90335febf",
-        "24e642275f5d5f17f67db502d905153cfd83ffbd3d49c90196ec01200917fb31",
-        "bc5c77926b0ccfcb742123a1edf2c27147888f694701df399982a862309921c8",
-        "04d06d16b3eca2f104ef9749d0c1c17d183eb1b4fe3a16808fd70464f03bcd63",
-        "11eabc1e72394af02bbe86815975d054816fe69006fdc64c6d7a06b585e5c311",
-        "71cf5017c4c5f69db5c17a8cfb4c28ffc14ad1715dba2a83f0c30e534291f828",
-        "d567ac9cc7437848210365a0225271ec26a6a6c7d852544a6e9cbd40756075b3",
-        "16ef804605595f67a0e078f7ffbdd93ac55bcd22d9094cb8b61ef527c48f4c44",
-        "f51b426420ac4c518ad07c2bb03e434389337b4e2977d39233114d5e8ef21f69",
-        "2460848868c210d23c68460050f83f47a7ad00db2c47ad6f223a9b1eb04c8d54",
-        "49d94e4c584929320cfe159faf4f6e398f1b2d1fdaa413c01345ce23870d2ca9",
-        "e8b039ce3f1016b7caf781d1b0efbc11191860ec3b131fc49591402a260ba638",
-        "5ab82a5348b5d4c126b0c172665d364352be37c96ce442e710d4a844a6f80bf9",
-        "05b83104eea971582c803ded305109ecb734b582da93b8e301c6f00d6be6c496",
-        "c98c6303af03f7f3b2673ceece962134088e5dcc3c69a0977069c6201b26dc9b",
-        "f933d592d677f3409274646ddea2ffaaca77dfd4ceab7c54037a04e05fc7ee8b",
-        "5d40e68f65e7263d91e114b644ff7f8c9c376db63550d5ef9bc4228870c4f053",
-        "c24aea30305d539887223fd923df775644b1d86db0aac8c654026e823b549cd7",
-        "a36edfac56f7f1b0f58aa793115fbd53d792315857033fb32a862507a3f060ff",
-        "c9d43a69bd9effdaed579edc901c5d848711481047c9cc76bad8232d8f329dcd",
-        "d82152084615c73d79f3eb8b0ec6a61e6d0f94c4cdcf26f773f0e42b72176f6f",
-        "869f7f2054a6ed4241967afb74c3b1a07701d2772b368eb0bbfd2e3365adf6f3",
-        "5f1a70a350d21f673d93fae45a50c0362947366e46c96bade51b7933f0cada3e",
-        "024608d03beb6a6065f14a29a837c68ae449ac1e17056819366ca0b72b6dd81f",
-        "f0567069d4f2a2e536e46173a097b318daf03edef989f6875ca06f5c4d49abc9",
-        "254bcd3b28d696ce9d468cd521e6be3f7eb01da32d8bf9fdf34868baaf09d9e7",
-        "0ae626ed4ee06c1f042b2eaa9669302a2e60a0df8137843b39de53f2c3e265aa",
-        "cfa6f7b58c78f827c15e8f1b6a5a2a3a92140101719006d8226a363e2c0c8e5c",
-        "03811a53a20289799f56227f576915492d2cede48522cd1b3f67c6c89cdacf83",
-        "f989866b2fadb674a1ca63746ff8bb97232d6843c95f9e805b8bc2a5ae8e768d",
-        "9de76b8291d00026ab0af86306023c7b90f8e9229dc04916fe1335bf5e11f15d",
-        "e441bbb2f056d471ae9fad83b4dd0fa691a0574eb4a373a0e59d6108614ee07e"
       ]
     }
-  },
-  "minableCommitments": {
-    "llmq_50_60": {
+  ],
+  "minableCommitments": [
+    {
       "version": 1,
       "llmqType": 1,
-      "quorumHash": "000000000122768294b19a5f6750094f6e9caa135c0826372d0538d4ceb910bc",
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
       "signersCount": 0,
+      "signers": "00000000000000",
       "validMembersCount": 0,
-      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      "validMembers": "00000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+    },
+    {
+      "version": 1,
+      "llmqType": 4,
+      "quorumHash": "0000003d2100d243f73bd65b392f21a1023f7dfecc54505511c897a5896c0c2c",
+      "quorumIndex": 0,
+      "signersCount": 0,
+      "signers": "00000000000000000000000000",
+      "validMembersCount": 0,
+      "validMembers": "00000000000000000000000000",
+      "quorumPublicKey": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "quorumVvecHash": "0000000000000000000000000000000000000000000000000000000000000000",
+      "quorumSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "membersSig": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
     }
-  }
+  ]
 }
 ```
 
@@ -1841,6 +2118,190 @@ Result:
 ```
 
 *See also: none*
+
+## Quorum RotationInfo
+
+The `quorum rotationinfo` RPC returns  quorum rotation information.
+
+*Parameter #1---block request hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`blockRequestHash` | string (hex) | Required<br>(exactly 1) | The block hash of the request
+
+*Parameter #2---base block hashes number*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`baseBlockHashesNb` | number | Required<br>(exactly 1) | Number of baseBlockHashes
+
+*Parameter #3---extra share*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`extraShare` | bool | Optional<br>(0 or 1) | Request an extra share
+
+*Result---rotation info*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Object containing quorum rotation info
+→<br>`extraShare` | bool | Required<br>(exactly 1) | Whether or not an extra share is included
+→<br>`quorumSnapshotAtHMinusC` | object | Required<br>(exactly 1) | Quorum snapshot at `h-c`
+→<br>`quorumSnapshotAtHMinus2C` | object | Required<br>(exactly 1) | Quorum snapshot at `h-2c` 
+→<br>`quorumSnapshotAtHMinus3C` | object | Required<br>(exactly 1) | Quorum snapshot at `h-3c`
+→<br>`mnListDiffTip` | object | Required<br>(exactly 1) | Masternode list diff for the tip
+→<br>`mnListDiffH` | object | Required<br>(exactly 1) | Masternode list diff for `h`
+→<br>`mnListDiffAtHMinusC` | object | Required<br>(exactly 1) | Masternode list diff for `h-c`
+→<br>`mnListDiffAtHMinus2C` | object | Required<br>(exactly 1) | Masternode list diff for `h-2c` 
+→<br>`mnListDiffAtHMinus3C` | object | Required<br>(exactly 1) | Masternode list diff for `h-3c`
+→<br>`blockHashList` | array | Required<br>(exactly 1) | Array of block hashes
+→<br>`quorumSnapshotList` | array of objects | Required<br>(exactly 1) | Array of quorum snapshot list objects
+→<br>`mnListDiffList` | array of objects | Required<br>(exactly 1) | Array of masternode list diff objects
+
+*Example from Dash Core 0.18.0*
+
+```bash
+dash-cli -testnet quorum rotationinfo 000001e1ef5f2e2bbc3de3b8b3c554e756ef2b7dcd1eb7552ff48fe319caff4b 0 false
+```
+
+Result (truncated):
+```json
+{
+  "extraShare": false,
+  "quorumSnapshotAtHMinusC": {
+    "activeQuorumMembers": [
+      true,
+      false,...
+    ],
+    "mnSkipListMode": 1,
+    "mnSkipList": [
+      7,
+      1,
+      6,
+      7
+    ]
+  },
+  "quorumSnapshotAtHMinus2C": {
+    "activeQuorumMembers": [
+      true,
+      true,...
+    ],
+    "mnSkipListMode": 1,
+    "mnSkipList": [
+      5,
+      4,
+      6,
+      9
+    ]
+  },
+  "quorumSnapshotAtHMinus3C": {
+    "activeQuorumMembers": [
+      true,
+      true,...
+    ],
+    "mnSkipListMode": 1,
+    "mnSkipList": [
+      4,
+      3,
+      7
+    ]
+  },
+  "mnListDiffTip": {
+    "baseBlockHash": "000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e",
+    "blockHash": "000001f10408e797a2b8f5dd8a7e5835b7b54c82bf4c7d913bb60a028cb64acb",
+    "cbTxMerkleTree": "0100000001e862054f249eb3f84689d7bf5f42e89b1e540bd19feb5d656616e967c61837800101",
+    "cbTx": "03000500010000000000000000000000000000000000000000000000000000000000000000ffffffff050289070101ffffffff0200c817a8040000001976a914c0aa7affe002c1189d021ea819c2160f7100ef0288ac00ac23fc060000001976a914c0aa7affe002c1189d021ea819c2160f7100ef0288ac0000000046020089070000a0b1aca79a7d78ab800b5146a095e22033513ea6019164b0e46412e953400dd33953a26d62bed490814a65a7e9184094d0294d53676bf08272cc339f2cd41214",
+    "deletedMNs": [
+    ],
+    "mnList": [
+      {
+        "proRegTxHash": "ef99baa5848b2e2d012db5b0c17958e4ef6578c2c31a60f8cc12225168014ba1",
+        "confirmedHash": "000001d855b97191009c5ef8f915895ca2d51105c12df1671cb5faedbbb0f7ef",
+        "service": "34.220.68.124:20001",
+        "pubKeyOperator": "04bfadc894a7855412800db1941efc5284c0e19dd21512067e01bed98bfd939201e8bffd5de039177ef4ec15aa4c0bd5",
+        "votingAddress": "yMPLoqwqfnsTdQTTzcmont2HRkQyUewram",
+        "isValid": true
+      },...      
+    ],
+    "deletedQuorums": [
+    ],
+    "newQuorums": [
+      {
+        "version": 2,
+        "llmqType": 101,
+        "quorumHash": "0000021a5928d86124863b0ad62585a6115b354424685c0ecc8adb00f29dd157",
+        "quorumIndex": 3,
+        "signersCount": 12,
+        "signers": "ff0f",
+        "validMembersCount": 12,
+        "validMembers": "ff0f",
+        "quorumPublicKey": "1252d661adab4e272767caa002e3fa1fa99ae95a8f2b75fa3f217801073032da15d3a21a19e6f1a3e1f09212cf87f8ae",
+        "quorumVvecHash": "a8719a7be6b82bd052c99bc89a8e1ad831a2d33b2440f5a1cfe66d4be1f6ee8e",
+        "quorumSig": "022288b10b1d94457de8312a884d520cf50058675c7f527a50629e27fd191142be594101213402b56f7a7e0736f71b70046c92bc4ad81a08cfecd7f3dbdecaf7050479f0227099c74f0be5ef302dd626701a1359075187fe799033619f6c8bf9",
+        "membersSig": "8ef10d202123e5fea80c8c0cd0ad8c4094b605cb977a1e3f9205f7f08fe1da2f1b4c2fa1dcc147ef55eee1bd24bd783513941ae485425400743edc3f2bceaa83b6424e3aa7d4578864a962a2a37066dac4c09ae4fde4569225edec3476b153eb"
+      },...
+    ],
+    "merkleRootMNList": "d30d4053e91264e4b0649101a63e513320e295a046510b80ab787d9aa7acb1a0",
+    "merkleRootQuorums": "1412d42c9f33cc7282f06b67534d29d0944018e9a7654a8190d4be626da25339"
+  },
+  "mnListDiffH": {...},
+  "mnListDiffAtHMinusC": {...},
+  "mnListDiffAtHMinus2C": {...},
+  "mnListDiffAtHMinus3C": {...},
+  "blockHashList": [
+    "000000956145f9b48231bbb2a7acd54301823f5619854df4487879dff18f2d79",
+    "0000002cc74d9300f5d8a5436cfaead69fd1aaf3d68a00e57bd89e878a76a841",
+    "0000002911d8f6c21571280953e9e581a6996822fab82adfb766c44e49d050e4",
+    "00000064edcdaea4f2962b3a7bf40bcb0aa8ee00a73da86c6bf80ef7c90af0ce"
+  ],
+  "quorumSnapshotList": [
+    {
+      "activeQuorumMembers": [
+        true,
+        true,...
+      ],
+      "mnSkipListMode": 1,
+      "mnSkipList": [
+        9,
+        1,
+        3
+      ]
+    }
+  ],
+  "mnListDiffList": [
+    {
+      "baseBlockHash": "000008ca1832a4baf228eb1553c03d3a2c8e02399550dd6ea8d65cec3ef23d2e",
+      "blockHash": "000001a6c183a9ec58e1130f3c745dd7729a793974e7d97a10b2a3cb20e42a0a",
+      "cbTxMerkleTree": "010000000178e366554c6cfc0999d1991ba439d4c3b5f62b36f3f4f73c40f6d716f4a55d1a0101",
+      "cbTx": "03000500010000000000000000000000000000000000000000000000000000000000000000ffffffff0502c0060101ffffffff0200c817a8040000001976a914c0aa7affe002c1189d021ea819c2160f7100ef0288ac00ac23fc060000001976a914c0aa7affe002c1189d021ea819c2160f7100ef0288ac00000000460200c0060000a0b1aca79a7d78ab800b5146a095e22033513ea6019164b0e46412e953400dd3dc1437d53f3dcdb89ea5503743ea6ba4eba87c8fb2f47d8e12ea07acc1e39692",
+      "deletedMNs": [
+      ],
+      "mnList": [...],
+      "deletedQuorums": [
+      ],
+      "newQuorums": [
+        {
+          "version": 2,
+          "llmqType": 101,
+          "quorumHash": "000002132c42566f37b89e90ae92277db8a89fa49bfbd1b2a638f9d10d92e219",
+          "quorumIndex": 3,
+          "signersCount": 12,
+          "signers": "ff0f",
+          "validMembersCount": 12,
+          "validMembers": "ff0f",
+          "quorumPublicKey": "920379ef7f296d9f8c5826c73ad78d026b4bb1dca97c83fb6c4bde23094482be631e375664a65eabd79138ed529e467c",
+          "quorumVvecHash": "670e3972eb4f0b42f944fd1c333808ae93d66748f9876e42e91fe503f5dab3b7",
+          "quorumSig": "151ee55b5ad68308d0a16ac47b237a6434bf205d80ffe4cbc5a0b84a70401d863cab7137c40edce2a6b92cd09f07c9ac18fd66c45a7077369f9dfc100ea2e5b5a49549e933ce4dafa8a9cbdb718de945fb805a5eb0c3f02c7159a5db6549a4e8",
+          "membersSig": "10745b04fa0c164e99b75ff8641c32282468daf928a393f8f98de58b24cffff0faab999b5ffebbb2d804aa6367ca52270ff669041175f6743af534127259b6984fbaae935bd6929e810acb1424b67e4a7af90c64bae477accc88a85ebf3d3891"
+        },...
+     ],
+      "merkleRootMNList": "d30d4053e91264e4b0649101a63e513320e295a046510b80ab787d9aa7acb1a0",
+      "merkleRootQuorums": "9296e3c1ac07ea128e7df4b28f7ca8eba46bea433750a59eb8cd3d3fd53714dc"
+    }
+  ]
+}
+```
 
 ## Quorum SelectQuorum
 

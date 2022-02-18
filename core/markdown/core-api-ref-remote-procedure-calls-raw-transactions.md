@@ -1131,7 +1131,7 @@ Transaction | string (hex) | Required<br>(exactly 1) | The serialized transactio
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Allow High Fees | bool | Optional<br>(0 or 1) | Set to `true` to allow the transaction to pay a high transaction fee.  Set to `false` (the default) to prevent Dash Core from broadcasting the transaction if it includes a high fee.  Transaction fees are the sum of the inputs minus the sum of the outputs, so this high fees check helps ensures user including a change address to return most of the difference back to themselves
+`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. Changed from `allowhighfees` in Dash Core 0.18.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).
 
 *Parameter #3--whether to use InstantSend*
 
@@ -1264,11 +1264,11 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `rawtxs` | array | Required<br>(exactly 1) | An array of hex strings of raw transactions (the length must be one for now)
 
-*Parameter #2---allow high fees*
+*Parameter #2---set max fee rate*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`allowhighfees` | bool | Optional<br>(0 or 1) | Allow high fees (default=false)
+`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. Changed from `allowhighfees` in Dash Core 0.18.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).
 
 *Result---mempool acceptance test results*
 
