@@ -470,13 +470,12 @@ Name | Type | Presence | Description
 → →<br>Pubkey | string | Optional<br>(0 or more) | A public key
 →<br>`sigsrequired` | number (int) | Optional<br>(0 or 1) | Only returned for multisig P2SH addresses belonging to the wallet.  The number of signatures required by this script
 →<br>`pubkey` | string (hex) | Optional<br>(0 or 1) | The public key corresponding to this address.  Only returned if the address is a P2PKH address in the wallet
-→<br>`embedded` | object | Optional<br>(0 or 1) | Information about the address embedded in P2SH, if relevant and known. It includes all getaddressinfo output fields for the embedded address, excluding metadata (`timestamp`, `hdkeypath`) and relation to the wallet (`ismine`, `iswatchonly`, `account`).
 →<br>`iscompressed` | bool | Optional<br>(0 or 1) | Set to `true` if a compressed public key or set to `false` if an uncompressed public key.  Only returned if the address is a P2PKH address in the wallet
 →<br>`label` | string | Optional<br>(0 or 1) | The label associated with the address, `""` is the default account
-→<br>`account` | string | Optional<br>(0 or 1) | **This field will be removed in V0.18. To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.** The account associated with the address, `""` is the default account.
 →<br>`timestamp` | number (int) | Optional<br>(0 or 1) | The creation time of the key if available in seconds since epoch (Jan 1 1970 GMT)
-→<br>`hdkeypath` | string | Optional<br>(0 or 1) | The HD keypath if the key is HD and available  
 →<br>`hdchainid` | string (hash160) | Optional<br>(0 or 1) | The ID of the HD chain
+→<br>`hdkeypath` | string | Optional<br>(0 or 1) | The HD keypath if the key is HD and available  
+→<br>`hdmasterfingerprint` | string | Optional<br>(0 or 1) | The fingerprint of the master key
 →<br>`labels` | array | Optional<br>(0 or 1) | Array of labels associated with the address
 →→<br>Label Data | object | Optional<br>(0 or 1) | JSON object containing label data
 →→→<br>`name` | string | Optional<br>(0 or 1) | The label
@@ -494,20 +493,26 @@ Result:
 
 ``` json
 {
-  "address": "yYvsn6vdnkeq9VG1JbkfqKbjv3gUmFmnny",
-  "scriptPubKey": "76a9148a54e0c51084f0e5819a66bb1c4d01191f5caa3888ac",
+  "address": "yTJ2xuFyeH4C34gTYs3ApV8xaXxfTTQ1WM",
+  "scriptPubKey": "76a9144c8486d8bde43d6dec760275ec1ca2e1c216dd2188ac",
   "ismine": true,
   "solvable": true,
-  "desc": "pkh([8a54e0c5]0214889c34100d00aca6e7cbfe0fa72d83c28857585740bff5f3db6b37e51d9aaa)#wyvgzv2k",
+  "desc": "pkh([792361f1/44'/1'/0'/0/402]03928f6313c0157ee1e0b0c882e1d53b81d6873d7fce528448b4d6298635ca82f5)#yhd8346g",
   "iswatchonly": false,
   "isscript": false,
-  "pubkey": "0214889c34100d00aca6e7cbfe0fa72d83c28857585740bff5f3db6b37e51d9aaa",
+  "pubkey": "03928f6313c0157ee1e0b0c882e1d53b81d6873d7fce528448b4d6298635ca82f5",
   "iscompressed": true,
-  "ischange": true,
-  "timestamp": 1612374776,
-  "hdkeypath": "m/44'/1'/0'/1/137",
-  "hdchainid": "a1f28726e62a7766153dac6c90242b712dbb98f4d457b7fb46e09136461dca7e",
+  "label": "",
+  "ischange": false,
+  "timestamp": 1611610816,
+  "hdchainid": "0a33f0f772532b643e440aa7e0347ee6b6f7fa5e0ebe145e56cc3f5709ac1650",
+  "hdkeypath": "m/44'/1'/0'/0/402",
+  "hdmasterfingerprint": "792361f1",
   "labels": [
+    {
+      "name": "",
+      "purpose": "receive"
+    }
   ]
 }
 ```

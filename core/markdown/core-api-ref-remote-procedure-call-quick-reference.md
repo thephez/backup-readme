@@ -81,7 +81,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 # [Mining RPCs](core-api-ref-remote-procedure-calls-mining)
 
 * [GetBlockTemplate](core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software. **Updated in Dash Core 0.18.0**
-* [GetMiningInfo](core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information. **_Updated in Dash Core 0.17.0_**
+* [GetMiningInfo](core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information. **_Updated in Dash Core 0.18.0_**
 * [GetNetworkHashPS](core-api-ref-remote-procedure-calls-mining#getnetworkhashps): returns the estimated network hashes per second based on the last n blocks.
 * [PrioritiseTransaction](core-api-ref-remote-procedure-calls-mining#prioritisetransaction): adds virtual priority or fee to a transaction, allowing it to be accepted into blocks mined by this node (or miners which use this node) with a lower priority or fee. (It can also remove virtual priority or fee, requiring the transaction have a higher priority or fee to be accepted into a locally-mined block.) _Updated in Dash Core 0.14.0_
 * [SubmitBlock](core-api-ref-remote-procedure-calls-mining#submitblock): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.

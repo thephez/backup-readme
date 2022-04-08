@@ -2155,7 +2155,7 @@ Name | Type | Presence | Description
 →<br>`mnListDiffAtHMinusC` | object | Required<br>(exactly 1) | Masternode list diff for `h-c`
 →<br>`mnListDiffAtHMinus2C` | object | Required<br>(exactly 1) | Masternode list diff for `h-2c` 
 →<br>`mnListDiffAtHMinus3C` | object | Required<br>(exactly 1) | Masternode list diff for `h-3c`
-→<br>`blockHashList` | array | Required<br>(exactly 1) | Array of block hashes
+→<br>`blockHashList` | array | Required<br>(exactly 1) | Array of block hashes. Returns the last successfully mined quorum per quorumIndex until `blockRequestHash`
 →<br>`quorumSnapshotList` | array of objects | Required<br>(exactly 1) | Array of quorum snapshot list objects
 →<br>`mnListDiffList` | array of objects | Required<br>(exactly 1) | Array of masternode list diff objects
 
