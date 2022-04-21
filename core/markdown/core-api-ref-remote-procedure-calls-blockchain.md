@@ -547,7 +547,7 @@ Result:
 
 # GetBlockFilter
 
-*Added in Dash Core 0.18.0*
+*Added in Dash Core 18.0.0*
 
 The [`getblockfilter` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockfilter) retrieves a [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) content filter for a particular block.
 [block:callout]
@@ -576,7 +576,7 @@ Name | Type | Presence | Description
 →<br>`filter` | string (hex) | Required<br>(exactly 1) | The hex-encoded filter data
 →<br>`header` | string (hex) | Required<br>(exactly 1) | The hex-encoded filter header
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet getblockfilter 0000004bb972bddf8d5b2bce517db07ff4c69a04e74e9c0bd2caa11ee23d0323 basic
@@ -890,7 +890,12 @@ Result:
 # GetBlockStats
 
 The [`getblockstats` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockstats) computes per block statistics for a given window.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 All amounts are in duffs.
 
 It won't work for some heights with pruning. It won't work without `-txindex` for
@@ -917,7 +922,7 @@ Name | Type | Presence | Description
 →<br>`avgfeerate` | numeric | Required<br>(exactly 1) | Average feerate (in duffs per byte)
 →<br>`avgtxsize` | numeric | Required<br>(exactly 1) | Average transaction size
 →<br>`blockhash` | string (hex) | Required<br>(exactly 1) | The block hash (to check for potential reorgs)
-→<br>`feerate_percentiles` | array (num) | Required<br>(exactly 1) | Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit, which are in duffs per byte.
+→<br>`feerate_percentiles` | array (num) | Required<br>(exactly 1) | **Added in Dash Core 18.0**<br>Feerates at the 10th, 25th, 50th, 75th, and 90th percentile weight unit, which are in duffs per byte.
 → → <br>`10th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 10th percentile feerate
 → → <br>`25th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 25th percentile feerate
 → → <br>`50th_percentile_feerate` | numeric | Required<br>(exactly 1) | The 50th percentile feerate
@@ -929,6 +934,7 @@ Name | Type | Presence | Description
 →<br>`maxfeerate` | numeric | Required<br>(exactly 1) | Maximum feerate (in duffs per byte)
 →<br>`maxtxsize` | numeric | Required<br>(exactly 1) | Maximum transaction size
 →<br>`medianfee` | numeric | Required<br>(exactly 1) | Truncated median fee in the block
+→<br>~~medianfeerate~~ | ~~numeric~~ | ~~Required (exactly 1)~~ | **Removed in Dash Core 18.0.0**<br>~~Truncated median feerate (in duffs per byte)~~
 →<br>`mediantime` | numeric | Required<br>(exactly 1) | The block median time past
 →<br>`mediantxsize` | numeric | Required<br>(exactly 1) | Truncated median transaction size
 →<br>`minfee` | numeric | Required<br>(exactly 1) | Minimum fee in the block
@@ -944,7 +950,7 @@ Name | Type | Presence | Description
 →<br>`utxo_increase` | numeric | Required<br>(exactly 1) | The increase/decrease in the number of unspent outputs
 →<br>`utxo_size_inc` | numeric | Required<br>(exactly 1) | The increase/decrease in size for the utxo index (not discounting op_return and similar)
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli getblockstats 1000 '["minfeerate","avgfeerate"]'
@@ -1031,12 +1037,12 @@ Name | Type | Presence | Description
 →<br>`txcount` | number (int) | Required<br>(exactly 1) | The total number of transactions in the chain up to that point
 →<br>`window_final_block_hash` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.17.0*<br><br>The hash of the final block in the window
 →<br>`window_block_count` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Size of the window in number of blocks
-→<br>`window_final_block_height` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.18.0*<br><br>Height of the final block in window
+→<br>`window_final_block_height` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>Height of the final block in window
 →<br>`window_tx_count` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The number of transactions in the window. Only returned if `window_block_count` is > 0
 →<br>`window_interval` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.16.0*<br><br>The elapsed time in the window in seconds. Only returned if `window_block_count` is > 0
 →<br>`txrate` | number (int) | Optional<br>(0 or 1) | The average rate of transactions per second in the window. Only returned if `window_interval` is > 0
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet getchaintxstats

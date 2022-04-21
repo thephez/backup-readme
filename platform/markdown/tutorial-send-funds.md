@@ -5,7 +5,7 @@ Once you have a wallet and some funds ([tutorial](tutorial-create-and-fund-a-wal
 # Code
 [block:callout]
 {
-  "type": "warning",
+  "type": "info",
   "title": "Wallet Operations",
   "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`). This can result in wait times of  5+ minutes. An upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster."
 }
@@ -15,7 +15,7 @@ Once you have a wallet and some funds ([tutorial](tutorial-create-and-fund-a-wal
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'your wallet mnemonic goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 500000, // only sync from mid-2021\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst sendFunds = async () => {\n  const account = await client.getWalletAccount();\n\n  const transaction = account.createTransaction({\n    recipient: 'yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr', // Testnet2 faucet\n    satoshis: 100000000, // 1 Dash\n  });\n  return account.broadcastTransaction(transaction);\n};\n\nsendFunds()\n  .then((d) => console.log('Transaction broadcast!\\nTransaction ID:', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'your wallet mnemonic goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst sendFunds = async () => {\n  const account = await client.getWalletAccount();\n\n  const transaction = account.createTransaction({\n    recipient: 'yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr', // Testnet2 faucet\n    satoshis: 100000000, // 1 Dash\n  });\n  return account.broadcastTransaction(transaction);\n};\n\nsendFunds()\n  .then((d) => console.log('Transaction broadcast!\\nTransaction ID:', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});",
       "language": "javascript"
     }
   ]

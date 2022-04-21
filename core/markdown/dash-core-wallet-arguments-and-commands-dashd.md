@@ -25,12 +25,14 @@ dashd [options]
        If this block is in the chain assume that it and its ancestors are valid
        and potentially skip their script verification (0 to verify all,
        default:
-       00000000000000022f355c52417fca9b73306958f7c0832b3a7bce006ca369ef,
+       00000000000000105cfae44a995332d8ec256850ea33a1f7b700474e3dad82bc,
        testnet:
-       000008b78b6aef3fd05ab78db8b76c02163e885305545144420cb08704dce538)
+       0000009303aeadf8cf3812f5c869691dbd4cb118ad20e9bf553be434bafe6a52)
 
-  -blocksdir=<dir>
-       Specify blocks directory (default: <datadir>/blocks)
+  -blockfilterindex=<type>
+       Maintain an index of compact filters by block (default: 0, values:
+       basic). If <type> is not supplied or if <type> = 1, indexes for
+       all known types are enabled.
 
   -blocknotify=<cmd>
        Execute command when the best block changes (%s in cmd is replaced by
@@ -40,8 +42,16 @@ dashd [options]
        Extra transactions to keep in memory for compact block reconstructions
        (default: 100)
 
+  -blocksdir=<dir>
+       Specify directory to hold blocks subdirectory for *.dat files (default:
+       <datadir>)
+
   -blocksonly
-       Whether to operate in a blocks only mode (default: 0)
+       Whether to reject transactions from network peers. Automatic broadcast
+       and rebroadcast of any transactions from inbound peers is
+       disabled, unless '-whitelistforcerelay' is '1', in which case
+       whitelisted peers' transactions will be relayed. RPC transactions
+       are not affected. (default: 0)
 
   -conf=<file>
        Specify configuration file. Relative paths will be prefixed by datadir
@@ -57,11 +67,18 @@ dashd [options]
        Maximum database write batch size in bytes (default: 16777216)
 
   -dbcache=<n>
-       Set database cache size in megabytes (4 to 16384, default: 300)
+       Maximum database cache size <n> MiB (4 to 16384, default: 300). In
+       addition, unused mempool memory is shared for this cache (see
+       -maxmempool).
 
   -debuglogfile=<file>
        Specify location of debug log file. Relative paths will be prefixed by a
-       net-specific datadir location. (0 to disable; default: debug.log)
+       net-specific datadir location. (-nodebuglogfile to disable;
+       default: debug.log)
+
+  -includeconf=<file>
+       Specify additional configuration file, relative to the -datadir path
+       (only useable from configuration file, not command line)
 
   -loadblock=<file>
        Imports blocks from external blk000??.dat file on startup
@@ -73,7 +90,7 @@ dashd [options]
        Maximum total size of all orphan transactions in megabytes (default: 10)
 
   -maxrecsigsage=<n>
-       Number of seconds to keep LLMQ recovery sigs (default: 604800) 
+       Number of seconds to keep LLMQ recovery sigs (default: 604800)
 
   -mempoolexpiry=<n>
        Do not keep transactions in the mempool longer than <n> hours (default:
@@ -81,12 +98,12 @@ dashd [options]
 
   -minimumchainwork=<hex>
        Minimum work assumed to exist on a valid chain in hex (default:
-       0000000000000000000000000000000000000000000044f363f417890207722e,
+       00000000000000000000000000000000000000000000549cd3ccb81a55892330,
        testnet:
-       000000000000000000000000000000000000000000000000022f13324cfe06a3)
+       000000000000000000000000000000000000000000000000022f14ac5d56b5ef)
 
   -par=<n>
-       Set the number of script verification threads (-8 to 16, 0 = auto, <0 =
+       Set the number of script verification threads (-16 to 15, 0 = auto, <0 =
        leave that many cores free, default: 0)
 
   -persistmempool
@@ -104,7 +121,7 @@ dashd [options]
        incompatible with -txindex, -rescan and -disablegovernance=false.
        Warning: Reverting this setting requires re-downloading the
        entire blockchain. (default: 0 = disable pruning blocks, 1 =
-       allow manual pruning via RPC, >=945 = automatically prune block
+       allow manual pruning via RPC, >945 = automatically prune block
        files to stay under the specified target size in MiB)
 
   -syncmempool
@@ -118,32 +135,6 @@ dashd [options]
        Print version and exit
 ```
 
-## Indexing options:
-
-```text
-  -addressindex
-       Maintain a full address index, used to query for the balance, txids and
-       unspent outputs for addresses (default: 0)
-
-  -reindex
-       Rebuild chain state and block index from the blk*.dat files on disk
-
-  -reindex-chainstate
-       Rebuild chain state from the currently indexed blocks
-
-  -spentindex
-       Maintain a full spent index, used to query the spending txid and input
-       index for an outpoint (default: 0)
-
-  -timestampindex
-       Maintain a timestamp index for block hashes, used to query blocks hashes
-       by a range of timestamps (default: 0)
-
-  -txindex
-       Maintain a full transaction index, used by the getrawtransaction rpc
-       call (default: 1)
-```
-
 ## Connection options:
 
 ```text
@@ -154,6 +145,11 @@ dashd [options]
 
   -allowprivatenet
        Allow RFC1918 addresses to be relayed and connected to (default: 0)
+
+  -asmap=<file>
+       Specify asn mapping used for bucketing of the peers (default:
+       ip_asn.map). Relative paths will be prefixed by the net-specific
+       datadir location.
 
   -banscore=<n>
        Threshold for disconnecting misbehaving peers (default: 100)
@@ -167,7 +163,7 @@ dashd [options]
        for IPv6
 
   -connect=<ip>
-       Connect only to the specified node; -connect=0 disables automatic
+       Connect only to the specified node; -noconnect disables automatic
        connections (the rules for this peer are the same as for
        -addnode). This option can be specified multiple times to connect
        to multiple nodes.
@@ -217,15 +213,21 @@ dashd [options]
        Tries to keep outbound traffic under the given target (in MiB per 24h),
        0 = no limit (default: 0)
 
+  -natpmp
+       Use NAT-PMP to map the listening port (default: 0)
+
   -onion=<ip:port>
-       Use separate SOCKS5 proxy to reach peers via Tor hidden services
-       (default: -proxy)
+       Use separate SOCKS5 proxy to reach peers via Tor hidden services, set
+       -noonion to disable (default: -proxy)
 
   -onlynet=<net>
        Make outgoing connections only through network <net> (ipv4, ipv6 or
        onion). Incoming connections are not affected by this option.
        This option can be specified multiple times to allow multiple
        networks.
+
+  -peerblockfilters
+       Serve compact block filters to peers per BIP 157 (default: 0)
 
   -peerbloomfilters
        Support filtering of blocks and transaction with bloom filters (default:
@@ -240,10 +242,12 @@ dashd [options]
        Relay non-P2SH multisig (default: 1)
 
   -port=<port>
-       Listen for connections on <port> (default: 9999 or testnet: 19999)
+       Listen for connections on <port> (default: 9999, testnet: 19999,
+       regtest: 19899)
 
   -proxy=<ip:port>
-       Connect through SOCKS5 proxy
+       Connect through SOCKS5 proxy, set -noproxy to disable (default:
+       disabled)
 
   -proxyrandomize
        Randomize credentials for every proxy connection. This enables Tor
@@ -272,21 +276,60 @@ dashd [options]
   -upnp
        Use UPnP to map the listening port (default: 0)
 
-  -whitebind=<addr>
+  -whitebind=<[permissions@]addr>
        Bind to given address and whitelist peers connecting to it. Use
-       [host]:port notation for IPv6
+       [host]:port notation for IPv6. Allowed permissions are
+       bloomfilter (allow requesting BIP37 filtered blocks and
+       transactions), noban (do not ban for misbehavior), forcerelay
+       (relay even non-standard transactions), relay (relay even in
+       -blocksonly mode), and mempool (allow requesting BIP35 mempool
+       contents). Specify multiple permissions separated by commas
+       (default: noban,mempool,relay). Can be specified multiple times.
 
-  -whitelist=<IP address or network>
+  -whitelist=<[permissions@]IP address or network>
        Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or
-       CIDR notated network (e.g. 1.2.3.0/24). Can be specified multiple
-       times. Whitelisted peers cannot be DoS banned and their
-       transactions are always relayed, even if they are already in the
-       mempool, useful e.g. for a gateway
+       CIDR notated network(e.g. 1.2.3.0/24). Uses same permissions as
+       -whitebind. Can be specified multiple times.
+```
+
+## Indexing options:
+
+```text
+  -addressindex
+       Maintain a full address index, used to query for the balance, txids and
+       unspent outputs for addresses (default: 0)
+
+  -reindex
+       Rebuild chain state and block index from the blk*.dat files on disk
+
+  -reindex-chainstate
+       Rebuild chain state from the currently indexed blocks. When in pruning
+       mode or if blocks on disk might be corrupted, use full -reindex
+       instead.
+
+  -spentindex
+       Maintain a full spent index, used to query the spending txid and input
+       index for an outpoint (default: 0)
+
+  -timestampindex
+       Maintain a timestamp index for block hashes, used to query blocks hashes
+       by a range of timestamps (default: 0)
+
+  -txindex
+       Maintain a full transaction index, used by the getrawtransaction rpc
+       call (default: 1)
 ```
 
 ## Wallet options:
 
 ```text
+  -avoidpartialspends
+       Group outputs by address, selecting all or none, instead of selecting on
+       a per-output basis. Privacy is improved as an address is only
+       used once (unless someone sends to it after spending from it),
+       but may result in slightly higher fees as suboptimal coin
+       selection may result due to the added limitation (default: 0)
+
   -createwalletbackups=<n>
        Number of automatic wallet backups (default: 10)
 
@@ -304,9 +347,6 @@ dashd [options]
        Rescan the block chain for missing wallet transactions on startup (1 =
        start from wallet creation time, 2 = start from genesis block)
 
-  -salvagewallet
-       Attempt to recover private keys from a corrupt wallet on startup
-
   -spendzeroconfchange
        Spend unconfirmed change when sending transactions (default: 1)
 
@@ -320,6 +360,9 @@ dashd [options]
        a directory containing a wallet.dat file and log files). For
        backwards compatibility this will also accept names of existing
        data files in <walletdir>.)
+
+  -walletbackupsdir=<dir>
+       Specify full path to directory for automatic wallet backups (must exist)
 
   -walletbroadcast
        Make the wallet broadcast transactions (default: 1)
@@ -335,11 +378,7 @@ dashd [options]
   -zapwallettxes=<mode>
        Delete all wallet transactions and only recover those parts of the
        blockchain through -rescan on startup (1 = keep tx meta data e.g.
-       account owner and payment request information, 2 = drop tx meta
-       data)
-
-  -walletbackupsdir=<dir>
-       Specify full path to directory for automatic wallet backups (must exist)
+       payment request information, 2 = drop tx meta data)
 ```
 
 ## Wallet fee options:
@@ -406,8 +445,8 @@ dashd [options]
        300)
 
   -coinjoinmultisession
-       Enable multiple CoinJoin mixing sessions per block, experimental
-       (0-1, default: 0)
+       Enable multiple CoinJoin mixing sessions per block, experimental (0-1,
+       default: 0)
 
   -coinjoinrounds=<n>
        Use N separate masternodes for each denominated input to mix funds
@@ -418,7 +457,6 @@ dashd [options]
 
   -enablecoinjoin
        Enable use of CoinJoin for funds stored in this wallet (0-1, default: 0)
-
 ```
 
 ## ZeroMQ notification options:
@@ -427,68 +465,187 @@ dashd [options]
   -zmqpubhashblock=<address>
        Enable publish hash block in <address>
 
+  -zmqpubhashblockhwm=<n>
+       Set publish hash block outbound message high water mark (default: 1000)
+
+  -zmqpubhashchainlock=<address>
+       Enable publish hash block (locked via ChainLocks) in <address>
+
+  -zmqpubhashchainlockhwm=<n>
+       Set publish hash chain lock outbound message high water mark (default:
+       1000)
+
   -zmqpubhashgovernanceobject=<address>
        Enable publish hash of governance objects (like proposals) in <address>
 
+  -zmqpubhashgovernanceobjecthwm=<n>
+       Set publish hash governance object outbound message high water mark
+       (default: 1000)
+
   -zmqpubhashgovernancevote=<address>
        Enable publish hash of governance votes in <address>
+
+  -zmqpubhashgovernancevotehwm=<n>
+       Set publish hash governance vote outbound message high water mark
+       (default: 1000)
 
   -zmqpubhashinstantsenddoublespend=<address>
        Enable publish transaction hashes of attempted InstantSend double spend
        in <address>
 
+  -zmqpubhashinstantsenddoublespendhwm=<n>
+       Set publish hash InstantSend double spend outbound message high water
+       mark (default: 1000)
+
   -zmqpubhashrecoveredsig=<address>
        Enable publish message hash of recovered signatures (recovered by LLMQs)
        in <address>
 
+  -zmqpubhashrecoveredsighwm=<n>
+       Set publish hash recovered signature outbound message high water mark
+       (default: 1000)
+
   -zmqpubhashtx=<address>
        Enable publish hash transaction in <address>
+
+  -zmqpubhashtxhwm=<n>
+       Set publish hash transaction outbound message high water mark (default:
+       1000)
 
   -zmqpubhashtxlock=<address>
        Enable publish hash transaction (locked via InstantSend) in <address>
 
+  -zmqpubhashtxlockhwm=<n>
+       Set publish hash transaction lock outbound message high water mark
+       (default: 1000)
+
   -zmqpubrawblock=<address>
        Enable publish raw block in <address>
+
+  -zmqpubrawblockhwm=<n>
+       Set publish raw block outbound message high water mark (default: 1000)
+
+  -zmqpubrawchainlock=<address>
+       Enable publish raw block (locked via ChainLocks) in <address>
+
+  -zmqpubrawchainlockhwm=<n>
+       Set publish raw chain lock outbound message high water mark (default:
+       1000)
+
+  -zmqpubrawchainlocksig=<address>
+       Enable publish raw block (locked via ChainLocks) and CLSIG message in
+       <address>
+
+  -zmqpubrawchainlocksighwm=<n>
+       Set publish raw chain lock signature outbound message high water mark
+       (default: 1000)
+
+  -zmqpubrawgovernanceobject=<address>
+       Enable publish raw governance votes in <address>
+
+  -zmqpubrawgovernanceobjecthwm=<n>
+       Set publish raw governance object outbound message high water mark
+       (default: 1000)
+
+  -zmqpubrawgovernancevote=<address>
+       Enable publish raw governance objects (like proposals) in <address>
+
+  -zmqpubrawgovernancevotehwm=<n>
+       Set publish raw governance vote outbound message high water mark
+       (default: 1000)
 
   -zmqpubrawinstantsenddoublespend=<address>
        Enable publish raw transactions of attempted InstantSend double spend in
        <address>
 
+  -zmqpubrawinstantsenddoublespendhwm=<n>
+       Set publish raw InstantSend double spend outbound message high water
+       mark (default: 1000)
+
   -zmqpubrawrecoveredsig=<address>
        Enable publish raw recovered signatures (recovered by LLMQs) in
        <address>
 
+  -zmqpubrawrecoveredsighwm=<n>
+       Set publish raw recovered signature outbound message high water mark
+       (default: 1000)
+
   -zmqpubrawtx=<address>
        Enable publish raw transaction in <address>
 
+  -zmqpubrawtxhwm=<n>
+       Set publish raw transaction outbound message high water mark (default:
+       1000)
+
   -zmqpubrawtxlock=<address>
        Enable publish raw transaction (locked via InstantSend) in <address>
+
+  -zmqpubrawtxlockhwm=<n>
+       Set publish raw transaction lock outbound message high water mark
+       (default: 1000)
+
+  -zmqpubrawtxlocksig=<address>
+       Enable publish raw transaction (locked via InstantSend) and ISLOCK in
+       <address>
+
+  -zmqpubrawtxlocksighwm=<n>
+       Set publish raw transaction lock signature outbound message high water
+       mark (default: 1000)
 ```
 
 ## Debugging/Testing options:
 
 ```
+  -addrmantest
+       Allows to test address relay on localhost
+
   -checkblockindex
-       Do a full consistency check for mapBlockIndex, setBlockIndexCandidates,
-       chainActive and mapBlocksUnlinked occasionally. (default: 0)
+       Do a consistency check for the block tree, and  occasionally. (default:
+       0, regtest: 1)
 
   -checkblocks=<n>
        How many blocks to check at startup (default: 6, 0 = all)
 
   -checklevel=<n>
-       How thorough the block verification of -checkblocks is (0-4, default: 3)
+       How thorough the block verification of -checkblocks is: level 0 reads
+       the blocks from disk, level 1 verifies block validity, level 2
+       verifies undo data, level 3 checks disconnection of tip blocks,
+       and level 4 tries to reconnect the blocks, each level includes
+       the checks of the previous levels (0-4, default: 3)
 
   -checkmempool=<n>
-       Run checks every <n> transactions (default: 0)
+       Run checks every <n> transactions (default: 0, regtest: 1)
 
   -checkpoints
-       Disable expensive verification for known chain history (default: 1)
+       Enable rejection of any forks from the known historical chain until
+       block 1450000 (default: 1)
+
+  -debug=<category>
+       Output debugging information (default: -nodebug, supplying <category> is
+       optional). If <category> is not supplied or if <category> = 1,
+       output all debugging information. <category> can be: net, tor,
+       mempool, http, bench, zmq, walletdb, rpc, estimatefee, addrman,
+       selectcoins, reindex, cmpctblock, rand, prune, proxy, mempoolrej,
+       libevent, coindb, qt, leveldb, chainlocks, gobject, instantsend,
+       llmq, llmq-dkg, llmq-sigs, mnpayments, mnsync, coinjoin, spork,
+       netconn.
+
+  -debugexclude=<category>
+       Exclude debugging information for a category. Can be used in conjunction
+       with -debug=1 to output debug logs for all categories except one
+       or more specified categories.
 
   -deprecatedrpc=<method>
        Allows deprecated RPC method(s) to be used
 
+  -disablegovernance
+       Disable governance validation (0-1, default: 0)
+
   -dropmessagestest=<n>
        Randomly drop 1 of every <n> network messages
+
+  -help-debug
+       Print help message with debugging options and exit
 
   -limitancestorcount=<n>
        Do not accept transactions if number of in-mempool ancestors is <n> or
@@ -506,52 +663,18 @@ dashd [options]
        Do not accept transactions if any ancestor would have more than <n>
        kilobytes of in-mempool descendants (default: 101).
 
-  -stopafterblockimport
-       Stop running after importing blocks from disk (default: 0)
-
-  -stopatheight
-       Stop running after reaching the given height in the main chain (default:
-       0)
-
-  -vbparams=<deployment>:<start>:<end>(:<window>:<threshold>)
-       Use given start/end times for specified version bits deployment
-       (regtest-only). Specifying window and threshold is optional.
-
-  -watchquorums=<n>
-       Watch and validate quorum communication (default: 0)
-
-  -addrmantest
-       Allows to test address relay on localhost
-
-  -debug=<category>
-       Output debugging information (default: 0, supplying <category> is
-       optional). If <category> is not supplied or if <category> = 1,
-       output all debugging information. <category> can be: net, tor,
-       mempool, http, bench, zmq, db, rpc, estimatefee, addrman,
-       selectcoins, reindex, cmpctblock, rand, prune, proxy, mempoolrej,
-       libevent, coindb, qt, leveldb, chainlocks, gobject, instantsend,
-       keepass, llmq, llmq-dkg, llmq-sigs, mnpayments, mnsync,
-       privatesend, spork, netconn.
-
-  -debugexclude=<category>
-       Exclude debugging information for a category. Can be used in conjunction
-       with -debug=1 to output debug logs for all categories except one
-       or more specified categories.
-
-  -disablegovernance
-       Disable governance validation (0-1, default: 0)
-
-  -help-debug
-       Show all debugging options (usage: --help -help-debug)
-
   -logips
        Include IP addresses in debug output (default: 0)
 
   -logthreadnames
-       Add thread names to debug messages (default: 0)
+       Prepend debug output with name of the originating thread (only available
+       on platforms supporting thread_local) (default: 0)
 
   -logtimemicros
        Add microsecond precision to debug timestamps (default: 0)
+
+  -logtimestamps
+       Prepend debug output with timestamp (default: 1)
 
   -maxsigcachesize=<n>
        Limit sum of signature cache and script execution cache sizes to <n> MiB
@@ -561,30 +684,27 @@ dashd [options]
        Maximum tip age in seconds to consider node in initial block download
        (default: 21600)
 
-  -mocktime=<n>
-       Replace actual time with <n> seconds since epoch (default: 0)
-
-  -logtimestamps
-       Prepend debug output with timestamp (default: 1)
-
   -maxtxfee=<amt>
-       Maximum total fees (in DASH) to use in a single wallet transaction or
-       raw transaction; setting this too low may abort large
-       transactions (default: 0.10)
+       Maximum total fees (in DASH) to use in a single wallet transaction;
+       setting this too low may abort large transactions (default: 0.10)
 
   -minsporkkeys=<n>
        Overrides minimum spork signers to change spork value. Only useful for
        regtest and devnet. Using this on mainnet or testnet will ban
        you.
 
+  -mocktime=<n>
+       Replace actual time with <n> seconds since epoch (default: 0)
+
   -printpriority
        Log transaction fee per kB when mining blocks (default: 0)
 
   -printtoconsole
-       Send trace/debug info to console instead of debug.log file
+       Send trace/debug info to console (default: 1 when no -daemon. To disable
+       logging to file, set -nodebuglogfile)
 
-  -printtodebuglog
-       Send trace/debug info to debug.log file (default: 1)
+  -pushversion
+       Protocol version to report to other nodes
 
   -shrinkdebugfile
        Shrink debug.log file on client startup (default: 1 when no -debug)
@@ -593,8 +713,21 @@ dashd [options]
        Override spork address. Only useful for regtest and devnet. Using this
        on mainnet or testnet will ban you.
 
+  -sporkkey=<privatekey>
+       Set the private key to be used for signing spork messages.
+
+  -stopafterblockimport
+       Stop running after importing blocks from disk (default: 0)
+
+  -stopatheight
+       Stop running after reaching the given height in the main chain (default:
+       0)
+
   -uacomment=<cmt>
        Append comment to the user agent string
+
+  -watchquorums=<n>
+       Watch and validate quorum communication (default: 0)
 ```
 
 ## Chain selection options:
@@ -615,6 +748,16 @@ dashd [options]
 ## Masternode options:
 
 ```
+  -llmq-data-recovery=<n>
+       Enable automated quorum data recovery (default: 1)
+
+  -llmq-qvvec-sync=<quorum_name>:<mode>
+       Defines from which LLMQ type the masternode should sync quorum
+       verification vectors. Can be used multiple times with different
+       LLMQ types. <mode>: 0 (sync always from all quorums of the type
+       defined by <quorum_name>), 1 (sync from all quorums of the type
+       defined by <quorum_name> if a member of any of the quorums)
+
   -masternodeblsprivkey=<hex>
        Set the masternode BLS private key and enable the client to act as a
        masternode
@@ -631,17 +774,9 @@ dashd [options]
        Relay and mine "non-standard" transactions (testnet/regtest only;
        default: 1)
 
-  -dustrelayfee=<amt>
-       Fee rate (in DASH/kB) used to defined dust, the value of an output such
-       that it will cost more than its value in fees at this fee rate to
-       spend it. (default: 0.00003)
-
-  -incrementalrelayfee=<amt>
-       Fee rate (in DASH/kB) used to define cost of relay, used for mempool
-       limiting and BIP 125 replacement. (default: 0.00001)
-
   -bytespersigop
-       Minimum bytes per sigop in transactions we relay and mine (default: 20)
+       Equivalent bytes per sigop in transactions for relay and mining
+       (default: 20)
 
   -datacarrier
        Relay and mine data carrier transactions (default: 1)
@@ -650,18 +785,29 @@ dashd [options]
        Maximum size of data in data carrier transactions we relay and mine
        (default: 83)
 
+  -dustrelayfee=<amt>
+       Fee rate (in DASH/kB) used to define dust, the value of an output such
+       that it will cost more than its value in fees at this fee rate to
+       spend it. (default: 0.00003)
+
+  -incrementalrelayfee=<amt>
+       Fee rate (in DASH/kB) used to define cost of relay, used for mempool
+       limiting and BIP 125 replacement. (default: 0.00001)
+
   -minrelaytxfee=<amt>
        Fees (in DASH/kB) smaller than this are considered zero fee for
        relaying, mining and transaction creation (default: 0.00001)
 
   -whitelistforcerelay
-       Force relay of transactions from whitelisted peers even if they violate
-       local relay policy (default: 1)
+       Add 'forcerelay' permission to whitelisted inbound peers with default
+       permissions. This will relay transactions even if the
+       transactions were already in the mempool or violate local relay
+       policy. (default: 0)
 
   -whitelistrelay
-       Accept relayed transactions received from whitelisted peers even when
-       not relaying transactions (default: 1)
-```
+       Add 'relay' permission to whitelisted inbound peers with default
+       permissions. This will accept relayed transactions even when not
+       relaying transactions (default: 1)```
 
 ## Block creation options:
 
@@ -690,9 +836,9 @@ dashd [options]
        option can be specified multiple times
 
   -rpcauth=<userpw>
-       Username and hashed password for JSON-RPC connections. The field
-       <userpw> comes in the format: <USERNAME>:<SALT>$<HASH>. A
-       canonical python script is included in share/rpcauth. The client
+       Username and HMAC-SHA-256 hashed password for JSON-RPC connections. The
+       field <userpw> comes in the format: <USERNAME>:<SALT>$<HASH>. A
+       canonical python script is included in share/rpcuser. The client
        then connects normally using the
        rpcuser=<USERNAME>/rpcpassword=<PASSWORD> pair of arguments. This
        option can be specified multiple times
@@ -714,20 +860,20 @@ dashd [options]
        Password for JSON-RPC connections
 
   -rpcport=<port>
-       Listen for JSON-RPC connections on <port> (default: 9998 or testnet:
-       19998)
+       Listen for JSON-RPC connections on <port> (default: 9998, testnet:
+       19998, regtest: 19898)
 
   -rpcservertimeout=<n>
        Timeout during HTTP requests (default: 30)
-
-  -rpcworkqueue=<n>
-       Set the depth of the work queue to service RPC calls (default: 16)
 
   -rpcthreads=<n>
        Set the number of threads to service RPC calls (default: 4)
 
   -rpcuser=<user>
        Username for JSON-RPC connections
+
+  -rpcworkqueue=<n>
+       Set the depth of the work queue to service RPC calls (default: 16)
 
   -server
        Accept command line and JSON-RPC commands
@@ -745,15 +891,15 @@ dashd [options]
   -statshostname=<ip>
        Specify statsd host name (default: )
 
-  -statsport=<port>
-       Specify statsd port (default: 8125)
-
   -statsns=<ns>
        Specify additional namespace prefix (default: )
 
   -statsperiod=<seconds>
        Specify the number of seconds between periodic measurements (default:
        60)
+
+  -statsport=<port>
+       Specify statsd port (default: 8125)
 ```
 
 ## Wallet debugging/testing options:
@@ -800,28 +946,38 @@ The following options can only be used for specific network types. These options
 ## Devnet Options
 
 ```text
-  -minimumdifficultyblocks=<number of blocks>
-       The number of blocks that can be mined with the minimum difficulty at the
-       start of the devnet
+  -highsubsidyblocks=<n>
+       The number of blocks with a higher than normal subsidy to mine at the
+       start of a chain (default: 0, devnet-only)
 
-  -highsubsidyblocks=<number of blocks>
-       The number of blocks with a higher than normal subsidy to mine at the start
-       of the devnet
-
-  -highsubsidyfactor=<subsidy multiplication value>
+  -highsubsidyfactor=<n>
        The factor to multiply the normal block subsidy by while in the
-       highsubsidyblocks window
+       highsubsidyblocks window of a chain (default: 1, devnet-only)
 
   -llmqchainlocks=<quorum name>
-       Override the default LLMQ type used for ChainLocks on the devnet. 
-       Allows using ChainLocks with smaller LLMQs.
+       Override the default LLMQ type used for ChainLocks. Allows using
+       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)
 
-  -llmqdevnetparams=<size:threshold>
-       Override the default LLMQ size for the LLMQ_DEVNET quorum
+  -llmqdevnetparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,
+       devnet-only)
 
   -llmqinstantsend=<quorum name>
-       Override the default LLMQ type used for InstantSend on the devnet.
-       Allows using InstantSend with smaller LLMQs.
+       Override the default LLMQ type used for InstantSend. Allows using
+       InstantSend with smaller LLMQs. (default: llmq_50_60,
+       devnet-only)
+
+  -llmqinstantsenddip0024=<quorum name>
+       Override the default LLMQ type used for InstantSendDIP0024. (default:
+       llmq_60_75, devnet-only)
+
+  -minimumdifficultyblocks=<n>
+       The number of blocks that can be mined with the minimum difficulty at
+       the start of a chain (default: 0, devnet-only)
+
+  -powtargetspacing=<n>
+       Override the default PowTargetSpacing value in seconds (default: 2.5
+       minutes, devnet-only)
 ```
 
 The quorum names used in these options are:
@@ -832,6 +988,7 @@ The quorum names used in these options are:
 | 2 | llmq400_60 |
 | 3 | llmq400_85 |
 | 4 | llmq100_67 |
+| 5 | llmq60_75 |
 | 100 | llmq_test |
 | 101 | llmq_devnet |
 
@@ -840,6 +997,25 @@ Refer to [this table in DIP-6 - LLMQs](https://github.com/dashpay/dips/blob/mast
 ## Regtest Options
 
 ```
-  -llmqtestparams=<size:threshold>
-              Override the default LLMQ size for the LLMQ_TEST quorum       
+  -budgetparams=<masternode>:<budget>:<superblock>
+       Override masternode, budget and superblock start heights (regtest-only)
+
+  -dip3params=<activation>:<enforcement>
+       Override DIP3 activation and enforcement heights (regtest-only)
+
+  -dip8params=<activation>
+       Override DIP8 activation height (regtest-only)
+
+  -llmqtestinstantsendparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_TEST_INSTANTSEND quorums
+       (default: 3:2, regtest-only)
+
+  -llmqtestparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_TEST quorum (default: 3:2,
+       regtest-only)
+
+  -vbparams=<deployment>:<start>:<end>(:<window>:<threshold/thresholdstart>(:<thresholdmin>:<falloffcoeff>))
+       Use given start/end times for specified version bits deployment
+       (regtest-only). Specifying window, threshold/thresholdstart,
+       thresholdmin and falloffcoeff is optional.
 ```

@@ -1,21 +1,22 @@
-The purpose of this tutorial is to walk through the steps necessary to set up a masternode with Dash Platform services.
+The purpose of this tutorial is to walk through the steps necessary to set up a masternode with Dash Platform services using an unreleased development version of the project.
 
 # Prerequisites
 - Access to a Linux system configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v20.10.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
 - An installation of [NodeJS](https://nodejs.org/en/download/) v12+
+- A copy of the [platform repository](https://github.com/dashevo/platform/)
 [block:callout]
 {
   "type": "info",
   "body": "More comprehensive details of using the dashmate tool can be found in the [dashmate README](https://github.com/dashevo/platform/tree/master/packages/dashmate)."
 }
 [/block]
-Use NPM to install dashmate globally in your system:
+Clone a copy of the platform repository:
 [block:code]
 {
   "codes": [
     {
-      "code": "npm install -g dashmate",
+      "code": "git clone -b master https://github.com/dashevo/platform.git\ncd platform",
       "language": "shell"
     }
   ]
@@ -27,51 +28,17 @@ Dashmate can be used to create a local development network (devnet) containing m
 
 ## Setup
 
-Run the following command to start the setup wizard, then accept the default values at each step to create a local network:
+Run the following command to setup a local network:
 [block:code]
 {
   "codes": [
     {
-      "code": "dashmate setup local",
+      "code": "yarn setup",
       "language": "shell"
     }
   ]
 }
 [/block]
-
-[block:callout]
-{
-  "type": "info",
-  "body": "Make a note of the key and identity information displayed during setup as they may be required in the future."
-}
-[/block]
-Example (partial) output of the setup wizard showing important information:
-```
-  ✔ Initialize SDK
-    › HD private key: tprv8ZgxMBicQKsPfLTCjh8vdHkDHYM369tUeQ4aqpV9GzUfQyBKutfstB1sDfQyLERACTEYy5Qjph42gBiqqnqYmXJZZqRc4PQssGzbvwJXHnN
-  ✔ Register DPNS identity
-    › DPNS identity: 6whgUd1LzwzU4ob7K8FGCLV765K7dp2JbEmVgdTQEFxD
-  ✔ Register DPNS contract
-    › DPNS contract ID: EpCvWuoh3JcFetFY83HdwuzRUvwxF2hc3mU19MtBg2kK
-  ✔ Obtain DPNS contract commit block height
-    › DPNS contract block height: 5
-  ✔ Register top level domain "dash"
-  ✔ Register identity for Dashpay
-    › Dashpay's owner identity: 2T7kLcbJzQrLhBV6BferW42Jimb3BJ5zAAore42mfNyE
-  ✔ Register Dashpay Contract
-    › Dashpay contract ID: EAv8ePXREdJ719ntcRiKuEYxv9XooMwL1mJmPHMGuW9r
-  ✔ Obtain Dashpay contract commit block height
-    › Dashpay contract block height: 15
-  ✔ Register Feature Flags identity
-    › Feature Flags identity: 8BsvV4RCbW7srWj81kgjJCykRBF2rzyigys8XkBchY96
-  ✔ Register Feature Flags contract
-    › Feature Flags contract ID: JDrDAGVqTWsM9k7KGBsSjcyC11Vd2UdPxPoPf4NzyyrP
-  ✔ Obtain Feature Flags contract commit block height
-    › Feature Flags contract block height: 20
-
-```
-
-
 ## Operation
 
 Once the setup completes, start/stop/restart the network via the following commands:
@@ -79,7 +46,7 @@ Once the setup completes, start/stop/restart the network via the following comma
 {
   "codes": [
     {
-      "code": "dashmate group:start\ndashmate group:stop\ndashmate group:restart",
+      "code": "yarn start\nyarn stop\nyarn restart",
       "language": "shell"
     }
   ]
@@ -90,7 +57,7 @@ The status of the network's nodes can be check via the group status command:
 {
   "codes": [
     {
-      "code": "dashmate group:status",
+      "code": "yarn exec packages/dashmate/bin/dashmate group:status",
       "language": "shell"
     }
   ]
@@ -103,24 +70,24 @@ During development it may be necessary to obtain Dash to create and topup [ident
 {
   "codes": [
     {
-      "code": "# Stop the devnet first\ndashmate group:stop\n\n# Mine 10 Dash to a provided address\ndashmate wallet:mint 10 --address=<your address> --config=local_seed\n\n# Restart the devnet\ndashmate group:start",
+      "code": "# Stop the devnet first\nyarn stop\n\n# Mine 10 Dash to a provided address\nyarn exec packages/dashmate/bin/dashmate wallet:mint 10 --address=<your address> --config=local_seed\n\n# Restart the devnet\nyarn start",
       "language": "shell",
       "name": "Mine to provided address"
     },
     {
-      "code": "# Stop the devnet first\ndashmate group:stop\n\n# Mine 10 Dash to a random address/key\n# The address and private key will be displayed\ndashmate wallet:mint 10 --config=local_seed\n\n# Restart the devnet\ndashmate group:start",
+      "code": "# Stop the devnet first\nyarn stop\n\n# Mine 10 Dash to a random address/key\n# The address and private key will be displayed\nyarn exec packages/dashmate/bin/dashmate wallet:mint 10 --config=local_seed\n\n# Restart the devnet\nyarn start",
       "language": "shell",
       "name": "Mine to new address"
     }
   ]
 }
 [/block]
-Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG --config=local_seed`:
+Example output of `yarn exec packages/dashmate/bin/dashmate wallet:mint 10 --address=yWTXCoGjH4HDpo5cnGJcBHYFnjncf6gzuL --config=local_seed`:
 [block:code]
 {
   "codes": [
     {
-      "code": "✔ Generate 10 dash to address\n  ✔ Start Core\n  ↓ Use specified address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG [SKIPPED]\n  ✔ Generate ≈10 dash to address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG\n    › Generated 172.59038279 dash\n  ✔ Wait for balance to confirm\n  ✔ Stop Core",
+      "code": "✔ Generate 10 dash to address\n  ✔ Start Core\n  ↓ Use specified address yWTXCoGjH4HDpo5cnGJcBHYFnjncf6gzuL [SKIPPED]\n  ✔ Generate ≈10 dash to address yWTXCoGjH4HDpo5cnGJcBHYFnjncf6gzuL\n    › Generated 172.59038279 dash\n  ✔ Wait for balance to confirm\n  ✔ Stop Core",
       "language": "text"
     }
   ]
@@ -130,14 +97,7 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
 
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
-To make the Dash SDK connect to your local development network, set the `network` option to `'local'`:
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: Prior to Platform v0.22, it was also necessary to set the DPNS contract ID; however, system contract IDs are now static so this is no longer necessary as of [pull request 192](https://github.com/dashevo/platform/pull/192)."
-}
-[/block]
-
+To make the Dash SDK connect to your local development network, set the `network` option to `'local'` and set the DPNS contract ID when configuring your client. The DPNS contract ID can be found in the `packages/platform-test-suite/.env` file.
 [block:code]
 {
   "codes": [
@@ -161,14 +121,6 @@ For development we recommend using either a local development network created vi
 
 
 # Testnet Masternode Setup
-[block:callout]
-{
-  "type": "info",
-  "title": "Full Platform Node",
-  "body": "A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/platform/tree/master/packages/dashmate#setup-node) set to  `fullnode` and then starting the node.\n```\ndashmate setup testnet fullnode\ndashmate start\n```"
-}
-[/block]
-
 [block:callout]
 {
   "type": "danger",

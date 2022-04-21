@@ -368,7 +368,7 @@ Name | Type | Presence | Description
 `result` | object | Required<br>(exactly 1) | An object containing the block hash for the requested height
 →<br>`blockhash` | string | Required<br>(exactly 1) | Block hash for the requested height
 
-*Examples from Dash Core 0.18.0*
+*Examples from Dash Core 18.0.0*
 
 Request a block hash in hex-encoded serialized block hash format:
 

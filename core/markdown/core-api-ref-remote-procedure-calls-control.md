@@ -1,12 +1,17 @@
 # Debug
 
 The [`debug` RPC](core-api-ref-remote-procedure-calls-control#debug) changes the debug category from the console.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---debug category*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `walletdb` <br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `coinjoin` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
+Debug category | string | Required<br>(1 or more) | The debug category to activate. Use a `+` to specify multiple categories. Categories will be one of the following:<br>• `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `addrman` <br>• `bench` <br>• `cmpctblock` <br>• `coindb` <br>• `walletdb` (**renamed from `db` in Dash Core 18.0.0**)<br>• `estimatefee` <br>• `http` <br>• `leveldb` <br>• `libevent` <br>• `mempool` <br>• `mempoolrej` <br>• `net` <br>• `proxy` <br>• `prune` <br>• `qt` <br>• `rand` <br>• `reindex` <br>• `rpc` <br>• `selectcoins` <br>• `tor` <br>• `zmq` <br>• `dash` (all subcategories)<br><br>The `dash` sub-categories can be enabled individually:<br>• `chainlocks` <br>• `gobject` <br>• `instantsend` <br>• `llmq` <br>• `llmq-dkg` <br>• `llmq-sigs` <br>• `mnpayments` <br>• `mnsync` <br>• `coinjoin` <br>• `spork` <br><br><br>Note: No error will be thrown even if the specified category doesn't match any of the above
 
 *Example from Dash Core 0.15.0*
 
@@ -76,7 +81,7 @@ Result:
 
 # GetRPCInfo
 
-*Added in Dash Core 0.18.0*
+*Added in Dash Core 18.0.0*
 
 The [`getrpcinfo` RPC](getrpcinfo) returns details about the RPC server.
 
@@ -92,7 +97,7 @@ Name | Type | Presence | Description
 →→→<br>`method` | number (int) | Required<br>(exactly 1) | Name of the command
 →→→<br>`duration` | number (int) | Required<br>(exactly 1) | Number of microseconds the command has been active
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli getrpcinfo
@@ -171,7 +176,12 @@ Result:
 # Logging
 
 The [`logging` RPC](core-api-ref-remote-procedure-calls-control#logging) gets and sets the logging configuration
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---include categories*
 
 Name | Type | Presence | Description
@@ -189,7 +199,7 @@ The categories are:
 | Type | Category |
 | - | - |
 | Special | • `0` - Disables all categories <br>• `1` or `all` - Enables all categories <br>• `dash` - Enables/disables all Dash categories |
-| Standard | `addrman`, `bench` <br>`cmpctblock`, `coindb`, `walletdb`, `estimatefee`, `http`, `leveldb`, `libevent`, `mempool`, `mempoolrej`, `net`, `proxy`, `prune`, `qt`, `rand`, `reindex`, `rpc`, `selectcoins`, `tor`, `zmq`|
+| Standard | `addrman`, `bench` <br>`cmpctblock`, `coindb`, `estimatefee`, `http`, `leveldb`, `libevent`, `mempool`, `mempoolrej`, `net`, `proxy`, `prune`, `qt`, `rand`, `reindex`, `rpc`, `selectcoins`, `tor`, `zmq`, `walletdb` (**renamed from `db` in Dash Core 18.0.0**)|
 | Dash | <br>`chainlocks`, `gobject`, `instantsend`, `llmq`, `llmq-dkg`, `llmq-sigs`, `mnpayments`, `mnsync`, `coinjoin`, `spork` |
 
 *Result---a list of the logging categories that are active*

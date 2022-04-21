@@ -3,9 +3,8 @@
 In this tutorial we will retrieve the data contract created in the [Register a Data Contract tutorial](tutorial-register-a-data-contract).
 
 ## Prerequisites
-- [node.js](https://nodejs.org/en/) (v12+)
-- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
+- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
+- A Dash Platform Contract ID: [Tutorial: Register a Data Contract](tutorial-register-a-data-contract) 
 
 # Code
 
@@ -32,7 +31,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Identifier = require('@dashevo/dpp/lib/Identifier');\nconst myContractId = 'a contract ID';\nconst myContract = client.platform.contracts.get(myContractId);\n\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myContractId),\n  contract: myContract,\n});",
+      "code": "const Identifier = require('@dashevo/dpp/lib/Identifier');\nconst myContractId = 'a contract ID';\nconst myContract = await client.platform.contracts.get(myContractId);\n\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myContractId),\n  contract: myContract,\n});",
       "language": "javascript"
     }
   ]

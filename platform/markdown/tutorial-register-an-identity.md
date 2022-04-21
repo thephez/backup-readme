@@ -4,9 +4,7 @@ The purpose of this tutorial is to walk through the steps necessary to register 
 Identities serve as the basis for interactions with Dash Platform. They consist primarily of a public key used to register a unique entity on the network. Additional details regarding identities can be found in the [Identity description](explanation-identity).
 
 ## Prerequisites
-- [node.js](https://nodejs.org/en/) (v12+)
-- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
+- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 - A wallet mnemonic with some funds in it: [How to Create and Fund a Wallet](tutorial-create-and-fund-a-wallet)
 
 # Code
@@ -18,19 +16,11 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 }
 [/block]
 
-[block:callout]
-{
-  "type": "danger",
-  "title": "Dash Platform v0.18 Breaking Change",
-  "body": "The derivation path used for [identities](explanation-identity) has been updated to align with [DIP13](https://github.com/dashpay/dips/blob/master/dip-0013.md#identity-authentication-keys) and provide compatibility with the mobile DashPay wallets. Consequently, identities registered with previous versions of the SDK [will be not be retrievable](https://github.com/dashevo/js-dash-sdk/pull/188).\n\nAlso note the change from `account.getIdentityIds()` to  `account.identities.getIdentityIds()` for retrieving identities ([PR](https://github.com/dashevo/wallet-lib/pull/227))."
-}
-[/block]
-
 [block:code]
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 500000, // only sync from mid-2021\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst createIdentity = async () => {\n  return client.platform.identities.register();\n};\n\ncreateIdentity()\n  .then((d) => console.log('Identity:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst createIdentity = async () => {\n  return client.platform.identities.register();\n};\n\ncreateIdentity()\n  .then((d) => console.log('Identity:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

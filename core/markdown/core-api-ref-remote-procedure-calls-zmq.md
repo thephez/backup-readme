@@ -19,7 +19,7 @@ Name | Type | Presence | Description
 → →<br>`address` | string | Required<br>(exactly 1) | Address of the publisher
 → →<br>`hwm` | number | Required<br>(exactly 1) | Outbound message high water mark
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet getzmqnotifications

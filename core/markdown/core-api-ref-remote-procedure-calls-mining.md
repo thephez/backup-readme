@@ -41,7 +41,7 @@ Name | Type | Presence | Description
 → → →<br>`fee` | number | Required<br>(exactly 1) | The difference in value between transaction inputs and outputs (in duffs). For coinbase transactions, this is a negative number of the total collected block fees (ie., not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn't one
 → → →<br>`sigops` | number | Required<br>(exactly 1) | Total SigOps. If not present, the count is unknown (clients MUST NOT assume there aren't any)
 →<br>`coinbaseaux` | object | Required<br>(exactly 1) | A object containing data that should be included in the coinbase scriptSig content
-→ →<br>Flags | string | Required<br>(0 or more) |
+→ →<br>~~Flags~~ | ~~string~~ | ~~Required<br>(0 or more)~~ | **Removed in Dash Core 18.0.0**
 →<br>`coinbasevalue` | number | Required<br>(exactly 1) | The maximum allowable input to coinbase transaction, including the generation award and transaction fees (in duffs)
 →<br>`coinbasetxn` | object | Required<br>(exactly 1) | Information for the coinbase transaction)
 →<br>`target` | string | Required<br>(exactly 1) | The hash target
@@ -71,7 +71,7 @@ Name | Type | Presence | Description
 →<br>`superblocks_enabled` | boolean | Required<br>(exactly 1) | True if superblock payments enabled
 →<br>`coinbase_payload` | string | Required<br>(exactly 1) | _Added in Dash Core 0.13.0_<br><br>Coinbase transaction payload data encoded in hexadecimal
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet getblocktemplate
@@ -163,7 +163,7 @@ Name | Type | Presence | Description
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>Any network or blockchain warnings
 →<br>`errors` | string | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**<br><br>Only shown when dashd is started with `-deprecatedrpc=getmininginfo`
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli getmininginfo
@@ -345,7 +345,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | None | Not Required<br> | N/A
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet submitheader 0000002037f7981be497c71524bb9f7454d80b1448f46b6f99c3cadfee4367f0c201000007a95ed6e4d19efa99f33c93b45ee2eab5b5a0ef230ac9c03ecc8a3b5ef8938f5b1978614745021ed6cb0000

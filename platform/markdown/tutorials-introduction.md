@@ -1,6 +1,20 @@
 The tutorials in this section walk through the steps necessary to begin building on Dash Platform using the Dash JavaScript SDK. As all communication happens via the masternode hosted decentralized API (DAPI), you can begin using Dash Platform immediately without running a local blockchain node.
 
 Building on Dash Platform requires first registering an Identity and then registering a Data Contract describing the schema of data to be stored. Once that is done, data can be stored and updated by submitting Documents that comply with the Data Contract.
+[block:callout]
+{
+  "type": "info",
+  "title": "Tutorial code",
+  "body": "A repository containing the code for all the tutorials can be downloaded from the GitHub repository located <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">here</a>. To download as a zip file, click [here](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip)."
+}
+[/block]
+# Prerequisites
+
+The tutorials in this section are written in JavaScript and specifically use [Node.js](https://nodejs.org/en/about/). The following prerequisites are necessary to complete the tutorials:
+
+- [Node.js](https://nodejs.org/en/) (v12+)
+- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
+- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
 
 # Quickstart
 [block:image]

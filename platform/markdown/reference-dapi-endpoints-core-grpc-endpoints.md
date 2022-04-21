@@ -231,9 +231,51 @@
 }
 [/block]
 
-[block:html]
+## subscribeToBlockHeadersWithChainLocks
+
+This endpoint helps support simplified payment verification ([SPV](https://dashcore.readme.io/docs/core-guide-operating-modes-simplified-payment-verification-spv)) via DAPI by providing access to block headers which can then be used to verify transactions and simplified masternode lists.
+
+**Returns**: streams the requested block header information
+**Parameters**:
+
+| Name | Type | Required | Description |
+| - | - | - | - |
+| ---------- | | | |
+| __One of the following:__ | | | |
+| `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |
+| `from_block_height` | Integer | No | Return records beginning with the block height provided |
+| ---------- | | | |
+| `count` | Integer | No | Number of blocks to sync. If set to 0 syncing is continuously sends new data as well (default: 0) |
+
+** Example Request and Response **
+[block:code]
 {
-  "html": "<div></div>\n<!-- Not yet implemented in DAPI-client\n## subscribeToBlockHeadersWithChainLocks \n\n**Returns**: Block headers and associated ChainLock signatures\n**Parameters**:\n\n| Name | Type | Required | Description |\n| - | - | - | - |\n| __One of the following:__ | | | |\n| `from_block_hash` | Bytes | No | Return records beginning with the block hash provided |\n| `from_block_height` | Integer | No | Return records beginning with the block height provided |\n| ---------- | | | |\n| `count` | Integer | No |  |\n\n### Example Request and Response\ngrpcurl -plaintext -proto protos/core.proto \\\n  -d '{\n    \"from_block_height\":1\n    }' \\\n  seed.evonet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks\n\n-->\n<style></style>"
+  "codes": [
+    {
+      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1\n  }\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks",
+      "language": "shell",
+      "name": "Request (gRPCurl)"
+    }
+  ]
+}
+[/block]
+
+[block:callout]
+{
+  "type": "info",
+  "body": "**Note:** The gRPCurl response `chainlock` and `headers` data is Base64 encoded"
+}
+[/block]
+
+[block:code]
+{
+  "codes": [
+    {
+      "code": "{\n  \"chainLock\": \"ihQAAO8kiNfNxD3CW8L3QasDEJyBkiLiS7rNeq6eNnKFAAAAggZdJmAma7u9ZDiOOhKkLuzTJFXzXtCDmtuvINHqCImNSEIslno9Dy3fw/Ftaxv9DyJ3XnDpBayiffFvFJ/p8iV+Ubqq5hLdFnb3/dAj5g9EZjwGy4J0xm1dCzPkh2Mp\"\n}\n{\n  \"blockHeaders\": {\n    \"headers\": [\n      \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAeTyN1/qcRcIibEXY0bk4Sa59IRjMPWBKOSRDy+i8Evi6loBU//9/IAEAAAA=\"\n    ]\n  }\n}",
+      "language": "json",
+      "name": "Response"
+    }
+  ]
 }
 [/block]
 

@@ -126,7 +126,7 @@ Result:
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -188,7 +188,7 @@ Result:
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -287,7 +287,7 @@ setlogin: Updated credentials.
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -356,7 +356,7 @@ Result:
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -441,7 +441,7 @@ Result (edited to only show the first two results):
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -519,7 +519,7 @@ true
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 
@@ -617,7 +617,7 @@ cd64b9d55c63bf247f2eca32f978e340622107b607a46c422dabcdc20c0571fe
 {
   "type": "danger",
   "title": "",
-  "body": "**Warning:** **_Removed in Dash Core 0.18.0._**"
+  "body": "**Warning:** **_Removed in Dash Core 18.0.0_**"
 }
 [/block]
 The [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) signs a transaction in the serialized transaction format using private keys stored in the wallet or provided in the call.

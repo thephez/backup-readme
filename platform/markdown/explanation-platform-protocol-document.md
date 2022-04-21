@@ -1,6 +1,6 @@
 # Overview
 
-Dash Platform is based on [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database) concepts and uses related terminology. In short, JSON documents are stored into document collections which can then be fetched back using a [query language](reference-query-syntax) similar to common document-oriented databases like MongoDB, CouchDB, or Firebase. 
+Dash Platform is based on [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database) concepts and uses related terminology. In short, JSON documents are stored into document collections which can then be fetched back using a [query language](reference-query-syntax) similar to common document-oriented databases like [MongoDB](https://www.mongodb.com/), [CouchDB](https://couchdb.apache.org/), or [Firebase](https://firebase.google.com/). 
 
 Documents are defined in an application's [Data Contract](explanation-platform-protocol-data-contract) and represent the structure of application-specific data. Each document consists of one or more fields and the indices necessary to support querying.
 
@@ -12,7 +12,7 @@ Dash Platform Protocol (DPP) defines a set of base fields that must be present i
 
 | Field Name | Description |
 | - | - |
-| protocolVersion | The platform protocol version (currently `0`) |
+| protocolVersion | The platform protocol version (currently `1`) |
 | $id | The document ID (32 bytes) |
 | $type | Document type defined in the referenced contract |
 | $revision | Document revision (=>1) |
@@ -29,7 +29,7 @@ Dash Platform Protocol (DPP) defines a set of base fields that must be present i
 [/block]
 ## Data Contract Fields
 
-Each application defines its own fields via document definitions in its data contract. Details of the DPNS data contract documents are described below as an example. This contract defines two document types (`preorder` and `domain`) and provides the functionality described in the [Name Service explanation](explanation-dpns).
+Each application defines its own fields via document definitions in its data contract. Details of the [DPNS data contract documents](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json) are described below as an example. This contract defines two document types (`preorder` and `domain`) and provides the functionality described in the [Name Service explanation](explanation-dpns).
 
 | Document Name | Field Name | Data Type |
 | - | - | - |
@@ -52,7 +52,7 @@ The following example shows the structure of a DPNS `domain` document as output 
 {
   "codes": [
     {
-      "code": "{\n  '$protocolVersion': 0,\n  '$id': '4veLBZPHDkaCPF9LfZ8fX3JZiS5q5iUVGhdBbaa9ga5E',\n  '$type': 'domain',\n  '$dataContractId': '566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy',\n  '$ownerId': 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn',\n  '$revision': 1,\n  label: 'user-9999',\n  records: {\n    dashUniqueIdentityId: 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn'\n  },\n  preorderSalt: 'BzQi567XVqc8wYiVHS887sJtL6MDbxLHNnp+UpTFSB0',\n  subdomainRules: { allowSubdomains: false },\n  normalizedLabel: 'user-9999',\n  normalizedParentDomainName: 'dash'\n}\n",
+      "code": "{\n  \"$protocolVersion\": 1,\n  \"$id\": \"5D8U1k6t6ax8TnyL6QGFFbtMhn39zsixrSMQaxZrYKf1\",\n  \"$type\": \"domain\",\n  \"$dataContractId\": \"GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec\",\n  \"$ownerId\": \"9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE\",\n  \"$revision\": 1,\n  \"label\": \"RT-Sylvan-71605\",\n  \"normalizedLabel\": \"rt-sylvan-71605\",\n  \"normalizedParentDomainName\": \"dash\",\n  \"preorderSalt\": \"zKaLWLe+kKHiRoBXdfSd7TSU9HdIseeoOly1eTYZ670=\",\n  \"records\": {\n    \"dashUniqueIdentityId\": \"9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE\"\n  },\n  \"subdomainRules\": {\n    \"allowSubdomains\": false\n  }\n}",
       "language": "json",
       "name": ".toJSON()"
     }
@@ -94,3 +94,9 @@ The document replace transition is used to update the data in an existing Dash P
 ## Document Delete
 
 The document delete transition is used to delete an existing Dash Platform document. It only requires the fields found in the base document transition.
+[block:callout]
+{
+  "type": "info",
+  "body": "For more detailed information, see the [Platform Protocol Reference - Document](platform-protocol-reference-document) page"
+}
+[/block]

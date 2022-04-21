@@ -9,15 +9,15 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 
 | Release | Tx Version | Tx Type | Payload JSON | Tx Purpose | Payload | Payload Size |
 | - | - | - | - | - | - |
-| v0.12.3 | 2 | - | n/a | n/a | n/a |
-| v0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
-| v0.13.0 | 3 | 1 | [ProRegTx](#proregtx) | Masternode Registration | hex | compactSize uint |
-| v0.13.0 | 3 | 2 | [ProUpServTx](#proupservtx) | Update Masternode Service | hex | compactSize uint |
-| v0.13.0 | 3 | 3 | [ProUpRegTx](#proupregtx) | Update Masternode Operator | hex | compactSize uint |
-| v0.13.0 | 3 | 4 | [ProUpRevTx](#prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
-| v0.13.0 | 3 | 5 | [CbTx](#cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
-| v0.13.0 | 3 | 6 | [QcTx](#qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
-| v0.18.0 | 3 | 7 | [MnHfTx](#mnhftx) | Masternode hard fork signal | hex |  |
+| 0.12.3 | 2 | - | n/a | n/a | n/a |
+| 0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
+| 0.13.0 | 3 | 1 | [ProRegTx](#proregtx) | Masternode Registration | hex | compactSize uint |
+| 0.13.0 | 3 | 2 | [ProUpServTx](#proupservtx) | Update Masternode Service | hex | compactSize uint |
+| 0.13.0 | 3 | 3 | [ProUpRegTx](#proupregtx) | Update Masternode Operator | hex | compactSize uint |
+| 0.13.0 | 3 | 4 | [ProUpRevTx](#prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
+| 0.13.0 | 3 | 5 | [CbTx](#cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
+| 0.13.0 | 3 | 6 | [QcTx](#qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
+| 18.0.0 | 3 | 7 | [MnHfTx](#mnhftx) | Masternode hard fork signal | hex |  |
 
 # ProRegTx
 
@@ -501,7 +501,7 @@ Quorum Commitment Transaction Payload
 
 # MnHfTx
 
-*Added in protocol version 70220 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)*
+*Added in protocol version 70222 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)*
 [block:callout]
 {
   "type": "warning",
@@ -513,8 +513,8 @@ The Masternode Hard Fork Signal (MnHfTx) special transaction adds the masternode
 [block:callout]
 {
   "type": "info",
-  "body": "Dash Core 0.18 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 0.19. The `mnhfsignal` P2P message referenced below is not included in Dash Core 0.18.",
-  "title": "Partial implementation in Dash Core 0.18"
+  "body": "Dash Core 18.0 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 19.0. The `mnhfsignal` P2P message referenced below is not included in Dash Core 18.0.",
+  "title": "Partial implementation in Dash Core 18.0"
 }
 [/block]
 The special transaction type used for Quorum Commitment Transactions is 7 and the extra payload consists of the following data:

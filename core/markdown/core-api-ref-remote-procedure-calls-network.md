@@ -221,7 +221,7 @@ Name | Type | Presence | Description
 →<br>`address` | string | Required<br>(exactly 1) | The address of the node
 →<br>`port` | number (int) | Required<br>(exactly 1) | The port of the node
   
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet getnodeaddresses
@@ -307,7 +307,7 @@ Name | Type | Presence | Description
 →<br>`subversion` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`protocolversion` | number (int) | Required<br>(exactly 1) | The protocol version number used by this node.  See the [protocol versions section](core-ref-p2p-network-protocol-versions) for more information
 →<br>`localservices` | string (hex) | Required<br>(exactly 1) | The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
-→<br>`localservicesnames` | array | Required<br>(exactly 1) | An array of strings describing the services offered, in human-readable form.
+→<br>`localservicesnames` | array | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>An array of strings describing the services offered, in human-readable form.
 → →<br>SERVICE_NAME | string | Required<br>(exactly 1) | The service name.
 →<br>`localrelay` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>The services supported by this node as advertised in its [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
@@ -330,7 +330,7 @@ Name | Type | Presence | Description
 → → →<br>`score` | number (int) | Required<br>(exactly 1) | The number of incoming connections during the uptime of this node that have used this `address` in their [`version` message](core-ref-p2p-network-control-messages#version)
 →<br>`warnings` | string | Required<br>(exactly 1) | *Added in Bitcoin Core 0.11.0*<br><br>A plain-text description of any network warnings. If there are no warnings, an empty string will be returned.
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli getnetworkinfo
@@ -422,9 +422,10 @@ Name | Type | Presence | Description
 → →<br>`id` | number (int) | Required<br>(exactly 1) | The node's index number in the local node address database
 → →<br>`addr` | string | Required<br>(exactly 1) | The IP address and port number used for the connection to the remote node
 → →<br>`addrlocal` | string | Optional<br>(0 or 1) | Our IP address and port number according to the remote node.  May be incorrect due to error or lying.  Most SPV nodes set this to `127.0.0.1:9999`
+→ →<br>`mapped_as` | string | Optional<br>(0 or 1) | **Added in Dash Core 18.0.0**<br>The AS in the BGP route to the peer used for diversifying peer selection
 → →<br>`addrbind` | string | Optional<br>(0 or 1) | Bind address of the connection to the peer
 → →<br>`services` | string (hex) | Required<br>(exactly 1) | The services advertised by the remote node in its [`version` message](core-ref-p2p-network-control-messages#version)
-→ →<br>`servicesnames` | array | Required<br>(exactly 1) | An array of strings describing the services offered, in human-readable form.
+→ →<br>`servicesnames` | array | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>An array of strings describing the services offered, in human-readable form.
 → → →<br>SERVICE_NAME | string | Required<br>(exactly 1) | The service name if it is recognised.
 → →<br>`verified_proregtx_hash` | string (hex) | Optional<br>(0 or 1) | The ProRegTx of the masternode
 → →<br>`verified_pubkey_hash` | string (hex) | Optional<br>(0 or 1) | The hashed operator public key of the masternode
@@ -441,7 +442,7 @@ Name | Type | Presence | Description
 → →<br>`subver` | string | Required<br>(exactly 1) | The user agent this node sends in its [`version` message](core-ref-p2p-network-control-messages#version).  This string will have been sanitized to prevent corrupting the JSON results.  May be an empty string
 → →<br>`inbound` | bool | Required<br>(exactly 1) | Set to `true` if this node connected to us (inbound); set to `false` if we connected to this node (outbound)
 → →<br>`addnode` | bool | Required<br>(exactly 1) | Set to `true` if this node was added via the [`addnode` RPC](core-api-ref-remote-procedure-calls-network#addnode).
-→ →<br>`masternode` | bool | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br><br>Whether connection was due to masternode connection attempt
+→ →<br>`masternode` | bool | Required<br>(exactly 1) | _Added in Dash Core 0.16.0_<br>Whether connection was due to masternode connection attempt
 → →<br>`startingheight` | number (int) | Required<br>(exactly 1) | The height of the remote node's block chain when it connected to us as reported in its [`version` message](core-ref-p2p-network-control-messages#version)
 → →<br>`banscore` | number (int) | Required<br>(exactly 1) | The ban score we've assigned the node based on any misbehavior it's made.  By default, Dash Core disconnects when the ban score reaches `100`
 → →<br>`synced_headers` | number (int) | Required<br>(exactly 1) | The highest-height header we have in common with this node based the last P2P [`headers` message](core-ref-p2p-network-data-messages#headers) it sent us.  If a [`headers` message](core-ref-p2p-network-data-messages#headers) has not been received, this will be set to `-1`
@@ -449,13 +450,13 @@ Name | Type | Presence | Description
 → →<br>`inflight` | array | Required<br>(exactly 1) | An array of blocks which have been requested from this peer.  May be empty
 → → →<br>Blocks | number (int) | Optional<br>(0 or more) | The height of a block being requested from the remote peer
   * → →<br>`whitelisted` | bool | Required<br>(exactly 1) | Set to `true` if the remote peer has been whitelisted; otherwise, set to `false`.  Whitelisted peers will not be banned if their ban score exceeds the maximum (100 by default).  By default, peers connecting from localhost are whitelisted
-→ →<br>`permissions` | array | Required<br>(exactly 1) | Any special permissions that have been granted to this peer
+→ →<br>`permissions` | array | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>Any special permissions that have been granted to this peer
 → →<br>`bytessent_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total sent bytes aggregated by message type
 → → →<br>Message Type | number (int) | Required<br>(1 or more) | Total sent bytes aggregated by message type. One field for every used message type
 → →<br>`bytesrecv_per_msg` | string : <br>object | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Information about total received bytes aggregated by message type
 → → →<br>Message Type | number (int) | Required<br>(1 or more) | Total received bytes aggregated by message type. One field for every used message type
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet getpeerinfo

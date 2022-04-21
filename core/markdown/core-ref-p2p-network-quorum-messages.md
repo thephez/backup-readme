@@ -396,7 +396,7 @@ It is possible to receive multiple valid final commitments for the same DKG sess
 {
   "type": "info",
   "title": "Version 2",
-  "body": "Dash Core 0.18 updated the `qfcommit` message to support a new message of quorum creation for some quorum types. Note the addition of the `quorumIndex` field in version 2 messages."
+  "body": "Dash Core 18.0 updated the `qfcommit` message to support a new message of quorum creation for some quorum types. Note the addition of the `quorumIndex` field in version 2 messages."
 }
 [/block]
 | Bytes | Name | Data type | Description |

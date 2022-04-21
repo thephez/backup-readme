@@ -3,9 +3,7 @@
 In this tutorial we will retrieve the identity created in the [Register an Identity tutorial](tutorial-register-an-identity).
 
 ## Prerequisites
-- [node.js](https://nodejs.org/en/) (v12+)
-- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
+- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
 
 # Code

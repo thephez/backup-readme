@@ -29,10 +29,38 @@ Usage:
   -devnet=<name>
        Use devnet chain with provided name
 
-  -regtest
-       Enter regression test mode, which uses a special chain in which blocks
-       can be solved instantly. This is intended for regression testing
-       tools and app development.
+  -highsubsidyblocks=<n>
+       The number of blocks with a higher than normal subsidy to mine at the
+       start of a chain (default: 0, devnet-only)
+
+  -highsubsidyfactor=<n>
+       The factor to multiply the normal block subsidy by while in the
+       highsubsidyblocks window of a chain (default: 1, devnet-only)
+
+  -llmqchainlocks=<quorum name>
+       Override the default LLMQ type used for ChainLocks. Allows using
+       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)
+
+  -llmqdevnetparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,
+       devnet-only)
+
+  -llmqinstantsend=<quorum name>
+       Override the default LLMQ type used for InstantSend. Allows using
+       InstantSend with smaller LLMQs. (default: llmq_50_60,
+       devnet-only)
+
+  -llmqinstantsenddip0024=<quorum name>
+       Override the default LLMQ type used for InstantSendDIP0024. (default:
+       llmq_60_75, devnet-only)
+
+  -minimumdifficultyblocks=<n>
+       The number of blocks that can be mined with the minimum difficulty at
+       the start of a chain (default: 0, devnet-only)
+
+  -powtargetspacing=<n>
+       Override the default PowTargetSpacing value in seconds (default: 2.5
+       minutes, devnet-only)
 
   -testnet
        Use the test chain
@@ -77,7 +105,7 @@ Usage:
   sign=SIGHASH-FLAGS
        Add zero or more signatures to transaction. This command requires JSON
        registers:prevtxs=JSON object, privatekeys=JSON object. See
-       signrawtransaction docs for format of sighash flags, JSON
+       signrawtransactionwithkey docs for format of sighash flags, JSON
        objects.
 ```
 

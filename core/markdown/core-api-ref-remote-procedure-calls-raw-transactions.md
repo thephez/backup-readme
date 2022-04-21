@@ -16,7 +16,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The base64-encoded partially signed transaction
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet combinepsbt '["cHNidP8BAFUCAAAAAQcxBA7Cdee2EvS1IyiRPzCVxbt9wFnrqry3AMUBOYvqAAAAAAD/////AQDh9QUAAAAAGXapFLBKVDBt/eE2UU3EUaAiMeuIUMC1iKwAAAAAAAEA3wIAAAAB9LcsqdmAuKwHgkt0HMpJuSx8RnBxL73+ORGz4ogdt+gBAAAAakcwRAIgJR7zIP4o/GRTAyvswKmdFDx+PBO/tB24s0ydQcRpOZECIAvm3Q2xMIpdAAhl17yQAkQjElRbZEIbcr7pGCpNbzqsASEDIcX0+C0b8ib3pvxlx809S7xOmAj0NH3i9vFe8pUTvHX+////AgBlzR0AAAAAF6kUJOSskBQ3xyDtInRjI2eW1QraJ9eHIcmaOwAAAAAZdqkUPU2zmkAo79MmS8yW1oYUjb7jz0qIrOosCQAiAgN+48COTyy1UqO7c63g5A9YEMnBIiYF+FcREEaGgxAHukcwRAIgfwcMEFPrmy81y5NWFj8M0CHUBlzzQxr4RoxSmzvmVIQCIH22f9/A/K0keQ7rKcya0E5zTlnYDnly8VJIrj2yUgflAQEER1IhA37jwI5PLLVSo7tzreDkD1gQycEiJgX4VxEQRoaDEAe6IQK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vFKuAAA=", "cHNidP8BAFUCAAAAAQcxBA7Cdee2EvS1IyiRPzCVxbt9wFnrqry3AMUBOYvqAAAAAAD/////AQDh9QUAAAAAGXapFLBKVDBt/eE2UU3EUaAiMeuIUMC1iKwAAAAAAAEA3wIAAAAB9LcsqdmAuKwHgkt0HMpJuSx8RnBxL73+ORGz4ogdt+gBAAAAakcwRAIgJR7zIP4o/GRTAyvswKmdFDx+PBO/tB24s0ydQcRpOZECIAvm3Q2xMIpdAAhl17yQAkQjElRbZEIbcr7pGCpNbzqsASEDIcX0+C0b8ib3pvxlx809S7xOmAj0NH3i9vFe8pUTvHX+////AgBlzR0AAAAAF6kUJOSskBQ3xyDtInRjI2eW1QraJ9eHIcmaOwAAAAAZdqkUPU2zmkAo79MmS8yW1oYUjb7jz0qIrOosCQAiAgK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vEcwRAIgP3PuTCqVSU0Cx5UDknTwmAFJ6N80sV+YiUmy392/4BUCIEB6QOZe3SJeJ3OVmBCmoEPWcHqbstIvxhCxJ2h+fkSZAQEER1IhA37jwI5PLLVSo7tzreDkD1gQycEiJgX4VxEQRoaDEAe6IQK1B5TV+2qTmU+/c3Pzl61bklYbfj9yg+jbdGyMoKE/vFKuAAA="]'
@@ -112,7 +112,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The resulting raw transaction is a base64-encoded
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet converttopsbt 02000000016b490886c0198b028c6c5cb145c4eb3b1055a224a7a105aadeff41b69ec91e060100000000ffffffff0200205fa0120000001976a914485485425fa99504ec1638ac4213f3cfc9f32ef388acc0a8f9be010000001976a914811eacc14db8ebb5b64486dc43400c0226b428a488ac00000000
@@ -172,7 +172,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet createpsbt "[{\"txid\":\"2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
@@ -227,7 +227,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | string | Required<br>(Exactly 1) | The resulting unsigned raw transaction in serialized transaction format encoded as base-64.  If the transaction couldn't be generated, this will be set to JSON `null` and the JSON-RPC error field may contain an error message
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet createrawtransaction '''
@@ -315,7 +315,7 @@ Name | Type | Presence | Description
 → → →→→<br>`path` | object | Optional<br>(0 or more) | The public key's path
 →<br>`fee` | number (int) | Optional<br>(0 or 1) | The transaction fee paid if all UTXOs slots in the PSBT have been filled
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Decode a one-input, one-output transaction:
 
@@ -635,7 +635,7 @@ Name | Type | Presence | Description
 → →<br>Address | string | Required<br>(1 or more) | A P2PKH address
 →<br>`p2sh` | string (hex) | Required<br>(exactly 1) | The P2SH address of this redeem script
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 A 2-of-3 P2SH multisig pubkey script:
 
@@ -691,7 +691,7 @@ Name | Type | Presence | Description
 → <br>hex |  string (hex) | Required<br>(Exactly 1) | The hex-encoded network transaction if extracted
 → <br>complete | bool | Required<br>(Exactly 1) | If the transaction has a complete set of signatures
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet finalizepsbt cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAQDhAgAAAAGUi7dQLNEVUajA9jcftG9LmDpAZzvVlgQVcitxL418QgEAAABqRzBEAiBP5PxIjJVfKGxSyEjseVC0DsR24bQ0xq3WhrR0vd4JqQIgYiLSkf2do0FAiqikcg9aaVmZdxWh3fgYfnUne2v8rn4BIQPGfYaUQxWDiup+yA05C10JuRtiSDNw1Jedpcz3p993qf7///8CtOfGCQAAAAAZdqkUzvxGSQTAOBTAGQbhl9x1mnReR+6IrADKmjsAAAAAGXapFD75vL6S93yPrdBWbup/+NR/Ir3giKxVSAgAAQdqRzBEAiAF1fgBDg2M/WAeYTYzCkEiSSrDVzcYoe8wwrw/MbdgOQIgJzoYBQ9hAm6jqk2cLFitUd1/iL1ku8w9unadjNfsCdoBIQJn2pETmk8U2X6veADqnny5/6j8Iy7Oizij0SeJHm9x6AAA
@@ -791,7 +791,7 @@ The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactio
 
 Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if -txindex is enabled and the transaction is in a block in the blockchain.
 
-As of Dash Core 0.18.0, transactions with unspent outputs will no longer be included unless -txindex is enabled.
+As of Dash Core 18.0.0, transactions with unspent outputs will no longer be included unless -txindex is enabled.
 [block:callout]
 {
   "type": "warning",
@@ -1095,7 +1095,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet joinpsbts "[\"cHNidP8BAEICAAAAAfisRhf3kqdGJdB8vKvQz81ze9cH6bh0RKZfFTMsXatUAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=\", \"cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=\"]"
@@ -1120,7 +1120,12 @@ cHNidP8BAHoCAAAAAvisRhf3kqdGJdB8vKvQz81ze9cH6bh0RKZfFTMsXatUAAAAAAD/////eBHHNtKF
 # SendRawTransaction
 
 The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction) validates a transaction and broadcasts it to the peer-to-peer network.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---a serialized transaction to broadcast*
 
 Name | Type | Presence | Description
@@ -1131,7 +1136,7 @@ Transaction | string (hex) | Required<br>(exactly 1) | The serialized transactio
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. Changed from `allowhighfees` in Dash Core 0.18.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).
+`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. **Breaking change: parameter changed from `allowhighfees` to `maxfeerate` in Dash Core 18.0.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).**
 
 *Parameter #3--whether to use InstantSend*
 
@@ -1268,7 +1273,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. Changed from `allowhighfees` in Dash Core 0.18.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).
+`maxfeerate` | number | Optional<br>(0 or 1) | Reject transactions whose fee rate is higher than the specified value, expressed in DASH/kB. Changed from `allowhighfees` in Dash Core 18.0.0. See [previous version](https://dashcore.readme.io/v0.17.0/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction).
 
 *Result---mempool acceptance test results*
 
@@ -1279,7 +1284,7 @@ Name | Type | Presence | Description
 →<br>`allowed` | bool | Required<br>(exactly 1) | If the mempool allows this tx to be inserted
 →<br>`reject-reason` | string (hex) | Required<br>(exactly 1) | A rejection string that is only present when 'allowed' is false.
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet testmempoolaccept [\"020000000234a2863f9781a7200330e700e684804bb2407d225c4e940c9cfb772f22fc0748000000006a47304402203b5a7899b6be2f33d30c1a71940c51f38074f4224a1ad6dee03dcc65f8646072022050d711115cd7291c2f094e3a3cfda14441721b1438e406b963b5660274ba4475012103e2fe477e31365d784d98514c7c9294283620d4a9775f01da5d3ba52f4c7286f5feffffff34a2863f9781a7200330e700e684804bb2407d225c4e940c9cfb772f22fc0748010000006a473044022018901985d2c94492111a45ed51bac88e02f1bb4a8382eacf5f474d70878c19f4022046e309e548f95a64b05e8ef70fae0ff86bf83cbed3055591580e0b5f5597c3a2012103109325a92f9e6d31d2ebd0595d471275ae8d635db2a0c42358f387e1af69c14dfeffffff020f530f00000000001976a9145799a5df43d34b05cdf03347af9102b67a6d154a88ac00e1f505000000001976a91464d51a27c8b8434458bac0193039bae55ca023c388ac151c0900\"]
@@ -1321,7 +1326,7 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Result | string | Required<br>(Exactly 1) | The resulting raw transaction (base64-encoded string)
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ``` bash
 dash-cli -testnet utxoupdatepsbt cHNidP8BAEICAAAAAXgRxzbShUlivVFKgoLyhk0RCCYLZKCYTl/tYRd+yGImAAAAAAD/////AQAAAAAAAAAABmoEAAECAwAAAAAAAAA=

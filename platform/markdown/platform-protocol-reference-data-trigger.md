@@ -16,10 +16,10 @@ As an example, DPP contains several data triggers for DPNS. The `domain` documen
 
 | Data Contract | Document | Action(s) | Trigger Description |
 | - | - | - | - |
-| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |
+| DPNS | `domain` | [`CREATE`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataTrigger/dpnsTriggers/createDomainDataTrigger.js) | Enforces DNS compatibility, validates provided hashes, and restricts top-level domain (TLD) registration |
 | ---- | ----| ---- | ---- |
-| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |
-| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |
+| DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to existing documents |
+| DPNS | All Document Types| [`DELETE`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of existing documents |
 
 **DPNS Trigger Constraints**
 
@@ -38,4 +38,4 @@ The following table details the DPNS constraints applied via data triggers. Thes
 | `domain` | `REPLACE` | Action not allowed |
 | `domain` | `DELETE` | Action not allowed |
 | `preorder` | `REPLACE` | Action not allowed |
-| `perorder` | `DELETE` | Action not allowed |
+| `preorder` | `DELETE` | Action not allowed |

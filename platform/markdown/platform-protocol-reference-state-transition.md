@@ -7,11 +7,11 @@
 
 ## Fees
 
-State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/identity/creditsConverter.js#L1). The current fee rate is [1 credit/byte](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/stateTransition/calculateStateTransitionFee.js#L1).
+State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/identity/creditsConverter.js#L1). The current fee rate is [1 credit/byte](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/stateTransition/calculateStateTransitionFee.js#L1).
 
 ## Size
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/util/serializer.js#L5).
 
 ## Common Fields
 
@@ -20,7 +20,7 @@ All state transitions include the following fields:
 | Field | Type | Description|
 | - | - | - |
 | protocolVersion | integer | The platform protocol version (currently `1`) |
-| type | integer | State transition type:<br>`0` - [data contract](platform-protocol-reference-data-contract#data-contract-creation)<br>`1` - [documents batch](platform-protocol-reference-document#document-submission)<br>`2` - [identity create](platform-protocol-reference-identity#identity-creation)<br>`3` - [identity topup](platform-protocol-reference-identity#identity-topup) |
+| type | integer | State transition type:<br>`0` - [data contract create](platform-protocol-reference-data-contract#data-contract-creation)<br>`1` - [documents batch](platform-protocol-reference-document#document-submission)<br>`2` - [identity create](platform-protocol-reference-identity#identity-creation)<br>`3` - [identity topup](identity.md#identity-topup)<br>`4` - [data contract update](data-contract.md#data-contract-update) |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
 Additionally, all state transitions except the identity create and topup state transitions include:
@@ -31,7 +31,7 @@ Additionally, all state transitions except the identity create and topup state t
 
 # State Transition Types
 
-## Data Contract
+## Data Contract Create
 
 | Field | Type | Description|
 | - | - | - |
@@ -46,11 +46,19 @@ Entropy is included in [Data Contracts](platform-protocol-reference-data-contrac
 
 ```javascript
 // From the JavaScript reference implementation (js-dpp)
-// generateEntropy.js
+// entropyGenerator.js
 function generate() {
   return crypto.randomBytes(32);
 }
 ```
+
+## Data Contract Update
+
+| Field | Type | Description|
+| - | - | - |
+| dataContract | [data contract object](platform-protocol-reference-data-contract#data-contract-object) | Object containing valid [data contract](platform-protocol-reference-data-contract) details |
+
+More detailed information about the `dataContract` object can be found in the [data contract section](platform-protocol-reference-data-contract).
 
 ## Documents Batch
 
@@ -90,7 +98,7 @@ The process to sign a state transition consists of the following steps:
 
 ## Signature Validation
 
-The `signature` validation (see [js-dpp](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/test/unit/stateTransition/validation/validateStateTransitionIdentitySignatureFactory.spec.js)) verifies that:
+The `signature` validation (see [js-dpp](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/test/unit/stateTransition/validation/validateStateTransitionIdentitySignatureFactory.spec.js)) verifies that:
 
 1. The identity exists
 2. The identity has a public key
@@ -104,6 +112,6 @@ validateStateTransitionIdentitySignatureFactory
   ✔ should pass properly signed state transition
   ✔ should return invalid result if owner id doesn't exist
   ✔ should return MissingPublicKeyError if the identity doesn't have a matching public key
-  ✔ should return InvalidIdentityPublicKeyTypeError if type is not ECDSA_SECP256K1
+  ✔ should return InvalidIdentityPublicKeyTypeError if type is not ECDSA_SECP256K1 and not ECDSA_HASH160
   ✔ should return InvalidStateTransitionSignatureError if signature is invalid
 ```

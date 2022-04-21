@@ -481,7 +481,7 @@ Name | Type | Presence | Description
 →→→<br>`name` | string | Optional<br>(0 or 1) | The label
 →→→<br>`purpose` | string | Optional<br>(0 or 1) | Purpose of address (`send` for sending address, `receive` for receiving address
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Get info for the following P2PKH address from the wallet:
 
@@ -2149,7 +2149,7 @@ Name | Type | Presence | Description
 → →<br>`coinjoin_rounds` | number (int) | Required<br>(exactly 1) | The number of rounds
 → →<br>`safe` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.15.0*<br><br>Whether this output is considered safe to spend. Unconfirmed transactions from outside keys are considered unsafe and are not eligible for spending by `fundrawtransaction` and `sendtoaddress`.
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Get all outputs confirmed at least 6 times for a particular address:
 
@@ -2265,7 +2265,7 @@ Name | Type | Presence | Description
 `result` | array | Required<br>(exactly 1) | A JSON array of objects containing a list of wallets in the wallet directory.
 →<br>name | string | Required<br>(0 or more) | The wallet name
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet listwalletdir
@@ -2572,7 +2572,7 @@ Name | Type | Presence | Description
 → → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of the unspent transaction output
 →<br>`total_amount` | numeric | Required<br>(exactly 1) | The total amount of all found unspent outputs in DASH
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet scantxoutset start '["addr(yWjoZBvnUKWhpKMbBkVVnnMD8Bzno9j6tQ)"]'
@@ -2643,13 +2643,13 @@ Outputs | object | Required<br>(exactly 1) | An object containing key/value pair
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Confirmations | number (int) | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.18.0*
+Confirmations | number (int) | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 18.0.0*
 
 *Parameter #4--whether to add the balance from transactions locked via InstantSend*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-addlocked | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 0.18.0*
+addlocked | bool | Optional<br>(0 or 1) | *Deprecated and ignored since Dash Core 18.0.0*
 
 *Parameter #5---a comment*
 
@@ -3273,7 +3273,7 @@ Name | Type | Presence | Description
 → <br>`fee` | numeric (bitcoins) | Required<br>(Exactly 1) | Fee in DASH the resulting transaction pays
 → <br>`changepos` | numeric (int) | Required<br>(Exactly 1) | The position of the added change output, or `-1` if no change output was added
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet walletcreatefundedpsbt "[{\"txid\":\"2662c87e1761ed5f4e98a0640b2608114d86f282824a51bd624985d236c71178\",\"vout\":0}]" "[{\"data\":\"00010203\"}]"
@@ -3472,7 +3472,7 @@ Name | Type | Presence | Description
 →<br>`psbt` | string | Required<br>(exactly 1) | The base64-encoded partially signed transaction
 →<br>`complete` | bool | Required<br>(exactly 1) | If the transaction has a complete set of signatures
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Change the wallet passphrase from "test" to "example":
 

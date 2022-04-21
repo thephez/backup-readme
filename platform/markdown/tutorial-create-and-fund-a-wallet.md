@@ -3,9 +3,8 @@
 In order to make changes on Dash Platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.
 
 ## Prerequisites
-- [node.js](https://nodejs.org/en/) (v12+)
-- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connect to a Network](tutorial-connecting-to-testnet))
+
+- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 
 # Code
 [block:code]

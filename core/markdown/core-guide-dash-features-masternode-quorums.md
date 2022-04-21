@@ -19,7 +19,7 @@ The following table details the data flow of P2P messages exchanged during the d
 {
   "type": "warning",
   "title": "Minimum Masternode Protocol Version",
-  "body": "As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70219 in Dash Core 0.17.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version."
+  "body": "As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70222 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version."
 }
 [/block]
 | **Masternode** | **Direction**  | **Peers**   | **Description** |

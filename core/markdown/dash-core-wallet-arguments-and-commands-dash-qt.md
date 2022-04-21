@@ -25,6 +25,12 @@ Dash Core QT GUI includes all the same command line options as [dashd](dash-core
        Set a directory which contains custom css files. Those will be used as
        stylesheets for the UI.
 
+  -debug-ui
+       Updates the UI's stylesheets in realtime with changes made to the css
+       files in -custom-css-dir and forces some widgets to show up which
+       are usually only visible under certain circumstances. (default:
+       0)
+
   -font-family
        Set the font family. Possible values: SystemDefault, Montserrat.
        (default: SystemDefault)
@@ -57,12 +63,6 @@ Dash Core QT GUI includes all the same command line options as [dashd](dash-core
   -uiplatform
        Select platform to customize UI for (one of windows, macosx, other;
        default: other)
-
-  -debug-ui
-       Updates the UI's stylesheets in realtime with changes made to the css
-       files in -custom-css-dir and forces some widgets to show up which
-       are usually only visible under certain circumstances. (default:
-       0)
 
   -windowtitle=<name>
        Sets a window title which is appended to "Dash Core - "

@@ -3,20 +3,20 @@ The purpose of this tutorial is to walk through the steps necessary to access th
 # Overview
 
 Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, or by using [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client), the easiest approach is to use the [JavaScript Dash SDK](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).
-
-# Prerequisites
-- An installation of [NodeJS](https://nodejs.org/en/download/)
 [block:callout]
 {
   "type": "info",
-  "title": "Minimum Supported Version",
-  "body": "As of Dash Platform v0.16, NodeJS v12 or higher must be used"
+  "body": "The Dash SDK currently connects to testnet by default."
 }
 [/block]
+# Prerequisites
+- An installation of [NodeJS v12 or higher](https://nodejs.org/en/download/)
+
 # Connect via Dash SDK
 
 ## 1. Install the Dash SDK
-The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install dash` (from the command line):
+
+The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install dash` from the command line:
 [block:code]
 {
   "codes": [
@@ -28,25 +28,20 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 }
 [/block]
 ## 2. Connect to Dash Platform
-Create a file with the following contents. Then run it by typing `node <file.js>` (from the command line):
-[block:callout]
-{
-  "type": "info",
-  "body": "As of Dash Platform v0.17.0, the SDK connects to testnet by default."
-}
-[/block]
 
+Create a file named `dashConnect.js` with the following contents. Then run it by typing `node dashConnect.js` from the command line:
 [block:code]
 {
   "codes": [
     {
       "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
+      "language": "javascript",
+      "name": "dashConnect.js"
     }
   ]
 }
 [/block]
-Once this returns successfully, you're ready to begin developing! For details on all SDK options and methods, please refer to the [SDK documentation](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).
+Once this returns successfully, you're ready to begin developing! See the [Quickstart](tutorials-introduction#quickstart) for recommended next steps. For details on all SDK options and methods, please refer to the [SDK documentation](https://dashevo.github.io/platform/SDK/).
 
 # Connect to a Devnet
 

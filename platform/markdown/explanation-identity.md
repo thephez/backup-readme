@@ -31,13 +31,12 @@ After the transaction is broadcast and confirmed, the sponsor sends information 
 Users who already have Dash funds can act as their own sponsor if they wish, using the same steps listed here.
 
 ## Identity Balance Topup Process
-[block:callout]
-{
-  "type": "success",
-  "body": "Added in Dash Platform Protocol v0.13"
-}
-[/block]
+
 The identity balance topup process works in a similar way to the initial identity creation funding. As with identity creation, a lock transaction is created on the layer 1 core blockchain. This lock transaction is then referenced in the identity topup state transition which increases the identity's balance by the designated amount.
+
+## Masternode Identities
+
+Dash Platform v0.22 introduced identities for masternode owners and operators. These identities are automatically created and updated based on information in the layer 1 masternode registration transactions. In a future release, the credits paid as fees for state transitions will be distributed to masternode-related identities similar to how rewards are currently distributed to masternodes on the core blockchain. Credits will be split between owner and operator in the same ration as on layer 1, and masternode owners will also have the flexibility to further split their portion between multiple identities to support reward sharing use cases.
 
 # Credits
 [block:callout]

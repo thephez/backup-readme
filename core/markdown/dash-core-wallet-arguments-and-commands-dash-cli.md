@@ -51,11 +51,16 @@ dash-cli [options] help <command>
   -rpcconnect=<ip>
        Send commands to node running on <ip> (default: 127.0.0.1)
 
+  -rpccookiefile=<loc>
+       Location of the auth cookie. Relative paths will be prefixed by a
+       net-specific datadir location. (default: data dir)
+
   -rpcpassword=<pw>
        Password for JSON-RPC connections
 
   -rpcport=<port>
-       Connect to JSON-RPC on <port> (default: 9998 or testnet: 19998)
+       Connect to JSON-RPC on <port> (default: 9998, testnet: 19998, regtest:
+       19898)
 
   -rpcuser=<user>
        Username for JSON-RPC connections
@@ -65,18 +70,29 @@ dash-cli [options] help <command>
 
   -rpcwallet=<walletname>
        Send RPC for non-default wallet on RPC server (needs to exactly match
-       corresponding -wallet option passed to dashd)
+       corresponding -wallet option passed to dashd). This changes the
+       RPC endpoint used, e.g. http://127.0.0.1:9998/wallet/<walletname>
 
   -stdin
        Read extra arguments from standard input, one per line until EOF/Ctrl-D
-       (recommended for sensitive information such as passphrases). 
-       When combined with -stdinrpcpass, the first line from standard
-       input is used for the RPC password.
+       (recommended for sensitive information such as passphrases). When
+       combined with -stdinrpcpass, the first line from standard input
+       is used for the RPC password.
 
   -stdinrpcpass
-       Read RPC password from standard input as a single line.  When combined
+       Read RPC password from standard input as a single line. When combined
        with -stdin, the first line from standard input is used for the
-       RPC password.
+       RPC password. When combined with -stdinwalletpassphrase,
+       -stdinrpcpass consumes the first line, and -stdinwalletpassphrase
+       consumes the second.
+
+  -stdinwalletpassphrase
+       Read wallet passphrase from standard input as a single line. When
+       combined with -stdin, the first line from standard input is used
+       for the wallet passphrase.
+
+  -version
+       Print version and exit
 ```
 
 ## Chain selection options:
@@ -85,10 +101,38 @@ dash-cli [options] help <command>
   -devnet=<name>
        Use devnet chain with provided name
 
-  -regtest
-       Enter regression test mode, which uses a special chain in which blocks
-       can be solved instantly. This is intended for regression testing
-       tools and app development.
+  -highsubsidyblocks=<n>
+       The number of blocks with a higher than normal subsidy to mine at the
+       start of a chain (default: 0, devnet-only)
+
+  -highsubsidyfactor=<n>
+       The factor to multiply the normal block subsidy by while in the
+       highsubsidyblocks window of a chain (default: 1, devnet-only)
+
+  -llmqchainlocks=<quorum name>
+       Override the default LLMQ type used for ChainLocks. Allows using
+       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)
+
+  -llmqdevnetparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,
+       devnet-only)
+
+  -llmqinstantsend=<quorum name>
+       Override the default LLMQ type used for InstantSend. Allows using
+       InstantSend with smaller LLMQs. (default: llmq_50_60,
+       devnet-only)
+
+  -llmqinstantsenddip0024=<quorum name>
+       Override the default LLMQ type used for InstantSendDIP0024. (default:
+       llmq_60_75, devnet-only)
+
+  -minimumdifficultyblocks=<n>
+       The number of blocks that can be mined with the minimum difficulty at
+       the start of a chain (default: 0, devnet-only)
+
+  -powtargetspacing=<n>
+       Override the default PowTargetSpacing value in seconds (default: 2.5
+       minutes, devnet-only)
 
   -testnet
        Use the test chain

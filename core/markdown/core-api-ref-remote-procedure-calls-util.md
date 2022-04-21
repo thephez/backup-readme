@@ -58,7 +58,7 @@ Result:
 
 # DeriveAddresses
 
-*Added in Dash Core 0.18.0*
+*Added in Dash Core 18.0.0*
 
 The [`deriveaddresses` RPC](core-api-ref-remote-procedure-calls-util#deriveaddresses) derives one or more addresses corresponding to an output [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md).
 
@@ -97,7 +97,7 @@ Name | Type | Presence | Description
 `result` | array | Required<br>(exactly 1) | Array of derived addresses
 →<br>Address | string | Required<br>(0 or more) | The derived address(es)
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Analyse a descriptor:
 
@@ -181,7 +181,7 @@ Result:
 
 # GetDescriptorInfo
 
-*Added in Dash Core 0.18.0*
+*Added in Dash Core 18.0.0*
 
 The [`getdescriptorinfo` RPC](core-api-ref-remote-procedure-calls-util#getdescriptorinfo) analyses a [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md).
 
@@ -202,7 +202,7 @@ Name | Type | Presence | Description
 →<br>`issolvable` | bool | Required<br>(exactly 1) | Whether the descriptor is solvable
 →<br>`hasprivatekeys` | bool | Required<br>(exactly 1) | Whether the input descriptor contained at least one private key
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 Analyse a descriptor:
 

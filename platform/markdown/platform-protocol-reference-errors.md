@@ -34,19 +34,20 @@ Basic errors occupy the codes ranging from 1000 to 1999. This range is divided i
 
 ## Data Contract
 
-| Code | Error | 
-| :-: | - | 
-| 1007 | DataContractMaxDepthExceedError | 
-| 1008 | DuplicateIndexError | 
-| 1009 | IncompatibleRe2PatternError | 
-| 1010 | InvalidCompoundIndexError | 
-| 1011 | InvalidDataContractIdError | 
-| 1012 | InvalidIndexedPropertyConstraintError | 
-| 1013 | InvalidIndexPropertyTypeError | 
-| 1014 | InvalidJsonSchemaRefError | 
-| 1015 | SystemPropertyIndexAlreadyPresentError | 
-| 1016 | UndefinedIndexPropertyError | 
-| 1017 | UniqueIndicesLimitReachedError | 
+| Code | Error | |
+| :-: | - | - |
+| 1007 | DataContractMaxDepthExceedError | |
+| 1008 | DuplicateIndexError | |
+| 1009 | IncompatibleRe2PatternError | |
+| 1010 | InvalidCompoundIndexError | |
+| 1011 | InvalidDataContractIdError | |
+| 1012 | InvalidIndexedPropertyConstraintError | |
+| 1013 | InvalidIndexPropertyTypeError | |
+| 1014 | InvalidJsonSchemaRefError | |
+| 1015 | SystemPropertyIndexAlreadyPresentError | |
+| 1016 | UndefinedIndexPropertyError | |
+| 1017 | UniqueIndicesLimitReachedError | |
+| 1048 | DuplicateIndexNameError |  **Added in v0.22** |
 
 ## Document
 
@@ -82,6 +83,8 @@ Basic errors occupy the codes ranging from 1000 to 1999. This range is divided i
 | 1040 | InvalidIdentityPublicKeyDataError | 
 | 1041 | InvalidInstantAssetLockProofError | 
 | 1042 | InvalidInstantAssetLockProofSignatureError | 
+| 1046 | MissingMasterPublicKeyError | **Added in v0.22** |
+| 1047 | InvalidIdentityPublicKeySecurityLevelError | **Added in v0.22** |
 
 ## State Transition
 
@@ -116,12 +119,16 @@ State errors occupy the codes ranging from 4000 to 4999. This range is divided i
 
 ## Data Contract
 
-| Code | Error | 
-| :-: | - | 
+| Code | Error | |
+| :-: | - | - |
 | 4000 | DataContractAlreadyPresentError | 
 | 4001 | DataTriggerConditionError | 
 | 4002 | DataTriggerExecutionError | 
 | 4003 | DataTriggerInvalidResultError | 
+| 4013 | InvalidDataContractVersionError | **Added in v0.22** |
+| 4014 | IncompatibleDataContractSchemaError | **Added in v0.22** |
+| 4015 | DataContractImmutablePropertiesUpdateError | **Added in v0.22** |
+| 4016 | DataContractIndicesChangedError | **Added in v0.22** |
 
 ## Document
 
@@ -137,7 +144,7 @@ State errors occupy the codes ranging from 4000 to 4999. This range is divided i
 
 ## Identity
 
-| Code | Error | 
-| :-: | - | 
-| 4011 | IdentityAlreadyExistsError | 
-| 4012 | IdentityPublicKeyAlreadyExistsError |
+| Code | Error | |
+| :-: | - | - |
+| 4011 | IdentityAlreadyExistsError | |
+| _4012_ | _IdentityPublicKeyAlreadyExistsError_ | **_Removed in v0.22_** |

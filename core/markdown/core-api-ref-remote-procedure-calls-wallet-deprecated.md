@@ -10,7 +10,7 @@
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** `setaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+  "body": "**Warning:** `setaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
 }
 [/block]
 
@@ -57,7 +57,7 @@ doc test
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** `getaccountaddress` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+  "body": "**Warning:** `getaccountaddress` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
 }
 [/block]
 
@@ -106,7 +106,7 @@ yNUQ6RzTpNj5GP5ebdRcusJ7K9JJKx6VvV
 [block:callout]
 {
   "type": "danger",
-  "body": "**Warning:** `getaddressesbyaccount` will be removed in Dash Core v0.18. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
+  "body": "**Warning:** `getaddressesbyaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
 }
 [/block]
 

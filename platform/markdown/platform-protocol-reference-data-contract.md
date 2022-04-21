@@ -6,13 +6,12 @@ The following sections provide details that developers need to construct valid c
 
 # General Constraints
 
-**Note:** There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json)).
+**Note:** There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).
 
 ## Keyword
-
 [block:callout]
 {
-  "type": "warning",
+  "type": "info",
   "title": "Dash Platform Protocol 0.20",
   "body": "Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `defs` keyword."
 }
@@ -26,12 +25,16 @@ The following sections provide details that developers need to construct valid c
 | `format: <something>` | `maxLength` must be defined (maximum: 50000) |
 | `$ref: <something>` | `$ref` can only reference `$defs` - <br> remote references not supported |
 | `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts |
+| `dependencies` | Not supported. Use `dependentRequired` and `dependentSchema` instead |
+| `additionalItems` | Not supported. Use `items: false` and `prefixItems` instead |
+| `patternProperties` | Restricted - cannot be used for data contracts |
+| `pattern` | Accept only [RE2](https://github.com/google/re2/wiki/Syntax) compatible regular expressions (defined in DPP logic) |
 
 ## Data Size
 
 **Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/util/serializer.js#L5).
 
 ## Additional Properties
 
@@ -45,20 +48,21 @@ Include the following at the same level as the `properties` keyword to ensure pr
 
 # Data Contract Object
 
-The data contract object consists of the following fields as defined in the JavaScript reference client ([js-dpp](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json)):
+The data contract object consists of the following fields as defined in the JavaScript reference client ([js-dpp](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)):
 
 | Property | Type | Required | Description |
 | - | - | - | - |
-| protocolVersion | integer | Yes | The platform protocol version ([currently `1`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/version/protocolVersion.js#L2)) |
+| protocolVersion | integer | Yes | The platform protocol version ([currently `1`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/version/protocolVersion.js#L2)) |
 | $schema | string | Yes  | A valid URL (default: https://schema.dash.org/dpp-0-4-0/meta/data-contract)
-| $id | array of bytes| Yes | Contract ID generated from `ownerId` and entropy ([32 bytes; content media type: `application/x.dash.dpp.identifier`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L346-L352)) |
-| ownerId | array of bytes | Yes | [Identity](platform-protocol-reference-identity) that registered the data contract defining the document ([32 bytes; content media type: `application/x.dash.dpp.identifier`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L353-L359) |
+| $id | array of bytes| Yes | Contract ID generated from `ownerId` and entropy ([32 bytes; content media type: `application/x.dash.dpp.identifier`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L346-L352)) |
+| version | integer | Yes | The data contract version |
+| ownerId | array of bytes | Yes | [Identity](platform-protocol-reference-identity) that registered the data contract defining the document ([32 bytes; content media type: `application/x.dash.dpp.identifier`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L357-L363) |
 | documents | object | Yes | Document definitions (see [Documents](#data-contract-documents) for details) |
 | $defs | object | No | Definitions for `$ref` references used in the `documents` object (if present, must be a non-empty object with <= 100 valid properties) |
 
 ## Data Contract Schema
 
-Details regarding the data contract object may be found in the [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json). A truncated version is shown below for reference:
+Details regarding the data contract object may be found in the [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json). A truncated version is shown below for reference:
 
 ```json
 {
@@ -84,6 +88,10 @@ Details regarding the data contract object may be found in the [js-dpp data cont
       "maxItems": 32,
       "contentMediaType": "application/x.dash.dpp.identifier"
     },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
     "ownerId":{
       "type": "array",
       "byteArray": true,
@@ -96,7 +104,69 @@ Details regarding the data contract object may be found in the [js-dpp data cont
       "propertyNames": {
         "pattern": "^[a-zA-Z][a-zA-Z0-9-_]{1,62}[a-zA-Z0-9]$"
       },
-      // Truncated ...
+      "additionalProperties": {
+        "type": "object",
+        "allOf": [
+          {
+            "properties": {
+              "indices": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 32
+                    },
+                    "properties": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "propertyNames": {
+                          "pattern": "^[a-zA-Z$][a-zA-Z0-9-_.]{1,62}[a-zA-Z0-9]$"
+                        },
+                        "additionalProperties": {
+                          "type": "string",
+                          "enum": ["asc", "desc"]
+                        },
+                        "minProperties": 1,
+                        "maxProperties": 1
+                      },
+                      "minItems": 1,
+                      "maxItems": 10
+                    },
+                    "unique": {
+                      "type": "boolean"
+                    }
+                  },
+                  "required": ["properties", "name"],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 10
+              },
+              "type": {
+                "const": "object"
+              },
+              "signatureSecurityLevelRequirement": {
+                "type": "integer",
+                "enum": [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                "description": "Public key security level. 0 - Master, 1 - Critical, 2 - High, 3 - Medium. If none specified, High level is used"
+              }
+            }
+          },
+          {
+            "$ref": "#/$defs/documentSchema"
+          }
+        ],
+        "unevaluatedProperties": false
+      },
       "minProperties": 1,
       "maxProperties": 100
     },
@@ -108,6 +178,7 @@ Details regarding the data contract object may be found in the [js-dpp data cont
     "protocolVersion",
     "$schema",
     "$id",
+    "version",
     "ownerId",
     "documents"
   ],
@@ -137,7 +208,7 @@ Details regarding the data contract object may be found in the [js-dpp data cont
 
 ## Data Contract id
 
-The data contract `$id` is a hash of the `ownerId` and entropy as shown [here](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataContract/generateDataContractId.js).
+The data contract `$id` is a hash of the `ownerId` and entropy as shown [here](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/generateDataContractId.js).
 
 ```javascript
 // From the JavaScript reference implementation (js-dpp)
@@ -151,6 +222,11 @@ function generateDataContractId(ownerId, entropy) {
   );
 }
 ```
+
+## Data Contract version
+
+The data contract `version` is an integer representing the current version of the contract. This
+property must be incremented if the contract is updated.
 
 ## Data Contract Documents
 
@@ -209,12 +285,12 @@ There are a variety of constraints currently defined for performance and securit
 
 | Description | Value |
 | - | - |
-| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
-| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
-| Minimum property name length | [3](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
-| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
+| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
+| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
+| Minimum property name length | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
+| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
 | Property name first/last characters | \** First: (`A-Z`, `a-z`); Last: Alphanumeric (`A-Z`, `a-z`, `0-9`)**|
-| Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hypen (`-`) <br>Underscore (`_`) |
+| Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hyphen (`-`) <br>Underscore (`_`) |
 
 #### Required Properties (Optional)
 
@@ -243,21 +319,24 @@ The following example (excerpt from the DPNS contract's `domain` document) demon
 
 ### Document Indices
 
-**Note:** The `indices` object should be excluded for documents that do not require indices.
-
 Document indices may be defined if indexing on document fields is required.
 
 The `indices` array consists of:
 
  - One or more objects that each contain:
+   - A unique `name` for the index
    - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` or `desc`)
-   - An (optional) `unique` element that determines if duplicate values are allowed for the document
+   - An (optional) `unique` element that determines if duplicate values are allowed for the document type
 
-**Note:** When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities.
+**Note:**
+
+ - The `indices` object should be excluded for documents that do not require indices.
+ - When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities.
 
 ```json
 "indices": [
   {
+    "name": "Index1",
     "properties": [
       { "<field name a>": "<asc"|"desc>" },
       { "<field name b>": "<asc"|"desc>" }
@@ -265,6 +344,7 @@ The `indices` array consists of:
     "unique": true|false
   },
   {
+    "name": "Index2",
     "properties": [
       { "<field name c>": "<asc"|"desc>" },
     ],
@@ -274,21 +354,26 @@ The `indices` array consists of:
 
 #### Index Constraints
 
-**Note:** For performance and security reasons, indices have the following constraints. These constraints are subject to change over time.
+For performance and security reasons, indices have the following constraints. These constraints are subject to change over time.
 
 | Description | Value |
 | - | - |
-| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L400) |
-| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
-| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L390) |
-| Maximum length of indexed string property | [1024](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
+| Minimum/maximum length of index `name` | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L381) / [32](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L382) |
+| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L409) |
+| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
+| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L399) |
+| Maximum length of indexed string property | [63](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L22) |
+| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
+| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum number of indexed array items | [1024](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L24) |
+| Usage of `$id` in an index [disallowed](https://github.com/dashevo/platform/pull/178) | N/A |
 
 **Example**
-The following example (excerpt from the DPNS contract's `preorder` document) creates an index on `saltedDomainHash` that also enforces uniqueness across all documents of that type:
+The following example (excerpt from the DPNS contract's `preorder` document) creates an index named `saltedHash` on the `saltedDomainHash` property that also enforces uniqueness across all documents of that type:
 
 ```json
 "indices": [
   {
+    "name": "saltedHash",
     "properties": [
       {
         "saltedDomainHash": "asc"
@@ -317,6 +402,7 @@ This example syntax shows the structure of a documents object that defines two d
     },
     "indices": [
       {
+        "name": "<index name>",
         "properties": [
           {
             "<field name c>": "<asc|desc>"
@@ -347,15 +433,16 @@ This example syntax shows the structure of a documents object that defines two d
 
 ### Document Schema
 
-Full document schema details may be found in this section of the [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L360-L415).
+Full document schema details may be found in this section of the [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L364-L434).
 
 ## Data Contract Definitions
 
 The optional `$defs` object enables definition of aspects of a schema that are used in multiple places. This is done using the JSON Schema support for [reuse](https://json-schema.org/understanding-json-schema/structuring.html#defs). Items defined in `$defs` may then be referenced when defining `documents` through use of the `$ref` keyword.
 
-**Note:** Properties defined in the `$defs` object must meet the same criteria as those defined in the `documents` object (e.g. the `additionalProperties` properties keyword must be included as described in the [constraints](#additional-properties) section).
+**Note:**
 
-**Note:** Data contracts can only use the `$ref` keyword to reference their own `$defs`. Referencing external definitions is not supported by the platform protocol.
+ - Properties defined in the `$defs` object must meet the same criteria as those defined in the `documents` object (e.g. the `additionalProperties` properties keyword must be included as described in the [constraints](#additional-properties) section).
+ - Data contracts can only use the `$ref` keyword to reference their own `$defs`. Referencing external definitions is not supported by the platform protocol.
 
 **Example**
 The following example shows a definition for a `message` object consisting of two properties:
@@ -382,20 +469,24 @@ The following example shows a definition for a `message` object consisting of tw
 
 **Note:** In the `js-dpp` reference implementation, definitions are added to a data contract via the `.setDefinitions()` method (e.g. `myContract.setDefinitions({\"message\": { ... }})`). This must be done prior to broadcasting the contract for registration.
 
-# Data Contract Creation
+# Data Contract State Transition Details
+
+There are two data contract-related state transitions: [data contract create](#data-contract-creation) and [data contract update](#data-contract-update). Details are provided in this section.
+
+## Data Contract Creation
 
 Data contracts are created on the platform by submitting the [data contract object](#data-contract-object) in a data contract create state transition consisting of:
 
 | Field | Type | Description|
 | - | - | - |
-| protocolVersion | integer | The platform protocol version ([currently `1`](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/version/protocolVersion.js#L2)) |
-| type | integer | State transition type (`0` for data contract) |
+| protocolVersion | integer | The platform protocol version ([currently `1`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/version/protocolVersion.js#L2)) |
+| type | integer | State transition type (`0` for data contract create) |
 | dataContract | [data contract object](#data-contract-object) | Object containing the data contract details
 | entropy | array of bytes | Entropy used to generate the data contract ID. Generated as [shown here](platform-protocol-reference-state-transition#entropy-generation). (32 bytes) |
 | signaturePublicKeyId | number | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition |
 | signature | array of bytes | Signature of state transition data (65 bytes) |
 
-Each data contract state transition must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/stateTransition/dataContractCreate.json):
+Each data contract state transition must comply with this JSON-Schema definition established in [js-dpp](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/stateTransition/dataContractCreate.json):
 
 ```json
 {
@@ -446,27 +537,121 @@ Each data contract state transition must comply with this JSON-Schema definition
 
 ```json
 {
-  "protocolVersion": 1,
-  "type": 0,
-  "signature": "IG2Tr16rS2+FNoiH71eAva94H5BLV5QNl7Fg25s8ZzWvPlR4wihupdqYupvzTXGiAqPqSK3KQE1EouATMhgHPDc=",
-  "signaturePublicKeyId": 0,
-  "dataContract": {
-    "protocolVersion": 0,
-    "$id": "AoDzJxWSb1gUi2dSmvFeUFpSsjZQRJaqCpn7vCLkwwJj",
-    "$schema": "https://schema.dash.org/dpp-0-4-0/meta/data-contract",
-    "ownerId": "7NUbPf231ixt1kVBQsBvSMMBxd7AgPad8KtdtfFGhXDP",
-    "documents": {
-      "note": {
-        "properties": {
-          "message": {
-            "type": "string"
+  "protocolVersion":1,
+  "type":0,
+  "signature":"IFmEb/OwyYG0yn33U4/kieH4JL63Ft25GAun+XqWOalkbDrpL9z+OH+Sb03xsyMNzoILC2T1Q8yV1q7kCmr0HuQ=",
+  "signaturePublicKeyId":0,
+  "dataContract":{
+    "protocolVersion":1,
+    "$id":"44dvUnSdVtvPPeVy6mS4vRzJ4zfABCt33VvqTWMM8VG6",
+    "$schema":"https://schema.dash.org/dpp-0-4-0/meta/data-contract",
+    "version":1,
+    "ownerId":"6YfP6tT9AK8HPVXMK7CQrhpc8VMg7frjEnXinSPvUmZC",
+    "documents":{
+      "note":{
+        "type":"object",
+        "properties":{
+          "message":{
+            "type":"string"
           }
         },
-        "additionalProperties": false
+        "additionalProperties":false
       }
     }
   },
-  "entropy": "ahw7IvTAYkZcPaGcvh6BCVYP9rh/KyBkoeCGk28yoAw="
+  "entropy":"J2Sl/Ka9T1paYUv6f2ec5MzaaACs9lcUvOskBU0SMlo="
+}
+```
+
+## Data Contract Update
+
+Existing data contracts can be updated in certain backwards-compatible ways. The following aspects
+of a data contract can be updated:
+
+ - Adding a new document
+ - Adding a new optional property to an existing document
+ - Adding non-unique indices for properties added in the update
+
+Data contracts are updated on the platform by submitting the modified [data contract
+object](#data-contract-object) in a data contract update state transition consisting of:
+
+| Field | Type | Description|
+| - | - | - |
+| protocolVersion | integer | The platform protocol version ([currently `1`](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/version/protocolVersion.js#L2)) |
+| type | integer | State transition type (`4` for data contract update) |
+| dataContract | [data contract object](#data-contract-object) | Object containing the updated data contract details<br>**Note:** the data contract's [`version` property](data-contract-version) must be incremented with each update
+| signaturePublicKeyId | number | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition |
+| signature | array of bytes | Signature of state transition data (65 bytes) |
+
+Each data contract state transition must comply with this JSON-Schema definition established in
+[js-dpp](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/stateTransition/dataContractCreate.json):
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "protocolVersion": {
+      "type": "integer",
+      "$comment": "Maximum is the latest protocol version"
+    },
+    "type": {
+      "type": "integer",
+      "const": 4
+    },
+    "dataContract": {
+      "type": "object"
+    },
+    "signaturePublicKeyId": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "signature": {
+      "type": "array",
+      "byteArray": true,
+      "minItems": 65,
+      "maxItems": 65
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "protocolVersion",
+    "type",
+    "dataContract",
+    "signaturePublicKeyId",
+    "signature"
+  ]
+}
+```
+
+**Example State Transition**
+```json
+{
+  "protocolVersion":1,
+  "type":4,
+  "signature":"IBboAbqbGBiWzyJDyhwzs1GujR6Gb4m5Gt/QCugLV2EYcsBaQKTM/Stq7iyIm2YyqkV8VlWqOfGebW2w5Pjnfak=",
+  "signaturePublicKeyId":0,
+  "dataContract":{
+    "protocolVersion":1,
+    "$id":"44dvUnSdVtvPPeVy6mS4vRzJ4zfABCt33VvqTWMM8VG6",
+    "$schema":"https://schema.dash.org/dpp-0-4-0/meta/data-contract",
+    "version":2,
+    "ownerId":"6YfP6tT9AK8HPVXMK7CQrhpc8VMg7frjEnXinSPvUmZC",
+    "documents":{
+      "note":{
+        "type":"object",
+        "properties":{
+          "message":{
+            "type":"string"
+          },
+          "author":{
+            "type":"string"
+          }
+        },
+        "additionalProperties":false
+      }
+    }
+  }
 }
 ```
 

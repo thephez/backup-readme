@@ -22,8 +22,9 @@
 | :-: | - | - |
 | 1 | [`broadcastTransaction`](reference-dapi-endpoints-core-grpc-endpoints#broadcasttransaction) | Broadcasts the provided transaction |
 | 1 | [`getBlock`](reference-dapi-endpoints-core-grpc-endpoints#getblock) | Returns information for the requested block |
-| 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#getstatus) | Returns blockchain status information<br>**Updated in Dash Platform v0.19** |
+| 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#getstatus) | Returns blockchain status information |
 | 1 | [`getTransaction`](reference-dapi-endpoints-core-grpc-endpoints#gettransaction) | Returns details for the requested transaction |
+| 1 | [`subscribeTo` `BlockHeadersWithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#subscribetoblockheaderswithchainlocks) | Returns the requested block headers along with the associated ChainLocks.<br>**Added in Dash Platform v0.22**|
 | 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-core-grpc-endpoints#subscribetotransactionswithproofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#merkleblock) |
 
 ## Platform gRPC Service
@@ -45,7 +46,7 @@
 | 2 | [`waitForStateTransitionResult`](reference-dapi-endpoints-platform-endpoints#waitforstatetransitionresult) | Responds with the state transition hash and either a proof that the state transition was confirmed in a block or an error |
 [block:html]
 {
-  "html": "<div></div>\n<!-- Not implemented yet\n| 1 | [`subscribeTo` `BlockHeaders` `WithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#section-subscribe-to-block-headers-with-chain-locks) | Returns block headers and associated ChainLock signatures |\n\n-->\n<style></style>"
+  "html": "<div></div>\n<!--\nPrimarily for debugging, don't document - getConsensusParams\n-->\n<style></style>"
 }
 [/block]
 

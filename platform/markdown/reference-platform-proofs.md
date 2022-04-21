@@ -1,3 +1,10 @@
+[block:callout]
+{
+  "type": "danger",
+  "title": "Platform v0.22.0",
+  "body": "Note: As part of the transition from MongoDB to Dash's [GroveDB](https://github.com/dashevo/grovedb), proofs will be not be available for at least the initial version of Platform v0.22."
+}
+[/block]
 Since data verification is a critical aspect of Dash Platform, all [Platform endpoints](reference-dapi-endpoints-platform-endpoints) can provide an optional proof that the response is correct. Set the optional `prove` parameter (`"prove": true`) in the request to receive a proof that contains the requested data.
 
 # Proof Structure

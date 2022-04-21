@@ -269,7 +269,7 @@ Name | Type | Presence | Description
 Result | object | Required<br>(exactly 1) | Array of governance objects
 → →<br>`end_epoch` | string | Required<br>(exactly 1) | Governance object info as string
 → →<br>`name` | string (hex) | Required<br>(exactly 1) | Proposal name
-→ →<br>`payment_address` | string (hex) | Required<br>(exactly 1) | Proposal payment address.<br>**_Support for P2SH addresses (e.g. multisig) added in Dash Core v0.18.0._**
+→ →<br>`payment_address` | string (hex) | Required<br>(exactly 1) | Proposal payment address.<br>**_Support for P2SH addresses (e.g. multisig) added in Dash Core v18.0.0._**
 → →<br>`payment_amount` | string | Required<br>(exactly 1) | Proposal payment amount
 → →<br>`start_epoch` | string (hex) | Required<br>(exactly 1) | Proposal start
 → →<br>`type` | int | Required<br>(exactly 1) | Object type
@@ -630,7 +630,7 @@ The `gobject prepare` RPC prepares a governance object by signing and creating a
 [block:callout]
 {
   "type": "success",
-  "body": "Note: Dash Core v0.18.0 added support for directing proposal payouts to P2SH addresses such as multisig."
+  "body": "Note: Dash Core v18.0.0 added support for directing proposal payouts to P2SH addresses such as multisig."
 }
 [/block]
 *Parameter #1---parent hash*
@@ -1474,7 +1474,7 @@ Name | Type | Presence | Description
 `result` | object/null | Required<br>(exactly 1) | Information about the masternode sync status
 →<br>Masternode Info | string | Required<br>(1 or more) | The requested masternode info. Output varies based on selected `mode` and `filter` parameters
 
-*Example from Dash Core 0.14.0*
+*Example from Dash Core 18.0.0*
 
 Get unfiltered Masternode list in default mode
 
@@ -1485,41 +1485,44 @@ dash-cli -testnet masternodelist
 Result:
 ``` json
 {
-  "64fbf05880cdbd35a0278ba01a5edf0c20a9c756d15f883d496f5df35b31b542-1": {
-    "proTxHash": "ab51b2ba4dca27658e13fea81c0764167c1466aa2d92050c67e4490ce7623da0",
-    "address": "167.99.164.60:19999",
-    "payee": "ycZgaHNb8AQq7HnJ3rTwx2fXUd7VCWQumX",
+  "cf9840b16f0c28e39beb89e06b995a12425f6a836ed899aa8203a448b31724c6-0": {
+    "proTxHash": "56948a65b01f83e37958e194840496c8a728f9f64c0335fd13e7561cfd6c14c0",
+    "address": "52.36.244.225:19999",
+    "payee": "yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr",
     "status": "ENABLED",
-    "lastpaidtime": 1556615121,
-    "lastpaidblock": 89725,
-    "owneraddress": "yisedvAxYga44V9bTABzoQ7KoQMugyfU1E",
-    "votingaddress": "yVpKfQgjkRkezFS5SpZvAEVFsbv9zJedf4",
-    "collateraladdress": "yeXE94admJeH3oKiaB7UpwWnPZD6Q8srhT",
-    "pubkeyoperator": "8072ac9a55d1cf5bf9c4262d49e2ef1ffcd716b8983ffdc62b940fec6cb4179d6275f8b68316f29c6c2ad540db329258"
+    "pospenaltyscore": 0,
+    "lastpaidtime": 1650381993,
+    "lastpaidblock": 708881,
+    "owneraddress": "yhfoDh5AmCT2psSyKyAuY7CgwzGDygPm9Y",
+    "votingaddress": "yhfoDh5AmCT2psSyKyAuY7CgwzGDygPm9Y",
+    "collateraladdress": "yLXmtxaxAZ18WRwcjmZwVfmLSH5TdAXPzV",
+    "pubkeyoperator": "00ea87eef15f38c1a844d77348e687794c601277011c933026cdfdb649524632b055feea3539abc48472cb447d281d65"
   },
-  "6ed4aa5fa90565c2331bcd22275f684ecdca5da8dd7f83ca943aadc6f44e6746-0": {
-    "proTxHash": "8f5d5c7c0d9232f45f3a77eef6541922f827930b1f3bb789ad1771dc4d6275c0",
-    "address": "3.209.222.37:19999",
-    "payee": "yiVDR2HothEwH2Ss17GntqNp1rBUthnyje",
+  "08ff009239143f043be80da2c501a4a505fc5b142b27a1e00590f172dd323799-0": {
+    "proTxHash": "6cc91317f635db636537b9f01ae4441de5ff97bb59a9c998224080f11d7d88e0",
+    "address": "52.39.164.105:19999",
+    "payee": "yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr",
+    "status": "ENABLED",
+    "pospenaltyscore": 0,
+    "lastpaidtime": 1650398582,
+    "lastpaidblock": 708995,
+    "owneraddress": "yXay1hpiuwqdWMUoTzJknA1ZQLUHZDghS2",
+    "votingaddress": "yXay1hpiuwqdWMUoTzJknA1ZQLUHZDghS2",
+    "collateraladdress": "ycbvtNd6HqP6eFa9WEFeS1q9bsh1J7DG18",
+    "pubkeyoperator": "03d890d1bc938b48547c8730000c4dcd5a940e55e82d1322ea600cc90c319111603fa52f928ec9d5dd29784b96f34af9"
+  },
+  "6f506a5dbb0e88fe83242d4f9641b6f4a2616d22c889b74f29b5bfa6291dfdca-1": {
+    "proTxHash": "34f19e4ac7e1b2abbded7fe0d19991cde34eb7797d8e81fe01d6e73db2097180",
+    "address": "3.20.70.18:10003",
+    "payee": "ySLuZnXd8ciZNXV5FEWpqRryT4viJdwazM",
     "status": "POSE_BANNED",
-    "lastpaidtime": 1554219432,
-    "lastpaidblock": 72365,
-    "owneraddress": "ycAZ9adjpGfZ2WLEpyfyUWAjkF6sXdD5df",
-    "votingaddress": "yQrieR9S99hqnPghoj12RszMXYzc6yzyn2",
-    "collateraladdress": "ya82BzRBhuFZAPhgXvhkzZgqiVsMdnfan7",
-    "pubkeyoperator": "0a7fd01cfd502296cfd523d58ee9f4cff34243abb0dcc543ec237ff4d73938e69d187f0b6838bbaf9d54b89adc0d4c8e"
-  },
-  "4758b97bbd20024e171767b8baf4290bec1475b254180869cdfe0db75d7faefb-0": {
-    "proTxHash": "5cd86ed16f87819dca7b6e4e3d24947b1a6328ed8cc4c9aec7af35fa2b162220",
-    "address": "68.183.167.16:19999",
-    "payee": "ycZgaHNb8AQq7HnJ3rTwx2fXUd7VCWQumX",
-    "status": "ENABLED",
-    "lastpaidtime": 1556616437,
-    "lastpaidblock": 89734,
-    "owneraddress": "yPmESxMJhZYuKDLJ1oYdH6kpE8oADVAPUQ",
-    "votingaddress": "yLvTNLDLHa3pDMbFDRBX5mVMjCshzrDD1X",
-    "collateraladdress": "ydGCjUEVRHkQZK3ajCsGJGDE9sjrbbS56v",
-    "pubkeyoperator": "18af4d035eed23d30eb02808af0c133d9879c0fb82c72329ab2ed208ebc1631641ca42bbf462239d151f4e84d8dcde7b"
+    "pospenaltyscore": 365,
+    "lastpaidtime": 1578387987,
+    "lastpaidblock": 243103,
+    "owneraddress": "yP2swcUzQ7MHtaubyg3uKrRcM7oWER3X9Q",
+    "votingaddress": "yP2swcUzQ7MHtaubyg3uKrRcM7oWER3X9Q",
+    "collateraladdress": "yX8n7oXabwxJHS3tDW2nfB4viPFi98NAwS",
+    "pubkeyoperator": "0fb7164d86058e2b22c4a6f6917714dfa4a2cb4d54bebbf3c9300ebfe1759b33d15b0b68e32999aae19bf0dd92341e40"
   }
 }
 ```
@@ -1533,14 +1536,14 @@ dash-cli -testnet masternodelist full "NEW"
 Result:
 ``` json
 {
-  "64fbf05880cdbd35a0278ba01a5edf0c20a9c756d15f883d496f5df35b31b542-1": "           ENABLED ycZgaHNb8AQq7HnJ3rTwx2fXUd7VCWQumX 1553155206  65121 167.99.164.60:19999",
-  "809818107c1104bbba6d386567aa231a294219387e591542df599b7ae7d23339-1": "       POSE_BANNED yLriZkwBhftk8VBUqrSykhFhAi4PowZ2Rs 1547488185  24447 45.48.177.222:19999",
-  "d9fd715b7d896f5426e90bd3383a67fd3e311e00c021750560c6e5c5f9cdac85-1": "           ENABLED yRbiW3dguCym4fzUGZCf2kWzKUgw97zEqE 1553155396  65122 109.235.71.56:19999",
-  "0950cce784fadcc2df4febb19d3a21eab4836ba22ea996ce7e2dde32b6c31431-0": "           ENABLED ycZgaHNb8AQq7HnJ3rTwx2fXUd7VCWQumX 1553154969  65119 165.227.63.223:19999",
-  "08b493929f61a3205f09af9290af9034bec6a8355040a82ce4413f294c703e9a-0": "           ENABLED ybCE7m9oPjvCjm8MzPdbMBGgkF7p9wXsFq 1553153959  65110 34.207.45.58:19999",
-  "b4f9de65ae676b63f84f2865317b8b512a12516c4459f2f59ca2626c71f7dda3-1": "       POSE_BANNED yYmromZERpc15GTDvgvjmjChPmgHbhWf1r          0      0 1.1.1.1:19999",
-  "b7ec36db0c4ece8018183dcb90eed910e38e1c8d3641bbb4facced9a48a283a3-5": "           ENABLED ybFPBD7hm9KVd2Dubj97K5mw2ymR8gWJre 1553164088  65172 18.202.52.170:20028",
-  "71fa05269adf3efc9ffa9a9ce33d27320de61c230cdf4a3835ba7f707bd7807a-1": "       POSE_BANNED yVxBZ8JeM5qRbLnUnswZ2APV3rgeZ7C9n9 1552466625  61158 167.99.110.59:19999"
+  "cf9840b16f0c28e39beb89e06b995a12425f6a836ed899aa8203a448b31724c6-0": "           ENABLED 0 yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr 1650381993 708881 52.36.244.225:19999",
+  "6f506a5dbb0e88fe83242d4f9641b6f4a2616d22c889b74f29b5bfa6291dfdca-1": "       POSE_BANNED 365 ySLuZnXd8ciZNXV5FEWpqRryT4viJdwazM 1578387987 243103 3.20.70.18:10003",
+  "52feab469665752944186952b361815ba53e5296457de6d1bd23baf80db36f0a-0": "           ENABLED 0 yac7gAK3cKuDnYD4RmGaJiMnCssgu7Q7A5 1650385230 708906 54.185.249.226:19999",
+  "c44721bf0b5be6de4b7706eaef15c2d500bba148e21947907bd52f77d18bebbd-0": "           ENABLED 0 yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr 1650397178 708981 34.219.169.55:19999",
+  "893d83df0dfc05ac284b96c2b31d4db1d34552f814bd834b8c75f43c56945565-1": "           ENABLED 0 yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr 1650385930 708913 54.213.219.155:19999",
+  "23464abc2f724de235e69e72ef5068f1b2701521b88e7b2740b93978ff54909b-1": "       POSE_BANNED 346 yhDhNgubyF1NEmT6qtiTXTbr3KMiJwUTxk 1555111615  78830 198.199.74.241:19999",
+  "d0e28cd51e674fe00af162877cb70e0ceed1906fef616b2d231ef009f6e4786a-0": "           ENABLED 0 yP8A3cbdxRtLRduy5mXDsBnJtMzHWs6ZXr 1650396597 708974 34.220.41.134:19999",
+  "213a1c4beb216e8697d8d15701c248bcf91a889f4989fbb4275293b3aa697802-1": "       POSE_BANNED 0 yfzLmLJUEYcC8LEygLB6AQFxCwsF3fV9Fw 1564053511 143062 [::]:0"
 }
 ```
 

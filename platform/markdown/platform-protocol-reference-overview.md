@@ -9,7 +9,7 @@ In addition to ensuring data complies with predefined JSON Schemas, DPP also def
 {
   "type": "danger",
   "title": "Breaking changes",
-  "body": "**Dash Platform Protocol 0.21** \nA number of breaking changes were introduced in DPP 0.21. Details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.21.0).\n\n**Dash Platform Protocol 0.20**\nThis release updated to a newer version of JSON Schema (2020-12 spec) and also switched to a new regex module (Re2) for improved security. More details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.20.0)."
+  "body": "**Dash Platform Protocol 0.22** \nA number of breaking changes were introduced in DPP 0.22. Details can be found in the [GitHub release](https://github.com/dashevo/platform/releases/tag/v0.22.0).\n\n**Dash Platform Protocol 0.21** \nA number of breaking changes were introduced in DPP 0.21. Details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.21.0).\n\n**Dash Platform Protocol 0.20**\nThis release updated to a newer version of JSON Schema (2020-12 spec) and also switched to a new regex module (Re2) for improved security. More details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.20.0)."
 }
 [/block]
 # Reference Implementation

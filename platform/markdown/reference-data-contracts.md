@@ -8,14 +8,14 @@ The following sections provide details that developers need to construct valid c
 [block:callout]
 {
   "type": "warning",
-  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json)).",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).",
   "title": "Constraints"
 }
 [/block]
 ## Keyword
 [block:callout]
 {
-  "type": "danger",
+  "type": "info",
   "title": "Dash Platform Protocol 0.20",
   "body": "Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `$defs` keyword."
 }
@@ -24,23 +24,22 @@ The following sections provide details that developers need to construct valid c
 | - | - |
 | `default` | Restricted - cannot be used (defined in DPP logic) |
 | `propertyNames` | Restricted - cannot be used (defined in DPP logic) |
-| `uniqueItems: true` | `maxItems` must be defined (maximum: [100000](https://github.com/dashevo/platform/blob/master/packages/js-dpp/schema/dataContract/dataContractMeta.json#L224)) |
-| `pattern: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/platform/blob/master/packages/js-dpp/schema/dataContract/dataContractMeta.json#L236)) |
-| `format: <something>` | `maxLength` must be defined (maximum: [50000](https://github.com/dashevo/platform/blob/master/packages/js-dpp/schema/dataContract/dataContractMeta.json#L249)) |
+| `uniqueItems: true` | `maxItems` must be defined (maximum: 100000) |
+| `pattern: <something>` | `maxLength` must be defined (maximum: 50000) |
+| `format: <something>` | `maxLength` must be defined (maximum: 50000) |
 | `$ref: <something>` | `$ref` can only reference `$defs` - <br> remote references not supported |
 | `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts |
-[block:callout]
-{
-  "type": "info",
-  "title": "Note on `maxLength`",
-  "body": "The `maxLength` value limits the maximum number of characters in the string. This is particularly important to remember when using content encoding schemes where the encoded data is larger than the unencoded data (e.g. [base64](https://blog.aaronlenoir.com/2017/11/10/get-original-length-from-base-64-string/) where the encoded data is ~33% larger)."
-}
-[/block]
+| `dependencies` | Not supported. Use `dependentRequired` and `dependentSchema` instead |
+| `additionalItems` | Not supported. Use `items: false` and `prefixItems` instead |
+| `patternProperties` | Restricted - cannot be used for data contracts |
+| `pattern` | Accept only [RE2](https://github.com/google/re2/wiki/Syntax) compatible regular expressions (defined in DPP logic) |
+
+
 ## Data Size
 
 **Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/util/serializer.js#L5).
 
 ## Additional Properties
 
@@ -52,7 +51,7 @@ Include the following at the same level as the `properties` keyword to ensure pr
 ```
 
 # Documents
-The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#document-indices) and a list of [required properties](#required-properties-optional).
+The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#document-indices) and a list of [required properties](#required-properties-optional). The `additionalProperties` properties keyword must be included as described in the [constraints](#additional-properties) section.
 
 The following example shows a minimal `documents` object defining a single document (`note`) that has one property (`message`).
 [block:code]
@@ -90,12 +89,12 @@ There are a variety of constraints currently defined for performance and securit
 
 | Description | Value |
 | - | - |
-| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
-| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
-| Minimum property name length | [3](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
-| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
+| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
+| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
+| Minimum property name length | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
+| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
 | Property name first/last characters | \** First: (`A-Z`, `a-z`); Last: Alphanumeric (`A-Z`, `a-z`, `0-9`)**|
-| Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hypen (`-`) <br>Underscore (`_`) |
+| Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hyphen (`-`) <br>Underscore (`_`) |
 
 ### Required Properties (Optional)
 
@@ -136,6 +135,7 @@ Document indices may be defined if indexing on document fields is required.
 
 The `indices` array consists of:
  - One or more objects that each contain:
+  - A unique `name` for the index
   - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` or `desc`)
   - An (optional) `unique` element that determines if duplicate values are allowed for the document
 [block:callout]
@@ -166,10 +166,14 @@ The `indices` array consists of:
 [/block]
 | Description | Value |
 | - | - |
-| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L400) |
-| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
-| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/schema/dataContract/dataContractMeta.json#L390) |
-| Maximum length of indexed string property | [1024](https://github.com/dashevo/platform/blob/v0.21.5/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
+| Minimum/maximum length of index `name` | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L381) / [32](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L382) |
+| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L409) |
+| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
+| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L399) |
+| Maximum length of indexed string property | [63](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L22) |
+| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
+| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum number of indexed array items | [1024](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L24) |
+| Usage of `$id` in an index [disallowed](https://github.com/dashevo/platform/pull/178) | N/A |
 
 **Example**
 The following example (excerpt from the DPNS contract's `preorder` document) creates an index on `saltedDomainHash` that also enforces uniqueness across all documents of that type:
@@ -190,7 +194,7 @@ This example syntax shows the structure of a documents object that defines two d
 {
   "codes": [
     {
-      "code": "{\n  \"<document name a>\": {\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"properties\": [\n          {\n            \"<field name c>\": \"<asc|desc>\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
+      "code": "{\n  \"<document name a>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"name\": \"<index name>\",\n        \"properties\": [\n          {\n            \"<field name c>\": \"<asc|desc>\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
       "language": "json"
     }
   ]

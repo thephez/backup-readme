@@ -30,7 +30,7 @@ The currently-available type identifiers are:
 | 28               | <<glossary:MSG_QUORUM_RECOVERED_SIG>>                        | The hash is a long-living masternode quorum recovered signature. <br><br>**Note**: Only relayed to other masternodes in the same quorum and nodes that have sent a [`qwatch` message](core-ref-p2p-network-quorum-messages#qwatch) as of Dash Core 0.17.0<br>_Added in 0.14.0_
 | 29               | <<glossary:MSG_CLSIG>>                                     | The hash is a ChainLock signature.<br>_Added in 0.14.0_
 | 30               | <<glossary:MSG_ISLOCK>>                                   | The hash is an LLMQ-based InstantSend lock ([DIP10](https://github.com/dashpay/dips/blob/master/dip-0010.md)).<br>_Added in 0.14.0_
-| 31               | <<glossary:MSG_ISDLOCK>>                                   | The hash is an LLMQ-based deterministic InstantSend lock ([DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md)).<br>_Added in 0.18.0_
+| 31               | <<glossary:MSG_ISDLOCK>>                                   | The hash is an LLMQ-based deterministic InstantSend lock ([DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md)).<br>_Added in 18.0_
 
 
 **Deprecated Type Identifiers**
@@ -316,7 +316,7 @@ db3fe368976296fd3b6d73fdaf898cc0 ........... Block hash
 
 # getqrinfo
 
-*Added in protocol version 70220 of Dash Core.*
+*Added in protocol version 70222 of Dash Core.*
 
 The `getqrinfo` message requests a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo) that provides the information required to verify quorum details for quorums formed using the quorum rotation process.
 
@@ -656,7 +656,7 @@ The format and maximum size limitations of the [`notfound` message](core-ref-p2p
 
 # qrinfo
 
-*Added in protocol version 70220 of Dash Core.*
+*Added in protocol version 70222 of Dash Core.*
 
 The `qrinfo` message sends quorum rotation information to a node which previously requested it with a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo).
 

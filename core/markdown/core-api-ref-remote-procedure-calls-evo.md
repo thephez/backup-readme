@@ -1085,18 +1085,18 @@ Name | Type | Presence | Description
 →<br>`height` | number | Required<br>(exactly 1) | Block height of the quorum
 →<br>`type` | string | Required<br>(exactly 1) | Type of LLMQ
 →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
-→<br>`quorumIndex` | number | Required<br>(exactly 1) | *Added in Dash Core 0.18.0*<br><br>The index of the quorum
+→<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>The index of the quorum
 →<br>`minedBlock` | string (hex) | Required<br>(exactly 1) | The hash of the block that established the quorum
 →<br>`members` | array | Required<br>(exactly 1) | An array containing quorum member details
 → →<br>Member | object | Required<br>(1 or more) | An object describing a particular member
 → → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The masternode's Provider Registration transaction hash
-→ → →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br><br>The masternode's Operator public key
+→ → →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br>The masternode's Operator public key
 → → →<br>`valid` | bool | Required<br>(exactly 1) | Indicates if the member is valid
 → → →<br>`pubKeyShare` | string | Optional<br>(0 or 1) | Member public key share
 →<br>`quorumPublicKey` | string | Required<br>(exactly 1) | Quorum public key
 →<br>`secretKeyShare` | string | Optional<br>(exactly 1) | Quorum secret key share
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet quorum info 1 \
@@ -1140,7 +1140,12 @@ Result (truncated):
 ## Quorum DKGStatus
 
 The `quorum list` RPC displays the status of the current DKG process.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---detail level*
 
 Name | Type | Presence | Description
@@ -1156,8 +1161,8 @@ Name | Type | Presence | Description
 →<br>`timeStr` | string (hex) | Required<br>(exactly 1) | The UTC time as a string
 →<br>`session` | array of objects | Required<br>(exactly 1) | Array of objects containing DKG Session information
 → →<br>Session | object | Required<br>(exactly 1) | DKG session object
-→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
-→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The index of the quorum
+→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
+→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>The index of the quorum
 → → →<br>`status` | object | Required<br>(exactly 1) | DKG session status information
 → → → →<br>`llmqType` | number | Required<br>(exactly 1) | [Type of quorum](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types):<br>`1` - LLMQ_50_60<br>`2` - LLMQ_400_60<br>`3` - LLMQ_400_85<br>`4` - LLMQ_100_67
 → → → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
@@ -1174,13 +1179,13 @@ Name | Type | Presence | Description
 → → → →<br>`receivedComplaints` | number | Required<br>(exactly 1) | Number of complaints received
 → → → →<br>`receivedJustifications` | number | Required<br>(exactly 1) | Number of justifications received
 → → → →<br>`receivedPrematureCommitments` | number | Required<br>(exactly 1) | Number of premature commitments received
-→<br>`quorumConnections` | array of objects | Required<br>(exactly 1) | **Modified in Dash Core 0.18.0**<br>Array of objects containing quorum connection information
-→ →<br>Quorum type | object | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>An object describing connection information for a quorum index and type
-→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
-→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The index of the quorum
-→ → →<br>`pQuorumBaseBlockIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The height of the quorum's base block
+→<br>`quorumConnections` | array of objects | Required<br>(exactly 1) | **Modified in Dash Core 18.0.0**<br>Array of objects containing quorum connection information
+→ →<br>Quorum type | object | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>An object describing connection information for a quorum index and type
+→ → →<br>`llmqType` | string | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>[Quorum type name](https://github.com/dashpay/dips/blob/master/dip-0006/llmq-types.md)
+→ → →<br>`quorumIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>The index of the quorum
+→ → →<br>`pQuorumBaseBlockIndex` | number | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>The height of the quorum's base block
 → → → <br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The block hash of the quorum
-→ → →<br>`pindexTip` | number | Required<br>(exactly 1) | **Added in Dash Core 0.18.0**<br>The height of the quorum's index tip
+→ → →<br>`pindexTip` | number | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br>The height of the quorum's index tip
 → → →<br>`quorumConnections` | array of objects | Required<br>(exactly 1) | Array of objects containing quorum connection information
 → → → →<br>Connection | object | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>An object describing a quorum connection
 → → → →→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The hash of the quorum member's provider registration transaction as hex in RPC byte order
@@ -1234,7 +1239,7 @@ Name | Type | Presence | Description
 → → → → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum member's provider registration transaction as hex in RPC byte order
 → → →<br>`allMembers` | array | Required<br>(exactly 1) | Array containing the provider registration transaction hash for all quorum members
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet quorum dkgstatus
@@ -1408,7 +1413,7 @@ Result (truncated):
 }
 ```
 
-*Example from Dash Core 0.18.0 (detail_level: 1)*
+*Example from Dash Core 18.0.0 (detail_level: 1)*
 
 ```bash
 dash-cli -testnet quorum dkgstatus 1
@@ -1550,7 +1555,7 @@ Result (truncated):
 
 ```
 
-*Example from Dash Core 0.18.0 (detail_level: 2)*
+*Example from Dash Core 18.0.0 (detail_level: 2)*
 
 ```bash
 dash-cli -testnet quorum dkgstatus 2
@@ -2159,7 +2164,7 @@ Name | Type | Presence | Description
 →<br>`quorumSnapshotList` | array of objects | Required<br>(exactly 1) | Array of quorum snapshot list objects
 →<br>`mnListDiffList` | array of objects | Required<br>(exactly 1) | Array of masternode list diff objects
 
-*Example from Dash Core 0.18.0*
+*Example from Dash Core 18.0.0*
 
 ```bash
 dash-cli -testnet quorum rotationinfo 000001e1ef5f2e2bbc3de3b8b3c554e756ef2b7dcd1eb7552ff48fe319caff4b 0 false
