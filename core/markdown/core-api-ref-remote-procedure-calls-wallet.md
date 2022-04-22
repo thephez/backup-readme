@@ -875,7 +875,12 @@ Result:
 [/block]
 
 The [`gettransaction` RPC](core-api-ref-remote-procedure-calls-wallet#gettransaction) gets detailed information about an in-wallet transaction.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---a transaction identifier (TXID)*
 
 Name | Type | Presence | Description
@@ -914,7 +919,7 @@ Name | Type | Presence | Description
 →<br>`DS` | bool | Optional<br>(0 or 1) | Set to 1 if a CoinJoin transaction
 →<br>`details` | array | Required<br>(exactly 1) | An array containing one object for each input or output in the transaction which affected the wallet
 → → <br>`involvesWatchonly` | bool | Optional<br>(0 or 1) | Set to `true` if the input or output involves a watch-only address.  Otherwise not returned
-→ →<br>`account` | string | Required<br>(exactly 1) | **This field will be removed in V0.18. To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.**<br><br>The account which the payment was credited to or debited from.  May be an empty string (\\") for the default account"
+→ →<br>~~`account`~~ | ~~string~~ | ~~Required<br>(exactly 1)~~ | **Removed in Dash Core 18.0**.<br> ~~To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.<br><br>The account which the payment was credited to or debited from.  May be an empty string (\\") for the default account"~~
 → →<br>`address` | string (base58) | Optional<br>(0 or 1) | If an output, the address paid (may be someone else's address not belonging to this wallet).  If an input, the address paid in the previous output.  May be empty if the address is unknown, such as when paying to a non-standard pubkey script
 → →<br>`category` | string | Required<br>(exactly 1) | Set to one of the following values:<br>• `send` if sending payment normally<br>• `coinjoin` if sending CoinJoin payment<br>• `receive` if this wallet received payment in a regular transaction<br>• `generate` if a matured and spendable coinbase<br>• `immature` if a coinbase that is not spendable yet<br>• `orphan` if a coinbase from a block that's not in the local best block chain
 → →<br>`amount` | number (dash) | Required<br>(exactly 1) | A negative dash amount if sending payment; a positive dash amount if receiving payment (including coinbases)
@@ -1857,7 +1862,12 @@ Result:
 [/block]
 
 The [`listsinceblock` RPC](core-api-ref-remote-procedure-calls-wallet#listsinceblock) gets all transactions affecting the wallet which have occurred since a particular block, plus the header hash of a block at a particular depth.
-
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---a block header hash*
 
 Name | Type | Presence | Description
@@ -1890,7 +1900,7 @@ Name | Type | Presence | Description
 →<br>`transactions` | array | Required<br>(exactly 1) | An array of objects each describing a particular **payment** to or from this wallet.  The objects in this array do not describe an actual transactions, so more than one object in this array may come from the same transaction.  This array may be empty
 → →<br>Payment | object | Optional<br>(0 or more) | An payment which did not appear in the specified block or an earlier block
 → <br>`involvesWatchonly` | bool | Optional<br>(0 or 1) | Set to `true` if the payment involves a watch-only address.  Otherwise not returned
-→ <br>`account` | string | Required<br>(exactly 1) | **This field will be removed in V0.18. To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.**<br><br>The account which the payment was credited to or debited from.  May be an empty string (\\") for the default account"
+→ <br>~~`account`~~ | ~~string~~ | ~~Required<br>(exactly 1)~~ | **Removed in Dash Core 18.0**.<br>~~To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.<br><br>The account which the payment was credited to or debited from.  May be an empty string (\\") for the default account"~~
 → <br>`address` | string (base58) | Optional<br>(0 or 1) | The address paid in this payment, which may be someone else's address not belonging to this wallet.  May be empty if the address is unknown, such as when paying to a non-standard pubkey script
 → <br>`category` | string | Required<br>(exactly 1) | Set to one of the following values:<br>• `send` if sending payment normally<br>• `coinjoin` if sending CoinJoin payment<br>• `receive` if this wallet received payment in a regular transaction<br>• `generate` if a matured and spendable coinbase<br>• `immature` if a coinbase that is not spendable yet<br>• `orphan` if a coinbase from a block that's not in the local best block chain
 → <br>`amount` | number (dash) | Required<br>(exactly 1) | A negative dash amount if sending payment; a positive dash amount if receiving payment (including coinbases)
@@ -2094,10 +2104,13 @@ Result:
 }
 [/block]
 
-The [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspent) returns an array of unspent transaction outputs belonging to this wallet. **Note:** as of Bitcoin
-Core 0.10.0, outputs affecting watch-only addresses will be returned; see
-the *spendable* field in the results described below.
-
+The [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspent) returns an array of unspent transaction outputs belonging to this wallet. **Note:** as of Bitcoin Core 0.10.0, outputs affecting watch-only addresses will be returned; see the *spendable* field in the results described below.
+[block:callout]
+{
+  "type": "danger",
+  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
+}
+[/block]
 *Parameter #1---the minimum number of confirmations an output must have*
 
 Name | Type | Presence | Description
@@ -2138,7 +2151,7 @@ Name | Type | Presence | Description
 → →<br>`txid` | string (hex) | Required<br>(exactly 1) | The TXID of the transaction containing the output, encoded as hex in RPC byte order
 → →<br>`vout` | number (int) | Required<br>(exactly 1) | The output index number (vout) of the output within its containing transaction
 → →<br>`address` | string (base58) | Optional<br>(0 or 1) | The P2PKH or P2SH address the output paid.  Only returned for P2PKH or P2SH output scripts
-→ →<br>`account` | string | Optional<br>(0 or 1) | **This field will be removed in V0.18. To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.**<br><br>If the address returned belongs to an account, this is the account.  Otherwise not returned
+→ →<br>~~`account`~~ | ~~string~~ | ~~Optional<br>(0 or 1)~~ | **Removed in Dash Core 18.0**<br>~~This field will be removed in V18.0. To see this deprecated field, start dashd with `-deprecatedrpc=accounts`.<br><br>If the address returned belongs to an account, this is the account.  Otherwise not returned~~
 → →<br>`scriptPubKey` | string (hex) | Required<br>(exactly 1) | The output script paid, encoded as hex
 → →<br>`redeemScript` | string (hex) | Optional<br>(0 or 1) | If the output is a P2SH whose script belongs to this wallet, this is the redeem script
 → →<br>`amount` | number (int) | Required<br>(exactly 1) | The amount paid to the output in dash
