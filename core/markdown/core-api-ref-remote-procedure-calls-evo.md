@@ -2126,7 +2126,7 @@ Result:
 
 ## Quorum RotationInfo
 
-The `quorum rotationinfo` RPC returns  quorum rotation information.
+The `quorum rotationinfo` RPC returns  quorum rotation information. The response is a JSON representation of the data that would be returned in a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo).
 
 *Parameter #1---block request hash*
 
@@ -2134,17 +2134,17 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `blockRequestHash` | string (hex) | Required<br>(exactly 1) | The block hash of the request
 
-*Parameter #2---base block hashes number*
+*Parameter #2---extra share*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`baseBlockHashesNb` | number | Required<br>(exactly 1) | Number of baseBlockHashes
+`extraShare` | bool | Optional<br>(0 or 1) | Request an extra share (default: false). This extra share would support validation against the previous set of LLMQs.
 
-*Parameter #3---extra share*
+*Parameter #3---base block hashes number*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`extraShare` | bool | Optional<br>(0 or 1) | Request an extra share
+`baseBlockHash...` | string (hex) | Optional<br>(0 or more) | Block hashes (default: "")
 
 *Result---rotation info*
 
@@ -2167,7 +2167,7 @@ Name | Type | Presence | Description
 *Example from Dash Core 18.0.0*
 
 ```bash
-dash-cli -testnet quorum rotationinfo 000001e1ef5f2e2bbc3de3b8b3c554e756ef2b7dcd1eb7552ff48fe319caff4b 0 false
+dash-cli -testnet quorum rotationinfo 000001e1ef5f2e2bbc3de3b8b3c554e756ef2b7dcd1eb7552ff48fe319caff4b
 ```
 
 Result (truncated):

@@ -68,7 +68,7 @@ In HD wallets, 256 bits of entropy added to the public and private keys to help 
 
 # ChainLock
 
-ChainLocks are a feature enabling near instant consensus on the valid chain. ChainLocks use Long-Living Masternode Quroums to mitigate 51 percent attacks and reduce uncertainty when receiving funds.
+ChainLocks are a feature enabling near instant consensus on the valid chain. ChainLocks use Long-Living Masternode Quorums to mitigate 51 percent attacks and reduce uncertainty when receiving funds.
 
 # Change output
 

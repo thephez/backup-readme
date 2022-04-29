@@ -31,7 +31,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Identifier = require('@dashevo/dpp/lib/Identifier');\nconst myContractId = 'a contract ID';\nconst myContract = await client.platform.contracts.get(myContractId);\n\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myContractId),\n  contract: myContract,\n});",
+      "code": "const Dash = require('dash');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst myContractId = 'a contract ID';\nconst client = new Dash.Client();\n\nclient.platform.contracts.get(myContractId)\n  .then((myContract) => {\n    client.getApps().set('myNewContract', {\n      contractId: Identifier.from(myContractId),\n      contract: myContract,\n    });\n  });",
       "language": "javascript"
     }
   ]
@@ -44,7 +44,7 @@ The following example response shows a retrieved contract:
 {
   "codes": [
     {
-      "code": "{\n   \"protocolVersion\":0,\n   \"$id\":\"C96rCVpck4RdBQXG3zzP5KH4RKzfKVTsmTauu8FQenJi\",\n   \"$schema\":\"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n   \"ownerId\":\"FgPx8YHbWv4rMeiP52DfmnAXGtjiCiSaNKCbgT7eCRxh\",\n   \"documents\":{\n      \"note\":{\n         \"properties\":{\n            \"message\":{\n               \"type\":\"string\"\n            }\n         },\n         \"additionalProperties\":false\n      }\n   }\n}",
+      "code": "{\n  \"protocolVersion\":1,\n  \"$id\":\"G1FVmxxrnbT6CiQU7w2xgY9oMMqkkZb7vS6fkeRrSTXG\",\n  \"$schema\":\"https://schema.dash.org/dpp-0-4-0/meta/data-contract\",\n  \"version\":2,\n  \"ownerId\":\"8uFQj2ptknrcwykhQbTzQatoQUyxn4VJQn1J25fxeDvk\",\n  \"documents\":{\n    \"note\":{\n      \"type\":\"object\",\n      \"properties\":{\n        \"author\":{\n          \"type\":\"string\"\n        },\n        \"message\":{\n          \"type\":\"string\"\n        }\n      },\n      \"additionalProperties\":false\n    }\n  }\n}",
       "language": "json"
     }
   ]

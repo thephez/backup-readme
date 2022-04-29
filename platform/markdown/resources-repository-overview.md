@@ -42,16 +42,16 @@ A JavaScript Dash library
 npm: `@dashevo/dashcore-lib`
 Repository: https://github.com/dashevo/dashcore-lib
 
+## grove-db
+A hierarchical authenticated data structure. The construction is based on [Database Outsourcing with Hierarchical Authenticated Data Structures](https://eprint.iacr.org/2015/351.pdf).
+
+[Repository](https://github.com/dashevo/grovedb)
+
 ## wallet-lib
 An extensible JavaScript Wallet Library for Dash. Provides layer 1 SPV wallet functionality.
 
 npm: `@dashevo/wallet-lib`
 [Repository](https://github.com/dashevo/platform/tree/master/packages/wallet-lib)
-
-## js-dpns-client
-A JavaScript client for [DPNS](explanation-dpns).
-
-Repository: https://github.com/dashevo/js-dpns-client
 
 ## dapi-grpc
 Decentralized API gRPC definition files and generated clients. Used by clients (e.g. dapi-client) to interact with DAPI endpoints.
@@ -68,6 +68,11 @@ https://github.com/dashevo/dash-network-deploy
 Test suite for end-to-end testing of Dash Platform by running some real-life scenarios against a Dash Network.
 
 [Repository](https://github.com/dashevo/platform/tree/master/packages/platform-test-suite)
+
+## rs-drive
+Implements secondary indices for Platform in conjunction with GroveDB.
+
+[Repository](https://github.com/dashevo/rs-drive)
 
 ## dashmate
 A distribution package for Dash masternode installation.
