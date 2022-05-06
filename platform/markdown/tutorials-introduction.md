@@ -5,7 +5,7 @@ Building on Dash Platform requires first registering an Identity and then regist
 {
   "type": "info",
   "title": "Tutorial code",
-  "body": "A repository containing the code for all the tutorials can be downloaded from the GitHub repository located <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">here</a>. To download as a zip file, click [here](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip)."
+  "body": "A repository containing the code for all the tutorials can be downloaded from the GitHub repository located at <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">https://github.com/dashevo/platform-readme-tutorials</a>. To download as a zip file, click [here](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip)."
 }
 [/block]
 # Prerequisites

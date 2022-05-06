@@ -404,7 +404,7 @@ It is possible to receive multiple valid final commitments for the same DKG sess
 | 2 | version | uint16_t | Version of the final commitment message
 | 1 | llmqType | uint8_t | The type of LLMQ
 | 32 | quorumHash | uint256 | The quorum identifier
-| 4 | quorumIndex | uint32_t | **Added in version 2**<br><br>The quorum index
+| 2 | quorumIndex | uint16_t | **Added in version 2**<br><br>The quorum index
 | 1-9 | signersSize | compactSize uint | Bit size of the signers bitvector
 | (bitSize + 7) / 8 | signers | byte[] | Bitset representing the aggregated signers of this final commitment
 | 1-9 | validMembersSize | compactSize uint | Bit size of the `validMembers` bitvector
@@ -462,7 +462,7 @@ The following annotated hexdump shows a _version 2_ [`qfcommit` message](core-re
 d3b0d23936c7c2f1d3fff8a8b92212af
 511defff89d255e85a4ef8cdfb010000 ........... Quorum Hash
 
-01000000 ................................... Quorum Index (1) **Added in v2 messages**
+0100 ....................................... Quorum Index (1) **Added in v2 messages**
 
 08 ......................................... Signer bitvector size: 8
 fb ......................................... Signers

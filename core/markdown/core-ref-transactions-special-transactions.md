@@ -443,7 +443,7 @@ The special transaction type used for Quorum Commitment Transactions is 6 and th
 
 The following annotated hexdump shows a QcTx transaction.
 
-An itemized quorum commitment transaction:
+An itemized quorum commitment transaction (v1):
 
 ``` text
 0300 ....................................... Version (3)
