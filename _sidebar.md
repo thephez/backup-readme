@@ -123,3 +123,8 @@
     - [dash-cli](core/markdown/dash-core-wallet-arguments-and-commands-dash-cli.md)
     - [dash-tx](core/markdown/dash-core-wallet-arguments-and-commands-dash-tx.md)
   - [Configuration File](core/markdown/dash-core-wallet-configuration-file.md)
+
+- Platform Introduction
+  - [What is Dash?](platform/markdown/introduction-what-is-dash.md)
+  - [What is Dash Platform?](platform/markdown/introduction-what-is-dash-platform.md)
+  - [Intro to Testnet](platform/markdown/intro-to-testnet.md)
