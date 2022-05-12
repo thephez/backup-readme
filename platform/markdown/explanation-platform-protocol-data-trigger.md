@@ -12,10 +12,11 @@ Although [data contracts](explanation-platform-protocol-data-contract) provide m
 {
   "type": "danger",
   "title": "Constraints",
-  "body": "Given a number of technical considerations (security, masternode processing capacity, etc.), data triggers are not considered a platform feature at this time. They are currently hard-coded in Dash Platform Protocol and not available for use in non-system data contracts."
+  "body": "Given a number of technical considerations (security, masternode processing capacity, etc.), data triggers are not considered a platform feature at this time. They are currently hard-coded in Dash Platform Protocol and only used in system data contracts."
 }
 [/block]
 # Details
+
 Since all application data is submitted in the form of documents, data triggers are defined in the context of documents. To provide even more granularity, they also incorporate the document `action` so separate triggers can be created for the `CREATE`, `REPLACE`, or `DELETE` actions.
 
 As an example, DPP contains several [data triggers for DPNS](https://github.com/dashevo/platform/tree/master/packages/js-dpp/lib/dataTrigger/). The `domain` document has added constraints for creation. All DPNS document types have constraints on replacing or deleting:
@@ -27,4 +28,4 @@ As an example, DPP contains several [data triggers for DPNS](https://github.com/
 | DPNS | All Document Types | [`REPLACE`](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents updates to any DPNS document type |
 | DPNS | All Document Types | [`DELETE`](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/dataTrigger/rejectDataTrigger.js) | Prevents deletion of any DPNS document type |
 
-When document state transitions are received, DPP checks if there is a trigger associated with the document type and action. If there is, it then executes the trigger logic. Successful execution of the trigger logic is necessary for the document to be accepted and applied to the [platform state](explanation-drive-platform-state).
+When document state transitions are received, DPP checks if there is a trigger associated with the document type and action. If a trigger is found, DPP executes the trigger logic. Successful execution of the trigger logic is necessary for the document to be accepted and applied to the [platform state](explanation-drive-platform-state).

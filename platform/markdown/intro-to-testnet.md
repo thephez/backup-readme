@@ -1,13 +1,11 @@
 # Overview
 
 Testnet is the Dash testing network used for experimentation and evaluation of Dash Core and Dash Platform features.
-[block:callout]
-{
-  "type": "warning",
-  "body": "As a testing network, Testnet may be subject to occasional updates and changes that break backwards compatibility. Please visit [this page](https://dash-testnet.freshstatus.io/) to see current testnet status.",
-  "title": "Testnet Stability"
-}
-[/block]
+
+> 🚧 Testnet Stability
+>
+> As a testing network, Testnet may be subject to occasional updates and changes that break backwards compatibility. Please visit [this page](https://dash-testnet.freshstatus.io/) to see current testnet status.
+
 
 # Network Details
 

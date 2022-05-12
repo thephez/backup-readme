@@ -4,12 +4,11 @@ The purpose of this tutorial is to walk through the steps necessary to set up a 
 - Access to a Linux system configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v20.10.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
 - An installation of [NodeJS](https://nodejs.org/en/download/) v12+
-[block:callout]
-{
-  "type": "info",
-  "body": "More comprehensive details of using the dashmate tool can be found in the [dashmate README](https://github.com/dashevo/platform/tree/master/packages/dashmate)."
-}
-[/block]
+
+> 📘
+>
+> More comprehensive details of using the dashmate tool can be found in the [dashmate README](https://github.com/dashevo/platform/tree/master/packages/dashmate).
+
 Use NPM to install dashmate globally in your system:
 [block:code]
 {
@@ -39,12 +38,10 @@ Run the following command to start the setup wizard, then accept the default val
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Make a note of the key and identity information displayed during setup as they may be required in the future."
-}
-[/block]
+> 📘
+>
+> Make a note of the key and identity information displayed during setup as they may be required in the future.
+
 Example (partial) output of the setup wizard showing important information:
 ```
   ✔ Initialize SDK
@@ -131,13 +128,10 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
 To make the Dash SDK connect to your local development network, set the `network` option to `'local'`:
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: Prior to Platform v0.22, it was also necessary to set the DPNS contract ID; however, system contract IDs are now static so this is no longer necessary as of [pull request 192](https://github.com/dashevo/platform/pull/192)."
-}
-[/block]
 
+> 📘
+>
+> Note: Prior to Platform v0.22, it was also necessary to set the DPNS contract ID; however, system contract IDs are now static so this is no longer necessary as of [pull request 192](https://github.com/dashevo/platform/pull/192).
 [block:code]
 {
   "codes": [
@@ -150,32 +144,28 @@ To make the Dash SDK connect to your local development network, set the `network
 [/block]
 
 # Remote Development Network
-[block:callout]
-{
-  "type": "info",
-  "body": "In order to connect to a remote devnet (e.g. one run by Dash Core Group), please use one of the methods described in the [Connect to a Devnet](tutorial-connecting-to-testnet#connect-to-a-devnet) section.",
-  "title": "Connecting to a remote development network"
-}
-[/block]
+
+> 📘 Connecting to a remote development network
+>
+> In order to connect to a remote devnet (e.g. one run by Dash Core Group), please use one of the methods described in the [Connect to a Devnet](tutorial-connecting-to-testnet#connect-to-a-devnet) section.
+
 For development we recommend using either a local development network created via dashmate as [described above](#local-development-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).
 
 
 # Testnet Masternode Setup
-[block:callout]
-{
-  "type": "info",
-  "title": "Full Platform Node",
-  "body": "A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/platform/tree/master/packages/dashmate#setup-node) set to  `fullnode` and then starting the node.\n```\ndashmate setup testnet fullnode\ndashmate start\n```"
-}
-[/block]
 
-[block:callout]
-{
-  "type": "danger",
-  "body": "Running a masternode requires familiarity with Dash Platform services. Improper configuration may impact testing so please exercise caution if running a masternode.",
-  "title": "Advanced Topic"
-}
-[/block]
+> 📘 Full Platform Node
+>
+> A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/platform/tree/master/packages/dashmate#setup-node) set to  `fullnode` and then starting the node.
+> ```
+> dashmate setup testnet fullnode
+> dashmate start
+> ```
+
+> ❗️Advanced Topic
+>
+> Running a masternode requires familiarity with Dash Platform services. Improper configuration may impact testing so please exercise caution if running a masternode.
+
 To setup a testnet masternode, please refer to the comprehensive documentation of the process as described [here](https://docs.dash.org/en/stable/masternodes/setup-testnet.html#dashmate-installation). The following video also details how to complete the process.
 [block:html]
 {

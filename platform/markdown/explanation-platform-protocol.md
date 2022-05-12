@@ -24,7 +24,7 @@ For additional detail, see the [Data Contract](explanation-platform-protocol-dat
 
 ## Document
 
-A document is an atomic entity used by the platform to store user-submitted data. It resembles the documents stored in a document-oriented DB (e.g. MongoDB). All documents must follow some specific rules that are defined by a generic document schema. Additionally, documents are always related to a particular application, so they must comply with the rules defined by the application’s data contract. Documents are submitted to the platform API ([DAPI](explanation-dapi)) by users during their use of the application.
+A document is an atomic entity used by the platform to store user-submitted data. It resembles the documents stored in a document-oriented DB (e.g. MongoDB). All documents must follow some specific rules that are defined by a generic document schema. Additionally, documents are always related to a particular application, so they must comply with the rules defined by the application’s data contract. Documents are submitted to the platform API ([DAPI](explanation-dapi)) by clients during their use of the application.
 
 [block:callout]
 {

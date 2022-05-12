@@ -1,10 +1,7 @@
-[block:callout]
-{
-  "type": "warning",
-  "body": "Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and offers no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.",
-  "title": "Advanced Topic"
-}
-[/block]
+> 🚧 Advanced Topic
+>
+> Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and generally provides no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.
+
 # Config File
 
  The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v0.17.0.3](https://github.com/dashpay/dash/releases/tag/v0.17.0.3).

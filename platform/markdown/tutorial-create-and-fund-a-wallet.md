@@ -30,13 +30,10 @@ In order to make changes on Dash Platform, you need a wallet with a balance. Thi
 }
 [/block]
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Please save your mnemonic for the next step and for re-use in subsequent tutorials throughout the documentation.**",
-  "title": ""
-}
-[/block]
+> 🚧 
+>
+> **Please save your mnemonic for the next step and for re-use in subsequent tutorials throughout the documentation.**
+
 # What's Happening
 
 Once we connect, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `account.getUnusedAddress()`.

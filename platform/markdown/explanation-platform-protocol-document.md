@@ -31,7 +31,7 @@ Dash Platform Protocol (DPP) defines a set of base fields that must be present i
 
 Each application defines its own fields via document definitions in its data contract. Details of the [DPNS data contract documents](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json) are described below as an example. This contract defines two document types (`preorder` and `domain`) and provides the functionality described in the [Name Service explanation](explanation-dpns).
 
-| Document Name | Field Name | Data Type |
+| Document Type | Field Name | Data Type |
 | - | - | - |
 | preorder | saltedDomainHash | string |
 | --- | --- | --- |
@@ -47,7 +47,7 @@ Each application defines its own fields via document definitions in its data con
 
 ## Example Document
 
-The following example shows the structure of a DPNS `domain` document as output from the document `.toJSON()` method. Note the `$` prefix indicating the base fields.
+The following example shows the structure of a DPNS `domain` document as output from `JSON.stringify()`. Note the `$` prefix indicating the base fields.
 [block:code]
 {
   "codes": [
@@ -79,8 +79,8 @@ The document create transition is used to create a new document on Dash Platform
 | Field | Type | Description|
 | - | - | - |
 | $entropy | array (32 bytes) | Entropy used in creating the document ID |
-| $createdAt | integer | (Optional)  | Time (in milliseconds) the document was created |
-| $updatedAt | integer | (Optional)  | Time (in milliseconds) the document was last updated |
+| $createdAt | integer | (Optional) Time (in milliseconds) the document was created |
+| $updatedAt | integer | (Optional) Time (in milliseconds) the document was last updated |
 
 ## Document Replace
 
@@ -89,7 +89,7 @@ The document replace transition is used to update the data in an existing Dash P
 | Field | Type | Description|
 | - | - | - |
 | $revision | integer | Document revision (=> 1) |
-| $updatedAt | integer | (Optional)  | Time (in milliseconds) the document was last updated |
+| $updatedAt | integer | (Optional) Time (in milliseconds) the document was last updated |
 
 ## Document Delete
 

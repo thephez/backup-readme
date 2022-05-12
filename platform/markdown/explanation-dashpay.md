@@ -2,6 +2,10 @@
 
 DashPay is one of the first applications of Dash Platform's [data contracts](explanation-platform-protocol-data-contract) . At its core DashPay is a data contract that enables a decentralized application that creates bidirectional [direct settlement payment channels](reference-glossary#direct-settlement-payment-channel-dspc) between [identities](explanation-identity).
 
+> 📘
+>
+> For previews of an updated Dash mobile wallet UI based on the DashPay contract or to join the alpha test program, please visit the <a href="https://www.dash.org/dashpay/" target="_blank">DashPay landing page at dash.org</a>.
+
 The DashPay contract enables an improved Dash wallet experience with features including:
 
 - **User Centric Interaction**: DashPay brings users front and center in a cryptocurrency wallet. Instead of sending to an address, a user sends directly to another user. Users will have a username, a display name, an avatar and a quick bio/information message.
@@ -11,13 +15,7 @@ The DashPay contract enables an improved Dash wallet experience with features in
 - **Payment History**: When a contact is established, a user can easily track the payments they have sent to another user and the payments that they have received from that other user. A user will have an extended private key to track payments that are received from the other user and an extended public key to track payments that are sent to that other user.
 
 - **Payment Participant Protection**: The extended public keys in contact requests are encrypted in such a way that only the two users involved in a contact's two way relationship can decrypt those keys. This ensures that when any two users make payments in DashPay, only they know the sender and receiver while 3rd parties do not.
-[block:callout]
-{
-  "type": "info",
-  "body": "For previews of an updated Dash mobile wallet UI based on the DashPay contract or to join the alpha test program, please visit the <a href=\"https://www.dash.org/dashpay/\" target=\"_blank\">DashPay landing page at dash.org</a>.",
-  "title": ""
-}
-[/block]
+
 # Details
 
 The contract defines three document types: `contactRequest`, `profile` and `contactInfo`. ContactRequest documents are the most important. They are used to establish relationships and payment channels between Dash identities. Profile documents are used to store public facing information about Dash identities including avatars and display names. ContactInfo documents can be used to store private information about other Dash identities.
@@ -52,14 +50,13 @@ The contract defines three document types: `contactRequest`, `profile` and `cont
 
 DashPay has many constraints as defined in the [DashPay data contract](https://github.com/dashevo/platform/blob/master/packages/dashpay-contract/schema/dashpay.schema.json). Additionally, the DashPay data triggers defined in [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp/lib/dataTrigger/dashpayDataTriggers) enforce additional validation rules related to the `contactRequest` document.
 
-[block:callout]
-{
-  "type": "success",
-  "title": "DashPay DIP",
-  "body": "Please refer to the [DashPay Dash Improvement Proposal (DIP)](https://github.com/dashpay/dips/blob/master/dip-0015.md) for more extensive background information and complete details about the data contract.\n\n- <a href=\"https://github.com/dashpay/dips/blob/master/dip-0015.md#the-contact-request\" target=\"_blank\">Contact request details</a>\n- <a href=\"https://github.com/dashpay/dips/blob/master/dip-0015.md#the-profile\" target=\"_blank\">Profile details</a>\n- <a href=\"https://github.com/dashpay/dips/blob/master/dip-0015.md#contact-info\" target=\"_blank\">Contact Info details</a>"
-}
-[/block]
+> 👍 DashPay DIP
+>
+> Please refer to the [DashPay Dash Improvement Proposal (DIP)](https://github.com/dashpay/dips/blob/master/dip-0015.md) for more extensive background information and complete details about the data contract.
 
+- <a href="https://github.com/dashpay/dips/blob/master/dip-0015.md#the-contact-request" target="_blank">Contact request details</a>
+- <a href="https://github.com/dashpay/dips/blob/master/dip-0015.md#the-profile" target="_blank">Profile details</a>
+- <a href="https://github.com/dashpay/dips/blob/master/dip-0015.md#contact-info" target="_blank">Contact Info details</a>
 [block:code]
 {
   "codes": [
