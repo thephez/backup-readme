@@ -20,13 +20,11 @@ Dash Platform Protocol (DPP) defines a set of base fields that must be present i
 | $ownerId | [Identity](explanation-identity) of the user submitting the document (32 bytes) |
 | $createdAt | Time (in milliseconds) the document was created |
 | $updatedAt | Time (in milliseconds) the document was last updated |
-[block:callout]
-{
-  "type": "warning",
-  "title": "Timestamp fields",
-  "body": "Note: The `$createdAt` and `$updatedAt` fields will only be present in documents that add them to the list of [required properties](reference-data-contracts#required-properties-optional)."
-}
-[/block]
+
+> 🚧 Timestamp fields
+>
+> Note: The `$createdAt` and `$updatedAt` fields will only be present in documents that add them to the list of [required properties](reference-data-contracts#required-properties-optional).
+
 ## Data Contract Fields
 
 Each application defines its own fields via document definitions in its data contract. Details of the [DPNS data contract documents](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json) are described below as an example. This contract defines two document types (`preorder` and `domain`) and provides the functionality described in the [Name Service explanation](explanation-dpns).
@@ -94,9 +92,7 @@ The document replace transition is used to update the data in an existing Dash P
 ## Document Delete
 
 The document delete transition is used to delete an existing Dash Platform document. It only requires the fields found in the base document transition.
-[block:callout]
-{
-  "type": "info",
-  "body": "For more detailed information, see the [Platform Protocol Reference - Document](platform-protocol-reference-document) page"
-}
-[/block]
+
+> 📘
+>
+> For more detailed information, see the [Platform Protocol Reference - Document](platform-protocol-reference-document) page.

@@ -20,13 +20,10 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 }
 [/block]
 ## Updating the client app list
-[block:callout]
-{
-  "type": "info",
-  "body": "In many cases it may be desirable to work with a newly retrieved data contract using the `<contract name>.<contract document>` syntax (e.g. `dpns.domain`). Data contracts that were created after the client was initialized or not included in the initial client options can be added via `client.getApps().set(...)`."
-}
-[/block]
 
+> 📘
+>
+> In many cases it may be desirable to work with a newly retrieved data contract using the `<contract name>.<contract document>` syntax (e.g. `dpns.domain`). Data contracts that were created after the client was initialized or not included in the initial client options can be added via `client.getApps().set(...)`.
 [block:code]
 {
   "codes": [
@@ -50,13 +47,10 @@ The following example response shows a retrieved contract:
   ]
 }
 [/block]
+> 📘
+>
+> Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents."
-}
-[/block]
 # What's Happening
 
 After we initialize the Client, we request a contract. The `platform.contracts.get` method takes a single argument: a contract ID. After the contract is retrieved, it is displayed on the console.

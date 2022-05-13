@@ -17,14 +17,10 @@ In this tutorial we will retrieve some of the current data from a data contract.
   ]
 }
 [/block]
+> 👍 Initializing the Client with a contract identity
+>
+> The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details.
 
-[block:callout]
-{
-  "type": "success",
-  "title": "Initializing the Client with a contract identity",
-  "body": "The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash JavaScript SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details."
-}
-[/block]
 ## Queries
 
 The example code uses a very basic query to return only one result. More extensive querying capabilities are covered in the [query syntax reference](reference-query-syntax).
@@ -33,13 +29,12 @@ The example code uses a very basic query to return only one result. More extensi
 
 The following examples show the structure of a `note` document (from the data contract registered in the tutorial) returned from the SDK when retrieved with various methods. 
 
-The values returned by `.toJSON()` include the base document properties (prefixed with `$`) present in all documents along with the data contract defined properties. 
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: When using `.toJSON()`, binary data is displayed as a base64 string (since JSON is a text-based format)."
-}
-[/block]
+The values returned by `.toJSON()` include the base document properties (prefixed with `$`) present in all documents along with the data contract defined properties.
+
+> 📘
+>
+> Note: When using `.toJSON()`, binary data is displayed as a base64 string (since JSON is a text-based format).
+
 The values returned by `.getData()` (and also shown in the console.dir() `data` property) represent _only_ the properties defined in the `note` document described by the [tutorial data contract](tutorial-register-a-data-contract#code).
 [block:code]
 {
@@ -70,11 +65,9 @@ The values returned by `.getData()` (and also shown in the console.dir() `data` 
 # What's happening
 
 After we initialize the Client, we request some documents. The `client.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `tutorialContract`) and the top-level document type requested, (e.g. `note`).
-[block:callout]
-{
-  "type": "info",
-  "title": "DPNS Contract",
-  "body": "Note: Access to the DPNS contract is built into the Dash SDK. DPNS documents may be accessed via the `dpns` app name (e.g. `dpns.domain`)."
-}
-[/block]
+
+> 📘 DPNS Contract
+>
+> Note: Access to the DPNS contract is built into the Dash SDK. DPNS documents may be accessed via the `dpns` app name (e.g. `dpns.domain`).
+
 If you need more than the first 100 documents, you'll have to make additional requests with `startAt` incremented by 100 each time. In the future, the Dash SDK may return documents with paging information to make this easier and reveal how many documents are returned in total.

@@ -27,22 +27,18 @@ The following example demonstrates updating an existing contract to add a new pr
   ]
 }
 [/block]
+> 📘
+>
+> Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents."
-}
-[/block]
 # What's Happening
 
 After we initialize the Client, we retrieve an existing contract owned by our identity. We then get the contract's documents and modify a document (adding an `author` property to the `note` document in the example).The `setDocuments` method takes one argument: the object containing the updated document types.
 
-Once the data contract has been updated, we still need to submit it to DAPI. The `platform.contracts.update` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the updated contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered,
-[block:callout]
-{
-  "type": "info",
-  "title": "Wallet Operations",
-  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations. This can result in wait times of  5+ minutes. \n\nAn upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster. For now, the `skipSynchronizationBeforeHeight` option can be used to only sync the wallet starting at a certain block height."
-}
-[/block]
+Once the data contract has been updated, we still need to submit it to DAPI. The `platform.contracts.update` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the updated contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered.
+
+> 📘Wallet Operations
+>
+> The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
+>
+> A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.

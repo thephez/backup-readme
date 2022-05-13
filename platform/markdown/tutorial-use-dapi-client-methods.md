@@ -19,10 +19,6 @@ The following example demonstrates several of the Core DAPI client methods. DAPI
   ]
 }
 [/block]
-
-[block:callout]
-{
-  "type": "info",
-  "body": "Examples using DAPI client to access many of the DAPI endpoints can be found in the [DAPI Endpoint Reference section](reference-dapi-endpoints)."
-}
-[/block]
+> 📘
+>
+> Examples using DAPI client to access many of the DAPI endpoints can be found in the [DAPI Endpoint Reference section](reference-dapi-endpoints).

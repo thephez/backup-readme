@@ -18,12 +18,11 @@ The most basic example below (tab 1) demonstrates a data contract containing a s
 The second tab shows the same data contract with an index defined on the `$ownerId` field. This would allow querying for documents owned by a specific identity using a [where clause](reference-query-syntax#where-clause).
 
 The third tab shows a data contract using the [JSON-Schema $ref feature](https://json-schema.org/understanding-json-schema/structuring.html#reuse) that enables reuse of defined objects.
-[block:callout]
-{
-  "type": "warning",
-  "body": "The `$ref` keyword is [temporarily disabled](https://github.com/dashevo/platform/pull/300) for Platform v0.22."
-}
-[/block]
+
+> 🚧
+>
+> The `$ref` keyword is [temporarily disabled](https://github.com/dashevo/platform/pull/300) for Platform v0.22.
+
 The fourth tab shows a data contract requiring the optional `$createdAt` and `$updatedAt` [base fields](explanation-platform-protocol-document#base-fields). Using these fields enables retrieving timestamps that indicate when a document was created or modified.
 [block:code]
 {
@@ -56,13 +55,10 @@ The fourth tab shows a data contract requiring the optional `$createdAt` and `$u
   ]
 }
 [/block]
+> 📘
+>
+> Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents."
-}
-[/block]
 ## Registering the data contract
 
 The following examples demonstrate the details of creating contracts using the features [described above](#defining-contract-documents):
@@ -97,22 +93,18 @@ The following examples demonstrate the details of creating contracts using the f
   ]
 }
 [/block]
+> 👍
+>
+> **Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**
 
-[block:callout]
-{
-  "type": "success",
-  "body": "**Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**"
-}
-[/block]
 # What's Happening
 
 After we initialize the Client, we create an object defining the documents this data contract requires (e.g. a `note` document in the example). The `platform.contracts.create` method takes two arguments: a contract definitions JSON-schema object and an identity. The contract definitions object consists of the document types being created (e.g. `note`). It defines the properties and any indices. 
 
-Once the data contract has been created, we still need to submit it to DAPI. The `platform.contracts.publish` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the previously created contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered,
-[block:callout]
-{
-  "type": "info",
-  "title": "Wallet Operations",
-  "body": "Currently, the JavaScript SDK does not cache wallet information, and therefore, it re-syncs the entire Core chain for some wallet operations. This can result in wait times of  5+ minutes. \n\nAn upcoming release will add a persistence feature to cache wallet information during initial sync so that subsequent access is much faster. For now, the `skipSynchronizationBeforeHeight` option can be used to only sync the wallet starting at a certain block height."
-}
-[/block]
+Once the data contract has been created, we still need to submit it to DAPI. The `platform.contracts.publish` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the previously created contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered.
+
+> 📘Wallet Operations
+>
+> The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
+>
+> A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.

@@ -47,9 +47,7 @@ The following table contains a list of currently defined payload types:
 State transitions are constructed by client-side libraries and then submitted to the platform via [DAPI](explanation-dapi). Based on the validation rules described in [DPP](explanation-platform-protocol) (and an application [data contract](explanation-platform-protocol-data-contract) where relevant), Dash Platform first validates the state transition. 
 
 Some state transitions (e.g. data contracts, identity) are validated solely by rules explicitly defined in DPP, while others (e.g. documents) are also subject to the rules defined by the relevant application’s data contract. Once the state transition has been validated, the platform stores the data and updates the platform state.
-[block:callout]
-{
-  "type": "info",
-  "body": "For more detailed information, see the [Platform Protocol Reference - State Transition](platform-protocol-reference-state-transition) page"
-}
-[/block]
+
+> 📘
+>
+> For more detailed information, see the [Platform Protocol Reference - State Transition](platform-protocol-reference-state-transition) page

@@ -4,15 +4,15 @@ Building on Dash Platform requires first registering an Identity and then regist
 
 > 📘Tutorial code
 >
-> A repository containing the code for all the tutorials can be downloaded from the GitHub repository located at <a href="https://github.com/dashevo/platform-readme-tutorials#readme" target="_blank">https://github.com/dashevo/platform-readme-tutorials</a>. The repository can also be downloaded as a [zip file](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip).
+> You can clone a repository containing the code for all tutorials from <a href="https://github.com/dashevo/platform-readme-tutorials#readme" target="_blank">GitHub</a> or download it as a [zip file](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip).
 
 # Prerequisites
 
-The tutorials in this section are written in JavaScript and specifically use [Node.js](https://nodejs.org/en/about/). The following prerequisites are necessary to complete the tutorials:
+The tutorials in this section are written in JavaScript and use [Node.js](https://nodejs.org/en/about/). The following prerequisites are necessary to complete the tutorials:
 
 - [Node.js](https://nodejs.org/en/) (v12+)
-- Basic familiarity with JavaScript asychronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
-- The Dash JavaScript SDK is initialized (covered in [Connecting to a Network](tutorial-connecting-to-testnet))
+- Familiarity with JavaScript asynchronous functions using [async/await](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Async_await)
+- The Dash JavaScript SDK (see [Connecting to a Network](tutorial-connecting-to-testnet#1-install-the-dash-sdk))
 
 # Quickstart
 [block:image]

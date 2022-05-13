@@ -43,12 +43,11 @@ The drawing below illustrates the steps an application developer follows to comp
 ## Updates
 
 Since Dash Platform v0.22, it is possible to update existing data contracts in certain backwards-compatible ways. This includes adding new documents, adding new optional properties to existing documents, and adding non-unique indices for properties added in the update.
-[block:callout]
-{
-  "type": "info",
-  "body": "For more detailed information, see the [Platform Protocol Reference - Data Contract](platform-protocol-reference-data-contract) page"
-}
-[/block]
+
+> 📘
+>
+> For more detailed information, see the [Platform Protocol Reference - Data Contract](platform-protocol-reference-data-contract) page.
+
 # Example Contract
 
 An example contract for [DashPay](https://github.com/dashevo/platform/blob/master/packages/dashpay-contract/schema/dashpay.schema.json) is included below:

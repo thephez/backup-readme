@@ -132,6 +132,7 @@ To make the Dash SDK connect to your local development network, set the `network
 > 📘
 >
 > Note: Prior to Platform v0.22, it was also necessary to set the DPNS contract ID; however, system contract IDs are now static so this is no longer necessary as of [pull request 192](https://github.com/dashevo/platform/pull/192).
+
 [block:code]
 {
   "codes": [
