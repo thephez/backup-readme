@@ -1,4 +1,4 @@
-Dash Core provides testing tools designed to let developers test their applications with reduced risks and limitations.
+Dash Core provides several network options designed to let developers test their applications with reduced risks and limitations.
 
 # Testnet
 
@@ -6,13 +6,12 @@ When run with no arguments, all Dash Core programs default to Dash's main networ
 
 To use testnet, use the argument `-testnet` with `dash-cli`, `dashd` or `dash-qt` or add `testnet=1` to your `dash.conf` file as [described earlier](core-examples-configuration-file).  To get free duffs for testing, check the faucets listed below. Some are community supported and due to potentially frequent Testnet changes, one or more of them may be unavailable at a given time:
 
-* [Testnet Faucet - Dash Core Group](http://testnet-452625393.us-west-2.elb.amazonaws.com/)
+* [Testnet Faucet - Dash Core Group](https://testnet-faucet.dash.org/)
 * [Testnet Faucet - Crowdnode.io](http://faucet.test.dash.crowdnode.io/)
-* [Testnet Faucet - Masternode.io](http://test.faucet.masternode.io/)
 
-Testnet is a public resource provided for free by members of the community, so please don't abuse it.
+Testnet is a public resource provided for free by Dash Core Group and members of the community, so please don't abuse it.
 
-# Regtest Mode
+# Regtest mode
 
 For situations where interaction with random <<glossary:peers>> and <<glossary:blocks>> is unnecessary or unwanted, Dash Core's <<glossary:regression test mode>> (regtest mode) lets you instantly create a brand-new private <<glossary:block chain>> with the same basic rules as testnet---but one major difference: you choose when to create new blocks, so you have complete control over the environment.
 
@@ -43,15 +42,17 @@ You can now use Dash Core RPCs prefixed with `dash-cli -regtest`.
 
 Regtest wallets and block chain state (chainstate) are saved in the `regtest` subdirectory of the Dash Core configuration directory. You can safely delete the `regtest` subdirectory and restart Dash Core to start a new regtest. (See the [Developer Examples Introduction](core-examples-introduction) for default configuration directory locations on various operating systems. **Always back up mainnet wallets before performing dangerous operations such as deleting**.)
 
-# Devnet Mode
+The complete set of regtest-specific arguments can be found on the [`dashd` Arguments and  Commands page](dash-core-wallet-arguments-and-commands-dashd#regtest-options).
+
+# Devnet mode
 
 ## Overview
 
-Developer networks (devnets) have some aspects of testnet and some aspects of regtest. Unlike testnet, multiple independent devnets can be created and coexist without interference. Each one is identified by a name which is hardened into a "devnet genesis" block along with the Dash Core devnet version. The devnet genesis block is automatically positioned at height 1. Validation rules will ensure that a <<glossary:node>> from `devnet=test1` never be able to accept blocks from `devnet=test2`. This is done by checking the expected devnet <<glossary:genesis block>>.
+Developer networks (devnets) have some aspects of testnet and some aspects of regtest. Unlike testnet, multiple independent devnets can be created and coexist without interference. Devnets can consist of nodes running on the same computer, on a small private network, or distributed across the internet.
+
+Each devnet is identified by a name which is hardened into a "devnet genesis" block that is automatically positioned at height 1. Validation rules ensure that a <<glossary:node>> from `devnet=test1` will not accept blocks from `devnet=test2`. This is done by checking the expected devnet <<glossary:genesis block>>. Also, the devnet name is put into the sub-version field of the [`version` message](core-ref-p2p-network-control-messages#version). If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected. 
 
 The genesis block of the devnet is the same as the one from regtest. This starts the devnet with a very low <<glossary:difficulty>>, allowing quick generation of a sufficient balance to create a <<glossary:masternode>>.
-
-The devnet name is put into the sub-version of the [`version` message](core-ref-p2p-network-control-messages#version) along with the devnet version. If a node connects to the wrong <<glossary:network>>, it will immediately be disconnected.
 
 ## Configuration
 
@@ -66,18 +67,47 @@ Example devnet start command:
 Dash Core server starting
 ```
 
-You can now use Dash Core RPCs prefixed with `dash-cli -devnet=<name>`.
-[block:callout]
-{
-  "type": "info",
-  "title": "Devnet-exclusive Options",
-  "body": "Devnets can use 3 devnet-specific options to enable quickly mining large amounts of Dash. This enables quick establishment of test masternodes, etc. The following `dash.conf` excerpt shows these configuration options in use:\n\n```\n# First 1000 blocks mined with the lowest difficulty (like regtest)\n# and first 500 blocks mined with a block subsidity multiplied by 10\n# This allows immediate MN registration (DIP3 activates on block 2)\nminimumdifficultyblocks=1000\nhighsubsidyblocks=500\nhighsubsidyfactor=10\n```"
-}
-[/block]
+### Devnet-specific options
+
+Devnets can use 3 devnet-specific options to enable quickly mining large amounts of Dash. This enables quick establishment of test masternodes, etc. The following `dash.conf` excerpt shows these configuration options in use:
+
+```
+# First 1000 blocks mined with the lowest difficulty (like regtest)
+# and first 500 blocks mined with a block subsidity multiplied by 10
+# This allows immediate MN registration (DIP3 activates on block 2)
+minimumdifficultyblocks=1000
+highsubsidyblocks=500
+highsubsidyfactor=10
+```
+
+The complete set of devnet-specific arguments can be found on the [`dashd` Arguments and  Commands page](dash-core-wallet-arguments-and-commands-dashd#devnet-options).
+
 ## Management
 
 Devnet wallets and block chain state (chainstate) are saved in the `devnet-<name>` subdirectory of the Dash Core configuration directory. You can safely delete the `devnet-<name>` subdirectory and restart Dash Core to start a new devnet. (See the [Developer Examples Introduction](core-examples-introduction) for default configuration directory locations on various operating systems. **Always back up mainnet wallets before performing dangerous operations such as deleting.**)
 
-Eventually, there may be many public and/or private devnets that vary in size and function. Providing the correct devnet name and the seed node of the network will be all that is required to join.
+An old devnet can be easily dropped and a new one started just by destroying all nodes and recreating them with a new devnet name. This works best in combination with an automated deployment using something like Ansible and Terraform. The [Dash Network Deploy](https://github.com/dashevo/dash-network-deploy) tool provides a way to do this.
 
-An old devnet can be easily dropped and a new one started just by destroying all nodes and recreating them with a new devnet name. This works best in combination with an automated deployment using something like Ansible and Terraform. The [Dash Network Deploy](https://github.com/dashpay/dash-cluster-ansible) tool provides a way to do this (currently a work-in-progress at an early development stage).
+# Network type comparison
+
+Each network type has some unique characteristics to support development and testing. The tables below summarize some of the significant differences between the 4 network types.
+
+## Network characteristics
+
+|  | Mainnet | [Testnet](#testnet) | [Regtest](#regtest-mode) | [Devnet](#devnet-mode) |
+|-|-|-|-|-|
+| Public network | Yes | Yes | No | Optional |
+| Private network | No | No | Yes | Optional |
+| Number of networks | 1 | 1 | Unlimited | Unlimited / Unique (named) |
+
+## Mining characteristics
+
+| Network Type | Difficulty adjustment algorithm |
+|-|-|-|-|
+| [Testnet](#testnet) | Mainnet algorithm, but [allows minimum difficulty blocks](https://github.com/dashpay/dash/blob/v0.17.0.3/src/pow.cpp#L142-L146) if no blocks are created for 5 minutes |
+| [Regtest](#regtest-mode) | Mines blocks at the [minimum difficulty level](https://github.com/dashpay/dash/blob/v0.17.0.3/src/chainparams.cpp#L925) |
+| [Devnet](#devnet-mode) | Mainnet algorithm after [4001 blocks](https://github.com/dashpay/dash/blob/v0.17.0.3/src/chainparams.cpp#L749) unless overridden by [devnet-specific options](#devnet-specific-options) |
+
+> 📘
+>
+> See [chainparams.cpp](https://github.com/dashpay/dash/blob/master/src/chainparams.cpp) for details on other differences

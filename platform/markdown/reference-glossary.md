@@ -60,7 +60,7 @@ An organization where decision making is governed according to a set of rules th
 
 ## Devnet
 
-A development environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). Multiple independent devnets can coexist without interference. Devnets can be either public or private.
+A development environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). Multiple independent devnets can coexist without interference. Devnets can be either public or private networks. See the <a href="https://dashcore.readme.io/docs/core-examples-testing-applications" target="_blank">Testing Applications page</a> for a more detailed description of network types.
 
 ## Direct Settlement Payment Channel (DSPC)
 
@@ -111,6 +111,10 @@ Group of masternodes signing some action, formation of the group determined by v
 ## Quorum Signature  
 BLS signature resulting from some agreement within a masternode quorum
 
+## Regtest
+
+A local regression testing environment in which developers can almost instantly generate blocks on demand for testing events, and can create private Dash with no real-world value. See the <a href="https://dashcore.readme.io/docs/core-examples-testing-applications" target="_blank">Testing Applications page</a> for a more detailed description of network types.
+
 ## Simple Payment Verification
 A method for verifying if transactions are part of a block without downloading the whole block. This is useful for lightweight clients which don't run continuously and which don't have the storage space or bandwidth for a full copy of the blockchain.
 
@@ -128,7 +132,7 @@ Dash fork of [Tendermint](https://tendermint.com/core) modified for use in Dash 
 
 ## Testnet
 
-A global testing environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). 
+A global testing environment in which developers can obtain and spend Dash that has no real-world value on a network that is very similar to the Dash [mainnet](#mainnet). See the <a href="https://dashcore.readme.io/docs/core-examples-testing-applications" target="_blank">Testing Applications page</a> for a more detailed description of network types.
 
 See: [Intro to Testnet](doc:intro-to-testnet) for more information
 

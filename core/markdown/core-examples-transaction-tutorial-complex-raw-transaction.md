@@ -147,20 +147,18 @@ a56d596dea0000000000ffffffff30d100f7762956100a2396403c60e13e7a13\
 
 # 6. Sign raw transaction
 
-Signing the raw transaction with `signrawtransaction` gets more complicated as we now have three arguments:
+Signing the raw transaction with [`signrawtransactionwithkey`](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey) gets more complicated as we now have two arguments:
 
 1. The unsigned raw transaction.
 
-2. An empty array. We don't do anything with this argument in this operation, but some valid JSON must be provided to get access to the later positional arguments.
-
-3. The private key we want to use to sign one of the inputs.
+2. The private key we want to use to sign one of the inputs.
 
 ## 6a. First input
 
 The result is a raw transaction with only one input signed; the fact that the transaction isn't fully signed is indicated by value of the `complete` JSON field.  We save the incomplete, partly-signed raw transaction hex to a shell variable.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $RAW_TX '[]' '''
+> dash-cli -regtest signrawtransaction $RAW_TX '''
     [
       "'$UTXO1_PRIVATE_KEY'"
     ]'''
@@ -183,7 +181,7 @@ The result is a raw transaction with only one input signed; the fact that the tr
       "vout": 0,
       "scriptSig": "",
       "sequence": 4294967295,
-      "error": "Operation not valid with the current stack size"
+      "error": "Unable to sign input, invalid stack size (possibly missing key)"
     }
   ]
 }
@@ -198,7 +196,7 @@ The result is a raw transaction with only one input signed; the fact that the tr
 To sign the second input, we repeat the process we used to sign the first input using the second private key. Now that both inputs are signed, the `complete` result is *true*.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $PARTLY_SIGNED_RAW_TX '[]' '''
+> dash-cli -regtest signrawtransaction $PARTLY_SIGNED_RAW_TX '''
     [
       "'$UTXO2_PRIVATE_KEY'"
     ]'''

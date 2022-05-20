@@ -167,7 +167,7 @@ In the other raw transaction subsections above, the previous <<glossary:output>>
 In this case, you're spending an <<glossary:output>> which is unknown to the wallet, so it can't automatically insert the previous pubkey script.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $RAW_TX
+> dash-cli -regtest signrawtransactionwithwallet $RAW_TX
 ```
 ``` json
 {
@@ -195,7 +195,7 @@ Successfully sign the transaction by providing the previous pubkey script and ot
 This specific operation is typically what offline signing wallets do. The online wallet creates the raw transaction and gets the previous pubkey scripts for all the inputs. The user brings this information to the offline wallet. After displaying the transaction details to the user, the offline wallet signs the transaction as we did above. The user takes the signed transaction back to the online wallet, which broadcasts it.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $RAW_TX '''
+> dash-cli -regtest signrawtransactionwithwallet $RAW_TX '''
     [
       {
         "txid": "'$UTXO_TXID'",

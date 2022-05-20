@@ -23,25 +23,25 @@ Recall from the Guide that the hashed public keys used in addresses obfuscate th
 
 # 2. Get public key
 
-Use the [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#validateaddress) to display the full (unhashed) public key for one of the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
+Use the [`getaddressinfo` RPC](core-api-ref-remote-procedure-calls-wallet#getaddressinfo) to display the full (unhashed) public key for the addresses.  This is the information which will actually be included in the multisig redeem script.  This is also the information you would give another person or device as part of creating a multisig output or P2SH multisig redeem script.
 
 We save the address returned to a shell variable.
 
 ``` bash
-> dash-cli -regtest validateaddress $NEW_ADDRESS3
+> dash-cli -regtest getaddressinfo $NEW_ADDRESS3
 ```
 ``` json
 {
-  "isvalid": true,
   "address": "yLknHbtnjJRVWQr78aTfCPfNB42jfNkDWK",
   "scriptPubKey": "76a91404caa000366b99780f8e606ccc818883ca7f48f888ac",
   "ismine": true,
+  "solvable": true,
   "iswatchonly": false,
   "isscript": false,
-  "pubkey": "038007ef6fd812d73da054271b68a42dae06672cff2a30b2814935537e593\
-              0ebf6",
+  "pubkey": "038007ef6fd812d73da054271b68a42dae06672cff2a30b2814935537e5930ebf6",
   "iscompressed": true,
-  "account": ""
+  "label": "",
+  "ischange": false,
 }
 
 ```
@@ -52,9 +52,7 @@ We save the address returned to a shell variable.
 
 # 3. Create multisig address
 
-Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#createmultisig) with two arguments, the number (*n*) of signatures required and a list of addresses or public keys.  Because P2PKH addresses can't be used in the multisig redeem script created by this RPC, the only addresses which can be provided are those belonging to a public key in the <<glossary:wallet>>.  In this case, we provide two addresses and one public key---all of which will be converted to public keys in the redeem script.
-
-The P2SH address is returned along with the redeem script which must be provided when we spend duffs sent to the P2SH address.
+Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#createmultisig) with two arguments, the number (*n*) of signatures required and a list of public keys. The P2SH address is returned along with the redeem script which must be provided when we spend duffs sent to the P2SH address.
 [block:callout]
 {
   "type": "danger",
@@ -67,8 +65,8 @@ Neither the address nor the redeem script are stored in the wallet when you use 
 ``` bash
 > dash-cli -regtest createmultisig 2 '''
     [
-      "'$NEW_ADDRESS1'",
-      "'$NEW_ADDRESS2'",
+      "'$NEW_ADDRESS1_PUBLIC_KEY'",
+      "'$NEW_ADDRESS2_PUBLIC_KEY'",
       "'$NEW_ADDRESS3_PUBLIC_KEY'"
     ]'''
 ```
@@ -102,7 +100,7 @@ ddb2a2eb2402a9ae61d7db93a9a48c0747859d899e704b10f5b72145779f9c52
 
 # 5. Get decoded transaction
 
-We use the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction) with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the <<glossary:outputs>> to be our UTXO and get its <<glossary:output index>> number (vout) and <<glossary:pubkey script>> (scriptPubKey).
+We use the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction) with the optional second argument (*true*) to get the decoded transaction we just created with `sendtoaddress`. We choose one of the <<glossary:outputs>> (the multisig address one) to be our UTXO and get its <<glossary:output index>> number (vout) and <<glossary:pubkey script>> (scriptPubKey).
 
 ``` bash
 > dash-cli -regtest getrawtransaction $UTXO_TXID 1
@@ -244,7 +242,10 @@ cUbYymPeHhRszTn64Xg7dzYKez8YC83M39ZTPJDiBDu8dRD3EjzF
 We make the first <<glossary:signature>>. The input argument (JSON object) takes the additional <<glossary:redeem script>> parameter so that it can append the redeem script to the <<glossary:signature script>> after the two signatures.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $RAW_TX '''
+> dash-cli -regtest signrawtransactionwithkey $RAW_TX '''
+    [
+      "'$NEW_ADDRESS1_PRIVATE_KEY'"
+    ]''' '''
     [
       {
         "txid": "'$UTXO_TXID'",
@@ -253,10 +254,7 @@ We make the first <<glossary:signature>>. The input argument (JSON object) takes
         "redeemScript": "'$P2SH_REDEEM_SCRIPT'"
       }
     ]
-    ''' '''
-    [
-      "'$NEW_ADDRESS1_PRIVATE_KEY'"
-    ]'''
+    '''
 ```
 ``` json
 {
@@ -283,7 +281,7 @@ We make the first <<glossary:signature>>. The input argument (JSON object) takes
                     582e58630e4618634621038007ef6fd812d73da054271b68a42dae\
                     06672cff2a30b2814935537e5930ebf653ae",
       "sequence": 4294967295,
-      "error": "Operation not valid with the current stack size"
+      "error": "Signature must be zero for failed CHECK(MULTI)SIG operation"
     }
   ]
 }
@@ -295,10 +293,13 @@ We make the first <<glossary:signature>>. The input argument (JSON object) takes
 
 ## 9b. Private Key 3
 
-The `signrawtransaction` call used here is nearly identical to the one used above.  The only difference is the private key used.  Now that the two required signatures have been provided, the transaction is marked as complete.
+The [`signrawtransactionwithkey`](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey) call used here is nearly identical to the one used above.  The only difference is the private key used.  Now that the two required signatures have been provided, the transaction is marked as complete.
 
 ``` bash
-> dash-cli -regtest signrawtransaction $PARTLY_SIGNED_RAW_TX '''
+> dash-cli -regtest signrawtransactionwithkey $PARTLY_SIGNED_RAW_TX '''
+    [
+      "'$NEW_ADDRESS3_PRIVATE_KEY'"
+    ]''' '''
     [
       {
         "txid": "'$UTXO_TXID'",
@@ -307,10 +308,7 @@ The `signrawtransaction` call used here is nearly identical to the one used abov
         "redeemScript": "'$P2SH_REDEEM_SCRIPT'"
       }
     ]
-    ''' '''
-    [
-      "'$NEW_ADDRESS3_PRIVATE_KEY'"
-    ]'''
+    '''
 ```
 ``` json
 {

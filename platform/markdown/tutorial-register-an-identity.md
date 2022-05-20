@@ -14,6 +14,7 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
 >
 > A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.
+
 [block:code]
 {
   "codes": [

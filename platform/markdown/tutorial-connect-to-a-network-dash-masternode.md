@@ -137,7 +137,7 @@ To make the Dash SDK connect to your local development network, set the `network
 {
   "codes": [
     {
-      "code": "const clientOpts = {\n  network: 'local',\n  // Set DPNS contract ID to the one output during setup\n  apps: {\n    dpns: {\n      contractId: 'DPNS contract ID displayed during the setup step',\n    },\n  },\n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
+      "code": "const clientOpts = {\n  network: 'local',\n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
       "language": "javascript"
     }
   ]

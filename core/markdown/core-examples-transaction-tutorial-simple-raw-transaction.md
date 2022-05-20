@@ -164,12 +164,12 @@ Use the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-tra
 
 # 5. Sign transaction
 
-Use the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-removed#signrawtransaction) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
+Use the [`signrawtransactionwithwallet` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithwallet) to sign the transaction created by `createrawtransaction` and save the returned "hex" raw format signed transaction to a shell variable.
 [block:code]
 {
   "codes": [
     {
-      "code": "dash-cli -regtest signrawtransaction $RAW_TX",
+      "code": "dash-cli -regtest signrawtransactionwithwallet $RAW_TX",
       "language": "shell"
     }
   ]

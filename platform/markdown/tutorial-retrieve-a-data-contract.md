@@ -24,6 +24,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 > 📘
 >
 > In many cases it may be desirable to work with a newly retrieved data contract using the `<contract name>.<contract document>` syntax (e.g. `dpns.domain`). Data contracts that were created after the client was initialized or not included in the initial client options can be added via `client.getApps().set(...)`.
+
 [block:code]
 {
   "codes": [

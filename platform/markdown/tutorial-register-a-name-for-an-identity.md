@@ -18,6 +18,7 @@ Dash Platform names make cryptographic identities easy to remember and communica
 > 🚧
 >
 > The name must be the full domain name including the parent domain (i.e. `myname.dash` instead of just `myname`). Currently `dash` is the only top-level domain that may be used.
+
 [block:code]
 {
   "codes": [

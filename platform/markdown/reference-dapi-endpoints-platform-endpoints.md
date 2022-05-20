@@ -14,11 +14,11 @@ Some [additional metadata](https://github.com/dashevo/platform/blob/master/packa
 [block:callout]
 {
   "type": "info",
-  "body": "Since Dash Platform 0.18.0, `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. \n\n**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
-  "title": "Updated in Dash Platform 0.18.0"
+  "body": "**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
+  "title": ""
 }
 [/block]
-Broadcasts a [state transition](explanation-platform-protocol-state-transition) to the platform via DAPI to make a change to layer 2 data.
+Broadcasts a [state transition](explanation-platform-protocol-state-transition) to the platform via DAPI to make a change to layer 2 data. Since Dash Platform 0.18.0, `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. 
 
 **Returns**: Nothing or error
 **Parameters**:
@@ -32,17 +32,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    client.platform.broadcastStateTransition(stateTransition.toBuffer())\n      .then(() => console.log('State Transition broadcast successfully'));\n  });",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\n// Replace with your own state transition object before running\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    client.platform.broadcastStateTransition(stateTransition.toBuffer())\n      .then(() => console.log('State Transition broadcast successfully'));\n  });",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    BroadcastStateTransitionRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\nconst broadcastStateTransitionRequest = new BroadcastStateTransitionRequest();\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    console.log(stateTransition);\n    broadcastStateTransitionRequest.setStateTransition(stateTransition.toBuffer());\n\n    platformPromiseClient.broadcastStateTransition(broadcastStateTransitionRequest)\n      .then(() => console.log('State Transition broadcast successfully'))\n      .catch((e) => {\n        console.error(e);\n        console.error(e.metadata);\n      });\n  })\n  .catch((e) => console.error(e));\n",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    BroadcastStateTransitionRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\n// Data Contract Create State Transition (JSON)\n// Replace with your own state transition object before running\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\nconst broadcastStateTransitionRequest = new BroadcastStateTransitionRequest();\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    console.log(stateTransition);\n    broadcastStateTransitionRequest.setStateTransition(stateTransition.toBuffer());\n\n    platformPromiseClient.broadcastStateTransition(broadcastStateTransitionRequest)\n      .then(() => console.log('State Transition broadcast successfully'))\n      .catch((e) => {\n        console.error(e);\n        console.error(e.metadata);\n      });\n  })\n  .catch((e) => console.error(e));\n",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# Submit an identity create State Transition\n# `state_transition` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pWR0eXBlAmlzaWduYXR1cmV4WEg3TWhFWDQ0Z3JzMVIwTE9XTU5IZjAxWFNpYVFQcUlVZ1JLRXQyMkxHVERsUlUrZ1BwQUlUZk5JUmhXd3IvYTVHd0lzWm1idGdYVVFxcVhjbW9lQWtUOD1qcHVibGljS2V5c4GkYmlkAGRkYXRheCxBdzh2UmYxeFFCTlVLbzNiY2llaHlaR2NhM0hBSThkY0ZvVWJTK3hLb0lITmR0eXBlAGlpc0VuYWJsZWT1bmxvY2tlZE91dFBvaW50eDBLT1VUSHB5YnFPek9DNnhEVUhFWm9uc1lNSVpqcGppTHFZNnkxYmlWNWxRQUFBQUFvcHJvdG9jb2xWZXJzaW9uAA==\"\n\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/broadcastStateTransition",
+      "code": "# Submit an identity create State Transition\n# `state_transition` must be represented in base64\n# Replace `state_transition` with your own state transition object before running\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition\":\"pWR0eXBlAmlzaWduYXR1cmV4WEg3TWhFWDQ0Z3JzMVIwTE9XTU5IZjAxWFNpYVFQcUlVZ1JLRXQyMkxHVERsUlUrZ1BwQUlUZk5JUmhXd3IvYTVHd0lzWm1idGdYVVFxcVhjbW9lQWtUOD1qcHVibGljS2V5c4GkYmlkAGRkYXRheCxBdzh2UmYxeFFCTlVLbzNiY2llaHlaR2NhM0hBSThkY0ZvVWJTK3hLb0lITmR0eXBlAGlpc0VuYWJsZWT1bmxvY2tlZE91dFBvaW50eDBLT1VUSHB5YnFPek9DNnhEVUhFWm9uc1lNSVpqcGppTHFZNnkxYmlWNWxRQUFBQUFvcHJvdG9jb2xWZXJzaW9uAA==\"\n\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/broadcastStateTransition",
       "language": "shell",
       "name": "gRPCurl"
     }
@@ -92,11 +92,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"/W2nISbC47UB7vVZNicsUAF8DjPPl40jSO74HyUdCB0=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
       "language": "shell",
       "name": "gRPCurl"
-    },
-    {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"/W2nISbC47UB7vVZNicsUAF8DjPPl40jSO74HyUdCB0=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentity",
-      "language": "shell",
-      "name": "gRPCurl with Proof"
     }
   ]
 }
@@ -114,11 +109,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "{\n  \"identity\": \"AQAAAKRiaWRYIP1tpyEmwuO1Ae71WTYnLFABfA4zz5eNI0ju+B8lHQgdZ2JhbGFuY2UaAKfEImhyZXZpc2lvbgBqcHVibGljS2V5c4GmYmlkAGRkYXRhWCEDYZMAmT14BaQxdUJv6tEpcf30861Hk5pbrOpmXv/KjOlkdHlwZQBncHVycG9zZQBocmVhZE9ubHn0bXNlY3VyaXR5TGV2ZWwA\",\n  \"metadata\": {\n    \"height\": \"7216\",\n    \"coreChainLockedHeight\": 696039\n  }\n}\n",
       "language": "json",
       "name": "Response (gRPCurl)"
-    },
-    {
-      "code": "// NOT AVAILABLE IN PLATFORM v0.22\n// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"v+99FytmaUPDP65HthQllBL1JDXt2Zu/kzFEQRw66rQYEo4ebstz3CguuRKrBP2Cf9cMMDexKgMIX8a4ZnbtzoRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"identitiesProof\": \"Ab3+9XLi6seGGvOeC+YPa6820TTQJg+/VLMTI1l+Aa8uAkoa3iCpnFGnKNsuN3kmkoZziG5966ZPSns0QhkuLhcMEAHqjSiFz+M0EUzxVwMmeYDzBJtbkAf1Dt5ZV0wHrPSy/gJQNWR9nfgU8mqYVkQZvn+cgnUW+ZfuJItL0Vihkm7sbhABLEnf8Xpnpkn4RBFx+7Ftc9+kA+AeukotY1n+Cry0f/kDIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atAH4BAAAApGJpZFggKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q1nYmFsYW5jZRm9umhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEC8jtlMeBGAeTu7VPBROBqKC7gVkCKiyKXnKeFyBG5nFlkdHlwZQAQAYr7Kwts+/MCvdAEAfe0qlM939luA/bmFk/NWn3j+4XMERERAk89CgifO1qwuFxa+KOoekT9JZIRnwerQ3sSHCSWvqliEAHjXdp0pKgcIEmQaWfWG970qaHE8iQWEjp0z9WXkJYAxBECJq4BeR3ucca+V5J1neVZaj8NTzLC7tTtPzMDJ1udK3sQAVSpKcwG23rP77Wl0GF9QCtgi7AMuIA4W6ZDlpJ5guKKEQ==\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lk8TENYBLqhmBaw/IzyR8IjCM7aBhMne/EMwocLs0oQ+JyOKrNTJ8giIgc1aXAKCFDdqgpOMZNPnZcdgcnqJVUpRqIAebTlVdvIZODYpG8LZTA+cQtOqTwVkH3A3c+tr\"\n  },\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl with Proof)"
     }
   ]
 }
@@ -165,11 +155,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n      \"public_key_hashes\":\"tRsgcpcDd6IKC/OTHmagRqWHoio=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl"
-    },
-    {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"tRsgcpcDd6IKC/OTHmagRqWHoio=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentitiesByPublicKeyHashes",
-      "language": "shell",
-      "name": "gRPCurl with Proof"
     }
   ]
 }
@@ -187,11 +172,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "{\n  \"identities\": [\n    \"gViiAQAAAKRiaWRYIP1tpyEmwuO1Ae71WTYnLFABfA4zz5eNI0ju+B8lHQgdZ2JhbGFuY2UaAKfEImhyZXZpc2lvbgBqcHVibGljS2V5c4GmYmlkAGRkYXRhWCEDYZMAmT14BaQxdUJv6tEpcf30861Hk5pbrOpmXv/KjOlkdHlwZQBncHVycG9zZQBocmVhZE9ubHn0bXNlY3VyaXR5TGV2ZWwA\"\n  ],\n  \"metadata\": {\n    \"height\": \"7219\",\n    \"coreChainLockedHeight\": 696041\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
-    },
-    {
-      "code": "// NOT AVAILABLE IN PLATFORM v0.22\n// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"v+99FytmaUPDP65HthQllBL1JDXt2Zu/kzFEQRw66rS90a8Geh7WyM0bzw8iZZtO9TOcTRdGxiKyNu1w1SZtmoRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"identitiesProof\": \"Ab3+9XLi6seGGvOeC+YPa6820TTQJg+/VLMTI1l+Aa8uAkoa3iCpnFGnKNsuN3kmkoZziG5966ZPSns0QhkuLhcMEAHqjSiFz+M0EUzxVwMmeYDzBJtbkAf1Dt5ZV0wHrPSy/gJQNWR9nfgU8mqYVkQZvn+cgnUW+ZfuJItL0Vihkm7sbhABLEnf8Xpnpkn4RBFx+7Ftc9+kA+AeukotY1n+Cry0f/kDIClSj2o4+a0IeS6aAy2ZPHbRxWwEmnc8z74CzxZuD/atAH4BAAAApGJpZFggKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q1nYmFsYW5jZRm9umhyZXZpc2lvbgBqcHVibGljS2V5c4GjYmlkAGRkYXRhWCEC8jtlMeBGAeTu7VPBROBqKC7gVkCKiyKXnKeFyBG5nFlkdHlwZQAQAYr7Kwts+/MCvdAEAfe0qlM939luA/bmFk/NWn3j+4XMERERAk89CgifO1qwuFxa+KOoekT9JZIRnwerQ3sSHCSWvqliEAHjXdp0pKgcIEmQaWfWG970qaHE8iQWEjp0z9WXkJYAxBECJq4BeR3ucca+V5J1neVZaj8NTzLC7tTtPzMDJ1udK3sQAVSpKcwG23rP77Wl0GF9QCtgi7AMuIA4W6ZDlpJ5guKKEQ==\",\n      \"publicKeyHashesToIdentityIdsProof\": \"AVVHdharvPK/abcB6ecVTNNxm3n21DO7rsQ8CYCtIDXOAvvzK1glOGZsp5eAfNCH334Wyu/+v8QKlESPYuNw73u6EAHiHt1xB1elAoisxa5A7aamXJFlnDVp+fO+39Dww8/ANxE=\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lk8TENYBLqhmBaw/IzyR8IjCM7aBhMne/EMwocLs0oQ+JyOKrNTJ8giIgc1aXAKCFDdqgpOMZNPnZcdgcnqJVUpRqIAebTlVdvIZODYpG8LZTA+cQtOqTwVkH3A3c+tr\"\n  },\n  \"metadata\": {\n    \"height\": \"4087\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl with Proof)"
     }
   ]
 }
@@ -238,11 +218,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"tRsgcpcDd6IKC/OTHmagRqWHoio=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
       "language": "shell",
       "name": "gRPCurl"
-    },
-    {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"tRsgcpcDd6IKC/OTHmagRqWHoio=\",\n    \"prove\": true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
-      "language": "shell",
-      "name": "gRPCurl with Proof"
     }
   ]
 }
@@ -260,11 +235,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "{\n  \"identityIds\": [\n    \"gVgg/W2nISbC47UB7vVZNicsUAF8DjPPl40jSO74HyUdCB0=\"\n  ],\n  \"metadata\": {\n    \"height\": \"7220\",\n    \"coreChainLockedHeight\": 696042\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
-    },
-    {
-      "code": "// NOT AVAILABLE IN PLATFORM v0.22\n// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"vdGvBnoe1sjNG88PImWbTvUznE0XRsYisjbtcNUmbZoi9eaFSC/P2CNfdJ0+uFFYwUMpSE/op2o70wTCcKKFboRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"publicKeyHashesToIdentityIdsProof\": \"ASl+f/bOOvYpB1UPrhD+OWx78EIJRDRlDQ3t81EFtxDwAxQeXeu6Zy8QXm8GNfohpkkdRZuNgwAgKVKPajj5rQh5LpoDLZk8dtHFbASadzzPvgLPFm4P9q0QAQw3DUjb35EbQujSCMbYJoBVowJeJYuF/n52Fs7SZxW7EQL78ytYJThmbKeXgHzQh99+Fsrv/r/ECpREj2LjcO97uhAB4h7dcQdXpQKIrMWuQO2mplyRZZw1afnzvt/Q8MPPwDcR\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"lPD7ukoFs+mbUonBdnfn95pqFK2J06DBtjtMZro+KNY7pVy4waMx057mjc8boZoOBjT9Fo0XXqGrE9JLY7cGEITd6k3KpS2kMP9/SSgnm7L/7S9LRqPnMlUF5j2Ihusl\"\n  },\n  \"metadata\": {\n    \"height\": \"4086\",\n    \"coreChainLockedHeight\": 602550\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl with Proof)"
     }
   ]
 }
@@ -303,11 +273,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"uNsY7l8uGhINKREVl5zk6/I22cHD0vD/HTdfhOGXhEk=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
       "language": "shell",
       "name": "gRPCurl"
-    },
-    {
-      "code": "# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"id\":\"uNsY7l8uGhINKREVl5zk6/I22cHD0vD/HTdfhOGXhEk=\",\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDataContract",
-      "language": "shell",
-      "name": "gRPCurl with Proof"
     }
   ]
 }
@@ -325,11 +290,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "{\n  \"dataContract\": \"AQAAAKVjJGlkWCC42xjuXy4aEg0pERWXnOTr8jbZwcPS8P8dN1+E4ZeESWckc2NoZW1heDRodHRwczovL3NjaGVtYS5kYXNoLm9yZy9kcHAtMC00LTAvbWV0YS9kYXRhLWNvbnRyYWN0Z293bmVySWRYIP1tpyEmwuO1Ae71WTYnLFABfA4zz5eNI0ju+B8lHQgdZ3ZlcnNpb24CaWRvY3VtZW50c6Fkbm90ZaNkdHlwZWZvYmplY3RqcHJvcGVydGllc6JmYXV0aG9yoWR0eXBlZnN0cmluZ2dtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/Q=\",\n  \"metadata\": {\n    \"height\": \"7220\",\n    \"coreChainLockedHeight\": 696042\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
-    },
-    {
-      "code": "// NOT AVAILABLE IN PLATFORM v0.22\n// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"UoUWcVFiOzWnTwE0g+mU5HoRsBjGYxCBMTawVvEiihQi9eaFSC/P2CNfdJ0+uFFYwUMpSE/op2o70wTCcKKFboRRIZem6YRYjSO6e78TdtgwuuxbtaQ9t7uZI8EZI3q6\",\n    \"storeTreeProofs\": {\n      \"dataContractsProof\": \"AWTLA9zhqX/Iv1xWjFje9RO1gvSDeR2Nozr0jJ54zC2WAtmQfNDX/4w3ZxzF6l+WrJ6zCXaoSgj+usc/W8Sq1wAZEAFw8dhrMeRmw/D5phVlzDMTz3+GPl6bragUf98TjetMHAKAHGP8oviChW1cszz/Z3X6JNqLu0cZvbKjVqg4XTOQ0BADIGYG8LXt3eg4Qt19WzNwVoCT1hSwAPwpd0i+aN5aS/m3AOcBAAAApGMkaWRYIGYG8LXt3eg4Qt19WzNwVoCT1hSwAPwpd0i+aN5aS/m3ZyRzY2hlbWF4NGh0dHBzOi8vc2NoZW1hLmRhc2gub3JnL2RwcC0wLTQtMC9tZXRhL2RhdGEtY29udHJhY3Rnb3duZXJJZFggkXd7roZLuA/FopXfK9W1a13e26LMpq9jLjGxVik2E+hpZG9jdW1lbnRzoWRub3Rlo2R0eXBlZm9iamVjdGpwcm9wZXJ0aWVzoWdtZXNzYWdloWR0eXBlZnN0cmluZ3RhZGRpdGlvbmFsUHJvcGVydGllc/QCajFnEzRfWdMz9eb04hV6NkJ7/WnRLZapbVLvbDjP+LAQAYChpQAdFW0BPcHA4K544kYqtHtZpMvE7zyN13z6i0DEEREC1f4FCxWur82ee+34+KBPfEyNPiVO5N6/Ri9fg0zTss4QATcPUokVmwwBNhZJYxh9hWOBbVkeUYlJnMoWMHNlOE0gEQL5aC0sNYefYm/7IxrFWDfk5UOpT1Xev55SxLVAcigOCRABwxylhTyqpev1DMfV8Z/QWCjr3bZWmWqafhooeOrG75ARAkLyTiNKYJZUXcOGs3Ba+UOX2LqBnK2Mh5ZKaDl1omAbEAHpUHg/nWE0DXbMghdB9OX5WB9sKyqQciNAlX3PrpDAqhECGn4Eb3qGrD88QyS5a6hjzlfCgURpHHU3bSmITL5IR+gQAbBk1WCyJTCDPtv+5KEJRdI9YliOesShZrZIJwcZrJpEERE=\"\n    },\n    \"signatureLlmqHash\": \"AAAA8+9g8wrkwRLpHCZTI3kZr3wCIEgIAyPgwXDe/JU=\",\n    \"signature\": \"E5kGj0PbY4aHm3+3Ps8s5oM5XkIc8gpt7zgjDvyjVXqlmFD1fMgISjKtownBrDCIEXr6TjoMfpPwyG98IXe5xfeiYoUH4ZF7qElh9xt0nd+OXcmu/wznf7TTwt0+FvD/\"\n  },\n  \"metadata\": {\n    \"height\": \"4158\",\n    \"coreChainLockedHeight\": 602638\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl with Proof)"
     }
   ]
 }
@@ -385,11 +345,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "# Request documents\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"uNsY7l8uGhINKREVl5zk6/I22cHD0vD/HTdfhOGXhEk=\",\n    \"document_type\":\"note\",\n    \"limit\":10\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
       "language": "shell",
       "name": "Request (gRPCurl)"
-    },
-    {
-      "code": "# Request documents\n# `id` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"data_contract_id\":\"uNsY7l8uGhINKREVl5zk6/I22cHD0vD/HTdfhOGXhEk=\",\n    \"document_type\":\"note\",\n    \"limit\":10,\n    \"prove\":true\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getDocuments",
-      "language": "shell",
-      "name": "Request (gRPCurl with Proof)"
     }
   ]
 }
@@ -407,11 +362,6 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
       "code": "{\n  \"documents\": [\n    \"AQAAAKZjJGlkWCAWl/I2lmo6ba8p2d7AtEJ6a2ULPe02dKamoZh4jX7JSmUkdHlwZWRub3RlZ21lc3NhZ2V4MFR1dG9yaWFsIENJIFRlc3QgQCBNb24sIDI4IE1hciAyMDIyIDE0OjIzOjU5IEdNVGgkb3duZXJJZFgg/W2nISbC47UB7vVZNicsUAF8DjPPl40jSO74HyUdCB1pJHJldmlzaW9uAW8kZGF0YUNvbnRyYWN0SWRYILjbGO5fLhoSDSkRFZec5OvyNtnBw9Lw/x03X4Thl4RJ\"\n  ],\n  \"metadata\": {\n    \"height\": \"7220\",\n    \"coreChainLockedHeight\": 696042\n  }\n}",
       "language": "json",
       "name": "Response (gRPCurl)"
-    },
-    {
-      "code": "// NOT AVAILABLE IN PLATFORM v0.22\n// The storeTreeProof contains the requested data\n{\n  \"proof\": {\n    \"rootTreeProof\": \"OROtAnUrAkPl0DYUzlsMB9LhJZ06ru05bOPqkHVYo+31K6UWyw8x5nPaeBOdpn9MFo4KoyAeMuO6RJhg6uhR6g==\",\n    \"storeTreeProofs\": {\n      \"documentsProof\": \"Af3qHY9UTnuT73Ae0Z/XjDkekjlH1FfZguvcpoReGdogAjr5vfOseSD5G5S0Dkw1g34k0sczimEtHbGtYcyZ7icBEAGGyGfN3RmR58TRbLWh5UAS/+BLFIFYlQ2PJQ4h6NkWxgIPfn+kvIrzjO5P4NYObIRV0+xxCl0XKmHjzWHA3rXBqRABgJ8gC7AGyacDWJHJQKx+kdMeqmOYWyO99CBLFrJZnDgCHw+XhxBZjK7OJKbo3FXfiNzBN7YvAz3gxTqaIiWknNoQAVhIL5S6zg6v57CLmcP+ve+VDXdVexvBLGfImbrJ+Z1/AqLtr92YXdne0HIJNybRNY9W6dq1zPX8IpmLihMVt+4/EAE2BzKOaX9r6X+0zBVEAXuRHEI7jhpjmPhljWlAINlI/gIRmjuSsyX7cN/ADIM0LpiCR6xmd0h/x6y+DCo/8j8KqBABHrWz3C6kWbMLNPxATaDV6CiSti/3HFNa4fkCFzBs2F8DIPYoTOxqQuhJtZeRgNxObcNh6xbw8RcGXmv8qC8TH0erANgBAAAApmMkaWRYIPYoTOxqQuhJtZeRgNxObcNh6xbw8RcGXmv8qC8TH0erZSR0eXBlZG5vdGVnbWVzc2FnZXgwVHV0b3JpYWwgQ0kgVGVzdCBAIFdlZCwgMjcgT2N0IDIwMjEgMTg6MDc6MzIgR01UaCRvd25lcklkWCCRd3uuhku4D8Wild8r1bVrXd7bosymr2MuMbFWKTYT6GkkcmV2aXNpb24BbyRkYXRhQ29udHJhY3RJZFggZgbwte3d6DhC3X1bM3BWgJPWFLAA/Cl3SL5o3lpL+bcQARO6Fxi1e5WmcVHGtcGZVW//UkDG3e5s51hmYBmrw4CxEQJKYPVW7qYg9EU9ycHP1kpqW8gIlajI7snfor/ZTlcbWxAB/YH69QkKkpIg6ZV3EoEsr4CpY6Yg/LziAypgUbGeEwIRAhI5xb5+Cfsd2m8dJ0CXWWVIPPMNFzzip3H0rJvP9kQzEAGNmmazyIMJvTKmXDKxCAol5Cbgpp/3SBf6L4tyq5gZxhEREREREQ==\"\n    },\n    \"signatureLlmqHash\": \"AAAA1p9iTq8xLCvbRQKqUT0TgOksMi4pRUwPp3mPhDI=\",\n    \"signature\": \"k6o6k3BHGFcKU5fbdIH6wCu1dA+5WwgYlwMF9u1yvUeUn+KqzIZ+ijwlaQp5kSc+CVdFgMyVH4E5uysp+6fHSp8l1B47EdcHwe9CahdnlB4pGDA6RtCxCHLa5rrv6/eK\"\n  },\n  \"metadata\": {\n    \"height\": \"4181\",\n    \"coreChainLockedHeight\": 602674\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl with Proof)"
     }
   ]
 }
@@ -444,17 +394,17 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\nconst crypto = require('crypto');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    //  Calculate state transition hash\n    const hash = crypto.createHash('sha256')\n      .update(stateTransition.toBuffer())\n      .digest();\n\n    console.log(`Requesting proof of state transition with hash:\\n\\t${hash.toString('hex')}`);\n\n    client.platform.waitForStateTransitionResult(hash, { prove: true })\n      .then((response) => {\n        console.log(response);\n      });\n  });\n",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\nconst crypto = require('crypto');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\n// Replace with your own state transition object before running\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    //  Calculate state transition hash\n    const hash = crypto.createHash('sha256')\n      .update(stateTransition.toBuffer())\n      .digest();\n\n    console.log(`Requesting proof of state transition with hash:\\n\\t${hash.toString('hex')}`);\n\n    client.platform.waitForStateTransitionResult(hash, { prove: true })\n      .then((response) => {\n        console.log(response);\n      });\n  });\n",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    WaitForStateTransitionResultRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\nconst crypto = require('crypto');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    //  Calculate state transition hash\n    const hash = crypto.createHash('sha256')\n      .update(stateTransition.toBuffer())\n      .digest();\n\n    const waitForStateTransitionResultRequest = new WaitForStateTransitionResultRequest();\n    waitForStateTransitionResultRequest.setStateTransitionHash(hash);\n    waitForStateTransitionResultRequest.setProve(true);\n\n    console.log(`Requesting proof of state transition with hash:\\n\\t${hash.toString('hex')}`);\n\n    platformPromiseClient.waitForStateTransitionResult(waitForStateTransitionResultRequest)\n      .then((response) => {\n        const rootTreeProof = Buffer.from(response.getProof().getRootTreeProof());\n        const storeTreeProof = Buffer.from(response.getProof().getStoreTreeProof());\n        console.log(`Root tree proof: ${rootTreeProof.toString('hex')}`);\n        console.log(`Store tree proof: ${storeTreeProof.toString('hex')}`);\n      })\n  \t\t.catch((e) => console.error(e));\n  });",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    WaitForStateTransitionResultRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\nconst crypto = require('crypto');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst dpp = new DashPlatformProtocol();\n\n// Replace with your own state transition object before running\nconst stateTransitionObject = {\n  protocolVersion: 0,\n  type: 0,\n  signature: 'HxAipUsLWQBE++C1suSRNQiQh91rI1LZbblvQhk2erUaIvRneAagxGYYsXXYNvEeO+lBzlF1a9KHGGTHgnO/8Ts=',\n  signaturePublicKeyId: 0,\n  dataContract: {\n    protocolVersion: 0,\n    '$id': 'CMc7RghKkHeHtFdwfSX5Hzy7CUdpCEJnwsbfHdsbmJ32',\n    '$schema': 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    ownerId: '8Z3ps3tNoGoPEDYerUNCd4yi7zDwgBh2ejgSMExxvkfD',\n    documents: {\n      note: {\n        properties: { message: { type: 'string' } },\n        additionalProperties: false,\n      },\n    },\n  },\n  entropy: '+RqUArypdL8f/gCMAo4b6c3CoQvxHzsQG0BdYrT5QT0=',\n};\n\n// Convert signature and entropy to buffer\nstateTransitionObject.signature = Buffer.from(stateTransitionObject.signature, 'base64');\nstateTransitionObject.entropy = Buffer.from(stateTransitionObject.entropy, 'base64');\n\ndpp.stateTransition.createFromObject(stateTransitionObject, { skipValidation: true })\n  .then((stateTransition) => {\n    //  Calculate state transition hash\n    const hash = crypto.createHash('sha256')\n      .update(stateTransition.toBuffer())\n      .digest();\n\n    const waitForStateTransitionResultRequest = new WaitForStateTransitionResultRequest();\n    waitForStateTransitionResultRequest.setStateTransitionHash(hash);\n    waitForStateTransitionResultRequest.setProve(true);\n\n    console.log(`Requesting proof of state transition with hash:\\n\\t${hash.toString('hex')}`);\n\n    platformPromiseClient.waitForStateTransitionResult(waitForStateTransitionResultRequest)\n      .then((response) => {\n        const rootTreeProof = Buffer.from(response.getProof().getRootTreeProof());\n        const storeTreeProof = Buffer.from(response.getProof().getStoreTreeProof());\n        console.log(`Root tree proof: ${rootTreeProof.toString('hex')}`);\n        console.log(`Store tree proof: ${storeTreeProof.toString('hex')}`);\n      })\n  \t\t.catch((e) => console.error(e));\n  });",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
     {
-      "code": "# `state_transition_hash` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition_hash\":\"iuk7icJyRV886NAdupmjooyVUCYqYCxrpE3gjlRdOqk=\",\n    \"prove\": \"true\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult",
+      "code": "# `state_transition_hash` must be represented in base64\n# Replace `state_transition_hash` with your own before running\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"state_transition_hash\":\"iuk7icJyRV886NAdupmjooyVUCYqYCxrpE3gjlRdOqk=\",\n    \"prove\": \"true\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/waitForStateTransitionResult",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
