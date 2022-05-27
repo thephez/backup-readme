@@ -20,9 +20,13 @@ Use NPM to install dashmate globally in your system:
   ]
 }
 [/block]
-# Local Development Network
+# Local Network
 
-Dashmate can be used to create a local development network (devnet) containing multiple nodes to mimic conditions and features found in testnet/mainnet settings.
+Dashmate can be used to create a local network on a single computer. This network contains multiple nodes to mimic conditions and features found in testnet/mainnet settings.
+
+> 📘 
+>
+> Dashmate local networks use the [regtest network type](reference-glossary#regtest) so layer 1 blocks can be easily mined as needed. 
 
 ## Setup
 
@@ -37,10 +41,6 @@ Run the following command to start the setup wizard, then accept the default val
   ]
 }
 [/block]
-
-> 📘
->
-> Make a note of the key and identity information displayed during setup as they may be required in the future.
 
 Example (partial) output of the setup wizard showing important information:
 ```
@@ -68,6 +68,9 @@ Example (partial) output of the setup wizard showing important information:
 
 ```
 
+> 📘
+>
+> Make a note of the key and identity information displayed during setup as they may be required in the future.
 
 ## Operation
 
@@ -123,11 +126,11 @@ Example output of `dashmate wallet:mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7
   ]
 }
 [/block]
-## Using the devnet
+## Using the network
 
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
-To make the Dash SDK connect to your local development network, set the `network` option to `'local'`:
+To make the Dash SDK connect to your local network, set the `network` option to `'local'`:
 
 > 📘
 >
@@ -143,25 +146,7 @@ To make the Dash SDK connect to your local development network, set the `network
   ]
 }
 [/block]
-
-# Remote Development Network
-
-> 📘 Connecting to a remote development network
->
-> In order to connect to a remote devnet (e.g. one run by Dash Core Group), please use one of the methods described in the [Connect to a Devnet](tutorial-connecting-to-testnet#connect-to-a-devnet) section.
-
-For development we recommend using either a local development network created via dashmate as [described above](#local-development-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).
-
-
 # Testnet Masternode Setup
-
-> 📘 Full Platform Node
->
-> A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/platform/tree/master/packages/dashmate#setup-node) set to  `fullnode` and then starting the node.
-> ```
-> dashmate setup testnet fullnode
-> dashmate start
-> ```
 
 > ❗️Advanced Topic
 >
@@ -173,3 +158,19 @@ To setup a testnet masternode, please refer to the comprehensive documentation o
   "html": "<div></div>\n\n<style></style>\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/LLiMMXSAfeU?rel=0&modestbranding=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"
 }
 [/block]
+
+> 📘 Full Platform Node
+>
+> A full node that with all Platform services can be started by simply running the setup command with the [node type setup parameter](https://github.com/dashevo/platform/tree/master/packages/dashmate#setup-node) set to  `fullnode` and then starting the node.
+> ```
+> dashmate setup testnet fullnode
+> dashmate start
+> ```
+
+# Remote Development Network
+
+> 📘 Connecting to a remote development network
+>
+> In order to connect to a remote [devnet](reference-glossary#devnet) (e.g. one run by Dash Core Group), please use one of the methods described in the [Connect to a Devnet](tutorial-connecting-to-testnet#connect-to-a-devnet) section.
+
+For development we recommend using either a local network created via dashmate as [described above](#local-network) or using Testnet. While configuring a remote development network is possible using the Dash network deployment tool, it is beyond the scope of this documentation. For details regarding this tool, please refer to the [GitHub repository](https://github.com/dashevo/dash-network-deploy).

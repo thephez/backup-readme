@@ -1,0 +1,61 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": []
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "title": "Setup a Node",
+ "updates": [],
+ "type": "basic",
+ "slug": "tutorials-setup-a-node",
+ "excerpt": "",
+ "body": "Since Dash Platform is accessible through DAPI, running a node is typically unnecessary. The information provided in this section is for advanced users interested in running their own network for development or participating in testing the project by running a testnet node.",
+ "order": 9,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-05-26T17:31:00.918Z",
+ "_id": "628fcd4cda7fc400420c0e50",
+ "createdAt": "2022-05-26T18:56:12.596Z",
+ "updatedAt": "2022-05-26T19:06:05.374Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "category": "61d70ca155d45f029381703b",
+ "project": "5bda01cad172e200499a20a9",
+ "version": "61d70ca155d45f02938170a3",
+ "__v": 0,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "628fcd4cda7fc400420c0e50",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Since Dash Platform is accessible through DAPI, running a node is typically unnecessary. The information provided in this section is for advanced users interested in running their own network for development or participating in testing the project by running a testnet node.</p>\n\n</div>"
+}

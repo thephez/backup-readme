@@ -6,7 +6,7 @@ Platform services are provided via a combination of HTTP and gRPC connections to
 
 > 📘
 >
-> The Dash SDK currently connects to testnet by default.
+> The Dash SDK connects to testnet by default.
 
 
 # Prerequisites

@@ -80,6 +80,10 @@ Layer 2 platform storage
 - Layer2: Drive and DAPI
 - Layer 3: DAPI clients
 
+## Local network
+
+A configuration unique to [dashmate](https://www.npmjs.com/package/dashmate) that uses Dash Core's [regtest](#regtest) network type to create a multi-node network on a single computer. This configuration allows developers to work independently on their own network for testing and development.
+
 ## Long Living Masternode Quorum (LLMQ)  
 Deterministic subset of the global deterministic masternode list used to perform threshold signing of consensus-related messages
 
@@ -128,7 +132,7 @@ The application that validates state transitions and updates state in Drive
 The change a user does to the application and platforms states. Consists of an array of documents _or_ one data contract, the id of the application to which the change is made, and a user signature
 
 ## Tenderdash
-Dash fork of [Tendermint](https://tendermint.com/core) modified for use in Dash Platform
+Dash fork of [Tendermint](https://tendermint.com/core) modified for use in Dash Platform. See [Platform Consensus](doc:explanation-platform-consensus) for more information.
 
 ## Testnet
 
