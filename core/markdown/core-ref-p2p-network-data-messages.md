@@ -290,6 +290,22 @@ The [`getheaders` message](core-ref-p2p-network-data-messages#getheaders) reques
 
 The [`getheaders` message](core-ref-p2p-network-data-messages#getheaders) is nearly identical to the [`getblocks` message](core-ref-p2p-network-data-messages#getblocks), with one minor difference: the `inv` reply to the [`getblocks` message](core-ref-p2p-network-data-messages#getblocks) will include no more than 500 <<glossary:block header>> hashes; the `headers` reply to the [`getheaders` message](core-ref-p2p-network-data-messages#getheaders) will include as many as 2,000 block headers.
 
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 4        | version              | uint32_t         | The protocol version number; the same as sent in the [`version` message](core-ref-p2p-network-control-messages#version).
+| *Varies* | hash count           | compactSize uint | The number of header hashes provided not including the stop hash.
+| *Varies* | block header hashes  | char[32]         | One or more block header hashes (32 bytes each) in internal byte order.  Hashes should be provided in reverse order of block height, so highest-height hashes are listed first and lowest-height hashes are listed last.
+| 32       | stop hash            | char[32]         | The header hash of the last header hash being requested; set to all zeroes to request as many blocks as possible (2000).
+
+# getheaders2
+
+*Added in protocol version 70223 of Dash Core.*
+
+The [`getheaders2` message](core-ref-p2p-network-data-messages#getheaders2) requests a [`headers2` message](core-ref-p2p-network-data-messages#headers2) that provides block headers starting from a particular point in the <<glossary:block chain>>. It allows a <<glossary:peer>> which has been disconnected or started for the first time to get the <<glossary:headers>> it hasn’t seen yet.
+
+The [`getheaders2` message](core-ref-p2p-network-data-messages#getheaders2) contains the same fields as the [`getheaders` message](core-ref-p2p-network-data-messages#getheaders).
+
 # getmnlistd
 
 *Added in protocol version 70213*
@@ -380,6 +396,34 @@ b6ff0b1b1680a2862a30ca44d346d9e8
 fe9f0864 ........................... Nonce
 
 00 ................................. Transaction count (0x00)
+```
+
+# headers2
+
+*Added in protocol version 70223 of Dash Core.*
+
+The [`headers2` message](core-ref-p2p-network-data-messages#headers2) sends compressed block headers to a <<glossary:node>> which previously requested certain <<glossary:headers>> with a [`getheaders2` message](core-ref-p2p-network-data-messages#getheaders) or indicated it wants to receive them by signaling with a [`sendheaders2` message](core-ref-p2p-network-control-messages#sendheaders2).
+
+| Bytes    | Name    | Data Type        | Description
+|----------|---------|------------------|-----------------
+| *Varies* | count   | compactSize uint | Number of block headers up to a maximum of 2,000.  Note: headers-first sync assumes the sending node will send the maximum number of headers whenever possible.
+| *Varies* | headers | block_header2     | Block headers in the [`block_header2`](https://github.com/thephez/dips/blob/compressed-headers/compressed-headers.md#block_header2-data-type) format
+
+The following annotated hexdump shows a [`headers2` message](core-ref-p2p-network-data-messages#headers2).  (The message header has been omitted.)
+
+
+``` text
+01 ................................. Header count: 1
+
+38 ................................. Bitfield (0x00100110)
+00000020 ........................... Block version
+8beebe6fc6ea655daa6bee6d24886879
+b97bd6f7a2a06ea77d068a120e010000 ... Hash of previous block's header
+769cc5b00eedef9cbb10398b00170f96
+7e452b000db9a348874545b189240efd ... Merkle root
+b330a262 ........................... Unix time: 1654796467
+362d011e ........................... Target (bits)
+fe030900 ........................... Nonce
 ```
 
 # inv

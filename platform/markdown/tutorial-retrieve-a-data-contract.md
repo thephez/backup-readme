@@ -29,7 +29,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst myContractId = 'a contract ID';\nconst client = new Dash.Client();\n\nclient.platform.contracts.get(myContractId)\n  .then((myContract) => {\n    client.getApps().set('myNewContract', {\n      contractId: Identifier.from(myContractId),\n      contract: myContract,\n    });\n  });",
+      "code": "const Dash = require('dash');\nconst { PlatformProtocol: { Identifier } } = Dash;\n\nconst myContractId = 'a contract ID';\nconst client = new Dash.Client();\n\nclient.platform.contracts.get(myContractId)\n  .then((myContract) => {\n    client.getApps().set('myNewContract', {\n      contractId: Identifier.from(myContractId),\n      contract: myContract,\n    });\n  });",
       "language": "javascript"
     }
   ]

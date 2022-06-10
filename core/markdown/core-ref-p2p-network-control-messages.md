@@ -418,6 +418,14 @@ The [`sendheaders` message](core-ref-p2p-network-control-messages#sendheaders) t
 
 There is no payload in a [`sendheaders` message](core-ref-p2p-network-control-messages#sendheaders).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
 
+# sendheaders2
+
+*Added in protocol version 70223 of Dash Core.*
+
+The [`sendheaders2` message](core-ref-p2p-network-control-messages#sendheaders2) tells the receiving <<glossary:peer>> to send new <<glossary:block>> announcements using a [`headers2` message](core-ref-p2p-network-data-messages#headers2) rather than an [`inv` message](core-ref-p2p-network-data-messages#inv).
+
+There is no payload in a [`sendheaders2` message](core-ref-p2p-network-control-messages#sendheaders2).  See the [message header section](core-ref-p2p-network-message-headers) for an example of a message without a payload.
+
 # spork
 
 Sporks are a mechanism by which updated code is released to the network, but not immediately made active (or “enforced”). Enforcement of the updated code can be activated remotely. Should problems arise, the code can be deactivated in the same manner, without the need for a network-wide rollback or client update.

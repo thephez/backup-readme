@@ -946,7 +946,7 @@ Name | Type | Presence | Description
 →<br>`total_out` | numeric | Required<br>(exactly 1) | Total amount in all outputs (excluding coinbase and thus reward [i.e. subsidy + totalfee])
 →<br>`total_size` | numeric | Required<br>(exactly 1) | Total size of all non-coinbase transactions
 →<br>`totalfee` | numeric | Required<br>(exactly 1) | The fee total
-→<br>`txs` | numeric | Required<br>(exactly 1) | The number of transactions (excluding coinbase)
+→<br>`txs` | numeric | Required<br>(exactly 1) | The number of transactions (including coinbase)
 →<br>`utxo_increase` | numeric | Required<br>(exactly 1) | The increase/decrease in the number of unspent outputs
 →<br>`utxo_size_inc` | numeric | Required<br>(exactly 1) | The increase/decrease in size for the utxo index (not discounting op_return and similar)
 

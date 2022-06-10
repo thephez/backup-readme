@@ -154,8 +154,8 @@ The following query combines both a where clause and query modifiers.
 {
   "codes": [
     {
-      "code": "{\n  limit: 5,\n  startAt: Buffer.from(Identifier.from('4Qp3menV9QjE92hc3BzkUCusAmHLxh1AU6gsVsPF4L2q')),\n  where: [\n    ['normalizedParentDomainName', '==', 'dash'],\n    ['normalizedLabel', 'startsWith', 'test'],\n  ],\n  orderBy: [\n    ['normalizedLabel', 'asc'],\n  ],\n}",
-      "language": "json"
+      "code": "import Dash from \"dash\"\n\nconst { Essentials: { Buffer }, PlatformProtocol: { Identifier } } = Dash;\n\nconst query = {\n  limit: 5,\n  startAt: Buffer.from(Identifier.from('4Qp3menV9QjE92hc3BzkUCusAmHLxh1AU6gsVsPF4L2q')),\n  where: [\n    ['normalizedParentDomainName', '==', 'dash'],\n    ['normalizedLabel', 'startsWith', 'test'],\n  ],\n  orderBy: [\n    ['normalizedLabel', 'asc'],\n  ],\n}",
+      "language": "javascript"
     }
   ]
 }
