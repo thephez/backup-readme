@@ -123,6 +123,47 @@ Transaction(s)
 | | 00000000 ............................... locktime: 0 (a block height)
 ```
 
+# cfcheckpt
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`cfcheckpt` message](core-ref-p2p-network-data-messages#cfcheckpt)  is sent in response to the [`getcfcheckpt` message](core-ref-p2p-network-data-messages#getcfcheckpt).  The filter headers included are the set of all filter headers on the requested chain where the height is a positive multiple of 1,000.
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested. Should match the field in the [`getcfcheckpt` message](core-ref-p2p-network-data-messages#getcfcheckpt) being responded to.
+| 32 | stop_hash | uint256 | The hash of the last block in the requested range. Should match the field in the [`getcfcheckpt` message](core-ref-p2p-network-data-messages#getcfcheckpt) being responded to.
+| 1-3 | filter_headers<br>_length | CompactSize | The length of the following vector of filter headers
+| `filter_headers`<br>`_length` * 32 | filter_hashes | [][32]byte | The filter headers at intervals of 1,000
+
+# cfheaders
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`cfheaders` message](core-ref-p2p-network-data-messages#cfheaders)  is sent in response to the [`getcfheaders` message](core-ref-p2p-network-data-messages#getcfheaders). Instead of including the filter headers themselves, the response includes one filter header and a sequence of filter hashes, from which the headers can be derived. This has the benefit that the client can verify the binding links between the headers.
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested. Should match the field in the [`getcfheaders` message](core-ref-p2p-network-data-messages#getcfheaders) being responded to.
+| 32 | stop_hash | uint256 | The hash of the last block in the requested range. Should match the field in the [`getcfheaders` message](core-ref-p2p-network-data-messages#getcfheaders) being responded to.
+| 32 | previous_filter<br>_header | uint256 | The filter header preceding the first block in the requested range
+| 1-3 | filter_hashes<br>_length | CompactSize | The length of the following vector of filter hashes. Must not be > 2000.
+| `filter_hashes`<br>`_length` * 32 | filter_hashes | [][32]byte | The filter hashes for each block in the requested range
+
+# cfilter
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`cfilter` message](core-ref-p2p-network-data-messages#cfilter)  is sent in response to the [`getcfilters` message](core-ref-p2p-network-data-messages#getcfilters), one for each block in the requested range.
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested. Should match the field in the [`getcfilters` message](core-ref-p2p-network-data-messages#getcfilters) being responded to.
+| 32 | block_hash | uint256 | Block hash of the block for which the filter is being returned. Must correspond to a block that is an ancestor of the request's `stop_hash` with a height >= `start_height`.
+| 1-5 | num_filter_bytes | CompactSize | A variable length integer representing the size of the filter in the following field
+| `num_filter_bytes` | filter_bytes |  []bytes | The  serialized compact filter for this block
+
+
 # cmpctblock
 
 *Added in protocol version 70209 of Dash Core as described by BIP152*
@@ -256,7 +297,7 @@ A [`blocktxn` message](core-ref-p2p-network-data-messages#blocktxn) response mus
 
 The structure of `BlockTransactionsRequest` is defined below.
 
-| Bytes    | Name            | Data Type            | Encoding | Description|
+| Bytes    | Name            | Data Type            | Description|
 |----------|-----------------|----------------------|----------|------|
 | 32       | blockhash       | Binary blob          | The output from a double-SHA256 of the block header, as used elsewhere | The blockhash of the block which the transactions being requested are in
 | *Varies* | indexes_length  | CompactSize uint     | As used to encode array lengths elsewhere | The number of transactions requested
@@ -271,6 +312,42 @@ b0509e79c8cd3d654cdf3a0100000000 ... Block Hash
 01 ................................. Index length: 1
 01 ................................. Index: 1
 ```
+
+# getcfcheckpt
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`getcfcheckpt` message](core-ref-p2p-network-data-messages#getcfcheckpt) requests verifiable filter headers for a range of blocks. The response to this message is a [`cfcheckpt` message](core-ref-p2p-network-data-messages#cfcheckpt).
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested
+| 32 | stop_hash | uint256 | The hash of the last block in the requested range
+
+# getcfheaders
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`getcfheaders` message](core-ref-p2p-network-data-messages#getcfheaders) requests verifiable filter headers for a range of blocks. The response to this message is a [`cfheaders` message](core-ref-p2p-network-data-messages#cfheaders).
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested
+| 4 | start_height | uint32_t | The height of the first block in the requested range
+| 32 | stop_hash | uint256 | The hash of the last block in the requested range. Must be >= `start_height` and the difference between them must be less than 2000.
+
+
+# getcfilters
+
+*Added in protocol version 70223 of Dash Core as described by [BIP 157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki).*
+
+The [`getcfilters` message](core-ref-p2p-network-data-messages#getcfilters) requests compact filters of a particular type for a particular range of blocks. The response to this message is a [`cfilter` message](core-ref-p2p-network-data-messages#cfilter).
+
+| Bytes    | Name                 | Data Type        | Description
+|----------|----------------------|------------------|----------------
+| 1 | filter_type | uint8_t | Filter type for which headers are requested
+| 4 | start_height | uint32_t | The height of the first block in the requested range
+| 32 | stop_hash | uint256 | The hash of the last block in the requested range
 
 # getdata
 
@@ -407,23 +484,46 @@ The [`headers2` message](core-ref-p2p-network-data-messages#headers2) sends comp
 | Bytes    | Name    | Data Type        | Description
 |----------|---------|------------------|-----------------
 | *Varies* | count   | compactSize uint | Number of block headers up to a maximum of 2,000.  Note: headers-first sync assumes the sending node will send the maximum number of headers whenever possible.
-| *Varies* | headers | block_header2     | Block headers in the [`block_header2`](https://github.com/thephez/dips/blob/compressed-headers/compressed-headers.md#block_header2-data-type) format
+| *Varies* | headers | block_header2     | Block headers in the [`block_header2`](https://github.com/thephez/dips/blob/compressed-headers/compressed-headers.md#block_header2-data-type) format<br>**Note**: the first header will always be uncompressed.
 
 The following annotated hexdump shows a [`headers2` message](core-ref-p2p-network-data-messages#headers2).  (The message header has been omitted.)
 
 
 ``` text
-01 ................................. Header count: 1
+fdd007 ............................. Header count: 2000 (0x07d0)
 
-38 ................................. Bitfield (0x00100110)
-00000020 ........................... Block version
-8beebe6fc6ea655daa6bee6d24886879
-b97bd6f7a2a06ea77d068a120e010000 ... Hash of previous block's header
-769cc5b00eedef9cbb10398b00170f96
-7e452b000db9a348874545b189240efd ... Merkle root
-b330a262 ........................... Unix time: 1654796467
-362d011e ........................... Target (bits)
-fe030900 ........................... Nonce
+Header 1 (uncompressed)
+| 38 ............................... Bitfield (0x00100110)
+| 02000000 ......................... Block version
+| 2cbcf83b62913d56f605c0e581a48872
+| 839428c92e5eb76cd7ad94bcaf0b0000 . Hash of previous block's header
+| 7f11dcce14075520e8f74cc4ddf092b4
+| e26ebd23b8d8665a1ae5bfc41b58fdb4 . Merkle root
+| c3a95e53 ......................... Unix time: 1398712771
+| ffff0f1e ......................... Target (bits)
+| f37a0000 ......................... Nonce
+
+Header 2 (previous header and time compressed)
+| 20 ............................... Bitfield (0x00100000)
+| 02000000 ......................... Block version
+| .................................. Hash of previous block's header (compressed)
+| 4d29e4f9b2e05a9ac97dd5ae4128b3c0
+| 104bdc95aabaa566cc8eeb682e336d0d . Merkle root
+| 0100 ............................. Unix time (compressed)
+| f0ff0f1e ......................... Target (bits)
+| 7b190000 ......................... Nonce
+
+Header 3 (block version, previous header, time, and bits compressed)
+| 01 ............................... Bitfield (0x00000001)
+| .................................. Block version (compressed)
+| .................................. Hash of previous block's header (compressed)
+| 58968247522cc488db01996de610d6f3
+| b8c348e748198dc528a305941211c71c . Merkle root
+| 0200 ............................. Unix time (compressed)
+| .................................. Target (bits) (compressed)
+| 7b190000 ......................... Nonce
+
+... Remaining headers truncated
 ```
 
 # inv

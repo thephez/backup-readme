@@ -120,7 +120,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 | Name | Type | Required | Description |
 | - | - | - | - |
-| `public_key_hashes` | Bytes | Yes | Public key hashes (double-sha256) of identity public keys |
+| `public_key_hashes` | Bytes | Yes | Public key hashes (sha256-ripemd160) of identity public keys |
 | `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested identities |
 
 [block:callout]
@@ -183,7 +183,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 | Name | Type | Required | Description |
 | - | - | - | - |
-| `public_key_hashes` | Bytes | Yes | Public key hash (double-sha256) of an identity's public key |
+| `public_key_hashes` | Bytes | Yes | Public key hash (sha256-ripemd160) of an identity's public key |
 | `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested identity IDs |
 
 [block:callout]
