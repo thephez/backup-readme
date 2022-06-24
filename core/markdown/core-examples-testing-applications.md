@@ -100,6 +100,10 @@ Each network type has some unique characteristics to support development and tes
 | Private network | No | No | Yes | Optional |
 | Number of networks | 1 | 1 | Unlimited | Unlimited / Unique (named) |
 
+> 📘 Using sporks
+>
+> To enable or disable sporks on a regtest or devnet, set `sporkaddr` and `sporkkey` in the `dash.conf` config file. Any valid Dash address / private key can be used. You can get an address using the [`getnewaddress` RPC](core-api-ref-remote-procedure-calls-wallet#getnewaddress) and retrieve its private key using the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#dumpprivkey).
+
 ## Mining characteristics
 
 | Network Type | Difficulty adjustment algorithm |
