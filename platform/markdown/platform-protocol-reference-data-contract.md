@@ -16,6 +16,13 @@ The following sections provide details that developers need to construct valid c
   "body": "Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `defs` keyword."
 }
 [/block]
+
+[block:callout]
+{
+  "type": "warning",
+  "body": "The `$ref` keyword is [temporarily disabled](https://github.com/dashevo/platform/pull/300) for Platform v0.22."
+}
+[/block]
 | Keyword | Constraint |
 | - | - |
 | `default` | Restricted - cannot be used (defined in DPP logic) |
@@ -23,7 +30,7 @@ The following sections provide details that developers need to construct valid c
 | `uniqueItems: true` | `maxItems` must be defined (maximum: 100000) |
 | `pattern: <something>` | `maxLength` must be defined (maximum: 50000) |
 | `format: <something>` | `maxLength` must be defined (maximum: 50000) |
-| `$ref: <something>` | `$ref` can only reference `$defs` - <br> remote references not supported |
+| `$ref: <something>` | **Temporarily disabled**<br>`$ref` can only reference `$defs` - <br> remote references not supported |
 | `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts |
 | `dependencies` | Not supported. Use `dependentRequired` and `dependentSchema` instead |
 | `additionalItems` | Not supported. Use `items: false` and `prefixItems` instead |

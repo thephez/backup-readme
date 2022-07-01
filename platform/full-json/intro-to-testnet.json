@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Introduction to Dash Testnet",
+  "description": "Dash Core Group provides the core Testnet infrastructure consisting of 150 masternodes running Dash Core along with the platform services that provide the decentralized API and storage."
  },
  "api": {
   "method": "get",
@@ -57,7 +57,7 @@
  "_id": "61d70ca155d45f0293817097",
  "createdAt": "2020-12-30T20:21:27.070Z",
  "updatedAt": "2022-05-17T13:13:56.142Z",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f0293817039",
  "project": "5bda01cad172e200499a20a9",
  "version": "61d70ca155d45f02938170a3",

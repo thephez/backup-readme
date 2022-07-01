@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "What is Dash?",
+  "description": "Dash is an open source cryptocurrency that was forked from the Bitcoin protocol. The network is a DAO operated by masternodes."
  },
  "api": {
   "method": "get",
@@ -64,7 +64,7 @@
  "updatedAt": "2021-12-13T16:49:07.080Z",
  "createdAt": "2019-08-23T13:49:46.133Z",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f0293817039",
  "__v": 5,
  "parentDoc": null,
