@@ -1,6 +1,6 @@
 # Document Submission
 
-Documents are sent to the platform by submitting the them in a document batch state transition consisting of:
+Documents are sent to the platform by submitting them in a document batch state transition consisting of:
 
 | Field | Type | Description|
 | - | - | - |

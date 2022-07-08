@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Unique blockchain-based identities for users",
+  "description": "Identities provide the foundation for names as a way for users to interact and identify one another that is familiar and easy to use. All user data is cryptographically signed using the identity's private key to ensure data cannot be manipulated by third parties."
  },
  "api": {
   "method": "get",

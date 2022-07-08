@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Data Trigger overview",
+  "description": "Data triggers enable application-specific custom logic for some system data contracts."
  },
  "api": {
   "method": "get",

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Storing Dash application data in Drive",
+  "description": "Data for Dash applications is stored in Drive, a layer 2 component that provides decentralized storage hosted by masternodes."
  },
  "api": {
   "method": "get",

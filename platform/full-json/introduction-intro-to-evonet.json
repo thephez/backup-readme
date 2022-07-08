@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Intro to Evonet",
+  "description": "Docs for a comprehensive introduction to Evonet."
  },
  "api": {
   "method": "get",
@@ -48,7 +48,7 @@
  "order": 8,
  "isReference": false,
  "deprecated": false,
- "hidden": false,
+ "hidden": true,
  "sync_unique": "",
  "link_url": "https://dashplatform.readme.io/docs/intro-to-testnet",
  "link_external": false,

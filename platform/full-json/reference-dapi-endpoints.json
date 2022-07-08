@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Overview of DAPI Endpoints",
+  "description": "DAPI currently provides 2 types of endpoints \u2013 JSON-RPC and gRPC. The JSON-RPC endpoints expose layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions."
  },
  "api": {
   "method": "get",
@@ -78,7 +78,7 @@
  "_id": "61d70ca155d45f029381707b",
  "version": "61d70ca155d45f02938170a3",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f029381703d",
  "updatedAt": "2022-02-23T20:38:48.470Z",
  "createdAt": "2020-01-29T13:30:58.286Z",

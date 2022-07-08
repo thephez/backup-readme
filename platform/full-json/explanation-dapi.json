@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Decentralized API (DAPI) for Dash",
+  "description": "The Dash decentralized API (DAPI) uses Dash's robust masternode infrastructure to provide an API for trustlessly accessing the Dash network's capabilities."
  },
  "api": {
   "method": "get",

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Track state transitions with platform chain",
+  "description": "The platform chain is the component responsible for replicating the platform state across all masternodes participating in the network."
  },
  "api": {
   "method": "get",
@@ -53,7 +53,7 @@
  "updatedAt": "2022-05-11T20:47:10.268Z",
  "createdAt": "2019-11-25T19:13:07.522Z",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f029381703e",
  "__v": 1,
  "parentDoc": "61d70ca155d45f0293817067",

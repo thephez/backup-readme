@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash SDK (Javascript)",
+  "description": "Dash SDK (Javascript) GitHub repository"
  },
  "api": {
   "method": "get",
@@ -51,7 +51,7 @@
  "updatedAt": "2019-12-10T15:11:45.444Z",
  "createdAt": "2019-10-08T10:40:40.478Z",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61d70ca155d45f029381704d",
  "category": "61d70ca155d45f029381703c",
  "__v": 0,

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Platform Protocol (DPP) code",
+  "description": "Platform Protocol (DPP) GitHub repository"
  },
  "api": {
   "method": "get",
@@ -49,7 +49,7 @@
  "_id": "61d70ca155d45f029381706f",
  "version": "61d70ca155d45f02938170a3",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61d70ca155d45f029381704d",
  "category": "61d70ca155d45f029381703c",
  "updatedAt": "2019-12-24T21:21:36.567Z",

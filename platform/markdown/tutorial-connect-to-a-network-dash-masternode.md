@@ -3,7 +3,7 @@ The purpose of this tutorial is to walk through the steps necessary to set up a 
 # Prerequisites
 - Access to a Linux system configured with a non-root user ([guide](https://docs.dash.org/en/stable/masternodes/setup.html#set-up-your-vps))
 - [Docker](https://docs.docker.com/install/linux/docker-ce/ubuntu/) (v20.10.0+) and [docker-compose](https://docs.docker.com/compose/install/) (v1.25.0+) installed
-- An installation of [NodeJS](https://nodejs.org/en/download/) v12+
+- An installation of [NodeJS](https://nodejs.org/en/download/) (v16.0+, NPM v8.0+)
 
 > 📘
 >

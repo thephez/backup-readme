@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Platform Protocol (DPP) for verifying and validating data on Dash Platform",
+  "description": "Dash Platform Protocol (DPP) ensures the consistency and integrity of all data stored on Layer 2."
  },
  "api": {
   "method": "get",

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "JavaScript SDK",
+  "description": "JavaScript SDK Github repository."
  },
  "api": {
   "method": "get",
@@ -49,7 +49,7 @@
  "_id": "61d70ca155d45f029381707e",
  "version": "61d70ca155d45f02938170a3",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f029381703c",
  "updatedAt": "2020-08-24T13:59:12.221Z",
  "createdAt": "2020-02-10T08:47:42.947Z",

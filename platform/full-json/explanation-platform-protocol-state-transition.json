@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Store and update Dash platform data with state transitions",
+  "description": "State transitions are the means for submitting data that creates, updates, or deletes platform application data. Once processed, they result in a change to a new state."
  },
  "api": {
   "method": "get",

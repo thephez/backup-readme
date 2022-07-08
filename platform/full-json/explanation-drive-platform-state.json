@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Platform State: Global view of data managed by replicated state machines",
+  "description": "Platform state represents the current state of all the data stored on the platform. It's like a database, where each application is defined by the corresponding data contract."
  },
  "api": {
   "method": "get",
@@ -51,7 +51,7 @@
  "_id": "61d70ca155d45f029381706c",
  "version": "61d70ca155d45f02938170a3",
  "project": "5bda01cad172e200499a20a9",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61d70ca155d45f0293817067",
  "category": "61d70ca155d45f029381703e",
  "updatedAt": "2022-05-11T20:48:36.171Z",

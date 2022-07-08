@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Repository Overview",
+  "description": "Information about the Dash Platform repositories for system components and libraries"
  },
  "api": {
   "method": "get",

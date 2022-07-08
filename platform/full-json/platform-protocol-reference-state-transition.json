@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "State Transition overview",
+  "description": "State transitions are the means for submitting data that creates, updates, or deletes platform data and results in a change to a new state."
  },
  "api": {
   "method": "get",
@@ -49,7 +49,7 @@
  "_id": "61d70ca155d45f0293817088",
  "createdAt": "2020-09-02T14:22:06.081Z",
  "updatedAt": "2022-01-20T18:49:26.367Z",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f0293817040",
  "project": "5bda01cad172e200499a20a9",
  "version": "61d70ca155d45f02938170a3",

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Platform consensus error codes",
+  "description": "A comprehensive list of Dash Platform consensus error codes."
  },
  "api": {
   "method": "get",

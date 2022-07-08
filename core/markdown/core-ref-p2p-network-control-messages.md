@@ -465,7 +465,7 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 {
   "type": "info",
   "title": "Spork 21 and 23 Values",
-  "body": "Spork 21 supports two different enabled values:\n - `0` - Connections established between each masternode in a quorum (regardless of quorum size)\n - `1` - The spork is considered active for the llmq which have member size less than 100."
+  "body": "Spork 21 and 23 support two different enabled values:\n - `0` - The spork is active for all quorums regardless of quorum size.\n - `1` - The spork is active only for quorums which have a member size less than 100."
 }
 [/block]
 **Removed Sporks**

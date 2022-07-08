@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash source code",
+  "description": "The Source code produced by Dash Core Group is located in the two GitHub organizations shown here"
  },
  "api": {
   "method": "get",
@@ -45,14 +45,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-06-30T18:13:13.828Z",
+ "slugUpdatedAt": "2022-07-02T21:52:57.909Z",
  "_id": "61d70ca155d45f029381704d",
  "version": "61d70ca155d45f02938170a3",
  "updatedAt": "2019-08-01T13:35:56.777Z",
  "createdAt": "2019-08-01T13:32:49.643Z",
  "project": "5bda01cad172e200499a20a9",
  "category": "61d70ca155d45f029381703c",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,

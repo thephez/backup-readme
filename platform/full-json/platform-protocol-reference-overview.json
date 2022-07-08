@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Platform Protocol (DPP) Reference Overview",
+  "description": "The Dash Platform Protocol (DPP) defines a protocol for the data objects, data contracts, documents, state transitions) that can be stored on Dash's layer 2 platform."
  },
  "api": {
   "method": "get",
@@ -57,7 +57,7 @@
  "_id": "61d70ca155d45f0293817091",
  "createdAt": "2020-11-17T18:28:46.114Z",
  "updatedAt": "2022-01-20T18:37:17.510Z",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61d70ca155d45f0293817040",
  "project": "5bda01cad172e200499a20a9",
  "version": "61d70ca155d45f02938170a3",

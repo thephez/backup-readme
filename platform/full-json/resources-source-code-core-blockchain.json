@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Core (Layer 1 Protocol) source code",
+  "description": "Core (Layer 1 Protocol) GitHub repository."
  },
  "api": {
   "method": "get",
@@ -45,14 +45,14 @@
  "link_external": true,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-06-30T18:13:12.033Z",
+ "slugUpdatedAt": "2022-07-02T21:47:01.875Z",
  "_id": "61d70ca155d45f029381704e",
  "version": "61d70ca155d45f02938170a3",
  "updatedAt": "2019-12-24T21:22:11.281Z",
  "createdAt": "2019-08-01T13:39:55.864Z",
  "project": "5bda01cad172e200499a20a9",
  "category": "61d70ca155d45f029381703c",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61d70ca155d45f029381704d",
  "__v": 0,
  "isApi": false,
