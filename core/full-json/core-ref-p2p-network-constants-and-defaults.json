@@ -39,6 +39,7 @@
   ]
  },
  "title": "Constants and Defaults",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-ref-p2p-network-constants-and-defaults",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:56.496Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.132Z",
  "_id": "61549206c31f6b00207cf23a",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-05T19:31:50.845Z",

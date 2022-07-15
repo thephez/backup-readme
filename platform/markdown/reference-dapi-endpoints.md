@@ -53,6 +53,6 @@
 [block:callout]
 {
   "type": "info",
-  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints)."
+  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.21.0/docs/reference-dapi-endpoints)."
 }
 [/block]

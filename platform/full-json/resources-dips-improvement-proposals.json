@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "DIPs (Improvement Proposals)",
+ "icon": "",
  "updates": [],
  "type": "link",
  "slug": "resources-dips-improvement-proposals",
@@ -45,7 +46,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:56.763Z",
+ "slugUpdatedAt": "2022-07-14T23:08:59.533Z",
  "_id": "61d70ca155d45f029381704c",
  "version": "61d70ca155d45f02938170a3",
  "updatedAt": "2019-12-10T15:11:45.441Z",

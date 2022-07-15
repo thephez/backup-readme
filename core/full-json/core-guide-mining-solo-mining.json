@@ -39,6 +39,7 @@
   ]
  },
  "title": "Solo Mining",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-mining-solo-mining",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.026Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.353Z",
  "_id": "61549206c31f6b00207cf283",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T17:49:18.618Z",

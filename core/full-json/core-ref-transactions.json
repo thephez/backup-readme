@@ -74,6 +74,7 @@
   ]
  },
  "title": "Transactions",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-ref-transactions",

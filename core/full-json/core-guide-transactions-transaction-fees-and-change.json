@@ -39,6 +39,7 @@
   ]
  },
  "title": "Transaction Fees and Change",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-transactions-transaction-fees-and-change",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.237Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.132Z",
  "_id": "61549206c31f6b00207cf297",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T17:55:08.996Z",

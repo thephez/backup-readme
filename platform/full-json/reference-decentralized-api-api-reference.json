@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "DAPI Reference",
+ "icon": "",
  "updates": [],
  "type": "link",
  "slug": "reference-decentralized-api-api-reference",
@@ -45,7 +46,7 @@
  "link_external": true,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:56.674Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.596Z",
  "_id": "61d70ca155d45f0293817052",
  "version": "61d70ca155d45f02938170a3",
  "updatedAt": "2019-12-10T15:11:45.430Z",

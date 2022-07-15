@@ -39,6 +39,7 @@
   ]
  },
  "title": "Generating RPCs",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-api-ref-remote-procedure-calls-generating",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.245Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.333Z",
  "_id": "61549206c31f6b00207cf276",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-06-11T20:14:27.849Z",

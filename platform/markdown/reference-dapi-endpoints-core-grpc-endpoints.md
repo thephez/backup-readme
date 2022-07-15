@@ -337,7 +337,7 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoints, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.20.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
+There are no recently deprecated endpoints, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.21.0/docs/reference-dapi-endpoints-core-grpc-endpoints).
 
 # Code Reference
 

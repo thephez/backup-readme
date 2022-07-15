@@ -39,6 +39,7 @@
   ]
  },
  "title": "Simplified Payment Verification (SPV)",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-operating-modes-simplified-payment-verification-spv",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-08T01:01:01.294Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.414Z",
  "_id": "61549206c31f6b00207cf288",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T20:44:14.291Z",

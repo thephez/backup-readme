@@ -39,6 +39,7 @@
   ]
  },
  "title": "Initial Block Download",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-p2p-network-initial-block-download",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.526Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.099Z",
  "_id": "61549206c31f6b00207cf263",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T20:45:27.797Z",

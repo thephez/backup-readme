@@ -39,6 +39,7 @@
   ]
  },
  "title": "Masternode Sync",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-dash-features-masternode-sync",

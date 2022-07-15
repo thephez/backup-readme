@@ -74,6 +74,7 @@
   ]
  },
  "title": "Transaction Tutorial",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-examples-transaction-tutorial",
@@ -88,7 +89,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:54.141Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.108Z",
  "_id": "61549206c31f6b00207cf269",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-11T20:17:35.253Z",

@@ -39,6 +39,7 @@
   ]
  },
  "title": "Proof Of Work",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-block-chain-proof-of-work",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:58.765Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.702Z",
  "_id": "61549206c31f6b00207cf28d",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-12T21:59:32.206Z",

@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "Onboarding Users",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "tutorials-onboarding-users",
@@ -45,7 +46,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:56.860Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.614Z",
  "_id": "61d70ca155d45f0293817057",
  "version": "61d70ca155d45f02938170a3",
  "updatedAt": "2019-10-08T10:19:40.324Z",

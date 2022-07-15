@@ -60,6 +60,7 @@
   ]
  },
  "title": "Introduction",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-examples-introduction",
@@ -74,7 +75,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.454Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.642Z",
  "_id": "61549206c31f6b00207cf264",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-11T20:03:09.513Z",

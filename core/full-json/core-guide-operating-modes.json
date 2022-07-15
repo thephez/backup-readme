@@ -46,6 +46,7 @@
   ]
  },
  "title": "Operating Modes",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-operating-modes",
@@ -60,7 +61,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.061Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.561Z",
  "_id": "61549206c31f6b00207cf286",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T21:26:09.503Z",

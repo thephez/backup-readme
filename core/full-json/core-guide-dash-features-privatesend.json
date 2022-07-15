@@ -39,6 +39,7 @@
   ]
  },
  "title": "CoinJoin",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-dash-features-privatesend",

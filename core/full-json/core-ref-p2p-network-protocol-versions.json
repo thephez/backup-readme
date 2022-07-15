@@ -39,6 +39,7 @@
   ]
  },
  "title": "Protocol Versions",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-ref-p2p-network-protocol-versions",

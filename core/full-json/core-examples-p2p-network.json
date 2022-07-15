@@ -67,6 +67,7 @@
   ]
  },
  "title": "P2P Network",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-examples-p2p-network",
@@ -81,7 +82,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:55.523Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.831Z",
  "_id": "61549206c31f6b00207cf25f",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-10-24T19:10:55.837Z",

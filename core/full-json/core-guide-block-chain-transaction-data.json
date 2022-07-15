@@ -39,6 +39,7 @@
   ]
  },
  "title": "Transaction Data",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-block-chain-transaction-data",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.121Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.794Z",
  "_id": "61549206c31f6b00207cf28f",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-12T22:13:44.056Z",

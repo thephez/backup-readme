@@ -39,6 +39,7 @@
   ]
  },
  "title": "CoinJoin Messages",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-ref-p2p-network-privatesend-messages",

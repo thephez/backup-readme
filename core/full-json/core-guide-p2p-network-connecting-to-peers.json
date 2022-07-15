@@ -39,6 +39,7 @@
   ]
  },
  "title": "Connecting to Peers",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-p2p-network-connecting-to-peers",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:54.958Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.548Z",
  "_id": "61549206c31f6b00207cf262",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T20:45:01.058Z",

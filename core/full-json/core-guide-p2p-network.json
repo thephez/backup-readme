@@ -74,6 +74,7 @@
   ]
  },
  "title": "P2P Network",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-p2p-network",
@@ -88,7 +89,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:55.110Z",
+ "slugUpdatedAt": "2022-07-14T23:08:59.766Z",
  "_id": "61549206c31f6b00207cf260",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T21:55:14.580Z",

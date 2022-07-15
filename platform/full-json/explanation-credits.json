@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "Credits",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "explanation-credits",
@@ -45,7 +46,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.497Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.584Z",
  "_id": "61d70ca155d45f0293817085",
  "createdAt": "2020-06-02T21:01:13.824Z",
  "updatedAt": "2020-06-02T21:01:20.910Z",

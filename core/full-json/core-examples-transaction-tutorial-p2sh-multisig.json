@@ -39,6 +39,7 @@
   ]
  },
  "title": "P2SH Multisig",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-examples-transaction-tutorial-p2sh-multisig",

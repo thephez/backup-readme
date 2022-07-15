@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "ZeroMQ (ZMQ) RPCs",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-api-ref-remote-procedure-calls-zmq",

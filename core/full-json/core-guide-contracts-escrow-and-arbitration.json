@@ -39,6 +39,7 @@
   ]
  },
  "title": "Escrow and Arbitration",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-contracts-escrow-and-arbitration",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T23:35:56.984Z",
+ "slugUpdatedAt": "2022-07-14T23:09:01.452Z",
  "_id": "61549206c31f6b00207cf29d",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T20:33:08.419Z",

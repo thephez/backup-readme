@@ -39,6 +39,7 @@
   ]
  },
  "title": "Misbehaving Nodes",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-p2p-network-misbehaving-nodes",

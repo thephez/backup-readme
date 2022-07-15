@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "Requests",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-api-ref-http-rest-requests",

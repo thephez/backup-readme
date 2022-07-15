@@ -39,6 +39,7 @@
   ]
  },
  "title": "Control RPCs",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-api-ref-remote-procedure-calls-control",

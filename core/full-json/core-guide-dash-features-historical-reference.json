@@ -39,6 +39,7 @@
   ]
  },
  "title": "Historical Reference",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-guide-dash-features-historical-reference",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:55.511Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.099Z",
  "_id": "61549206c31f6b00207cf25b",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T20:34:52.175Z",

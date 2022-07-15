@@ -88,6 +88,7 @@
   ]
  },
  "title": "Introduction",
+ "icon": "",
  "updates": [
   "5dc1d392429c7c00634e8f70"
  ],
@@ -104,7 +105,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:58.835Z",
+ "slugUpdatedAt": "2022-07-14T23:08:59.766Z",
  "_id": "61549206c31f6b00207cf29b",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-10-30T13:59:32.159Z",

@@ -39,6 +39,7 @@
   ]
  },
  "title": "Wallets",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-ref-wallets",
@@ -53,7 +54,7 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-07T20:50:57.146Z",
+ "slugUpdatedAt": "2022-07-14T23:09:00.392Z",
  "_id": "61549206c31f6b00207cf243",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-05T15:23:19.871Z",

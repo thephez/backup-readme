@@ -31,6 +31,7 @@
   "pages": []
  },
  "title": "Previous Version of Docs",
+ "icon": "",
  "updates": [],
  "type": "link",
  "slug": "previous-version-of-docs",
@@ -41,7 +42,7 @@
  "deprecated": false,
  "hidden": false,
  "sync_unique": "",
- "link_url": "https://dashplatform.readme.io/v0.20.0/docs",
+ "link_url": "https://dashplatform.readme.io/v0.21.0/docs",
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",

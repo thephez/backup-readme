@@ -39,6 +39,7 @@
   ]
  },
  "title": "ZeroMQ (ZMQ) Notifications",
+ "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "core-api-ref-zmq",
