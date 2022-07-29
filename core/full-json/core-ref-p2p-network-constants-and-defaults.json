@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Core Constants and Defaults",
+  "description": "In this section we will learn the constants and defaults taken from Dash Core's source code file."
  },
  "api": {
   "method": "get",
@@ -54,13 +54,13 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-21T21:27:01.087Z",
+ "slugUpdatedAt": "2022-07-26T20:38:51.882Z",
  "_id": "61549206c31f6b00207cf23a",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-05T19:31:50.845Z",
  "createdAt": "2019-10-23T15:53:21.434Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf239",
  "category": "61549205c31f6b00207cf231",
  "__v": 7,

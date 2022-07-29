@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Improvement Proposals",
+  "description": "A Dash Improvement Proposal is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment"
  },
  "api": {
   "method": "get",
@@ -46,13 +46,13 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-21T21:27:01.393Z",
+ "slugUpdatedAt": "2022-07-27T21:27:32.561Z",
  "_id": "61549206c31f6b00207cf244",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-10-24T12:49:14.515Z",
  "createdAt": "2019-10-23T16:04:54.296Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf231",
  "__v": 0,
  "parentDoc": null,

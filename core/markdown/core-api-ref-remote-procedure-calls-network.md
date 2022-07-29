@@ -313,6 +313,11 @@ Name | Type | Presence | Description
 →<br>`timeoffset` | number (int) | Required<br>(exactly 1) | The offset of the node's clock from the computer's clock (both in UTC) in seconds.  The offset may be up to 4200 seconds (70 minutes)
 →<br>`networkactive` | bool | Required<br>(exactly 1) | Set to `true` if P2P networking is enabled.  Set to `false` if P2P networking is disabled. Enabling/disabling done via [SetNetworkActive](/docs/core-api-ref-remote-procedure-calls-network#setnetworkactive)
 →<br>`connections` | number (int) | Required<br>(exactly 1) | The total number of open connections (both outgoing and incoming) between this node and other nodes
+→<br>`inboundconnections` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>The number of inbound connections
+→<br>`outboundconnections` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>The number of outbound connections
+→<br>`mnconnections` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>The number of verified masternode connections
+→<br>`inboundmnconnections` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>The number of inbound verified masternode connections
+→<br>`outboundmnconnections` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 18.0.0**<br><br>The number of outbound verified masternode connections
 →<br>`socketevents` | string | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The socket events mode, either `epoll`, `poll`, or `select`
 →<br>`networks` | array | Required<br>(exactly 1) | An array with three objects: one describing the IPv4 connection, one describing the IPv6 connection, and one describing the Tor hidden service (onion) connection
 → →<br>Network | object | Optional<br>(0 to 3) | An object describing a network.  If the network is unroutable, it will not be returned

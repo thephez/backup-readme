@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash masternode messages",
+  "description": "The network messages defined in this subsection helps enable the masternode features built into Dash."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2021-02-25T18:19:58.064Z",
  "createdAt": "2019-10-23T17:03:17.479Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf239",
  "category": "61549205c31f6b00207cf231",
  "__v": 3,

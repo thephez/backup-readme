@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash base opcodes guide",
+  "description": "The opcodes used in the pubkey scripts of standard transactions are described in this subsection."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2021-01-19T14:52:47.721Z",
  "createdAt": "2019-10-23T16:10:33.564Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf242",
  "category": "61549205c31f6b00207cf231",
  "__v": 1,

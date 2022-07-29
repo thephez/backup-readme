@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Core Reference Overview",
+  "description": "The Developer Reference aims to provide technical details and API information to help you start building Dash-based applications."
  },
  "api": {
   "method": "get",
@@ -88,7 +88,7 @@
  "updatedAt": "2021-01-07T17:55:53.511Z",
  "createdAt": "2019-10-23T19:45:47.427Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf231",
  "__v": 10,
  "parentDoc": null,

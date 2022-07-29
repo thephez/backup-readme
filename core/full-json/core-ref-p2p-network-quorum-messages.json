@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Quorum Messages",
+  "description": "The network messages in this subsection will enable the long-living masternode quorum features built into Dash."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-05-02T14:03:12.516Z",
  "createdAt": "2019-10-23T17:03:26.338Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf239",
  "category": "61549205c31f6b00207cf231",
  "__v": 3,

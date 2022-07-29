@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash P2P Network Overview",
+  "description": "This corresponding subsections describes the Dash P2P network protocol in detail. ."
  },
  "api": {
   "method": "get",
@@ -137,7 +137,7 @@
  "updatedAt": "2021-01-07T17:57:10.387Z",
  "createdAt": "2019-10-23T15:50:27.219Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf231",
  "__v": 6,
  "parentDoc": null,
