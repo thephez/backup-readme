@@ -146,14 +146,6 @@ The query modifiers described here determine how query results will be sorted an
   "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order.\n\nPlease refer to [pull request 230](https://github.com/dashevo/platform/pull/230) for additional information related to compound index constraints in Platform v0.22."
 }
 [/block]
-
-[block:callout]
-{
-  "type": "danger",
-  "body": "Inverse sort functionality for compound indices is not available.",
-  "title": "Compound Index Inverse Sort"
-}
-[/block]
 # Example query
 The following query combines both a where clause and query modifiers.
 [block:code]

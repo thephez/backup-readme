@@ -1,4 +1,4 @@
-Dash Core performs full <<glossary:masternode>> synchronization as required. There are several conditions that initiate a start/restart the sync process:
+Dash Core performs full <<glossary:masternode>> synchronization as required. There are four conditions that initiate a start/restart the sync process:
 
 * Initial startup of Dash Core
 * More than 60 minutes have passed since the last activation

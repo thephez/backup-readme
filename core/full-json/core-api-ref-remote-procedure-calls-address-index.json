@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Address Index RPC",
+  "description": "The Dash Core address index RPC returns the balance for address(es)."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2021-05-06T15:53:34.563Z",
  "createdAt": "2019-10-24T19:40:50.639Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf270",
  "category": "61549205c31f6b00207cf235",
  "__v": 3,

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Removed RPCs",
+  "description": "This subsection has all the RPCs that have been removed from the latest verios of Dash Core."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-04-20T15:19:56.118Z",
  "createdAt": "2019-10-29T14:29:36.648Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf270",
  "category": "61549205c31f6b00207cf235",
  "__v": 1,

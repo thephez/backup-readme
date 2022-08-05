@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Core CoinJoin",
+  "description": "Dash Core's mixing feature provides a way to improve privacy by performing non-custodial CoinJoin."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-01-04T14:11:01.216Z",
  "createdAt": "2019-10-23T19:41:11.479Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf232",
  "__v": 3,
  "parentDoc": "61549206c31f6b00207cf251",

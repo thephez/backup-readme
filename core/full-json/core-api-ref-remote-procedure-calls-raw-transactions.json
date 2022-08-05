@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Raw Transaction RPC",
+  "description": "This subsection covers all the raw transaction RPCs in Dash."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-04-20T18:19:04.707Z",
  "createdAt": "2019-10-24T19:42:03.054Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf270",
  "category": "61549205c31f6b00207cf235",
  "__v": 1,

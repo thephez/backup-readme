@@ -19,7 +19,7 @@ The following table details the data flow of P2P messages exchanged during the d
 {
   "type": "warning",
   "title": "Minimum Masternode Protocol Version",
-  "body": "As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70222 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version."
+  "body": "As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70223 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version."
 }
 [/block]
 | **Masternode** | **Direction**  | **Peers**   | **Description** |
@@ -79,3 +79,22 @@ Note the following timeouts defined by Dash Core related to signing sessions:
 Mainnet and Testnet only use quorums of pre-defined sizes that are hard coded into Dash Core. RegTest and Devnet environments each have a quorum that supports custom size and threshold parameters that are controlled via command line or configuration file parameters (`llmqtestparams`/`llmqdevnetparams`).
 
 A list of all the quorums and their default sizes can be found in the [Current LLMQ Types table](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) found in DIP-6.
+
+The specific quorum type used for a feature can vary based on the network. The following table shows which quorums are used for each feature on the various networks:
+
+| | Mainnet | Testnet | Devnet * | RegTest * |
+|-|-|-|-|-|
+| ChainLocks ([DIP-8](https://github.com/dashpay/dips/blob/master/dip-0008.md)) | LLMQ_400_60 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST |
+| Deterministic InstantSend | LLMQ_60_75 | LLMQ_60_75 | LLMQ_60_75 | LLMQ_TEST_DIP0024 |
+| InstantSend (pre DIP-24) | LLMQ_50_60 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST_INSTANTSEND |
+| Platform | LLMQ_100_67 | LLMQ_100_67 | LLMQ_100_67 | LLMQ_TEST |
+| Enhanced Hard Fork ([DIP-23](https://github.com/dashpay/dips/blob/master/dip-0023.md))| LLMQ_400_85 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST |
+
+\* Note that the quorum types used on RegTest and Devnets have customizable parameters as described above
+[block:callout]
+{
+  "type": "info",
+  "body": "The quorum formation process operates regardless of quorum usage. So, excluding the \\*TEST\\* and \\*DEVNET\\* quorums, the [DKG process](#llmq-creation-dkg) will be attempted for _all quorum types_ on _all networks_ regardless of whether or not that quorum type is going to be used.",
+  "title": "Quorum formation"
+}
+[/block]

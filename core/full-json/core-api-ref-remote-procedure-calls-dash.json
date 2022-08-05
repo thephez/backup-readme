@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash RPCs",
+  "description": "RPCs for Dash-specific Features"
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-04-20T14:49:01.565Z",
  "createdAt": "2019-10-24T19:41:21.348Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf270",
  "category": "61549205c31f6b00207cf235",
  "__v": 1,

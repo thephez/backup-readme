@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash HTTP REST Requests",
+  "description": "Comprehensive description of all the HTTP REST requests on Dash Core."
  },
  "api": {
   "method": "get",
@@ -52,7 +52,7 @@
  "updatedAt": "2022-04-20T15:43:06.052Z",
  "createdAt": "2019-10-24T20:05:14.141Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf27d",
  "category": "61549205c31f6b00207cf235",
  "__v": 0,

@@ -1,6 +1,6 @@
 # GetBestBlockHash
 
-The [`getbestblockhash` RPC](core-api-ref-remote-procedure-calls-blockchain#getbestblockhash) returns the header hash of the most recent block on the best block chain.
+The [`getbestblockhash` RPC](core-api-ref-remote-procedure-calls-blockchain#getbestblockhash) returns the header hash of the most recent block on the best blockchain.
 
 *Parameters: none*
 

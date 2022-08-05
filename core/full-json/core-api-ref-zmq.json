@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash ZeroMQ (ZMQ) Notifications",
+  "description": "ZeroMQ is a lightweight wrapper around TCP connections, inter-process communication, and shared-memory, providing various message-oriented semantics such as publish/subscribe, request/reply, and push/pull."
  },
  "api": {
   "method": "get",
@@ -58,7 +58,7 @@
  "_id": "61549206c31f6b00207cf2b0",
  "createdAt": "2020-05-13T01:55:09.291Z",
  "updatedAt": "2022-02-10T19:57:59.514Z",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf235",
  "project": "5daf2e65f4109c0040fd51e1",
  "version": "61549206c31f6b00207cf2be",

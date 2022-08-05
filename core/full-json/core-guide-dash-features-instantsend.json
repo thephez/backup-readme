@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash InstantSend",
+  "description": "Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions."
  },
  "api": {
   "method": "get",
@@ -60,7 +60,7 @@
  "updatedAt": "2022-02-16T14:56:37.343Z",
  "createdAt": "2019-10-23T19:26:57.248Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf251",
  "category": "61549205c31f6b00207cf232",
  "__v": 3,

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Introduction to Dash Core guide",
+  "description": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification"
  },
  "api": {
   "method": "get",
@@ -105,13 +105,13 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-28T20:15:58.606Z",
+ "slugUpdatedAt": "2022-08-02T02:36:50.968Z",
  "_id": "61549206c31f6b00207cf29b",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-10-30T13:59:32.159Z",
  "createdAt": "2019-10-28T19:07:31.813Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf232",
  "__v": 2,
  "parentDoc": null,
