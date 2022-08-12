@@ -423,27 +423,24 @@ The `getqrinfo` message requests a [`qrinfo` message](core-ref-p2p-network-data-
 The following annotated hexdump shows a [`getqrinfo` message](core-ref-p2p-network-data-messages#getqrinfo). (The message header has been omitted.)
 
 ``` text
-06000000 ........................... Number of base block hashes: 6
+05 ................................. Number of base block hashes: 5
 
-06 ................................. Number of base block hashes: 6
 
-8157c193543166dfc23a67fab1378bc5
-1ded183b09c6e932e64a4639d9010000 ... Base block hash 1
-e173b01943fe7b8d2bf5a13c034eafed
-d2708a1a0f9e5104b86439382e050000 ... Base block hash 2
-c2e276c518b3f8484b237e300094e222
-388a095f486c822585a67b1520010000 ... Base block hash 3
-044822e5c6d568af03422edc00ad3ae5
-029a022139e37d06ae587169c8000000 ... Base block hash 4
-60b2c8280d6e59cdee4c65d7fd352c25
-50bb40242fc242bf091872c1bb010000 ... Base block hash 5
-55d37e40ae54e536ccabf964a403c921
-f021a2b0ca82a6ba63022015a8010000 ... Base block hash 6
+cb6f9b4f2145f2e3fcf270737ad34d7e
+51cdb9e98f2580927c52b35f62010000 ... Base block hash 1
+8cfa868eb5adfdfb6ae333b790980f2d
+0737c64ccd716ce6b63969f481010000 ... Base block hash 2
+41e452b5187bc71a1e92c42c8e38f04b
+8c83b12415f7a73b292f5c79c9000000 ... Base block hash 3
+0387850f96fb9888bb445cce15b56603
+019df551c246e237ff3a6107e8020000 ... Base block hash 4
+7ab87c8f16f60fdba20102d348a0af08
+2a6590759c6535aa48941e807e020000 ... Base block hash 5
 
-847b42ae4509c82e8c8ba599f23f15c1
-e34c899a09e4ebf440f6e2ef4b000000 ... Block request hash
+d7b9d67da4a3016c62fcc37157032126
+46d11c2b3c533ccf9bb56f7540000000 ... Block request hash
 
-01 ................................. Extra share: true
+00 ................................. Extra share: false
 ```
 
 
@@ -819,8 +816,8 @@ Note: In the following fields, `c` refers to the quorum cycle length. This is sy
 | 1 | extraShare | bool | Required | Flag to indicate if an extra share is requested |
 | Varies | quorumSnapshot<br>AtHMinus4C | CQuorumSnapshot | Optional | Returned only if `extraShare` is on. See below for sub-message contents. |
 | Varies | mnListDiff<br>AtHMinus4C | CSimplifiedMNListDiff | Optional | Returned only if `extraShare` is on. As in DIP-4.
-| 1-9 | blockHashList<br>Size | compactSize uint | Required | Number of elements in `blockHashList` 
-| 32 * `blockHash`<br>`ListSize`  | blockHashList | uint256_t[] |  Required | Contains the last creation block hash of each quorumIndex. Ordered by quorumIndex
+| 1-9 | lastQuorumHashPer<br>IndexSize | compactSize uint | Required | Number of elements in `lastCommitmentPerIndex`
+| 32 * `lastQuorum`<br>`HashPer`<br>`IndexSize`  | lastCommitment<br>PerIndex | uint256_t[] |  Required | Contains the most recent commitment for each quorumIndex. Ordered by quorumIndex.
 | 1-9 | quorumSnapshot<br>ListSize | compactSize uint | Required | Number of elements in `quorumSnapshotList`
 | Varies | quorumSnapshot<br>List | CQuorumSnapshot[] | Required | The snapshots required to reconstruct the quorums built at `h` in heightsLists. Ordered from oldest to newest
 | 1-9 | mnListDiff<br>ListSize | compactSize uint | Required | Number of elements in `mnListDiffList`
@@ -903,16 +900,16 @@ Quorum snapshot (h-4c)
 
 MnListDiff (h-4c)
 
-Block hash list
-| 04 ....................................... Block hashes: 4
+Last quorum hash per index
+| 04 ....................................... Quorum hashes: 4
 | c2e276c518b3f8484b237e300094e222
-| 388a095f486c822585a67b1520010000 ......... Block hash 1
+| 388a095f486c822585a67b1520010000 ......... Quorum hash 1
 | bb4f0c5a3efb229bd5a4e4e45ca2228e
-| b11f05c3a6e8fdf9d7d4f499b7010000 ......... Block hash 2
+| b11f05c3a6e8fdf9d7d4f499b7010000 ......... Quorum hash 2
 | aca22eb2c63daa5304cb9cbe6089afe3
-| 99e335f73306735718355ad3d9000000 ......... Block hash 3
+| 99e335f73306735718355ad3d9000000 ......... Quorum hash 3
 | 45bf29bada522857d6e3b2371e1fefc7
-| c01fcef0b6578e7062fd571760010000 ......... Block hash 4
+| c01fcef0b6578e7062fd571760010000 ......... Quorum hash 4
 
 00 ......................................... Quorum snapshot list size: 0
 00 ......................................... Masternode list diff list size: 0

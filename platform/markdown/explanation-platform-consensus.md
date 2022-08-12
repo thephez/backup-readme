@@ -10,8 +10,8 @@ Tendermint was selected as the consensus solution that most closely aligned with
 
 Tendermint is a mostly asynchronous, pBFT-based consensus protocol. Here is a quick overview of how it works:
  
-  * Validators participate by taking turns to propose and validate state transitions by voting on them.
-  * If a validator successfully validates a block, it gets added to the chain.
+  * Validators participate by taking turns to propose. They validate state transitions by voting on them.
+  * If a validator successfully validates a block, it gets added to the chain. Do note that voting on state transitions is indirect. Plus, validators don't work on individual transitions, but vote on a block of transitions. This method is a lot more resource-friendly.
   * If a validator fails to add a block, the protocol automatically moves to the next round, and a new validator is chosen to propose the block.
   * Following the proposal, Tendermint goes through two stages to voting – Pre-vote and Pre-Commit. 
   * A block gets committed when it gets >2/3rd of the total validators pre-committing for it in one round. The sequence of Propose -> Pre-vote -> Pre-commit is one round. 

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash transaction data",
+  "description": "Every Dash block must include one or more transactions. The first one of these transactions must be a coinbase transaction."
  },
  "api": {
   "method": "get",
@@ -54,13 +54,13 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-08-04T19:02:57.816Z",
+ "slugUpdatedAt": "2022-08-07T20:21:31.610Z",
  "_id": "61549206c31f6b00207cf28f",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-12T22:13:44.056Z",
  "createdAt": "2019-10-28T15:47:25.038Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf28b",
  "category": "61549205c31f6b00207cf232",
  "__v": 5,

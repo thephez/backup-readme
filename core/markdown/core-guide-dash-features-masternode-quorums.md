@@ -91,10 +91,23 @@ The specific quorum type used for a feature can vary based on the network. The f
 | Enhanced Hard Fork ([DIP-23](https://github.com/dashpay/dips/blob/master/dip-0023.md))| LLMQ_400_85 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST |
 
 \* Note that the quorum types used on RegTest and Devnets have customizable parameters as described above
-[block:callout]
-{
-  "type": "info",
-  "body": "The quorum formation process operates regardless of quorum usage. So, excluding the \\*TEST\\* and \\*DEVNET\\* quorums, the [DKG process](#llmq-creation-dkg) will be attempted for _all quorum types_ on _all networks_ regardless of whether or not that quorum type is going to be used.",
-  "title": "Quorum formation"
-}
-[/block]
+
+## Quorum formation
+
+The quorum formation process operates regardless of quorum usage. So the [DKG process](#llmq-creation-dkg) will be attempted for _all quorum types enabled on a network_ regardless of whether or not that quorum type is going to be used.
+
+The following table showing which quorums are enabled for each network type is derived from information taken from Dash Core's [chainparams.cpp](https://github.com/dashpay/dash/blob/master/src/chainparams.cpp) file:
+
+| Quorum type | Mainnet | Testnet | Devnet | RegTest |
+|-|:-:|:-:|:-:|:-:|
+| LLMQ_50_60 | x | x | x | - |
+| LLMQ_60_75 | x | x | x | - |
+| LLMQ_400_60 | x | x | x | - |
+| LLMQ_400_85 | x | x | x | - |
+| LLMQ_100_67 | x | x | x | - |
+| LLMQ_DEVNET | - | - | x | - |
+| LLMQ_DEVNET_DIP0024 | - | - | x | - |
+| LLMQ_TEST | - | - | - | x |
+| LLMQ_TEST_INSTANTSEND | - | - | - | x |
+| LLMQ_TEST_V17 | - | - | - | x |
+| LLMQ_TEST_DIP0024 | - | - | - | x |

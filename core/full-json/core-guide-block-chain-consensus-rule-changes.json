@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Consensus Rule Changes",
+  "description": "To maintain consensus, all full nodes validate blocks using the same consensus rules. However, sometimes the consensus rules are changed to introduce new features or prevent network abuse."
  },
  "api": {
   "method": "get",
@@ -54,13 +54,13 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-08-04T18:02:41.993Z",
+ "slugUpdatedAt": "2022-08-08T18:39:14.257Z",
  "_id": "61549206c31f6b00207cf290",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T17:38:28.031Z",
  "createdAt": "2019-10-28T15:47:52.096Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5af39863989da435b05d284d",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf28b",
  "category": "61549205c31f6b00207cf232",
  "__v": 3,
