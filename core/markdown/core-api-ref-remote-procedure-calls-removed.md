@@ -688,4 +688,4 @@ Result:
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
-* [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+* [SignRawTransactionWithKey](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
