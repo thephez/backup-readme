@@ -357,7 +357,7 @@ The special transaction type used for CbTx Transactions is 5 and the extra paylo
 
 | Bytes | Name | Data type |  Description |
 | ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | CbTx version number. Currently set to 1.
+| 2 | version | uint_16 | CbTx version number. Currently set to 2.
 | 4 | height | uint32_t | Height of the block
 | 32 | merkleRootMNList | uint256 | Merkle root of the masternode list
 | 32 | merkleRootQuorums | uint256 | *Added by CbTx version 2 in v0.14.0*<br><br>Merkle root of currently active LLMQs
@@ -437,7 +437,7 @@ The special transaction type used for Quorum Commitment Transactions is 6 and th
 
 | Bytes | Name | Data type |  Description |
 | ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
+| 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1. Will change to 2 after Dash Core v18.0 hard fork.
 | 4 | height | uint32_t | Height of the block
 | Variable | commitment | qfcommit | The payload of the [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit)
 
