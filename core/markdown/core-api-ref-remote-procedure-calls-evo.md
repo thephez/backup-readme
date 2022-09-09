@@ -80,13 +80,13 @@ The `protx diff` RPC calculates a diff and a proof between two masternode list.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`baseBlock` | number (int) | Required<br>(Exactly 1) |
+`baseBlock` | number (int) | Required<br>(Exactly 1) | The starting block height
 
 *Parameter #2---end block height*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`block` | bool | Required<br>(Exactly 1) |
+`block` | number (int) | Required<br>(Exactly 1) | The ending block height
 
 *Result---JSON provider registration transaction details*
 
@@ -121,7 +121,7 @@ Name | Type | Presence | Description
 → →<br>`quorumSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Recovered threshold signature
 → →<br>`membersSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Aggregated BLS signatures from all included commitments
 →<br>`merkleRootMNList` | string (hex) | Required<br>(exactly 1) | Merkle root of the masternode list
-→<br>`merkleRootQuorums` | string (hex) | Required<br>(exactly 1) | *Added in Coinbase Transaction version 2 (Dash Core 0.14.0)*<br><br>Merkle root of the masternode list
+→<br>`merkleRootQuorums` | string (hex) | Optional<br>(0 or 1) | *Added in Coinbase Transaction version 2 (Dash Core 0.14.0)*<br><br>Merkle root of the masternode list.
 
 *Example from Dash Core 0.16.0*
 
