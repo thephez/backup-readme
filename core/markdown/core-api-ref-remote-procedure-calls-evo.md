@@ -362,7 +362,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`height` | bool | Optional<br>(0 or 1) | List ProTxs from this height (default: current chain tip).
+`height` | number (int) | Optional<br>(0 or 1) | List ProTxs from this height (default: current chain tip).
 
 *Result (if `detailed` was `false`)---provider registration transaction hash*
 
