@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "P2SH Scripts",
+  "description": "Pay-to-script-hash (P2SH) transactions were created in 2012 to let a spender create a pubkey script containing a hash of a second script, the redeem script."
  },
  "api": {
   "method": "get",
@@ -54,14 +54,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-15T20:21:29.299Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-18T18:45:36.577Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf293",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T17:16:32.776Z",
  "createdAt": "2019-10-28T17:22:43.394Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf291",
  "category": "61549205c31f6b00207cf232",
  "__v": 1,

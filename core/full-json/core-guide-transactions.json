@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Transactions",
+  "description": "Transactions let users spend duffs. Each transaction is constructed out of several parts which enable both simple direct payments and complex transactions."
  },
  "api": {
   "method": "get",
@@ -110,14 +110,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-15T20:21:31.328Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-18T18:21:38.504Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf291",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T16:25:35.411Z",
  "createdAt": "2019-10-28T17:19:17.674Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf232",
  "__v": 2,
  "parentDoc": null,
