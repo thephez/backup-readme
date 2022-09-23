@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Configuration File",
+  "description": "For development, it's safer and cheaper to use Dash's test network (testnet), regression test mode (regtest), or a developer network (devnet) described here."
  },
  "api": {
   "method": "get",
@@ -54,14 +54,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T06:56:48.896Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-20T18:32:50.861Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf25d",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-11T20:05:15.974Z",
  "createdAt": "2019-10-24T12:55:04.227Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf234",
  "__v": 1,
  "parentDoc": null,

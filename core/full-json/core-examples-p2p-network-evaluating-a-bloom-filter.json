@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Evaluating A Bloom Filter",
+  "description": "Using a bloom filter to find matching data is nearly identical to constructing a bloom filter---except that at each step we check to see if the calculated index bit is set in the existing filter."
  },
  "api": {
   "method": "get",
@@ -54,15 +54,15 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T07:35:34.006Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-20T18:32:51.100Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf266",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-11T21:56:16.639Z",
  "createdAt": "2019-10-24T14:51:38.977Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "parentDoc": "61549206c31f6b00207cf25f",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf234",
  "__v": 1,
  "isApi": false,

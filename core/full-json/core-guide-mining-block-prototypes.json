@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Block Prototypes",
+  "description": "In both solo and pool mining, the mining software needs to get the information necessary to construct block headers."
  },
  "api": {
   "method": "get",
@@ -46,14 +46,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T06:56:50.137Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-20T18:32:51.105Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf285",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T17:43:44.256Z",
  "createdAt": "2019-10-28T13:16:48.737Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf282",
  "category": "61549205c31f6b00207cf232",
  "__v": 0,

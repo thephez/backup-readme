@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Parsing A MerkleBlock",
+  "description": "In the section above, we retrieved a merkle block from the network; now we will parse it. Most of the block header has been omitted."
  },
  "api": {
   "method": "get",
@@ -46,15 +46,15 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T06:56:49.622Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-20T18:32:51.688Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf268",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2020-05-28T20:29:25.572Z",
  "createdAt": "2019-10-24T14:52:51.162Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "parentDoc": "61549206c31f6b00207cf25f",
- "user": "5af39863989da435b05d284d",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf234",
  "__v": 0,
  "isApi": false,

@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "P2SH Multisig",
+  "description": "In this subsection, we will create a P2SH multisig address, spend duffs to it, and then spend those duffs from it to another address."
  },
  "api": {
   "method": "get",
@@ -55,13 +55,13 @@
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-05-18T14:25:28.499Z",
- "revision": 1,
+ "revision": 2,
  "_id": "61549206c31f6b00207cf26e",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2022-05-18T16:31:35.719Z",
  "createdAt": "2019-10-24T15:54:10.361Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "parentDoc": "61549206c31f6b00207cf269",
  "category": "61549205c31f6b00207cf234",
  "__v": 1,

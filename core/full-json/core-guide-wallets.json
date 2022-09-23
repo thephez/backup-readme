@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "",
-  "description": ""
+  "title": "Dash Wallets",
+  "description": "A Dash wallet can refer to either a wallet program or a wallet file."
  },
  "api": {
   "method": "get",
@@ -61,14 +61,14 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T08:11:35.497Z",
- "revision": 1,
+ "slugUpdatedAt": "2022-09-20T18:32:51.441Z",
+ "revision": 2,
  "_id": "61549206c31f6b00207cf29f",
  "version": "61549206c31f6b00207cf2be",
  "updatedAt": "2019-11-13T20:42:29.409Z",
  "createdAt": "2019-10-28T20:00:43.111Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "5b8400d7185d5e00036dcc3b",
+ "user": "62b2101422da70001ee51d95",
  "category": "61549205c31f6b00207cf232",
  "__v": 2,
  "parentDoc": null,
