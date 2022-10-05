@@ -8,7 +8,7 @@ The following sections provide details that developers need to construct valid c
 [block:callout]
 {
   "type": "warning",
-  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).",
+  "body": "There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).",
   "title": "Constraints"
 }
 [/block]
@@ -21,12 +21,10 @@ The following sections provide details that developers need to construct valid c
 }
 [/block]
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "The `$ref` keyword is [temporarily disabled](https://github.com/dashevo/platform/pull/300) for Platform v0.22."
-}
-[/block]
+> 🚧
+>
+> The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
+
 | Keyword | Constraint |
 | - | - |
 | `default` | Restricted - cannot be used (defined in DPP logic) |
@@ -46,7 +44,7 @@ The following sections provide details that developers need to construct valid c
 
 **Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/util/serializer.js#L5).
 
 ## Additional Properties
 
@@ -96,12 +94,15 @@ There are a variety of constraints currently defined for performance and securit
 
 | Description | Value |
 | - | - |
-| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
-| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
-| Minimum property name length | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
-| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
-| Property name first/last characters | \** First: (`A-Z`, `a-z`); Last: Alphanumeric (`A-Z`, `a-z`, `0-9`)**|
+| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
+| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
+| Minimum property name length | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) (Note: minimum length was 3 prior to v0.23) |
+| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
 | Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hyphen (`-`) <br>Underscore (`_`) |
+
+> 📘
+>
+> Note: Prior to Dash Platform v0.23 there were stricter limitations on minimum property name length and the characters that could be used in property names.
 
 ### Required Properties (Optional)
 
@@ -135,21 +136,21 @@ The following example (excerpt from the DPNS contract's `domain` document) demon
 [block:callout]
 {
   "type": "info",
-  "body": "The `indices` object should be excluded for documents that do not require indices."
+  "body": "The `indices` object should be excluded for documents that do not require indices.\n\n**Note:** Dash Platform v0.23 only allows [ascending default ordering](https://github.com/dashevo/platform/pull/435) for indices."
 }
 [/block]
 Document indices may be defined if indexing on document fields is required. 
 
 The `indices` array consists of:
  - One or more objects that each contain:
-  - A unique `name` for the index
-  - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` or `desc`)
-  - An (optional) `unique` element that determines if duplicate values are allowed for the document
+    - A unique `name` for the index
+    - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` only for Dash Platform v0.23)
+    - An (optional) `unique` element that determines if duplicate values are allowed for the document
 [block:callout]
 {
   "type": "warning",
   "title": "Compound Indices",
-  "body": "When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities."
+  "body": "When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities. Dash uses [GroveDB](https://github.com/dashevo/grovedb) which works similarly but does requiring listing all the index's fields in query order by statements."
 }
 [/block]
 
@@ -173,13 +174,13 @@ The `indices` array consists of:
 [/block]
 | Description | Value |
 | - | - |
-| Minimum/maximum length of index `name` | [1](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L381) / [32](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L382) |
-| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L409) |
-| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
-| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L399) |
-| Maximum length of indexed string property | [63](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L22) |
-| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
-| **Note: Dash Platform v0.22. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum number of indexed array items | [1024](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L24) |
+| Minimum/maximum length of index `name` | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L376) / [32](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L377) |
+| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L404) |
+| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
+| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L394) |
+| Maximum length of indexed string property | [63](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L22) |
+| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
+| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum number of indexed array items | [1024](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L24) |
 | Usage of `$id` in an index [disallowed](https://github.com/dashevo/platform/pull/178) | N/A |
 
 **Example**
@@ -201,7 +202,7 @@ This example syntax shows the structure of a documents object that defines two d
 {
   "codes": [
     {
-      "code": "{\n  \"<document name a>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"name\": \"<index name>\",\n        \"properties\": [\n          {\n            \"<field name c>\": \"<asc|desc>\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
+      "code": "{\n  \"<document name a>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"name\": \"<index name>\",\n        \"properties\": [\n          {\n            \"<field name c>\": \"asc\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
       "language": "json"
     }
   ]

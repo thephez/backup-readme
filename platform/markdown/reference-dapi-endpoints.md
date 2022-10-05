@@ -24,7 +24,7 @@
 | 1 | [`getBlock`](reference-dapi-endpoints-core-grpc-endpoints#getblock) | Returns information for the requested block |
 | 1 | [`getStatus`](reference-dapi-endpoints-core-grpc-endpoints#getstatus) | Returns blockchain status information |
 | 1 | [`getTransaction`](reference-dapi-endpoints-core-grpc-endpoints#gettransaction) | Returns details for the requested transaction |
-| 1 | [`subscribeTo` `BlockHeadersWithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#subscribetoblockheaderswithchainlocks) | Returns the requested block headers along with the associated ChainLocks.<br>**Added in Dash Platform v0.22**|
+| 1 | [`subscribeTo` `BlockHeadersWithChainLocks`](reference-dapi-endpoints-core-grpc-endpoints#subscribetoblockheaderswithchainlocks) | Returns the requested block headers along with the associated ChainLocks.<br>*Added in Dash Platform v0.22*|
 | 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-core-grpc-endpoints#subscribetotransactionswithproofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#merkleblock) |
 
 ## Platform gRPC Service
@@ -40,7 +40,7 @@
 | 2 | [`broadcastStateTransition`](reference-dapi-endpoints-platform-endpoints#broadcaststatetransition) | Broadcasts the provided State Transition |
 | 2 | [`getIdentity`](reference-dapi-endpoints-platform-endpoints#getidentity) | Returns the requested identity |
 | 2 | [`getIdentitiesByPublicKeyHashes`](reference-dapi-endpoints-platform-endpoints#getidentitiesbypublickeyhashes) | Returns the identities associated with the provided public key hashes<br>_Added in Dash Platform v0.16_ |
-| 2 | [`getIdentityIdsByPublicKeyHashes`](reference-dapi-endpoints-platform-endpoints#getidentityidsbypublickeyhashes) | Returns the identity IDs associated with the provided public key hashes<br>_Added in Dash Platform v0.16_ |
+| 2 | `getIdentityIdsByPublicKeyHashes` | **Removed in Dash Platform v0.23**<br>Returns the identity IDs associated with the provided public key hashes |
 | 2 | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#getdatacontract) | Returns the requested data contract |
 | 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#getdocuments) | Returns the requested document(s) |
 | 2 | [`waitForStateTransitionResult`](reference-dapi-endpoints-platform-endpoints#waitforstatetransitionresult) | Responds with the state transition hash and either a proof that the state transition was confirmed in a block or an error |
@@ -53,6 +53,6 @@
 [block:callout]
 {
   "type": "info",
-  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.21.0/docs/reference-dapi-endpoints)."
+  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints)."
 }
 [/block]

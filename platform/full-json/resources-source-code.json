@@ -1,8 +1,8 @@
 {
  "metadata": {
   "image": [],
-  "title": "Dash source code",
-  "description": "The Source code produced by Dash Core Group is located in the two GitHub organizations shown here"
+  "title": "",
+  "description": ""
  },
  "api": {
   "method": "get",
@@ -46,18 +46,18 @@
  "link_external": false,
  "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2022-07-02T21:52:57.909Z",
+ "slugUpdatedAt": "2022-10-04T20:41:28.574Z",
  "revision": 1,
- "_id": "61d70ca155d45f029381704d",
- "version": "61d70ca155d45f02938170a3",
+ "_id": "62b226d1fcc32e002300c51b",
+ "version": "62b226d1fcc32e002300c574",
  "updatedAt": "2019-08-01T13:35:56.777Z",
  "createdAt": "2019-08-01T13:32:49.643Z",
  "project": "5bda01cad172e200499a20a9",
- "category": "61d70ca155d45f029381703c",
- "user": "62b2101422da70001ee51d95",
+ "category": "62b226d1fcc32e002300c50a",
+ "user": "5b8400d7185d5e00036dcc3b",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "61d70ca155d45f029381704d",
+ "id": "62b226d1fcc32e002300c51b",
  "body_html": "<div class=\"magic-block-textarea\"><p>Source code produced by Dash Core Group is located in two GitHub organizations:</p>\n<ul>\n<li ><a href=\"https://github.com/dashpay\">Dashpay</a> - Dash Core Blockchain software and documention</li><li ><a href=\"https://github.com/dashevo\">Dashevo</a> - Dash Platform software</li></ul>\n\n</div>"
 }

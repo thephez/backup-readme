@@ -23,6 +23,7 @@ Tendermint has been mainly designed to enable efficient verification and authent
   * The Validator set committing the block.
   * Various results returned by the application.
 
+
 [block:callout]
 {
   "type": "info",
@@ -30,7 +31,6 @@ Tendermint has been mainly designed to enable efficient verification and authent
   "title": "Notes about Tendermint"
 }
 [/block]
-
 ## Tendermint Limitations
 
 While Tendermint provided a great starting point, implementing the classic version of the algorithm would have required us to start from scratch. For example, Tendermint validators use [EdDSA](https://en.wikipedia.org/wiki/EdDSA) cryptographic keys to sign votes during the consensus process. 

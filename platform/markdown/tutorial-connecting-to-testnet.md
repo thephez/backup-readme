@@ -21,7 +21,7 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 {
   "codes": [
     {
-      "code": "npm install dash",
+      "code": "npm install dash@3.23.0-alpha.1",
       "language": "shell"
     }
   ]

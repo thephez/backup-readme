@@ -114,8 +114,13 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 }
 [/block]
 ## getIdentitiesByPublicKeyHashes
-
-**Returns**: [Identity](explanation-identity) information associated with the provided public key hashes
+[block:callout]
+{
+  "type": "success",
+  "body": "In Dash Platform v0.23 the response is an array of identities instead of the previously provided array of CBOR-encoded arrays of identities."
+}
+[/block]
+**Returns**: [Identity](explanation-identity) an array of identities associated with the provided public key hashes
 **Parameters**:
 
 | Name | Type | Required | Description |
@@ -142,12 +147,12 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 {
   "codes": [
     {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\nconst publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\ndpp.initialize().then(() => {\n  client.platform.getIdentitiesByPublicKeyHashes(publicKeysBuffer)\n    .then((response) => {\n      const retrievedIdentity = dpp.identity.createFromBuffer(response.identities[0][0]);\n      console.log(retrievedIdentity.toJSON());\n    });\n});",
+      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst client = new DAPIClient();\nconst dpp = new DashPlatformProtocol();\n\nconst publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\ndpp.initialize().then(() => {\n  client.platform.getIdentitiesByPublicKeyHashes(publicKeysBuffer)\n    .then((response) => {\n      const retrievedIdentity = dpp.identity.createFromBuffer(response.identities[0]);\n      console.log(retrievedIdentity.toJSON());\n    });\n});",
       "language": "javascript",
       "name": "JavaScript (dapi-client)"
     },
     {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentitiesByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst cbor = require('cbor');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst dpp = new DashPlatformProtocol();\n\ndpp.initialize()\n  .then(() => {\n    const platformPromiseClient = new PlatformPromiseClient(\n      'http://seed-1.testnet.networks.dash.org:3010',\n    );\n\n    const publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\n    const publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\n    const getIdentitiesByPublicKeyHashesRequest = new GetIdentitiesByPublicKeyHashesRequest();\n    getIdentitiesByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\n    platformPromiseClient.getIdentitiesByPublicKeyHashes(getIdentitiesByPublicKeyHashesRequest)\n      .then((response) => {\n        const identitiesResponse = response.getIdentitiesList();\n      \tconsole.log(dpp.identity.createFromBuffer(cbor.decode(identitiesResponse[0])[0]).toJSON());\n      })\n      .catch((e) => console.error(e));\n  \t});",
+      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentitiesByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst DashPlatformProtocol = require('@dashevo/dpp');\n\nconst dpp = new DashPlatformProtocol();\n\ndpp.initialize()\n  .then(() => {\n    const platformPromiseClient = new PlatformPromiseClient(\n      'http://seed-1.testnet.networks.dash.org:3010',\n    );\n\n    const publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\n    const publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\n    const getIdentitiesByPublicKeyHashesRequest = new GetIdentitiesByPublicKeyHashesRequest();\n    getIdentitiesByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\n    platformPromiseClient.getIdentitiesByPublicKeyHashes(getIdentitiesByPublicKeyHashesRequest)\n      .then((response) => {\n        const identitiesResponse = response.getIdentitiesList();\n      \tconsole.log(dpp.identity.createFromBuffer(Buffer.from(identitiesResponse[0])).toJSON());\n      })\n      .catch((e) => console.error(e));\n  \t});",
       "language": "javascript",
       "name": "JavaScript (dapi-grpc)"
     },
@@ -178,67 +183,12 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [/block]
 ##getIdentityIdsByPublicKeyHashes
 
-**Returns**: [Identity](explanation-identity) ID(s) associated with the provided public key hashes
-**Parameters**:
+>❗️Endpoint removed
+>
+> The `getIdentityIdsByPublicKeyHashes` endpoint was [removed](https://github.com/dashevo/platform/pull/437) in Dash Platform v0.23. Use the [`getIdentitiesByPublicKeyHashes` endpoint](reference-dapi-endpoints-platform-endpoints#getidentitiesbypublickeyhashes) to retrieve identity information.
+> 
+> Details of the removed endpoint can be seen in the [previous version](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints-platform-endpoints#getidentityidsbypublickeyhashes) of the documentation.
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| `public_key_hashes` | Bytes | Yes | Public key hash (sha256-ripemd160) of an identity's public key |
-| `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested identity IDs |
-
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
-
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  purpose: 0,\n  securityLevel: 0,\n  data: 'A2GTAJk9eAWkMXVCb+rRKXH99POtR5OaW6zqZl7/yozp',\n  readOnly: false\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
-  "title": "Public key hash"
-}
-[/block]
-** Example Request and Response **
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const DAPIClient = require('@dashevo/dapi-client');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst client = new DAPIClient();\n\n// Get identity from hex public key hash\nconst publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nclient.platform.getIdentityIdsByPublicKeyHashes(publicKeysBuffer)\n  .then((response) => {\n    for (const r of response) {\n      console.log(`Identity ID: ${Identifier.from(r[0]).toString()}`);\n    }\n  });",
-      "language": "javascript",
-      "name": "JavaScript (dapi-client)"
-    },
-    {
-      "code": "const {\n  v0: {\n    PlatformPromiseClient,\n    GetIdentityIdsByPublicKeyHashesRequest,\n  },\n} = require('@dashevo/dapi-grpc');\nconst Identifier = require('@dashevo/dpp/lib/Identifier');\n\nconst platformPromiseClient = new PlatformPromiseClient(\n  'http://seed-1.testnet.networks.dash.org:3010',\n);\n\nconst publicKeyHash = 'b51b2072970377a20a0bf3931e66a046a587a22a';\nconst publicKeysBuffer = [Buffer.from(publicKeyHash, 'hex')];\n\nconst getIdentityIdsByPublicKeyHashesRequest = new GetIdentityIdsByPublicKeyHashesRequest();\ngetIdentityIdsByPublicKeyHashesRequest.setPublicKeyHashesList(publicKeysBuffer);\n\nplatformPromiseClient.getIdentityIdsByPublicKeyHashes(getIdentityIdsByPublicKeyHashesRequest)\n  .then((response) => {\n    const identityIdsResponse = response.getIdentityIdsList();\n    const id = cbor.decode(identityIdsResponse[0])[0];\n    console.log(`Identity ID: ${Identifier.from(id)}`);\n  })\n  .catch((e) => console.error(e));",
-      "language": "javascript",
-      "name": "JavaScript (dapi-grpc)"
-    },
-    {
-      "code": "# `public_key_hashes` must be represented in base64\ngrpcurl -proto protos/platform/v0/platform.proto -plaintext \\\n  -d '{\n    \"public_key_hashes\":\"tRsgcpcDd6IKC/OTHmagRqWHoio=\"\n    }' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Platform/getIdentityIdsByPublicKeyHashes",
-      "language": "shell",
-      "name": "gRPCurl"
-    }
-  ]
-}
-[/block]
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Identity ID: J4H8FjbF6c5Mkv2o5TUDi1ufVBLJqXiDQjgbnXRTMNBe",
-      "language": "text",
-      "name": "Response (JavaScript)"
-    },
-    {
-      "code": "{\n  \"identityIds\": [\n    \"gVgg/W2nISbC47UB7vVZNicsUAF8DjPPl40jSO74HyUdCB0=\"\n  ],\n  \"metadata\": {\n    \"height\": \"7220\",\n    \"coreChainLockedHeight\": 696042\n  }\n}",
-      "language": "json",
-      "name": "Response (gRPCurl)"
-    }
-  ]
-}
-[/block]
 ## getDataContract
 
 **Returns**: [Data Contract](explanation-platform-protocol-data-contract) information for the requested data contract
@@ -435,7 +385,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 [/block]
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.21.0/docs/reference-dapi-endpoints-platform-endpoints).
+The `getIdentityIdsByPublicKeyHashes` was deprecated and removed in Dash Platform v0.23. The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints-platform-endpoints).
 
 # Code Reference
 Implementation details related to the information on this page can be found in:

@@ -68,18 +68,12 @@ Valid fields consist of the indices defined for the document being queried. For 
 | in | Matches all document(s) where the value of the field equals any value in the specified array <br>Array may include up to 100 (unique) elements |
 
 ## Array Operators
-[block:callout]
-{
-  "type": "danger",
-  "title": "NOTE",
-  "body": "The following operators are not available in Dash Platform v0.22."
-}
-[/block]
+
 | Name | Description |
 | :-: | - |
-| length | Selects documents if the array field is a specified size (integer) |
-| contains | - Matches arrays that contain all elements specified in the query condition array <br>- 100 element maximum
-| elementMatch | - Matches documents that contain an array field with at least one element that matches all the criteria in the query condition array <br>- Two or more conditions must be provided
+| length | **Not available in Dash Platform v0.22**<br>Selects documents if the array field is a specified size (integer) |
+| contains | **Not available in Dash Platform v0.22**<br>- Matches arrays that contain all elements specified in the query condition array <br>- 100 element maximum
+| elementMatch |  **Not available in Dash Platform v0.22**<br>- Matches documents that contain an array field with at least one element that matches all the criteria in the query condition array <br>- Two or more conditions must be provided
 
 ## Evaluation Operators
 
