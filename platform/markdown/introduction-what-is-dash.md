@@ -19,13 +19,15 @@
   "html": "<div></div>\n\n<style>\n .markdown-body img {\n float: right;\n margin-left: 30px;\n /*width: 25%;*/\n max-width: 25%; /*400px;*/\n height: auto;  \n}\n</style>"
 }
 [/block]
-Dash is a next generation, p2p payments network and cryptocurrency where transactions are recorded on the blockchain: a decentralized, distributed, public ledger. It provides users with a digital currency that is secure, portable, and fungible.
+Dash is the world's first and longest-running [DAO](https://www.investopedia.com/tech/what-dao/), a cryptocurrency that has stood the test of time, a truly decentralized and open source project built without a premine, [ICO](https://www.investopedia.com/terms/i/initial-coin-offering-ico.asp), or venture capital investment. Dash is the only solution on the market today developing a decentralized API as an integral part of its [Web3](https://en.wikipedia.org/wiki/Web3) stack, making it the first choice for developers creating unstoppable apps. 
+
+Dash is built on battle-tested technology including Bitcoin and Cosmos Tendermint, and implements cutting-edge threshold signing features on masternodes to guarantee transaction finality in little more than a second. Dash is fast, private, secure, decentralized, and open-source, your first choice for truly decentralized Web3 services and for earning yield in return for providing infrastructure services.
 
 # Key Advantages
 
 ## Industry Leading Security
 
-The Dash network is the most secure blockchain-based payments network, thanks to technological innovations such as ChainLocks. This mitigates the risk of 51% attacks, forcing any would-be malicious actor to successfully attack both the mining layer and the [masternode](#masternodes) layer. To attack both layers, a malicious actor would have to spend a large amount of Dash in order to dictate false entries to the blockchain, thereby raising the price of Dash in the process. Therefore, a successful attack would be cost prohibitive due to the large percentage of Dash's total market required to attempt it.
+The Dash network is the most secure blockchain-based payments network, thanks to technological innovations such as [ChainLocks](#chainlocks). This mitigates the risk of 51% attacks, forcing any would-be malicious actor to successfully attack both the mining layer and the [masternode](#masternodes) layer. To attack both layers, a malicious actor would have to spend a large amount of Dash in order to dictate false entries to the blockchain, thereby raising the price of Dash in the process. Therefore, a successful attack would be cost prohibitive due to the large percentage of Dash's total market required to attempt it.
 
 ## Stable and Long Lasting Governance
 

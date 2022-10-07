@@ -10,6 +10,10 @@ One or more transactions prefaced by a block header and protected by proof of wo
 ## Block Reward
 The amount that miners may claim as a reward for creating a block. Equal to the sum of the block subsidy (newly available duffs) plus the transactions fees paid by transactions included in the block
 
+## ChainLock
+
+Defined in [DIP8](https://github.com/dashpay/dips/blob/master/dip-0008.md), ChainLocks are a method of using an LLMQ to threshold sign a block immediately after it is propagated by the miner in order to enforce the first-seen rule. This powerful method of mitigating 51% mining attacks results in near-instant consensus on the valid chain.
+
 ## Classical Transactions
 Standard Dash transactions moving Dash on the core blockchain ledger
 
