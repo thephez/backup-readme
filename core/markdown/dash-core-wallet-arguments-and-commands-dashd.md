@@ -807,7 +807,8 @@ dashd [options]
   -whitelistrelay
        Add 'relay' permission to whitelisted inbound peers with default
        permissions. This will accept relayed transactions even when not
-       relaying transactions (default: 1)```
+       relaying transactions (default: 1)
+```
 
 ## Block creation options:
 

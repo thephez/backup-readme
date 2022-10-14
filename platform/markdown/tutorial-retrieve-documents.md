@@ -11,7 +11,7 @@ In this tutorial we will retrieve some of the current data from a data contract.
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get('tutorialContract.note', {\n    limit: 2, // Only retrieve 2 document\n  });\n};\n\ngetDocuments()\n  .then((d) => {\n    for (const n of d) {\n      console.log('Document:\\n', n.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get('tutorialContract.note', {\n    limit: 2, // Only retrieve 2 document\n  });\n};\n\ngetDocuments()\n  .then((d) => {\n    for (const n of d) {\n      console.log('Document:\\n', n.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

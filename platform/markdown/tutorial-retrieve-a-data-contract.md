@@ -13,7 +13,7 @@ In this tutorial we will retrieve the data contract created in the [Register a D
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveContract = async () => {\n  const contractId = '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveContract = async () => {\n  const contractId = '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

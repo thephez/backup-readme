@@ -11,7 +11,7 @@ In this tutorial we will retrieve the identity created in the [Register an Ident
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveIdentity = async () => {\n  return client.platform.identities.get('an identity ID goes here');\n};\n\nretrieveIdentity()\n  .then((d) => console.log('Identity retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveIdentity = async () => {\n  return client.platform.identities.get('an identity ID goes here');\n};\n\nretrieveIdentity()\n  .then((d) => console.log('Identity retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

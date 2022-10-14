@@ -21,7 +21,7 @@ The JavaScript SDK package is available from npmjs.com and can be installed by r
 {
   "codes": [
     {
-      "code": "npm install dash@3.23.0-alpha.1",
+      "code": "npm install dash@0.23-alpha",
       "language": "shell"
     }
   ]
@@ -34,7 +34,7 @@ Create a file named `dashConnect.js` with the following contents. Then run it by
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "dashConnect.js"
     }

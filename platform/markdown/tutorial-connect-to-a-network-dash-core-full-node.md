@@ -4,7 +4,7 @@
 
 # Config File
 
- The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v0.17.0.3](https://github.com/dashpay/dash/releases/tag/v0.17.0.3).
+ The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v18.1.0-RC1](https://github.com/dashpay/dash/releases/tag/v18.1.0-rc.1).
 [block:code]
 {
   "codes": [

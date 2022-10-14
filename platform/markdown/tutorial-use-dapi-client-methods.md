@@ -13,7 +13,7 @@ The following example demonstrates several of the Core DAPI client methods. DAPI
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nasync function dapiClientMethods() {\n  console.log(await client.getDAPIClient().core.getBlockHash(1));\n  console.log(await client.getDAPIClient().core.getBestBlockHash());\n  console.log(await client.getDAPIClient().core.getBlockByHeight(1));\n\n  return client.getDAPIClient().core.getStatus();\n}\n\ndapiClientMethods()\n  .then((d) => console.log('Core status:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nasync function dapiClientMethods() {\n  console.log(await client.getDAPIClient().core.getBlockHash(1));\n  console.log(await client.getDAPIClient().core.getBestBlockHash());\n  console.log(await client.getDAPIClient().core.getBlockByHeight(1));\n\n  return client.getDAPIClient().core.getStatus();\n}\n\ndapiClientMethods()\n  .then((d) => console.log('Core status:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript"
     }
   ]

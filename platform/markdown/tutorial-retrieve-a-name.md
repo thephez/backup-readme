@@ -8,17 +8,17 @@ In this tutorial we will retrieve the name created in the [Register a Name for a
 {
   "codes": [
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveName = async () => {\n  // Retrieve by full name (e.g., myname.dash)\n  return client.platform.names.resolve('<identity name>.dash');\n};\n\nretrieveName()\n  .then((d) => console.log('Name retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveName = async () => {\n  // Retrieve by full name (e.g., myname.dash)\n  return client.platform.names.resolve('<identity name>.dash');\n};\n\nretrieveName()\n  .then((d) => console.log('Name retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "JavaScript - Resolve by Name"
     },
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveNameByRecord = async () => {\n  // Retrieve by a name's identity ID\n  return client.platform.names.resolveByRecord(\n    'dashUniqueIdentityId',\n    '<identity id>',\n  );\n};\n\nretrieveNameByRecord()\n  .then((d) => console.log('Name retrieved:\\n', d[0].toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveNameByRecord = async () => {\n  // Retrieve by a name's identity ID\n  return client.platform.names.resolveByRecord(\n    'dashUniqueIdentityId',\n    '<identity id>',\n  );\n};\n\nretrieveNameByRecord()\n  .then((d) => console.log('Name retrieved:\\n', d[0].toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "JavaScript - Revolve by Record"
     },
     {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client();\n\nconst retrieveNameBySearch = async () => {\n  // Search for names (e.g. `user*`)\n  return client.platform.names.search('user', 'dash');\n};\n\nretrieveNameBySearch()\n  .then((d) => {\n    for (const name of d) {\n      console.log('Name retrieved:\\n', name.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
+      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveNameBySearch = async () => {\n  // Search for names (e.g. `user*`)\n  return client.platform.names.search('user', 'dash');\n};\n\nretrieveNameBySearch()\n  .then((d) => {\n    for (const name of d) {\n      console.log('Name retrieved:\\n', name.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
       "language": "javascript",
       "name": "JavaScript - Search for Name"
     }
