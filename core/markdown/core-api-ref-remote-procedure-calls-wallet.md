@@ -206,6 +206,18 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `passphrase` | string | Optional<br>(0 or 1) | Encrypt the wallet with this passphrase.
 
+*Parameter #5---avoid coin reuse*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`avoid_reuse` | bool | Optional<br>(0 or 1) | Keep track of coin reuse, and treat dirty and clean coins differently with privacy considerations in mind.
+
+*Parameter #6---load on startup*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`load_on_startup` | bool | Optional<br>(0 or 1) | Save wallet name to persistent settings and load on startup. True to add wallet to startup list, false to remove, null to leave unchanged.
+
 *Result---wallet name and any warnings*
 
 Name | Type | Presence | Description
@@ -625,7 +637,13 @@ addlocked | bool | Optional<br>(exactly 1) | Add the balance from InstantSend lo
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is used as the default for watching-only wallets.
+
+*Parameter #5---avoids partial respends*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+avoid_reuse | bool | Optional<br>(0 or 1) | Do not include balance in dirty outputs; addresses are considered dirty if they have previously been used in a transaction.
 
 *Result---the balance in Dash*
 
@@ -891,7 +909,7 @@ TXID | string (hex) | Required<br>(exactly 1) | The TXID of the transaction to g
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets.
 
 *Result---a description of the transaction*
 
@@ -1706,7 +1724,7 @@ Include Empty | bool | Optional<br>(0 or 1) | Set to `true` to display accounts 
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets.
 
 *Parameter #5---limit returned information to a specific address*
 
@@ -1806,7 +1824,8 @@ Include Empty | bool | Optional<br>(0 or 1) | Set to `true` to display accounts 
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets.
+
 
 *Result---account names, balances, and minimum confirmations*
 
@@ -1884,7 +1903,8 @@ Target Confirmations | number (int) | Optional<br>(0 or 1) | Sets the lastblock 
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets.
+
 
 *Parameter #4---include_removed*
 
@@ -2022,7 +2042,7 @@ Skip | number (int) | Optional<br>(0 or 1) | The number of the most recent trans
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default), treat watch-only addresses as if they didn't belong to this wallet
+Include Watch-Only | bool | Optional<br>(0 or 1) | If set to `true`, include watch-only addresses in details and calculations as if they were regular addresses belonging to the wallet.  If set to `false` (the default for non-watching only wallets), treat watch-only addresses as if they didn't belong to this wallet.<br>As of Dash Core 18.1, `true` is the default for watching-only wallets.
 
 *Result---payment details*
 
@@ -2031,7 +2051,7 @@ Name | Type | Presence | Description
 `result` | array | Required<br>(exactly 1) | An array containing objects, with each object describing a **payment** or internal accounting entry (not a transaction).  More than one object in this array may come from a single transaction.  Array may be empty
 →<br>Payment | object | Optional<br>(0 or more) | A payment or internal accounting entry
 → →<br>`address` | string (base58) | Optional<br>(0 or 1) | The address paid in this payment, which may be someone else's address not belonging to this wallet.  May be empty if the address is unknown, such as when paying to a non-standard pubkey script or if this is in the *move* category
-→ →<br>`category` | string | Required<br>(exactly 1) | Set to one of the following values:<br>• `send` if sending payment<br>• `receive` if this wallet received payment in a regular transaction<br>• `generate` if a matured and spendable coinbase<br>• `immature` if a coinbase that is not spendable yet<br>• `orphan` if a coinbase from a block that's not in the local best block chain<br>• `move` if an off-block-chain move made with the [`move` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#move)
+→ →<br>`category` | string | Required<br>(exactly 1) | Set to one of the following values:<br>• `send` if sending payment<br>• `coinjoin` if sending CoinJoin funds<br>• `receive` if this wallet received payment in a regular transaction<br>• `generate` if a matured and spendable coinbase<br>• `immature` if a coinbase that is not spendable yet<br>• `orphan` if a coinbase from a block that's not in the local best block chain
 → →<br>`amount` | number (dash) | Required<br>(exactly 1) | A negative dash amount if sending payment; a positive dash amount if receiving payment (including coinbases)
 → →<br>`label` | string | Optional<br>(0 or 1) | A comment for the address/transaction  
 → →<br>`vout` | number (int) | Optional<br>(0 or 1) | For an output, the output index (vout) for this output in this transaction.  For an input, the output index for the output being spent in its transaction.  Because inputs list the output indexes from previous transactions, more than one entry in the details array may have the same output index.  Not returned for *move* category payments
@@ -2097,20 +2117,18 @@ Result:
 * [ListSinceBlock](core-api-ref-remote-procedure-calls-wallet#listsinceblock): gets all transactions affecting the wallet which have occurred since a particular block, plus the header hash of a block at a particular depth.
 
 # ListUnspent
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)."
-}
-[/block]
+
+> 📘
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**).
+
 
 The [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspent) returns an array of unspent transaction outputs belonging to this wallet. **Note:** as of Bitcoin Core 0.10.0, outputs affecting watch-only addresses will be returned; see the *spendable* field in the results described below.
-[block:callout]
-{
-  "type": "danger",
-  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
-}
-[/block]
+
+>❗️
+>
+> Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details.
+
 *Parameter #1---the minimum number of confirmations an output must have*
 
 Name | Type | Presence | Description
@@ -2159,8 +2177,9 @@ Name | Type | Presence | Description
 → →<br>`spendable` | bool | Required<br>(exactly 1) | Set to `true` if the private key or keys needed to spend this output are part of the wallet.  Set to `false` if not (such as for watch-only addresses)
 → →<br>`solvable` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.13.0*<br><br>Set to `true` if the wallet knows how to spend this output.  Set to `false` if the wallet does not know how to spend the output.  It is ignored if the private keys are available
 → →<br>`desc` | string | Optional<br>(0 or 1) | A descriptor for spending this output
-→ →<br>`coinjoin_rounds` | number (int) | Required<br>(exactly 1) | The number of rounds
+→ →<br>`reused` | bool | Optional<br>(0 or 1) | **Added in Dash Core 18.1.0**<br>Whether this output is reused/dirty (sent to an address that was previously spent from)
 → →<br>`safe` | bool | Required<br>(exactly 1) | *Added in Bitcoin Core 0.15.0*<br><br>Whether this output is considered safe to spend. Unconfirmed transactions from outside keys are considered unsafe and are not eligible for spending by `fundrawtransaction` and `sendtoaddress`.
+→ →<br>`coinjoin_rounds` | number (int) | Required<br>(exactly 1) | The number of rounds
 
 *Example from Dash Core 18.0.0*
 
@@ -2313,6 +2332,12 @@ The [`loadwallet` RPC](core-api-ref-remote-procedure-calls-wallet#loadwallet) lo
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Filename | string | Required<br>(exactly 1) | The wallet directory or .dat file. The wallet can be specified as file/directory basename (which must be located in the `walletdir` directory), or as an absolute path to a file/directory.
+
+*Parameter #2---load on startup*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+load_on_startup  | boolean | Optional<br>(0 or 1) | Save wallet name to persistent settings and load on startup. True to add wallet to startup list, false to remove, null to leave unchanged.
 
 *Result---operation status*
 
@@ -2828,6 +2853,12 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `estimate_mode` | string | Optional<br>(0 or 1) |  The fee estimate mode, must be one of:<br>`UNSET`<br>`ECONOMICAL`<br>`CONSERVATIVE`<br>Default: `UNSET`
 
+*Parameter #10---avoids partial respends*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`avoid_reuse` | boolean | Optional<br>(0 or 1) | Avoid spending from dirty addresses; addresses are considered dirty if they have previously been used in a transaction.
+
 *Result---a TXID of the sent transaction*
 
 Name | Type | Presence | Description
@@ -3166,6 +3197,12 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 Filename | string | Required<br>(exactly 1) | The name of the wallet to unload.
 
+*Parameter #2---load of startup*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+load_on_startup | boolean | Optional<br>(0 or 1) | Save wallet name to persistent settings and load on startup. True to add wallet to startup list, false to remove, null to leave unchanged.
+
 *Result---null on success*
 
 *Example from Dash Core 0.17.0*
@@ -3193,15 +3230,16 @@ null
 }
 [/block]
 
-The [`upgrradetohd` RPC](core-api-ref-remote-procedure-calls-wallet#upgradetohd) upgrades non-HD wallets to HD.
+The [`upgradetohd` RPC](core-api-ref-remote-procedure-calls-wallet#upgradetohd) upgrades non-HD wallets to HD.
 
 *Parameters*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-Mnemonic | string | Optional<br>(0 or 1) | Mnemonic as defined in BIP39 to use for the new HD wallet. Use an empty string `""` to generate a new random mnemonic.
-Mnemonic Passphrase | string | Optional<br>(0 or 1) | Optional mnemonic passphrase as defined in [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#From_mnemonic_to_seed)
-Wallet Passphrase | string | Optional<br>(0 or 1) | If your wallet is encrypted you must have your wallet passphrase here. If your wallet is not encrypted, specifying wallet passphrase will trigger wallet encryption.
+`mnemonic` | string | Optional<br>(0 or 1) | Mnemonic as defined in BIP39 to use for the new HD wallet. Use an empty string `""` to generate a new random mnemonic.
+`mnemonicpassphrase` | string | Optional<br>(0 or 1) | Optional mnemonic passphrase as defined in [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki#From_mnemonic_to_seed)
+`walletpassphrase` | string | Optional<br>(0 or 1) | If your wallet is encrypted you must have your wallet passphrase here. If your wallet is not encrypted, specifying wallet passphrase will trigger wallet encryption.
+`rescan` | boolean | Optional<br>(0 or 1) | Whether to rescan the blockchain for missing transactions or not (default=`false` if mnemonic is empty)
 
 *Result---`true` on success*
 
@@ -3263,7 +3301,7 @@ Name | Type | Presence | Description
 Options | Object | Optional<br>(0 or 1) | Additional options
 → <br>`changeAddress` | string (hex) | Optional<br>(0 or 1) | The dash address to receive the change (default=pool address)
 → <br>`changePosition` | numeric (int) | Optional<br>(0 or 1) | The index of the change output (default=random)
-→ <br>`includeWatching` | bool | Optional<br>(0 or 1) | Also select inputs which are watch only (default=`false`)
+→ <br>`includeWatching` | bool | Optional<br>(0 or 1) | Also select inputs which are watch only (default=`false` for non-watching only wallets and `true` for watching only-wallets)
 → <br>`lockUnspents` | bool | Optional<br>(0 or 1) | Lock selected unspent outputs (default=`false`)
 → <br>`feeRate` | numeric or string | Optional<br>(0 or 1) | Set a specific fee rate in DASH/kB
 → <br>`subtractFeeFromOutputs` | array | Optional<br>(0 or 1) | A json array of integers. The fee will be equally deducted from the amount of each specified output. The outputs are specified by their zero-based index, before any change output is added. Those recipients will receive less Dash than you enter in their corresponding amount field. If no outputs are specified here, the sender pays the fee.
@@ -3469,7 +3507,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`sighashtype` | string | Optional<br>(exactly 0 or 1) | he signature hash type to sign with if not specified by the PSBT. Must be one of the following (default = ALL):<br> - ALL<br> - NONE<br> - SINGLE<br> - ALL\|ANYONECANPAY<br> - NONE\|ANYONECANPAY<br> - SINGLE\|ANYONECANPAY
+`sighashtype` | string | Optional<br>(exactly 0 or 1) | The signature hash type to sign with if not specified by the PSBT. Must be one of the following (default = ALL):<br> - ALL<br> - NONE<br> - SINGLE<br> - ALL\|ANYONECANPAY<br> - NONE\|ANYONECANPAY<br> - SINGLE\|ANYONECANPAY
 
 *Parameter #4---bip32derivs*
 

@@ -18,16 +18,16 @@ dashd [options]
        Print this help message and exit
 
   -alertnotify=<cmd>
-       Execute command when a relevant alert is received or we see a really
-       long fork (%s in cmd is replaced by message)
+       Execute command when an alert is raised (%s in cmd is replaced by
+       message)
 
   -assumevalid=<hex>
        If this block is in the chain assume that it and its ancestors are valid
        and potentially skip their script verification (0 to verify all,
        default:
-       00000000000000105cfae44a995332d8ec256850ea33a1f7b700474e3dad82bc,
+       000000000000000fd8af332029688d4ccb227f481efa6aff1d662358cc4f76c1,
        testnet:
-       0000009303aeadf8cf3812f5c869691dbd4cb118ad20e9bf553be434bafe6a52)
+       000000b572cdcda2a0135e45c88d428c4fec859939f0023a39bb9a83e8b4f550)
 
   -blockfilterindex=<type>
        Maintain an index of compact filters by block (default: 0, values:
@@ -54,8 +54,8 @@ dashd [options]
        are not affected. (default: 0)
 
   -conf=<file>
-       Specify configuration file. Relative paths will be prefixed by datadir
-       location. (default: dash.conf)
+       Specify path to read-only configuration file. Relative paths will be
+       prefixed by datadir location. (default: dash.conf)
 
   -daemon
        Run in the background as a daemon and accept commands
@@ -81,7 +81,7 @@ dashd [options]
        (only useable from configuration file, not command line)
 
   -loadblock=<file>
-       Imports blocks from external blk000??.dat file on startup
+       Imports blocks from external file on startup
 
   -maxmempool=<n>
        Keep the transaction memory pool below <n> megabytes (default: 300)
@@ -98,9 +98,9 @@ dashd [options]
 
   -minimumchainwork=<hex>
        Minimum work assumed to exist on a valid chain in hex (default:
-       00000000000000000000000000000000000000000000549cd3ccb81a55892330,
+       0000000000000000000000000000000000000000000079c96bdb79315818b358,
        testnet:
-       000000000000000000000000000000000000000000000000022f14ac5d56b5ef)
+       00000000000000000000000000000000000000000000000002d68c333d26a1b3)
 
   -par=<n>
        Set the number of script verification threads (-16 to 15, 0 = auto, <0 =
@@ -123,6 +123,13 @@ dashd [options]
        entire blockchain. (default: 0 = disable pruning blocks, 1 =
        allow manual pruning via RPC, >945 = automatically prune block
        files to stay under the specified target size in MiB)
+
+  -settings=<file>
+       Specify path to dynamic settings data file. Can be disabled with
+       -nosettings. File is written at runtime and not meant to be
+       edited by users (use dash.conf instead for custom settings).
+       Relative paths will be prefixed by datadir location. (default:
+       settings.json)
 
   -syncmempool
        Sync mempool from other nodes on start (default: 1)
@@ -152,10 +159,11 @@ dashd [options]
        datadir location.
 
   -banscore=<n>
-       Threshold for disconnecting misbehaving peers (default: 100)
+       Threshold for disconnecting and discouraging misbehaving peers (default:
+       100)
 
   -bantime=<n>
-       Number of seconds to keep misbehaving peers from reconnecting (default:
+       Default duration (in seconds) of manually configured bans (default:
        86400)
 
   -bind=<addr>
@@ -322,13 +330,18 @@ dashd [options]
 
 ## Wallet options:
 
+> 🚧 zapwallettxes
+>
+> Dash Core 18.1.0 removed the `-zapwallettxes` startup option and its functionality. This option was originally intended to allow for the fee bumping of transactions that did not signal RBF. This functionality has been superseded with the [abandon transaction capability](core-api-ref-remote-procedure-calls-wallet#abandontransaction) available via RPC/console or when right-clicking on unconfirmed transactions in Dash-Qt.
+
 ```text
   -avoidpartialspends
        Group outputs by address, selecting all or none, instead of selecting on
        a per-output basis. Privacy is improved as an address is only
        used once (unless someone sends to it after spending from it),
        but may result in slightly higher fees as suboptimal coin
-       selection may result due to the added limitation (default: 0)
+       selection may result due to the added limitation (default: 0
+       (always enabled for wallets with "avoid_reuse" enabled))
 
   -createwalletbackups=<n>
        Number of automatic wallet backups (default: 10)
@@ -374,11 +387,6 @@ dashd [options]
   -walletnotify=<cmd>
        Execute command when a wallet transaction changes (%s in cmd is replaced
        by TxID)
-
-  -zapwallettxes=<mode>
-       Delete all wallet transactions and only recover those parts of the
-       blockchain through -rescan on startup (1 = keep tx meta data e.g.
-       payment request information, 2 = drop tx meta data)
 ```
 
 ## Wallet fee options:
@@ -694,7 +702,7 @@ dashd [options]
        you.
 
   -mocktime=<n>
-       Replace actual time with <n> seconds since epoch (default: 0)
+       Replace actual time with UNIX epoch time(default: 0)
 
   -printpriority
        Log transaction fee per kB when mining blocks (default: 0)
@@ -733,8 +741,58 @@ dashd [options]
 ## Chain selection options:
 
 ```
+  -budgetparams=<masternode>:<budget>:<superblock>
+       Override masternode, budget and superblock start heights (regtest-only)
+
   -devnet=<name>
        Use devnet chain with provided name
+
+  -dip3params=<activation>:<enforcement>
+       Override DIP3 activation and enforcement heights (regtest-only)
+
+  -dip8params=<activation>
+       Override DIP8 activation height (regtest-only)
+
+  -highsubsidyblocks=<n>
+       The number of blocks with a higher than normal subsidy to mine at the
+       start of a chain (default: 0, devnet-only)
+
+  -highsubsidyfactor=<n>
+       The factor to multiply the normal block subsidy by while in the
+       highsubsidyblocks window of a chain (default: 1, devnet-only)
+
+  -llmqchainlocks=<quorum name>
+       Override the default LLMQ type used for ChainLocks. Allows using
+       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)
+
+  -llmqdevnetparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,
+       devnet-only)
+
+  -llmqinstantsend=<quorum name>
+       Override the default LLMQ type used for InstantSend. Allows using
+       InstantSend with smaller LLMQs. (default: llmq_50_60,
+       devnet-only)
+
+  -llmqinstantsenddip0024=<quorum name>
+       Override the default LLMQ type used for InstantSendDIP0024. (default:
+       llmq_60_75, devnet-only)
+
+  -llmqtestinstantsendparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_TEST_INSTANTSEND quorums
+       (default: 3:2, regtest-only)
+
+  -llmqtestparams=<size>:<threshold>
+       Override the default LLMQ size for the LLMQ_TEST quorum (default: 3:2,
+       regtest-only)
+
+  -minimumdifficultyblocks=<n>
+       The number of blocks that can be mined with the minimum difficulty at
+       the start of a chain (default: 0, devnet-only)
+
+  -powtargetspacing=<n>
+       Override the default PowTargetSpacing value in seconds (default: 2.5
+       minutes, devnet-only)
 
   -regtest
        Enter regression test mode, which uses a special chain in which blocks
@@ -743,6 +801,11 @@ dashd [options]
 
   -testnet
        Use the test chain
+
+  -vbparams=<deployment>:<start>:<end>(:<window>:<threshold/thresholdstart>(:<thresholdmin>:<falloffcoeff>))
+       Use given start/end times for specified version bits deployment
+       (regtest-only). Specifying window, threshold/thresholdstart,
+       thresholdmin and falloffcoeff is optional.
 ```
 
 ## Masternode options:
@@ -873,6 +936,21 @@ dashd [options]
   -rpcuser=<user>
        Username for JSON-RPC connections
 
+  -rpcwhitelist=<whitelist>
+       Set a whitelist to filter incoming RPC calls for a specific user. The
+       field <whitelist> comes in the format: <USERNAME>:<rpc 1>,<rpc
+       2>,...,<rpc n>. If multiple whitelists are set for a given user,
+       they are set-intersected. See -rpcwhitelistdefault documentation
+       for information on default whitelist behavior.
+
+  -rpcwhitelistdefault
+       Sets default behavior for rpc whitelisting. Unless rpcwhitelistdefault
+       is set to 0, if any -rpcwhitelist is set, the rpc server acts as
+       if all rpc users are subject to empty-unless-otherwise-specified
+       whitelists. If rpcwhitelistdefault is set to 1 and no
+       -rpcwhitelist is set, rpc server acts as if all rpc users are
+       subject to empty whitelists.
+
   -rpcworkqueue=<n>
        Set the depth of the work queue to service RPC calls (default: 16)
 
@@ -924,20 +1002,6 @@ dashd [options]
   -walletrejectlongchains
        Wallet will not create transactions that violate mempool chain limits
        (default: 0)
-```
-
-## Quorum Recovery Options
-
-```text
-  -llmq-data-recovery=<n>
-       Enable automated quorum data recovery (default: 1)
-
-  -llmq-qvvec-sync=<quorum_name:mode>
-       Defines from which LLMQ type the masternode should sync quorum
-       verification vectors. Can be used multiple times with different
-       LLMQ types. Mode: 0 (sync always from all quorums of the type
-       defined by "quorum_name"), 1 (sync from all quorums of the type
-       defined by "quorum_name" if member of any of the quorums)
 ```
 
 # Network Dependent Options

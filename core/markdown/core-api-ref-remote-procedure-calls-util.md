@@ -78,17 +78,11 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `descriptor` | string | Required<br>(exactly 1) | The [descriptor](https://github.com/dashpay/dash/blob/master/doc/descriptors.md)
 
-*Parameter #2---beginning of range*
+*Parameter #2---range*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`begin` | number | Optional<br>(0 or 1) | If a ranged descriptor is used, this specifies the beginning of the range to import
-
-*Parameter #3---end of range*
-
-Name | Type | Presence | Description
---- | --- | --- | ---
-`end` | number | Optional<br>(0 or 1) | If a ranged descriptor is used, this specifies the end of the range to import
+`range` | number | Optional<br>(0 or 1) | If a ranged descriptor is used, this specifies the end or the range (in [begin,end] notation) to derive (e.g. "[0,2]").
 
 *Result---the derived addresses*
 

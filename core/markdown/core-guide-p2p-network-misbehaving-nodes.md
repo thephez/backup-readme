@@ -1,4 +1,20 @@
-Take note that for both types of broadcasting, mechanisms are in place to punish misbehaving <<glossary:peers>> who take up bandwidth and computing resources by sending false information. If a peer gets a banscore above the `-banscore=<n>` threshold (100 by default), they will be banned for the number of seconds defined by `-bantime=<n>`, which is 86,400 by default (24 hours).
+> 📘 Changes regarding misbehaving peers
+>
+> Dash Core 18.1.0 introduced changes to how misbehaving peers are treated.
+
+Take note that for both types of broadcasting, mechanisms are in place to punish misbehaving <<glossary:peers>> who take up bandwidth and computing resources by sending false information. Since Dash Core 18.1.0, peers that misbehave (e.g. send us invalid blocks) are referred to as discouraged nodes in log output. They are not strictly banned: incoming connections are still allowed from them, but they're preferred for eviction.
+
+Furthermore, a few additional changes are introduced to how discouraged addresses are treated:
+
+- Discouraging an address does not time out automatically after 24 hours (or the `-bantime` setting). Depending on traffic from other peers, discouragement may time out at an indeterminate time.
+
+- Discouragement is not persisted over restarts.
+
+- There is no method to list discouraged addresses. They are not returned by the [`listbanned` RPC](core-api-ref-remote-procedure-calls-network#listbanned).
+
+- Discouragement cannot be removed with the [`setban remove` RPC](core-api-ref-remote-procedure-calls-network#setban) command. If you need to remove a discouragement, you can remove all discouragements by stopping and restarting your node.
+
+ If a peer gets a banscore above the `-banscore=<n>` threshold (100 by default), they will be disconnected and discouraged.
 
 | Type | Misbehavior | Ban Score | Description |
 | ---- | ----------- | --------- | ----------- |

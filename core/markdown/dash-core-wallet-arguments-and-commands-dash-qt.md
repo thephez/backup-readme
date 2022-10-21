@@ -15,9 +15,6 @@ Dash Core QT GUI includes all the same command line options as [dashd](dash-core
 ## UI Options:
 
 ```text
-  -allowselfsignedrootcertificates
-       Allow self signed root certificates (default: 0)
-
   -choosedatadir
        Choose data directory on startup (default: 0)
 
@@ -53,9 +50,6 @@ Dash Core QT GUI includes all the same command line options as [dashd](dash-core
 
   -resetguisettings
        Reset all settings changed in the GUI
-
-  -rootcertificates=<file>
-       Set SSL root certificates for payment request (default: -system-)
 
   -splash
        Show splash screen on startup (default: 1)

@@ -27,6 +27,29 @@ Result:
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash): returns the header hash of a block at the given height in the local best block chain.
 
+# dumptxoutset
+
+Write the serialized UTXO set to disk.
+
+*Parameter #1---path to output file*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+path | string (hex) | Required<br>(exactly 1) | Path to the output file. If relative, will be prefixed by datadir.
+
+*Result*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`coins_written` | number (int) | Required<br>(exactly 1) | the number of coins written in the snapshot
+→<br>`base_hash` | string (hex) | Required<br>(exactly 1) | the hash of the base of the snapshot
+→<br>`base_height` | number (int) | Required<br>(exactly 1) | the height of the base of the snapshot
+→<br>`path` | string (str) | Required<br>(exactly 1) | the absolute path that the snapshot was written to
+
+*Example from Dash Core 18.1.0*
+
+> dash-cli dumptxoutset utxo.dat
+
 # GetBestChainLock
 
 The [`getbestchainlock` RPC](core-api-ref-remote-procedure-calls-blockchain#getbestchainlock) returns the information about the best ChainLock.
@@ -550,12 +573,11 @@ Result:
 *Added in Dash Core 18.0.0*
 
 The [`getblockfilter` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockfilter) retrieves a [BIP157](https://github.com/bitcoin/bips/blob/master/bip-0157.mediawiki) content filter for a particular block.
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires -blockfilterindex Dash Core command-line/configuration-file parameter to be enabled."
-}
-[/block]
+
+> 📘
+>
+> Requires the `-blockfilterindex` Dash Core command-line/configuration-file parameter to be enabled.
+
 *Parameter #1---blockhash*
 
 Name | Type | Presence | Description
@@ -592,13 +614,10 @@ Result:
 ```
 
 # GetBlockHashes
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires `timestampindex` Dash Core command-line/configuration-file parameter to be enabled.",
-  "title": ""
-}
-[/block]
+
+> 📘
+>
+> Requires `timestampindex` Dash Core command-line/configuration-file parameter to be enabled.
 
 *Added in Dash Core 0.12.1*
 
@@ -890,16 +909,12 @@ Result:
 # GetBlockStats
 
 The [`getblockstats` RPC](core-api-ref-remote-procedure-calls-blockchain#getblockstats) computes per block statistics for a given window.
-[block:callout]
-{
-  "type": "danger",
-  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
-}
-[/block]
-All amounts are in duffs.
 
-It won't work for some heights with pruning. It won't work without `-txindex` for
-`utxo_size_inc`, `*fee` or `*feerate` stats.
+>❗️
+>
+> Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details.
+
+This RPC won't work for some heights if pruning is enabled. Since Dash Core 18.1, `-txindex` is no longer required and it works for all non-pruned blocks. 
 
 *Parameter #1---hash_or_height*
 
@@ -914,6 +929,10 @@ Name | Type | Presence | Description
 stats | array | optional | Values to plot, by default all values (see result below)
 
 *Result---a JSON object containing the requested statistics*
+
+> 📘
+>
+> Note: all amounts are in duffs.
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
@@ -1753,13 +1772,11 @@ Result:
 * [GetRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction): gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
 # GetSpentInfo
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires `spentindex` Dash Core command-line/configuration-file parameter to be enabled.",
-  "title": ""
-}
-[/block]
+
+> 📘
+>
+> Requires `spentindex` Dash Core command-line/configuration-file parameter to be enabled.
+
 *Added in Dash Core 0.12.1*
 
 The [`getspentinfo` RPC](core-api-ref-remote-procedure-calls-blockchain#getspentinfo) returns the txid and index where an output is spent (requires `spentindex` to be enabled).
@@ -1947,7 +1964,11 @@ f0476ba0e00105
 
 The [`gettxoutsetinfo` RPC](core-api-ref-remote-procedure-calls-blockchain#gettxoutsetinfo) returns statistics about the confirmed unspent transaction output (UTXO) set. Note that this call may take some time and that it only counts outputs from confirmed transactions---it does not count outputs from the memory pool.
 
-*Parameters: none*
+*Parameter #1---Selecting UTXO set hash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+hash_type | string | Optional<br>(0 or 1) | Which UTXO set hash should be calculated. Options: 'hash_serialized_2' (the legacy algorithm), 'muhash', 'none'.
 
 *Result---statistics about the UTXO set*
 
@@ -1959,7 +1980,8 @@ Name | Type | Presence | Description
 →<br>`transactions` | number (int) | Required<br>(exactly 1) | The number of transactions with unspent outputs
 →<br>`txouts` | number (int) | Required<br>(exactly 1) | The number of unspent transaction outputs
 →<br>`bogosize` | number (int) | Required<br>(exactly 1) | A meaningless metric for UTXO set size
-→<br>`hash_serialized_2` | string (hex) | Required<br>(exactly 1) | A SHA256(SHA256()) hash of the serialized UTXO set; useful for comparing two nodes to see if they have the same set (they should, if they always used the same serialization format and currently have the same best block).  The hash is encoded as hex in RPC byte order
+→<br>`hash_serialized_2` | string (hex) | Optional<br>(exactly 1) |  The serialized hash (only present if 'hash_serialized_2' hash_type is chosen)
+→<br>`muhash` | string (hex) | Optional<br>(exactly 1) | A SHA256(SHA256()) The serialized hash (only present if 'muhash' hash_type is chosen).
 →<br>`disk_size` | number (int) | Required<br>(exactly 1) | The estimated size of the chainstate on disk
 →<br>`total_amount` | number (Dash) | Required<br>(exactly 1) | The total amount of Dash in the UTXO set
 

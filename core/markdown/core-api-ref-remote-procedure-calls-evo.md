@@ -88,6 +88,13 @@ Name | Type | Presence | Description
 --- | --- | --- | ---
 `block` | number (int) | Required<br>(Exactly 1) | The ending block height
 
+*Parameter #3---extended fields*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`extended` | boolean | Optional<br>(0 or 1) | **Added in Dash Core 18.1.0**<br>Show additional fields (e.g. `payoutAddress`) (default=`false`)
+
+
 *Result---JSON provider registration transaction details*
 
 Name | Type | Presence | Description
@@ -105,6 +112,8 @@ Name | Type | Presence | Description
 → →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | The operator public key
 → →<br>`votingAddress` | string (hex) | Required<br>(exactly 1) | The voting address
 → →<br>`isValid` | bool | Required<br>(exactly 1) | Set to `true` if masternode is valid
+→ →<br>`payoutAddress` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 18.1.0**<br>The owner's payout address
+→ →<br>`operatorPayoutAddress` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 18.1.0**<br>The operator's payout address
 →<br>`deletedQuorums` | array | Required<br>(exactly 1) | An array of deleted quorums
 → →<br>`llmqType` | number | Required<br>(exactly 1) | The quorum type
 → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
@@ -113,15 +122,15 @@ Name | Type | Presence | Description
 → →<br>`llmqType` | number | Required<br>(exactly 1) | The quorum type
 → →<br>`quorumHash` | string (hex) | Required<br>(exactly 1) | The hash of the quorum
 → →<br>`signersCount` | number | Required<br>(exactly 1) | The number of signers for the quorum
-→ →<br>`signers` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Bitset representing the aggregated signers of this final commitment
+→ →<br>`signers` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br>Bitset representing the aggregated signers of this final commitment
 → →<br>`validMembersCount` | number | Required<br>(exactly 1) | The number of valid members in the quorum
-→ →<br>`validMembers` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Bitset of valid members in this commitment
+→ →<br>`validMembers` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br>Bitset of valid members in this commitment
 → →<br>`quorumPublicKey` | string (hex) | Required<br>(exactly 1) | The public key of the quorum
-→ →<br>`quorumVvecHash` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The SHA256 hash of the quorum verification vector
-→ →<br>`quorumSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Recovered threshold signature
-→ →<br>`membersSig` | string (hex) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>Aggregated BLS signatures from all included commitments
+→ →<br>`quorumVvecHash` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br>The SHA256 hash of the quorum verification vector
+→ →<br>`quorumSig` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br>Recovered threshold signature
+→ →<br>`membersSig` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br>Aggregated BLS signatures from all included commitments
 →<br>`merkleRootMNList` | string (hex) | Required<br>(exactly 1) | Merkle root of the masternode list
-→<br>`merkleRootQuorums` | string (hex) | Optional<br>(0 or 1) | *Added in Coinbase Transaction version 2 (Dash Core 0.14.0)*<br><br>Merkle root of the masternode list.
+→<br>`merkleRootQuorums` | string (hex) | Optional<br>(0 or 1) | *Added in Coinbase Transaction version 2 (Dash Core 0.14.0)*<br>Merkle root of the masternode list.
 
 *Example from Dash Core 0.16.0*
 
@@ -1090,50 +1099,47 @@ Name | Type | Presence | Description
 →<br>`members` | array | Required<br>(exactly 1) | An array containing quorum member details
 → →<br>Member | object | Required<br>(1 or more) | An object describing a particular member
 → → →<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The masternode's Provider Registration transaction hash
+→ → →<br>`service` | string | Required<br>(exactly 1) | **Added in Dash Core 18.1.0**<br>The masternode's IP:Port
 → → →<br>`pubKeyOperator` | string (hex) | Required<br>(exactly 1) | *Added in Dash Core 0.15.0*<br>The masternode's Operator public key
 → → →<br>`valid` | bool | Required<br>(exactly 1) | Indicates if the member is valid
 → → →<br>`pubKeyShare` | string | Optional<br>(0 or 1) | Member public key share
 →<br>`quorumPublicKey` | string | Required<br>(exactly 1) | Quorum public key
 →<br>`secretKeyShare` | string | Optional<br>(exactly 1) | Quorum secret key share
 
-*Example from Dash Core 18.0.0*
+*Example from Dash Core 18.1.0*
 
 ```bash
 dash-cli -testnet quorum info 1 \
-  00000239f771a00b78d80dcacba7a49d2a52d61aade1610e90978c08dd6e8445 true
+  000000ebd10368ca387ce380539fad9c8ba21108a3bfd6fedeecb60d28f56ae9 true
 ```
 
 Result (truncated):
 ```json
 {
-  "height": 6024,
-  "type": "llmq_devnet",
-  "quorumHash": "00000239f771a00b78d80dcacba7a49d2a52d61aade1610e90978c08dd6e8445",
+  "height": 819240,
+  "type": "llmq_50_60",
+  "quorumHash": "000000ebd10368ca387ce380539fad9c8ba21108a3bfd6fedeecb60d28f56ae9",
   "quorumIndex": 0,
-  "minedBlock": "0000012197b7ca6360af3756c6a49c217dbbdf8b595fd55e0fcef7ffcd546044",
+  "minedBlock": "00000548588369399691ad308a3c588a7bf842a40347e23ef40655e315898146",
   "members": [
     {
-      "proTxHash": "8abb1f227473e188d0e3ff39201badd49d22f8b323f9cfdd096d109f50614b6c",
-      "pubKeyOperator": "0e61e7e684c5dcfe2864f1fdadd36aa5ec4485cfc38bfdaa65a9cf52aab8da7305b8a5a04dd7521213e41b57e060d8f2",
+      "proTxHash": "f77ec12ec8adb91a3a158c5f9cc3f7e2521d65eac6cda1e44763daa603a77570",
+      "service": "35.89.202.171:19999",
+      "pubKeyOperator": "16f8048e511e7c0c2b495a9b20030b315d75bca283b70af25d16c8809c7f2a786225c2fe47ff1c92aa8ebf586be91abc",
       "valid": true,
-      "pubKeyShare": "094f26fcbb01adebf11b810a67f808b4b65de9cfca27674231369b84cdff775cd55105fb552f2c2d63ab9f61d9487530"
-    },
-    {
-      "proTxHash": "8675ed9f95526868ce4cf88ffe5a26ccff90b7623516735219c6e16731e4288a",
-      "pubKeyOperator": "9249c6e4858c09a5c31ea59e7390dea91d3e0a31b3e97d838c0933201893d27d674bf00b3bffc57cb7021a6e7c03b44a",
-      "valid": true,
-      "pubKeyShare": "91f9b4d7213a8f1bcdea2e0784c80e3a9fc0216c8413b86d7a8d954b8cbec4e37dc1ec43dd71712f99f7d1a893933160"
+      "pubKeyShare": "12c305fdc5ec06785d2e89a8b64c291128e4a2034889e9f1539d9194954051a304d8bf1649a2d3a95aac200884e8e99d"
     },
     {"Truncated data":"..."},
     {
-      "proTxHash": "9c3173a86ef146920ad37f3b0c4f9be0f08063c1d194aaa9602d766a5de782a9",
-      "pubKeyOperator": "935bb9eae3b52bf19057f6276898519fe5549e721d564c9fcf993197a12122e220d876e08d740530177cf409750113dd",
+      "proTxHash": "2cd3833e1cef622e875096c70d6eb6c7083a250a6b26ca27edb3aa21ac05e3d1",
+      "service": "89.47.162.137:19999",
+      "pubKeyOperator": "8fc1d0cea417ed963e50d876a38bf0846b536b7e8809826e163bc9ea0f749ea8ebe00c6642e71bb84000549bda5bb1d0",
       "valid": true,
-      "pubKeyShare": "0ca7673309383783e523a318714b93843debbe4b57c51d5642c5b2a72f1947cb7c7680454934e514bf5ece919029a16b"
+      "pubKeyShare": "8662927148ed33b8f0000f1666c277e14df9838c9dce4e3fb273866603b93502e70108408f81698e0b47cb3b5aff3a30"
     }
   ],
-  "quorumPublicKey": "092bf17ce141bb46d363c7bb9e0b87985d2faece00f3f2cf5c09bb2aca3a198fb7e856cd038819ee356d191f09f9f6fc",
-  "secretKeyShare": "15df749d58605367732cc1b77f18fa1fbecc368e9dd21343eb1a3b9be3f29b71"
+  "quorumPublicKey": "18401a5c5d8d8145cea2843e0c37f10d06de642ce7665599ad35dce9f7a3027b42375a9e138e185867bfe5359fd952f2",
+  "secretKeyShare": "4d39c4c1cb856a5e2d96efffb4cf3695b57b5d0fb4e289e7b2be3b7592a6dfa6"
 }
 ```
 

@@ -742,7 +742,7 @@ Name | Type | Presence | Description
 Options | Object | Optional<br>(0 or 1) | Additional options
 → <br>`changeAddress` | string | Optional<br>(0 or 1) | The address to receive the change. If not set, the address is chosen from address pool
 → <br>`changePosition` | nummeric (int) | Optional<br>(0 or 1) | The index of the change output. If not set, the change position is randomly chosen
-`includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false`
+`includeWatching` | bool | Optional<br>(0 or 1) | Inputs from watch-only addresses are also considered. The default is `false` for non-watching-only wallets and `true` for watching-only wallets
 → <br>`lockUnspent` | bool | Optional<br>(0 or 1) | The selected outputs are locked after running the rpc call. The default is `false`
 → <br>`reserveChangeKey` | bool | Optional<br>(0 or 1) | **Removed in Dash Core 0.17.0**
 → <br>`feeRate` | numeric (bitcoins) | Optional<br>(0 or 1) | The specific feerate  you are willing to pay (BTC per KB). If not set, the wallet determines the fee
@@ -789,16 +789,13 @@ Result:
 
 The [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction) gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so the RPC may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
 
-Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if -txindex is enabled and the transaction is in a block in the blockchain.
+Note: By default this function only works for mempool transactions. When called with a blockhash argument, getrawtransaction will return the transaction if the specified block is available and the transaction is found in that block. When called without a blockhash argument, getrawtransaction will return the transaction if it is in the mempool, or if `-txindex` is enabled and the transaction is in a block in the blockchain. Use the [`gettransaction` RPC](core-api-ref-remote-procedure-calls-wallet#gettransaction) for wallet transactions.
 
-As of Dash Core 18.0.0, transactions with unspent outputs will no longer be included unless -txindex is enabled.
-[block:callout]
-{
-  "type": "warning",
-  "title": "Reindex note",
-  "body": "If you begin using `txindex=1` after downloading the block chain, you must rebuild your indexes by starting Dash Core with the option  `-reindex`.  This may take several hours to complete, during which time your node will not process new blocks or transactions. This reindex only needs to be done once."
-}
-[/block]
+As of Dash Core 18.0.0, transactions with unspent outputs will no longer be included unless `-txindex` is enabled.
+
+> 🚧 Reindex note
+>
+> If you begin using `txindex=1` after downloading the block chain, you must rebuild your indexes by starting Dash Core with the option  `-reindex`.  This may take several hours to complete, during which time your node will not process new blocks or transactions. This reindex only needs to be done once.
 
 *Parameter #1---the TXID of the transaction to get*
 
@@ -1312,13 +1309,23 @@ Result:
 
 # UTXOUpdatePSBT
 
-The [`utxoupdatepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#utxoupdatepsbt) updates a PSBT with UTXOs retrieved from the UTXO set or the mempool.
+The [`utxoupdatepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#utxoupdatepsbt) updates a PSBT with  data from output descriptors, UTXOs retrieved from the UTXO set or the mempool.
 
 *Parameter #1---psbt*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
 psbt | string | Required | A base64 string of a PSBT
+
+*Parameter #2---descriptors*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+psbt | array | Optional<br>(0 or 1) | An array of either strings or objects
+→<br>Output descriptor | string | Optional<br>(0 or 1) | An output descriptor
+→<br>Output object | object | Optional<br>(0 or 1) | An object with an output descriptor and extra information
+→ →<br>`desc` | string | Required<br>(exactly 1) | An output descriptor
+→ →<br>`range`<br>(`n` or `[n,n]`) | numeric or array | Optional<br>(0 or 1) | Up to what index HD chains should be explored (either end or [begin,end]) (default=1000)
 
 *Result---the raw transaction in base64*
 

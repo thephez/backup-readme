@@ -60,7 +60,7 @@ Result (no output from `dash-cli` because result is set to `null`).
 
 *See also*
 
-* [ListBanned](/docs/core-api-ref-remote-procedure-calls-network#listbanned): lists all banned IPs/Subnets.
+* [ListBanned](/docs/core-api-ref-remote-procedure-calls-network#listbanned): lists all manually banned IPs/Subnets.
 * [SetBan](/docs/core-api-ref-remote-procedure-calls-network#setban): attempts add or remove a IP/Subnet from the banned list.
 
 # DisconnectNode
@@ -562,7 +562,11 @@ Result (edited to show only a single entry, with IP addresses changed to
 
 *Added in Bitcoin Core 0.12.0*
 
-The [`listbanned` RPC](core-api-ref-remote-procedure-calls-network#listbanned) lists all banned IPs/Subnets.
+The [`listbanned` RPC](core-api-ref-remote-procedure-calls-network#listbanned) lists all **_manually banned_** IPs/Subnets.
+
+> 📘 Changes regarding misbehaving peers
+>
+> Dash Core 18.1.0 introduced changes to how misbehaving peers are treated. As a result they are no longer included in this RPC response. See the [release notes](https://github.com/dashpay/dash/blob/v18.1.0/doc/release-notes.md#changes-regarding-misbehaving-peers) for additional details.
 
 *Parameters: none*
 
@@ -575,11 +579,9 @@ Name | Type | Presence | Description
 → →<br>`address` | string | Required<br>(exactly 1) | The IP/Subnet of the entry
 → →<br>`banned_until` | number<br>(int) | Required<br>(exactly 1) | The Unix epoch time when the entry was added to the ban list
 → →<br>`ban_created` | number<br>(int) | Required<br>(exactly 1) | The Unix epoch time until the IP/Subnet is banned
-→ →<br>`ban_reason` | string | Required<br>(exactly 1) | Set to one of the following reasons:<br>• `node misbehaving` if the node was banned by the client because of DoS violations<br>• `manually added` if the node was manually banned by the user
+→ →<br>~~`ban_reason`~~ | ~~string~~ | ~~Required<br>(exactly 1)~~ | **Removed in Dash Core 18.1.0**<br>~~Set to one of the following reasons:<br>• `node misbehaving` if the node was banned by the client because of DoS violations<br>• `manually added` if the node was manually banned by the user~~
 
-*Examples from Dash Core 0.12.2*
-
-The default (`false`):
+*Examples from Dash Core 18.1.0*
 
 ```bash
 dash-cli listbanned
@@ -593,13 +595,11 @@ Result:
     "address": "192.0.2.201/32",
     "banned_until": 1507906175,
     "ban_created": 1507819775,
-    "ban_reason": "node misbehaving"
   },
   {
     "address": "192.0.2.101/32",
     "banned_until": 1507906199,
     "ban_created": 1507819799,
-    "ban_reason": "manually added"
   }
 ]
 ```
@@ -701,7 +701,7 @@ Result (no output from `dash-cli` because result is set to `null`).
 
 *See also*
 
-* [ListBanned](/docs/core-api-ref-remote-procedure-calls-network#listbanned): lists all banned IPs/Subnets.
+* [ListBanned](/docs/core-api-ref-remote-procedure-calls-network#listbanned): lists all manually banned IPs/Subnets.
 * [ClearBanned](/docs/core-api-ref-remote-procedure-calls-network#clearbanned): clears list of banned nodes.
 
 # SetNetworkActive

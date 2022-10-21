@@ -689,3 +689,56 @@ Result:
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SendRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction): validates a transaction and broadcasts it to the peer-to-peer network.
 * [SignRawTransactionWithKey](/docs/core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
+
+# Generate
+[block:callout]
+{
+  "type": "danger",
+  "body": "**Warning:** **_Removed in Dash Core 18.1.0_**"
+}
+[/block]
+The [`generate` RPC](core-api-ref-remote-procedure-calls-generating#generate) mines blocks immediately (before the RPC call returns).
+
+*Parameter #1---the number of blocks to generate*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`numblocks` | number (int) | Required<br>(exactly 1) | The number of blocks to generate.  The RPC call will not return until all blocks have been generated.
+
+*Parameter #2---the number of iterations*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`maxtries` | number (int) | Required<br>(exactly 1) | The number of iterations to try (default = 1000000).
+
+*Result---the generated block header hashes*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | array | Required<br>(exactly 1) | An array containing the block header hashes of the generated blocks (may be empty if used with `generate 0`)
+→<br>Header Hashes | string (hex) | Required<br>(1 or more) | The hashes of the headers of the blocks generated in regtest mode, as hex in RPC byte order
+
+*Example from Dash Core 0.12.2*
+
+Using regtest mode, generate 2 blocks:
+
+```bash
+dash-cli -regtest generate 2
+```
+
+Result:
+
+```json
+[
+  "55a4c47da8151c0823eec22c41ebc6d690a0288302179625bae9eb6f36808266",
+  "3f07b9aa4e3bcd5518610945c4a6b32699acac71b1762605ff79ba553111fc79"
+]
+```
+
+*See also*
+
+* [GenerateToAddress](/docs/core-api-ref-remote-procedure-calls-generating#generatetoaddress): mines blocks immediately to a specified address.
+* [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software.
+* [GetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#getgenerate): was removed in Dash Core 0.12.3.
+* [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information.
+* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#setgenerate): was removed in Dash Core 0.12.3.

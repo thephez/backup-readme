@@ -17,7 +17,7 @@ The configuration file is not automatically created; you can create it using you
 
 # Command Line Arguments
 
-The following sections provide details of the command line arguments for each of the four components distributed in Dash Core releases.
+The following sections provide details of the command line arguments for each of the five components distributed in Dash Core releases.
 
 | Component | Description |
 | - | - |
@@ -25,6 +25,7 @@ The following sections provide details of the command line arguments for each of
 | dash-qt | Dash Core wallet GUI |
 | dash-cli | Dash Core RPC Client |
 | dash-tx | Dash Core transaction utility |
+| dash-wallet | Dash Core wallet utility |
 
 ## dashd
 
@@ -64,4 +65,17 @@ See [here](dash-core-wallet-arguments-and-commands-dash-tx) for all option detai
 Usage:
   dash-tx [options] <hex-tx> [commands]  Update hex-encoded dash transaction
   dash-tx [options] -create [commands]   Create hex-encoded dash transaction
+```
+
+## dash-wallet
+
+> 👍
+>
+> Introduced in Dash Core 18.0.0
+
+See [here](dash-core-wallet-arguments-and-commands-dash-wallet) for all option details.
+
+```bash
+Usage:
+  dash-wallet [options] <command>
 ```

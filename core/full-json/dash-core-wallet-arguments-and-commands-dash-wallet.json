@@ -1,0 +1,63 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": []
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "title": "dash-wallet",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-core-wallet-arguments-and-commands-dash-wallet",
+ "excerpt": "",
+ "body": "The `dash-wallet` application is an offline tool for creating and interacting with Dash Core wallet files. By default dash-wallet will act on wallets in the default mainnet wallet directory in the datadir. To change the target wallet, use the `-datadir`, `-wallet` and `-testnet`/`-regtest` arguments.\n\n# Usage\n\n```bash\nUsage:\n  dash-wallet [options] <command>\n```\n\n## Options\n\n```\n  -?\n       Print this help message and exit\n\n  -datadir=<dir>\n       Specify data directory\n\n  -wallet=<wallet-name>\n       Specify wallet name\n```\n\n## Debugging/Testing options\n\n```\n  -debug=<category>\n       Output debugging information (default: 0).\n\n  -printtoconsole\n       Send trace/debug info to console (default: 1 when no -debug is true, 0\n       otherwise).\n```\n\n## Chain selection options\n\n```\n  -devnet=<name>\n       Use devnet chain with provided name\n\n  -highsubsidyblocks=<n>\n       The number of blocks with a higher than normal subsidy to mine at the\n       start of a chain (default: 0, devnet-only)\n\n  -highsubsidyfactor=<n>\n       The factor to multiply the normal block subsidy by while in the\n       highsubsidyblocks window of a chain (default: 1, devnet-only)\n\n  -llmqchainlocks=<quorum name>\n       Override the default LLMQ type used for ChainLocks. Allows using\n       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)\n\n  -llmqdevnetparams=<size>:<threshold>\n       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,\n       devnet-only)\n\n  -llmqinstantsend=<quorum name>\n       Override the default LLMQ type used for InstantSend. Allows using\n       InstantSend with smaller LLMQs. (default: llmq_50_60,\n       devnet-only)\n\n  -llmqinstantsenddip0024=<quorum name>\n       Override the default LLMQ type used for InstantSendDIP0024. (default:\n       llmq_60_75, devnet-only)\n\n  -minimumdifficultyblocks=<n>\n       The number of blocks that can be mined with the minimum difficulty at\n       the start of a chain (default: 0, devnet-only)\n\n  -powtargetspacing=<n>\n       Override the default PowTargetSpacing value in seconds (default: 2.5\n       minutes, devnet-only)\n\n  -testnet\n       Use the test chain\n```\n\n## Commands\n\n```\n  create\n       Create new wallet file\n\n  info\n       Get wallet info\n\n  salvage\n       Attempt to recover private keys from a corrupt wallet\n```",
+ "order": 999,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "pendingAlgoliaPublish": false,
+ "previousSlug": "dash-wallet",
+ "slugUpdatedAt": "2022-10-19T20:58:34.390Z",
+ "revision": 10,
+ "_id": "635064c3d3377e001a229da0",
+ "createdAt": "2022-10-19T20:57:39.947Z",
+ "updatedAt": "2022-10-19T21:02:02.416Z",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "63458bb285735b0012a24fe0",
+ "category": "63458bb285735b0012a24f64",
+ "project": "5daf2e65f4109c0040fd51e1",
+ "version": "63458bb285735b0012a24fea",
+ "__v": 0,
+ "isApi": false,
+ "id": "635064c3d3377e001a229da0",
+ "body_html": "<div class=\"magic-block-textarea\"><p>The <code>dash-wallet</code> application is an offline tool for creating and interacting with Dash Core wallet files. By default dash-wallet will act on wallets in the default mainnet wallet directory in the datadir. To change the target wallet, use the <code>-datadir</code>, <code>-wallet</code> and <code>-testnet</code>/<code>-regtest</code> arguments.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-usage\"></div>Usage<a class=\"fa fa-anchor\" href=\"#section-usage\"></a></h1>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'>Usage:\n  dash-wallet [options] &lt;command&gt;</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-options\"></div>Options<a class=\"fa fa-anchor\" href=\"#section-options\"></a></h2>\n<pre><code>  -?\n       Print this help message and exit\n\n  -datadir=&lt;dir&gt;\n       Specify data directory\n\n  -wallet=&lt;wallet-name&gt;\n       Specify wallet name\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-debugging-testing-options\"></div>Debugging/Testing options<a class=\"fa fa-anchor\" href=\"#section-debugging-testing-options\"></a></h2>\n<pre><code>  -debug=&lt;category&gt;\n       Output debugging information (default: 0).\n\n  -printtoconsole\n       Send trace/debug info to console (default: 1 when no -debug is true, 0\n       otherwise).\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-chain-selection-options\"></div>Chain selection options<a class=\"fa fa-anchor\" href=\"#section-chain-selection-options\"></a></h2>\n<pre><code>  -devnet=&lt;name&gt;\n       Use devnet chain with provided name\n\n  -highsubsidyblocks=&lt;n&gt;\n       The number of blocks with a higher than normal subsidy to mine at the\n       start of a chain (default: 0, devnet-only)\n\n  -highsubsidyfactor=&lt;n&gt;\n       The factor to multiply the normal block subsidy by while in the\n       highsubsidyblocks window of a chain (default: 1, devnet-only)\n\n  -llmqchainlocks=&lt;quorum name&gt;\n       Override the default LLMQ type used for ChainLocks. Allows using\n       ChainLocks with smaller LLMQs. (default: llmq_50_60, devnet-only)\n\n  -llmqdevnetparams=&lt;size&gt;:&lt;threshold&gt;\n       Override the default LLMQ size for the LLMQ_DEVNET quorum (default: 3:2,\n       devnet-only)\n\n  -llmqinstantsend=&lt;quorum name&gt;\n       Override the default LLMQ type used for InstantSend. Allows using\n       InstantSend with smaller LLMQs. (default: llmq_50_60,\n       devnet-only)\n\n  -llmqinstantsenddip0024=&lt;quorum name&gt;\n       Override the default LLMQ type used for InstantSendDIP0024. (default:\n       llmq_60_75, devnet-only)\n\n  -minimumdifficultyblocks=&lt;n&gt;\n       The number of blocks that can be mined with the minimum difficulty at\n       the start of a chain (default: 0, devnet-only)\n\n  -powtargetspacing=&lt;n&gt;\n       Override the default PowTargetSpacing value in seconds (default: 2.5\n       minutes, devnet-only)\n\n  -testnet\n       Use the test chain\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-commands\"></div>Commands<a class=\"fa fa-anchor\" href=\"#section-commands\"></a></h2>\n<pre><code>  create\n       Create new wallet file\n\n  info\n       Get wallet info\n\n  salvage\n       Attempt to recover private keys from a corrupt wallet\n</code></pre>\n</div>"
+}

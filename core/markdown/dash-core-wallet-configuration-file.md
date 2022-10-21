@@ -1,3 +1,5 @@
+# dash.conf
+
 To use `dashd` and `dash-cli`, you will need to add a RPC password to your `dash.conf` file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:
 
 ``` text
@@ -14,7 +16,7 @@ For development, it's safer and cheaper to use Dash's test network (<<glossary:t
 
 Questions about Dash use are best sent to the [Dash forum](https://www.dash.org/forum/categories/dash-support.61/) and [Discord channels](http://www.dashchat.org).
 
-# Example Testnet Config
+## Example Testnet Config
 
 ```text
 testnet=1
@@ -37,23 +39,13 @@ spentindex=1
 rpcport=19998
 ```
 
-# Configuration sections for different networks
-[block:callout]
-{
-  "type": "success",
-  "title": "Added in Dash Core 0.16"
-}
-[/block]
+## Configuration sections for different networks
+
 Since Dash Core 0.16 it is possible for a single configuration file to set different options for different networks. This is done by using sections or by prefixing the option with the network as shown below:
 
-[block:callout]
-{
-  "type": "danger",
-  "title": "Valid Section Names",
-  "body": "Please note that the only valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**."
-}
-[/block]
-
+>❗️ Valid Section Names
+>
+> Please note that the only valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**.
 [block:code]
 {
   "codes": [
@@ -66,9 +58,16 @@ Since Dash Core 0.16 it is possible for a single configuration file to set diffe
 }
 [/block]
 With this configuration file, dashd, dash-qt, or dash-cli can be run with the `-conf=<configuration file>` along with the `-testnet`,  `-regtest`, or `-devnet=<devnet name>` parameter to select the correct settings.
-[block:callout]
-{
-  "type": "danger",
-  "body": "The following options will only apply to mainnet **_unless they are in a section_** (e.g., `[test]`): `addnode=`, `connect=`, `port=`, `bind=`, `rpcport=`, `rpcbind=` and `wallet=`. \nThe options to choose a network (`regtest=` and `testnet=`) must be specified outside of sections."
-}
-[/block]
+
+>❗️ 
+>
+> The following options will only apply to mainnet **_unless they are in a section_** (e.g., `[test]`): `addnode=`, `connect=`, `port=`, `bind=`, `rpcport=`, `rpcbind=` and `wallet=`. 
+The options to choose a network (`regtest=` and `testnet=`) must be specified outside of sections.
+
+# settings.json
+
+> 👍 Added in Dash Core 18.1.0
+
+Since Dash Core 18.1, wallets created or loaded in the GUI will now be automatically loaded on startup so they don't need to be manually reloaded the next time Dash is started. The list of wallets to load on startup is stored in `\<datadir\>/settings.json`. Additionally, any wallets specified in `-wallet=` settings on the command line or in the `dash.conf` file are also loaded. Wallets that are unloaded in the GUI are also removed from the settings list so they won't automatically load on the next startup.
+
+The `createwallet`, `loadwallet`, and `unloadwallet` RPCs now accept `load_on_startup` options to modify the settings list. Unless these options are explicitly set to true or false, the list is not modified, so the RPC methods remain backwards compatible.

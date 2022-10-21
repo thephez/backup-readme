@@ -25,7 +25,7 @@ dash-cli [options] help <command>
 
 ```text
   -?
-       This help message
+       Print this help message and exit
 
   -conf=<file>
        Specify configuration file. Relative paths will be prefixed by datadir

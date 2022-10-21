@@ -45,6 +45,28 @@ A canonical python script is included in Dash Core's repository under [share/rpc
   ]
 }
 [/block]
+## RPC Whitelist
+
+The RPC whitelist system can limit certain RPC users to only have access to some RPC calls. The system is configured by specifying the following two parameters in the `dash.conf` file or by setting them as program arguments on the command line:
+
+ - `rpcwhitelist`: set a whitelist to filter incoming RPC calls for a specific user. The field <whitelist> comes in the format: `<USERNAME>:<rpc 1>,<rpc 2>,...,<rpc n>`. If multiple whitelists are set for a given user, they are set-intersected. Default whitelist behavior is defined by `rpcwhitelistdefault`.
+- `rpcwhitelistdefault`: sets default behavior for RPC whitelisting. Unless `rpcwhitelistdefault` is set to `0`, if any `rpcwhitelist` is set, the RPC server acts as if all RPC users are subject to empty-unless-otherwise-specified whitelists. If `rpcwhitelistdefault` is set to `1` and no `rpcwhitelist` is set, the RPC server acts as if all RPC users are subject to empty whitelists.
+
+Example configuration
+
+```text
+rpcauth=user1:4cc74397d6e9972e5ee7671fd241$11849357f26a5be7809c68a032bc2b16ab5dcf6348ef3ed1cf30dae47b8bcc71
+rpcauth=user2:181b4a25317bff60f3749adee7d6bca0$d9c331474f1322975fa170a2ffbcb176ba11644211746b27c1d317f265dd4ada
+rpcauth=user3:a6c8a511b53b1edcf69c36984985e$13cfba0e626db19061c9d61fa58e712d0319c11db97ad845fa84517f454f6675
+rpcwhitelist=user1:getnetworkinfo
+rpcwhitelist=user2:getnetworkinfo,getwalletinfo, getbestblockhash
+
+# Allow users to access any RPC unless they are listed in an `rpcwhitelist` entry
+rpcwhitelistdefault=0
+```
+
+In this example, user1 can only call `getnetworkinfo`, user2 can only call `getnetworkinfo` or `getwalletinfo`, while user3 can still call all RPCs.
+
 ## Restricted Access Users
 [block:callout]
 {
