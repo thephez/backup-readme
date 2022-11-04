@@ -18,8 +18,21 @@ Name | Type | Presence | Description
 
 *Example from Dash Core 18.1.0*
 
-> dash-cli getgovernanceinfo 
-> curl --user myusername --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getgovernanceinfo", "params": [] }' -H 'content-type: text/plain;' http://127.0.0.1:9998/
+``` bash
+dash-cli -testnet getgovernanceinfo
+```
+
+Result:
+``` json
+{
+  "governanceminquorum": 1,
+  "proposalfee": 1.00000000,
+  "superblockcycle": 24,
+  "superblockmaturitywindow": 24,
+  "lastsuperblock": 827256,
+  "nextsuperblock": 827280
+}
+```
 
 *See also:*
 

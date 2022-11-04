@@ -27,7 +27,7 @@ Result:
 * [GetBlock](/docs/core-api-ref-remote-procedure-calls-blockchain#getblock): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block.
 * [GetBlockHash](/docs/core-api-ref-remote-procedure-calls-blockchain#getblockhash): returns the header hash of a block at the given height in the local best block chain.
 
-# dumptxoutset
+# DumpTxOutset
 
 Write the serialized UTXO set to disk.
 
@@ -41,14 +41,26 @@ path | string (hex) | Required<br>(exactly 1) | Path to the output file. If rela
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`coins_written` | number (int) | Required<br>(exactly 1) | the number of coins written in the snapshot
+`result` | object/null | Required<br>(exactly 1) | An object containing the requested block, or JSON `null` if an error occurred
+→<br>`coins_written` | number (int) | Required<br>(exactly 1) | the number of coins written in the snapshot
 →<br>`base_hash` | string (hex) | Required<br>(exactly 1) | the hash of the base of the snapshot
 →<br>`base_height` | number (int) | Required<br>(exactly 1) | the height of the base of the snapshot
 →<br>`path` | string (str) | Required<br>(exactly 1) | the absolute path that the snapshot was written to
 
 *Example from Dash Core 18.1.0*
 
-> dash-cli dumptxoutset utxo.dat
+> dash-cli dumptxoutset a
+
+Result:
+
+``` json
+{
+  "coins_written": 4313775,
+  "base_hash": "000000000000000ef8f6b8f9b73ae4c516b961b7bbc01945b48d84b954ae68a1",
+  "base_height": 1412676,
+  "path": "/Users/username/Library/Application Support/DashCore/a"
+}
+```
 
 # GetBestChainLock
 

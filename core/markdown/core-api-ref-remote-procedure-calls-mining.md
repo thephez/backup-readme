@@ -187,7 +187,6 @@ Result:
 * [GetMemPoolInfo](/docs/core-api-ref-remote-procedure-calls-blockchain#getmempoolinfo): returns information about the node's current transaction memory pool.
 * [GetRawMemPool](/docs/core-api-ref-remote-procedure-calls-blockchain#getrawmempool): returns all transaction identifiers (TXIDs) in the memory pool as a JSON array, or detailed information about each transaction in the memory pool as a JSON object.
 * [GetBlockTemplate](/docs/core-api-ref-remote-procedure-calls-mining#getblocktemplate): gets a block template or proposal for use with mining software.
-* [Generate](/docs/core-api-ref-remote-procedure-calls-generating#generate): mines blocks immediately (before the RPC call returns).
 
 # GetNetworkHashPS
 

@@ -12,7 +12,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 # [Blockchain RPCs](core-api-ref-remote-procedure-calls-blockchain)
 
 * [GetBestBlockHash](core-api-ref-remote-procedure-calls-blockchain#getbestblockhash): returns the header hash of the most recent block on the best block chain.
-* [dumptxoutset](core-api-ref-remote-procedure-calls-blockchain#dumptxoutset): Write the serialized UTXO set to disk. **New in Dash Core 18.1.0**
+* [DumpTxOutset](core-api-ref-remote-procedure-calls-blockchain#dumptxoutset): Write the serialized UTXO set to disk. **New in Dash Core 18.1.0**
 * [GetBestChainLock](core-api-ref-remote-procedure-calls-blockchain#getbestchainlock): returns the block hash of the best chainlock. _New in Dash Core 0.15.0_
 * [GetBlock](core-api-ref-remote-procedure-calls-blockchain#getblock): gets a block with a particular header hash from the local block database either as a JSON object or as a serialized block. _Updated in Dash Core 0.16.0_
 * [GetBlockChainInfo](core-api-ref-remote-procedure-calls-blockchain#getblockchaininfo): provides information about the current state of the block chain. _Updated in Dash Core 0.16.0_
@@ -76,9 +76,9 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [VerifyISLock](core-api-ref-remote-procedure-calls-evo#verifyislock): tests if a quorum signature is valid for an InstantSend lock. **_New in Dash Core 0.17.0_**
 
 # [Generating RPCs](core-api-ref-remote-procedure-calls-generating)
-
-* [Generate](core-api-ref-remote-procedure-calls-generating#generate): mines blocks immediately (before the RPC call returns). *Updated in Dash Core 0.12.3*
+* [GenerateBlock](core-api-ref-remote-procedure-calls-generating#generateblock) mines a block with a set of ordered transactions immediately to a specified address or descriptor (before the RPC call returns). **New in Dash Core 18.1.0**
 * [GenerateToAddress](core-api-ref-remote-procedure-calls-generating#generatetoaddress): mines blocks immediately to a specified address. *New in Dash Core 0.12.3*
+* [GenerateToDescriptor](core-api-ref-remote-procedure-calls-generating#generatetodescriptor): mines blocks immediately to a specified descriptor. **New in Dash Core 18.1.0**
 
 # [Mining RPCs](core-api-ref-remote-procedure-calls-mining)
 
@@ -221,3 +221,4 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [SendFrom](core-api-ref-remote-procedure-calls-removed#sendfrom): **was removed in Dash Core 18.0.0.**
 * [SignRawTransaction](core-api-ref-remote-procedure-calls-removed#signrawtransaction): **was removed in Dash Core 18.0.0.**
 * [SignRawTransaction](core-api-ref-remote-procedure-calls-removed#signrawtransaction): **was removed in Dash Core 18.0.0.**
+* [Generate](core-api-ref-remote-procedure-calls-removed#generate): mines blocks immediately (before the RPC call returns).  **was removed in Dash Core 18.1.0.**
