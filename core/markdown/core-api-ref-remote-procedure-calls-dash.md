@@ -1254,10 +1254,10 @@ Name | Type | Presence | Description
 Result | object | Required<br>(exactly 1) | Masternode status info
 →<br>`outpoint` | string | Required<br>(exactly 1) | The masternode's outpoint
 →<br>`service` | string | Required<br>(exactly 1) | The IP address/port of the masternode
-→<br>`proTxHash` | string (hex) | Required<br>(exactly 1) | The masternode's ProRegTx hash
-→<br>`collateralHash` | string (hex) | Required<br>(exactly 1) | The masternode's collateral hash
-→<br>`collateralIndex` | int | Required<br>(exactly 1) | Index of the collateral
-→<br>`dmnState` | object | Required<br>(exactly 1) | Deterministic Masternode State
+→<br>`proTxHash` | string (hex) | Optional<br>(0 or 1) | The masternode's ProRegTx hash
+→<br>`collateralHash` | string (hex) | Optional<br>(0 or 1) | The masternode's collateral hash
+→<br>`collateralIndex` | int | Optional<br>(0 or 1) | Index of the collateral
+→<br>`dmnState` | object | Optional<br>(0 or 1) | Deterministic Masternode State
 → →<br>`service` | string | Required<br>(exactly 1) | The IP address/port of the masternode
 → →<br>`registeredHeight` | int | Required<br>(exactly 1) | Block height at which the masternode was registered
 → →<br>`lastPaidHeight` | int | Required<br>(exactly 1) | Block height at which the masternode was last paid
@@ -1270,7 +1270,8 @@ Result | object | Required<br>(exactly 1) | Masternode status info
 → →<br>`payoutAddress` | string | Required<br>(exactly 1) | The payout address
 → →<br>`pubKeyOperator` | string | Required<br>(exactly 1) | The operator public key
 → →<br>`operatorPayoutAddress` | string | Optional<br>(0 or 1) | The operator payout address
-→<br>`status` | string | Required<br>(1 or more) | The masternode's status
+→<br>`state` | string | Required<br>(exactly 1) | The masternode's state. Valid states are:<br>• `WAITING_FOR_PROTX`<br>• `POSE_BANNED`<br>• `REMOVED`<br>• `OPERATOR_KEY_CHANGED`<br>• `PROTX_IP_CHANGED`<br>• `READY`<br>• `ERROR`<br>• `UNKNOWN`
+→<br>`status` | string | Required<br>(exactly 1) | The masternode's status (description based on current state)
 
 *Example from Dash Core 0.13.2*
 

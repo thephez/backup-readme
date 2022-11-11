@@ -3068,6 +3068,50 @@ true
 * [GetWalletInfo](core-api-ref-remote-procedure-calls-wallet#getwalletinfo): provides information about the wallet.
 * [GetNetworkInfo](/docs/core-api-ref-remote-procedure-calls-network#getnetworkinfo): returns information about the node's connection to the network.
 
+# SetWalletFlag
+
+The SetWalletFlag RPC changes the state of the given wallet flag for a wallet.
+
+*Parameter #1---states the name of the flag to change
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+flag | string | Required<br>(exactly 1) | The name of the flag to change. Current available flags: avoid_reuse
+
+*Parameter #2---defining the new state
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+value | boolean | Optional<br>(default TRUE) | The new state.
+
+*Result*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object/null | Required<br>(exactly 1) | An object containing the requested block, or JSON `null` if an error occurred
+→<br>`flag_name` | str (string) | Required<br>(exactly 1) | the name of the flag that was modified
+→<br>`flag_state` | true\|false (boolean) | Required<br>(0 or 1) | the new state of the flag
+→<br>`warnings` | str (string) | Required<br>(exactly 1) | any warnings associated with the change
+
+*Example from Dash Core 18.1.0*
+
+``` bash
+dash-cli setwalletflag avoid_reuse
+```
+
+Result:
+
+``` json
+{
+  "flag_name": "avoid_reuse",
+  "flag_state": true,
+  "warnings": "You need to rescan the blockchain in order to correctly mark used destinations in the past. Until this is done, some destinations may be considered unused, even if the opposite is the case."
+}
+```
+
+*See also: none*
+
+
 # SignMessage
 [block:callout]
 {
