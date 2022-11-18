@@ -15,6 +15,10 @@ Evonet is the initial development network provided for experimentation and evalu
   "title": "Evonet Stability"
 }
 [/block]
+> 🚧 Evonet Stability
+>
+> As a development network, Evonet may be subject to frequent updates and changes that break backwards compatibility.
+
 
 # Network Details
 
