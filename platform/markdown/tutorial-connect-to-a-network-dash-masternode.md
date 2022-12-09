@@ -17,7 +17,7 @@ Use NPM to install dashmate globally in your system:
 {
   "codes": [
     {
-      "code": "npm install -g dashmate@0.23-alpha",
+      "code": "npm install -g dashmate",
       "language": "shell"
     }
   ]
