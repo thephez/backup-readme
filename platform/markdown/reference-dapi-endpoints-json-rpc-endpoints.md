@@ -96,7 +96,7 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 {
   "codes": [
     {
-      "code": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"result\": \"6c2f69e9696baf3c28af0d21d85af0e61c6a2adbe319c3714ec4b16adc3e1d2f\"\n}",
+      "code": "{\n  \"jsonrpc\": \"2.0\",\n  \"id\": 1,\n  \"result\": \"0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1\"\n}",
       "language": "json",
       "name": "Example Response"
     }

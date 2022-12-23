@@ -48,13 +48,7 @@
 }
 [/block]
 ## getStatus
-[block:callout]
-{
-  "type": "info",
-  "title": "Breaking change in Dash Platform 0.19.0",
-  "body": "The structure of the response was reformatted in Dash Platform 0.19.0 ([PR 107](https://github.com/dashevo/dapi-grpc/pull/107)). See the [previous version](https://dashplatform.readme.io/v0.18.0/docs/reference-dapi-endpoints-core-grpc-endpoints#getstatus) of documentation for details of the older format."
-}
-[/block]
+
 **Returns**: Status information from the Core chain
 **Parameters**: None
 
@@ -92,12 +86,12 @@
 {
   "codes": [
     {
-      "code": "{\n  \"version\":{\n    \"protocol\":70219,\n    \"software\":170003,\n    \"agent\":\"/Dash Core:0.17.0.3/\"\n  },\n  \"time\":{\n    \"now\":1627313884,\n    \"offset\":0,\n    \"median\":1627313175\n  },\n  \"status\":\"READY\",\n  \"syncProgress\":0.9999992137956843,\n  \"chain\":{\n    \"name\":\"test\",\n    \"headersCount\":544700,\n    \"blocksCount\":544700,\n    \"bestBlockHash\":<Buffer 00 00 01 9f 39 5a 78 7a fa a9 d3 5b 1d 30 1d 1c 37 2a 03 97 24 31 ee 8c 47 e2 b9 25 ca 5a a5 a0>,\n    \"difficulty\":0.001875704086679367,\n    \"chainWork\":<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 2f 15 da 49 09 6b 68>,\n    \"isSynced\":true,\n    \"syncProgress\":0.9999992137956843\n  },\n  \"masternode\":{\n    \"status\":\"READY\",\n    \"proTxHash\":<Buffer a1 27 b0 f6 c4 db d2 66 a1 8f a2 fb 3b 6b b7 8f 5c 38 18 6c 48 10 f1 55 1e 49 eb 3c 68 09 d5 23>,\n    \"posePenalty\":0,\n    \"isSynced\":true,\n    \"syncProgress\":1\n  },\n  \"network\":{\n    \"peersCount\":145,\n    \"fee\":{\n      \"relay\":0.00001,\n      \"incremental\":0.00001\n    }\n  }\n}",
+      "code": "{\n  \"version\":{\n    \"protocol\":70224,\n    \"software\":180200,\n    \"agent\":\"/Dash Core:18.2.0(dcg-masternode-27)/\"\n  },\n  \"time\":{\n    \"now\":1671648026,\n    \"offset\":0,\n    \"median\":1671647540\n  },\n  \"status\":\"READY\",\n  \"syncProgress\":0.9999992137956843,\n  \"chain\":{\n    \"name\":\"test\",\n    \"headersCount\":802868,\n    \"blocksCount\":802868,\n    \"bestBlockHash\":<Buffer 00 00 00 cc d5 cd ac 18 ed a8 32 74 0b de a7 ed 54 07 65 38 8f b8 6d 45 2e 9b f9 99 00 93 cc 33>,\n    \"difficulty\":0.003493968632281487,\n    \"chainWork\":<Buffer 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 d6 8b f8 46 fc e4 7e>,\n    \"isSynced\":true,\n    \"syncProgress\":0.9999992137956843\n  },\n  \"masternode\":{\n    \"status\":\"READY\",\n    \"proTxHash\":<Buffer 56 65 24 97 d5 61 eb ec b4 5d d4 84 82 e3 85 7c 73 b7 a9 84 e1 ed c6 45 3a df 0f 11 dd b7 ed 21>,\n    \"posePenalty\":0,\n    \"isSynced\":true,\n    \"syncProgress\":1\n  },\n  \"network\":{\n    \"peersCount\":145,\n    \"fee\":{\n      \"relay\":0.00001,\n      \"incremental\":0.00001\n    }\n  }\n}",
       "language": "json",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"version\": {\n    \"protocol\": 70219,\n    \"software\": 170003,\n    \"agent\": \"/Dash Core:0.17.0.3/\"\n  },\n  \"time\": {\n    \"now\": 1626972817,\n    \"median\": 1626972367\n  },\n  \"status\": \"READY\",\n  \"syncProgress\": 0.9999999881972154,\n  \"chain\": {\n    \"name\": \"test\",\n    \"headersCount\": 542260,\n    \"blocksCount\": 542260,\n    \"bestBlockHash\": \"AAABpMcUDETRYHpIpp7oIuSuCI2Ky0N+0XMlGZqoQXY=\",\n    \"difficulty\": 0.001271379585851713,\n    \"chainWork\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAi8V1fYcn9E=\",\n    \"isSynced\": true,\n    \"syncProgress\": 0.9999999881972154\n  },\n  \"masternode\": {\n    \"status\": \"READY\",\n    \"proTxHash\": \"W+WigTimWKgCoehx17tKXooWfv/p5mW0ouyqVZ0Bc04=\",\n    \"isSynced\": true,\n    \"syncProgress\": 1\n  },\n  \"network\": {\n    \"peersCount\": 177,\n    \"fee\": {\n      \"relay\": 1e-05,\n      \"incremental\": 1e-05\n    }\n  }\n}\n",
+      "code": "{\n  \"version\": {\n    \"protocol\": 70224,\n    \"software\": 180200,\n    \"agent\": \"/Dash Core:18.2.0(dcg-masternode-38)/\"\n  },\n  \"time\": {\n    \"now\": 1671649471,\n    \"median\": 1671648448\n  },\n  \"status\": \"READY\",\n  \"syncProgress\": 0.9999996976056101,\n  \"chain\": {\n    \"name\": \"test\",\n    \"headersCount\": 802876,\n    \"blocksCount\": 802876,\n    \"bestBlockHash\": \"AAAAWMEWD9MNSsdmfIqKRC821Kck8LATyMxpFoFXFlE=\",\n    \"difficulty\": 0.003259477377481251,\n    \"chainWork\": \"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtaL+E4VvFA=\",\n    \"isSynced\": true,\n    \"syncProgress\": 0.9999996976056101\n  },\n  \"masternode\": {\n    \"status\": \"READY\",\n    \"proTxHash\": \"+3H0EdNXRwEO3E4+lN2oS9+cJBPmKYHVkRUeedsKtRw=\",\n    \"isSynced\": true,\n    \"syncProgress\": 1\n  },\n  \"network\": {\n    \"peersCount\": 152,\n    \"fee\": {\n      \"relay\": 1e-05,\n      \"incremental\": 1e-05\n    }\n  }\n}\n",
       "language": "json",
       "name": "Response (gRPCurl)"
     }
@@ -169,13 +163,7 @@
 [/block]
 
 ## getTransaction
-[block:callout]
-{
-  "type": "info",
-  "title": "Updated in Dash Platform 0.20.0",
-  "body": "Dash Platform 0.20.0 added block hash, height, confirmation count, InstantSend lock status, and ChainLock status to the `getTransaction` response."
-}
-[/block]
+
 **Returns**: A raw transaction
 **Parameters**:
 
@@ -218,12 +206,12 @@
 {
   "codes": [
     {
-      "code": "GetTransactionResponse {\n  transaction: Buffer(196) [Uint8Array] [\n      3,   0,   5,   0,   1,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0, 255, 255, 255, 255,   6,   3, 194,  90,   6,   1,  9,\n    255, 255, 255, 255,   2, 238, 252, 207,  49,   0,   0,  0,\n      0,  25, 118, 169,  20, 126, 178,  93, 197, 175,  71, 45,\n    107, 241, 154, 135, 122, 150, 240, 167,   7, 194, 198, 27,\n    118, 136, 172, 101, 251, 183,  74,   0,   0,   0,   0, 25,\n    118, 169,  20,  30,\n    ... 96 more items\n  ],\n  blockHash: Buffer(32) [Uint8Array] [\n      0,   0,   2,   9, 133, 199, 245,  83,\n    191, 120, 191, 203, 109, 166,   9, 115,\n    193, 152, 249,  11,   7, 245, 126,  31,\n     55,  65,  10, 150, 205, 150, 131, 213\n  ],\n  height: 416450,\n  confirmations: 128257,\n  instantLocked: false,\n  chainLocked: true\n}",
+      "code": "GetTransactionResponse {\n  transaction: Buffer(196) [Uint8Array] [\n      3,   0,   5,   0,   1,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0,   0,   0,   0,   0,   0,   0,   0,   0,   0,   0,  0,\n      0, 255, 255, 255, 255,   6,   3, 194,  90,   6,   1,  9,\n    255, 255, 255, 255,   2, 238, 252, 207,  49,   0,   0,  0,\n      0,  25, 118, 169,  20, 126, 178,  93, 197, 175,  71, 45,\n    107, 241, 154, 135, 122, 150, 240, 167,   7, 194, 198, 27,\n    118, 136, 172, 101, 251, 183,  74,   0,   0,   0,   0, 25,\n    118, 169,  20,  30,\n    ... 96 more items\n  ],\n  blockHash: Buffer(32) [Uint8Array] [\n      0,   0,   2,   9, 133, 199, 245,  83,\n    191, 120, 191, 203, 109, 166,   9, 115,\n    193, 152, 249,  11,   7, 245, 126,  31,\n     55,  65,  10, 150, 205, 150, 131, 213\n  ],\n  height: 416450,\n  confirmations: 386421,\n  instantLocked: false,\n  chainLocked: true\n}",
       "language": "text",
       "name": "Response (JavaScript)"
     },
     {
-      "code": "{\n  \"transaction\": \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8GA8JaBgEJ/////wLu/M8xAAAAABl2qRR+sl3Fr0cta/Gah3qW8KcHwsYbdoisZfu3SgAAAAAZdqkUHsXGbpeJxlWuBo01CItAczRf4LCIrAAAAABGAgDCWgYA3zSmucmdu7+CaY+6n4aGHySJHhbAxeiB3gNMGSIgYA1c6q3De0wxbi7HpAf4g4BgSUqhmkAxVflcQyddo+2zGA==\",\n  \"blockHash\": \"AAACCYXH9VO/eL/LbaYJc8GY+QsH9X4fN0EKls2Wg9U=\",\n  \"height\": 416450,\n  \"confirmations\": 125820,\n  \"isChainLocked\": true\n}\n",
+      "code": "{\n  \"transaction\": \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8GA8JaBgEJ/////wLu/M8xAAAAABl2qRR+sl3Fr0cta/Gah3qW8KcHwsYbdoisZfu3SgAAAAAZdqkUHsXGbpeJxlWuBo01CItAczRf4LCIrAAAAABGAgDCWgYA3zSmucmdu7+CaY+6n4aGHySJHhbAxeiB3gNMGSIgYA1c6q3De0wxbi7HpAf4g4BgSUqhmkAxVflcQyddo+2zGA==\",\n  \"blockHash\": \"AAACCYXH9VO/eL/LbaYJc8GY+QsH9X4fN0EKls2Wg9U=\",\n  \"height\": 416450,\n  \"confirmations\": 386427,\n  \"isChainLocked\": true\n}\n",
       "language": "json",
       "name": "Response (gRPCurl)"
     }
@@ -252,7 +240,7 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 {
   "codes": [
     {
-      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1\n  }\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks",
+      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks",
       "language": "shell",
       "name": "Request (gRPCurl)"
     }
@@ -271,7 +259,7 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 {
   "codes": [
     {
-      "code": "{\n  \"chainLock\": \"ihQAAO8kiNfNxD3CW8L3QasDEJyBkiLiS7rNeq6eNnKFAAAAggZdJmAma7u9ZDiOOhKkLuzTJFXzXtCDmtuvINHqCImNSEIslno9Dy3fw/Ftaxv9DyJ3XnDpBayiffFvFJ/p8iV+Ubqq5hLdFnb3/dAj5g9EZjwGy4J0xm1dCzPkh2Mp\"\n}\n{\n  \"blockHeaders\": {\n    \"headers\": [\n      \"BAAAAC498j7sXNaobt1QlTkCjiw6PcBTFeso8rqkMhjKCAAAeTyN1/qcRcIibEXY0bk4Sa59IRjMPWBKOSRDy+i8Evi6loBU//9/IAEAAAA=\"\n    ]\n  }\n}",
+      "code": "{\n  \"chainLock\": \"PEAMAFEWV4EWaczIE7DwJKfUNi9Eiop8ZsdKDdMPFsFYAAAAFziPQ4EtOgXaVVPgE3IrzES0s4VJzp1FA2IfSRvF5X+ApWl2wmJDSEYuUAPFWbMMDBzrhIGXjEGPiX7KaZiKWCrLJv5WD8HFL+oRVqs3P5Mgt54qJDZRoN/meO6iMapo\"\n}\n{\n  \"blockHeaders\": {\n    \"headers\": [\n      \"AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAA=\"\n    ]\n  }\n}",
       "language": "json",
       "name": "Response"
     }
@@ -322,7 +310,7 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 {
   "codes": [
     {
-      "code": "{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8KUQEBBi9QMlNIL/////8BAHQ7pAsAAAAjIQIBMfOK4+sHFFMdv8P0VJG0Ex0SEeN3cXdjY4i7WnTD5KwAAAAA\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAABAAAAAX8R3M4UB1Ug6PdMxN3wkrTibr0juNhmWhrlv8QbWP20AQE=\"\n}\n",
+      "code": "{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8KUQEBBi9QMlNIL/////8BAHQ7pAsAAAAjIQIBMfOK4+sHFFMdv8P0VJG0Ex0SEeN3cXdjY4i7WnTD5KwAAAAA\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAABAAAAAX8R3M4UB1Ug6PdMxN3wkrTibr0juNhmWhrlv8QbWP20AQE=\"\n}",
       "language": "json",
       "name": "Response"
     }

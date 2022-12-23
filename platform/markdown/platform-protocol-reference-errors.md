@@ -48,10 +48,10 @@ Basic errors occupy the codes ranging from 1000 to 1999. This range is divided i
 | 1016 | UndefinedIndexPropertyError |  |
 | 1017 | UniqueIndicesLimitReachedError |  |
 | 1048 | DuplicateIndexNameError | Added in v0.22 |
-| 1050 | InvalidDataContractVersionError | **Added in v0.23** |
-| 1051 | IncompatibleDataContractSchemaError | **Added in v0.23** |
-| 1052 | DataContractImmutablePropertiesUpdateError | **Added in v0.23** |
-| 1053 | DataContractIndicesChangedError | **Added in v0.23** |
+| 1050 | InvalidDataContractVersionError | **4013 prior to v0.23** |
+| 1051 | IncompatibleDataContractSchemaError | **4014 prior to  v0.23** |
+| 1052 | DataContractImmutablePropertiesUpdateError | **4015 prior to v0.23** |
+| 1053 | DataContractIndicesChangedError | **4016 prior to v0.23** |
 | 1054 | DataContractInvalidIndexDefinitionUpdateError | **Added in v0.23** |
 | 1055 | DataContractHaveNewUniqueIndexError | **Added in v0.23** |
 
@@ -83,7 +83,7 @@ Basic errors occupy the codes ranging from 1000 to 1999. This range is divided i
 | 1034 | IdentityAssetLockTransactionOutputNotFoundError |  |
 | 1035 | InvalidAssetLockProofCoreChainHeightError |  |
 | 1036 | InvalidAssetLockProofTransactionHeightError |  |
-| 1037 | InvalidAssetLockTransactionOutputReturnSize |  |
+| 1037 | InvalidAssetLockTransactionOutputReturnSizeError |  |
 | 1038 | InvalidIdentityAssetLockTransactionError |  |
 | 1039 | InvalidIdentityAssetLockTransactionOutputError |  |
 | 1040 | InvalidIdentityPublicKeyDataError |  |
@@ -136,10 +136,10 @@ State errors occupy the codes ranging from 4000 to 4999. This range is divided i
 | 4001 | DataTriggerConditionError |  |
 | 4002 | DataTriggerExecutionError |  |
 | 4003 | DataTriggerInvalidResultError |  |
-| 4013 | InvalidDataContractVersionError | Added in v0.22 |
-| 4014 | IncompatibleDataContractSchemaError | Added in v0.22 |
-| 4015 | DataContractImmutablePropertiesUpdateError | Added in v0.22 |
-| 4016 | DataContractIndicesChangedError | Added in v0.22 |
+| ~~4013~~ | *InvalidDataContractVersionError* | ⚠️ **Renumbered to [1050](#data-contract) in v0.23** |
+| ~~4014~~ | *IncompatibleDataContractSchemaError* | ⚠️ **Renumbered to [1051](#data-contract) in v0.23** |
+| ~~4015~~ | *DataContractImmutablePropertiesUpdateError* | ⚠️ **Renumbered to [1052](#data-contract) in v0.23** |
+| ~~4016~~ | *DataContractIndicesChangedError* | ⚠️ **Renumbered to [1053](#data-contract) in v0.23** |
 
 ## Document
 
