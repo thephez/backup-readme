@@ -65,7 +65,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | Name | Type | Required | Description |
 | - | - | - | - |
 | `id` | Bytes | Yes | An identity `id` |
-| `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested identity |
+| `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested identity |
 
 [block:callout]
 {
@@ -126,7 +126,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | Name | Type | Required | Description |
 | - | - | - | - |
 | `public_key_hashes` | Bytes | Yes | Public key hashes (sha256-ripemd160) of identity public keys |
-| `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested identities |
+| `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested identities |
 
 [block:callout]
 {
@@ -197,7 +197,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | Name | Type | Required | Description |
 | - | - | - | - |
 | `id` | Bytes | Yes | A data contract `id` |
-| `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested data contract |
+| `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested data contract |
 
 [block:callout]
 {
@@ -268,7 +268,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | `start_at` | Integer | No | Return records beginning with the index provided |
 | `start_after` | Integer | No | Return records beginning after the index provided |
 | ---------- | | | |
-| `prove` | Boolean | No | **Not available in Platform v0.22.0**<br>Set to `true` to receive a proof that contains the requested document(s) |
+| `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested document(s) |
 
 [block:callout]
 {
@@ -324,7 +324,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | Name | Type | Required | Description |
 | - | - | - | - |
 | `state_transition_hash` | Bytes | Yes | Hash of the state transition |
-| `prove` | Boolean | Yes | **Not available in Platform v0.22.0**<br>Set to `true` to request a proof |
+| `prove` | Boolean | Yes | Set to `true` to request a proof |
 
 [block:callout]
 {
