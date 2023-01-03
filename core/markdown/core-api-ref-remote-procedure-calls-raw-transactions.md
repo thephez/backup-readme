@@ -1,3 +1,62 @@
+# AnalyzePSBT
+
+The analyzepsbt RPC analyzes and provides information about the current status of a PSBT and its inputs.
+
+*Parameter #1---psbt*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`psbt` | string | Required<br>(Exactly 1) | The base64-encoded partially signed transaction
+
+*Result:*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | A JSON object 
+→ `inputs` | array | Required<br>(exactly 1 ) | An array that contains main details about the PSBT.
+→→`has_utxo` | boolean | Required (exactly 1) | Whether a UTXO is provided
+→→`is_final` | boolean | Required (exactly 1) | Whether the input is finalized
+→→`missing` | object | Optional (0 or 1)| A JSON object that includes the data missing to complete the input.
+→→→`pubkeys` | array | Optional (0 or 1) | Array containing public key data.
+→→→→`hex` | string | Required<br>(0 or more) | Public key ID, hash160 of the public key, of a public key whose BIP 32 derivation path is missing.
+→→→`signatures` | array | Optional (0 or 1) | Array containing public key data
+→→→→`hex` | string | Required<br>(0 or more)| Public key ID, hash160 of the public key, of a public key whose signature is missing.
+→→→ `"redeemscript" : "hex"` | string | Optional<br>(0 or 1)| Hash160 of the redeemScript that is missing.
+→→ `"next" : "str"` | string | Optional<br>(0 or 1) | Role of the next person that this input needs to go to
+→ `estimated_vsize`| numeric | Optional (0 or 1)| Estimated vsize of the final signed transaction
+→ `estimated_feerate`| numeric | Optional (0 or 1) | Estimated feerate of the final signed transaction in DASH/kB. Shown only if all UTXO slots in the PSBT have been filled.
+→ `fee`| numeric | Optional (0 or 1)| The transaction fee paid. Shown only if all UTXO slots in the PSBT have been filled.
+→ `"next" : "str"` | string | Required<br>(exactly 1) | Role of the next person that this psbt needs to go to
+→ `"error" : "str"` | string | Required<br>(exactly 1) | Error message if there is one
+
+*Example from Dash Core 18.2.0*
+
+``` bash
+dash-cli -testnet analyzepsbt cHNidP8BAHcCAAAAAWtJCIbAGYsCjGxcsUXE6zsQVaIkp6EFqt7/QbaeyR4GAQAAAAD/////AgAgX6ASAAAAGXapFEhUhUJfqZUE7BY4rEIT88/J8y7ziKzAqPm+AQAAABl2qRSBHqzBTbjrtbZEhtxDQAwCJrQopIisAAAAAAAAAAA=
+```
+Result:
+```
+{
+  "inputs": [
+    {
+      "has_utxo": false,
+      "is_final": false,
+      "next": "updater"
+    }
+  ],
+  "next": "updater"
+}
+```
+
+*See also:*
+
+* [CombinePSBT](core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combines multiple partially-signed Dash transactions into one transaction.
+* [CreatePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createpsbt): creates a transaction in the Partially Signed Transaction (PST) format.
+* [DecodePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decodepsbt): returns a JSON object representing the serialized, base64-encoded partially signed Dash transaction.
+* [FinalizePSBT](/docs/core-api-ref-remote-procedure-calls-raw-transactions#finalizepsbt): finalizes the inputs of a PSBT.
+* [WalletProcessPSBT](/docs/core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs.
+
+
 # CombinePSBT
 
 The [`combinepsbt` RPC](core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt) combines multiple partially-signed Dash transactions into one transaction. Implements the Combiner role. This should be used only with `createrawtransaction` and `fundrawtransaction`. 
@@ -84,6 +143,7 @@ a8f027d8a77cbdcb88ac00000000
 
 *See also:*
 
+* [AnalyzePSBT](core-api-ref-remote-procedure-calls-raw-transactions#analyzepsbt): analyzes and provides information about the current status of a PSBT and its inputs.
 * [CreateRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction): creates an unsigned serialized transaction that spends a previous output to a new output with a P2PKH or P2SH address. The transaction is not stored in the wallet or transmitted to the network.
 * [DecodeRawTransaction](/docs/core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction): decodes a serialized transaction hex string into a JSON object describing the transaction.
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.

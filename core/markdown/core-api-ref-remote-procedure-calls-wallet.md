@@ -679,6 +679,52 @@ Result:
 
 *See also*
 
+* [GetBalances](core-api-ref-remote-procedure-calls-wallet#getbalances): returns an object with all balances denominated in DASH. 
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
+* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
+
+# GetBalances
+
+The `getbalances` RPC returns an object with all available balances denominated in DASH.
+
+*Result---balances in Dash*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | A JSON object returns an object with all balances in DASH.
+→ `mine` | object | Optional<br>(1 or more) | A JSON object that has balances from outputs that the wallet can sign.
+→→`trusted` | numeric | Optional<br>(1 or more) | Trusted balance (outputs created by the wallet or confirmed outputs)
+→→`untrusted_pending` | numeric | Optional<br>(1 or more) | Untrusted pending balance (outputs created by others that are in the mempool)
+→→`immature` | numeric | Optional<br>(1 or more) | Balance from immature coinbase outputs
+→→`used` | numeric | Only present if avoid_reuse is set | Balance from coins sent to addresses that were previously spent from (potentially privacy violating)
+→→`coinjoin` | numeric | Optional<br>(1 or more) | CoinJoin balance (outputs with enough rounds created by the wallet via mixing).
+→`watchonly` | object | not present if wallet does not watch anything | Watchonly balances.
+→→`trusted` | numeric | Optional<br>(1 or more) | Trusted balance (outputs created by the wallet or confirmed outputs).
+→→`untrusted_pending` | numeric | Optional<br>(1 or more) | Untrusted pending balance (outputs created by others that are in the mempool).
+→→`immature` | numeric | Optional<br>(1 or more) | Balance from immature coinbase outputs.
+
+*Example from Dash Core 18.2.0*
+
+```bash
+dash-cli getbalances
+```
+Result:
+
+```
+"mine": {
+    "trusted": 0.00000000,
+    "untrusted_pending": 0.00000000,
+    "immature": 0.00000000,
+    "used": 0.00000000,
+    "coinjoin": 0.00000000
+  }
+
+```
+
+*See also*
+
+* [GetBalance](core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account.
 * [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
 * [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
@@ -3357,7 +3403,7 @@ Options | Object | Optional<br>(0 or 1) | Additional options
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-`bip32derivs` | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP32 derivation paths for public keys if we know them
+`bip32derivs` | bool | Optional<br>(exactly 0 or 1) | Includes the BIP 32 derivation paths for public keys if known (default = `true`)
 
 *Result---information about the created transaction*
 
@@ -3557,7 +3603,7 @@ Name | Type | Presence | Description
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-bip32 | bool | Optional<br>(exactly 0 or 1) | If true, includes the BIP 32 derivation paths for public keys if known (default = `false`).
+`bip32derivs` | bool | Optional<br>(exactly 0 or 1) | Includes the BIP 32 derivation paths for public keys if known (default = `true`).
 
 *Result---the processed wallet*
 

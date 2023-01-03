@@ -107,6 +107,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 
 # [Raw Transaction RPCs](core-api-ref-remote-procedure-calls-raw-transactions)
 
+* [AnalyzePSBT](core-api-ref-remote-procedure-calls-raw-transactions#analyzepsbt): analyzes and provides information about the current status of a PSBT and its inputs. **New in Dash Core 18.2.0**
 * [CombinePSBT](core-api-ref-remote-procedure-calls-raw-transactions#combinepsbt): combines multiple partially-signed Dash transactions into one transaction. **New in Dash Core 18.0.0**
 * [CombineRawTransaction](core-api-ref-remote-procedure-calls-raw-transactions#combinerawtransaction): combine multiple partially signed transactions into one transaction. _New in Dash Core 0.15.0_
 * [ConvertToPSBT](core-api-ref-remote-procedure-calls-raw-transactions#converttopsbt): converts a network serialized transaction to a PSBT. **New in Dash Core 18.0.0**
@@ -150,6 +151,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetAddressInfo](core-api-ref-remote-procedure-calls-wallet#getaddressinfo): returns information about the given Dash address. **Updated in Dash Core 18.0.0**
 * [GetAddressesByLabel](core-api-ref-remote-procedure-calls-wallet#getaddressesbylabel): returns a list of every address assigned to a particular label. **_New in Dash Core 0.17.0_**
 * [GetBalance](core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account. *Updated in Dash Core 18.1.0*
+* [GetBalances](core-api-ref-remote-procedure-calls-wallet#getbalances): returns an object with all balances denominated in DASH. *Updated in Dash Core 18.2.0*
 * [GetNewAddress](core-api-ref-remote-procedure-calls-wallet#getnewaddress): returns a new Dash address for receiving payments. If an account is specified, payments received with the address will be credited to that account. **_Updated in Dash Core 0.17.0_**
 * [GetRawChangeAddress](core-api-ref-remote-procedure-calls-wallet#getrawchangeaddress): returns a new Dash address for receiving change. This is for use with raw transactions, not normal use.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions. *Updated in Dash Core 0.13.0*
@@ -191,11 +193,11 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [SignRawTransactionWithWallet](core-api-ref-remote-procedure-calls-wallet#signrawtransactionwithwallet): signs a transaction in the serialized transaction format using private keys found in the wallet. **_New in Dash Core 0.17.0_**
 * [UnloadWallet](core-api-ref-remote-procedure-calls-wallet#unloadwallet): unloads the wallet referenced by the request endpoint otherwise unloads the wallet specified in the argument. **Updated in Dash Core 18.1.0**
 * [UpgradeToHD](core-api-ref-remote-procedure-calls-wallet#upgradetohd): upgrades non-HD wallets to HD. **_New in Dash Core 0.17.0_**
-* [WalletCreateFundedPSBT](core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format. Inputs will be added if supplied inputs are not enough. **New in Dash Core 18.0.0**
+* [WalletCreateFundedPSBT](core-api-ref-remote-procedure-calls-wallet#walletcreatefundedpsbt): creates and funds a transaction in the Partially Signed Transaction (PST) format. Inputs will be added if supplied inputs are not enough. **Updated in Dash Core 18.2.0**
 * [WalletLock](core-api-ref-remote-procedure-calls-wallet#walletlock): removes the wallet encryption key from memory, locking the wallet. After calling this method, you will need to call `walletpassphrase` again before being able to call any methods which require the wallet to be unlocked.
 * [WalletPassphrase](core-api-ref-remote-procedure-calls-wallet#walletpassphrase): stores the wallet decryption key in memory for the indicated number of seconds. Issuing the `walletpassphrase` command while the wallet is already unlocked will set a new unlock time that overrides the old one.
 * [WalletPassphraseChange](core-api-ref-remote-procedure-calls-wallet#walletpassphrasechange): changes the wallet passphrase from 'old passphrase' to 'new passphrase'.
-* [WalletProcessPSBT](core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs. **New in Dash Core 18.0.0**
+* [WalletProcessPSBT](core-api-ref-remote-procedure-calls-wallet#walletprocesspsbt): updates a PSBT with input information from a wallet and then allows the signing of inputs. **Updated in Dash Core 18.2.0**
 
 # [Wallet RPCs (Deprecated)](core-api-ref-remote-procedure-calls-wallet-deprecated)
 

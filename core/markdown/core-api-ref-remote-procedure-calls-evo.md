@@ -2130,6 +2130,299 @@ Result:
 
 *See also: none*
 
+## Quorum ListExtended
+
+The `quorum listextended` RPC returns an extended list of on-chain quorums.
+
+*Parameter #1---count*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`count` | numeric | Optional<br>(0 or 1) | Number of quorums to list. Will list active quorums if "count" is not specified.
+
+*Result---list extended*
+
+Name | Type | Presence | Description
+--- | --- | --- | ---
+`result` | object | Required<br>(exactly 1) | Object containing an extended list of on-chain quorums
+→<br>`quorumName` | object | Required<br>(exactly 1) | List of quorum details per some quorum type
+→→<br>`xxxx` | object | Required<br>(exactly 1) | Quorum hash. Note: most recent quorums come first
+→→→<br>`creationHeight` | numeric | Required<br>(exactly 1) | Block height where the DKG started
+→→→<br>`quorumIndex` | numeric | Required<br>(exactly 1) | Quorum index (applicable only to rotated quorums)
+→→→<br>`minedBlockHash` | string | Required<br>(exactly 1) | Blockhash where the commitment was mined.
+
+*Example from Dash Core 18.2.0*
+
+```bash
+dash-cli -testnet quorum listextended 10
+```
+Result:
+```
+{
+  "llmq_60_75": [
+    {
+      "000000000000000d375a1785b279cc9c381aa14baf68a054bf59a05dab0b17c5": {
+        "quorumIndex": 0,
+        "creationHeight": 1784160,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "000000000000001dacf5f5be6913148e7df61915b8314578fde506568d895cda": {
+        "quorumIndex": 1,
+        "creationHeight": 1784161,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "000000000000001e4e12bc3895ef9df2c3a5cc8f0031ade3d3fd0a8eeeebd591": {
+        "quorumIndex": 2,
+        "creationHeight": 1784162,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "000000000000002059073407579074ba39c462838c5e77dfca185ec89ec4c6c7": {
+        "quorumIndex": 3,
+        "creationHeight": 1784163,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "00000000000000087f121764e1ebd0c1c1840eb6896fddbc4ab9af0de25a6ee1": {
+        "quorumIndex": 4,
+        "creationHeight": 1784164,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "000000000000001ff6af3e89fc24904f709dbcd69503374aa1602071341893bb": {
+        "quorumIndex": 5,
+        "creationHeight": 1784165,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "0000000000000010d90c2d4a65604a5cb037250d039e7740f165ab66307f3a4d": {
+        "quorumIndex": 6,
+        "creationHeight": 1784166,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "0000000000000016f018e0518c57f8dbcc1c54ed88a450e3f3b67905322b5772": {
+        "quorumIndex": 7,
+        "creationHeight": 1784167,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "000000000000000add2ed4d29bd0e11d415cb28b2449d8f5aaa435275d0b4740": {
+        "quorumIndex": 8,
+        "creationHeight": 1784168,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    },
+    {
+      "0000000000000019eb6159bc2693d178e7d8ce6cca32ff64c8c268f1719097e2": {
+        "quorumIndex": 9,
+        "creationHeight": 1784169,
+        "minedBlockHash": "0000000000000012c174c5dbf9c39ddea424b6b8c767027e6e0294ee92e86a14"
+      }
+    }
+  ],
+  "llmq_400_60": [
+    {
+      "000000000000000d375a1785b279cc9c381aa14baf68a054bf59a05dab0b17c5": {
+        "creationHeight": 1784160,
+        "minedBlockHash": "000000000000001128cae8fbf7e0a6180e068ed95cf726e1fd809fb9cf3a394f"
+      }
+    },
+    {
+      "000000000000000478cfba16aeedf05ec338d7a50e7b6002277b0ffdbefe72f7": {
+        "creationHeight": 1783872,
+        "minedBlockHash": "000000000000001a5fc9ac558c40e5f0b0a435a24397220f7ba319dc353443e2"
+      }
+    },
+    {
+      "0000000000000001e2119902e6d081262e6ac0bcdef6b4bfd0e1b8fcbfdfaa72": {
+        "creationHeight": 1783584,
+        "minedBlockHash": "000000000000001a2c5f83b0388c66429bcffcc809f1a566af5dbf3485fbcdb9"
+      }
+    },
+    {
+      "000000000000000427443042d79893f76892131d5d7a0d48844273bd9dc9a53f": {
+        "creationHeight": 1783296,
+        "minedBlockHash": "0000000000000009be4d427ebc15d6688690d357cf31cbdf1b55966362e9475e"
+      }
+    },
+    {
+      "00000000000000115fb84b9d01582a457595cfebea6d0df4e20b9c1798045265": {
+        "creationHeight": 1783008,
+        "minedBlockHash": "0000000000000022cd36d09b3096aa7cdb0d64cd703d0b6b04a6a72c9691e0f7"
+      }
+    },
+    {
+      "000000000000001794193f3782260dba5ffdf5773964b3b1e9ce1a573723bc9a": {
+        "creationHeight": 1782720,
+        "minedBlockHash": "00000000000000023d0cde88671122104907f91e9464b034cdc134b873599c5c"
+      }
+    },
+    {
+      "00000000000000299a782fdba6e600780aaec93679ff34db86a828a09744e21e": {
+        "creationHeight": 1782432,
+        "minedBlockHash": "0000000000000003390d8ed0b8bff27316fcfe6faaea6ae73b2fa8c942b9b46d"
+      }
+    },
+    {
+      "000000000000001193e04261a080caa22115762657a5f66467fdd5b81390e241": {
+        "creationHeight": 1782144,
+        "minedBlockHash": "00000000000000255bd2fddf1b3755027e6d275c47baf420bee6b3d2791c8f8b"
+      }
+    },
+    {
+      "000000000000000e1e2d48718bf4ddfb45e7be4d7d0653e3ad352bae2b98b685": {
+        "creationHeight": 1781856,
+        "minedBlockHash": "000000000000001ae82881094f5770be12fe6acc97138eec7818afbe1430a5aa"
+      }
+    },
+    {
+      "000000000000000ad559e1c8449b241aef071696088192fe7d09d79235f93289": {
+        "creationHeight": 1781568,
+        "minedBlockHash": "0000000000000037a713230d0753e6592915375b25abe1db0621f0be6c1cd9b9"
+      }
+    }
+  ],
+  "llmq_400_85": [
+    {
+      "000000000000000478cfba16aeedf05ec338d7a50e7b6002277b0ffdbefe72f7": {
+        "creationHeight": 1783872,
+        "minedBlockHash": "000000000000001a5fc9ac558c40e5f0b0a435a24397220f7ba319dc353443e2"
+      }
+    },
+    {
+      "000000000000000427443042d79893f76892131d5d7a0d48844273bd9dc9a53f": {
+        "creationHeight": 1783296,
+        "minedBlockHash": "0000000000000009be4d427ebc15d6688690d357cf31cbdf1b55966362e9475e"
+      }
+    },
+    {
+      "000000000000001794193f3782260dba5ffdf5773964b3b1e9ce1a573723bc9a": {
+        "creationHeight": 1782720,
+        "minedBlockHash": "00000000000000023d0cde88671122104907f91e9464b034cdc134b873599c5c"
+      }
+    },
+    {
+      "000000000000001193e04261a080caa22115762657a5f66467fdd5b81390e241": {
+        "creationHeight": 1782144,
+        "minedBlockHash": "00000000000000255bd2fddf1b3755027e6d275c47baf420bee6b3d2791c8f8b"
+      }
+    },
+    {
+      "000000000000000ad559e1c8449b241aef071696088192fe7d09d79235f93289": {
+        "creationHeight": 1781568,
+        "minedBlockHash": "0000000000000037a713230d0753e6592915375b25abe1db0621f0be6c1cd9b9"
+      }
+    },
+    {
+      "000000000000001179c4d6993024a4d24b17d69242ed35b8952b65ccd5d835cf": {
+        "creationHeight": 1780992,
+        "minedBlockHash": "00000000000000193ea00a29b7b0a460d932339b37e5dcb50285c884b07ca394"
+      }
+    },
+    {
+      "00000000000000066f383d51c8517986482fc60cdc6948f2c47a319f241e3907": {
+        "creationHeight": 1780416,
+        "minedBlockHash": "000000000000000cd803d220694c435300f6bb5863bde6ae46804167dada4553"
+      }
+    },
+    {
+      "00000000000000126d6079064d0563e4e005cacf7bfed139caa4c9e908285995": {
+        "creationHeight": 1779840,
+        "minedBlockHash": "0000000000000022fc16601ce9d9a61f112c387edf57855d67cf78190a41dce5"
+      }
+    },
+    {
+      "0000000000000024ed90d835369b22a74add14596dfb696a5cdb9a843271fdb3": {
+        "creationHeight": 1779264,
+        "minedBlockHash": "000000000000002bbe46554fc188fa57769b687ee9ad979b05a23ea1b28a5fa4"
+      }
+    },
+    {
+      "00000000000000026c43289a43beefa6c707b5880e610d58697da2d5a0fdf2f9": {
+        "creationHeight": 1778688,
+        "minedBlockHash": "000000000000001aec15dfc3f9de1d1c10f60a867854bba9c43a9ea68be51214"
+      }
+    }
+  ],
+  "llmq_100_67": [
+    {
+      "000000000000000696de249457a5857e2daeb875c1e3de19a8852525cbf3b527": {
+        "creationHeight": 1784256,
+        "minedBlockHash": "000000000000000cdd18a3c092d2b97f3f5b3ea529019fa81a7b3021c636a8a6"
+      }
+    },
+    {
+      "00000000000000255fbae6f89fea0edfcf9493ddb5095fc3e317bea1c7902202": {
+        "creationHeight": 1784232,
+        "minedBlockHash": "000000000000001e19ec895848461848adcd103950b8854218d636ec7d38cee3"
+      }
+    },
+    {
+      "000000000000003a559516009c473bd3245fbf3a56ea503c580fe31e8f2edbd8": {
+        "creationHeight": 1784208,
+        "minedBlockHash": "00000000000000366fa76a2fa4fab02caf4441d7038887d7936a80b8be87c3a0"
+      }
+    },
+    {
+      "00000000000000216599071837aac2878e12585711d44acbad99077f8bb1fe69": {
+        "creationHeight": 1784184,
+        "minedBlockHash": "000000000000003396fa1c6a187c01ab7c2215d7c117b4497cbbd45572364768"
+      }
+    },
+    {
+      "000000000000000d375a1785b279cc9c381aa14baf68a054bf59a05dab0b17c5": {
+        "creationHeight": 1784160,
+        "minedBlockHash": "000000000000002146140b3da9d5b2e81ddde6210e7e5908eb1586bd0f0de094"
+      }
+    },
+    {
+      "00000000000000229dbd1d906a964ed081164f60d4643bcfe19a0ba4aebaf4e9": {
+        "creationHeight": 1784136,
+        "minedBlockHash": "000000000000001d905ec5b81dc07c1d2237a4937c3d9b8ac0b44f00f08f31a8"
+      }
+    },
+    {
+      "000000000000001b05920f3c1a677c05f65093a0f4aa5789839338c07c4bf862": {
+        "creationHeight": 1784112,
+        "minedBlockHash": "0000000000000019302a969bc2db86813b6f526586dfe3c213be5f2353c42e94"
+      }
+    },
+    {
+      "000000000000000cf4a62042b36a7cea03bc291cb531b3bae62fbebcda5dc2d6": {
+        "creationHeight": 1784088,
+        "minedBlockHash": "0000000000000025d256b63d0df246f9c8f13aceb4218a9d67f78459da51e4b9"
+      }
+    },
+    {
+      "00000000000000030543569cbbfdf0ddd46e88ff9d28cf26bdd35b66473632d7": {
+        "creationHeight": 1784064,
+        "minedBlockHash": "000000000000001ddbc830935b5377a44652d8a5d7fc8939c975e99c933ceb6b"
+      }
+    },
+    {
+      "00000000000000357e9140b64db81264205cef11be30ed6daeb9b5d6771459e0": {
+        "creationHeight": 1784040,
+        "minedBlockHash": "00000000000000298ae1aa16a782410dedbaf35bcfde11503471f5dd1243f896"
+      }
+    }
+  ]
+}
+
+```
+
+*See also: none*
+
 ## Quorum RotationInfo
 
 The `quorum rotationinfo` RPC returns  quorum rotation information. The response is a JSON representation of the data that would be returned in a [`qrinfo` message](core-ref-p2p-network-data-messages#qrinfo).

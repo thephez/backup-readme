@@ -1,10 +1,11 @@
 # Dash Protocol Versions
 The table below lists some notable versions of the P2P network protocol, with the most recent versions listed first.
 
-As of Dash Core 18.1.0, the most recent protocol version is 70223.
+As of Dash Core 18.2.0, the most recent protocol version is 70224.
 
 | Version | Initial Release                    | Major Changes
 |---------|------------------------------------|--------------
+| 70224 | Dash Core 18.2.0 <br> (Jan 2023) | • None (CoinJoin bugfix only)
 | 70223 (unchanged) | Dash Core 18.1.0 <br> (Oct 2022) | • [BIP 70](https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki) support removed (Bitcoin backport)<br>• Account API removed (previously deprecated)<br>• Auto-loading wallets<br>
 | 70223 | Dash Core 18.0.0 <br> (Aug 2022) | • [DIP 22](https://github.com/dashpay/dips/blob/master/dip-0022.md): Deterministic InstantSend<br>• Governance proposal fee reduction<br>• Multi-wallet GUI support<br>• DIP 24: LLMQ Rotation<br>
 | 70219  | Dash Core 0.17.0 <br>(Q2 2021)  | • [DIP 20](https://github.com/dashpay/dips/blob/master/dip-0020.md) Opcode [additions](core-ref-transactions-opcodes#expanded-opcodes) <br>• Governance system improvements <br>• Add LLMQ for Dash Platform <br>• RPC updates to support Dash Platform <br>• Removal of [spork](core-ref-p2p-network-control-messages#spork) 22 <br>• Hard fork auto-recovery <br>• Non-HD to HD wallet upgrade option <br>• [DIP 21](https://github.com/dashpay/dips/blob/master/dip-0021.md) DKG data sharing/recovery
