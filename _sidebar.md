@@ -26,7 +26,7 @@
   - [Improvement Proposals](core/markdown/core-ref-improvement-proposals.md)
 
 - Core API Reference
-  - [Hash Byte Order](core/markdown/core-ref-dash-core-apis-hash-byte-order.md)
+  - [Hash Byte Order](core/markdown/core-api-ref-dash-core-apis-hash-byte-order.md)
   - [Remote Procedure Calls](core/markdown/core-api-ref-remote-procedure-calls.md)
     - [Quick Reference](core/markdown/core-api-ref-remote-procedure-call-quick-reference.md)
     - [Address Index RPCs](core/markdown/core-api-ref-remote-procedure-calls-address-index.md)
