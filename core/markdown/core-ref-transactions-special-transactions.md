@@ -420,13 +420,11 @@ Coinbase Transaction Payload
 # QcTx
 
 *Added in protocol version 70213 of Dash Core as described by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md)*
-[block:callout]
-{
-  "type": "warning",
-  "body": "This special transaction has no inputs and no outputs and thus also pays no fee",
-  "title": "Note"
-}
-[/block]
+
+> 🚧 Note
+>
+> This special transaction has no inputs and no outputs and thus also pays no fee
+
 The Quorum Commitment (QcTx) special transaction adds the best final commitment from a <<glossary:Long-Living Masternode Quorum>> (LLMQ) Distributed Key Generation (DKG) session to the chain.
 
 Since this special transaction pays no fees, it is mandatory by <<glossary:consensus rules>> to ensure that miners include it. Exactly one quorum commitment transaction MUST be included in every <<glossary:block>> while in the mining phase of the LLMQ process until a valid commitment is present in a block.
@@ -502,21 +500,17 @@ Quorum Commitment Transaction Payload
 # MnHfTx
 
 *Added in protocol version 70222 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)*
-[block:callout]
-{
-  "type": "warning",
-  "body": "This special transaction has no inputs and no outputs and thus also pays no fee",
-  "title": "Note"
-}
-[/block]
+
+> 🚧 Note
+>
+> This special transaction has no inputs and no outputs and thus also pays no fee
+
 The Masternode Hard Fork Signal (MnHfTx) special transaction adds the masternode hard fork signal produced by an LLMQ_400_85 quorum to the chain. Since this special transaction pays no fees, it is mandatory by consensus rules to ensure that miners include it. This can be done by any miner in any block, but it should only be included once.
-[block:callout]
-{
-  "type": "info",
-  "body": "Dash Core 18.0 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 19.0. The `mnhfsignal` P2P message referenced below is not included in Dash Core 18.0.",
-  "title": "Partial implementation in Dash Core 18.0"
-}
-[/block]
+
+> 📘 Partial implementation in Dash Core 18.0
+>
+> Dash Core 18.0 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 19.0. The `mnhfsignal` P2P message referenced below is not included in Dash Core 18.0.
+
 The special transaction type used for Quorum Commitment Transactions is 7 and the extra payload consists of the following data:
 
 | Bytes | Name | Data type |  Description |

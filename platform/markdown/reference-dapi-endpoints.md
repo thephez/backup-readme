@@ -1,13 +1,11 @@
 [DAPI](explanation-dapi) currently provides 2 types of endpoints: [JSON-RPC](https://www.jsonrpc.org/) and [gRPC](https://grpc.io/docs/guides/). The JSON-RPC endpoints expose some layer 1 information while the gRPC endpoints support layer 2 as well as streaming of events related to blocks and transactions/transitions.
 
 # JSON-RPC Endpoints
-[block:callout]
-{
-  "type": "info",
-  "title": "gRPC Migration",
-  "body": "The remaining JSON-RPC endpoints will be migrated to gRPC in a future release"
-}
-[/block]
+
+> 📘 gRPC Migration
+>
+> The remaining JSON-RPC endpoints will be migrated to gRPC in a future release
+
 | Layer | Endpoint | Description |
 | :-: | - | - |
 | 1 | [`getBestBlockHash`](reference-dapi-endpoints-json-rpc-endpoints#getbestblockhash) | Returns block hash of the chaintip |

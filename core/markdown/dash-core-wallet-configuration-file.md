@@ -46,17 +46,38 @@ Since Dash Core 0.16 it is possible for a single configuration file to set diffe
 >❗️ Valid Section Names
 >
 > Please note that the only valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "# Enable RPC server for all networks\nserver=1\n\n[main]\n# Set custom mainnet ports\nport=9989\nrpcport=9988\n# Set custom mainnet RPC auth\nrpcuser=mainnetuser\nrpcpassword=mainnetpass\n\n[test]\n# Set custom testnet RPC auth\nrpcuser=testnetuser\nrpcpassword=testnetpass\n\n# Enabling indexing\ntxindex=1\naddressindex=1\ntimestampindex=1\nspentindex=1\n\n[regtest]\nmempoolsize=20\n\n[devnet]\nport=21999\nrpcport=21998",
-      "language": "text",
-      "name": "Example dash.conf"
-    }
-  ]
-}
-[/block]
+
+``` text Example dash.conf
+# Enable RPC server for all networks
+server=1
+
+[main]
+# Set custom mainnet ports
+port=9989
+rpcport=9988
+# Set custom mainnet RPC auth
+rpcuser=mainnetuser
+rpcpassword=mainnetpass
+
+[test]
+# Set custom testnet RPC auth
+rpcuser=testnetuser
+rpcpassword=testnetpass
+
+# Enabling indexing
+txindex=1
+addressindex=1
+timestampindex=1
+spentindex=1
+
+[regtest]
+mempoolsize=20
+
+[devnet]
+port=21999
+rpcport=21998
+```
+
 With this configuration file, dashd, dash-qt, or dash-cli can be run with the `-conf=<configuration file>` along with the `-testnet`,  `-regtest`, or `-devnet=<devnet name>` parameter to select the correct settings.
 
 >❗️ 

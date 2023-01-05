@@ -4,13 +4,11 @@
 ```bash 
 dashd [options]
 ```
-[block:callout]
-{
-  "type": "warning",
-  "title": "Debug Options",
-  "body": "The following sections show all available options including debug options that are not normally displayed. To see only regular options, run `dashd --help`."
-}
-[/block]
+
+> 🚧 Debug Options
+>
+> The following sections show all available options including debug options that are not normally displayed. To see only regular options, run `dashd --help`.
+
 ## Options:
 
 ```text
@@ -982,12 +980,11 @@ dashd [options]
 ```
 
 ## Wallet debugging/testing options:
-[block:callout]
-{
-  "type": "warning",
-  "body": "These options are normally hidden and will only be shown if using the help debug option: `dashd --held -help-debug`"
-}
-[/block]
+
+> 🚧 
+>
+> These options are normally hidden and will only be shown if using the help debug option: `dashd --held -help-debug`
+
 ```text
   -dblogsize=<n>
        Flush wallet database activity from memory to disk log every <n>
