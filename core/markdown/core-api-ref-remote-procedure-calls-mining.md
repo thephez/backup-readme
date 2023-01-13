@@ -137,7 +137,6 @@ Result:
 
 *See also*
 
-* [SetGenerate](/docs/core-api-ref-remote-procedure-calls-removed#setgenerate): was removed in Dash Core 0.12.3.
 * [GetMiningInfo](/docs/core-api-ref-remote-procedure-calls-mining#getmininginfo): returns various mining-related information.
 * [SubmitBlock](/docs/core-api-ref-remote-procedure-calls-mining#submitblock): accepts a block, verifies it is a valid addition to the block chain, and broadcasts it to the network. Extra parameters are ignored by Dash Core but may be used by mining pools or other programs.
 * [PrioritiseTransaction](/docs/core-api-ref-remote-procedure-calls-mining#prioritisetransaction): adds virtual priority or fee to a transaction, allowing it to be accepted into blocks mined by this node (or miners which use this node) with a lower priority or fee. (It can also remove virtual priority or fee, requiring the transaction have a higher priority or fee to be accepted into a locally-mined block.)

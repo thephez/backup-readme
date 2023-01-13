@@ -45,6 +45,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Operating Modes",
  "icon": "",
  "updates": [],
@@ -59,7 +63,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.676Z",
  "revision": 2,
@@ -72,6 +75,7 @@
  "category": "6388e57de5231e009cab7ffa",
  "__v": 1,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab804e",
  "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>"

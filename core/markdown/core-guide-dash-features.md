@@ -18,12 +18,10 @@ Full nodes in Dash are equivalent to full nodes in Bitcoin. They download and va
 
 ## Disable Governance Mode
 
-[block:callout]
-{
-  "type": "info",
-  "body": "New in Dash Core v0.16.0"
-}
-[/block]
+> 📘
+>
+> New in Dash Core v0.16.0
+
 Prior to Dash Core v0.16.0, Lite Mode disabled all Dash-specific functionality. Dash Core v0.16.0 introduced Disable Governance Mode to replace Lite Mode. This mode enables access to most Dash features (e.g., InstantSend, ChainLocks, and CoinJoin) while also supporting block pruning.
 
 As with the previous Lite Mode, masternodes **_cannot_** be run in disable governance mode since they are paid to provide governance services that the mode disables.
@@ -31,19 +29,15 @@ As with the previous Lite Mode, masternodes **_cannot_** be run in disable gover
 Disable governance mode is enable by setting `disablegovernance=1` in the `dash.conf` file or by running Dash Core with the command line parameter `-disablegovernance=1`.
 
 ## Lite Mode
-[block:callout]
-{
-  "type": "danger",
-  "body": "Please use [disable governance](#disable-governance-mode) mode",
-  "title": "Deprecated in Dash Core v0.16.0"
-}
-[/block]
+
+>❗️ Deprecated in Dash Core v0.16.0
+>
+> Please use [disable governance](#disable-governance-mode) mode
+
 Lite mode provides a way to run Dash Core full nodes with Dash-specific functionality disabled. Masternodes **_cannot_** be run in lite mode since they are paid to provide the services that lite mode disables. Disabled items include: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [CoinJoin](core-guide-dash-features-privatesend), Masternode-related information, and [Governance](core-guide-dash-features-governance) details.
-[block:callout]
-{
-  "type": "danger",
-  "title": "Lite mode effects",
-  "body": "Since nodes running in lite mode do not execute InstantSend/ChainLock logic, they are unaware of transaction lock status and will always show `false` for the lock status returned in RPC responses (e.g. [GetTransaction's](core-api-ref-remote-procedure-calls-wallet#gettransaction) `chainlock`, `instantlock`, and `instantlock_internal` fields)."
-}
-[/block]
+
+>❗️ Lite mode effects
+>
+> Since nodes running in lite mode do not execute InstantSend/ChainLock logic, they are unaware of transaction lock status and will always show `false` for the lock status returned in RPC responses (e.g. [GetTransaction's](core-api-ref-remote-procedure-calls-wallet#gettransaction) `chainlock`, `instantlock`, and `instantlock_internal` fields).
+
 Lite mode is enable by setting `litemode=1` in the `dash.conf` file or by running Dash Core with the command line parameter `-litemode=1`.

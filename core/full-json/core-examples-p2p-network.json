@@ -66,6 +66,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "P2P Network",
  "icon": "",
  "updates": [],
@@ -80,9 +84,8 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2023-01-04T20:56:39.421Z",
+ "slugUpdatedAt": "2023-01-12T21:07:07.410Z",
  "revision": 1,
  "_id": "6388e57de5231e009cab8027",
  "version": "6388e57de5231e009cab8087",
@@ -93,6 +96,7 @@
  "category": "6388e57de5231e009cab7ffc",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8027",
  "body_html": "&nbsp;"

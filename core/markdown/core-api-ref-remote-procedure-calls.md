@@ -3,13 +3,11 @@
 Dash Core provides a remote procedure call (RPC) interface for various administrative tasks, <<glossary:wallet>> operations, and queries about <<glossary:network>> and <<glossary:block chain>> data.
 
 Open-source client libraries for the RPC interface are readily available in most modern programming languages, so you probably don't need to write your own from scratch. Dash Core also ships with its own compiled C++ RPC client, `dash-cli`, located in the `bin` directory alongside `dashd` and `dash-qt`. The `dash-cli` program can be used as a command-line interface (CLI) to Dash Core or for making RPC calls from applications written in languages lacking a suitable native client. The remainder of this section describes the Dash Core RPC protocol in detail.
-[block:callout]
-{
-  "type": "info",
-  "body": "The following subsections reference setting configuration values. See the [Examples Page](core-examples-introduction) for more information about setting Dash Core configuration values.",
-  "title": "Dash Core Configuration"
-}
-[/block]
+
+> 📘 Dash Core Configuration
+>
+> The following subsections reference setting configuration values. See the [Examples Page](core-examples-introduction) for more information about setting Dash Core configuration values.
+
 ## Enabling RPC
 
 If you start Dash Core using `dash-qt`, the RPC interface is disabled by default. To enable it, set `server=1` in `dash.conf` or supply the `-server` argument when invoking the program. If you start Dash Core using `dashd`, the RPC interface is enabled by default.
@@ -27,24 +25,20 @@ Alternatively, the authentication details can be provided using the `rpcauth` pr
 # Example dash.conf rpcauth entry
 rpcauth=myuser:933fff1aaefa1fc5b3e981fd3ceacf03$f799757c0d36be8f1faa1dd3a01562b17ada82f2ff6c968c959103afda9e7c6f
 ```
-[block:callout]
-{
-  "type": "info",
-  "body": "The `rpcauth` option can be specified multiple times if multiple users are required."
-}
-[/block]
+
+> 📘 
+>
+> The `rpcauth` option can be specified multiple times if multiple users are required.
+
 A canonical python script is included in Dash Core's repository under [share/rpcuser](https://github.com/dashpay/dash/tree/master/share/rpcauth) to generate the information required for the dash.conf file as well as the password required by clients using the rpcauth name.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "String to be appended to dash.conf:\nrpcauth=myuser:b87393f6957f80448f8a0aba5eb8cc00$f67a3321106b13acc2a8881c9eb64e7bbc6eeb4681261b2918cc54da8915be6e\nYour password:\n2-Cl0O92-MT-XavyEIkkV_hxqdC_7fag8w7EF7t3UVg=\n",
-      "language": "text",
-      "name": "Example output when running './rpcauth.py myuser'"
-    }
-  ]
-}
-[/block]
+
+``` text
+String to be appended to dash.conf:
+rpcauth=myuser:b87393f6957f80448f8a0aba5eb8cc00$f67a3321106b13acc2a8881c9eb64e7bbc6eeb4681261b2918cc54da8915be6e
+Your password:
+2-Cl0O92-MT-XavyEIkkV_hxqdC_7fag8w7EF7t3UVg=
+```
+
 ## RPC Whitelist
 
 The RPC whitelist system can limit certain RPC users to only have access to some RPC calls. The system is configured by specifying the following two parameters in the `dash.conf` file or by setting them as program arguments on the command line:
@@ -68,12 +62,11 @@ rpcwhitelistdefault=0
 In this example, user1 can only call `getnetworkinfo`, user2 can only call `getnetworkinfo` or `getwalletinfo`, while user3 can still call all RPCs.
 
 ## Restricted Access Users
-[block:callout]
-{
-  "type": "warning",
-  "body": "This feature is only available on masternodes"
-}
-[/block]
+
+> 🚧 
+>
+> This feature is only available on masternodes
+
 As of Dash Core 0.17.0, an option is provided to add an RPC user that is restricted to a small subset of RPCs that will be used by Dash Platform. The `platform-user` configuration value sets the name of the RPC user to be restricted.
 
 The `platform-user` configuration value must be set to a previously configured [rpcauth user](#rpc-auth-security).
@@ -87,7 +80,7 @@ Only the following RPCs are accessible to the restricted user:
 - [`quorum verify`](core-api-ref-remote-procedure-calls-evo#quorum-verify)
 - [`verifyislock`](core-api-ref-remote-procedure-calls-evo#verifyislock)
 
- ## Default Connection Info
+## Default Connection Info
 
 The Dash Core RPC service listens for HTTP `POST` requests on port 9998 in <<glossary:mainnet>> mode, 19998 in <<glossary:testnet>>, or 19898 in <<glossary:regression test mode>>. The port number can be changed by setting `rpcport` in `dash.conf`. By default the RPC service binds to your server's [localhost](https://en.wikipedia.org/wiki/Localhost) loopback network interface so it's not accessible from other servers. Authentication is implemented using [HTTP basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). RPC HTTP requests must include a `Content-Type` header set to `text/plain` and a `Content-Length` header set to the size of the request body.
 
@@ -147,38 +140,29 @@ As an example, here is the JSON-RPC request object for the hash of the <<glossar
 ```
 
 The command to send this request using `dash-cli` is:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dash-cli getblockhash 0",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell Shell
+dash-cli getblockhash 0
+```
+
 The command to send this request using `dash-cli` with named parameters is:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dash-cli -named getblockhash height=0",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell Shell
+dash-cli -named getblockhash height=0
+```
+
 Alternatively, we could `POST` this request using the cURL command-line program as follows:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --user 'my_username:my_secret_password' --data-binary '''\n  {\n      \"method\": \"getblockhash\",\n      \"params\": [0],\n      \"id\": \"foo\"\n  }''' \\\n  --header 'Content-Type: text/plain;' localhost:9998",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell Shell
+curl --user 'my_username:my_secret_password' --data-binary '''
+  {
+      "method": "getblockhash",
+      "params": [0],
+      "id": "foo"
+  }''' \
+  --header 'Content-Type: text/plain;' localhost:9998
+```
+
 The HTTP response data for this request would be:
 
 ```json
@@ -188,12 +172,11 @@ The HTTP response data for this request would be:
     "id": "foo"
 }
 ```
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: In order to minimize its size, the raw JSON response from Dash Core doesn't include any extraneous whitespace characters."
-}
-[/block]
+
+> 📘 
+>
+> Note: In order to minimize its size, the raw JSON response from Dash Core doesn't include any extraneous whitespace characters.
+
 Here whitespace has been added to make the object more readable. `dash-cli` also transforms the raw response to make it more human-readable. It:
 
 - Adds whitespace indentation to JSON objects
@@ -272,10 +255,7 @@ This translates into an JSON-RPC Request object of the form:
     "id": "foo"
 }
 ```
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** if you write programs using the JSON-RPC interface, you must ensure they handle high-precision real numbers correctly.  See the [Proper Money Handling](https://en.bitcoin.it/wiki/Proper_Money_Handling_%28JSON-RPC%29) Bitcoin Wiki article for details and example code.",
-  "title": "High-precision real numbers"
-}
-[/block]
+
+> 🚧 High-precision real numbers
+>
+> **Warning:** if you write programs using the JSON-RPC interface, you must ensure they handle high-precision real numbers correctly.  See the [Proper Money Handling](https://en.bitcoin.it/wiki/Proper_Money_Handling_%28JSON-RPC%29) Bitcoin Wiki article for details and example code.

@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Fees",
  "icon": "",
  "updates": [],
@@ -52,11 +56,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-07-11T05:15:58.224Z",
  "revision": 1,
  "_id": "62cc35026d737701e9a2328a",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2022-07-11T14:34:42.374Z",
  "updatedAt": "2022-07-14T04:16:13.148Z",
  "user": "5b8400d7185d5e00036dcc3b",

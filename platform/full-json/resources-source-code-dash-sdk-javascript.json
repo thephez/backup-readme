@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Dash SDK (Javascript)",
  "icon": "",
  "updates": [],
@@ -44,7 +48,6 @@
  "sync_unique": "",
  "link_url": "https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk#readme",
  "link_external": true,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-09-03T17:49:06.994Z",
  "revision": 1,
@@ -57,6 +60,7 @@
  "parentDoc": "62b226d1fcc32e002300c51b",
  "category": "62b226d1fcc32e002300c50a",
  "__v": 0,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "62b226d1fcc32e002300c529",
  "body_html": "&nbsp;"

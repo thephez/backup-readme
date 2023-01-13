@@ -23,7 +23,7 @@ The following table details the data flow of P2P messages exchanged during initi
 | **2. Mempool** |   |  |  |
 | [`mempool` message](core-ref-p2p-network-data-messages#mempool)                            | → |                           | Syncing node requests mempool entries
 |                                                | ← | [`inv` message](core-ref-p2p-network-data-messages#inv)(s) | `inv` message(s) containing TXIDs of mempool transactions |
-| **3. Governance** |   |  | See [Governance sync](#governance) |
+| **3. Governance** |   |  | See [Governance sync](core-guide-dash-features-governance#synchronization) |
 
 *Masternode Sync Status*
 

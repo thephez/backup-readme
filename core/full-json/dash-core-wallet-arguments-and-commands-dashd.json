@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "dashd",
  "icon": "",
  "updates": [
@@ -46,11 +50,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-10-06T18:01:01.457Z",
  "revision": 8,
  "_id": "6388e57de5231e009cab807f",
+ "pendingAlgoliaPublish": false,
  "parentDoc": "6388e57de5231e009cab807c",
  "createdAt": "2020-06-04T14:35:10.463Z",
  "updatedAt": "2023-01-05T16:02:14.212Z",

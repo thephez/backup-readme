@@ -79,13 +79,12 @@ For our two inputs, we select two UTXOs by placing the txid and output index num
 ```
 
 # 3. Get private keys
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** Users should never manually manage private keys on mainnet. As dangerous as raw transactions are (see warnings above), making a mistake with a private key can be much worse---as in the case of a HD wallet [cross-generational key compromise](core-guide-wallets-wallet-files#hardened-keys). \n**These examples are to help you learn, not for you to emulate on mainnet.**",
-  "title": "Private Key Warning"
-}
-[/block]
+
+>❗️ Private Key Warning
+>
+> **Warning:** Users should never manually manage private keys on mainnet. As dangerous as raw transactions are (see warnings above), making a mistake with a private key can be much worse---as in the case of a HD wallet [cross-generational key compromise](core-guide-wallets-wallet-files#hardened-keys). 
+**These examples are to help you learn, not for you to emulate on mainnet.**
+
 Use the [`dumpprivkey` RPC](core-api-ref-remote-procedure-calls-wallet#dumpprivkey) to get the <<glossary:private keys>> corresponding to the <<glossary:public keys>> used in the two UTXOs our inputs we will be spending.  We need the private keys so we can sign each of the inputs separately.
 
 ``` bash

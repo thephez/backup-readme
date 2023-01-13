@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Transaction Malleability",
  "icon": "",
  "updates": [],
@@ -52,7 +56,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T18:45:35.609Z",
  "revision": 2,
@@ -65,6 +68,7 @@
  "parentDoc": "6388e57de5231e009cab8059",
  "category": "6388e57de5231e009cab7ffa",
  "__v": 1,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8061",
  "body_html": "<div class=\"magic-block-textarea\"><p>None of Dash&#39;s signature hash types protect the &lt;&lt;glossary:signature script&gt;&gt;, leaving the door open for a limited denial of service attack called transaction &lt;&lt;glossary:malleability&gt;&gt;. The signature script contains the secp256k1 &lt;&lt;glossary:signature&gt;&gt;, which can&#39;t sign itself, allowing attackers to make non-functional modifications to a transaction without rendering it invalid. For example, an attacker can add some data to the signature script which will be dropped before the previous &lt;&lt;glossary:pubkey script&gt;&gt; is processed.</p>\n<p>Although the modifications are non-functional---so they do not change what &lt;&lt;glossary:inputs&gt;&gt; the transaction uses nor what &lt;&lt;glossary:outputs&gt;&gt; it pays---they do change the computed hash of the transaction. Since each transaction links to previous transactions using hashes as a transaction identifier (&lt;&lt;glossary:TXID&gt;&gt;), a modified transaction will not have the txid its creator expected.</p>\n<p>This isn&#39;t a problem for most Dash transactions which are designed to be added to the &lt;&lt;glossary:block chain&gt;&gt; immediately. But it does become a problem when the output from a transaction is spent before that transaction is added to the block chain.</p>\n<p>Dash Core 12.3 implemented <a href=\"https://github.com/bitcoin/bips/blob/master/bip-0147.mediawiki\">BIP-147: Dealing with dummy stack element malleability</a> which fixes a design flaw in OP_CHECKMULTISIG and OP_CHECKMULTISIGVERIFY that caused them to consume an extra stack element (&quot;dummy element&quot;) after signature validation. Previously, the dummy element was not inspected in any manner, and could be replaced by any value without invalidating the script. BIP147 removed this malleability vector by forcing the dummy element to be an empty byte array and rejecting anything else.</p>\n<p>Transaction malleability also affects payment tracking.  Dash Core&#39;s RPC interface lets you track transactions by their txid---but if that txid changes because the transaction was modified, it may appear that the transaction has disappeared from the network.</p>\n<p>Current best practices for transaction tracking dictate that a transaction should be tracked by the transaction outputs (UTXOs) it spends as inputs, as they cannot be changed without invalidating the transaction.</p>\n<p>Best practices further dictate that if a transaction does seem to disappear from the network and needs to be reissued, that it be reissued in a way that invalidates the lost transaction. One method which will always work is to ensure the reissued payment spends all of the same outputs that the lost transaction used as inputs.</p>\n<p>For additional information regarding the types transaction malleability, reference <a href=\"https://blog.dash.org/segwit-lighting-rbf-in-dash-9536868ca861\">this blog post</a> by one of the Dash Core developers.</p>\n\n</div>"

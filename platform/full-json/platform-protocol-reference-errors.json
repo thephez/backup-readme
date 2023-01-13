@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Consensus Errors",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "errors",
  "slugUpdatedAt": "2021-10-21T18:39:09.031Z",
  "revision": 19,
  "_id": "62b226d1fcc32e002300c570",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2021-10-21T05:49:51.232Z",
  "updatedAt": "2022-12-21T14:35:34.355Z",
  "user": "5b8400d7185d5e00036dcc3b",

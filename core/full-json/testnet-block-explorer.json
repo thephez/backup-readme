@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Testnet Block Explorer",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "https://testnet-insight.dashevo.org/insight/",
  "link_external": true,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-03T23:03:16.204Z",
  "revision": 1,
  "_id": "6388e57de5231e009cab8082",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-04T13:40:31.535Z",
  "updatedAt": "2021-03-04T13:40:31.535Z",
  "user": "5b8400d7185d5e00036dcc3b",

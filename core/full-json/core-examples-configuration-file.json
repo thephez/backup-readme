@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Configuration File",
  "icon": "",
  "updates": [],
@@ -52,7 +56,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.861Z",
  "revision": 2,
@@ -65,6 +68,7 @@
  "category": "6388e57de5231e009cab7ffc",
  "__v": 1,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8025",
  "body_html": "<div class=\"magic-block-textarea\"><p>All three programs get settings from <code>dash.conf</code> in the <code>DashCore</code> application directory:</p>\n<ul>\n<li ><p>Windows: <code>%APPDATA%\\DashCore\\</code></p>\n</li><li ><p>OSX: <code>$HOME/Library/Application Support/DashCore/</code></p>\n</li><li ><p>Linux: <code>$HOME/.dashcore/</code></p>\n</li></ul>\n<p>To use <code>dashd</code> and <code>dash-cli</code>, you will need to add a RPC password to your <code>dash.conf</code> file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:</p>\n<pre><code class=\"lang-text\">rpcpassword=change_this_to_a_long_random_password\n</code></pre>\n<p>You should also make the <code>dash.conf</code> file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:</p>\n<pre><code class=\"lang-text\">chmod 0600 dash.conf\n</code></pre>\n<p>For development, it&#39;s safer and cheaper to use Dash&#39;s test network (&lt;&lt;glossary:testnet&gt;&gt;), &lt;&lt;glossary:regression test mode&gt;&gt; (regtest), or a developer network  (&lt;&lt;glossary:devnet&gt;&gt;) described below.</p>\n<p>Questions about Dash use are best sent to the <a href=\"https://www.dash.org/forum/categories/dash-support.61/\">Dash forum</a> and <a href=\"http://www.dashchat.org\">Discord channels</a>.</p>\n<p>In the following documentation, some strings have been shortened or wrapped: &quot;[...]&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below. If you hover over a cross-reference link, a brief definition of the term will be displayed.</p>\n\n</div>"

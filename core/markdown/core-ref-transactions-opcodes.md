@@ -36,8 +36,9 @@ A complete list of Bitcoin opcodes can be found on the Bitcoin Wiki [Script Page
 Several opcodes were disabled in the Bitcoin scripting system due to the discovery of a series of bugs in the early days of Bitcoin. [Dash Improvement Proposal 20](https://github.com/dashpay/dips/blob/master/dip-0020.md) reintroduced a number of these opcodes based on work done by Bitcoin Cash developers. Many of the disabled opcodes have been enabled and several of them re-designed to replace the original ones. 
 
 > 👍 New Opcodes
->
+> 
 > The following opcodes were added/reactivated in Dash Core 0.17.0 as described in [DIP 20](https://github.com/dashpay/dips/blob/master/dip-0020.md).
+
 
 * `OP_CAT` (0x7e) concatenates two byte arrays.
 

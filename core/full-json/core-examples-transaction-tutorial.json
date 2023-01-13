@@ -73,6 +73,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Transaction Tutorial",
  "icon": "",
  "updates": [],
@@ -87,7 +91,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.808Z",
  "revision": 2,
@@ -100,6 +103,7 @@
  "category": "6388e57de5231e009cab7ffc",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8031",
  "body_html": "<div class=\"magic-block-textarea\"><p>Creating transactions is something most Dash applications do. This section describes how to use Dash Core&#39;s RPC interface to create transactions with various attributes.</p>\n<p>Your applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.</p>\n<p>In order to use this tutorial, you will need to setup <a href=\"https://www.dash.org/wallets/#wallets\">Dash Core</a> and create a &lt;&lt;glossary:regression test mode&gt;&gt; environment with 500 DASH in your test wallet.</p>\n\n</div>"

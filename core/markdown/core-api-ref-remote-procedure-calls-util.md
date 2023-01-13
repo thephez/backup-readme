@@ -9,13 +9,11 @@ Name | Type | Presence | Description
 Required | number (int) | Required<br>(exactly 1) | The minimum (*m*) number of signatures required to spend this m-of-n multisig script
 
 *Parameter #2---the full public keys*
-[block:callout]
-{
-  "type": "danger",
-  "body": "As of Dash Core 0.17.0, using addresses with `createmultisig` is unsupported. Clients must use [`addmultisigaddress`](core-api-ref-remote-procedure-calls-wallet#addmultisigaddress) to create multisig addresses.",
-  "title": "Deprecation Warning"
-}
-[/block]
+
+>❗️ Deprecation Warning
+>
+> As of Dash Core 0.17.0, using addresses with `createmultisig` is unsupported. Clients must use [`addmultisigaddress`](core-api-ref-remote-procedure-calls-wallet#addmultisigaddress) to create multisig addresses.
+
 Name | Type | Presence | Description
 --- | --- | --- | ---
 Keys | array | Required<br>(exactly 1) | An array of strings with each string being a public key
@@ -267,12 +265,11 @@ IBx8jxFjutPlcZcFdQPlA2n/B4yTrYhH43qYJURKRj7LWhSD0ERE/nnRLOnXi/gwULUcqfqOKqnqkSvu
 # ValidateAddress
 
 The [`validateaddress` RPC](core-api-ref-remote-procedure-calls-util#validateaddress) returns information about the given Dash address.
-[block:callout]
-{
-  "type": "danger",
-  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
-}
-[/block]
+
+>❗️ 
+>
+> Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details.
+
 *Parameter #1---a P2PKH or P2SH address*
 
 Name | Type | Presence | Description
@@ -280,13 +277,13 @@ Name | Type | Presence | Description
 Address | string (base58) | Required<br>(exactly 1) | The P2PKH or P2SH address to validate encoded in base58check format
 
 *Result---information about the address*
-[block:callout]
-{
-  "type": "warning",
-  "body": "Parts of this command have been deprecated and moved to the [getaddressinfo RPC](core-api-ref-remote-procedure-calls-wallet#getaddressinfo). Clients must transition to using getaddressinfo to access this information before upgrading to v18.0.\nThe following deprecated fields have moved to `getaddressinfo` and will only be shown here with `-deprecatedrpc=validateaddress`: `ismine`, `iswatchonly`,\n`script`, `hex`, `pubkeys`, `sigsrequired`, `pubkey`, `addresses`, `embedded`, `iscompressed`, `account`, `timestamp`, `hdkeypath`.",
-  "title": "Dash Core 0.17.0 Deprecations"
-}
-[/block]
+
+> 🚧 Dash Core 0.17.0 Deprecations
+>
+> Parts of this command have been deprecated and moved to the [getaddressinfo RPC](core-api-ref-remote-procedure-calls-wallet#getaddressinfo). Clients must transition to using getaddressinfo to access this information before upgrading to v18.0.
+The following deprecated fields have moved to `getaddressinfo` and will only be shown here with `-deprecatedrpc=validateaddress`: `ismine`, `iswatchonly`,
+`script`, `hex`, `pubkeys`, `sigsrequired`, `pubkey`, `addresses`, `embedded`, `iscompressed`, `account`, `timestamp`, `hdkeypath`.
+
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `result` | object | Required<br>(exactly 1) | Information about the address

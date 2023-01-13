@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "dash-tx",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-10-06T21:19:25.877Z",
  "revision": 3,
  "_id": "6388e57de5231e009cab807d",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-06-04T13:40:40.435Z",
  "updatedAt": "2022-10-19T20:57:15.475Z",
  "user": "5b8400d7185d5e00036dcc3b",

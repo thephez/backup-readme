@@ -45,6 +45,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Wallets",
  "icon": "",
  "updates": [],
@@ -59,7 +63,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.441Z",
  "revision": 2,
@@ -72,6 +75,7 @@
  "category": "6388e57de5231e009cab7ffa",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8067",
  "body_html": "<div class=\"magic-block-textarea\"><p>A Dash &lt;&lt;glossary:wallet&gt;&gt; can refer to either a wallet program or a wallet file. Wallet programs create &lt;&lt;glossary:public keys&gt;&gt; to receive &lt;&lt;glossary:duffs&gt;&gt; and use the corresponding &lt;&lt;glossary:private keys&gt;&gt; to spend those duffs. Wallet files store private keys and (optionally) other information related to &lt;&lt;glossary:transactions&gt;&gt; for the wallet program.</p>\n<p>Wallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we&#39;re talking about wallet programs or wallet files.</p>\n\n</div>"

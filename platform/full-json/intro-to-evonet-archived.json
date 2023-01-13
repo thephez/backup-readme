@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Intro to Evonet Archived",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2021-02-24T05:03:33.634Z",
  "revision": 2,
  "_id": "62b226d1fcc32e002300c56a",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2021-02-24T16:09:56.448Z",
  "updatedAt": "2022-11-14T14:58:06.686Z",
  "user": "5b8400d7185d5e00036dcc3b",

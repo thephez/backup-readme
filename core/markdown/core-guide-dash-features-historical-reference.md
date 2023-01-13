@@ -1,17 +1,13 @@
-[block:callout]
-{
-  "type": "danger",
-  "body": "**The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**",
-  "title": "Deprecated Content"
-}
-[/block]
+>❗️ Deprecated Content
+>
+> **The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**
+
 # InstantSend (original)
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**"
-}
-[/block]
+
+> 🚧 
+>
+> **Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**
+
 Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions. Since Dash Core 0.13.0, any qualifying transaction is automatically upgraded to InstantSend by the network without a need for the sending wallet to explicitly request it. For these simple transactions (those containing 4 or fewer inputs), the previous requirement for a special InstantSend transaction fee was also removed. The criteria for determining eligibility can be found in the lists of limitations below.
 
 The following video provides an overview with a good introduction to the details including the InstantSend vulnerability that was fixed in Dash Core 0.12.2. Some specific points in the video are listed here for quick reference:

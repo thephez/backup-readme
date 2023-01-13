@@ -9,13 +9,11 @@ Dash Core's <<glossary:InstantSend>> feature provides a way to lock transaction 
 | --- | --- |
 | Mainnet | 6 Blocks (normal transactions)<br>**100 Blocks (mining/masternode rewards)** |
 | Testnet / Regtest / Devnet | 2 Blocks |
-[block:callout]
-{
-  "type": "info",
-  "body": "Protocol version 70220 implements [DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md) which adds the `isdlock` message as a replacement for the `islock` message. Once the transition is complete, the `islock` message will be deprecated.",
-  "title": "Transition to Deterministic InstantSend lock"
-}
-[/block]
+
+> 📘 Transition to Deterministic InstantSend lock
+>
+> Protocol version 70220 implements [DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md) which adds the `isdlock` message as a replacement for the `islock` message. Once the transition is complete, the `islock` message will be deprecated.
+
 The introduction of the <<glossary:Long-Living Masternode Quorum>> feature in Dash Core 0.14 provided a foundation to scale InstantSend. The transaction input locking process (and resulting network traffic) now occurs only within the quorum. This minimizes network congestion since only the [`islock` message](core-ref-p2p-network-instantsend-messages#islock) or [`isdlock` message](core-ref-p2p-network-instantsend-messages#isdlock) produced by the locking process is relayed to the entire Dash network. This message contains all the information necessary to verify a successful transaction lock.
 
 # Management via Spork

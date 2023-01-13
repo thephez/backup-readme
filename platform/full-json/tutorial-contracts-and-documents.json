@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Contracts and Documents",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "contracts-and-documents",
  "slugUpdatedAt": "2020-12-17T19:28:37.093Z",
  "revision": 1,
  "_id": "62b226d1fcc32e002300c562",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-12-17T19:28:18.074Z",
  "updatedAt": "2022-05-12T17:05:50.088Z",
  "user": "5b8400d7185d5e00036dcc3b",

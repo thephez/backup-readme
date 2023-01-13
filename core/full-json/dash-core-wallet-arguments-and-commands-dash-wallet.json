@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "dash-wallet",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "dash-wallet",
  "slugUpdatedAt": "2022-10-19T20:58:34.390Z",
  "revision": 10,
  "_id": "6388e57de5231e009cab8086",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2022-10-19T20:57:39.947Z",
  "updatedAt": "2022-10-19T21:02:02.416Z",
  "user": "5b8400d7185d5e00036dcc3b",

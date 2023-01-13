@@ -22,12 +22,11 @@ However, Dash Core's RPCs use the byte-wise reverse for hashes, so if you want t
 > dash-cli getblock \
     000000000000327a66cd1011b2d1defd1417b7d9e39b439e8e67ba996ee92602
 ```
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: hex representation uses two characters to display each byte of data, which is why the reversed string looks somewhat mangled."
-}
-[/block]
+
+> 📘
+>
+> Note: hex representation uses two characters to display each byte of data, which is why the reversed string looks somewhat mangled.
+
 The rationale for the reversal is unknown, but it likely stems from Dash Core's use of hashes (which are byte arrays in C++) as integers for the purpose of determining whether the hash is below the network target. Whatever the reason for reversing header hashes, the reversal also extends to other hashes used in RPCs, such as <<glossary:TXIDs>> and merkle roots.
 
 As header hashes and TXIDs are widely used as global identifiers in other Dash software, this reversal of hashes has become the standard way to refer to certain objects. The table below should make clear where each byte order is used.
@@ -46,20 +45,29 @@ As header hashes and TXIDs are widely used as global identifiers in other Dash s
 |---------------|---------------------|-----------------|
 | P2SH Hashes: RIPEMD160(SHA256(redeem script))  | Used in both addresses and pubkey scripts | **N/A:** RPCs use addresses which use internal byte order |
 |---------------|---------------------|-----------------|
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: RPCs which return raw results, such as `getrawtransaction` or the raw mode of `getblock`, always display hashes as they appear in blocks (<<glossary:internal byte order>>)."
-}
-[/block]
+
+> 📘
+>
+> Note: RPCs which return raw results, such as `getrawtransaction` or the raw mode of `getblock`, always display hashes as they appear in blocks (<<glossary:internal byte order>>).
+
 The code below may help you check byte order by generating hashes from raw hex.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "from sys import byteorder\nfrom hashlib import sha256\nimport codecs\n\ndecode_hex = codecs.getdecoder('hex_codec')\nencode_hex = codecs.getencoder('hex_codec')\n\n# You can put in $data an 80-byte block header to get its header hash,\n# or a raw transaction to get its txid\ndata = decode_hex('00')[0]\ndata_hash = sha256(sha256(data).digest()).digest()\n\nprint(\"Warning: this code only tested on a little-endian x86_64 arch\")\nprint()\nprint(\"System byte order:        \", byteorder)\nprint(\"Internal-Byte-Order Hash: \", encode_hex(data_hash)[0])\nprint(\"RPC-Byte-Order Hash:      \", encode_hex(data_hash[::-1])[0])",
-      "language": "python"
-    }
-  ]
-}
-[/block]
+
+``` python
+from sys import byteorder
+from hashlib import sha256
+import codecs
+
+decode_hex = codecs.getdecoder('hex_codec')
+encode_hex = codecs.getencoder('hex_codec')
+
+# You can put in $data an 80-byte block header to get its header hash,
+# or a raw transaction to get its txid
+data = decode_hex('00')[0]
+data_hash = sha256(sha256(data).digest()).digest()
+
+print("Warning: this code only tested on a little-endian x86_64 arch")
+print()
+print("System byte order:        ", byteorder)
+print("Internal-Byte-Order Hash: ", encode_hex(data_hash)[0])
+print("RPC-Byte-Order Hash:      ", encode_hex(data_hash[::-1])[0])
+```

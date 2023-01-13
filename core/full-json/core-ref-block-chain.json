@@ -52,6 +52,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Blockchain",
  "icon": "",
  "updates": [],
@@ -66,7 +70,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
  "revision": 3,
@@ -79,6 +82,7 @@
  "category": "6388e57de5231e009cab7ff9",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8009",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/0a51d76-businessplan.svg\" class=\"block-display-image-parent block-display-image-size-75 \"><img src=\"https://files.readme.io/0a51d76-businessplan.svg\"/></a>\n\t</figure>\n</div>"

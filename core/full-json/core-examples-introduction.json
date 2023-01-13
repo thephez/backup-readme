@@ -59,6 +59,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Introduction",
  "icon": "",
  "updates": [],
@@ -73,7 +77,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:53.572Z",
  "revision": 2,
@@ -86,6 +89,7 @@
  "category": "6388e57de5231e009cab7ffc",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab802c",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\">pre-compiled executable</a>.</p>\n<p>Once installed, you&#39;ll have access to three programs: <code>dashd</code>, <code>dash-qt</code>, and <code>dash-cli</code>.</p>\n<ul>\n<li ><p><code>dash-qt</code> provides a combination full Dash &lt;&lt;glossary:peer&gt;&gt; and &lt;&lt;glossary:wallet&gt;&gt; frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.</p>\n</li><li ><p><code>dashd</code> is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for &lt;&lt;glossary:testnet&gt;&gt; / 19898 for regtest).</p>\n</li><li ><p><code>dash-cli</code> allows you to send RPC commands to <code>dashd</code> from the command line.  For example, <code>dash-cli help</code></p>\n</li></ul>\n\n</div>"

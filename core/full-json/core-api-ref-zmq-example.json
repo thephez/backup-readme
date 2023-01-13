@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "ZMQ Example",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
- "slugUpdatedAt": "2023-01-05T06:35:22.297Z",
+ "slugUpdatedAt": "2023-01-12T21:07:06.915Z",
  "revision": 1,
  "_id": "6388e57de5231e009cab8079",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-05-13T14:44:00.426Z",
  "updatedAt": "2020-05-13T16:26:12.078Z",
  "user": "5b8400d7185d5e00036dcc3b",

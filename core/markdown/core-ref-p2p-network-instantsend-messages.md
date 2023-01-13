@@ -33,13 +33,11 @@ dcd5497d105932e609016dac075f02df
 # islock
 
 *Added in protocol version 70214 of Dash Core*
-[block:callout]
-{
-  "type": "warning",
-  "title": "Future deprecation",
-  "body": "The [`isdlock` message](#isdlock) with expanded features will eventually replace this message. Protocol version 70220 maintains backwards compatibility for older clients."
-}
-[/block]
+
+> 🚧 Future deprecation
+>
+> The [`isdlock` message](#isdlock) with expanded features will eventually replace this message. Protocol version 70220 maintains backwards compatibility for older clients.
+
 The [`islock` message](core-ref-p2p-network-instantsend-messages#islock) is used to provide details of transactions that have been locked by LLMQ-based InstantSend. The message includes the details of all transaction <<glossary:inputs>> along with the transaction ID and the BLS <<glossary:signature>> of the <<glossary:LLMQ>> that approved the transaction lock.
 
 | Bytes | Name | Data type | Description |
@@ -76,12 +74,11 @@ a11e5e7930deccc3e11a931fc9524f06 ........... LLMQ BLS Signature (96 bytes)
 ```
 
 # isdlock
-[block:callout]
-{
-  "type": "info",
-  "body": "*Added in protocol version 70220 of Dash Core*"
-}
-[/block]
+
+> 📘
+>
+> *Added in protocol version 70220 of Dash Core*
+
 The [`isdlock` message](core-ref-p2p-network-instantsend-messages#isdlock) is used to provide details of transactions that have been locked by InstantSend. The message includes all details present in the [`islock` message](#islock) along with additional version and cycle information introduced by [DIP22](https://github.com/dashpay/dips/blob/master/dip-0022.md).  This enables nodes to determine what quorum signed the message and validate the signature in the future after the quorum is no longer active. Additional details about the change are available in [DIP22 - Making InstantSend Deterministic using Quorum Cycles](https://github.com/dashpay/dips/blob/master/dip-0022.md).
 
 | Bytes | Name | Data type | Description |

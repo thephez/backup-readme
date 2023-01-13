@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "API Services",
  "icon": "",
  "updates": [],
@@ -44,7 +48,6 @@
  "sync_unique": "",
  "link_url": "https://www.dash.org/providers-and-tools/#custody-and-api",
  "link_external": true,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-03T22:56:07.452Z",
  "revision": 1,
@@ -57,6 +60,7 @@
  "category": "6388e57de5231e009cab7fff",
  "__v": 0,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab806e",
  "body_html": "&nbsp;"

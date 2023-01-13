@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Intro to Testnet",
  "icon": "",
  "updates": [],
@@ -52,11 +56,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-29T22:47:20.954Z",
  "revision": 1,
  "_id": "62b226d1fcc32e002300c565",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-12-30T20:21:27.070Z",
  "updatedAt": "2022-05-17T13:13:56.142Z",
  "user": "5b8400d7185d5e00036dcc3b",

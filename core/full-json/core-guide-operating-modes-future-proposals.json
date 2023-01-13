@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Future Proposals",
  "icon": "",
  "updates": [],
@@ -52,7 +56,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.847Z",
  "revision": 3,
@@ -65,6 +68,7 @@
  "parentDoc": "6388e57de5231e009cab804e",
  "category": "6388e57de5231e009cab7ffa",
  "__v": 1,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8051",
  "body_html": "<div class=\"magic-block-textarea\"><p>There are future proposals such as Unspent Transaction Output (UTXO) commitments in the block chain to find a more satisfactory middle-ground for clients between needing a complete copy of the block chain, or trusting that a majority of your connected peers are not lying. UTXO commitments would enable a very secure client using a finite amount of storage using a data structure that is authenticated in the block chain. These type of proposals are, however, in very early stages, and will require soft forks in the network.</p>\n<p>Until these types of operating modes are implemented, modes should be chosen based on the likely threat model, computing and bandwidth constraints, and liability in Dash value.</p>\n<p><strong>Resources:</strong> <a href=\"https://bitcointalk.org/index.php?topic=88208.0\">Original Thread on UTXO Commitments</a></p>\n\n</div>"

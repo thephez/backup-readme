@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Micropayment Channel",
  "icon": "",
  "updates": [],
@@ -52,7 +56,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:58:07.901Z",
  "revision": 2,
@@ -65,6 +68,7 @@
  "parentDoc": "6388e57de5231e009cab8064",
  "category": "6388e57de5231e009cab7ffa",
  "__v": 1,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8066",
  "body_html": "<div class=\"magic-block-textarea\"><p>Alice also works part-time moderating forum posts for Bob. Every time someone posts to Bob&#39;s busy forum, Alice skims the post to make sure it isn&#39;t offensive or spam. Alas, Bob often forgets to pay her, so Alice demands to be paid immediately after each post she approves or rejects. Bob says he can&#39;t do that because hundreds of small payments will cost him thousands of &lt;&lt;glossary:duffs&gt;&gt; in transaction fees, so Alice suggests they use a micropayment channel.</p>\n<p>Bob asks Alice for her &lt;&lt;glossary:public key&gt;&gt; and then creates two &lt;&lt;glossary:transactions&gt;&gt;. The first transaction pays 100 millidash to a P2SH output whose 2-of-2 multisig &lt;&lt;glossary:redeem script&gt;&gt; requires &lt;&lt;glossary:signatures&gt;&gt; from both Alice and Bob. This is the bond transaction. Broadcasting this transaction would let Alice hold the millidash hostage, so Bob keeps this transaction private for now and creates a second transaction.</p>\n<p>The second transaction spends all of the first transaction&#39;s millidash (minus a transaction fee) back to Bob after a 24 hour delay enforced by locktime. This is the refund transaction. Bob can&#39;t sign the refund transaction by himself, so he gives it to Alice to sign, as shown in the illustration below.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-micropayment-channel.svg\" alt=\"Micropayment Channel Example\"></p>\n<p>Alice checks that the refund transaction&#39;s locktime is 24 hours in the future, signs it, and gives a copy of it back to Bob. She then asks Bob for the bond transaction and checks that the refund transaction spends the output of the bond transaction. She can now broadcast the bond transaction to the network to ensure Bob has to wait for the time lock to expire before further spending his millidash. Bob hasn&#39;t actually spent anything so far, except possibly a small &lt;&lt;glossary:transaction fee&gt;&gt;, and he&#39;ll be able to broadcast the refund transaction in 24 hours for a full refund.</p>\n<p>Now, when Alice does some work worth 1 millidash, she asks Bob to create and sign a new version of the refund transaction.  Version two of the transaction spends 1 millidash to Alice and the other 99 back to Bob; it does not have a locktime, so Alice can sign it and spend it whenever she wants.  (But she doesn&#39;t do that immediately.)</p>\n<p>Alice and Bob repeat these work-and-pay steps until Alice finishes for the day, or until the time lock is about to expire.  Alice signs the final version of the refund transaction and broadcasts it, paying herself and refunding any remaining balance to Bob.  The next day, when Alice starts work, they create a new micropayment channel.</p>\n<p>If Alice fails to broadcast a version of the refund transaction before its time lock expires, Bob can broadcast the first version and receive a full refund. This is one reason micropayment channels are best suited to small payments---if Alice&#39;s Internet service goes out for a few hours near the time lock expiry, she could be cheated out of her payment.</p>\n<p>Transaction malleability, discussed in the <a href=\"core-guide-transactions-transaction-malleability\">Transactions section</a>, is another reason to limit the value of micropayment channels. If someone uses transaction malleability to break the link between the two transactions, Alice could hold Bob&#39;s 100 millidash hostage even if she hadn&#39;t done any work.</p>\n<p>For larger payments, Dash transaction fees are very low as a percentage of the total transaction value, so it makes more sense to protect payments with immediately-broadcast separate transactions.</p>\n\n</div>"

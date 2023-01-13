@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Configuration Files",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-10-07T18:30:29.837Z",
  "revision": 16,
  "_id": "6388e57de5231e009cab807b",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-06-04T12:40:05.491Z",
  "updatedAt": "2023-01-05T16:09:57.760Z",
  "user": "5b8400d7185d5e00036dcc3b",

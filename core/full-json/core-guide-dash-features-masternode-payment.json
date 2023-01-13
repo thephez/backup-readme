@@ -38,6 +38,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Masternode Payment",
  "icon": "",
  "updates": [],
@@ -52,7 +56,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T16:59:21.145Z",
  "revision": 1,
@@ -65,6 +68,7 @@
  "parentDoc": "6388e57de5231e009cab8019",
  "category": "6388e57de5231e009cab7ffa",
  "__v": 3,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab801e",
  "body_html": "<div class=\"magic-block-textarea\"><p>Since <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> (introduced in Dash Core 0.13.0), &lt;&lt;glossary:masternode&gt;&gt; reward payments are based on the deterministic masternode list information found on-chain in each &lt;&lt;glossary:block&gt;&gt;. This results in a transparent, deterministic process that operates using the <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards\">algorithm described in DIP3</a>.</p>\n<p>On-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).</p>\n\n</div>"

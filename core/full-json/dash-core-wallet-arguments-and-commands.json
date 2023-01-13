@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Arguments and Commands",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.077Z",
  "revision": 6,
  "_id": "6388e57de5231e009cab807c",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-06-04T12:41:03.811Z",
  "updatedAt": "2022-10-19T21:04:37.666Z",
  "user": "5b8400d7185d5e00036dcc3b",

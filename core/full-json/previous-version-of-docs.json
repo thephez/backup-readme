@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Previous Version of Docs",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "https://dashcore.readme.io/v18.0.0/docs/",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-24T15:50:39.496Z",
  "revision": 2,
  "_id": "6388e57de5231e009cab8085",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-24T16:37:39.145Z",
  "updatedAt": "2021-03-24T16:37:39.145Z",
  "user": "5b8400d7185d5e00036dcc3b",

@@ -45,6 +45,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Drive",
  "icon": "",
  "updates": [
@@ -61,7 +65,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2021-07-07T18:50:13.216Z",
  "revision": 1,
@@ -74,6 +77,7 @@
  "category": "62b226d1fcc32e002300c50c",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "62b226d1fcc32e002300c535",
  "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>Using the traditional, layer 1 blockchain for data storage is widely known to be expensive and inefficient. Consequently, data for Dash Platform applications is stored in Drive, a layer 2 component that provides decentralized storage hosted by masternodes. As data changes over time, Drive maintains a record of the current state of each item to support easy retrieval using <a href=\"explanation-dapi\">DAPI</a>.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-details\"></div>Details<a class=\"fa fa-anchor\" href=\"#section-details\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-drive-components\"></div>Drive Components<a class=\"fa fa-anchor\" href=\"#section-drive-components\"></a></h2>\n<p>There are a number of components working together to facilitate Drive&#39;s overall functionality. These components are listed below along with a brief description of service they provide:</p>\n<ul>\n<li ><a href=\"explanation-drive-platform-chain\">Platform chain</a> (orders state transitions; creates and propagates blocks of state transitions)</li><li >Platform state machine (validates data against the <a href=\"explanation-platform-protocol\">Dash platform protocol</a>; applies data to state and storage)</li><li ><a href=\"explanation-drive-platform-state\">Platform state</a> (represents current data)</li><li >Storage (record of state transitions)</li></ul>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-data-update-process\"></div>Data Update Process<a class=\"fa fa-anchor\" href=\"#section-data-update-process\"></a></h2>\n<p>The process of adding or updating data in Drive consists of several steps to ensure data is validated, propagated, and stored properly. This description provides a simplified overview of the process:</p>\n<ol>\n<li  value=\"1\"><a href=\"explanation-platform-protocol-state-transition\">State transitions</a> are submitted to the platform via <a href=\"explanation-dapi\">DAPI</a></li><li  value=\"2\">DAPI sends the state transitions to the platform chain where they are validated, ordered, and committed to a block</li><li  value=\"3\">Valid state transitions are applied to the platform state</li><li  value=\"4\">The platform chain propagates a block containing the state transitions</li><li  value=\"5\">Receiving nodes update Drive data based on the valid state transitions in the block</li></ol>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/5e35fd4-Drive.svg\" class=\"block-display-image-parent block-display-image-size-smart \"><img src=\"https://files.readme.io/5e35fd4-Drive.svg\" alt=\"Storing data in Drive\"/></a>\n\t</figure>\n\t<figcaption><p>Storing data in Drive</p>\n</figcaption>\n</div>"

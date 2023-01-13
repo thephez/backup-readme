@@ -45,6 +45,10 @@
    }
   ]
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Contracts",
  "icon": "",
  "updates": [],
@@ -59,7 +63,6 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.301Z",
  "revision": 2,
@@ -72,6 +75,7 @@
  "category": "6388e57de5231e009cab7ffa",
  "__v": 2,
  "parentDoc": null,
+ "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8064",
  "body_html": "<div class=\"magic-block-textarea\"><p>Contracts are &lt;&lt;glossary:transactions&gt;&gt; which use the decentralized Dash system to enforce financial agreements. Dash contracts can often be crafted to minimize dependency on outside agents, such as the court system, which significantly decreases the risk of dealing with unknown entities in financial transactions.</p>\n<p>The following subsections will describe a variety of Dash contracts already in use. Because contracts deal with real people, not just transactions, they are framed below in story format.</p>\n<p>Besides the contract types described below, many other contract types have been proposed. Several of them are collected on the <a href=\"https://en.bitcoin.it/wiki/Contracts\">Contracts page</a> of the Bitcoin Wiki.</p>\n\n</div>"

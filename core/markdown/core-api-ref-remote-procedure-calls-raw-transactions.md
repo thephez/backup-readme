@@ -776,12 +776,10 @@ Result:
 
 
 # FundRawTransaction
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)."
-}
-[/block]
+
+> 📘
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**).
 
 The [`fundrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#fundrawtransaction) adds inputs to a transaction until it has enough in value to meet its out value.  This will not modify existing inputs, and will add one change output to the outputs.
 Note that inputs which were signed may need to be resigned after completion since in/outputs have been added.  The inputs added will not be signed, use signrawtransaction for that.
@@ -1177,12 +1175,11 @@ cHNidP8BAHoCAAAAAvisRhf3kqdGJdB8vKvQz81ze9cH6bh0RKZfFTMsXatUAAAAAAD/////eBHHNtKF
 # SendRawTransaction
 
 The [`sendrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#sendrawtransaction) validates a transaction and broadcasts it to the peer-to-peer network.
-[block:callout]
-{
-  "type": "danger",
-  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
-}
-[/block]
+
+>❗️
+>
+> Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details.
+
 *Parameter #1---a serialized transaction to broadcast*
 
 Name | Type | Presence | Description
@@ -1242,12 +1239,11 @@ Result:
 * [SignRawTransactionWithKey](#signrawtransactionwithkey): signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 
 # SignRawTransactionWithKey
-[block:callout]
-{
-  "type": "success",
-  "body": "Add in Dash Core 0.17.0"
-}
-[/block]
+
+> 👍 
+> 
+> Add in Dash Core 0.17.0
+
 The [`signrawtransactionwithkey` RPC](#signrawtransactionwithkey) signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 
 *Parameter #1---the transaction to sign*
@@ -1279,7 +1275,7 @@ Dependencies | array | Optional<br>(0 or 1) | The previous outputs being spent b
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
+SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
 
 *Result---the transaction with any signatures made*
 

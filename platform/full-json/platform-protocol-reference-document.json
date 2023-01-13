@@ -30,6 +30,10 @@
   "description": "",
   "pages": []
  },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false
+ },
  "title": "Document",
  "icon": "",
  "updates": [],
@@ -44,11 +48,11 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "pendingAlgoliaPublish": false,
  "previousSlug": "reference-document",
  "slugUpdatedAt": "2020-11-17T18:27:39.204Z",
  "revision": 1,
  "_id": "62b226d1fcc32e002300c558",
+ "pendingAlgoliaPublish": false,
  "createdAt": "2020-09-02T14:33:22.321Z",
  "updatedAt": "2022-07-05T19:58:09.397Z",
  "user": "5b8400d7185d5e00036dcc3b",
