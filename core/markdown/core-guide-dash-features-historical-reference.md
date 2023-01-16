@@ -1,17 +1,13 @@
-[block:callout]
-{
-  "type": "danger",
-  "body": "**The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**",
-  "title": "Deprecated Content"
-}
-[/block]
+>❗️ Deprecated Content
+>
+> **The following information is deprecated and for historical reference only. It describes features that have been redesigned and no longer operate as described below.**
+
 # InstantSend (original)
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**"
-}
-[/block]
+
+> 🚧 
+>
+> **Please see [here for details of the current InstantSend design](core-guide-dash-features-instantsend).**
+
 Dash Core's InstantSend feature provides a way to lock transaction inputs and enable secure, instantaneous transactions. Since Dash Core 0.13.0, any qualifying transaction is automatically upgraded to InstantSend by the network without a need for the sending wallet to explicitly request it. For these simple transactions (those containing 4 or fewer inputs), the previous requirement for a special InstantSend transaction fee was also removed. The criteria for determining eligibility can be found in the lists of limitations below.
 
 The following video provides an overview with a good introduction to the details including the InstantSend vulnerability that was fixed in Dash Core 0.12.2. Some specific points in the video are listed here for quick reference:
@@ -23,15 +19,15 @@ The following video provides an overview with a good introduction to the details
  - 9:00 - Description of Dash Core pre-0.12.2 InstantSend vulnerability
  - 13:00 - Description of vulnerability fix / Post Dash Core 0.12.2 operation
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/n4PELomRiFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 [block:embed]
 {
-  "html": false,
+  "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fn4PELomRiFY%3Ffeature%3Doembed%26start%3D0%26rel%3D0&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dn4PELomRiFY&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fn4PELomRiFY%2Fhqdefault.jpg&key=f2aa6fc3595946d0afc3d76cbbd25dc3&type=text%2Fhtml&schema=youtube-nocookie\" width=\"854\" height=\"480\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
   "url": "https://www.youtube-nocookie.com/embed/n4PELomRiFY?rel=0;start=0",
-  "title": "Matt Robertson - Instant Send - The Dash Conference - YouTube",
+  "title": "Matt Robertson - Instant Send - The Dash Conference",
   "favicon": "https://www.youtube-nocookie.com/favicon.ico",
-  "iframe": true,
-  "width": "",
-  "height": ""
+  "image": "https://i.ytimg.com/vi/n4PELomRiFY/hqdefault.jpg"
 }
 [/block]
 *InstantSend Data Flow*

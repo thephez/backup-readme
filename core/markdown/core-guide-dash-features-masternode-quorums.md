@@ -7,21 +7,17 @@ The main task of LLMQs is to perform threshold signing of consensus-related mess
 # LLMQ Creation (DKG)
 
 The following table details the data flow of P2P messages exchanged during the distributed key generation (DKG) protocol used to establish an LLMQ.
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: With the exception of the final step (`qfcommit` message broadcast), the message exchanges happen only between masternodes participating in the DKG process via the [Intra-Quorum communication process](https://github.com/dashpay/dips/blob/master/dip-0006.md#intra-quorum-communication) described in the DIP.",
-  "title": "Intra-Quorum Communication"
-}
-[/block]
+
+> 📘 Intra-Quorum Communication
+>
+> Note: With the exception of the final step (`qfcommit` message broadcast), the message exchanges happen only between masternodes participating in the DKG process via the [Intra-Quorum communication process](https://github.com/dashpay/dips/blob/master/dip-0006.md#intra-quorum-communication) described in the DIP.
+
 *Quorum DKG Data Flow*
-[block:callout]
-{
-  "type": "warning",
-  "title": "Minimum Masternode Protocol Version",
-  "body": "As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70223 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version."
-}
-[/block]
+
+> 🚧 Minimum Masternode Protocol Version
+>
+> As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70223 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version.
+
 | **Masternode** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |
 | **[Initialization Phase](https://github.com/dashpay/dips/blob/master/dip-0006.md#1-initialization-phase)**| | | **Deterministically evaluate if quorum participation necessary** |

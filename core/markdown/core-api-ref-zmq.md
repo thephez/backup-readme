@@ -81,12 +81,11 @@ zmqpubrawtx=tcp://0.0.0.0:28332
 
 # Usage
 The socket type is PUB and the address must be a valid ZeroMQ socket address. Each PUB notification has a topic and body, where the header corresponds to the notification type. For instance, for the notification `-zmqpubhashtx` the topic is `hashtx` (no null terminator) and the body is the hexadecimal transaction hash (32 bytes).
-[block:callout]
-{
-  "type": "info",
-  "body": "The same address can be used in more than one notification."
-}
-[/block]
+
+> 📘
+>
+> The same address can be used in more than one notification.
+
 
 ZeroMQ endpoint specifiers for TCP (and others) are documented in the [ZeroMQ API](http://api.zeromq.org/4-0:_start).
 

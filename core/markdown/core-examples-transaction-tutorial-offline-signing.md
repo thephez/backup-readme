@@ -1,13 +1,11 @@
 We will now spend the <<glossary:transaction>> created in the [Complex Raw Transaction subsection](core-examples-transaction-tutorial-complex-raw-transaction) without sending it to the local <<glossary:node>> first. This is the same basic process used by <<glossary:wallet>> programs for offline signing---which generally means signing a transaction without access to the current UTXO set.
 
 Offline signing is safe. However, in this example we will also be spending an <<glossary:output>> which is not part of the <<glossary:block chain>> because the transaction containing it has never been broadcast. That can be unsafe:
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** Transactions which spend outputs from unconfirmed transactions are vulnerable to transaction malleability. Be sure to read about transaction malleability and adopt good practices before spending unconfirmed transactions on mainnet.",
-  "title": "Unconfirmed Transaction Spending"
-}
-[/block]
+
+> 🚧 Unconfirmed Transaction Spending
+>
+> **Warning:** Transactions which spend outputs from unconfirmed transactions are vulnerable to transaction malleability. Be sure to read about transaction malleability and adopt good practices before spending unconfirmed transactions on mainnet.
+
 Put the previously signed (but not sent) transaction into a shell variable.
 [block:code]
 {
@@ -158,12 +156,11 @@ As illustrated above, the data that gets signed includes the <<glossary:TXID>> a
 In the other raw transaction subsections above, the previous <<glossary:output>> was part of the UTXO set known to the wallet, so the wallet was able to use the TXID and <<glossary:output index>> number to find the previous <<glossary:pubkey script>> and insert it automatically.
 
 ## 4a. Without Pubkey Script
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: This step demonstrates the error returned when an unknown output is referenced."
-}
-[/block]
+
+> 🚧 
+>
+> Note: This step demonstrates the error returned when an unknown output is referenced.
+
 In this case, you're spending an <<glossary:output>> which is unknown to the wallet, so it can't automatically insert the previous pubkey script.
 
 ``` bash

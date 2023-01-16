@@ -188,7 +188,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [SetCoinJoinAmount](core-api-ref-remote-procedure-calls-wallet#setcoinjoinamount): sets the amount of DASH to be processed *New in Dash Core 0.13.0*
 * [SetCoinJoinRounds](core-api-ref-remote-procedure-calls-wallet#setcoinjoinrounds): sets the number of rounds to use *New in Dash Core 0.13.0*
 * [SetTxFee](core-api-ref-remote-procedure-calls-wallet#settxfee): sets the transaction fee per kilobyte paid by transactions created by this wallet.
-* [SetWalletFlag] (core-api-ref-remote-procedure-calls-wallet#setwalletflag): changes the state of the given wallet flag for a wallet.
+* [SetWalletFlag](core-api-ref-remote-procedure-calls-wallet#setwalletflag): changes the state of the given wallet flag for a wallet.
 * [SignMessage](core-api-ref-remote-procedure-calls-wallet#signmessage): signs a message with the private key of an address.
 * [SignRawTransactionWithWallet](core-api-ref-remote-procedure-calls-wallet#signrawtransactionwithwallet): signs a transaction in the serialized transaction format using private keys found in the wallet. **_New in Dash Core 0.17.0_**
 * [UnloadWallet](core-api-ref-remote-procedure-calls-wallet#unloadwallet): unloads the wallet referenced by the request endpoint otherwise unloads the wallet specified in the argument. **Updated in Dash Core 18.1.0**

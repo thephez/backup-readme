@@ -1,17 +1,13 @@
-[block:callout]
-{
-  "type": "danger",
-  "body": "The following network messages have been deprecated and should no longer be used.",
-  "title": "Deprecated Messages"
-}
-[/block]
+>❗️ Deprecated Messages
+>
+> The following network messages have been deprecated and should no longer be used.
+
 # Alert
-[block:callout]
-{
-  "type": "danger",
-  "body": "Deprecated since 0.15.0"
-}
-[/block]
+
+>❗️
+>
+> Deprecated since 0.15.0
+
 *Added in protocol version 311.*
 *Removed by Bitcoin in protocol version 70013, but retained by Dash until 0.15.0.*
 
@@ -88,21 +84,19 @@ c42c13810ffcae14995bb648340219e3
 **Alert key compromise:** Dash Core's source code defines a particular set of alert parameters that can be used to notify users that the alert signing key has been compromised and that they should upgrade to get a new alert public key. Once a signed alert containing those parameters has been received, no other alerts can cancel or override it.
 
 # ix
-[block:callout]
-{
-  "type": "danger",
-  "body": "Deprecated since 0.15.0"
-}
-[/block]
+
+>❗️
+>
+> Deprecated since 0.15.0
+
 The `ix` message (transaction lock request) has the same structure as the [`tx` message](core-ref-p2p-network-data-messages#tx). The masternode network responds with `txlvote` messages if the transaction inputs can be locked.
 
 # txlvote
-[block:callout]
-{
-  "type": "danger",
-  "body": "Deprecated since 0.15.0"
-}
-[/block]
+
+>❗️
+>
+> Deprecated since 0.15.0
+
 The `txlvote` message (transaction lock vote) is sent by masternodes to indicate approval of a transaction lock request `ix` message.
 
 | Bytes | Name | Data type | Required | Description |

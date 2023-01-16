@@ -1,12 +1,11 @@
 If you use anything besides a standard <<glossary:pubkey script>> in an <<glossary:output>>, <<glossary:peers>> and miners using the default Dash Core settings will neither accept, broadcast, nor mine your <<glossary:transaction>>. When you try to broadcast your transaction to a peer running the default settings, you will receive an error.
 
 If you create a <<glossary:redeem script>>, hash it, and use the hash in a <<glossary:P2SH>> output, the network sees only the hash, so it will accept the output as valid no matter what the redeem script says. This allows payment to non-standard scripts, and as of Bitcoin Core 0.11, almost all valid redeem scripts can be spent. The exception is scripts that use unassigned [NOP opcodes](https://en.bitcoin.it/wiki/Script#Reserved_words); these opcodes are reserved for future soft forks and can only be relayed or mined by nodes that don't follow the standard mempool policy.
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It's easy to create standard transactions which make the duffs sent to them unspendable."
-}
-[/block]
+
+> 📘
+>
+> Note: standard transactions are designed to protect and help the network, not prevent you from making mistakes. It's easy to create standard transactions which make the duffs sent to them unspendable.
+
 Standard transactions must also meet the following conditions:
 
 * The transaction must be finalized: either its locktime must be in the past (or less than or equal to the current block height), or all of its sequence numbers must be 0xffffffff.

@@ -865,13 +865,11 @@ Result (whitespace added):
 # GET Tx
 
 The `GET tx` operation gets a hex-encoded serialized transaction or a JSON object describing the transaction. By default, Dash Core only stores complete transaction data for UTXOs and your own transactions, so this method may fail on historic transactions unless you use the non-default `txindex=1` in your Dash Core startup settings.
-[block:callout]
-{
-  "type": "warning",
-  "title": "Reindex note",
-  "body": "If you begin using `txindex=1` after downloading the block chain, you must rebuild your indexes by starting Dash Core with the option  `-reindex`.  This may take several hours to complete, during which time your node will not process new blocks or transactions. This reindex only needs to be done once."
-}
-[/block]
+
+> 🚧 Reindex note
+>
+> If you begin using `txindex=1` after downloading the block chain, you must rebuild your indexes by starting Dash Core with the option  `-reindex`.  This may take several hours to complete, during which time your node will not process new blocks or transactions. This reindex only needs to be done once.
+
 *Request*
 
 ``` text

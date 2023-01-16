@@ -1,25 +1,18 @@
-[block:callout]
-{
-  "type": "danger",
-  "body": "RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a \"_Requires wallet support_\" message.",
-  "title": "Wallet Support"
-}
-[/block]
+>❗️ Wallet Support
+>
+> RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a "_Requires wallet support_" message.
 
 # GetAccount
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** `setaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
-}
-[/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
-}
-[/block]
+>❗️
+>
+> **Warning:** `setaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`.
+
+> 📘 
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**)
+
+The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount) returns the name of the account associated with the given address.
 
 The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount) returns the name of the account associated with the given address.
 
@@ -54,19 +47,13 @@ doc test
 
 # GetAccountAddress
 
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** `getaccountaddress` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
-}
-[/block]
+>❗️
+>
+> **Warning:** `getaccountaddress` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
-}
-[/block]
+> 📘
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**)
 
 The [`getaccountaddress` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccountaddress) returns the current Dash address for receiving payments to this account. If the account doesn't exist, it creates both the account and a new address for receiving payment.  Once a payment has been received to an address, future calls to this RPC for the same account will return a different address.
 
@@ -103,19 +90,14 @@ yNUQ6RzTpNj5GP5ebdRcusJ7K9JJKx6VvV
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
 
 # GetAddressesByAccount
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** `getaddressesbyaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`."
-}
-[/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
-}
-[/block]
+>❗️
+>
+> **Warning:** `getaddressesbyaccount` will be removed in Dash Core v18.0. Use the RPCs listed in the See Also subsection below instead. To use this command in Dash Core v0.17, start dashd with `-deprecatedrpc=accounts`.
+
+> 📘 
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**)
 
 The [`getaddressesbyaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount) returns a list of every address assigned to a particular account.
 
@@ -155,19 +137,14 @@ Result:
 * [GetBalance](/docs/core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account.
 
 # SetAccount
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead."
-}
-[/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Requires <<glossary:wallet>> support (**unavailable on masternodes**)"
-}
-[/block]
+> 🚧 
+>
+> **Warning:** `setaccount` will be removed in a later version of Dash Core.  Use the RPCs listed in the See Also subsection below instead.
+
+> 📘
+>
+> Requires <<glossary:wallet>> support (**unavailable on masternodes**)
 
 The [`setaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#setaccount) puts the specified address in the given account.
 

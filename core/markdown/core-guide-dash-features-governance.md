@@ -9,13 +9,11 @@ There are two distinct stages of governance sync:
 1. Initial request (object sync) - requests the governance objects only via a [`govsync` message](core-ref-p2p-network-governance-messages#govsync) sent with a hash of all zeros.  
 
 2. Follow up request(s) (vote sync) - request governance object votes for a specific object via a [`govsync` message](core-ref-p2p-network-governance-messages#govsync) containing the hash of the object. One message is required for each object. Dash Core periodically (~ every 6 seconds) sends messages to connected nodes until all the governance objects have been synchronized.
-[block:callout]
-{
-  "type": "info",
-  "body": "Dash Core limits how frequently the first type of sync (object sync) can be requested. Frequent requests will result in the node being banned.",
-  "title": "Governance Object Sync Limitation"
-}
-[/block]
+
+> 📘 Governance Object Sync Limitation
+>
+> Dash Core limits how frequently the first type of sync (object sync) can be requested. Frequent requests will result in the node being banned.
+
 Masternodes respond to the [`govsync` message](core-ref-p2p-network-governance-messages#govsync) with several items:
 
 For Object Sync:
@@ -73,11 +71,8 @@ Beginning ~3 days (1662 blocks) prior to a superblock, Sentinel selects one mast
 
 All masternodes vote for existing superblock triggers. Each masternode casts only 1 superblock trigger "Yes" vote per superblock cycle. It will vote "No" for any other triggers it receives.
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: This means that proposal votes submitted _after_ superblock trigger creation begins will **not** be counted by some masternodes (those that have already voted on a superblock trigger).",
-  "title": "Single masternode trigger vote"
-}
-[/block]
+> 🚧 Single masternode trigger vote
+>
+> Note: This means that proposal votes submitted _after_ superblock trigger creation begins will **not** be counted by some masternodes (those that have already voted on a superblock trigger).
+
 At the superblock height, the trigger with the most "Yes" votes is paid out by that block's miner.

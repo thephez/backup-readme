@@ -300,11 +300,7 @@ Name | Type | Presence | Description
 dash-cli -testnet protx info\
  c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
 ```
-[block:callout]
-{
-  "type": "info"
-}
-[/block]
+
 Result:
 ```json
 {
@@ -1146,12 +1142,11 @@ Result (truncated):
 ## Quorum DKGStatus
 
 The `quorum list` RPC displays the status of the current DKG process.
-[block:callout]
-{
-  "type": "danger",
-  "body": "Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details."
-}
-[/block]
+
+>❗️
+>
+> Breaking change(s) in Dash Core 18.0. See parameter and/or response information for details.
+
 *Parameter #1---detail level*
 
 Name | Type | Presence | Description
@@ -1845,12 +1840,11 @@ Name | Type | Presence | Description
 Name | Type | Presence | Description
 --- | --- | --- | ---
 `id` | string (hex) | Required<br>(exactly 1) | Signing request ID. Signing request ids for ChainLocks and InstantSend are calculated as described in:<br> \* The [ChainLocks DIP](https://github.com/dashpay/dips/blob/master/dip-0008.md#signing-attempts)<br> \* The [LLMQ InstantSend DIP](https://github.com/dashpay/dips/blob/master/dip-0010.md#finalization-and-creation-of-islock-messages).
-[block:callout]
-{
-  "type": "info",
-  "body": "For general signing requests, any 32 byte hex string can be provided as the request id. Note that if a quorum hash is not specified in parameter 4, a quorum will be selected automatically based in part on this value."
-}
-[/block]
+
+> 📘 
+>
+> For general signing requests, any 32 byte hex string can be provided as the request id. Note that if a quorum hash is not specified in parameter 4, a quorum will be selected automatically based in part on this value.
+
 *Parameter #3---message hash*
 
 Name | Type | Presence | Description
@@ -1984,13 +1978,10 @@ Result:
 
 The `quorum hasrecsig` RPC checks for a recovered signature for a previous threshold-signing message request.
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: Used for RegTest testing only.",
-  "title": "Regtest Network Only"
-}
-[/block]
+> 🚧 Regtest Network Only
+>
+> Note: Used for RegTest testing only.
+
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description
@@ -2032,13 +2023,10 @@ true
 
 The `quorum isconflicting` RPC checks if there is a conflict for a threshold-signing message request.
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: Used for RegTest testing only.",
-  "title": "Regtest Network Only"
-}
-[/block]
+> 🚧 Regtest Network Only
+>
+> Note: Used for RegTest testing only.
+
 *Parameter #1---LLMQ Type*
 
 Name | Type | Presence | Description
@@ -2973,12 +2961,11 @@ Result:
 *See also: none*
 
 ## Quorum Verify
-[block:callout]
-{
-  "type": "success",
-  "body": "Added in Dash Core 0.17.0"
-}
-[/block]
+
+> 👍 
+> 
+> Added in Dash Core 0.17.0
+
 The `quorum verify` RPC tests if a quorum signature is valid for a request id and a message hash.
 
 *Parameter #1---LLMQ Type*
@@ -3041,12 +3028,11 @@ true
 ```
 
 # VerifyChainLock
-[block:callout]
-{
-  "type": "success",
-  "body": "Added in Dash Core 0.17.0"
-}
-[/block]
+
+> 👍 
+> 
+> Added in Dash Core 0.17.0
+
 The `verifychainlock` RPC tests if a quorum signature is valid for a ChainLock.
 
 *Parameter #1---block hash*
@@ -3089,12 +3075,11 @@ true
 ```
 
 # VerifyISLock
-[block:callout]
-{
-  "type": "success",
-  "body": "Added in Dash Core 0.17.0"
-}
-[/block]
+
+> 👍 
+> 
+> Added in Dash Core 0.17.0
+
 The `verifyislock` RPC tests if a quorum signature is valid for an InstantSend Lock.
 
 *Parameter #1---id*

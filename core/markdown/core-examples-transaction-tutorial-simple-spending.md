@@ -11,7 +11,7 @@ yLp6ZJueuigiF4s9E1Pv8tEunDPEsjyQfd
 > NEW_ADDRESS=yLp6ZJueuigiF4s9E1Pv8tEunDPEsjyQfd
 ```
 
-#2. Send to address
+# 2. Send to address
 
 Send 10 dash to the address using the [`sendtoaddress` RPC](core-api-ref-remote-procedure-calls-wallet#sendtoaddress).  The returned hex string is the transaction identifier (<<glossary:TXID>>).
 
@@ -24,7 +24,7 @@ c7e5ae1240fdd83bb94c94a93816ed2ab7bcb56ec3ff8a9725c5c1e0482684ea
 
 # 3. List unspent outputs
 
-# 3a. Confirmed outputs only
+## 3a. Confirmed outputs only
 
 Use the [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspent) to display the UTXOs belonging to this <<glossary:wallet>>. The list is empty because it defaults to only showing confirmed UTXOs and we just spent our only confirmed UTXO.
 
@@ -34,7 +34,7 @@ Use the [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspe
 ]
 ```
 
-# 3b. All outputs
+## 3b. All outputs
 
 Re-running the [`listunspent` RPC](core-api-ref-remote-procedure-calls-wallet#listunspent) with the argument "0" to also display each <<glossary:unconfirmed transaction>> shows that we have two UTXOs, both with the same <<glossary:TXID>>. The first UTXO shown is a change output that `sendtoaddress` created using a new address from the key pool. The second UTXO shown is the spend to the address we provided. If we had spent those duffs to someone else, that second transaction would not be displayed in our list of UTXOs.
 
@@ -84,14 +84,74 @@ Create a new block to confirm the transaction above (takes less than a second) a
 
 Shell script to run the previous example (available [here](https://gist.github.com/dash-docs/f40bddfc0844ec0d66d196720dc936f8#file-regtest_transaction_simple_spending_example-sh)):
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "#!/bin/bash\n\n# Set RPCUSER and RPCPWD to the username and password configure in dash.conf\nRPCUSER=\"user\"\nRPCPWD=\"pass\"\nREGTEST_CMD=\"dash-cli -regtest -rpcuser=$RPCUSER -rpcpassword=$RPCPWD\"\n\n# SIMPLE SPENDING EXAMPLE\n# -----------------------\n\nBLOCKTOGEN=101\nprintf \"\\nGenerating %s block(s)...\\n\" $BLOCKTOGEN\nCOMMAND=\"$REGTEST_CMD generate $BLOCKTOGEN\"\necho $COMMAND\nGENERATED=$($COMMAND)\necho \"Generated $BLOCKTOGEN block(s)\"\n\nprintf \"\\nChecking balance...\\n\"\nCOMMAND=\"$REGTEST_CMD getbalance\"\necho $COMMAND\nBALANCE=$($COMMAND)\necho \"Balance is: \" $BALANCE\n\nprintf \"\\nGetting new address...\\n\"\nCOMMAND=\"$REGTEST_CMD getnewaddress\"\necho $COMMAND\nNEW_ADDRESS=$($COMMAND)\necho \"New address is: \" $NEW_ADDRESS\n\nprintf \"\\nSending to address...\\n\"\nCOMMAND=\"$REGTEST_CMD sendtoaddress $NEW_ADDRESS 10.00\"\necho $COMMAND\nTXID=$($COMMAND)\necho \"Transaction ID (TXID) is: \" $TXID\n\nprintf \"\\nList unspent...\\n\"\nCOMMAND=\"$REGTEST_CMD listunspent\"\necho $COMMAND\nUNSPENT=$($COMMAND)\necho \"Unspent (excluding unconfirmed): \" $UNSPENT\n\nprintf \"\\nList unspent (unconfirmed)...\\n\"\nCOMMAND=\"$REGTEST_CMD listunspent 0\"\necho $COMMAND\nUNSPENT=$($COMMAND)\necho \"Unspent (including unconfirmed): \" $UNSPENT\n\n\nBLOCKTOGEN=1\nprintf \"\\nGenerating %s block(s) to confirm...\\n\" $BLOCKTOGEN\nCOMMAND=\"$REGTEST_CMD generate $BLOCKTOGEN\"\necho $COMMAND\nGENERATED=$($COMMAND)\necho \"Generated $BLOCKTOGEN block(s)\"\n\nprintf \"\\nList unspent...\\n\"\nCOMMAND=\"$REGTEST_CMD listunspent\"\necho $COMMAND\nUNSPENT=$($COMMAND)\necho \"Unspent (excluding unconfirmed): \" $UNSPENT\n\nunset REGTEST_CMD\nunset BLOCKTOGEN\nunset COMMAND\nunset GENERATED\nunset BALANCE\nunset NEW_ADDRESS\nunset TXID\nunset UNSPENT",
-      "language": "shell",
-      "name": "Shell"
-    }
-  ]
-}
-[/block]
+``` shell
+#!/bin/bash
+
+# Set RPCUSER and RPCPWD to the username and password configure in dash.conf
+RPCUSER="user"
+RPCPWD="pass"
+REGTEST_CMD="dash-cli -regtest -rpcuser=$RPCUSER -rpcpassword=$RPCPWD"
+
+# SIMPLE SPENDING EXAMPLE
+# -----------------------
+
+BLOCKTOGEN=101
+printf "\nGenerating %s block(s)...\n" $BLOCKTOGEN
+COMMAND="$REGTEST_CMD generate $BLOCKTOGEN"
+echo $COMMAND
+GENERATED=$($COMMAND)
+echo "Generated $BLOCKTOGEN block(s)"
+
+printf "\nChecking balance...\n"
+COMMAND="$REGTEST_CMD getbalance"
+echo $COMMAND
+BALANCE=$($COMMAND)
+echo "Balance is: " $BALANCE
+
+printf "\nGetting new address...\n"
+COMMAND="$REGTEST_CMD getnewaddress"
+echo $COMMAND
+NEW_ADDRESS=$($COMMAND)
+echo "New address is: " $NEW_ADDRESS
+
+printf "\nSending to address...\n"
+COMMAND="$REGTEST_CMD sendtoaddress $NEW_ADDRESS 10.00"
+echo $COMMAND
+TXID=$($COMMAND)
+echo "Transaction ID (TXID) is: " $TXID
+
+printf "\nList unspent...\n"
+COMMAND="$REGTEST_CMD listunspent"
+echo $COMMAND
+UNSPENT=$($COMMAND)
+echo "Unspent (excluding unconfirmed): " $UNSPENT
+
+printf "\nList unspent (unconfirmed)...\n"
+COMMAND="$REGTEST_CMD listunspent 0"
+echo $COMMAND
+UNSPENT=$($COMMAND)
+echo "Unspent (including unconfirmed): " $UNSPENT
+
+
+BLOCKTOGEN=1
+printf "\nGenerating %s block(s) to confirm...\n" $BLOCKTOGEN
+COMMAND="$REGTEST_CMD generate $BLOCKTOGEN"
+echo $COMMAND
+GENERATED=$($COMMAND)
+echo "Generated $BLOCKTOGEN block(s)"
+
+printf "\nList unspent...\n"
+COMMAND="$REGTEST_CMD listunspent"
+echo $COMMAND
+UNSPENT=$($COMMAND)
+echo "Unspent (excluding unconfirmed): " $UNSPENT
+
+unset REGTEST_CMD
+unset BLOCKTOGEN
+unset COMMAND
+unset GENERATED
+unset BALANCE
+unset NEW_ADDRESS
+unset TXID
+unset UNSPENT
+```

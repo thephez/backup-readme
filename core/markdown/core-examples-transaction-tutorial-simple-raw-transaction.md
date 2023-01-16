@@ -1,12 +1,11 @@
 The [raw transaction RPCs](core-api-ref-remote-procedure-calls-raw-transactions) allow users to create custom <<glossary:transactions>> and delay broadcasting those transactions. However, mistakes made in <<glossary:raw transactions>> may not be detected by Dash Core, and a number of raw transaction users have permanently lost large numbers of <<glossary:duffs>>, so please be careful using raw transactions on <<glossary:mainnet>>.
 
 This subsection covers one of the simplest possible raw transactions.
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: the following steps pick up where the [Simple Spending Tutorial](core-examples-transaction-tutorial-simple-spending) left off"
-}
-[/block]
+
+> 📘 
+>
+> Note: the following steps pick up where the [Simple Spending Tutorial](core-examples-transaction-tutorial-simple-spending) left off
+
 # 1. List unspent outputs
 
 Re-rerun `listunspent`. We now have three UTXOs: the two transactions we created before plus the <<glossary:coinbase transaction>> from block #2. We save the <<glossary:TXID>> and <<glossary:output index>> number (vout) of that <<glossary:coinbase>> UTXO to shell variables.
@@ -86,13 +85,11 @@ yfV9Wirf5RkYHgNDttjpBz8Wdi8BavLHcP
 # 3. Create raw transaction
 
 Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction), we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the <<glossary:index>> number (0) of the <<glossary:output>> from that transaction we want to spend. The second argument (a JSON object) creates the output with the address ( <<glossary:public key>> hash) and number of DASH we want to transfer. We save the resulting raw format transaction to a shell variable.
-[block:callout]
-{
-  "type": "danger",
-  "body": "**Warning:** `createrawtransaction` does not automatically create change outputs, so you can easily accidentally pay a large transaction fee.",
-  "title": "Transaction fee warning"
-}
-[/block]
+
+>❗️ Transaction fee warning
+>
+> **Warning:** `createrawtransaction` does not automatically create change outputs, so you can easily accidentally pay a large transaction fee.
+
 In this example, our input had 500.0000 DASH and our output (`$NEW_ADDRESS`) is being paid 499.9999 DASH, so the transaction will include a fee of 0.0001 DASH. If we had paid `$NEW_ADDRESS` only 100 DASH with no other changes to this transaction, the <<glossary:transaction fee>> would be a whopping 400 DASH. See the [Complex Raw Transaction subsection](/docs/core-examples-transaction-tutorial-complex-raw-transaction) below for how to create a transaction with multiple outputs so you can send the change back to yourself.
 [block:code]
 {

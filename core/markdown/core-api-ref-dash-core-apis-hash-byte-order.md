@@ -22,12 +22,11 @@ However, Dash Core's RPCs use the byte-wise reverse for hashes, so if you want t
 > dash-cli getblock \
     000000000000327a66cd1011b2d1defd1417b7d9e39b439e8e67ba996ee92602
 ```
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: hex representation uses two characters to display each byte of data, which is why the reversed string looks somewhat mangled."
-}
-[/block]
+
+> 📘
+>
+> Note: hex representation uses two characters to display each byte of data, which is why the reversed string looks somewhat mangled.
+
 The rationale for the reversal is unknown, but it likely stems from Dash Core's use of hashes (which are byte arrays in C++) as integers for the purpose of determining whether the hash is below the network target. Whatever the reason for reversing header hashes, the reversal also extends to other hashes used in RPCs, such as <<glossary:TXIDs>> and merkle roots.
 
 As header hashes and TXIDs are widely used as global identifiers in other Dash software, this reversal of hashes has become the standard way to refer to certain objects. The table below should make clear where each byte order is used.
@@ -47,12 +46,10 @@ As header hashes and TXIDs are widely used as global identifiers in other Dash s
 | P2SH Hashes: RIPEMD160(SHA256(redeem script))  | Used in both addresses and pubkey scripts | **N/A:** RPCs use addresses which use internal byte order |
 |---------------|---------------------|-----------------|
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: RPCs which return raw results, such as `getrawtransaction` or the raw mode of `getblock`, always display hashes as they appear in blocks (<<glossary:internal byte order>>)."
-}
-[/block]
+> 📘
+>
+> Note: RPCs which return raw results, such as `getrawtransaction` or the raw mode of `getblock`, always display hashes as they appear in blocks (<<glossary:internal byte order>>).
+
 The code below may help you check byte order by generating hashes from raw hex.
 
 ``` python
