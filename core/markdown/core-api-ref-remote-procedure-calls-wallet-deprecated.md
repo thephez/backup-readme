@@ -1,4 +1,4 @@
->❗️Wallet Support
+>❗️ Wallet Support
 >
 > RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a "_Requires wallet support_" message.
 

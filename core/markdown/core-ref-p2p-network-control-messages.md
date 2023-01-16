@@ -454,18 +454,18 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 > 📘 Spork 2 Values
 >
 > As of Dash Core 0.17.0, spork 2 supports two different enabled values:
- - `0` - Masternodes create locks for all transactions
- - `1` - Masternodes only create locks for transactions included in a block. Transactions in the mempool are not locked.
-
-Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
+> - `0` - Masternodes create locks for all transactions
+> - `1` - Masternodes only create locks for transactions included in a block. Transactions in the mempool are not locked.
+>
+>Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
 
 > 📘 Spork 21 and 23 Values
 >
 > Spork 21 and 23 support two different enabled values:
- - `0` - The spork is active for all quorums regardless of quorum size.
- - `1` - The spork is active only for quorums which have a member size less than 100.
-
-Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
+> - `0` - The spork is active for all quorums regardless of quorum size.
+> - `1` - The spork is active only for quorums which have a member size less than 100.
+>
+> Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
 
 **Removed Sporks**
 The following sporks were used in the past but are no longer necessary and have been removed recently. To see sporks removed longer ago, please see the [previous version of documentation](https://dashcore.readme.io/v0.16.0/docs/core-ref-p2p-network-control-messages#spork).

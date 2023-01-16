@@ -86,7 +86,7 @@ yfV9Wirf5RkYHgNDttjpBz8Wdi8BavLHcP
 
 Using two arguments to the [`createrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#createrawtransaction), we create a new raw format transaction. The first argument (a JSON array) references the txid of the coinbase transaction from block #2 and the <<glossary:index>> number (0) of the <<glossary:output>> from that transaction we want to spend. The second argument (a JSON object) creates the output with the address ( <<glossary:public key>> hash) and number of DASH we want to transfer. We save the resulting raw format transaction to a shell variable.
 
->❗️Transaction fee warning
+>❗️ Transaction fee warning
 >
 > **Warning:** `createrawtransaction` does not automatically create change outputs, so you can easily accidentally pay a large transaction fee.
 

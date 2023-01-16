@@ -1242,7 +1242,7 @@ Result:
 
 > 👍 
 > 
-> Add in Dash Core 0.17.0
+> Added in Dash Core 0.17.0
 
 The [`signrawtransactionwithkey` RPC](#signrawtransactionwithkey) signs inputs for a transaction in the serialized transaction format using private keys provided in the call.
 

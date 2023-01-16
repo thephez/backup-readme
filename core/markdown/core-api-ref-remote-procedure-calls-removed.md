@@ -14,7 +14,7 @@ Blocks | number (int) | Required<br>(exactly 1) | The maximum number of blocks a
 
 *Result---the fee the transaction needs to pay per kilobyte*
 
->❗️Inability to estimate
+>❗️ Inability to estimate
 >
 > If the node doesn't have enough information to make an estimate, the value `-1` will be returned.
 

@@ -300,11 +300,7 @@ Name | Type | Presence | Description
 dash-cli -testnet protx info\
  c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f
 ```
-[block:callout]
-{
-  "type": "info"
-}
-[/block]
+
 Result:
 ```json
 {

@@ -57,8 +57,8 @@ Use the [`createmultisig` RPC](core-api-ref-remote-procedure-calls-util#createmu
 >❗️ Redeem Script
 >
 > **Warning:** You must not lose the redeem script, especially if you don't have a record of which public keys you used to create the P2SH multisig address. You need the redeem script to spend any dash sent to the P2SH address. 
-
-If you lose the redeem script, you can recreate it by running the same command above, with the public keys listed in the same order. **However, if you lose both the redeem script and even one of the public keys, you will never be able to spend duffs sent to that P2SH address.**
+>
+> If you lose the redeem script, you can recreate it by running the same command above, with the public keys listed in the same order. **However, if you lose both the redeem script and even one of the public keys, you will never be able to spend duffs sent to that P2SH address.**
 
 Neither the address nor the redeem script are stored in the wallet when you use `createmultisig`. To store them in the wallet, use the [`addmultisigaddress` RPC](core-api-ref-remote-procedure-calls-wallet#addmultisigaddress) instead.  If you add an address to the wallet, you should also make a new backup.
 

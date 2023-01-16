@@ -19,15 +19,15 @@ The following video provides an overview with a good introduction to the details
  - 9:00 - Description of Dash Core pre-0.12.2 InstantSend vulnerability
  - 13:00 - Description of vulnerability fix / Post Dash Core 0.12.2 operation
 
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/n4PELomRiFY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 [block:embed]
 {
-  "html": false,
+  "html": "<iframe class=\"embedly-embed\" src=\"//cdn.embedly.com/widgets/media.html?src=https%3A%2F%2Fwww.youtube.com%2Fembed%2Fn4PELomRiFY%3Ffeature%3Doembed%26start%3D0%26rel%3D0&display_name=YouTube&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dn4PELomRiFY&image=https%3A%2F%2Fi.ytimg.com%2Fvi%2Fn4PELomRiFY%2Fhqdefault.jpg&key=f2aa6fc3595946d0afc3d76cbbd25dc3&type=text%2Fhtml&schema=youtube-nocookie\" width=\"854\" height=\"480\" scrolling=\"no\" title=\"YouTube embed\" frameborder=\"0\" allow=\"autoplay; fullscreen\" allowfullscreen=\"true\"></iframe>",
   "url": "https://www.youtube-nocookie.com/embed/n4PELomRiFY?rel=0;start=0",
-  "title": "Matt Robertson - Instant Send - The Dash Conference - YouTube",
+  "title": "Matt Robertson - Instant Send - The Dash Conference",
   "favicon": "https://www.youtube-nocookie.com/favicon.ico",
-  "iframe": true,
-  "width": "",
-  "height": ""
+  "image": "https://i.ytimg.com/vi/n4PELomRiFY/hqdefault.jpg"
 }
 [/block]
 *InstantSend Data Flow*

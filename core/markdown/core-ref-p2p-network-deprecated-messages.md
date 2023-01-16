@@ -1,4 +1,4 @@
->❗️Deprecated Messages
+>❗️ Deprecated Messages
 >
 > The following network messages have been deprecated and should no longer be used.
 
