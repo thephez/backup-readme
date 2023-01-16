@@ -8,7 +8,7 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 **Implemented Special Transactions**
 
 | Release | Tx Version | Tx Type | Payload JSON | Tx Purpose | Payload | Payload Size |
-| - | - | - | - | - | - |
+| - | - | - | - | - | - | - |
 | 0.12.3 | 2 | - | n/a | n/a | n/a |
 | 0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
 | 0.13.0 | 3 | 1 | [ProRegTx](#proregtx) | Masternode Registration | hex | compactSize uint |
@@ -423,7 +423,7 @@ Coinbase Transaction Payload
 
 > 🚧 Note
 >
-> This special transaction has no inputs and no outputs and thus also pays no fee
+> This special transaction has no inputs and no outputs and thus also pays no fee.
 
 The Quorum Commitment (QcTx) special transaction adds the best final commitment from a <<glossary:Long-Living Masternode Quorum>> (LLMQ) Distributed Key Generation (DKG) session to the chain.
 

@@ -680,8 +680,8 @@ Result:
 *See also*
 
 * [GetBalances](core-api-ref-remote-procedure-calls-wallet#getbalances): returns an object with all balances denominated in DASH. 
-* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
-* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-removed#listaccounts): lists accounts and their balances.
+* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
 # GetBalances
@@ -725,8 +725,8 @@ Result:
 *See also*
 
 * [GetBalance](core-api-ref-remote-procedure-calls-wallet#getbalance): gets the balance in decimal dash across all accounts or for a particular account.
-* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
-* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [ListAccounts](/docs/core-api-ref-remote-procedure-calls-removed#listaccounts): lists accounts and their balances.
+* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
 # GetNewAddress
@@ -871,9 +871,9 @@ Result:
 
 *See also*
 
-* [GetReceivedByAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [GetReceivedByAccount](core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetAddressesByAccount](core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
-* [ListAccounts](core-api-ref-remote-procedure-calls-wallet-deprecated#listaccounts): lists accounts and their balances.
+* [ListAccounts](core-api-ref-remote-procedure-calls-removed#listaccounts): lists accounts and their balances.
 
 # GetReceivedByLabel
 
@@ -1835,9 +1835,7 @@ Result (edit to show only two entries):
 
 *See also*
 
-* [ListReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listreceivedbyaccount): lists the total number of dash received by each account.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
-* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 
 # ListReceivedByLabel
 [block:callout]
@@ -1915,7 +1913,7 @@ Result:
 *See also*
 
 * [ListReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#listreceivedbyaddress): lists the total number of dash received by each address.
-* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
+* [GetReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): returns the total amount received by addresses in a particular account from transactions with the specified number of confirmations.  It does not count coinbase transactions.
 * [GetReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#getreceivedbyaddress): returns the total amount received by the specified address in transactions with the specified number of confirmations. It does not count coinbase transactions.
 
 # ListSinceBlock
@@ -2053,7 +2051,6 @@ Result (edited to show only two payments):
 
 *See also*
 
-* [ListReceivedByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#listreceivedbyaccount): lists the total number of dash received by each account.
 * [ListReceivedByAddress](core-api-ref-remote-procedure-calls-wallet#listreceivedbyaddress): lists the total number of dash received by each address.
 
 # ListTransactions
@@ -2831,9 +2828,7 @@ Result:
 
 *See also*
 
-* [SendFrom](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#sendfrom): spends an amount from a local account to a dash address.
 * [SendToAddress](core-api-ref-remote-procedure-calls-wallet#sendtoaddress): spends an amount to a given address.
-* [Move](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#move): moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
 
 # SendToAddress
 [block:callout]
@@ -2977,9 +2972,7 @@ ba4bbe29fa06b67d6f3f3a73e381627e66abe22e217ce329aefad41ea72c3922
 
 *See also*
 
-* [SendFrom](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#sendfrom): spends an amount from a local account to a dash address.
 * [SendMany](core-api-ref-remote-procedure-calls-wallet#sendmany): creates and broadcasts a transaction which sends outputs to multiple addresses.
-* [Move](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#move): moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
 
 # SetLabel
 [block:callout]

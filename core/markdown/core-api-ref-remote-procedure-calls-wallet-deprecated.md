@@ -204,4 +204,4 @@ dash-cli -testnet setaccount \
 
 * [GetAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount): returns the name of the account associated with the given address.
 * [GetAddressesByAccount](/docs/core-api-ref-remote-procedure-calls-wallet-deprecated#getaddressesbyaccount): returns a list of every address assigned to a particular account.
-* [SetLabels](/docs/core-api-ref-remote-procedure-calls-wallet#setlabels): sets the label associated with the given address.
+* [SetLabel](/docs/core-api-ref-remote-procedure-calls-wallet#setlabel): sets the label associated with the given address.

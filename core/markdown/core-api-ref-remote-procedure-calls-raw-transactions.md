@@ -1279,7 +1279,7 @@ Dependencies | array | Optional<br>(0 or 1) | The previous outputs being spent b
 
 Name | Type | Presence | Description
 --- | --- | --- | ---
-SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransaction) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
+SigHash | string | Optional<br>(0 or 1) | The type of signature hash to use for all of the signatures performed.  (You must use separate calls to the [`signrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#signrawtransactionwithkey) if you want to use different signature hash types for different signatures.  The allowed values are: `ALL`, `NONE`, `SINGLE`, `ALL|ANYONECANPAY`, `NONE|ANYONECANPAY`, and `SINGLE|ANYONECANPAY`
 
 *Result---the transaction with any signatures made*
 

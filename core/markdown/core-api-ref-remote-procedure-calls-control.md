@@ -83,7 +83,7 @@ Result:
 
 *Added in Dash Core 18.0.0*
 
-The [`getrpcinfo` RPC](getrpcinfo) returns details about the RPC server.
+The [`getrpcinfo` RPC](#getrpcinfo) returns details about the RPC server.
 
 *Parameters: none*
 

@@ -555,13 +555,13 @@ ab17057f9ce4b50c2aef4fadf3729a2e ... Hash (txlvote)
 The [`mempool` message](core-ref-p2p-network-data-messages#mempool) requests the <<glossary:TXIDs>> of transactions that the receiving <<glossary:node>> has verified as valid but which have not yet appeared in a <<glossary:block>>. That is, transactions which are in the receiving node's memory pool. The response to the [`mempool` message](core-ref-p2p-network-data-messages#mempool) is one or more [`inv` messages](core-ref-p2p-network-data-messages#inv) containing the TXIDs in the usual <<glossary:inventory>> format.
 
 Sending the [`mempool` message](core-ref-p2p-network-data-messages#mempool) is mostly useful when a program first connects to the network. Full nodes can use it to quickly gather most or all of the unconfirmed transactions available on the network; this is especially useful for miners trying to gather transactions for their transaction fees. SPV clients can set a filter before sending a `mempool` to only receive transactions that match that filter; this allows a recently-started client to get most or all unconfirmed transactions related to its wallet.
-[block:callout]
-{
-  "type": "info",
-  "body": "Dash Core 0.15.0 expanded the mempool message to include syncing of [InstantSend Lock](core-ref-p2p-network-instantsend-messages#islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default (limited to peers using protocol version 70216 or higher). This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.\n\nDash Core 0.17.0 expanded the mempool message to include syncing of [ChainLock](core-ref-p2p-network-instantsend-messages#clsig) inventories. This allows nodes to more quickly show ChainLock status correctly after being offline.",
-  "title": "InstantSend and ChainLock Synchronization"
-}
-[/block]
+
+> 📘 InstantSend and ChainLock Synchronization
+>
+> Dash Core 0.15.0 expanded the mempool message to include syncing of [InstantSend Lock](core-ref-p2p-network-instantsend-messages#islock) inventories. Additionally, nodes now attempt to sync their mempool with peers at startup by default (limited to peers using protocol version 70216 or higher). This allows nodes to more quickly detect any double-spend attempts as well as show InstantSend lock status correctly for transactions received while offline.
+
+Dash Core 0.17.0 expanded the mempool message to include syncing of [ChainLock](core-ref-p2p-network-instantsend-messages#clsig) inventories. This allows nodes to more quickly show ChainLock status correctly after being offline.
+
 The `inv` response to the [`mempool` message](core-ref-p2p-network-data-messages#mempool) is, at best, one node's view of the network---not a complete list of every <<glossary:unconfirmed transaction>> on the network. Here are some additional reasons the list might not be complete:
 
 * The [`mempool` message](core-ref-p2p-network-data-messages#mempool) is not currently fully compatible with the [`filterload` message](core-ref-p2p-network-control-messages#filterload)'s `BLOOM_UPDATE_ALL` and `BLOOM_UPDATE_P2PUBKEY_ONLY` flags. Mempool transactions are not sorted like in-block transactions, so a transaction (tx2) spending an <<glossary:output>> can appear before the transaction (tx1) containing that output, which means the automatic filter update mechanism won't operate until the second-appearing transaction (tx1) is seen---missing the first-appearing transaction (tx2). It has been proposed in [Bitcoin Core issue #2381](https://github.com/bitcoin/bitcoin/issues/2381) that the transactions should be sorted before being processed by the filter.
@@ -573,12 +573,12 @@ There is no payload in a [`mempool` message](core-ref-p2p-network-data-messages#
 *Added in protocol version 70001 as described by BIP37.*
 
 The [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) is a reply to a [`getdata` message](core-ref-p2p-network-data-messages#getdata) which requested a <<glossary:block>> using the inventory type `MSG_MERKLEBLOCK`.  It is only part of the reply: if any matching transactions are found, they will be sent separately as [`tx` messages](core-ref-p2p-network-data-messages#tx). As of Dash Core 0.17.0 [`islock` messages](core-ref-p2p-network-instantsend-messages#islock) for matching transactions are sent if present.
-[block:callout]
-{
-  "type": "warning",
-  "body": "Note: `islock` messages are currently dropped once a ChainLock is present so in most cases they will not actually be provided in response to a merkleblock request. Future updates may modify this behavior."
-}
-[/block]
+
+> 🚧
+>
+> Note: `islock` messages are currently dropped once a ChainLock is present so in most cases they will not actually be provided in response to a merkleblock request. Future updates may modify this behavior.
+
+
 If a filter has been previously set with the [`filterload` message](core-ref-p2p-network-control-messages#filterload), the [`merkleblock` message](core-ref-p2p-network-data-messages#merkleblock) will contain the <<glossary:TXIDs>> of any transactions in the requested block that matched the filter, as well as any parts of the block's <<glossary:merkle tree>> necessary to connect those transactions to the block header's <<glossary:merkle root>>. The message also contains a complete copy of the <<glossary:block header>> to allow the client to hash it and confirm its <<glossary:proof of work>>.
 
 | Bytes    | Name               | Data Type        | Description

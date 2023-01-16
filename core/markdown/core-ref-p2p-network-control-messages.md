@@ -159,13 +159,11 @@ The seed is `nHashNum * 0xfba4c795 + nTweak` as a *uint32\_t*, where the values 
 If the seed resulting from the formula above is larger than four bytes, it must be truncated to its four most significant bytes (for example, `0x8967452301 & 0xffffffff → 0x67452301`).
 
 The actual hash function implementation used is the [32-bit Murmur3 hash function](https://en.wikipedia.org/wiki/MurmurHash).
-[block:callout]
-{
-  "type": "warning",
-  "body": "**Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same <<glossary:input>>.  Only the 32-bit Murmur3 version is used with Dash bloom filters.",
-  "title": "Murmer3 Version"
-}
-[/block]
+
+> 🚧 Murmer3 Version
+>
+> **Warning:** the Murmur3 hash function has separate 32-bit and 64-bit versions that produce different results for the same <<glossary:input>>.  Only the 32-bit Murmur3 version is used with Dash bloom filters.
+
 The data to be hashed can be any transaction element which the bloom filter can match. See the next subsection for the list of transaction elements checked against the filter. The largest element which can be matched is a script data push of 520 bytes, so the data should never exceed 520 bytes.
 
 The example below from Dash Core [bloom.cpp](https://github.com/dashpay/dash/blob/v0.15.x/src/bloom.cpp#L59) combines all the steps above to create the hash function template. The seed is the first parameter; the data to be hashed is the second parameter. The result is a uint32\_t modulo the size of the bit field in bits.
@@ -453,30 +451,29 @@ The [`spork` message](core-ref-p2p-network-control-messages#spork) tells the rec
 | 10020 | 21 | `SPORK_21_QUORUM_ALL_`<br>`CONNECTED` | **_Added in Dash Core 0.16.0_**<br>Enable connections between all masternodes in a quorum to optimize the signature recovery process.<br>Note: Prior to Dash Core 0.17.0 this spork also enforced [PoSe requirements](core-guide-dash-features-proof-of-service#distributed-key-generation-participation-requirements) for masternodes to support a minimum protocol version and maintain open ports.
 | 10022 | 23 | `SPORK_23_QUORUM_POSE`<br>`CONNECTED` | **Added in Dash Core 0.17.0**<br>Enforce [PoSe requirements](core-guide-dash-features-proof-of-service#distributed-key-generation-participation-requirements) for masternodes to support a minimum protocol version and maintain open ports.
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Spork 2 Values",
-  "body": "As of Dash Core 0.17.0, spork 2 supports two different enabled values:\n - `0` - Masternodes create locks for all transactions\n - `1` - Masternodes only create locks for transactions included in a block. Transactions in the mempool are not locked.\n\nMode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details."
-}
-[/block]
+> 📘 Spork 2 Values
+>
+> As of Dash Core 0.17.0, spork 2 supports two different enabled values:
+ - `0` - Masternodes create locks for all transactions
+ - `1` - Masternodes only create locks for transactions included in a block. Transactions in the mempool are not locked.
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Spork 21 and 23 Values",
-  "body": "Spork 21 and 23 support two different enabled values:\n - `0` - The spork is active for all quorums regardless of quorum size.\n - `1` - The spork is active only for quorums which have a member size less than 100."
-}
-[/block]
+Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
+
+> 📘 Spork 21 and 23 Values
+>
+> Spork 21 and 23 support two different enabled values:
+ - `0` - The spork is active for all quorums regardless of quorum size.
+ - `1` - The spork is active only for quorums which have a member size less than 100.
+
+Mode 1 is only for use in the event of a sustained overload of InstantSend to ensure that ChainLocks can remain operational. See [PR 4024](https://github.com/dashpay/dash/pull/4024) for details.
+
 **Removed Sporks**
 The following sporks were used in the past but are no longer necessary and have been removed recently. To see sporks removed longer ago, please see the [previous version of documentation](https://dashcore.readme.io/v0.16.0/docs/core-ref-p2p-network-control-messages#spork).
-[block:callout]
-{
-  "type": "info",
-  "title": "Spork 6",
-  "body": "Since spork 6 was never enabled on mainnet, it was removed in Dash Core 0.16.0. The associated logic was hardened in [PR  3662](https://github.com/dashpay/dash/pull/3662) to support testnet (where it is enabled). If testnet is reset at some point in the future, the remaining logic will be removed."
-}
-[/block]
+
+> 📘 Spork 6
+>
+> Since spork 6 was never enabled on mainnet, it was removed in Dash Core 0.16.0. The associated logic was hardened in [PR  3662](https://github.com/dashpay/dash/pull/3662) to support testnet (where it is enabled). If testnet is reset at some point in the future, the remaining logic will be removed.
+
 | Spork ID | Num. | Name | Description |
 | :----------: | :----------: | ----------- | ----------- |
 | _10004_ | _5_ | `INSTANTSEND_MAX_VALUE` | _Removed in Dash Core 0.15.0.<br>Controls the max value for an InstantSend transaction (currently 2000 DASH)_

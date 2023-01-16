@@ -24,7 +24,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [GetBlockHeaders](core-api-ref-remote-procedure-calls-blockchain#getblockheaders): returns an array of items with information about the requested number of blockheaders starting from the requested hash. New in Dash Core 0.12.1
 * [GetBlockStats](core-api-ref-remote-procedure-calls-blockchain#getblockstats): computes per block statistics for a given window. **Updated in Dash Core 18.0.0**
 * [GetChainTips](core-api-ref-remote-procedure-calls-blockchain#getchaintips): returns information about the highest-height block (tip) of each local block chain. *Updated in Dash Core 0.12.3*
-* [GetChainTxStats](core-api-ref-remote-procedure-calls-blockchain#getchaintx-stats): compute statistics about the total number and rate of transactions in the chain. **Updated in Dash Core 18.0.0**
+* [GetChainTxStats](core-api-ref-remote-procedure-calls-blockchain#getchaintxstats): compute statistics about the total number and rate of transactions in the chain. **Updated in Dash Core 18.0.0**
 * [GetDifficulty](core-api-ref-remote-procedure-calls-blockchain#getdifficulty): returns the proof-of-work difficulty as a multiple of the minimum difficulty.
 * [GetMemPoolAncestors](core-api-ref-remote-procedure-calls-blockchain#getmempoolancestors): returns all in-mempool ancestors for a transaction in the mempool. **_Updated in Dash Core 0.17.0_**
 * [GetMemPoolDescendants](core-api-ref-remote-procedure-calls-blockchain#getmempooldescendants): returns all in-mempool descendants for a transaction in the mempool. **_Updated in Dash Core 0.17.0_**
@@ -217,7 +217,7 @@ These RPCs are all Dash-specific and not found in Bitcoin Core
 * [EstimateFee](core-api-ref-remote-procedure-calls-removed#estimatefee): **_was removed in Dash Core 0.17.0._**
 * [GetPoolInfo](core-api-ref-remote-procedure-calls-removed#getpoolinfo): returns an object containing pool related information. _Deprecated in 0.15.0_
 * [GetReceivedByAccount](core-api-ref-remote-procedure-calls-removed#getreceivedbyaccount): **was removed in Dash Core 18.0.0.**
-* [KeePass](core-api-ref-remote-procedure-calls-wallet#keepass): **_was removed in Dash Core 18.0.0._**
+* [KeePass](core-api-ref-remote-procedure-calls-removed#keepass): **_was removed in Dash Core 18.0.0._**
 * [ListAccounts](core-api-ref-remote-procedure-calls-removed#listaccounts): **was removed in Dash Core 18.0.0.**
 * [ListReceivedByAccount](core-api-ref-remote-procedure-calls-removed#listreceivedbyaccount): **was removed in Dash Core 18.0.0.**
 * [Move](core-api-ref-remote-procedure-calls-removed#move): **was removed in Dash Core 18.0.0.**
