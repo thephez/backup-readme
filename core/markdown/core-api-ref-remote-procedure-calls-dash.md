@@ -1301,7 +1301,7 @@ Result:
 
 ## Masternode Winner
 
->❗️Deprecated in Dash Core 0.17.0
+>❗️ Deprecated in Dash Core 0.17.0
 >
 > This RPC has been deprecated and will be removed in a future version of Dash Core
 

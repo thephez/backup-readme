@@ -30,7 +30,7 @@ Once the document has been retrieved, we must submit it to [DAPI](explanation-da
 
 The `platform.documents.broadcast` method takes the document batch (e.g. `{delete: [documents[0]]}`) and an identity parameter. Internally, it creates a [State Transition](explanation-platform-protocol-state-transition) containing the previously created document, signs the state transition, and submits the signed state transition to DAPI.
 
-> 📘Wallet Operations
+> 📘 Wallet Operations
 >
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
 >

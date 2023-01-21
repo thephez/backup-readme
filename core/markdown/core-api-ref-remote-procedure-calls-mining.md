@@ -331,7 +331,7 @@ duplicate
 The [`submitheader` RPC](core-api-ref-remote-procedure-calls-mining#submitheader) decodes the given hexdata as a header and submits it as a candidate chain tip if valid. 
 If invalid, it  throws.
 
- *Parameter #1---hexdata*
+*Parameter #1---hexdata*
 
 Name | Type | Presence | Description
 --- | --- | --- | ---

@@ -107,7 +107,7 @@ After we initialize the Client, we create an object defining the documents this 
 
 Once the data contract has been created, we still need to submit it to DAPI. The `platform.contracts.publish` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the previously created contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered.
 
-> 📘Wallet Operations
+> 📘 Wallet Operations
 >
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
 >

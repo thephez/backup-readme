@@ -32,7 +32,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-01-16T17:05:32.117Z"
  },
  "title": "Identities and Names",
  "icon": "",
@@ -40,7 +41,7 @@
  "type": "basic",
  "slug": "tutorial-identities-and-names",
  "excerpt": "",
- "body": "The following tutorials cover creating and managing identities as well as creating and retrieving names.\n\n- [Register an Identity](doc:tutorial-register-an-identity) \n- [Retrieve an Account's Identities](doc:tutorial-retrieve-an-accounts-identities) \n- [Topup an Identity's Balance](doc:tutorial-topup-an-identity-balance) \n- [Register a Name for an Identity](doc:tutorial-register-a-name-for-an-identity) \n- [Retrieve a Name](doc:tutorial-retrieve-a-name)\n\n> \ud83d\udcd8Tutorial code\n>\n> You can clone a repository containing the code for all tutorials from <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">GitHub</a> or download it as a [zip file](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip).",
+ "body": "The following tutorials cover creating and managing identities as well as creating and retrieving names.\n\n- [Register an Identity](doc:tutorial-register-an-identity) \n- [Retrieve an Account's Identities](doc:tutorial-retrieve-an-accounts-identities) \n- [Topup an Identity's Balance](doc:tutorial-topup-an-identity-balance) \n- [Register a Name for an Identity](doc:tutorial-register-a-name-for-an-identity) \n- [Retrieve a Name](doc:tutorial-retrieve-a-name)\n\n> \ud83d\udcd8 Tutorial code\n>\n> You can clone a repository containing the code for all tutorials from <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">GitHub</a> or download it as a [zip file](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip).",
  "order": 5,
  "isReference": false,
  "deprecated": false,
@@ -50,12 +51,12 @@
  "link_external": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-17T17:27:48.598Z",
- "revision": 1,
+ "revision": 2,
  "_id": "62b226d1fcc32e002300c563",
  "pendingAlgoliaPublish": false,
  "createdAt": "2020-12-17T19:30:17.137Z",
- "updatedAt": "2022-05-12T17:05:23.282Z",
- "user": "5b8400d7185d5e00036dcc3b",
+ "updatedAt": "2023-01-16T17:05:31.767Z",
+ "user": "62b2101422da70001ee51d95",
  "category": "62b226d1fcc32e002300c509",
  "project": "5bda01cad172e200499a20a9",
  "version": "62b226d1fcc32e002300c574",
@@ -63,5 +64,5 @@
  "parentDoc": null,
  "isApi": false,
  "id": "62b226d1fcc32e002300c563",
- "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover creating and managing identities as well as creating and retrieving names.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-an-identity\">Register an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-an-accounts-identities\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-an-accounts-identities\">Retrieve an Account&#39;s Identities</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-topup-an-identity-balance\" class=\"doc-link\" data-sidebar=\"tutorial-topup-an-identity-balance\">Topup an Identity&#39;s Balance</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-name-for-an-identity\">Register a Name for an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-name\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-name\">Retrieve a Name</a></li></ul>\n<blockquote>\n<p>\ud83d\udcd8Tutorial code</p>\n<p>You can clone a repository containing the code for all tutorials from <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">GitHub</a> or download it as a <a href=\"https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip\">zip file</a>.</p>\n</blockquote>\n\n</div>"
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover creating and managing identities as well as creating and retrieving names.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-an-identity\">Register an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-an-accounts-identities\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-an-accounts-identities\">Retrieve an Account&#39;s Identities</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-topup-an-identity-balance\" class=\"doc-link\" data-sidebar=\"tutorial-topup-an-identity-balance\">Topup an Identity&#39;s Balance</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-name-for-an-identity\">Register a Name for an Identity</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-name\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-name\">Retrieve a Name</a></li></ul>\n<blockquote>\n<p>\ud83d\udcd8 Tutorial code</p>\n<p>You can clone a repository containing the code for all tutorials from <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">GitHub</a> or download it as a <a href=\"https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip\">zip file</a>.</p>\n</blockquote>\n\n</div>"
 }

@@ -11,13 +11,11 @@ Some [additional metadata](https://github.com/dashevo/platform/blob/master/packa
 # Endpoint Details
 
 ## broadcastStateTransition
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.",
-  "title": ""
-}
-[/block]
+
+> 📘 
+>
+> **Note:** The [`waitForStateTransitionResult` endpoint](#waitforstatetransitionresult) should be used in conjunction with this one for instances where proof of block confirmation is required.
+
 Broadcasts a [state transition](explanation-platform-protocol-state-transition) to the platform via DAPI to make a change to layer 2 data. Since Dash Platform 0.18.0, `broadcastStateTransition` returns once the state transition has been accepted into the mempool instead of waiting until it is confirmed. 
 
 **Returns**: Nothing or error
@@ -52,13 +50,11 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 **Response**: No response except on error
 
 ## getIdentity
-[block:callout]
-{
-  "type": "warning",
-  "body": "As of Dash Platform 0.21 the `protocolVersion` is no longer included in the CBOR-encoded data. It is instead prepended to the data following CBOR encoding.",
-  "title": "Breaking changes"
-}
-[/block]
+
+> 🚧 Breaking changes
+>
+> As of Dash Platform 0.21 the `protocolVersion` is no longer included in the CBOR-encoded data. It is instead prepended to the data following CBOR encoding.
+
 **Returns**: [Identity](explanation-identity) information for the requested identity
 **Parameters**:
 
@@ -67,12 +63,9 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | `id` | Bytes | Yes | An identity `id` |
 | `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested identity |
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
+> 📘 
+>
+> **Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data.
 
 ** Example Request and Response **
 [block:code]
@@ -114,12 +107,11 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 }
 [/block]
 ## getIdentitiesByPublicKeyHashes
-[block:callout]
-{
-  "type": "success",
-  "body": "In Dash Platform v0.23 the response is an array of identities instead of the previously provided array of CBOR-encoded arrays of identities."
-}
-[/block]
+
+> 👍 
+> 
+> In Dash Platform v0.23 the response is an array of identities instead of the previously provided array of CBOR-encoded arrays of identities.
+
 **Returns**: [Identity](explanation-identity) an array of identities associated with the provided public key hashes
 **Parameters**:
 
@@ -128,20 +120,27 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | `public_key_hashes` | Bytes | Yes | Public key hashes (sha256-ripemd160) of identity public keys |
 | `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested identities |
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
+> 📘 
+>
+> **Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data.
 
-[block:callout]
-{
-  "type": "info",
-  "body": "Note: the hash must be done using all fields of the identity public key object - e.g.\n```json\n{\n  id: 0,\n  type: 0,\n  purpose: 0,\n  securityLevel: 0,\n  data: 'A2GTAJk9eAWkMXVCb+rRKXH99POtR5OaW6zqZl7/yozp',\n  readOnly: false\n}\n```\nWhen using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).",
-  "title": "Public key hash"
-}
-[/block]
+> 📘 Public key hash
+>
+> Note: the hash must be done using all fields of the identity public key object - e.g.
+> 
+> ```json
+> {
+>   id: 0,
+>   type: 0,
+>   purpose: 0,
+>   securityLevel: 0,
+>   data: 'A2GTAJk9eAWkMXVCb+rRKXH99POtR5OaW6zqZl7/yozp',
+>   readOnly: false
+> }
+> ```
+> 
+> When using the js-dpp library, the hash can be accessed via the [IdentityPublicKey object's](https://github.com/dashevo/platform/blob/master/packages/js-dpp/lib/identity/IdentityPublicKey.js) `hash` method (e.g. `identity.getPublicKeyById(0).hash()`).
+
 ** Example Request and Response **
 [block:code]
 {
@@ -199,12 +198,10 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | `id` | Bytes | Yes | A data contract `id` |
 | `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested data contract |
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
+> 📘 
+>
+> **Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data.
+
 ** Example Request and Response **
 [block:code]
 {
@@ -249,13 +246,13 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 **Returns**: [Document](explanation-platform-protocol-document) information for the requested document(s)
 **Parameters**:
-[block:callout]
-{
-  "type": "warning",
-  "title": "* Parameter constraints",
-  "body": "The `where`, `order_by`, `limit`, `start_at`, and `start_after` parameters must comply with the limits defined on the [Query Syntax](reference-query-syntax) page.\n\nAdditionally, note that `where` and `order_by` must be [CBOR](https://tools.ietf.org/html/rfc7049) encoded."
-}
-[/block]
+
+> 🚧 * Parameter constraints
+>
+> The `where`, `order_by`, `limit`, `start_at`, and `start_after` parameters must comply with the limits defined on the [Query Syntax](reference-query-syntax) page.
+>
+> Additionally, note that `where` and `order_by` must be [CBOR](https://tools.ietf.org/html/rfc7049) encoded.
+
 | Name | Type | Required | Description |
 | - | - | - | - |
 | `data_contract_id` | Bytes | Yes | A data contract `id` |
@@ -270,12 +267,10 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | ---------- | | | |
 | `prove` | Boolean | No | Set to `true` to receive a proof that contains the requested document(s) |
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
+> 📘 
+>
+> **Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data
+
 
 ** Example Request and Response **
 [block:code]
@@ -326,12 +321,10 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 | `state_transition_hash` | Bytes | Yes | Hash of the state transition |
 | `prove` | Boolean | Yes | Set to `true` to request a proof |
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data."
-}
-[/block]
+> 📘 
+>
+> **Note**: When requesting proofs, the data requested will be encoded as part of the proof in the response. See the [Platform Proofs page](reference-platform-proofs) for details on decoding the data.
+
 
 ** Example Request and Response**
 [block:code]

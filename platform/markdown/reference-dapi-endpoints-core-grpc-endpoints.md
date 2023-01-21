@@ -1,10 +1,7 @@
-[block:callout]
-{
-  "type": "info",
-  "title": "gRPC Overview",
-  "body": "Please refer to the [gRPC Overview](reference-dapi-endpoints-grpc-overview) for details regarding running the examples shown below, encoding/decoding the request/response data, and clients available for several languages."
-}
-[/block]
+> 📘 gRPC Overview
+>
+> Please refer to the [gRPC Overview](reference-dapi-endpoints-grpc-overview) for details regarding running the examples shown below, encoding/decoding the request/response data, and clients available for several languages.
+
 # Endpoint Details
 
 ## broadcastTransaction
@@ -75,12 +72,9 @@
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The gRPCurl response `bestBlockHash`, `chainWork`, and `proTxHash` data is Base64 encoded"
-}
-[/block]
+> 📘 
+>
+> **Note:** The gRPCurl response `bestBlockHash`, `chainWork`, and `proTxHash` data is Base64 encoded
 
 [block:code]
 {
@@ -137,13 +131,9 @@
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The gRPCurl response block data is Base64 encoded",
-  "title": "Block Encoding"
-}
-[/block]
+> 📘 Block Encoding
+>
+> **Note:** The gRPCurl response block data is Base64 encoded
 
 [block:code]
 {
@@ -194,13 +184,9 @@
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The gRPCurl response `transaction` and `blockHash` data are Base64 encoded",
-  "title": "Transaction Encoding"
-}
-[/block]
+> 📘 Transaction Encoding
+>
+> **Note:** The gRPCurl response `transaction` and `blockHash` data are Base64 encoded
 
 [block:code]
 {
@@ -248,12 +234,9 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The gRPCurl response `chainlock` and `headers` data is Base64 encoded"
-}
-[/block]
+> 📘 
+>
+> **Note:** The gRPCurl response `chainlock` and `headers` data is Base64 encoded
 
 [block:code]
 {
@@ -299,12 +282,9 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 }
 [/block]
 
-[block:callout]
-{
-  "type": "info",
-  "body": "**Note:** The gRPCurl response `transactions` and `rawMerkleBlock` data is Base64 encoded"
-}
-[/block]
+> 📘 
+>
+> **Note:** The gRPCurl response `transactions` and `rawMerkleBlock` data is Base64 encoded
 
 [block:code]
 {

@@ -74,10 +74,10 @@ Dash Core 0.12.1+ defaults to relaying and mining null data outputs with up to 8
 > 📘 OP_RETURN Limit
 >
 > **Note:** Since the null data output must include opcodes, the limit for data is less than 83 bytes. A typical `OP_RETURN` is limited to 80 bytes due to the following 3 required bytes:
-
- * `OP_RETURN` (0x6a)
- * `OP_PUSHDATA1` (0x4c)
- * Data Size (e.g. 0x50 for 80 bytes)
+>
+> * `OP_RETURN` (0x6a)
+> * `OP_PUSHDATA1` (0x4c)
+> * Data Size (e.g. 0x50 for 80 bytes)
 
 The following annotated hexdump shows an example `OP_RETURN` output:
 

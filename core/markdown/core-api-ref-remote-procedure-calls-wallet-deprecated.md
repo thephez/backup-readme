@@ -1,4 +1,4 @@
->❗️Wallet Support
+>❗️ Wallet Support
 >
 > RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a "_Requires wallet support_" message.
 
@@ -13,9 +13,6 @@
 > Requires <<glossary:wallet>> support (**unavailable on masternodes**)
 
 The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount) returns the name of the account associated with the given address.
-
-The [`getaccount` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#getaccount) returns the name of the account associated with the given address.
-
 
 *Parameter #1---a Dash address*
 

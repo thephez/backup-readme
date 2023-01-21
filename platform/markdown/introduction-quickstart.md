@@ -7,7 +7,7 @@ The quickest way to get started with Dash Platform is by completing these two si
 
 The quickest way to start developing on Dash Platform is to use the Dash SDK. Currently, the SDK is available in Javascript, Objective-C, and Java. After navigating to your project directory, you can install the Javascript SDK by issuing the following command in your terminal or command line:
 
-```javascript
+```shell
 npm install dash
 ```
 
@@ -33,11 +33,17 @@ blockHeight.then(height => {
 ```
 
 A live example of this code can be run [here on Repl.it](https://repl.it/@thephez/DAPI-Client-Basic-Example)
-[block:callout]
-{
-  "type": "warning",
-  "title": "DAPI-Client Seed node(s)",
-  "body": "If using DAPI-Client in a devnet or testnet setting, at least one seed node must be provided in the constructor. For example,\n```\nvar client = new DAPIClient({\n  seeds: [{\n    service: 'example.com:20001',\n    port: 3000\n  }],\n});\n```"
-}
-[/block]
+
+> 🚧 DAPI-Client Seed node(s)
+>
+> If using DAPI-Client in a devnet or testnet setting, at least one seed node must be provided in the constructor. For example,
+> ```js
+> var client = new DAPIClient({
+>   seeds: [{
+>     service: 'example.com:20001',
+>     port: 3000
+>   }],
+> });
+> ```
+
 Once you have verified dapi-client requests are working, you can move on to exploring the available endpoints.

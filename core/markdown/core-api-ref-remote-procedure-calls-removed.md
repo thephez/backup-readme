@@ -14,7 +14,7 @@ Blocks | number (int) | Required<br>(exactly 1) | The maximum number of blocks a
 
 *Result---the fee the transaction needs to pay per kilobyte*
 
->❗️Inability to estimate
+>❗️ Inability to estimate
 >
 > If the node doesn't have enough information to make an estimate, the value `-1` will be returned.
 
@@ -426,7 +426,7 @@ Result (edited to only show the first two results):
 >
 > Requires <<glossary:wallet>> support (**unavailable on masternodes**)
 
-The [`move` RPC](core-api-ref-remote-procedure-calls-wallet-deprecated#move) moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
+The `move` RPC moves a specified amount from one account in your wallet to another using an off-block-chain transaction.
 
 > 🚧
 >

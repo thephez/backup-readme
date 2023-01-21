@@ -1,10 +1,7 @@
-[block:callout]
-{
-  "type": "info",
-  "title": "Change to monorepo",
-  "body": "Dash Platform v0.21 migrated to a [monorepo](https://en.wikipedia.org/wiki/Monorepo) structure to streamline continuous integration builds and testing. A number of the libraries below were previously independent repositories but now are aggregated into the [`packages` directory](https://github.com/dashevo/platform/tree/master/packages) of the monorepo (https://github.com/dashevo/platform/)."
-}
-[/block]
+> 📘 Change to monorepo
+>
+> Dash Platform v0.21 migrated to a [monorepo](https://en.wikipedia.org/wiki/Monorepo) structure to streamline continuous integration builds and testing. A number of the libraries below were previously independent repositories but now are aggregated into the [`packages` directory](https://github.com/dashevo/platform/tree/master/packages) of the monorepo (https://github.com/dashevo/platform/).
+
 # js-dash-sdk
 
 Dash client-side JavaScript library for application development and wallet payment/signing. Uses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers.

@@ -1,23 +1,20 @@
 # Overview
 
 Generally queries will consist of a `where` clause plus optional [modifiers](#query-modifiers) controlling the specific subset of results returned. 
-[block:callout]
-{
-  "type": "warning",
-  "title": "Query limitations",
-  "body": "Dash Platform v0.22 introduced a number of limitations due to the switch to using [GroveDB](https://github.com/dashevo/grovedb). See details in pull requests [77](https://github.com/dashevo/platform/pull/77) and [230](https://github.com/dashevo/platform/pull/230) that implemented these changes.\n\nQuery validation details may be found [here](https://github.com/dashevo/platform/blob/master/packages/js-drive/lib/document/query/validateQueryFactory.js) along with the associated validation [tests](https://github.com/dashevo/platform/blob/master/packages/js-drive/test/unit/document/query/validateQueryFactory.spec.js)."
-}
-[/block]
+
+> 🚧 Query limitations
+>
+> Dash Platform v0.22 introduced a number of limitations due to the switch to using [GroveDB](https://github.com/dashevo/grovedb). See details in pull requests [77](https://github.com/dashevo/platform/pull/77) and [230](https://github.com/dashevo/platform/pull/230) that implemented these changes.
+>
+> Query validation details may be found [here](https://github.com/dashevo/platform/blob/master/packages/js-drive/lib/document/query/validateQueryFactory.js) along with the associated validation [tests](https://github.com/dashevo/platform/blob/master/packages/js-drive/test/unit/document/query/validateQueryFactory.spec.js).
+
 # Where Clause
 
 The Where clause must be a non-empty array containing not more than 10 conditions. For some operators, `value` will be an array. See the following general syntax example:
-[block:callout]
-{
-  "type": "danger",
-  "body": "As of Dash Platform v0.22, _all fields_ referenced in a query's where clause must be defined in the _same index_. This includes `$createdAt` and `$updatedAt`."
-}
-[/block]
 
+>❗️
+>
+> As of Dash Platform v0.22, _all fields_ referenced in a query's where clause must be defined in the _same index_. This includes `$createdAt` and `$updatedAt`.
 [block:code]
 {
   "codes": [
@@ -52,13 +49,15 @@ Valid fields consist of the indices defined for the document being queried. For 
 | == | Matches values that are equal to a specified value |
 
 ### Range
-[block:callout]
-{
-  "type": "warning",
-  "title": "Dash Platform v0.22 notes",
-  "body": "- Only one range operator is allowed in a query (except for between behavior)\n- The `in` operator is only allowed for last two indexed properties\n- Range operators are only allowed after `==` and `in` operators\n- Range operators are only allowed for the last two fields used in the where condition\n- Queries using range operators must also include an `orderBy` statement"
-}
-[/block]
+
+> 🚧 Dash Platform v0.22 notes
+>
+> - Only one range operator is allowed in a query (except for between behavior)
+> - The `in` operator is only allowed for last two indexed properties
+> - Range operators are only allowed after `==` and `in` operators
+> - Range operators are only allowed for the last two fields used in the where condition
+> - Queries using range operators must also include an `orderBy` statement
+
 | Name | Description |
 | :-: | - |
 | < | Matches values that are less than a specified value |
@@ -120,26 +119,24 @@ Valid fields consist of the indices defined for the document being queried. For 
 [/block]
 # Query Modifiers
 The query modifiers described here determine how query results will be sorted and what subset of data matching the query will be returned.
-[block:callout]
-{
-  "type": "danger",
-  "title": "Breaking changes",
-  "body": "Starting with Dash Platform v0.22, `startAt` and `startAfter` must be provided with a document ID rather than an integer."
-}
-[/block]
+
+>❗️ Breaking changes
+>
+> Starting with Dash Platform v0.22, `startAt` and `startAfter` must be provided with a document ID rather than an integer.
+
 | Modifier | Effect | Example |
 | - | - | - |
 | `limit` | Restricts the number of results returned (maximum: 100) | `limit: 10` |
 | `orderBy` | Returns records sorted by the field(s) provided (maximum: 2). Sorting must be by the last indexed property. Can only be used with `>`, `<`, `>=`, `<=`, and `startsWith` queries. | `orderBy: [['normalizedLabel', 'asc']]`
 | `startAt` | Returns records beginning with the document ID provided | `startAt: Buffer.from(Identifier.from(<document ID>))` |
 | `startAfter` | Returns records beginning after the document ID provided | `startAfter: Buffer.from(Identifier.from(<document ID>))` |
-[block:callout]
-{
-  "type": "warning",
-  "title": "Compound Index Constraints",
-  "body": "For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order.\n\nPlease refer to [pull request 230](https://github.com/dashevo/platform/pull/230) for additional information related to compound index constraints in Platform v0.22."
-}
-[/block]
+
+> 🚧 Compound Index Constraints
+>
+> For indices composed of multiple fields ([example from the DPNS data contract](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json)), the sort order in an `orderBy` must either match the order defined in the data contract OR be the inverse order.
+>
+> Please refer to [pull request 230](https://github.com/dashevo/platform/pull/230) for additional information related to compound index constraints in Platform v0.22.
+
 # Example query
 The following query combines both a where clause and query modifiers.
 [block:code]

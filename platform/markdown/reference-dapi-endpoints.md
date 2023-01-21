@@ -26,13 +26,11 @@
 | 1 | [`subscribeTo` `TransactionsWithProofs`](reference-dapi-endpoints-core-grpc-endpoints#subscribetotransactionswithproofs) | Returns transactions matching the provided bloom filter along with the associated [`islock` message](https://dashcore.readme.io/docs/core-ref-p2p-network-instantsend-messages#islock) and [merkle block](https://dashcore.readme.io/docs/core-ref-p2p-network-data-messages#merkleblock) |
 
 ## Platform gRPC Service
-[block:callout]
-{
-  "type": "info",
-  "title": "Response Proofs",
-  "body": "Dash Platform 0.20.0 introduced [proofs](reference-platform-proofs) to Platform gRPC endpoints so the data returned for a request can be verified as being valid."
-}
-[/block]
+
+> 📘 Response Proofs
+>
+> Dash Platform 0.20.0 introduced [proofs](reference-platform-proofs) to Platform gRPC endpoints so the data returned for a request can be verified as being valid.
+
 | Layer | Endpoint | |
 | :-: | - | - |
 | 2 | [`broadcastStateTransition`](reference-dapi-endpoints-platform-endpoints#broadcaststatetransition) | Broadcasts the provided State Transition |
@@ -47,10 +45,6 @@
   "html": "<div></div>\n<!--\nPrimarily for debugging, don't document - getConsensusParams\n-->\n<style></style>"
 }
 [/block]
-
-[block:callout]
-{
-  "type": "info",
-  "body": "The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints)."
-}
-[/block]
+> 📘
+>
+> The previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints).

@@ -9,20 +9,15 @@ The following sections provide details that developers need to construct valid c
 **Note:** There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).
 
 ## Keyword
-[block:callout]
-{
-  "type": "info",
-  "title": "Dash Platform Protocol 0.20",
-  "body": "Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `defs` keyword."
-}
-[/block]
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22."
-}
-[/block]
+> 📘 Dash Platform Protocol 0.20
+>
+> Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `defs` keyword.
+
+> 🚧 
+>
+> The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
+
 | Keyword | Constraint |
 | - | - |
 | `default` | Restricted - cannot be used (defined in DPP logic) |

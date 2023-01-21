@@ -107,7 +107,7 @@ Each network type has some unique characteristics to support development and tes
 ## Mining characteristics
 
 | Network Type | Difficulty adjustment algorithm |
-|-|-|-|-|
+|-|-|
 | [Testnet](#testnet) | Mainnet algorithm, but [allows minimum difficulty blocks](https://github.com/dashpay/dash/blob/v0.17.0.3/src/pow.cpp#L142-L146) if no blocks are created for 5 minutes |
 | [Regtest](#regtest-mode) | Mines blocks at the [minimum difficulty level](https://github.com/dashpay/dash/blob/v0.17.0.3/src/chainparams.cpp#L925) |
 | [Devnet](#devnet-mode) | Mainnet algorithm after [4001 blocks](https://github.com/dashpay/dash/blob/v0.17.0.3/src/chainparams.cpp#L749) unless overridden by [devnet-specific options](#devnet-specific-options) |

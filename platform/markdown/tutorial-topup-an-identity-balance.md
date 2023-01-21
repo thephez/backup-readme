@@ -25,11 +25,11 @@ As users interact with Dash Platform applications, the credit balance associated
 
 After connecting to the Client, we call `platform.identities.topUp` with an identity ID and a topup amount in duffs. This creates a lock transaction and increases the identity's credit balance by the relevant amount (minus fee). The updated balance is output to the console.
 
-> 📘Dash / Credit Conversion
+> 📘 Dash / Credit Conversion
 >
 > Dash is converted to credits at a ratio of `1 duff : 1000 credits`. This provides flexibility for very granular platform fees.
 
-> 📘Wallet Operations
+> 📘 Wallet Operations
 >
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
 >

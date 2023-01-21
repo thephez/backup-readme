@@ -1,4 +1,4 @@
->❗️Privacy
+>❗️ Privacy
 >
 > **Warning:** A web browser can access a HTTP REST interface running on localhost, possibly allowing third parties to use cross-site scripting attacks to download your transaction and block data, reducing your privacy.  If you have privacy concerns, you should not run a browser on the same computer as a REST-enabled Dash Core node.
 

@@ -5,13 +5,11 @@ The gRPC endpoints provide access to information from Dash Platform (layer 2) as
 ## Auto-generated Clients
 
 Clients for a number of languages are built automatically from the protocol definitions and are available in the `packages/dapi-grpc/clients` folder of the [platform](https://github.com/dashevo/platform/) repository. The protocol definitions are available in the `protos` folder.
-[block:callout]
-{
-  "type": "info",
-  "title": "Pull Requests welcome",
-  "body": "Pull requests are welcome to add support for additional languages that are not currently being built."
-}
-[/block]
+
+> 📘 Pull Requests welcome
+>
+> Pull requests are welcome to add support for additional languages that are not currently being built.
+
 ## Command Line Examples
 
 Some examples shown in the endpoint details pages use a command-line tool named [gRPCurl](https://github.com/fullstorydev/grpcurl) that allows interacting with gRPC servers in a similar way as `curl` does for the [JSON-RPCs](reference-dapi-endpoints-json-rpc-endpoints). Additional information may be found in the [gRPC documentation](https://grpc.io/docs/guides/).
@@ -30,13 +28,11 @@ To use gRPCurl as shown in the detailed examples, clone the [platform](https://g
 # Data Encoding
 
 The data submitted/received from the gRPC endpoints is encoded using both [CBOR](https://tools.ietf.org/html/rfc7049) and Base64. Data is first encoded with CBOR and the resulting output is then encoded in Base64 before being sent. 
-[block:callout]
-{
-  "type": "warning",
-  "title": "Canonical Encoding",
-  "body": "Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data."
-}
-[/block]
+
+> 🚧 Canonical Encoding
+>
+> Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data.
+
 Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints.
 
 The examples below use the response from a [`getIdentity` gPRC request](reference-dapi-endpoints-platform-endpoints#getidentity) to demonstrate how to both encode data for sending and decode received data:

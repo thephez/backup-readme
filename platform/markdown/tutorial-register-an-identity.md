@@ -9,7 +9,7 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 
 # Code
 
-> 📘Wallet Operations
+> 📘 Wallet Operations
 >
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
 >

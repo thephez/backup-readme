@@ -1,4 +1,4 @@
->❗️Wallet Support
+>❗️ Wallet Support
 >
 > RPCs that require wallet support are **not available on masternodes** for security reasons. Such RPCs are designated with a "_Requires wallet support_" message.
 
@@ -229,6 +229,7 @@ Result:
   "warning": ""
 }
 ```
+
 > 📘 
 >
 > In the example above, a new directory named `new-wallet` was created in the current data directory (`~/.dashcore/testnet3/`). This new directory contains the wallet.dat file and other related wallet files for the new wallet.

@@ -6,7 +6,7 @@
 
 Although [data contracts](explanation-platform-protocol-data-contract) provide much needed constraints on the structure of the data being stored on Dash Platform, there are limits to what they can do. Certain system data contracts may require server-side validation logic to operate effectively. For example, [DPNS](doc:explanation-dpns) must enforce some rules to ensure names remain DNS compatible. [Dash Platform Protocol](explanation-platform-protocol) (DPP) supports this application-specific custom logic using Data Triggers.
 
-> ❗️Constraints
+> ❗️ Constraints
 > 
 > Given a number of technical considerations (security, masternode processing capacity, etc.), data triggers are not considered a platform feature at this time. They are currently hard-coded in Dash Platform Protocol and only used in system data contracts.
 

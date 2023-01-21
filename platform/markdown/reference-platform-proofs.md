@@ -1,10 +1,7 @@
-[block:callout]
-{
-  "type": "danger",
-  "title": "Platform v0.22.0",
-  "body": "Note: As part of the transition from MongoDB to Dash's [GroveDB](https://github.com/dashevo/grovedb), proofs will be not be available for at least the initial version of Platform v0.22."
-}
-[/block]
+>❗️ Platform v0.22.0
+>
+> Note: As part of the transition from MongoDB to Dash's [GroveDB](https://github.com/dashevo/grovedb), proofs will be not be available for at least the initial version of Platform v0.22.
+
 Since data verification is a critical aspect of Dash Platform, all [Platform endpoints](reference-dapi-endpoints-platform-endpoints) can provide an optional proof that the response is correct. Set the optional `prove` parameter (`"prove": true`) in the request to receive a proof that contains the requested data.
 
 # Proof Structure
@@ -29,12 +26,11 @@ Each proof consists of four parts:
 }
 [/block]
 ## Root tree proof
-[block:callout]
-{
-  "type": "info",
-  "body": "Details regarding the root tree proofs and their verification will be provided in a future update to this page."
-}
-[/block]
+
+> 📘
+>
+> Details regarding the root tree proofs and their verification will be provided in a future update to this page.
+
 ## Store tree proof
 
 Store tree proofs are based on a modified version of [Merk](https://github.com/nomic-io/merk/). Some details from the Merk documentation are included below. Additional details are available in the [Algorithms document](https://github.com/nomic-io/merk/blob/develop/docs/algorithms.md) on the Merk repository.
@@ -46,13 +42,10 @@ Dash Platform 0.21.0 introduced updates to support returning multiple store tree
  - `documentsProof`
  - `stateTransitionProof`
 
-[block:callout]
-{
-  "type": "warning",
-  "body": "Dash Platform 0.21.0 introduced a 4 byte [protocol version](https://github.com/dashevo/js-dpp/pull/325) that is prepended to the binary format and is not part of the CBOR-encoded data. When parsing proofs it is necessary to exclude these bytes before decoding the returned data with CBOR.",
-  "title": ""
-}
-[/block]
+> 🚧 
+>
+> Dash Platform 0.21.0 introduced a 4 byte [protocol version](https://github.com/dashevo/js-dpp/pull/325) that is prepended to the binary format and is not part of the CBOR-encoded data. When parsing proofs it is necessary to exclude these bytes before decoding the returned data with CBOR.
+
 ### Structure 
 
 Merk proofs are a list of stack-based operators and node data, with 3 possible operators: `Push(node)`, `Parent`, and `Child`. A stream of these operators can be processed by a verifier in order to reconstruct a sparse representation of part of the tree, in a way where the data can be verified against a known root hash.
