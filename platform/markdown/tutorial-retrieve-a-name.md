@@ -4,40 +4,83 @@ In this tutorial we will retrieve the name created in the [Register a Name for a
 - [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveName = async () => {\n  // Retrieve by full name (e.g., myname.dash)\n  return client.platform.names.resolve('<identity name>.dash');\n};\n\nretrieveName()\n  .then((d) => console.log('Name retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "JavaScript - Resolve by Name"
-    },
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveNameByRecord = async () => {\n  // Retrieve by a name's identity ID\n  return client.platform.names.resolveByRecord(\n    'dashUniqueIdentityId',\n    '<identity id>',\n  );\n};\n\nretrieveNameByRecord()\n  .then((d) => console.log('Name retrieved:\\n', d[0].toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "JavaScript - Revolve by Record"
-    },
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveNameBySearch = async () => {\n  // Search for names (e.g. `user*`)\n  return client.platform.names.search('user', 'dash');\n};\n\nretrieveNameBySearch()\n  .then((d) => {\n    for (const name of d) {\n      console.log('Name retrieved:\\n', name.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "JavaScript - Search for Name"
+
+```javascript JavaScript - Resolve by Name
+const Dash = require('dash');
+
+const client = new Dash.Client({ network: 'testnet' });
+
+const retrieveName = async () => {
+  // Retrieve by full name (e.g., myname.dash)
+  return client.platform.names.resolve('<identity name>.dash');
+};
+
+retrieveName()
+  .then((d) => console.log('Name retrieved:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript JavaScript - Revolve by Record
+const Dash = require('dash');
+
+const client = new Dash.Client({ network: 'testnet' });
+
+const retrieveNameByRecord = async () => {
+  // Retrieve by a name's identity ID
+  return client.platform.names.resolveByRecord(
+    'dashUniqueIdentityId',
+    '<identity id>',
+  );
+};
+
+retrieveNameByRecord()
+  .then((d) => console.log('Name retrieved:\n', d[0].toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript JavaScript - Search for Name
+const Dash = require('dash');
+
+const client = new Dash.Client({ network: 'testnet' });
+
+const retrieveNameBySearch = async () => {
+  // Search for names (e.g. `user*`)
+  return client.platform.names.search('user', 'dash');
+};
+
+retrieveNameBySearch()
+  .then((d) => {
+    for (const name of d) {
+      console.log('Name retrieved:\n', name.toJSON());
     }
-  ]
-}
-[/block]
+  })
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+
 # Example Name
 
 The following example response shows a retrieved name (`user-9999.dash`):
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  '$protocolVersion': 0,\n  '$id': '4veLBZPHDkaCPF9LfZ8fX3JZiS5q5iUVGhdBbaa9ga5E',\n  '$type': 'domain',\n  '$dataContractId': '566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy',\n  '$ownerId': 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn',\n  '$revision': 1,\n  label: 'user-9999',\n  records: {\n    dashUniqueIdentityId: 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn'\n  },\n  preorderSalt: 'BzQi567XVqc8wYiVHS887sJtL6MDbxLHNnp+UpTFSB0',\n  subdomainRules: { allowSubdomains: false },\n  normalizedLabel: 'user-9999',\n  normalizedParentDomainName: 'dash'\n}",
-      "language": "json"
-    }
-  ]
+  '$protocolVersion': 0,
+  '$id': '4veLBZPHDkaCPF9LfZ8fX3JZiS5q5iUVGhdBbaa9ga5E',
+  '$type': 'domain',
+  '$dataContractId': '566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy',
+  '$ownerId': 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn',
+  '$revision': 1,
+  label: 'user-9999',
+  records: {
+    dashUniqueIdentityId: 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn'
+  },
+  preorderSalt: 'BzQi567XVqc8wYiVHS887sJtL6MDbxLHNnp+UpTFSB0',
+  subdomainRules: { allowSubdomains: false },
+  normalizedLabel: 'user-9999',
+  normalizedParentDomainName: 'dash'
 }
-[/block]
+``` 
+
 # What's Happening
 
 After we initialize the Client, we request a name. The [code examples](#code) demonstrate the three ways to request a name:

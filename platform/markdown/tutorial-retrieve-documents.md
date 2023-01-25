@@ -7,16 +7,36 @@ In this tutorial we will retrieve some of the current data from a data contract.
 - A Dash Platform Contract ID: [Tutorial: Register a Data Contract](tutorial-register-a-data-contract) 
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst getDocuments = async () => {\n  return client.platform.documents.get('tutorialContract.note', {\n    limit: 2, // Only retrieve 2 document\n  });\n};\n\ngetDocuments()\n  .then((d) => {\n    for (const n of d) {\n      console.log('Document:\\n', n.toJSON());\n    }\n  })\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
+
+```javascript
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  apps: {
+    tutorialContract: {
+      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const getDocuments = async () => {
+  return client.platform.documents.get('tutorialContract.note', {
+    limit: 2, // Only retrieve 2 document
+  });
+};
+
+getDocuments()
+  .then((d) => {
+    for (const n of d) {
+      console.log('Document:\n', n.toJSON());
     }
-  ]
-}
-[/block]
+  })
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 > 👍 Initializing the Client with a contract identity
 >
 > The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details.
@@ -36,32 +56,75 @@ The values returned by `.toJSON()` include the base document properties (prefixe
 > Note: When using `.toJSON()`, binary data is displayed as a base64 string (since JSON is a text-based format).
 
 The values returned by `.getData()` (and also shown in the console.dir() `data` property) represent _only_ the properties defined in the `note` document described by the [tutorial data contract](tutorial-register-a-data-contract#code).
-[block:code]
+
+```json .toJSON()
 {
-  "codes": [
-    {
-      "code": "{\n  '$protocolVersion': 0,\n  '$id': '6LpCQhkXYV2vqkv1UWByew4xQ6BaxxnGkhfMZsN3SV9u',\n  '$type': 'note',\n  '$dataContractId': '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n  '$ownerId': 'CEPMcuBgAWeaCXiP2gJJaStANRHW6b158UPvL1C8zw2W',\n  '$revision': 1,\n  message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'\n}",
-      "language": "json",
-      "name": ".toJSON()"
-    },
-    {
-      "code": "{\n  'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'\n}",
-      "language": "json",
-      "name": ".getData()"
-    },
-    {
-      "code": "Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT",
-      "language": "text",
-      "name": ".data.message"
-    },
-    {
-      "code": "Document {\n  dataContract: DataContract {\n    protocolVersion: 0,\n    id: Identifier(32) [Uint8Array] [\n       40,  93, 196, 112,  38, 188,  51, 122,\n      149,  59,  21,  39, 147, 119,  87,  53,\n      236,  60,  97,  42,  31,  82, 135, 120,\n       68, 188,  55, 153, 226, 198, 181, 139\n    ],\n    ownerId: Identifier(32) [Uint8Array] [\n      166, 222,  98,  87, 193,  19,  82,  37,\n       50, 118, 210,  64, 103, 122,  28, 155,\n      168,  21, 198, 134, 142, 151, 153, 136,\n       46,  64, 223,  74, 215, 153, 158, 167\n    ],\n    schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',\n    documents: { note: [Object] },\n    '$defs': undefined,\n    binaryProperties: { note: {} },\n    metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }\n  },\n  entropy: undefined,\n  protocolVersion: 0,\n  id: Identifier(32) [Uint8Array] [\n     79,  93, 213, 226,  76,  79, 205, 191,\n    165, 190,  68,  28,   8,  83,  61, 226,\n    222, 248,  48, 235, 147, 110, 181, 229,\n      7,  66,  65, 230, 100, 194, 192, 156\n  ],\n  type: 'note',\n  dataContractId: Identifier(32) [Uint8Array] [\n     40,  93, 196, 112,  38, 188,  51, 122,\n    149,  59,  21,  39, 147, 119,  87,  53,\n    236,  60,  97,  42,  31,  82, 135, 120,\n     68, 188,  55, 153, 226, 198, 181, 139\n  ],\n  ownerId: Identifier(32) [Uint8Array] [\n    166, 222,  98,  87, 193,  19,  82,  37,\n     50, 118, 210,  64, 103, 122,  28, 155,\n    168,  21, 198, 134, 142, 151, 153, 136,\n     46,  64, 223,  74, 215, 153, 158, 167\n  ],\n  revision: 1,\n  data: { message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT' },\n  metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }\n}",
-      "language": "json",
-      "name": "console.dir(document)"
-    }
-  ]
+  '$protocolVersion': 0,
+  '$id': '6LpCQhkXYV2vqkv1UWByew4xQ6BaxxnGkhfMZsN3SV9u',
+  '$type': 'note',
+  '$dataContractId': '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',
+  '$ownerId': 'CEPMcuBgAWeaCXiP2gJJaStANRHW6b158UPvL1C8zw2W',
+  '$revision': 1,
+  message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'
 }
-[/block]
+```
+```json .getData()
+{
+  'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT'
+}
+```
+```text .data.message
+Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT
+```
+```json console.dir(document)
+Document {
+  dataContract: DataContract {
+    protocolVersion: 0,
+    id: Identifier(32) [Uint8Array] [
+       40,  93, 196, 112,  38, 188,  51, 122,
+      149,  59,  21,  39, 147, 119,  87,  53,
+      236,  60,  97,  42,  31,  82, 135, 120,
+       68, 188,  55, 153, 226, 198, 181, 139
+    ],
+    ownerId: Identifier(32) [Uint8Array] [
+      166, 222,  98,  87, 193,  19,  82,  37,
+       50, 118, 210,  64, 103, 122,  28, 155,
+      168,  21, 198, 134, 142, 151, 153, 136,
+       46,  64, 223,  74, 215, 153, 158, 167
+    ],
+    schema: 'https://schema.dash.org/dpp-0-4-0/meta/data-contract',
+    documents: { note: [Object] },
+    '$defs': undefined,
+    binaryProperties: { note: {} },
+    metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }
+  },
+  entropy: undefined,
+  protocolVersion: 0,
+  id: Identifier(32) [Uint8Array] [
+     79,  93, 213, 226,  76,  79, 205, 191,
+    165, 190,  68,  28,   8,  83,  61, 226,
+    222, 248,  48, 235, 147, 110, 181, 229,
+      7,  66,  65, 230, 100, 194, 192, 156
+  ],
+  type: 'note',
+  dataContractId: Identifier(32) [Uint8Array] [
+     40,  93, 196, 112,  38, 188,  51, 122,
+    149,  59,  21,  39, 147, 119,  87,  53,
+    236,  60,  97,  42,  31,  82, 135, 120,
+     68, 188,  55, 153, 226, 198, 181, 139
+  ],
+  ownerId: Identifier(32) [Uint8Array] [
+    166, 222,  98,  87, 193,  19,  82,  37,
+     50, 118, 210,  64, 103, 122,  28, 155,
+    168,  21, 198, 134, 142, 151, 153, 136,
+     46,  64, 223,  74, 215, 153, 158, 167
+  ],
+  revision: 1,
+  data: { message: 'Tutorial CI Test @ Fri, 23 Jul 2021 13:12:13 GMT' },
+  metadata: Metadata { blockHeight: 526, coreChainLockedHeight: 542795 }
+}
+```
+
 # What's happening
 
 After we initialize the Client, we request some documents. The `client.platform.documents.get` method takes two arguments: a record locator and a query object. The records locator consists of an app name (e.g. `tutorialContract`) and the top-level document type requested, (e.g. `note`).

@@ -32,18 +32,12 @@
   ]
 }
 [/block]
-
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  transactionId: '552eaf24a60014edcbbb253dbc4dd68766532cab3854b44face051cedcfd578f'\n}",
-      "language": "json",
-      "name": "Response (JavaScript)"
-    }
-  ]
+  transactionId: '552eaf24a60014edcbbb253dbc4dd68766532cab3854b44face051cedcfd578f'
 }
-[/block]
+``` 
+
 ## getStatus
 
 **Returns**: Status information from the Core chain
@@ -222,33 +216,33 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 | `count` | Integer | No | Number of blocks to sync. If set to 0 syncing is continuously sends new data as well (default: 0) |
 
 ** Example Request and Response **
-[block:code]
-{
-  "codes": [
-    {
-      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks",
-      "language": "shell",
-      "name": "Request (gRPCurl)"
-    }
-  ]
-}
-[/block]
+
+```shell
+grpcurl -proto protos/core/v0/core.proto -plaintext \
+  -d '{
+  "from_block_height": 1,
+  "count": 1
+}' \
+  seed-1.testnet.networks.dash.org:3010 \
+  org.dash.platform.dapi.v0.Core/subscribeToBlockHeadersWithChainLocks
+``` 
 
 > 📘 
 >
 > **Note:** The gRPCurl response `chainlock` and `headers` data is Base64 encoded
 
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"chainLock\": \"PEAMAFEWV4EWaczIE7DwJKfUNi9Eiop8ZsdKDdMPFsFYAAAAFziPQ4EtOgXaVVPgE3IrzES0s4VJzp1FA2IfSRvF5X+ApWl2wmJDSEYuUAPFWbMMDBzrhIGXjEGPiX7KaZiKWCrLJv5WD8HFL+oRVqs3P5Mgt54qJDZRoN/meO6iMapo\"\n}\n{\n  \"blockHeaders\": {\n    \"headers\": [\n      \"AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAA=\"\n    ]\n  }\n}",
-      "language": "json",
-      "name": "Response"
-    }
-  ]
+  "chainLock": "PEAMAFEWV4EWaczIE7DwJKfUNi9Eiop8ZsdKDdMPFsFYAAAAFziPQ4EtOgXaVVPgE3IrzES0s4VJzp1FA2IfSRvF5X+ApWl2wmJDSEYuUAPFWbMMDBzrhIGXjEGPiX7KaZiKWCrLJv5WD8HFL+oRVqs3P5Mgt54qJDZRoN/meO6iMapo"
 }
-[/block]
+{
+  "blockHeaders": {
+    "headers": [
+      "AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAA="
+    ]
+  }
+}
+``` 
 
 ## subscribeToTransactionsWithProofs
 
@@ -270,39 +264,88 @@ This endpoint helps support simplified payment verification ([SPV](https://dashc
 | `send_transaction_hashes` * | Boolean | No |  |
 
 ** Example Request and Response **
-[block:code]
-{
-  "codes": [
-    {
-      "code": "grpcurl -proto protos/core/v0/core.proto -plaintext \\\n  -d '{\n  \"from_block_height\": 1,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}' \\\n  seed-1.testnet.networks.dash.org:3010 \\\n  org.dash.platform.dapi.v0.Core/subscribeToTransactionsWithProofs",
-      "language": "shell",
-      "name": "Request (gRPCurl)"
-    }
-  ]
-}
-[/block]
+
+```shell
+grpcurl -proto protos/core/v0/core.proto -plaintext \
+  -d '{
+  "from_block_height": 1,
+  "count": 1,
+  "bloom_filter": {
+    "n_hash_funcs": 11,
+    "v_data": "",
+    "n_tweak": 0,
+    "n_flags": 0
+  }
+}' \
+  seed-1.testnet.networks.dash.org:3010 \
+  org.dash.platform.dapi.v0.Core/subscribeToTransactionsWithProofs
+``` 
 
 > 📘 
 >
 > **Note:** The gRPCurl response `transactions` and `rawMerkleBlock` data is Base64 encoded
 
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8KUQEBBi9QMlNIL/////8BAHQ7pAsAAAAjIQIBMfOK4+sHFFMdv8P0VJG0Ex0SEeN3cXdjY4i7WnTD5KwAAAAA\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAABAAAAAX8R3M4UB1Ug6PdMxN3wkrTibr0juNhmWhrlv8QbWP20AQE=\"\n}",
-      "language": "json",
-      "name": "Response"
-    }
-  ]
+  "rawTransactions": {
+    "transactions": [
+      "AQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8KUQEBBi9QMlNIL/////8BAHQ7pAsAAAAjIQIBMfOK4+sHFFMdv8P0VJG0Ex0SEeN3cXdjY4i7WnTD5KwAAAAA"
+    ]
+  }
 }
-[/block]
+{
+  "rawMerkleBlock": "AgAAACy8+DtikT1W9gXA5YGkiHKDlCjJLl63bNetlLyvCwAAfxHczhQHVSDo90zE3fCStOJuvSO42GZaGuW/xBtY/bTDqV5T//8PHvN6AAABAAAAAX8R3M4UB1Ug6PdMxN3wkrTibr0juNhmWhrlv8QbWP20AQE="
+}
+``` 
 
-[block:html]
+```css
+<div></div>
+<!--
+
+grpcurl -proto protos/transactions_filter_stream.proto -plaintext   -d '{
+  "from_block_height": 30000,
+  "count": 1,
+  "bloom_filter": {
+    "n_hash_funcs": 11,
+    "v_data": "",
+    "n_tweak": 0,
+    "n_flags": 0
+  }
+}'   localhost:2510   org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs
 {
-  "html": "<div></div>\n<!--\n\ngrpcurl -proto protos/transactions_filter_stream.proto -plaintext   -d '{\n  \"from_block_height\": 30000,\n  \"count\": 1,\n  \"bloom_filter\": {\n    \"n_hash_funcs\": 11,\n    \"v_data\": \"\",\n    \"n_tweak\": 0,\n    \"n_flags\": 0\n  }\n}'   localhost:2510   org.dash.platform.dapi.v0.TransactionsFilterStream/subscribeToTransactionsWithProofs\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjB1AQj/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADB1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AAAAIIGiClhX7zPY2s2DmwiDdlbUJSUpzBjclOIWcgggAwAAak7QtEqCigCc1+U3+R6ElSI/vQz4mXzn1bADpwg41MvxNjxeBaADHhuWAAACAAAAAi6VQ1ZA+oFPPtKYv7OuzUfdLqZ+ZwzAwpztIn0osooZAzrYFIkcfvpIDK6Mg9FgxH4eOkjvyMwXj6qwEqZCJPYBAw==\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjF1AQH/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADF1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n{\n  \"rawMerkleBlock\": \"AAAAIKnRSfNm6oA5kqly1SG3FJ0a/v3hAh9GrFtyApQ+AQAAx/bTc5j8Ctlx0exLl3Xn+GvymqZBllMPdX5f5TuPsFjkNzxepXsDHoBCAAABAAAAAcf203OY/ArZcdHsS5d15/hr8pqmQZZTD3V+X+U7j7BYAQE=\"\n}\n{\n  \"rawTransactions\": {\n    \"transactions\": [\n      \"AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjJ1AQT/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADJ1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso\"\n    ]\n  }\n}\n\n\n-->\n\n<style></style>"
+  "rawTransactions": {
+    "transactions": [
+      "AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjB1AQj/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADB1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso"
+    ]
+  }
 }
-[/block]
+{
+  "rawMerkleBlock": "AAAAIIGiClhX7zPY2s2DmwiDdlbUJSUpzBjclOIWcgggAwAAak7QtEqCigCc1+U3+R6ElSI/vQz4mXzn1bADpwg41MvxNjxeBaADHhuWAAACAAAAAi6VQ1ZA+oFPPtKYv7OuzUfdLqZ+ZwzAwpztIn0osooZAzrYFIkcfvpIDK6Mg9FgxH4eOkjvyMwXj6qwEqZCJPYBAw=="
+}
+{
+  "rawTransactions": {
+    "transactions": [
+      "AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjF1AQH/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADF1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso"
+    ]
+  }
+}
+{
+  "rawMerkleBlock": "AAAAIKnRSfNm6oA5kqly1SG3FJ0a/v3hAh9GrFtyApQ+AQAAx/bTc5j8Ctlx0exLl3Xn+GvymqZBllMPdX5f5TuPsFjkNzxepXsDHoBCAAABAAAAAcf203OY/ArZcdHsS5d15/hr8pqmQZZTD3V+X+U7j7BYAQE="
+}
+{
+  "rawTransactions": {
+    "transactions": [
+      "AwAFAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP////8FAjJ1AQT/////AkAjDkMAAAAAGXapFBa5OjuRaKIGBcw82mL2E1o7qlMaiKxAIw5DAAAAABl2qRQWuTo7kWiiBgXMPNpi9hNaO6pTGoisAAAAAEYCADJ1AAAPwA0VGVVRQSZSW013DrT+TU+AhULKbLNg+/rtgnzE5lca9JYY2DC/1hyqelAuIkJqqcby0zIroYyfLzuhjNso"
+    ]
+  }
+}
+
+
+-->
+
+<style></style>
+``` 
+
 # Deprecated Endpoints
 
 There are no recently deprecated endpoints, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints-core-grpc-endpoints).

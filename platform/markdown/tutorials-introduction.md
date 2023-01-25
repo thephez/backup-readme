@@ -2,7 +2,7 @@ The tutorials in this section walk through the steps necessary to begin building
 
 Building on Dash Platform requires first registering an Identity and then registering a Data Contract describing the schema of data to be stored. Once that is done, data can be stored and updated by submitting Documents that comply with the Data Contract.
 
-> 📘Tutorial code
+> 📘 Tutorial code
 >
 > You can clone a repository containing the code for all tutorials from <a href="https://github.com/dashevo/platform-readme-tutorials#readme" target="_blank">GitHub</a> or download it as a [zip file](https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip).
 
@@ -35,6 +35,7 @@ While going through each tutorial is advantageous, the subset of tutorials liste
 - [Registering an Identity](tutorial-register-an-identity)
 - [Registering a Data Contract](tutorial-register-a-data-contract)
 - [Submitting data](tutorial-submit-documents)
+
 [block:html]
 {
   "html": "<div>\n</div>\n\n<style>\n .markdown-body img {\n float: right;\n margin-left: 30px;\n /*width: 25%;*/\n max-width: 25%; /*400px;*/\n height: auto;  \n}\n</style>"

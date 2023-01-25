@@ -7,28 +7,47 @@ In order to make changes on Dash Platform, you need a wallet with a balance. Thi
 - [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n    // if you want to get a new address for an existing wallet\n    // replace 'null' with an existing wallet mnemonic\n    offlineMode: true,  // this indicates we don't want to sync the chain\n    // it can only be used when the mnemonic is set to 'null'\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Mnemonic: thrive wolf habit timber birth service crystal patient tiny depart tower focus\nUnused address: yXF7LsyajRvJGX96vPHBmo9Dwy9zEvzkbh",
-      "language": "text",
-      "name": "Example output"
-    }
-  ]
-}
-[/block]
+```javascript
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: null, // this indicates that we want a new wallet to be generated
+    // if you want to get a new address for an existing wallet
+    // replace 'null' with an existing wallet mnemonic
+    offlineMode: true,  // this indicates we don't want to sync the chain
+    // it can only be used when the mnemonic is set to 'null'
+  },
+};
+
+const client = new Dash.Client(clientOpts);
+
+const createWallet = async () => {
+  const account = await client.getWalletAccount();
+
+  const mnemonic = client.wallet.exportWallet();
+  const address = account.getUnusedAddress();
+  console.log('Mnemonic:', mnemonic);
+  console.log('Unused address:', address.address);
+};
+
+createWallet()
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+
+// Handle wallet async errors
+client.on('error', (error, context) => {
+  console.error(`Client error: ${error.name}`);
+  console.error(context);
+});
+``` 
+
+```text
+Mnemonic: thrive wolf habit timber birth service crystal patient tiny depart tower focus
+Unused address: yXF7LsyajRvJGX96vPHBmo9Dwy9zEvzkbh
+``` 
 
 > 🚧 
 >

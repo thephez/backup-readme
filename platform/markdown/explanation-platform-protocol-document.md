@@ -46,17 +46,28 @@ Each application defines its own fields via document definitions in its data con
 ## Example Document
 
 The following example shows the structure of a DPNS `domain` document as output from `JSON.stringify()`. Note the `$` prefix indicating the base fields.
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"$protocolVersion\": 1,\n  \"$id\": \"5D8U1k6t6ax8TnyL6QGFFbtMhn39zsixrSMQaxZrYKf1\",\n  \"$type\": \"domain\",\n  \"$dataContractId\": \"GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec\",\n  \"$ownerId\": \"9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE\",\n  \"$revision\": 1,\n  \"label\": \"RT-Sylvan-71605\",\n  \"normalizedLabel\": \"rt-sylvan-71605\",\n  \"normalizedParentDomainName\": \"dash\",\n  \"preorderSalt\": \"zKaLWLe+kKHiRoBXdfSd7TSU9HdIseeoOly1eTYZ670=\",\n  \"records\": {\n    \"dashUniqueIdentityId\": \"9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE\"\n  },\n  \"subdomainRules\": {\n    \"allowSubdomains\": false\n  }\n}",
-      "language": "json",
-      "name": ".toJSON()"
-    }
-  ]
+  "$protocolVersion": 1,
+  "$id": "5D8U1k6t6ax8TnyL6QGFFbtMhn39zsixrSMQaxZrYKf1",
+  "$type": "domain",
+  "$dataContractId": "GWRSAVFMjXx8HpQFaNJMqBV7MBgMK4br5UESsB4S31Ec",
+  "$ownerId": "9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE",
+  "$revision": 1,
+  "label": "RT-Sylvan-71605",
+  "normalizedLabel": "rt-sylvan-71605",
+  "normalizedParentDomainName": "dash",
+  "preorderSalt": "zKaLWLe+kKHiRoBXdfSd7TSU9HdIseeoOly1eTYZ670=",
+  "records": {
+    "dashUniqueIdentityId": "9gU2ZnDhkakHgB4eLbqvEAwQPDBwhW12KD5xPZxybNjE"
+  },
+  "subdomainRules": {
+    "allowSubdomains": false
+  }
 }
-[/block]
+``` 
+
 # Document Submission
 
 Once a document has been created, it must be encapsulated in a State Transition to be sent to the platform. The structure of a document state transition is shown below. For additional details, see the [State Transition](explanation-platform-protocol-state-transition) explanation.

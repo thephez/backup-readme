@@ -54,17 +54,20 @@ Include the following at the same level as the `properties` keyword to ensure pr
 The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#document-indices) and a list of [required properties](#required-properties-optional). The `additionalProperties` properties keyword must be included as described in the [constraints](#additional-properties) section.
 
 The following example shows a minimal `documents` object defining a single document (`note`) that has one property (`message`).
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"note\": {\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": false\n  }\n}",
-      "language": "json",
-      "name": "Minimal document definition"
-    }
-  ]
+  "note": {
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
 }
-[/block]
+``` 
+
 ## Document Properties
 
 The `properties` object defines each field that will be used by a document. Each field consists of an object that, at a minimum, must define its data `type` (`string`, `number`, `integer`, `boolean`, `array`, `object`). Fields may also apply a variety of optional JSON Schema constraints related to the format, range, length, etc. of the data.
@@ -119,30 +122,27 @@ There are a variety of constraints currently defined for performance and securit
 
 Each document may have some fields that are required for the document to be valid and other fields that are optional. Required fields are defined via the `required` array which consists of a list of the field names from the document that must be present. The `required` object should be excluded for documents without any required properties.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "\"required\": [\n  \"<field name a>\",\n  \"<field name b>\"\n]",
-      "language": "json",
-      "name": "Syntax"
-    }
-  ]
-}
-[/block]
+```json
+"required": [
+  "<field name a>",
+  "<field name b>"
+]
+``` 
 
 **Example**
 The following example (excerpt from the DPNS contract's `domain` document) demonstrates a document that has 6 required fields:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "\"required\": [\n  \"nameHash\",\n  \"label\",\n  \"normalizedLabel\",\n  \"normalizedParentDomainName\",\n  \"preorderSalt\",\n  \"records\"\n],",
-      "language": "json"
-    }
-  ]
-}
-[/block]
+
+```json
+"required": [
+  "nameHash",
+  "label",
+  "normalizedLabel",
+  "normalizedParentDomainName",
+  "preorderSalt",
+  "records"
+],
+``` 
+
 ## Document Indices
 
 > 📘 
@@ -163,17 +163,23 @@ The `indices` array consists of:
 >
 > When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities. Dash uses [GroveDB](https://github.com/dashevo/grovedb) which works similarly but does requiring listing all the index's fields in query order by statements.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "\"indices\": [ \n  {\n    \"properties\": [\n      { \"<field name a>\": \"<asc\"|\"desc>\" },\n      { \"<field name b>\": \"<asc\"|\"desc>\" }\n    ], \n    \"unique\": true|false\n  },\n  {\n    \"properties\": [\n      { \"<field name c>\": \"<asc\"|\"desc>\" },\n    ], \n  }    \n]",
-      "language": "json",
-      "name": "Syntax"
-    }
-  ]
-}
-[/block]
+```json
+"indices": [ 
+  {
+    "properties": [
+      { "<field name a>": "<asc"|"desc>" },
+      { "<field name b>": "<asc"|"desc>" }
+    ], 
+    "unique": true|false
+  },
+  {
+    "properties": [
+      { "<field name c>": "<asc"|"desc>" },
+    ], 
+  }    
+]
+``` 
+
 ### Index Constraints
 
 > 🚧 
@@ -193,29 +199,64 @@ The `indices` array consists of:
 
 **Example**
 The following example (excerpt from the DPNS contract's `preorder` document) creates an index on `saltedDomainHash` that also enforces uniqueness across all documents of that type:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "\"indices\": [\n  {\n    \"properties\": [\n      { \"saltedDomainHash\": \"asc\" }\n    ],\n    \"unique\": true\n  }\n],",
-      "language": "json",
-      "name": "Example indices"
-    }
-  ]
-}
-[/block]
+
+```json
+"indices": [
+  {
+    "properties": [
+      { "saltedDomainHash": "asc" }
+    ],
+    "unique": true
+  }
+],
+``` 
+
 ## Full Document Syntax
 This example syntax shows the structure of a documents object that defines two documents, an index, and a required field.
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"<document name a>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<field name b>\": {\n        \"type\": \"<field data type>\"\n      },\n      \"<field name c>\": {\n        \"type\": \"<field data type>\"\n      },\n    },\n    \"indices\": [\n      {\n        \"name\": \"<index name>\",\n        \"properties\": [\n          {\n            \"<field name c>\": \"asc\"\n          }\n        ],\n        \"unique\": true|false\n      },\n    ],\n    \"required\": [\n      \"<field name c>\"\n    ]\n    \"additionalProperties\": false\n  },\n  \"<document name x>\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"<property name y>\": {\n        \"type\": \"<property data type>\"\n      },\n      \"<property name z>\": {\n        \"type\": \"<property data type>\"\n      },\n    },\n    \"additionalProperties\": false\n  },    \n}",
-      "language": "json"
-    }
-  ]
+  "<document name a>": {
+    "type": "object",
+    "properties": {
+      "<field name b>": {
+        "type": "<field data type>"
+      },
+      "<field name c>": {
+        "type": "<field data type>"
+      },
+    },
+    "indices": [
+      {
+        "name": "<index name>",
+        "properties": [
+          {
+            "<field name c>": "asc"
+          }
+        ],
+        "unique": true|false
+      },
+    ],
+    "required": [
+      "<field name c>"
+    ]
+    "additionalProperties": false
+  },
+  "<document name x>": {
+    "type": "object",
+    "properties": {
+      "<property name y>": {
+        "type": "<property data type>"
+      },
+      "<property name z>": {
+        "type": "<property data type>"
+      },
+    },
+    "additionalProperties": false
+  },    
 }
-[/block]
+``` 
+
 # Definitions
 The optional `$defs` object enables definition of aspects of a schema that are used in multiple places. This is done using the JSON Schema support for [reuse](https://json-schema.org/understanding-json-schema/structuring.html#reuse). Items defined in `$defs` may then be referenced when defining `documents` through use of the `$ref` keyword.
 
@@ -229,17 +270,27 @@ The optional `$defs` object enables definition of aspects of a schema that are u
 
 **Example**
 The following example shows a definition for a `message` object consisting of two properties:
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  // Preceeding content truncated ...\n  \"$defs\": {\n    \"message\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"timestamp\": {\n          \"type\": \"number\"\n        },\n        \"description\": {\n          \"type\": \"string\"\n        }\n      },\n      \"additionalProperties\": false\n    }\n  }\n}",
-      "language": "json",
-      "name": "Example definitions"
+  // Preceeding content truncated ...
+  "$defs": {
+    "message": {
+      "type": "object",
+      "properties": {
+        "timestamp": {
+          "type": "number"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
-  ]
+  }
 }
-[/block]
+``` 
+
 
 >❗️ Toplevel definitions blocked by issue #185
 >

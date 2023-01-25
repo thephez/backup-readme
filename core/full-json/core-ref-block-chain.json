@@ -54,7 +54,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-01-25T15:34:35.191Z"
  },
  "title": "Blockchain",
  "icon": "",
@@ -62,7 +63,7 @@
  "type": "basic",
  "slug": "core-ref-block-chain",
  "excerpt": "",
- "body": "The following subsections briefly document core block details.\n[block:image]\n{\n  \"images\": [\n    {\n      \"image\": [\n        \"https://files.readme.io/0a51d76-businessplan.svg\",\n        \"businessplan.svg\",\n        300,\n        86,\n        \"#0045db\"\n      ],\n      \"sizing\": \"75\"\n    }\n  ]\n}\n[/block]",
+ "body": "The following subsections briefly document core block details.\n\n<img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"/>",
  "order": 1,
  "isReference": false,
  "deprecated": false,
@@ -72,10 +73,10 @@
  "link_external": false,
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
- "revision": 3,
+ "revision": 6,
  "_id": "6388e57de5231e009cab8009",
  "version": "6388e57de5231e009cab8087",
- "updatedAt": "2023-01-05T15:58:53.638Z",
+ "updatedAt": "2023-01-25T15:34:34.851Z",
  "createdAt": "2019-10-23T16:04:02.473Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
@@ -85,5 +86,5 @@
  "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "6388e57de5231e009cab8009",
- "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n\n</div>\n<div class=\"magic-block-image\">\n\t<figure><a href=\"https://files.readme.io/0a51d76-businessplan.svg\" class=\"block-display-image-parent block-display-image-size-75 \"><img src=\"https://files.readme.io/0a51d76-businessplan.svg\"/></a>\n\t</figure>\n</div>"
+ "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n<p><img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"></p>\n\n</div>"
 }

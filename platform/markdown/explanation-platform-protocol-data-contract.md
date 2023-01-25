@@ -51,17 +51,231 @@ Since Dash Platform v0.22, it is possible to update existing data contracts in c
 # Example Contract
 
 An example contract for [DashPay](https://github.com/dashevo/platform/blob/master/packages/dashpay-contract/schema/dashpay.schema.json) is included below:
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"profile\": {\n    \"type\": \"object\",\n    \"indices\": [\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          }\n        ],\n        \"unique\": true\n      },\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"$updatedAt\": \"asc\"\n          }\n        ]\n      }\n    ],\n    \"properties\": {\n      \"avatarUrl\": {\n        \"type\": \"string\",\n        \"format\": \"url\",\n        \"maxLength\": 2048\n      },\n      \"avatarHash\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 32,\n        \"maxItems\": 32,\n        \"description\": \"SHA256 hash of the bytes of the image specified by avatarUrl\"\n      },\n      \"avatarFingerprint\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 8,\n        \"maxItems\": 8,\n        \"description\": \"dHash the image specified by avatarUrl\"\n      },\n      \"publicMessage\": {\n        \"type\": \"string\",\n        \"maxLength\": 140\n      },\n      \"displayName\": {\n        \"type\": \"string\",\n        \"maxLength\": 25\n      }\n    },\n    \"required\": [\n      \"$createdAt\",\n      \"$updatedAt\"\n    ],\n    \"additionalProperties\": false\n  },\n  \"contactInfo\": {\n    \"type\": \"object\",\n    \"indices\": [\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"rootEncryptionKeyIndex\": \"asc\"\n          },\n          {\n            \"derivationEncryptionKeyIndex\": \"asc\"\n          }\n        ],\n        \"unique\": true\n      },\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"$updatedAt\": \"asc\"\n          }\n        ]\n      }\n    ],\n    \"properties\": {\n      \"encToUserId\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 32,\n        \"maxItems\": 32\n      },\n      \"rootEncryptionKeyIndex\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"derivationEncryptionKeyIndex\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"privateData\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 48,\n        \"maxItems\": 2048,\n        \"description\": \"This is the encrypted values of aliasName + note + displayHidden encoded as an array in cbor\"\n      }\n    },\n    \"required\": [\n      \"$createdAt\",\n      \"$updatedAt\",\n      \"encToUserId\",\n      \"privateData\",\n      \"rootEncryptionKeyIndex\",\n      \"derivationEncryptionKeyIndex\"\n    ],\n    \"additionalProperties\": false\n  },\n  \"contactRequest\": {\n    \"type\": \"object\",\n    \"indices\": [\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"toUserId\": \"asc\"\n          },\n          {\n            \"accountReference\": \"asc\"\n          }\n        ],\n        \"unique\": true\n      },\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"toUserId\": \"asc\"\n          }\n        ]\n      },\n      {\n        \"properties\": [\n          {\n            \"toUserId\": \"asc\"\n          },\n          {\n            \"$createdAt\": \"asc\"\n          }\n        ]\n      },\n      {\n        \"properties\": [\n          {\n            \"$ownerId\": \"asc\"\n          },\n          {\n            \"$createdAt\": \"asc\"\n          }\n        ]\n      }\n    ],\n    \"properties\": {\n      \"toUserId\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 32,\n        \"maxItems\": 32,\n        \"contentMediaType\": \"application/x.dash.dpp.identifier\"\n      },\n      \"encryptedPublicKey\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 96,\n        \"maxItems\": 96\n      },\n      \"senderKeyIndex\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"recipientKeyIndex\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"accountReference\": {\n        \"type\": \"integer\",\n        \"minimum\": 0\n      },\n      \"encryptedAccountLabel\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 48,\n        \"maxItems\": 80\n      },\n      \"autoAcceptProof\": {\n        \"type\": \"array\",\n        \"byteArray\": true,\n        \"minItems\": 38,\n        \"maxItems\": 102\n      },\n      \"coreHeightCreatedAt\": {\n        \"type\": \"integer\",\n        \"minimum\": 1\n      }\n    },\n    \"required\": [\n      \"$createdAt\",\n      \"toUserId\",\n      \"encryptedPublicKey\",\n      \"senderKeyIndex\",\n      \"recipientKeyIndex\",\n      \"accountReference\"\n    ],\n    \"additionalProperties\": false\n  }\n}",
-      "language": "json",
-      "name": "Dashpay Data Contract"
-    }
-  ]
+  "profile": {
+    "type": "object",
+    "indices": [
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          }
+        ],
+        "unique": true
+      },
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "$updatedAt": "asc"
+          }
+        ]
+      }
+    ],
+    "properties": {
+      "avatarUrl": {
+        "type": "string",
+        "format": "url",
+        "maxLength": 2048
+      },
+      "avatarHash": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 32,
+        "maxItems": 32,
+        "description": "SHA256 hash of the bytes of the image specified by avatarUrl"
+      },
+      "avatarFingerprint": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 8,
+        "maxItems": 8,
+        "description": "dHash the image specified by avatarUrl"
+      },
+      "publicMessage": {
+        "type": "string",
+        "maxLength": 140
+      },
+      "displayName": {
+        "type": "string",
+        "maxLength": 25
+      }
+    },
+    "required": [
+      "$createdAt",
+      "$updatedAt"
+    ],
+    "additionalProperties": false
+  },
+  "contactInfo": {
+    "type": "object",
+    "indices": [
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "rootEncryptionKeyIndex": "asc"
+          },
+          {
+            "derivationEncryptionKeyIndex": "asc"
+          }
+        ],
+        "unique": true
+      },
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "$updatedAt": "asc"
+          }
+        ]
+      }
+    ],
+    "properties": {
+      "encToUserId": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 32,
+        "maxItems": 32
+      },
+      "rootEncryptionKeyIndex": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "derivationEncryptionKeyIndex": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "privateData": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 48,
+        "maxItems": 2048,
+        "description": "This is the encrypted values of aliasName + note + displayHidden encoded as an array in cbor"
+      }
+    },
+    "required": [
+      "$createdAt",
+      "$updatedAt",
+      "encToUserId",
+      "privateData",
+      "rootEncryptionKeyIndex",
+      "derivationEncryptionKeyIndex"
+    ],
+    "additionalProperties": false
+  },
+  "contactRequest": {
+    "type": "object",
+    "indices": [
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "toUserId": "asc"
+          },
+          {
+            "accountReference": "asc"
+          }
+        ],
+        "unique": true
+      },
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "toUserId": "asc"
+          }
+        ]
+      },
+      {
+        "properties": [
+          {
+            "toUserId": "asc"
+          },
+          {
+            "$createdAt": "asc"
+          }
+        ]
+      },
+      {
+        "properties": [
+          {
+            "$ownerId": "asc"
+          },
+          {
+            "$createdAt": "asc"
+          }
+        ]
+      }
+    ],
+    "properties": {
+      "toUserId": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 32,
+        "maxItems": 32,
+        "contentMediaType": "application/x.dash.dpp.identifier"
+      },
+      "encryptedPublicKey": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 96,
+        "maxItems": 96
+      },
+      "senderKeyIndex": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "recipientKeyIndex": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "accountReference": {
+        "type": "integer",
+        "minimum": 0
+      },
+      "encryptedAccountLabel": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 48,
+        "maxItems": 80
+      },
+      "autoAcceptProof": {
+        "type": "array",
+        "byteArray": true,
+        "minItems": 38,
+        "maxItems": 102
+      },
+      "coreHeightCreatedAt": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "$createdAt",
+      "toUserId",
+      "encryptedPublicKey",
+      "senderKeyIndex",
+      "recipientKeyIndex",
+      "accountReference"
+    ],
+    "additionalProperties": false
+  }
 }
-[/block]
+``` 
+
 This is a visualization of the JSON data contract as UML class diagram for better understanding of the structure:
 
 [block:image]

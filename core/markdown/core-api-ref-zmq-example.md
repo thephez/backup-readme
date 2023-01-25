@@ -1,3 +1,11 @@
+> 🚧 New site!
+>
+> All content has been migrated to docs.dash.org. You will be automatically redirected momentarily.
+[block:html]
+{
+  "html": "<div></div>\n<meta http-equiv=\"refresh\" content=\"2; url='https://dash-user-docs.readthedocs.io/projects/core/en/18.0.0/docs/examples/receiving-zmq-notifications.html#javascript-example'\" />\n<style></style>"
+}
+[/block]
 The following Python example is found in the [Dash Core repository](https://github.com/dashpay/dash/blob/master/contrib/zmq/zmq_sub3.4.py):
 
 ```python

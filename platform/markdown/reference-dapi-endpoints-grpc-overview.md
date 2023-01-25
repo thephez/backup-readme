@@ -15,16 +15,16 @@ Clients for a number of languages are built automatically from the protocol defi
 Some examples shown in the endpoint details pages use a command-line tool named [gRPCurl](https://github.com/fullstorydev/grpcurl) that allows interacting with gRPC servers in a similar way as `curl` does for the [JSON-RPCs](reference-dapi-endpoints-json-rpc-endpoints). Additional information may be found in the [gRPC documentation](https://grpc.io/docs/guides/).
 
 To use gRPCurl as shown in the detailed examples, clone the [platform](https://github.com/dashevo/platform/) repository and execute the example requests from the `packages/dapi-grpc` directory of that repository as shown in this example:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "# Clone the dapi-grpc repository\ngit clone https://github.com/dashevo/platform.git\ncd platform/packages/dapi-grpc\n\n# Execute gRPCurl command\ngrpcurl -plaintext -proto protos/...",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+# Clone the dapi-grpc repository
+git clone https://github.com/dashevo/platform.git
+cd platform/packages/dapi-grpc
+
+# Execute gRPCurl command
+grpcurl -plaintext -proto protos/...
+``` 
+
 # Data Encoding
 
 The data submitted/received from the gRPC endpoints is encoded using both [CBOR](https://tools.ietf.org/html/rfc7049) and Base64. Data is first encoded with CBOR and the resulting output is then encoded in Base64 before being sent. 
@@ -36,24 +36,50 @@ The data submitted/received from the gRPC endpoints is encoded using both [CBOR]
 Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints.
 
 The examples below use the response from a [`getIdentity` gPRC request](reference-dapi-endpoints-platform-endpoints#getidentity) to demonstrate how to both encode data for sending and decode received data:
-[block:code]
-{
-  "codes": [
+
+```javascript NodeJS - Decode Identity
+const cbor = require('cbor');
+
+const grpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'
+
+const identity_cbor = Buffer.from(grpc_identity_response, 'base64').toJSON();
+const identity = cbor.decode(Buffer.from(identity_cbor));
+
+console.log('Identity details');
+console.dir(identity);
+```
+```python Python - Decode Identity
+from base64 import b64decode, b64encode
+import json
+import cbor2
+
+grpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'
+
+identity_cbor = b64decode(grpc_identity_response)
+identity = cbor2.loads(identity_cbor)
+
+print('Identity details:\n{}\n'.format(json.dumps(identity, indent=2)))
+```
+```python Python - Encode Identity
+from base64 import b64decode, b64encode
+import json
+import cbor2
+
+# Encode an identity
+identity = {
+  "id": "CbYVyoKnGxkHaBrucCAhPEBcpuz8j15cnYYiv1CEHBNx",  
+  "type": 1,
+  "publicKeys": [
     {
-      "code": "const cbor = require('cbor');\n\nconst grpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nconst identity_cbor = Buffer.from(grpc_identity_response, 'base64').toJSON();\nconst identity = cbor.decode(Buffer.from(identity_cbor));\n\nconsole.log('Identity details');\nconsole.dir(identity);",
-      "language": "javascript",
-      "name": "NodeJS - Decode Identity"
-    },
-    {
-      "code": "from base64 import b64decode, b64encode\nimport json\nimport cbor2\n\ngrpc_identity_response = 'o2JpZHgsQ2JZVnlvS25HeGtIYUJydWNDQWhQRUJjcHV6OGoxNWNuWVlpdjFDRUhCTnhkdHlwZQFqcHVibGljS2V5c4GkYmlkAWRkYXRheCxBbXpSMkZNNGZZd0NtWnhHWjFOMnRhMkZmdUo5NU93K0xMQXJaREx1WUJqdGR0eXBlAWlpc0VuYWJsZWT1'\n\nidentity_cbor = b64decode(grpc_identity_response)\nidentity = cbor2.loads(identity_cbor)\n\nprint('Identity details:\\n{}\\n'.format(json.dumps(identity, indent=2)))",
-      "language": "python",
-      "name": "Python - Decode Identity"
-    },
-    {
-      "code": "from base64 import b64decode, b64encode\nimport json\nimport cbor2\n\n# Encode an identity\nidentity = {\n  \"id\": \"CbYVyoKnGxkHaBrucCAhPEBcpuz8j15cnYYiv1CEHBNx\",  \n  \"type\": 1,\n  \"publicKeys\": [\n    {\n      \"id\": 1,\n      \"data\": \"AmzR2FM4fYwCmZxGZ1N2ta2FfuJ95Ow+LLArZDLuYBjt\",\n      \"type\": 1,\n      \"isEnabled\": True\n    }\n  ]\n}\n\nidentity_cbor = cbor2.dumps(identity)\nidentity_grpc = b64encode(identity_cbor)\nprint('Identity gRPC data: {}'.format(identity_grpc))\n",
-      "language": "python",
-      "name": "Python - Encode Identity"
+      "id": 1,
+      "data": "AmzR2FM4fYwCmZxGZ1N2ta2FfuJ95Ow+LLArZDLuYBjt",
+      "type": 1,
+      "isEnabled": True
     }
   ]
 }
-[/block]
+
+identity_cbor = cbor2.dumps(identity)
+identity_grpc = b64encode(identity_cbor)
+print('Identity gRPC data: {}'.format(identity_grpc))
+```

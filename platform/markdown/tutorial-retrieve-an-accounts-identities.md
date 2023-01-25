@@ -7,27 +7,42 @@ In this tutorial we will retrieve the list of identities associated with a speci
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n});\n\nconst retrieveIdentityIds = async () => {\n  const account = await client.getWalletAccount();\n  return account.identities.getIdentityIds();\n};\n\nretrieveIdentityIds()\n  .then((d) => console.log('Mnemonic identities:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+const Dash = require('dash');
+
+const client = new Dash.Client({
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+});
+
+const retrieveIdentityIds = async () => {
+  const account = await client.getWalletAccount();
+  return account.identities.getIdentityIds();
+};
+
+retrieveIdentityIds()
+  .then((d) => console.log('Mnemonic identities:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 Example Response
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[\n  '6Jz8pFZFhssKSTacgQmZP14zGZNnFYZFKSbx4WVAJFy3',\n  '8XoJHG96Vfm3eGh1A7HiDpMb1Jw2B9opRJe8Z38urapt',\n  'CEPMcuBgAWeaCXiP2gJJaStANRHW6b158UPvL1C8zw2W',\n  'GTGZrkPC72tWeBaqopSCKgiBkVVQR3s3yBsVeMyUrmiY'\n]",
-      "language": "json"
-    }
-  ]
-}
-[/block]
+
+```json
+[
+  '6Jz8pFZFhssKSTacgQmZP14zGZNnFYZFKSbx4WVAJFy3',
+  '8XoJHG96Vfm3eGh1A7HiDpMb1Jw2B9opRJe8Z38urapt',
+  'CEPMcuBgAWeaCXiP2gJJaStANRHW6b158UPvL1C8zw2W',
+  'GTGZrkPC72tWeBaqopSCKgiBkVVQR3s3yBsVeMyUrmiY'
+]
+``` 
+
 # What's Happening
 
 After we initialize the Client and getting the account, we call `account.identities.getIdentityIds()` to retrieve a list of all identities created with the wallet mnemonic. The list of identities is output to the console.

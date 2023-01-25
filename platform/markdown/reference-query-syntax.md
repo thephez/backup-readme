@@ -15,17 +15,16 @@ The Where clause must be a non-empty array containing not more than 10 condition
 >❗️
 >
 > As of Dash Platform v0.22, _all fields_ referenced in a query's where clause must be defined in the _same index_. This includes `$createdAt` and `$updatedAt`.
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  where: [\n    [<fieldName>, <operator>, <value>],\n    [<fieldName>, <array operator>, [<value1>, <value2>]] \n  ] \n}",
-      "language": "json",
-      "name": "Syntax"
-    }
-  ]
+  where: [
+    [<fieldName>, <operator>, <value>],
+    [<fieldName>, <array operator>, [<value1>, <value2>]] 
+  ] 
 }
-[/block]
+``` 
+
 ## Fields
 
 Valid fields consist of the indices defined for the document being queried. For example, the [DPNS data contract](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json) defines three indices:
@@ -35,11 +34,15 @@ Valid fields consist of the indices defined for the document being queried. For 
 | [normalizedParentDomainName, normalizedLabel](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L5-L16) | Compound | Yes |
 | [records.dashUniqueIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L17-L25) | Single Field | Yes |
 | [records.dashAliasIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L26-L33) | Single Field | No |
-[block:html]
-{
-  "html": "<div></div>\n<!--\nSpecial fields - `$id`, `$userId`\n-->\n<style></style>"
-}
-[/block]
+
+```css
+<div></div>
+<!--
+Special fields - `$id`, `$userId`
+-->
+<style></style>
+``` 
+
 ## Comparison Operators
 
 ### Equal
@@ -139,13 +142,21 @@ The query modifiers described here determine how query results will be sorted an
 
 # Example query
 The following query combines both a where clause and query modifiers.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "import Dash from \"dash\"\n\nconst { Essentials: { Buffer }, PlatformProtocol: { Identifier } } = Dash;\n\nconst query = {\n  limit: 5,\n  startAt: Buffer.from(Identifier.from('4Qp3menV9QjE92hc3BzkUCusAmHLxh1AU6gsVsPF4L2q')),\n  where: [\n    ['normalizedParentDomainName', '==', 'dash'],\n    ['normalizedLabel', 'startsWith', 'test'],\n  ],\n  orderBy: [\n    ['normalizedLabel', 'asc'],\n  ],\n}",
-      "language": "javascript"
-    }
-  ]
+
+```javascript
+import Dash from "dash"
+
+const { Essentials: { Buffer }, PlatformProtocol: { Identifier } } = Dash;
+
+const query = {
+  limit: 5,
+  startAt: Buffer.from(Identifier.from('4Qp3menV9QjE92hc3BzkUCusAmHLxh1AU6gsVsPF4L2q')),
+  where: [
+    ['normalizedParentDomainName', '==', 'dash'],
+    ['normalizedLabel', 'startsWith', 'test'],
+  ],
+  orderBy: [
+    ['normalizedLabel', 'asc'],
+  ],
 }
-[/block]
+```

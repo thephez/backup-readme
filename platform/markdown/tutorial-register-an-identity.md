@@ -15,16 +15,30 @@ Identities serve as the basis for interactions with Dash Platform. They consist 
 >
 > A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n  \tmnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst createIdentity = async () => {\n  return client.platform.identities.register();\n};\n\ncreateIdentity()\n  .then((d) => console.log('Identity:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+```javascript
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+  	mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const createIdentity = async () => {
+  return client.platform.identities.register();
+};
+
+createIdentity()
+  .then((d) => console.log('Identity:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 The Identity will be output to the console. The Identity will need to have one confirmation before it is accessible via `client.platform.identity.get`.
 
 > 👍

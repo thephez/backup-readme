@@ -8,16 +8,50 @@ In this tutorial we will update existing data on Dash Platform. Data is stored i
 - Access to a previously created document (e.g., one created using the [Submit Documents tutorial](tutorial-submit-documents))
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst updateNoteDocument = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const documentId = 'an existing document ID goes here';\n\n  // Retrieve the existing document\n  const [document] = await client.platform.documents.get(\n    'tutorialContract.note',\n    { where: [['$id', '==', documentId]] },\n  );\n\n  // Update document\n  document.set('message', `Updated document @ ${new Date().toUTCString()}`);\n\n  // Sign and submit the document replace transition\n  return platform.documents.broadcast({ replace: [document] }, identity);\n};\n\nupdateNoteDocument()\n  .then((d) => console.log('Document updated:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+  apps: {
+    tutorialContract: {
+      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const updateNoteDocument = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+  const documentId = 'an existing document ID goes here';
+
+  // Retrieve the existing document
+  const [document] = await client.platform.documents.get(
+    'tutorialContract.note',
+    { where: [['$id', '==', documentId]] },
+  );
+
+  // Update document
+  document.set('message', `Updated document @ ${new Date().toUTCString()}`);
+
+  // Sign and submit the document replace transition
+  return platform.documents.broadcast({ replace: [document] }, identity);
+};
+
+updateNoteDocument()
+  .then((d) => console.log('Document updated:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 > 👍 Initializing the Client with a contract identity
 >
 > The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details.

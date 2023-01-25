@@ -5,17 +5,13 @@
 # Config File
 
  The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using [Dash Core v18.1.0-RC1](https://github.com/dashpay/dash/releases/tag/v18.1.0-rc.1).
-[block:code]
-{
-  "codes": [
-    {
-      "code": "testnet=1\n\n# Hard-coded first node\naddnode=seed-1.testnet.networks.dash.org:19999",
-      "language": "text",
-      "name": "dash-testnet.conf"
-    }
-  ]
-}
-[/block]
+
+```dash-testnet.conf
+testnet=1
+
+# Hard-coded first node
+addnode=seed-1.testnet.networks.dash.org:19999
+``` 
 # Starting Dash Core
 
 To start Dash Core and connect to Testnet, simply run dashd or dash-qt with the `conf` parameter set to the configuration file created above: `<path to binary> -conf=<path to configuration file>`

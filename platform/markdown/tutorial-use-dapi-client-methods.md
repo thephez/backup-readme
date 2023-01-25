@@ -9,16 +9,26 @@ In addition to the SDK methods for interacting with identities, names, contracts
 # Code
 
 The following example demonstrates several of the Core DAPI client methods. DAPI client also has several Platform methods accessible via `getDAPIClient().platform.*`. The methods can be found here in the [js-dapi-client repository](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client/lib/methods).
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nasync function dapiClientMethods() {\n  console.log(await client.getDAPIClient().core.getBlockHash(1));\n  console.log(await client.getDAPIClient().core.getBestBlockHash());\n  console.log(await client.getDAPIClient().core.getBlockByHeight(1));\n\n  return client.getDAPIClient().core.getStatus();\n}\n\ndapiClientMethods()\n  .then((d) => console.log('Core status:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
+
+```javascript
+const Dash = require('dash');
+
+const client = new Dash.Client({ network: 'testnet' });
+
+async function dapiClientMethods() {
+  console.log(await client.getDAPIClient().core.getBlockHash(1));
+  console.log(await client.getDAPIClient().core.getBestBlockHash());
+  console.log(await client.getDAPIClient().core.getBlockByHeight(1));
+
+  return client.getDAPIClient().core.getStatus();
 }
-[/block]
+
+dapiClientMethods()
+  .then((d) => console.log('Core status:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 > 📘
 >
 > Examples using DAPI client to access many of the DAPI endpoints can be found in the [DAPI Endpoint Reference section](reference-dapi-endpoints).

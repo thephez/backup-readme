@@ -19,22 +19,99 @@ The two examples below demonstrate updating an existing identity to add a new ke
 > 🚧
 >
 > The current SDK version signs all state transitions with public key id `1`. If it is disabled, the SDK will be unable to use the identity. Future SDK versions will provide a way to also sign using keys added in an identity update.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },    \n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst updateIdentityDisableKey = async () => {\n  const identityId = 'an identity ID goes here';\n  const keyId = 'a public key ID goes here'; // One of the identity's public key IDs\n\n  // Retrieve the identity to be updated and the public key to disable\n  const existingIdentity = await client.platform.identities.get(identityId);\n  const publicKeyToDisable = existingIdentity.getPublicKeyById(keyId);\n\n  const updateDisable = {\n    disable: [publicKeyToDisable],\n  };\n\n  await client.platform.identities.update(existingIdentity, updateDisable);\n  return client.platform.identities.get(identityId);\n}\n\nupdateIdentityDisableKey()\n  .then((d) => console.log('Identity updated:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n",
-      "language": "javascript",
-      "name": "Disable identity key"
-    },
-    {
-      "code": "const Dash = require('dash');\nconst IdentityPublicKey = require('@dashevo/dpp/lib/identity/IdentityPublicKey');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },    \n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst updateIdentityAddKey = async () => {\n  const identityId = 'an identity ID goes here';\n  const existingIdentity = await client.platform.identities.get(identityId);\n  const newKeyId = existingIdentity.toJSON().publicKeys.length;\n\n  // Get an unused identity index\n  const account = await client.platform.client.getWalletAccount();\n  const identityIndex = await account.getUnusedIdentityIndex();\n\n  // Get unused private key and construct new identity public key\n  const { privateKey: identityPrivateKey } =\n    account.identities.getIdentityHDKeyByIndex(identityIndex, 0);\n\n  const identityPublicKey = identityPrivateKey.toPublicKey().toBuffer();\n\n  const newPublicKey = new IdentityPublicKey({\n    id: newKeyId,\n    type: IdentityPublicKey.TYPES.ECDSA_SECP256K1,\n    purpose: IdentityPublicKey.PURPOSES.AUTHENTICATION,\n    securityLevel: IdentityPublicKey.SECURITY_LEVELS.HIGH,\n    data: identityPublicKey,\n    readOnly: false,\n  });\n\n  const updateAdd = {\n    add: [newPublicKey],\n  };\n\n  // Submit the update signed with the new key\n  await client.platform.identities.update(existingIdentity, updateAdd, {\n    [newPublicKey.getId()]: identityPrivateKey,\n  });\n\n  return client.platform.identities.get(identityId);};\n};\n\nupdateIdentityAddKey()\n  .then((d) => console.log('Identity updated:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n",
-      "language": "javascript",
-      "name": "Add identity key"
-    }
-  ]
+
+```javascript Disable identity key
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },    
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const updateIdentityDisableKey = async () => {
+  const identityId = 'an identity ID goes here';
+  const keyId = 'a public key ID goes here'; // One of the identity's public key IDs
+
+  // Retrieve the identity to be updated and the public key to disable
+  const existingIdentity = await client.platform.identities.get(identityId);
+  const publicKeyToDisable = existingIdentity.getPublicKeyById(keyId);
+
+  const updateDisable = {
+    disable: [publicKeyToDisable],
+  };
+
+  await client.platform.identities.update(existingIdentity, updateDisable);
+  return client.platform.identities.get(identityId);
 }
-[/block]
+
+updateIdentityDisableKey()
+  .then((d) => console.log('Identity updated:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript Add identity key
+const Dash = require('dash');
+const IdentityPublicKey = require('@dashevo/dpp/lib/identity/IdentityPublicKey');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },    
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const updateIdentityAddKey = async () => {
+  const identityId = 'an identity ID goes here';
+  const existingIdentity = await client.platform.identities.get(identityId);
+  const newKeyId = existingIdentity.toJSON().publicKeys.length;
+
+  // Get an unused identity index
+  const account = await client.platform.client.getWalletAccount();
+  const identityIndex = await account.getUnusedIdentityIndex();
+
+  // Get unused private key and construct new identity public key
+  const { privateKey: identityPrivateKey } =
+    account.identities.getIdentityHDKeyByIndex(identityIndex, 0);
+
+  const identityPublicKey = identityPrivateKey.toPublicKey().toBuffer();
+
+  const newPublicKey = new IdentityPublicKey({
+    id: newKeyId,
+    type: IdentityPublicKey.TYPES.ECDSA_SECP256K1,
+    purpose: IdentityPublicKey.PURPOSES.AUTHENTICATION,
+    securityLevel: IdentityPublicKey.SECURITY_LEVELS.HIGH,
+    data: identityPublicKey,
+    readOnly: false,
+  });
+
+  const updateAdd = {
+    add: [newPublicKey],
+  };
+
+  // Submit the update signed with the new key
+  await client.platform.identities.update(existingIdentity, updateAdd, {
+    [newPublicKey.getId()]: identityPrivateKey,
+  });
+
+  return client.platform.identities.get(identityId);};
+};
+
+updateIdentityAddKey()
+  .then((d) => console.log('Identity updated:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+
 # What's Happening
 
 ## Disabling keys

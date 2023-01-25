@@ -9,16 +9,56 @@ In this tutorial we will submit some data to an application on Dash Platform. Da
 - A Dash Platform Contract ID: [Tutorial: Register a Data Contract](tutorial-register-a-data-contract) 
 
 # Code
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n  apps: {\n    tutorialContract: {\n      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst submitNoteDocument = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const docProperties = {\n    message: `Tutorial Test @ ${new Date().toUTCString()}`,\n  };\n\n  // Create the note document\n  const noteDocument = await platform.documents.create(\n    'tutorialContract.note',\n    identity,\n    docProperties,\n  );\n\n  const documentBatch = {\n    create: [noteDocument], // Document(s) to create\n    replace: [], // Document(s) to update\n    delete: [], // Document(s) to delete\n  };\n  // Sign and submit the document(s)\n  return platform.documents.broadcast(documentBatch, identity);\n};\n\nsubmitNoteDocument()\n  .then((d) => console.log(d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+  apps: {
+    tutorialContract: {
+      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const submitNoteDocument = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  const docProperties = {
+    message: `Tutorial Test @ ${new Date().toUTCString()}`,
+  };
+
+  // Create the note document
+  const noteDocument = await platform.documents.create(
+    'tutorialContract.note',
+    identity,
+    docProperties,
+  );
+
+  const documentBatch = {
+    create: [noteDocument], // Document(s) to create
+    replace: [], // Document(s) to update
+    delete: [], // Document(s) to delete
+  };
+  // Sign and submit the document(s)
+  return platform.documents.broadcast(documentBatch, identity);
+};
+
+submitNoteDocument()
+  .then((d) => console.log(d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 > 👍 Initializing the Client with a contract identity
 >
 > The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details.

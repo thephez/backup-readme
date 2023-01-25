@@ -17,30 +17,29 @@ Platform services are provided via a combination of HTTP and gRPC connections to
 ## 1. Install the Dash SDK
 
 The JavaScript SDK package is available from npmjs.com and can be installed by running `npm install dash` from the command line:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "npm install dash",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+npm install dash
+``` 
+
 ## 2. Connect to Dash Platform
 
 Create a file named `dashConnect.js` with the following contents. Then run it by typing `node dashConnect.js` from the command line:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "dashConnect.js"
-    }
-  ]
+
+```javascript dashConnect.js
+const Dash = require('dash');
+
+const client = new Dash.Client({ network: 'testnet' });
+
+async function connect() {
+  return await client.getDAPIClient().core.getBestBlockHash();
 }
-[/block]
+
+connect()
+  .then((d) => console.log('Connected. Best block hash:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
 Once this returns successfully, you're ready to begin developing! See the [Quickstart](tutorials-introduction#quickstart) for recommended next steps. For details on all SDK options and methods, please refer to the [SDK documentation](https://dashevo.github.io/platform/SDK/).
 
 # Connect to a Devnet
@@ -50,29 +49,51 @@ The SDK also supports connecting to development networks (devnets). Since devnet
 ## Connect via Seed
 
 Using a seed node is the preferred method in most cases. The client uses the provided seed node to a retrieve a list of available masternodes on the network so requests can be spread across the entire network.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  seeds: [{\n    host: 'seed-1.testnet.networks.dash.org',\n    httpPort: 3000,\n    grpcPort: 3010,\n  }],\n});\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
+
+```javascript
+const Dash = require('dash');
+
+const client = new Dash.Client({
+  seeds: [{
+    host: 'seed-1.testnet.networks.dash.org',
+    httpPort: 3000,
+    grpcPort: 3010,
+  }],
+});
+
+async function connect() {
+  return await client.getDAPIClient().core.getBestBlockHash();
 }
-[/block]
+
+connect()
+  .then((d) => console.log('Connected. Best block hash:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
+
 ## Connect via Address
 
 Custom addresses may be directly specified via `dapiAddresses` in cases where it is beneficial to know exactly what node(s) are being accessed (e.g. debugging, local development, etc.).
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst client = new Dash.Client({\n  dapiAddresses: [\n    '127.0.0.1:3000:3010',\n    '127.0.0.2:3000:3010',\n  ],\n});\n\nasync function connect() {\n  return await client.getDAPIClient().core.getBestBlockHash();\n}\n\nconnect()\n  .then((d) => console.log('Connected. Best block hash:\\n', d))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript"
-    }
-  ]
+
+```javascript
+const Dash = require('dash');
+
+const client = new Dash.Client({
+  dapiAddresses: [
+    '127.0.0.1:3000:3010',
+    '127.0.0.2:3000:3010',
+  ],
+});
+
+async function connect() {
+  return await client.getDAPIClient().core.getBestBlockHash();
 }
-[/block]
+
+connect()
+  .then((d) => console.log('Connected. Best block hash:\n', d))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+``` 
 # Connect Directly to DAPI (Optional) 
 
 > 🚧 Advanced Topic

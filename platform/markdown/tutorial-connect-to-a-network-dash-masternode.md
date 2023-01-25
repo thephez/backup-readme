@@ -13,16 +13,11 @@ The following is not necessary for setting up a local network for development, b
 > More comprehensive details of using the dashmate tool can be found in the [dashmate README](https://github.com/dashevo/platform/tree/master/packages/dashmate).
 
 Use NPM to install dashmate globally in your system:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "npm install -g dashmate",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+npm install -g dashmate
+``` 
+
 # Local Network
 
 Dashmate can be used to create a local network on a single computer. This network contains multiple nodes to mimic conditions and features found in testnet/mainnet settings.
@@ -34,16 +29,10 @@ Dashmate can be used to create a local network on a single computer. This networ
 ## Setup
 
 Run the following command to start the setup wizard, then accept the default values at each step to create a local network:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dashmate setup local",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+dashmate setup local
+``` 
 
 Example (partial) output of the setup wizard showing important information:
 ```
@@ -78,79 +67,80 @@ Example (partial) output of the setup wizard showing important information:
 ## Operation
 
 Once the setup completes, start/stop/restart the network via the following commands:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dashmate group start\ndashmate group stop\ndashmate group restart",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+dashmate group start
+dashmate group stop
+dashmate group restart
+``` 
+
 The status of the network's nodes can be check via the group status command:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "dashmate group status",
-      "language": "shell"
-    }
-  ]
-}
-[/block]
+
+```shell
+dashmate group status
+``` 
+
 ## Mining Dash
 
 During development it may be necessary to obtain Dash to create and topup [identities](docs/explanation-identity). This can be done using the dashmate `wallet:mint` command. First obtain an address to fund via the [Create and Fund a Wallet](doc:tutorial-create-and-fund-a-wallet) tutorial and then mine Dash to it as shown below:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "# Stop the devnet first\ndashmate group stop\n\n# Mine 10 Dash to a provided address\ndashmate wallet mint 10 --address=<your address> --config=local_seed\n\n# Restart the devnet\ndashmate group start",
-      "language": "shell",
-      "name": "Mine to provided address"
-    },
-    {
-      "code": "# Stop the devnet first\ndashmate group:stop\n\n# Mine 10 Dash to a random address/key\n# The address and private key will be displayed\ndashmate wallet:mint 10 --config=local_seed\n\n# Restart the devnet\ndashmate group:start",
-      "language": "shell",
-      "name": "Mine to new address"
-    }
-  ]
-}
-[/block]
+
+```shell Mine to provided address
+# Stop the devnet first
+dashmate group stop
+
+# Mine 10 Dash to a provided address
+dashmate wallet mint 10 --address=<your address> --config=local_seed
+
+# Restart the devnet
+dashmate group start
+```
+```shell Mine to new address
+# Stop the devnet first
+dashmate group:stop
+
+# Mine 10 Dash to a random address/key
+# The address and private key will be displayed
+dashmate wallet:mint 10 --config=local_seed
+
+# Restart the devnet
+dashmate group:start
+```
+
 Example output of `dashmate wallet mint 10 --address=yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG --config=local_seed`:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "✔ Generate 10 dash to address\n  ✔ Start Core\n  ↓ Use specified address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG [SKIPPED]\n  ✔ Generate ≈10 dash to address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG\n    › Generated 172.59038279 dash\n  ✔ Wait for balance to confirm\n  ✔ Stop Core",
-      "language": "text"
-    }
-  ]
-}
-[/block]
+
+```text
+✔ Generate 10 dash to address
+  ✔ Start Core
+  ↓ Use specified address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG [SKIPPED]
+  ✔ Generate ≈10 dash to address yYqfdpePzn2kWtMxr9nz22HBFM7WBRmAqG
+    › Generated 172.59038279 dash
+  ✔ Wait for balance to confirm
+  ✔ Stop Core
+``` 
+
 ## Using the network
 
 Once the address is funded, you can begin creating identities, data contracts, etc. and experimenting with Dash Platform. The [other tutorials](tutorials-introduction) in this section will help you get started.
 
 To make the Dash SDK connect to your local network, set the `network` option to `'local'`:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const clientOpts = {\n  network: 'local',\n  ...\n};\n\nconst client = new Dash.Client(clientOpts);\n...",
-      "language": "javascript"
-    }
-  ]
-}
-[/block]
+
+```javascript
+const clientOpts = {
+  network: 'local',
+  ...
+};
+
+const client = new Dash.Client(clientOpts);
+``` 
+
 # Testnet Masternode Setup
 
-> ❗️Advanced Topic
+> ❗️ Advanced Topic
 >
 > Running a masternode requires familiarity with Dash Platform services. Improper configuration may impact testing so please exercise caution if running a masternode.
 
 To setup a testnet masternode, please refer to the comprehensive documentation of the process as described [here](https://docs.dash.org/en/stable/masternodes/setup-testnet.html#dashmate-installation). The following video also details how to complete the process.
+
 [block:html]
 {
   "html": "<div></div>\n\n<style></style>\n<iframe width=\"560\" height=\"315\" src=\"https://www.youtube-nocookie.com/embed/LLiMMXSAfeU?rel=0&modestbranding=1\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>"

@@ -28,37 +28,121 @@ The third tab shows a data contract using the [JSON-Schema $ref feature](https:/
 > The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
 
 The fourth tab shows a data contract requiring the optional `$createdAt` and `$updatedAt` [base fields](explanation-platform-protocol-document#base-fields). Using these fields enables retrieving timestamps that indicate when a document was created or modified.
-[block:code]
+
+```json 1. Minimal contract
 {
-  "codes": [
-    {
-      "code": "{\n  \"note\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": false\n  }\n}",
-      "language": "json",
-      "name": "1. Minimal contract"
+  "note": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      }
     },
-    {
-      "code": "{\n  \"note\": {\n    \"type\": \"object\",\n    \"indices\": [\n      {\n        \"name\": \"ownerId\",\n        \"properties\": [{ \"$ownerId\": \"asc\" }], \"unique\": false }\n    ],\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"additionalProperties\": false\n  }\n}\n\n/*\nAn identity's documents are accessible via a query including a where clause like:\n{\n  where: [['$ownerId', '==', 'an identity id']],\n}\n*/\n",
-      "language": "json",
-      "name": "2. Indexed"
-    },
-    {
-      "code": "// NOTE: The `$ref` keyword is temporarily disabled for Platform v0.22.\n{\n  customer: {\n    type: \"object\",\n    properties: {\n      name: { type: \"string\" },\n      billing_address: { $ref: \"#/$defs/address\" },\n      shipping_address: { $ref: \"#/$defs/address\" }\n    },\n    additionalProperties: false\n  },\n}\n\n/*\nThe contract document defined above is dependent on the following object \nbeing added to the contract via the contracts `.setDefinitions` method:\n\n{\n  address: {\n    type: \"object\",\n    properties: {\n      street_address: { type: \"string\" },\n      city:           { type: \"string\" },\n      state:          { type: \"string\" }\n    },\n    required: [\"street_address\", \"city\", \"state\"],\n    additionalProperties: false\n  }\n}\n*/",
-      "language": "json",
-      "name": "3. References ($ref)"
-    },
-    {
-      "code": "{\n  \"note\": {\n    \"type\": \"object\",\n    \"properties\": {\n      \"message\": {\n        \"type\": \"string\"\n      }\n    },\n    \"required\": [\"$createdAt\", \"$updatedAt\"],\n    \"additionalProperties\": false\n  }\n}\n\n/*\nIf $createdAt and/or $updatedAt are added to the list of required properties \nfor a document, all documents of that type will store a timestamp indicating\nwhen the document was created or modified. \n\nThis information will be returned when the document is retrieved.\n*/",
-      "language": "json",
-      "name": "4. Timestamps"
-    },
-    {
-      "code": "{\n \"block\": {\n   \"type\": \"object\",\n    \"properties\": {\n      \"hash\": {\n        \"type\": 'array',\n        \"byteArray\": true,\n        \"maxItems\": 64,\n        \"description\": 'Store block hashes',\n      },\n    },\n    \"additionalProperties\": false,\n  },\n}\n \n/*\nSetting `\"byteArray\": true` indicates that the provided data will be an \narray of bytes (e.g. a NodeJS Buffer).\n*/",
-      "language": "json",
-      "name": "5. Binary data"
-    }
-  ]
+    "additionalProperties": false
+  }
 }
-[/block]
+```
+```json 2. Indexed
+{
+  "note": {
+    "type": "object",
+    "indices": [
+      {
+        "name": "ownerId",
+        "properties": [{ "$ownerId": "asc" }], "unique": false }
+    ],
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    },
+    "additionalProperties": false
+  }
+}
+
+/*
+An identity's documents are accessible via a query including a where clause like:
+{
+  where: [['$ownerId', '==', 'an identity id']],
+}
+*/
+```
+```json 3. References ($ref)
+// NOTE: The `$ref` keyword is temporarily disabled for Platform v0.22.
+{
+  customer: {
+    type: "object",
+    properties: {
+      name: { type: "string" },
+      billing_address: { $ref: "#/$defs/address" },
+      shipping_address: { $ref: "#/$defs/address" }
+    },
+    additionalProperties: false
+  },
+}
+
+/*
+The contract document defined above is dependent on the following object 
+being added to the contract via the contracts `.setDefinitions` method:
+
+{
+  address: {
+    type: "object",
+    properties: {
+      street_address: { type: "string" },
+      city:           { type: "string" },
+      state:          { type: "string" }
+    },
+    required: ["street_address", "city", "state"],
+    additionalProperties: false
+  }
+}
+*/
+```
+```json 4. Timestamps
+{
+  "note": {
+    "type": "object",
+    "properties": {
+      "message": {
+        "type": "string"
+      }
+    },
+    "required": ["$createdAt", "$updatedAt"],
+    "additionalProperties": false
+  }
+}
+
+/*
+If $createdAt and/or $updatedAt are added to the list of required properties 
+for a document, all documents of that type will store a timestamp indicating
+when the document was created or modified. 
+
+This information will be returned when the document is retrieved.
+*/
+```
+```json 5. Binary data
+{
+ "block": {
+   "type": "object",
+    "properties": {
+      "hash": {
+        "type": 'array',
+        "byteArray": true,
+        "maxItems": 64,
+        "description": 'Store block hashes',
+      },
+    },
+    "additionalProperties": false,
+  },
+}
+ 
+/*
+Setting `"byteArray": true` indicates that the provided data will be an 
+array of bytes (e.g. a NodeJS Buffer).
+*/
+```
+
 > 📘
 >
 > Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.
@@ -66,37 +150,290 @@ The fourth tab shows a data contract requiring the optional `$createdAt` and `$u
 ## Registering the data contract
 
 The following examples demonstrate the details of creating contracts using the features [described above](#defining-contract-documents):
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },    \n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const contractDocuments = {\n    note: {\n      type: 'object',\n      properties: {\n        message: {\n          type: 'string',\n        },\n      },\n      additionalProperties: false,\n    },\n  };\n\n  const contract = await platform.contracts.create(contractDocuments, identity);\n  console.dir({ contract });\n\n  // Make sure contract passes validation checks\n  await platform.dpp.initialize();\n  const validationResult = await platform.dpp.dataContract.validate(contract);\n\n  if (validationResult.isValid()) {\n    console.log('Validation passed, broadcasting contract..');\n    // Sign and submit the data contract\n    return platform.contracts.publish(contract, identity);\n  }\n  console.error(validationResult); // An array of detailed validation errors\n  throw validationResult.errors[0];\n};\n\nregisterContract()\n  .then((d) => console.log('Contract registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Minimal"
+
+```javascript 1. Minimal contract
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },    
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerContract = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  const contractDocuments = {
+    note: {
+      type: 'object',
+      properties: {
+        message: {
+          type: 'string',
+        },
+      },
+      additionalProperties: false,
     },
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const contractDocuments = {\n    note: {\n      type: 'object',\n      indices: [\n        name: \"ownerId\",\n        { properties: [{ $ownerId: 'asc' }], unique: false },\n      ],\n      properties: {\n        message: {\n          type: 'string',\n        },\n      },\n      additionalProperties: false,\n    },\n  };\n\n  const contract = await platform.contracts.create(contractDocuments, identity);\n  console.dir({ contract });\n\n  // Make sure contract passes validation checks\n  await platform.dpp.initialize();\n  const validationResult = await platform.dpp.dataContract.validate(contract);\n\n  if (validationResult.isValid()) {\n    console.log('Validation passed, broadcasting contract..');\n    // Sign and submit the data contract\n    return platform.contracts.publish(contract, identity);\n  }\n  console.error(validationResult); // An array of detailed validation errors\n  throw validationResult.errors[0];\n};\n\nregisterContract()\n  .then((d) => console.log('Contract registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Indexed"
+  };
+
+  const contract = await platform.contracts.create(contractDocuments, identity);
+  console.dir({ contract });
+
+  // Make sure contract passes validation checks
+  await platform.dpp.initialize();
+  const validationResult = await platform.dpp.dataContract.validate(contract);
+
+  if (validationResult.isValid()) {
+    console.log('Validation passed, broadcasting contract..');
+    // Sign and submit the data contract
+    return platform.contracts.publish(contract, identity);
+  }
+  console.error(validationResult); // An array of detailed validation errors
+  throw validationResult.errors[0];
+};
+
+registerContract()
+  .then((d) => console.log('Contract registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript 2. Indexed
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
     },
-    {
-      "code": "// NOTE: The `$ref` keyword is temporarily disabled for Platform v0.22.\nconst Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  // Define a reusable object\n  const definitions = {\n    address: {\n      type: 'object',\n      properties: {\n        street_address: { type: 'string' },\n        city: { type: 'string' },\n        state: { type: 'string' },\n      },\n      required: ['street_address', 'city', 'state'],\n      additionalProperties: false,\n    },\n  };\n\n  // Create a document with properties using a definition via $ref\n  const contractDocuments = {\n    customer: {\n      type: 'object',\n      properties: {\n        name: { type: 'string' },\n        billing_address: { $ref: '#/$defs/address' },\n        shipping_address: { $ref: '#/$defs/address' },\n      },\n      additionalProperties: false,\n    },\n  };\n  \n  const contract = await platform.contracts.create(contractDocuments, identity);\n\n  // Add reusable definitions referred to by \"$ref\" to contract\n  contract.setDefinitions(definitions);\n  console.dir({ contract });\n\n  // Make sure contract passes validation checks\n  await platform.dpp.initialize();\n  const validationResult = await platform.dpp.dataContract.validate(contract);\n\n  if (validationResult.isValid()) {\n    console.log('Validation passed, broadcasting contract..');\n    // Sign and submit the data contract\n    return platform.contracts.publish(contract, identity);\n  }\n  console.error(validationResult); // An array of detailed validation errors\n  throw validationResult.errors[0];\n};\n\nregisterContract()\n  .then((d) => console.log('Contract registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "References ($ref)"
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerContract = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  const contractDocuments = {
+    note: {
+      type: 'object',
+      indices: [
+        name: "ownerId",
+        { properties: [{ $ownerId: 'asc' }], unique: false },
+      ],
+      properties: {
+        message: {
+          type: 'string',
+        },
+      },
+      additionalProperties: false,
     },
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const contractDocuments = {\n    note: {\n      type: 'object',\n      properties: {\n        message: {\n          type: 'string',\n        },\n      },\n      required: ['$createdAt', '$updatedAt'],\n      additionalProperties: false,\n    },\n  };\n\n  const contract = await platform.contracts.create(contractDocuments, identity);\n  console.dir({ contract });\n\n  // Make sure contract passes validation checks\n  await platform.dpp.initialize();\n  const validationResult = await platform.dpp.dataContract.validate(contract);\n\n  if (validationResult.isValid()) {\n    console.log('Validation passed, broadcasting contract..');\n    // Sign and submit the data contract\n    return platform.contracts.publish(contract, identity);\n  }\n  console.error(validationResult); // An array of detailed validation errors\n  throw validationResult.errors[0];\n};\n\nregisterContract()\n  .then((d) => console.log('Contract registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Timestamps"
+  };
+
+  const contract = await platform.contracts.create(contractDocuments, identity);
+  console.dir({ contract });
+
+  // Make sure contract passes validation checks
+  await platform.dpp.initialize();
+  const validationResult = await platform.dpp.dataContract.validate(contract);
+
+  if (validationResult.isValid()) {
+    console.log('Validation passed, broadcasting contract..');
+    // Sign and submit the data contract
+    return platform.contracts.publish(contract, identity);
+  }
+  console.error(validationResult); // An array of detailed validation errors
+  throw validationResult.errors[0];
+};
+
+registerContract()
+  .then((d) => console.log('Contract registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript 3. References ($ref)
+// NOTE: The `$ref` keyword is temporarily disabled for Platform v0.22.
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
     },
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerContract = async () => {\n  const { platform } = client;\n  const identity = await platform.identities.get('an identity ID goes here');\n\n  const contractDocuments = {\n    block: {\n      type: 'object',\n      properties: {\n        hash: {\n          type: 'array',\n          byteArray: true,\n          maxItems: 64,\n          description: 'Store block hashes',\n        },\n      },\n      additionalProperties: false,\n    },\n  };\n\n  const contract = await platform.contracts.create(contractDocuments, identity);\n  console.dir({ contract }, { depth: 5 });\n\n  // Make sure contract passes validation checks\n  await platform.dpp.initialize();\n  const validationResult = await platform.dpp.dataContract.validate(contract);\n\n  if (validationResult.isValid()) {\n    console.log('Validation passed, broadcasting contract..');\n    // Sign and submit the data contract\n    return platform.contracts.publish(contract, identity);\n  }\n  console.error(validationResult); // An array of detailed validation errors\n  throw validationResult.errors[0];\n};\n\nregisterContract()\n  .then((d) => console.log('Contract registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Binary data"
-    }
-  ]
-}
-[/block]
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerContract = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  // Define a reusable object
+  const definitions = {
+    address: {
+      type: 'object',
+      properties: {
+        street_address: { type: 'string' },
+        city: { type: 'string' },
+        state: { type: 'string' },
+      },
+      required: ['street_address', 'city', 'state'],
+      additionalProperties: false,
+    },
+  };
+
+  // Create a document with properties using a definition via $ref
+  const contractDocuments = {
+    customer: {
+      type: 'object',
+      properties: {
+        name: { type: 'string' },
+        billing_address: { $ref: '#/$defs/address' },
+        shipping_address: { $ref: '#/$defs/address' },
+      },
+      additionalProperties: false,
+    },
+  };
+  
+  const contract = await platform.contracts.create(contractDocuments, identity);
+
+  // Add reusable definitions referred to by "$ref" to contract
+  contract.setDefinitions(definitions);
+  console.dir({ contract });
+
+  // Make sure contract passes validation checks
+  await platform.dpp.initialize();
+  const validationResult = await platform.dpp.dataContract.validate(contract);
+
+  if (validationResult.isValid()) {
+    console.log('Validation passed, broadcasting contract..');
+    // Sign and submit the data contract
+    return platform.contracts.publish(contract, identity);
+  }
+  console.error(validationResult); // An array of detailed validation errors
+  throw validationResult.errors[0];
+};
+
+registerContract()
+  .then((d) => console.log('Contract registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript 4. Timestamps
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerContract = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  const contractDocuments = {
+    note: {
+      type: 'object',
+      properties: {
+        message: {
+          type: 'string',
+        },
+      },
+      required: ['$createdAt', '$updatedAt'],
+      additionalProperties: false,
+    },
+  };
+
+  const contract = await platform.contracts.create(contractDocuments, identity);
+  console.dir({ contract });
+
+  // Make sure contract passes validation checks
+  await platform.dpp.initialize();
+  const validationResult = await platform.dpp.dataContract.validate(contract);
+
+  if (validationResult.isValid()) {
+    console.log('Validation passed, broadcasting contract..');
+    // Sign and submit the data contract
+    return platform.contracts.publish(contract, identity);
+  }
+  console.error(validationResult); // An array of detailed validation errors
+  throw validationResult.errors[0];
+};
+
+registerContract()
+  .then((d) => console.log('Contract registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript 5. Binary data
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerContract = async () => {
+  const { platform } = client;
+  const identity = await platform.identities.get('an identity ID goes here');
+
+  const contractDocuments = {
+    block: {
+      type: 'object',
+      properties: {
+        hash: {
+          type: 'array',
+          byteArray: true,
+          maxItems: 64,
+          description: 'Store block hashes',
+        },
+      },
+      additionalProperties: false,
+    },
+  };
+
+  const contract = await platform.contracts.create(contractDocuments, identity);
+  console.dir({ contract }, { depth: 5 });
+
+  // Make sure contract passes validation checks
+  await platform.dpp.initialize();
+  const validationResult = await platform.dpp.dataContract.validate(contract);
+
+  if (validationResult.isValid()) {
+    console.log('Validation passed, broadcasting contract..');
+    // Sign and submit the data contract
+    return platform.contracts.publish(contract, identity);
+  }
+  console.error(validationResult); // An array of detailed validation errors
+  throw validationResult.errors[0];
+};
+
+registerContract()
+  .then((d) => console.log('Contract registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+
 > 👍
 >
 > **Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**
