@@ -41,13 +41,11 @@
 | 2 | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#getdocuments) | Returns the requested document(s) |
 | 2 | [`waitForStateTransitionResult`](reference-dapi-endpoints-platform-endpoints#waitforstatetransitionresult) | Responds with the state transition hash and either a proof that the state transition was confirmed in a block or an error |
 
-```css
-<div></div>
-<!--
-Primarily for debugging, don't document - getConsensusParams
--->
-<style></style>
-``` 
+[block:html]
+{
+  "html": "<div></div>\n<!--\nPrimarily for debugging, don't document - getConsensusParams\n-->\n<style></style>"
+}
+[/block]
 
 > 📘
 >
