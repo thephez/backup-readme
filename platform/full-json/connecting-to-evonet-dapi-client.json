@@ -42,7 +42,7 @@
  "slug": "connecting-to-evonet-dapi-client",
  "excerpt": "The Dash Platform development network",
  "body": "The purpose of this tutorial is to walk through the steps necessary to access the network.\n\n# Overview\nEvoNet is the initial development network provided for experimentation and evaluation of Dash Platform features.\n\nPlatform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it's easier to use [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client).\n\n# Connect via DAPI-client\n\n## 1. Install dapi-client\nThe JavaScript dapi-client package is available from [npmjs.com](https://www.npmjs.com/package/@dashevo/dapi-client) and can be installed by running `npm install`:\n\n```shell\nnpm install @dashevo/dapi-client\n```\n## 2. Verify a Successful Response\n\n### a. Create `index.js` and add the following code:\n\n```js\nconst DAPIClient = require('@dashevo/dapi-client');\n\nlet client = new DAPIClient({\n  seeds: [{\n    service: '18.236.131.253:3000',\n    port: 3000\n  }],\n});\n\nconst start = async () => {\n  let height = await client.getBestBlockHash();\n  console.log('Best block hash:', height);\n};\n\nstart();\n```\n\n### b. Run `index.js`\n\n```shell\nnode index.js\n```\n\nThe best block hash will be retrieved and printed to the console.\n\n```text\nBest block hash: \n  00000038fd1a1f6f691889d986a563372f3f4887320ad27b635caf4fcc9768c1\n```\n\nOnce this returns successfully, you're ready to begin developing!",
- "order": 12,
+ "order": 13,
  "isReference": false,
  "deprecated": false,
  "hidden": true,

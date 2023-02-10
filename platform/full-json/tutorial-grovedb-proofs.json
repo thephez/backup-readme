@@ -1,0 +1,67 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": []
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 3,
+  "publishPending": false,
+  "updatedAt": "2023-02-08T20:26:18.023Z"
+ },
+ "title": "Proofs",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "tutorial-grovedb-proofs",
+ "excerpt": "",
+ "body": "# Overview\n\nGroveDB generally uses the `prove_query()` function to [generate](https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/generate.rs) query proofs, and the `verify_query()` function to [verify](https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/verify.rs) query proofs. `prove_query()` just takes a path query as an argument and `verify_query()` takes a proof as well as a path query.\n\n## Prerequisites\n\nThis tutorial assumes the reader has already populated GroveDB with the key-values from Tutorial 4, but should be easy to follow anyways. Note that the first block of code in `main()` is essentially the same as Tutorial 4, but without the `populate()` function. We will generate a proof for the query from Tutorial 4, use it to calculate the root hash, and then compare that root hash to the GroveDB root hash.\n\n# Code\nIn \u201cgrovedb-tutorials\u201d, create a new Rust project using `cargo new proof`. Navigate to the new project, add GroveDB to the Cargo.toml file, and paste the following code into the main.rs file. Do `cargo run`.\n\n``` rust\nuse grovedb::GroveDb;\nuse grovedb::{ Query, PathQuery };\n\nconst KEY1: &[u8] = b\"key1\";\nconst KEY2: &[u8] = b\"key2\";\n\nfn main() {\n\n    // Specify the path to the previously created GroveDB instance\n    let path = String::from(\"../storage\");\n    // Open GroveDB as db\n    let db = GroveDb::open(path).unwrap();\n    // Define the path to the subtree we want to query.\n    let path = vec![KEY1.to_vec(), KEY2.to_vec()];\n    // Instantiate a new query.\n    let mut query = Query::new();\n    // Insert a range of keys to the query that we would like returned.\n    query.insert_range(30_u8.to_be_bytes().to_vec()..35_u8.to_be_bytes().to_vec());\n    // Put the query into a new unsized path query.\n    let path_query = PathQuery::new_unsized(path, query.clone());\n    // Execute the query and collect the result items in \"elements\".\n    let (_elements, _) = db\n        .query_item_value(&path_query, true, None)\n        .unwrap()\n        .expect(\"expected successful get_path_query\");\n\n    // Generate proof.\n    let proof = db.prove_query(&path_query).unwrap().unwrap();\n\n    // Get hash from query proof and print to terminal along with GroveDB root hash.\n    let (hash, _result_set) = GroveDb::verify_query(&proof, &path_query).unwrap();\n\n    // See if the query proof hash matches the GroveDB root hash\n    println!(\"Does the hash generated from the query proof match the GroveDB root hash?\");\n    if hash == db.root_hash(None).unwrap().unwrap() {\n        println!(\"Yes\");\n    } else { println!(\"No\"); };\n}\n```\n\nThe terminal should output:\n\n``` text\nDoes the hash generated from the query proof match the GroveDB root hash?\nYes\n```\n\nNow you know that your query results are complete, correct, and fresh.",
+ "order": 999,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": true,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2023-02-08T19:48:51.533Z",
+ "revision": 4,
+ "_id": "63e405349dfd58011b0b4b9e",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "63e3fe3af08aa20020c707e5",
+ "category": "62b226d1fcc32e002300c509",
+ "createdAt": "2023-02-08T20:25:24.412Z",
+ "updatedAt": "2023-02-08T20:26:17.824Z",
+ "version": "62b226d1fcc32e002300c574",
+ "__v": 0,
+ "isApi": false,
+ "id": "63e405349dfd58011b0b4b9e",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>GroveDB generally uses the <code>prove_query()</code> function to <a href=\"https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/generate.rs\">generate</a> query proofs, and the <code>verify_query()</code> function to <a href=\"https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/verify.rs\">verify</a> query proofs. <code>prove_query()</code> just takes a path query as an argument and <code>verify_query()</code> takes a proof as well as a path query.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-prerequisites\"></div>Prerequisites<a class=\"fa fa-anchor\" href=\"#section-prerequisites\"></a></h2>\n<p>This tutorial assumes the reader has already populated GroveDB with the key-values from Tutorial 4, but should be easy to follow anyways. Note that the first block of code in <code>main()</code> is essentially the same as Tutorial 4, but without the <code>populate()</code> function. We will generate a proof for the query from Tutorial 4, use it to calculate the root hash, and then compare that root hash to the GroveDB root hash.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-code\"></div>Code<a class=\"fa fa-anchor\" href=\"#section-code\"></a></h1>\n<p>In \u201cgrovedb-tutorials\u201d, create a new Rust project using <code>cargo new proof</code>. Navigate to the new project, add GroveDB to the Cargo.toml file, and paste the following code into the main.rs file. Do <code>cargo run</code>.</p>\n<pre><code class=\"lang-rust\"><span class='cm-s-neo'><span class=\"cm-keyword\">use</span> <span class=\"cm-variable\">grovedb</span>::<span class=\"cm-variable\">GroveDb</span>;\n<span class=\"cm-keyword\">use</span> <span class=\"cm-variable\">grovedb</span>::{ <span class=\"cm-variable\">Query</span>, <span class=\"cm-variable\">PathQuery</span> };\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-variable\">KEY1</span>: &amp;[<span class=\"cm-atom\">u8</span>] <span class=\"cm-operator\">=</span> <span class=\"cm-string\">b\"key1\"</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-variable\">KEY2</span>: &amp;[<span class=\"cm-atom\">u8</span>] <span class=\"cm-operator\">=</span> <span class=\"cm-string\">b\"key2\"</span>;\n\n<span class=\"cm-keyword\">fn</span> <span class=\"cm-def\">main</span>() {\n\n    <span class=\"cm-comment\">&#47;&#47; Specify the path to the previously created GroveDB instance</span>\n    <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">path</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">String</span>::<span class=\"cm-variable\">from</span>(<span class=\"cm-string\">\"..&#47;storage\"</span>);\n    <span class=\"cm-comment\">&#47;&#47; Open GroveDB as db</span>\n    <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">db</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">GroveDb</span>::<span class=\"cm-variable\">open</span>(<span class=\"cm-variable\">path</span>).<span class=\"cm-variable\">unwrap</span>();\n    <span class=\"cm-comment\">&#47;&#47; Define the path to the subtree we want to query.</span>\n    <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">path</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-3\">vec!</span>[<span class=\"cm-variable\">KEY1</span>.<span class=\"cm-variable\">to_vec</span>(), <span class=\"cm-variable\">KEY2</span>.<span class=\"cm-variable\">to_vec</span>()];\n    <span class=\"cm-comment\">&#47;&#47; Instantiate a new query.</span>\n    <span class=\"cm-keyword\">let mut</span> <span class=\"cm-def\">query</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Query</span>::<span class=\"cm-variable\">new</span>();\n    <span class=\"cm-comment\">&#47;&#47; Insert a range of keys to the query that we would like returned.</span>\n    <span class=\"cm-variable\">query</span>.<span class=\"cm-variable\">insert_range</span>(<span class=\"cm-number\">30_u8</span>.<span class=\"cm-variable\">to_be_bytes</span>().<span class=\"cm-variable\">to_vec</span>()..<span class=\"cm-number\">35_u8</span>.<span class=\"cm-variable\">to_be_bytes</span>().<span class=\"cm-variable\">to_vec</span>());\n    <span class=\"cm-comment\">&#47;&#47; Put the query into a new unsized path query.</span>\n    <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">path_query</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">PathQuery</span>::<span class=\"cm-variable\">new_unsized</span>(<span class=\"cm-variable\">path</span>, <span class=\"cm-variable\">query</span>.<span class=\"cm-variable\">clone</span>());\n    <span class=\"cm-comment\">&#47;&#47; Execute the query and collect the result items in \"elements\".</span>\n    <span class=\"cm-variable\">let</span> (<span class=\"cm-variable\">_elements</span>, <span class=\"cm-variable\">_</span>) <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">db</span>\n        .<span class=\"cm-variable\">query_item_value</span>(&amp;<span class=\"cm-variable\">path_query</span>, <span class=\"cm-builtin\">true</span>, <span class=\"cm-builtin\">None</span>)\n        .<span class=\"cm-variable\">unwrap</span>()\n        .<span class=\"cm-variable\">expect</span>(<span class=\"cm-string\">\"expected successful get_path_query\"</span>);\n\n    <span class=\"cm-comment\">&#47;&#47; Generate proof.</span>\n    <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">proof</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">db</span>.<span class=\"cm-variable\">prove_query</span>(&amp;<span class=\"cm-variable\">path_query</span>).<span class=\"cm-variable\">unwrap</span>().<span class=\"cm-variable\">unwrap</span>();\n\n    <span class=\"cm-comment\">&#47;&#47; Get hash from query proof and print to terminal along with GroveDB root hash.</span>\n    <span class=\"cm-variable\">let</span> (<span class=\"cm-variable\">hash</span>, <span class=\"cm-variable\">_result_set</span>) <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">GroveDb</span>::<span class=\"cm-variable\">verify_query</span>(&amp;<span class=\"cm-variable\">proof</span>, &amp;<span class=\"cm-variable\">path_query</span>).<span class=\"cm-variable\">unwrap</span>();\n\n    <span class=\"cm-comment\">&#47;&#47; See if the query proof hash matches the GroveDB root hash</span>\n    <span class=\"cm-variable-3\">println!</span>(<span class=\"cm-string\">\"Does the hash generated from the query proof match the GroveDB root hash?\"</span>);\n    <span class=\"cm-keyword\">if</span> <span class=\"cm-variable\">hash</span> <span class=\"cm-operator\">==</span> <span class=\"cm-variable\">db</span>.<span class=\"cm-variable\">root_hash</span>(<span class=\"cm-builtin\">None</span>).<span class=\"cm-variable\">unwrap</span>().<span class=\"cm-variable\">unwrap</span>() {\n        <span class=\"cm-variable-3\">println!</span>(<span class=\"cm-string\">\"Yes\"</span>);\n    } <span class=\"cm-keyword\">else</span> { <span class=\"cm-variable-3\">println!</span>(<span class=\"cm-string\">\"No\"</span>); };\n}</span>\n</code></pre>\n<p>The terminal should output:</p>\n<pre><code class=\"lang-text\">Does the hash generated from the query proof match the GroveDB root hash?\nYes\n</code></pre>\n<p>Now you know that your query results are complete, correct, and fresh.</p>\n\n</div>"
+}
