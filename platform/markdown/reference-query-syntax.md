@@ -16,7 +16,7 @@ The Where clause must be a non-empty array containing not more than 10 condition
 >
 > As of Dash Platform v0.22, _all fields_ referenced in a query's where clause must be defined in the _same index_. This includes `$createdAt` and `$updatedAt`.
 
-```json
+```json Syntax
 {
   where: [
     [<fieldName>, <operator>, <value>],
@@ -35,13 +35,11 @@ Valid fields consist of the indices defined for the document being queried. For 
 | [records.dashUniqueIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L17-L25) | Single Field | Yes |
 | [records.dashAliasIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L26-L33) | Single Field | No |
 
-```html Custom HTML / CSS
-<div></div>
-<!--
-Special fields - `$id`, `$userId`
--->
-<style></style>
-```
+[block:html]
+{
+  "html": "<div></div>\n<!--\nSpecial fields - `$id`, `$userId`\n-->\n<style></style>"
+}
+[/block]
 
 ## Comparison Operators
 
