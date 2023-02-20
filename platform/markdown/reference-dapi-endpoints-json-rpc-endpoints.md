@@ -105,6 +105,14 @@ response = http.request(request)
 puts response.read_body
 ```
 
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "000000bbdda70535d4fa854ca8c12d67f5788bcc6f7d85d39722bc2abed10f58"
+}
+``` 
+
 ## getBlockHash
 
 **Returns**:  the block hash for the given height

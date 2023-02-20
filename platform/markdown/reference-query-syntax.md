@@ -35,11 +35,13 @@ Valid fields consist of the indices defined for the document being queried. For 
 | [records.dashUniqueIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L17-L25) | Single Field | Yes |
 | [records.dashAliasIdentityId](https://github.com/dashevo/platform/blob/master/packages/dpns-contract/schema/dpns-contract-documents.json#L26-L33) | Single Field | No |
 
-[block:html]
-{
-  "html": "<div></div>\n<!--\nSpecial fields - `$id`, `$userId`\n-->\n<style></style>"
-}
-[/block]
+```html Custom HTML / CSS
+<div></div>
+<!--
+Special fields - `$id`, `$userId`
+-->
+<style></style>
+```
 
 ## Comparison Operators
 
@@ -82,42 +84,70 @@ Valid fields consist of the indices defined for the document being queried. For 
 | startsWith | Selects documents where the value of a field begins with the specified characters (string, <= 255 characters). Must include an `orderBy` statement. |
 
 ## Operator Examples
-[block:code]
+
+```json <
 {
-  "codes": [
-    {
-      "code": "{\n  where: [\n    ['nameHash', '<', '56116861626961756e6176657a382e64617368'],\n  ],\n}",
-      "language": "json",
-      "name": "<"
-    },
-    {
-      "code": "{\n  where: [\n      ['normalizedParentDomainName', '==', 'dash'],\n      // Return all matching names from the provided array\n      ['normalizedLabel', 'in', ['alice', 'bob']],\n    ]\n}",
-      "language": "json",
-      "name": "in"
-    },
-    {
-      "code": "{\n  where: [\n      ['normalizedParentDomainName', '==', 'dash'],\n      // Return any names beginning with \"al\" (e.g. alice, alfred)\n      ['normalizedLabel', 'startsWith', 'al'],\n    ]\n}",
-      "language": "json",
-      "name": "startsWith"
-    },
-    {
-      "code": "// Not available in Dash Platform v0.22\n// See https://github.com/dashevo/platform/pull/77\n{\n  where: [\n      // Return documents that have 5 values in their `items` array\n      ['items', 'length', 5],\n    ]\n}",
-      "language": "json",
-      "name": "length"
-    },
-    {
-      "code": "// Not available in Dash Platform v0.22\n// See https://github.com/dashevo/platform/pull/77\n{\n  where: [\n      // Return documents that have both \"red\" and \"blue\" \n      // in the `colors` array\n      ['colors', 'contains', ['red', 'blue']],\n    ]\n}",
-      "language": "json",
-      "name": "contains"
-    },
-    {
-      "code": "// Not available in Dash Platform v0.22\n// See https://github.com/dashevo/platform/pull/77\n{\n  where: [\n    // Return `scores` documents where the results contain \n    // elements in the range 80-90\n    ['scores', 'elementMatch',\n      [\n        ['results', '>=', '80'],\n        ['results', '<=', '90']\n      ],\n    ],\n  ]\n}",
-      "language": "json",
-      "name": "elementMatch"
-    }
+  where: [
+    ['nameHash', '<', '56116861626961756e6176657a382e64617368'],
+  ],
+}
+```
+```json in
+{
+  where: [
+      ['normalizedParentDomainName', '==', 'dash'],
+      // Return all matching names from the provided array
+      ['normalizedLabel', 'in', ['alice', 'bob']],
+    ]
+}
+```
+```json startsWith
+{
+  where: [
+      ['normalizedParentDomainName', '==', 'dash'],
+      // Return any names beginning with "al" (e.g. alice, alfred)
+      ['normalizedLabel', 'startsWith', 'al'],
+    ]
+}
+```
+```json length
+// Not available in Dash Platform v0.22
+// See https://github.com/dashevo/platform/pull/77
+{
+  where: [
+      // Return documents that have 5 values in their `items` array
+      ['items', 'length', 5],
+    ]
+}
+```
+```json contains
+// Not available in Dash Platform v0.22
+// See https://github.com/dashevo/platform/pull/77
+{
+  where: [
+      // Return documents that have both "red" and "blue" 
+      // in the `colors` array
+      ['colors', 'contains', ['red', 'blue']],
+    ]
+}
+```
+```json elementMatch
+// Not available in Dash Platform v0.22
+// See https://github.com/dashevo/platform/pull/77
+{
+  where: [
+    // Return `scores` documents where the results contain 
+    // elements in the range 80-90
+    ['scores', 'elementMatch',
+      [
+        ['results', '>=', '80'],
+        ['results', '<=', '90']
+      ],
+    ],
   ]
 }
-[/block]
+```
+
 # Query Modifiers
 The query modifiers described here determine how query results will be sorted and what subset of data matching the query will be returned.
 
