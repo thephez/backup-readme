@@ -7,21 +7,21 @@ Classical (financial) transactions have a `type` of 0 while special transactions
 
 **Implemented Special Transactions**
 
-| Release | Tx Version | Tx Type | Payload JSON | Tx Purpose | Payload | Payload Size |
-| - | - | - | - | - | - | - |
-| 0.12.3 | 2 | - | n/a | n/a | n/a |
-| 0.13.0 | 3 | 0 | n/a | Standard (Classical) Transaction |  n/a | n/a |
-| 0.13.0 | 3 | 1 | [ProRegTx](#proregtx) | Masternode Registration | hex | compactSize uint |
-| 0.13.0 | 3 | 2 | [ProUpServTx](#proupservtx) | Update Masternode Service | hex | compactSize uint |
-| 0.13.0 | 3 | 3 | [ProUpRegTx](#proupregtx) | Update Masternode Operator | hex | compactSize uint |
-| 0.13.0 | 3 | 4 | [ProUpRevTx](#prouprevtx) | Masternode Operator Revocation | hex | compactSize uint |
-| 0.13.0 | 3 | 5 | [CbTx](#cbtx) | Masternode List Merkle Proof | hex | compactSize uint |
-| 0.13.0 | 3 | 6 | [QcTx](#qctx) | Long-Living Masternode Quorum Commitment | hex | compactSize uint |
-| 18.0.0 | 3 | 7 | [MnHfTx](#mnhftx) | Masternode hard fork signal | hex |  |
+| Release | Tx Version | Tx Type | Payload JSON                | Tx Purpose                               | Payload | Payload Size     |
+| ------- | ---------- | ------- | --------------------------- | ---------------------------------------- | ------- | ---------------- |
+| 0.12.3  | 2          | -       | n/a                         | n/a                                      | n/a     |                  |
+| 0.13.0  | 3          | 0       | n/a                         | Standard (Classical) Transaction         | n/a     | n/a              |
+| 0.13.0  | 3          | 1       | [ProRegTx](#proregtx)       | Masternode Registration                  | hex     | compactSize uint |
+| 0.13.0  | 3          | 2       | [ProUpServTx](#proupservtx) | Update Masternode Service                | hex     | compactSize uint |
+| 0.13.0  | 3          | 3       | [ProUpRegTx](#proupregtx)   | Update Masternode Operator               | hex     | compactSize uint |
+| 0.13.0  | 3          | 4       | [ProUpRevTx](#prouprevtx)   | Masternode Operator Revocation           | hex     | compactSize uint |
+| 0.13.0  | 3          | 5       | [CbTx](#cbtx)               | Masternode List Merkle Proof             | hex     | compactSize uint |
+| 0.13.0  | 3          | 6       | [QcTx](#qctx)               | Long-Living Masternode Quorum Commitment | hex     | compactSize uint |
+| 18.0.0  | 3          | 7       | [MnHfTx](#mnhftx)           | Masternode hard fork signal              | hex     |                  |
 
 # ProRegTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)_
 
 The <<glossary:masternode>> Registration (ProRegTx) special transaction is used to join the masternode list by proving ownership of the 1000 DASH necessary to create a masternode.
 
@@ -29,27 +29,27 @@ A ProRegTx is created and sent using the [`protx` RPC](core-api-ref-remote-proce
 
 The special transaction type is 1 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | Provider transaction version number. Currently set to 1.
-| 2 | type | uint_16 | Masternode type. Default set to 0.
-| 2 | mode | uint_16 | Masternode mode. Default set to 0.
-| 36 | collateralOutpoint | COutpoint | The collateral outpoint.<br>**Note:** The hash will be null if the collateral is part of this transaction, otherwise it will reference an existing collateral.
-| 16 | ipAddress | byte[] | IPv6 address in network byte order. Only IPv4 mapped addresses are allowed (to be extended in the future)
-| 2 | port | uint_16 | Port (network byte order)
-| 20 | KeyIdOwner | CKeyID | The public key hash used for owner related signing (ProTx updates, governance voting)
-| 48 | PubKeyOperator | CBLSPublicKey | The BLS public key used for operational related signing (network messages, ProTx updates)
-| 20 | KeyIdVoting | CKeyID | The public key hash used for voting.
-| 2 | operatorReward | uint_16 | A value from 0 to 10000.
-| 1-9 | scriptPayoutSize | compactSize uint | Size of the Payee Script.
-| Variable | scriptPayout | Script | Payee script (p2pkh/p2sh)
-| 32 | inputsHash | uint256 | Hash of all the outpoints of the transaction inputs
-| 1-9 | payloadSigSize |compactSize uint | Size of the Signature
-| Variable | payloadSig | vector | Signature of the hash of the ProTx fields. Signed with the key corresponding to the collateral outpoint in case the collateral is not part of the ProRegTx itself, empty otherwise.
+| Bytes    | Name               | Data type        | Description                                                                                                                                                                         |
+| -------- | ------------------ | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2        | version            | uint_16          | Provider transaction version number. Currently set to 1.                                                                                                                            |
+| 2        | type               | uint_16          | Masternode type. Default set to 0.                                                                                                                                                  |
+| 2        | mode               | uint_16          | Masternode mode. Default set to 0.                                                                                                                                                  |
+| 36       | collateralOutpoint | COutpoint        | The collateral outpoint.<br>**Note:** The hash will be null if the collateral is part of this transaction, otherwise it will reference an existing collateral.                      |
+| 16       | ipAddress          | byte\[]          | IPv6 address in network byte order. Only IPv4 mapped addresses are allowed (to be extended in the future)                                                                           |
+| 2        | port               | uint_16          | Port (network byte order)                                                                                                                                                           |
+| 20       | KeyIdOwner         | CKeyID           | The public key hash used for owner related signing (ProTx updates, governance voting)                                                                                               |
+| 48       | PubKeyOperator     | CBLSPublicKey    | The BLS public key used for operational related signing (network messages, ProTx updates)                                                                                           |
+| 20       | KeyIdVoting        | CKeyID           | The public key hash used for voting.                                                                                                                                                |
+| 2        | operatorReward     | uint_16          | A value from 0 to 10000.                                                                                                                                                            |
+| 1-9      | scriptPayoutSize   | compactSize uint | Size of the Payee Script.                                                                                                                                                           |
+| Variable | scriptPayout       | Script           | Payee script (p2pkh/p2sh)                                                                                                                                                           |
+| 32       | inputsHash         | uint256          | Hash of all the outpoints of the transaction inputs                                                                                                                                 |
+| 1-9      | payloadSigSize     | compactSize uint | Size of the Signature                                                                                                                                                               |
+| Variable | payloadSig         | vector           | Signature of the hash of the ProTx fields. Signed with the key corresponding to the collateral outpoint in case the collateral is not part of the ProRegTx itself, empty otherwise. |
 
 The following annotated hexdump shows a ProRegTx transaction referencing an existing collateral. (Parts of the classical transaction section have been omitted.)
 
-``` text
+```text
 0300 ....................................... Version (3)
 0100 ....................................... Type (1 - ProRegTx)
 
@@ -102,11 +102,13 @@ ProRegTx Payload
 | 2b30bc32141b6c0151eb58479121b3e6a4 ....... Signature
 ```
 
+
+
 The following annotated hexdump shows a ProRegTx transaction creating a new collateral.
 
 **Note the presence of the output, a null Outpoint TXID and the absence of a signature (since it isn't referring to an existing collateral).** (Parts of the classical transaction section have been omitted.)
 
-``` text
+```text
 0300 ....................................... Version (3)
 0100 ....................................... Type (1 - ProRegTx)
 
@@ -162,9 +164,92 @@ ProRegTx Payload
 | .......................................... Signature (Empty)
 ```
 
+## Example ProRegTx
+
+```Text Raw Transaction hex
+03000100013ea08d68bd3038b8ea3d92d43fa38047522896724b04f246827d74b703bd3f2801000000
+6a47304402201fe458e3dc2c6072848418fedd48fe79081be3c818301ce0a97de4c1dd5ee2da02206f
+601d0de9540ac53ef7f9c59c92ef594237f8b23dad3b04b1005ff85fb61a5d0121022dce9621ff449f
+e1a12648da526b93e0c2f8e43d14f8c1650f95272569d932a6feffffff011ec89a3b000000001976a9
+14955410003527bf2b360a7a390b9ff14b9106c63288ac00000000fd12010100000000005c71e5f46d
+35196e33b45c5d59d3fd2dc84381942064cae21744fb717412c1ac0100000000000000000000000000
+ffff2f6fb5cf4e2199e9dff4cd5a0abc61b5287a0ba48c0553d6358890c0e9ec9dc5f08b1d4d021192
+0fe5d96a225c555a4ba7dd7f6cb14e271c925f2fc72316a01282973f9ad9cf1e39e03829dcf16f7a66
+b832d3b84dbab400a1e9eb7f30ac00001976a914955410003527bf2b360a7a390b9ff14b9106c63288
+ac835b69acdba709707c5cccdfcc342eacc87d6db0cc676896a01fe433a0620ae4411f5da2e5444c6a
+1556c3d45798b9f95567b1625b3f0cbe69936a70e35ca76b381f0a5506de07274e5e24db8be77234ad
+8fa023938f750a283b39b1bff17b2ad11f
+```
+
+The JSON representation of a raw transaction can be obtained with the [`getrawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#getrawtransaction) or the [`decoderawtransaction` RPC](core-api-ref-remote-procedure-calls-raw-transactions#decoderawtransaction).
+
+```json JSON Representation
+{
+  "txid": "b43dadbd485e4d1e1d202ea5180f0ad4e8e7f05e97a7e566a764ed714356bd1f",
+  "version": 3,
+  "type": 1,
+  "size": 468,
+  "locktime": 0,
+  "vin": [
+    {
+      "txid": "283fbd03b7747d8246f2044b729628524780a33fd4923deab83830bd688da03e",
+      "vout": 1,
+      "scriptSig": {
+        "asm": "304402201fe458e3dc2c6072848418fedd48fe79081be3c818301ce0a97de4c1dd5ee2da02206f601d0de9540ac53ef7f9c59c92ef594237f8b23dad3b04b1005ff85fb61a5d[ALL] 022dce9621ff449fe1a12648da526b93e0c2f8e43d14f8c1650f95272569d932a6",
+        "hex": "47304402201fe458e3dc2c6072848418fedd48fe79081be3c818301ce0a97de4c1dd5ee2da02206f601d0de9540ac53ef7f9c59c92ef594237f8b23dad3b04b1005ff85fb61a5d0121022dce9621ff449fe1a12648da526b93e0c2f8e43d14f8c1650f95272569d932a6"
+      },
+      "sequence": 4294967294
+    }
+  ],
+  "vout": [
+    {
+      "value": 9.99999518,
+      "valueSat": 999999518,
+      "n": 0,
+      "scriptPubKey": {
+        "asm": "OP_DUP OP_HASH160 955410003527bf2b360a7a390b9ff14b9106c632 OP_EQUALVERIFY OP_CHECKSIG",
+        "hex": "76a914955410003527bf2b360a7a390b9ff14b9106c63288ac",
+        "reqSigs": 1,
+        "type": "pubkeyhash",
+        "addresses": [
+          "yZw2EYuVkTNUzUqd7mfXRNhCMReonL99tu"
+        ]
+      }
+    }
+  ],
+  "extraPayloadSize": 274,
+  "extraPayload": "0100000000005c71e5f46d35196e33b45c5d59d3fd2dc84381942064cae21744fb717412c1ac0100000000000000000000000000ffff2f6fb5cf4e2199e9dff4cd5a0abc61b5287a0ba48c0553d6358890c0e9ec9dc5f08b1d4d0211920fe5d96a225c555a4ba7dd7f6cb14e271c925f2fc72316a01282973f9ad9cf1e39e03829dcf16f7a66b832d3b84dbab400a1e9eb7f30ac00001976a914955410003527bf2b360a7a390b9ff14b9106c63288ac835b69acdba709707c5cccdfcc342eacc87d6db0cc676896a01fe433a0620ae4411f5da2e5444c6a1556c3d45798b9f95567b1625b3f0cbe69936a70e35ca76b381f0a5506de07274e5e24db8be77234ad8fa023938f750a283b39b1bff17b2ad11f",
+  "proRegTx": {
+    "version": 1,
+    "type": 0,
+    "collateralHash": "acc1127471fb4417e2ca6420948143c82dfdd3595d5cb4336e19356df4e5715c",
+    "collateralIndex": 1,
+    "service": "47.111.181.207:20001",
+    "ownerAddress": "yaMGQThTVPUf1LBqVqa1jMTtLW7ByVbN78",
+    "votingAddress": "yQ8oETtF1pRQfBP4iake2e5zyCCm85CAET",
+    "payoutAddress": "yZw2EYuVkTNUzUqd7mfXRNhCMReonL99tu",
+    "pubKeyOperator": "90c0e9ec9dc5f08b1d4d0211920fe5d96a225c555a4ba7dd7f6cb14e271c925f2fc72316a01282973f9ad9cf1e39e038",
+    "operatorReward": 0,
+    "inputsHash": "e40a62a033e41fa0966867ccb06d7dc8ac2e34ccdfcc5c7c7009a7dbac695b83"
+  },
+  "hex": "03000100013ea08d68bd3038b8ea3d92d43fa38047522896724b04f246827d74b703bd3f28010000006a47304402201fe458e3dc2c6072848418fedd48fe79081be3c818301ce0a97de4c1dd5ee2da02206f601d0de9540ac53ef7f9c59c92ef594237f8b23dad3b04b1005ff85fb61a5d0121022dce9621ff449fe1a12648da526b93e0c2f8e43d14f8c1650f95272569d932a6feffffff011ec89a3b000000001976a914955410003527bf2b360a7a390b9ff14b9106c63288ac00000000fd12010100000000005c71e5f46d35196e33b45c5d59d3fd2dc84381942064cae21744fb717412c1ac0100000000000000000000000000ffff2f6fb5cf4e2199e9dff4cd5a0abc61b5287a0ba48c0553d6358890c0e9ec9dc5f08b1d4d0211920fe5d96a225c555a4ba7dd7f6cb14e271c925f2fc72316a01282973f9ad9cf1e39e03829dcf16f7a66b832d3b84dbab400a1e9eb7f30ac00001976a914955410003527bf2b360a7a390b9ff14b9106c63288ac835b69acdba709707c5cccdfcc342eacc87d6db0cc676896a01fe433a0620ae4411f5da2e5444c6a1556c3d45798b9f95567b1625b3f0cbe69936a70e35ca76b381f0a5506de07274e5e24db8be77234ad8fa023938f750a283b39b1bff17b2ad11f",
+  "blockhash": "0000000016e9bd30f97d98be7abc7934e24a064b1c8e7fefcb641694fe53e5d4",
+  "height": 247288,
+  "confirmations": 611337,
+  "time": 1578970980,
+  "blocktime": 1578970980,
+  "instantlock": true,
+  "instantlock_internal": false,
+  "chainlock": true
+}
+
+```
+
+
+
 # ProUpServTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)_
 
 The <<glossary:masternode>> Provider Update Service (ProUpServTx) special transaction is used to update the IP Address and port of a masternode. If a non-zero operatorReward was set in the initial [ProRegTx](#proregtx), the operator may also set the scriptOperatorPayout field in the ProUpServTx.
 
@@ -174,22 +259,22 @@ A ProUpServTx is created and sent using the [`protx update_service` RPC](core-ap
 
 The special transaction type used for ProUpServTx Transactions is 2 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | ProUpServTx version number. Currently set to 1.
-| 32 | proTXHash | uint256 | The hash of the initial ProRegTx
-| 16 | ipAddress | byte[] | IPv6 address in network byte order. Only IPv4 mapped addresses are allowed (to be extended in the future)
-| 2 | port | uint_16 | Port (network byte order)
-| 1-9 | scriptOperator<br>PayoutSize | compactSize uint | Size of the Operator Payee Script.
-| Variable | scriptOperator<br>Payout | Script | Operator Payee script (p2pkh/p2sh)
-| 32 | inputsHash | uint256 | Hash of all the outpoints of the transaction inputs
-| 1-9 | payloadSigSize |compactSize uint | Size of the Signature<br>**Note:** not present in BLS implementation
-| 96 | payloadSig | vector | BLS Signature of the hash of the ProUpServTx fields. Signed by the Operator.
+| Bytes    | Name                         | Data type        | Description                                                                                               |
+| -------- | ---------------------------- | ---------------- | --------------------------------------------------------------------------------------------------------- |
+| 2        | version                      | uint_16          | ProUpServTx version number. Currently set to 1.                                                           |
+| 32       | proTXHash                    | uint256          | The hash of the initial ProRegTx                                                                          |
+| 16       | ipAddress                    | byte\[]          | IPv6 address in network byte order. Only IPv4 mapped addresses are allowed (to be extended in the future) |
+| 2        | port                         | uint_16          | Port (network byte order)                                                                                 |
+| 1-9      | scriptOperator<br>PayoutSize | compactSize uint | Size of the Operator Payee Script.                                                                        |
+| Variable | scriptOperator<br>Payout     | Script           | Operator Payee script (p2pkh/p2sh)                                                                        |
+| 32       | inputsHash                   | uint256          | Hash of all the outpoints of the transaction inputs                                                       |
+| 1-9      | payloadSigSize               | compactSize uint | Size of the Signature<br>**Note:** not present in BLS implementation                                      |
+| 96       | payloadSig                   | vector           | BLS Signature of the hash of the ProUpServTx fields. Signed by the Operator.                              |
 
-The following annotated hexdump shows a ProUpServTx transaction. (Parts of the
+The following annotated hexdump shows a ProUpServTx transaction. (Parts of the  
 classical transaction section have been omitted.)
 
-``` text
+```text
 0300 ....................................... Version (3)
 0200 ....................................... Type (2 - ProUpServTx)
 
@@ -224,9 +309,11 @@ ProUpServTx Payload
 | 789beed8ef7e8839695a334c2e1bd37c ......... BLS Signature (96 bytes)
 ```
 
+
+
 # ProUpRegTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)_
 
 The <<glossary:masternode>> Provider Update Registrar (ProUpRegTx) special transaction is used by a masternode owner to update masternode metadata (e.g. operator/voting key details or the payout script).
 
@@ -234,23 +321,23 @@ A ProUpRegTx is created and sent using the [`protx update_registrar` RPC](core-a
 
 The special transaction type is 3 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | Provider update registrar transaction version number. Currently set to 1.
-| 32 | proTXHash | uint256 | The hash of the initial ProRegTx
-| 2 | mode | uint_16 | Masternode mode. Default set to 0.
-| 48 | PubKeyOperator | CBLSPublicKey | The BLS public key used for operational related signing (network messages, ProTx updates)
-| 20 | KeyIdVoting | CKeyID | The public key hash used for voting.
-| 1-9 | scriptPayoutSize | compactSize uint | Size of the Payee Script.
-| Variable | scriptPayout | Script | Payee script (p2pkh/p2sh)
-| 32 | inputsHash | uint256 | Hash of all the outpoints of the transaction inputs
-| 1-9 | payloadSigSize |compactSize uint | Size of the Signature
-| Variable | payloadSig | vector | Signature of the hash of the ProTx fields. Signed with the key corresponding to the collateral outpoint in case the collateral is not part of the ProRegTx itself, empty otherwise.
+| Bytes    | Name             | Data type        | Description                                                                                                                                                                         |
+| -------- | ---------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2        | version          | uint_16          | Provider update registrar transaction version number. Currently set to 1.                                                                                                           |
+| 32       | proTXHash        | uint256          | The hash of the initial ProRegTx                                                                                                                                                    |
+| 2        | mode             | uint_16          | Masternode mode. Default set to 0.                                                                                                                                                  |
+| 48       | PubKeyOperator   | CBLSPublicKey    | The BLS public key used for operational related signing (network messages, ProTx updates)                                                                                           |
+| 20       | KeyIdVoting      | CKeyID           | The public key hash used for voting.                                                                                                                                                |
+| 1-9      | scriptPayoutSize | compactSize uint | Size of the Payee Script.                                                                                                                                                           |
+| Variable | scriptPayout     | Script           | Payee script (p2pkh/p2sh)                                                                                                                                                           |
+| 32       | inputsHash       | uint256          | Hash of all the outpoints of the transaction inputs                                                                                                                                 |
+| 1-9      | payloadSigSize   | compactSize uint | Size of the Signature                                                                                                                                                               |
+| Variable | payloadSig       | vector           | Signature of the hash of the ProTx fields. Signed with the key corresponding to the collateral outpoint in case the collateral is not part of the ProRegTx itself, empty otherwise. |
 
-The following annotated hexdump shows a ProUpRegTx transaction referencing an
+The following annotated hexdump shows a ProUpRegTx transaction referencing an  
 existing collateral. (Parts of the classical transaction section have been omitted.)
 
-``` text
+```text
 0300 ....................................... Version (3)
 0300 ....................................... Type (3 - ProUpRegTx)
 
@@ -295,9 +382,11 @@ ProRegTx Payload
 | a73d347841a58768b94c771819dc2bbce3 ....... Signature
 ```
 
+
+
 # ProUpRevTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)_
 
 The <<glossary:masternode>> Operator Revocation (ProUpRevTx) special transaction allows an operator to revoke their key in case of compromise or if they wish to terminate service. If a masternode's operator key is revoked, the masternode becomes ineligible for payment until the owner provides a new operator key (via a ProUpRegTx).
 
@@ -305,18 +394,18 @@ A ProUpRevTx is created and sent using the [`protx revoke` RPC](core-api-ref-rem
 
 The special transaction type used for ProUpServTx Transactions is 4 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | ProUpRevTx version number. Currently set to 1.
-| 32 | proTXHash | uint256 | The hash of the initial ProRegTx
-| 2 | reason | uint_16 | The reason for revoking the key.<br>`0` - Not specified<br>`1` - Termination of Service<br>`2` - Compromised Key<br>`3` - Change of key
-| 32 | inputsHash | uint256 | Hash of all the outpoints of the transaction inputs
-| 1-9 | payloadSigSize |compactSize uint | Size of the Signature<br>**Note:** not present in BLS implementation
-| 96 | payloadSig | vector | BLS Signature of the hash of the ProUpServTx fields. Signed by the Operator.
+| Bytes | Name           | Data type        | Description                                                                                                                             |
+| ----- | -------------- | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| 2     | version        | uint_16          | ProUpRevTx version number. Currently set to 1.                                                                                          |
+| 32    | proTXHash      | uint256          | The hash of the initial ProRegTx                                                                                                        |
+| 2     | reason         | uint_16          | The reason for revoking the key.<br>`0` - Not specified<br>`1` - Termination of Service<br>`2` - Compromised Key<br>`3` - Change of key |
+| 32    | inputsHash     | uint256          | Hash of all the outpoints of the transaction inputs                                                                                     |
+| 1-9   | payloadSigSize | compactSize uint | Size of the Signature<br>**Note:** not present in BLS implementation                                                                    |
+| 96    | payloadSig     | vector           | BLS Signature of the hash of the ProUpServTx fields. Signed by the Operator.                                                            |
 
 The following annotated hexdump shows a ProUpRevTx transaction. (Parts of the classical transaction section have been omitted.)
 
-``` text
+```text
 0300 ....................................... Version (3)
 0400 ....................................... Type (4 - ProUpRevTx)
 
@@ -347,33 +436,35 @@ ProUpRevTx Payload
 | 05877d82ff7d1af00ae2d303dea5eb3b ......... BLS Signature (96 bytes)
 ```
 
+
+
 # CbTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP4](https://github.com/dashpay/dips/blob/master/dip-0004.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP4](https://github.com/dashpay/dips/blob/master/dip-0004.md)_
 
 The Coinbase (CbTx) special transaction adds information to the <<glossary:block>> <<glossary:coinbase transaction>> that enables verification of the deterministic masternode list without the full chain (e.g. from <<glossary:SPV>> clients). This allows light-clients to properly verify <<glossary:InstantSend>> transactions and support additional deterministic masternode list functionality in the future.
 
 The special transaction type used for CbTx Transactions is 5 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | CbTx version number. Currently set to 2.
-| 4 | height | uint32_t | Height of the block
-| 32 | merkleRootMNList | uint256 | Merkle root of the masternode list
-| 32 | merkleRootQuorums | uint256 | *Added by CbTx version 2 in v0.14.0*<br><br>Merkle root of currently active LLMQs
+| Bytes | Name              | Data type | Description                                                                       |
+| ----- | ----------------- | --------- | --------------------------------------------------------------------------------- |
+| 2     | version           | uint_16   | CbTx version number. Currently set to 2.                                          |
+| 4     | height            | uint32_t  | Height of the block                                                               |
+| 32    | merkleRootMNList  | uint256   | Merkle root of the masternode list                                                |
+| 32    | merkleRootQuorums | uint256   | _Added by CbTx version 2 in v0.14.0_<br><br>Merkle root of currently active LLMQs |
 
 Version History
 
-| CbTx Version | First Supported Protocol Version | Dash Core Version |  Notes |
-| ---------- | ----------- | -------- | -------- |
-| 1 | 70213 | 0.13.0 | Enabled by activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md)
-| 2 | 70214 | 0.14.0 | Enabled by activation of [DIP8](https://github.com/dashpay/dips/blob/master/dip-0008.md)
+| CbTx Version | First Supported Protocol Version | Dash Core Version | Notes                                                                                    |
+| ------------ | -------------------------------- | ----------------- | ---------------------------------------------------------------------------------------- |
+| 1            | 70213                            | 0.13.0            | Enabled by activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) |
+| 2            | 70214                            | 0.14.0            | Enabled by activation of [DIP8](https://github.com/dashpay/dips/blob/master/dip-0008.md) |
 
 The following annotated hexdump shows a CbTx transaction.
 
 An itemized coinbase transaction:
 
-``` text
+```text
 0300 ....................................... Version (3)
 0500 ....................................... Type (5 - Coinbase)
 
@@ -417,12 +508,14 @@ Coinbase Transaction Payload
 | fb0bd72a47ecfe0e8aa6f660fb96396e ......... Active LLMQ merkle root
 ```
 
+
+
 # QcTx
 
-*Added in protocol version 70213 of Dash Core as described by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md)*
+_Added in protocol version 70213 of Dash Core as described by [DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md)_
 
 > 🚧 Note
->
+> 
 > This special transaction has no inputs and no outputs and thus also pays no fee.
 
 The Quorum Commitment (QcTx) special transaction adds the best final commitment from a <<glossary:Long-Living Masternode Quorum>> (LLMQ) Distributed Key Generation (DKG) session to the chain.
@@ -433,17 +526,17 @@ If a DKG failed or a <<glossary:miner>> did not receive a final commitment in-ti
 
 The special transaction type used for Quorum Commitment Transactions is 6 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1. Will change to 2 after Dash Core v18.0 hard fork.
-| 4 | height | uint32_t | Height of the block
-| Variable | commitment | qfcommit | The payload of the [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit)
+| Bytes    | Name       | Data type | Description                                                                                             |
+| -------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------- |
+| 2        | version    | uint_16   | Quorum Commitment version number. Currently set to 1. Will change to 2 after Dash Core v18.0 hard fork. |
+| 4        | height     | uint32_t  | Height of the block                                                                                     |
+| Variable | commitment | qfcommit  | The payload of the [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit)                  |
 
 The following annotated hexdump shows a QcTx transaction.
 
 An itemized quorum commitment transaction (v1):
 
-``` text
+```text
 0300 ....................................... Version (3)
 0600 ....................................... Type (6 - Quorum Commitment)
 
@@ -497,32 +590,34 @@ Quorum Commitment Transaction Payload
 | | e0d4f461a2ba0e32a711197ca559dacf ....... BLS Signature (96 bytes)
 ```
 
+
+
 # MnHfTx
 
-*Added in protocol version 70222 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)*
+_Added in protocol version 70222 of Dash Core as described by [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md)_
 
 > 🚧 Note
->
+> 
 > This special transaction has no inputs and no outputs and thus also pays no fee
 
 The Masternode Hard Fork Signal (MnHfTx) special transaction adds the masternode hard fork signal produced by an LLMQ_400_85 quorum to the chain. Since this special transaction pays no fees, it is mandatory by consensus rules to ensure that miners include it. This can be done by any miner in any block, but it should only be included once.
 
 > 📘 Partial implementation in Dash Core 18.0
->
+> 
 > Dash Core 18.0 only added the special transaction [to prepare for the full implementation](https://github.com/dashpay/dash/issues/4533) of [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md) in Dash Core 19.0. The `mnhfsignal` P2P message referenced below is not included in Dash Core 18.0.
 
 The special transaction type used for Quorum Commitment Transactions is 7 and the extra payload consists of the following data:
 
-| Bytes | Name | Data type |  Description |
-| ---------- | ----------- | -------- | -------- |
-| 2 | version | uint_16 | Quorum Commitment version number. Currently set to 1.
-| Variable | commitment | mnhfsignal | The payload of the `mnhfsignal` message (defined in [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md#new-system) but not yet implemented)
+| Bytes    | Name       | Data type  | Description                                                                                                                                              |
+| -------- | ---------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2        | version    | uint_16    | Quorum Commitment version number. Currently set to 1.                                                                                                    |
+| Variable | commitment | mnhfsignal | The payload of the `mnhfsignal` message (defined in [DIP23](https://github.com/dashpay/dips/blob/master/dip-0023.md#new-system) but not yet implemented) |
 
 The following annotated hexdump shows a MnHfTx transaction.
 
 An itemized masternode hard fork signal transaction:
 
-``` text
+```text
 0300 ....................................... Version (3)
 0700 ....................................... Type (7 - Masternode Hard Fork Signal)
 <Add example mnhfsignal when available>
