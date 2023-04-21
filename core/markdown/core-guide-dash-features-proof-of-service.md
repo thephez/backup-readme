@@ -8,7 +8,7 @@ The following table lists the aspects of the DKG process a masternode must compl
 | :-: | - |
 | 70213+ | Exchange required messages (quorum contributions and quorum justifications) with other quorum members during the [LLMQ DKG process](core-guide-dash-features-masternode-quorums#llmq-creation-dkg) (Dash Core 0.13.0+) |
 | 70218+ | Have an open P2P port ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)). _Enforcement of this requirement is dependent on Spork 23 being enabled_ |
-| 70218+ | Have a protocol version => [`MIN_MASTERNODE_PROTO_VERSION`](https://github.com/dashpay/dash/blob/v0.16.x/src/version.h#L26). During updates where this version is increased, masternodes will begin receiving PoSe score increases once > 80% of masternodes have upgrade ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)). _Enforcement of this requirement is dependent on Spork 23 being enabled_ |
+| 70218+ | Have a protocol version => [`MIN_MASTERNODE_PROTO_VERSION`](https://github.com/dashpay/dash/blob/v19.x/src/version.h#L23). During updates where this version is increased, masternodes will begin receiving PoSe score increases once > 80% of masternodes have upgrade ([Dash Core 0.16.0+](https://github.com/dashpay/dash/pull/3390)). _Enforcement of this requirement is dependent on Spork 23 being enabled_ |
 
 # Proof of Service Score Weighting
 

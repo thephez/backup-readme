@@ -40,7 +40,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:15:49.527Z"
  },
  "title": "Evaluating A Bloom Filter",
  "icon": "",
@@ -59,17 +60,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.100Z",
  "revision": 2,
- "_id": "6388e57de5231e009cab802e",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77d2",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-11T21:56:16.639Z",
  "createdAt": "2019-10-24T14:51:38.977Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "parentDoc": "6388e57de5231e009cab8027",
+ "parentDoc": "63f5176df91c7700118e77cb",
  "user": "62b2101422da70001ee51d95",
- "category": "6388e57de5231e009cab7ffc",
+ "category": "63f5176df91c7700118e77a0",
  "__v": 1,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab802e",
+ "id": "63f5176df91c7700118e77d2",
  "body_html": "<div class=\"magic-block-textarea\"><p>Using a &lt;&lt;glossary:bloom filter&gt;&gt; to find matching data is nearly identical to constructing a bloom filter---except that at each step we check to see if the calculated index bit is set in the existing filter.</p>\n<pre><code class=\"lang-python\"><span class='cm-s-neo'><span class=\"cm-variable\">vData</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">bitarray</span>(<span class=\"cm-variable\">endian</span><span class=\"cm-operator\">=</span><span class=\"cm-string\">'little'</span>)\n<span class=\"cm-variable\">vData</span>.<span class=\"cm-property\">frombytes</span>(<span class=\"cm-string\">\"b50f\"</span>.<span class=\"cm-property\">decode</span>(<span class=\"cm-string\">\"hex\"</span>))\n<span class=\"cm-variable\">nHashFuncs</span> <span class=\"cm-operator\">=</span> <span class=\"cm-number\">11</span>\n<span class=\"cm-variable\">nTweak</span> <span class=\"cm-operator\">=</span> <span class=\"cm-number\">0</span>\n<span class=\"cm-variable\">nFlags</span> <span class=\"cm-operator\">=</span> <span class=\"cm-number\">0</span></span>\n</code></pre>\n<p>Using the bloom filter created above, we import its various parameters. Note, as indicated in the section above, we won&#39;t actually use <em>nFlags</em> to update the filter.</p>\n<pre><code class=\"lang-python\"><span class='cm-s-neo'><span class=\"cm-keyword\">def</span> <span class=\"cm-def\">contains</span>(<span class=\"cm-variable\">nHashFuncs</span>, <span class=\"cm-variable\">data_to_hash</span>):\n    <span class=\"cm-keyword\">for</span> <span class=\"cm-variable\">nHashNum</span> <span class=\"cm-keyword\">in</span> <span class=\"cm-builtin\">range</span>(<span class=\"cm-variable\">nHashFuncs</span>):\n        <span class=\"cm-comment\">## bloom_hash as defined in previous section</span>\n        <span class=\"cm-variable\">nIndex</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">bloom_hash</span>(<span class=\"cm-variable\">nHashNum</span>, <span class=\"cm-variable\">data_to_hash</span>)\n\n        <span class=\"cm-keyword\">if</span> <span class=\"cm-variable\">vData</span>[<span class=\"cm-variable\">nIndex</span>] <span class=\"cm-operator\">!=</span> <span class=\"cm-keyword\">True</span>:\n            <span class=\"cm-builtin\">print</span> <span class=\"cm-string\">\"MATCH FAILURE: Index {0} not set in {1}\"</span>.<span class=\"cm-property\">format</span>(\n                <span class=\"cm-builtin\">hex</span>(<span class=\"cm-builtin\">int</span>(<span class=\"cm-variable\">nIndex</span>)),\n                <span class=\"cm-variable\">vData</span>.<span class=\"cm-property\">to01</span>()\n            )\n            <span class=\"cm-keyword\">return</span> <span class=\"cm-keyword\">False</span></span>\n</code></pre>\n<p>We define a function to check an element against the provided filter. When checking whether the filter might contain an element, we test to see whether a particular bit in the filter is already set to 1 (if it isn&#39;t, the match fails).</p>\n<pre><code class=\"lang-python\"><span class='cm-s-neo'><span class=\"cm-comment\">## Test 1: Same TXID as previously added to filter</span>\n<span class=\"cm-variable\">data_to_hash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">\"019f5b01d4195ecbc9398fbf3c3b1fa9\"</span> \\\n               <span class=\"cm-operator\">+</span> <span class=\"cm-string\">\"bb3183301d7a1fb3bd174fcfa40a2b65\"</span>\n<span class=\"cm-variable\">data_to_hash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">data_to_hash</span>.<span class=\"cm-property\">decode</span>(<span class=\"cm-string\">\"hex\"</span>)\n<span class=\"cm-variable\">contains</span>(<span class=\"cm-variable\">nHashFuncs</span>, <span class=\"cm-variable\">data_to_hash</span>)</span>\n</code></pre>\n<p>Testing the filter against the data element we previously added, we get no output (indicating a possible match).  Recall that bloom filters have a zero false negative rate---so they should always match the inserted elements.</p>\n<pre><code class=\"lang-python\"><span class='cm-s-neo'><span class=\"cm-comment\">## Test 2: Arbitrary string</span>\n<span class=\"cm-variable\">data_to_hash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">\"1&#47;10,000 chance this ASCII string will match\"</span>\n<span class=\"cm-variable\">contains</span>(<span class=\"cm-variable\">nHashFuncs</span>, <span class=\"cm-variable\">data_to_hash</span>)</span>\n</code></pre>\n<p>Testing the filter against an arbitrary element, we get the failure output below.  Note: we created the filter with a 1-in-10,000 false positive rate (which was rounded up somewhat when we truncated), so it was possible this arbitrary string would&#39;ve matched the filter anyway. It is not possible to set a bloom filter to a false positive rate of zero, so your program will always have to deal with false positives. The output below shows us that one of the hash functions returned an index number of 0x06, but that bit wasn&#39;t set in the filter, causing the match failure:</p>\n<pre><code class=\"lang-text\">MATCH FAILURE: Index 0x6 not set in 1010110111110000\n</code></pre>\n\n</div>"
 }

@@ -61,7 +61,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:15:49.134Z"
  },
  "title": "Introduction",
  "icon": "",
@@ -80,17 +81,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:53.572Z",
  "revision": 2,
- "_id": "6388e57de5231e009cab802c",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77d0",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-11T20:03:09.513Z",
  "createdAt": "2019-10-24T14:42:42.066Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
- "category": "6388e57de5231e009cab7ffc",
+ "category": "63f5176df91c7700118e77a0",
  "__v": 2,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab802c",
+ "id": "63f5176df91c7700118e77d0",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\">pre-compiled executable</a>.</p>\n<p>Once installed, you&#39;ll have access to three programs: <code>dashd</code>, <code>dash-qt</code>, and <code>dash-cli</code>.</p>\n<ul>\n<li ><p><code>dash-qt</code> provides a combination full Dash &lt;&lt;glossary:peer&gt;&gt; and &lt;&lt;glossary:wallet&gt;&gt; frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.</p>\n</li><li ><p><code>dashd</code> is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for &lt;&lt;glossary:testnet&gt;&gt; / 19898 for regtest).</p>\n</li><li ><p><code>dash-cli</code> allows you to send RPC commands to <code>dashd</code> from the command line.  For example, <code>dash-cli help</code></p>\n</li></ul>\n\n</div>"
 }

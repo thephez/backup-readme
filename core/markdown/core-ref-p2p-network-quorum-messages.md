@@ -23,11 +23,11 @@ The [`qcontrib` message](core-ref-p2p-network-quorum-messages#qcontrib) is used 
 | 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#proregtx) hash of the complaining member
 | 1-9 | vvecSize | compactSize uint | The size of the verification vector
 | 48 * `vvecSize` | vvec | BLSPubKey[] | The verification vector
-| 48 | ephemeralPubKey | BLSPubKey | Ephemeral BLS public key used to encrypt secret key contributions
+| 48 | ephemeralPubKey | BLSPubKey | Ephemeral BLS public key used to encrypt secret key contributions<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 | 32 | iv | uint256 | Initialization vector
 | 1-9 | skCount | compactSize uint | Number of encrypted secret key contributions
 | (1 + 32) * (`skCount`) | skContributions | byte[] | Secret key contributions encrypted to recipient masternodes’ BLS public operator key.<br><br>Each contribution consists of:<br>- Size: 1 byte<br>- Secret Key: 32 bytes
-| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode
+| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 More information can be found in the [Contribution phase section of DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#2-contribution-phase).
 
@@ -111,7 +111,7 @@ If a threshold number of quorum participants indicate a masternode didn't contri
 | (`badBitSize` + 7) / 8 | badMembers | byte[] | The bad members bitvector
 | 1-9 | complaintsBitSize | compactSize uint | Number of bits in the complaints bitvector
 | (`complaints`<br>`BitSize` + 7) / 8 | complaints | byte[] | The complaints bitvector
-| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode
+| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 More information can be found in the [Complaining phase section of DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#3-complaining-phase).
 
@@ -269,7 +269,7 @@ The [`qjustify` message](core-ref-p2p-network-quorum-messages#qjustify) is used 
 | 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#proregtx) hash of the complaining member
 | 1-9 | skContributions<br>Count | compactSize uint | Number of unencrypted secret key contributions
 | 36 * `skContributions`<br>`Count` | skContribution | SKContribution | Member index and secret key contribution for members justifying complaints
-| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode
+| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 An `SKContribution` consists of:
 
@@ -332,10 +332,10 @@ The [`qpcommit` message](core-ref-p2p-network-quorum-messages#qpcommit) is used 
 | 32 | proTxHash | uint256 | The [ProRegTx](core-ref-transactions-special-transactions#proregtx) hash of the complaining member
 | 1-9 | validMembersSize | compactSize uint | Bit size of the `validMembers` bitvector
 | (`valid`<br>`MembersSize` + 7) / 8 | validMembers | byte[] | Bitset of valid members in this commitment
-| 48 | quorumPublicKey | uint256 | The quorum public key
+| 48 | quorumPublicKey | uint256 | The quorum public key<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 | 32 | quorumVvecHash | byte[] | The hash of the quorum verification vector
-| 96 | quorumSig | BLSSig | Threshold signature, signed with the threshold signature share of the committing member
-| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode
+| 96 | quorumSig | BLSSig | Threshold signature, signed with the threshold signature share of the committing member<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
+| 96 | sig | byte[] | BLS signature, signed with the operator key of the contributing masternode<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 More information can be found in the [Commitment phase section of DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#5-commitment-phase).
 
@@ -381,9 +381,12 @@ The [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit) is used 
 
 It is possible to receive multiple valid final commitments for the same DKG session. These should only differ in the number of signers, which can be ignored as long as there are at least `quorumThreshold` number of signers. The set of valid members for these final commitments should always be the same, as each member only creates a single premature commitment. This means that only one set of valid members (and thus only one quorum verification vector and quorum <<glossary:public key>>) can gain a majority. If the threshold is not reached, there will be no valid final commitment.
 
-> 📘 Version 2
+> 📘 Versions
 >
-> Dash Core 18.0 updated the `qfcommit` message to support a new message of quorum creation for some quorum types. Note the addition of the `quorumIndex` field in version 2 messages.
+> - Version 2 (Dash Core 18.0) - updated the `qfcommit` message to support a [new method](https://github.com/dashpay/dips/blob/master/dip-0024.md) of quorum creation for some quorum types. Note the addition of the `quorumIndex` field in version 2 messages.
+> - Versions 3/4 (Dash Core 19.0) - `quorumPublicKey`, `quorumSig`, and `sig` serialized using the basic BLS scheme (versions <3 use the legacy BLS scheme).
+>
+> See the _Version differences summary_ table below for more information.
 
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
@@ -395,16 +398,25 @@ It is possible to receive multiple valid final commitments for the same DKG sess
 | (bitSize + 7) / 8 | signers | byte[] | Bitset representing the aggregated signers of this final commitment
 | 1-9 | validMembersSize | compactSize uint | Bit size of the `validMembers` bitvector
 | (bitSize + 7) / 8 | validMembers | byte[] | Bitset of valid members in this commitment
-| 48 | quorumPublicKey | BLSPubKey | The quorum public key
+| 48 | quorumPublicKey | BLSPubKey | The quorum public key<br>**Note**: serialization varies based on `version`:<br>\* Version <3 - legacy BLS scheme<br>\* Version >= 3 - basic BLS scheme
 | 32 | quorumVvecHash | uint256 | The hash of the quorum verification vector
-| 96 | quorumSig | byte[] | Recovered threshold signature
-| 96 | sig | byte[] | Aggregated BLS signatures from all included commitments
+| 96 | quorumSig | byte[] | Recovered threshold signature<br>**Note**: serialization varies based on `version`:<br>\* Version <3 - legacy BLS scheme<br>\* Version >= 3 - basic BLS scheme
+| 96 | sig | byte[] | Aggregated BLS signatures from all included commitments<br>**Note**: serialization varies based on `version`:<br>\* Version <3 - legacy BLS scheme<br>\* Version >= 3 - basic BLS scheme
+
+**Version differences summary**
+
+| Version | Version Description | `quorumIndex` field |
+| :-: | - | :-: |
+| 1 | Non-rotated quorum `qfcommit` serialized using legacy BLS scheme | Absent |
+| 2 | [Rotated quorum](https://github.com/dashpay/dips/blob/master/dip-0024.md) `qfcommit` serialized using legacy BLS scheme     | Present |
+| 3 | Non-rotated quorum `qfcommit` serialized using basic BLS scheme  | Absent  |
+| 4 | [Rotated quorum](https://github.com/dashpay/dips/blob/master/dip-0024.md) `qfcommit` serialized using basic BLS scheme      | Present |
 
 More information can be found in the [Finalization phase section of DIP6](https://github.com/dashpay/dips/blob/master/dip-0006.md#6-finalization-phase).
 
 The following annotated hexdump shows a _version 1_ [`qfcommit` message](core-ref-p2p-network-quorum-messages#qfcommit). (The message header has been omitted.)
 
-``` text
+``` text Version 1 qfcommit
 0100 ....................................... Message Version: 1
 01 ......................................... LLMQ Type: 1 (LLMQ_50_60)
 
@@ -616,7 +628,7 @@ The [`qsigrec` message](core-ref-p2p-network-quorum-messages#qsigrec) is used to
 | 32 | quorumHash | uint256 | The quorum hash
 | 32 | id | uint256 | The signing request id
 | 32 | msgHash | uint256 | The message hash
-| 96 | sig | byte[] | The final recovered BLS threshold signature
+| 96 | sig | byte[] | The final recovered BLS threshold signature<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 More information can be found in the [Recovered threshold signatures section of DIP7](https://github.com/dashpay/dips/blob/master/dip-0007.md#recovered-threshold-signatures).
 
@@ -722,7 +734,7 @@ The [`qsigshare` message](core-ref-p2p-network-quorum-messages#qsigshare) (quoru
 | 32 | quorumHash | uint256 | The quorum hash
 | 32 | id | uint256 | The signing request id
 | 32 | msgHash | uint256 | The message hash
-| 96 | sigShare | byte[] | The final recovered BLS threshold signature
+| 96 | sigShare | byte[] | The final recovered BLS threshold signature<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 The following annotated hexdump shows a [`qsigshare` message](core-ref-p2p-network-quorum-messages#qsigshare). (The message header has been omitted.)
 

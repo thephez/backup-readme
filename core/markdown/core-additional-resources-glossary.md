@@ -222,6 +222,10 @@ The Hierarchical Deterministic (HD) key creation and transfer protocol (BIP32), 
 
 A potentially-short value used as a seed to generate the master private key and master chain code for an HD wallet.
 
+# High-Performance Masternode (HPMN)
+
+High-Performance Masternodes are a new type of [masternode](#masternode) created to host Dash Platform – a Web3 technology stack for building decentralized applications on the Dash network. The collateral required to own an HPMN is 4000 DASH, as opposed to 1000 DASH for regular masternodes. HPMNs serve Platform along with Core, while regular masternodes only serve Core. The recommended specs for HPMNs are higher than those for regular masternodes. 
+
 # Header
 
 An 80-byte header belonging to a single block which is hashed repeatedly to create proof of work.
@@ -309,6 +313,8 @@ In HD wallets, the master chain code and master private key are the two pieces o
 # Masternode
 
 A computer that provides second-tier Dash functionality (InstantSend, CoinJoin, decentralized governance). Masternodes are incentivized by receiving part of the block reward, but must hold 1000 Dash as collateral to prevent sybil attacks.
+
+See also: [High-Performance Masternode](#high-performance-masternode-hpmn)
 
 # Merkle block
 

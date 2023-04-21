@@ -32,7 +32,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:16:10.548Z"
  },
  "title": "Previous Version of Docs",
  "icon": "",
@@ -51,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-24T15:50:39.496Z",
  "revision": 2,
- "_id": "6388e57de5231e009cab8085",
+ "_id": "63f5176df91c7700118e7823",
  "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-24T16:37:39.145Z",
  "updatedAt": "2021-03-24T16:37:39.145Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "6388e57de5231e009cab7fff",
+ "category": "63f5176df91c7700118e77a3",
  "project": "5daf2e65f4109c0040fd51e1",
- "version": "6388e57de5231e009cab8087",
+ "version": "63f5176df91c7700118e7825",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "6388e57de5231e009cab8085",
+ "id": "63f5176df91c7700118e7823",
  "body_html": "&nbsp;"
 }

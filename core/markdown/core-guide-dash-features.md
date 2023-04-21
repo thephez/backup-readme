@@ -12,6 +12,16 @@ The most important differentiating feature of the Dash payments network is the c
 
 However, the Dash network has a second layer of network participants that provide enhanced functionality in exchange for compensation. This second layer of masternodes enables the industry-leading features described in this section - most notably: [InstantSend](core-guide-dash-features-instantsend), [ChainLocks](core-guide-dash-features-chainlocks), [CoinJoin](core-guide-dash-features-privatesend), and [Governance](core-guide-dash-features-governance).
 
+### High-Performance Masternodes
+
+> 📘
+>
+> New in Dash Core v19.0
+
+High-Performance Masternodes (HPMNs) are a new type of masternode created to host [Dash Platform](https://dashplatform.readme.io/docs/introduction-what-is-dash-platform) – a Web3 technology stack for building decentralized applications on the Dash network. The collateral required to own an HPMN is 4000 DASH, as opposed to 1000 DASH for regular masternodes. 
+
+HPMNs serve Platform along with Core, while regular masternodes only serve Core. The recommended specs for HPMNs are higher than those for regular masternodes. HPMNs will receive 100% of the fees generated from Platform and 37.5% of the masternode portion of Core block rewards. Regular MNs will receive the remaining 62.5% of the masternode portion of Core block rewards and 0% of Platform fees.
+
 ## Full nodes
 
 Full nodes in Dash are equivalent to full nodes in Bitcoin. They download and validate the entire blockchain against the consensus rules. Unlike masternodes, full nodes do not provide additional services and thus are not compensated.

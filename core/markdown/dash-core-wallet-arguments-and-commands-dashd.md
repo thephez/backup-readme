@@ -1,12 +1,15 @@
 # Usage
 
 **Start Dash Core Daemon**
-```bash 
+
+```bash
 dashd [options]
 ```
 
+
+
 > 🚧 Debug Options
->
+> 
 > The following sections show all available options including debug options that are not normally displayed. To see only regular options, run `dashd --help`.
 
 ## Options:
@@ -23,9 +26,9 @@ dashd [options]
        If this block is in the chain assume that it and its ancestors are valid
        and potentially skip their script verification (0 to verify all,
        default:
-       000000000000000fd8af332029688d4ccb227f481efa6aff1d662358cc4f76c1,
+       00000000000000261bdbe99c01fcba992e577efa6cc41aae564b8ca9f112b2a3,
        testnet:
-       000000b572cdcda2a0135e45c88d428c4fec859939f0023a39bb9a83e8b4f550)
+       0000005c35514190ef3c38d322f69412553dc7e1107ed5f92adc2935b90acc51)
 
   -blockfilterindex=<type>
        Maintain an index of compact filters by block (default: 0, values:
@@ -47,9 +50,8 @@ dashd [options]
   -blocksonly
        Whether to reject transactions from network peers. Automatic broadcast
        and rebroadcast of any transactions from inbound peers is
-       disabled, unless '-whitelistforcerelay' is '1', in which case
-       whitelisted peers' transactions will be relayed. RPC transactions
-       are not affected. (default: 0)
+       disabled, unless the peer has the 'forcerelay' permission. RPC
+       transactions are not affected. (default: 0)
 
   -conf=<file>
        Specify path to read-only configuration file. Relative paths will be
@@ -96,9 +98,9 @@ dashd [options]
 
   -minimumchainwork=<hex>
        Minimum work assumed to exist on a valid chain in hex (default:
-       0000000000000000000000000000000000000000000079c96bdb79315818b358,
+       0000000000000000000000000000000000000000000082094584a23266cbb5f8,
        testnet:
-       00000000000000000000000000000000000000000000000002d68c333d26a1b3)
+       00000000000000000000000000000000000000000000000002d68cb6c090031f)
 
   -par=<n>
        Set the number of script verification threads (-16 to 15, 0 = auto, <0 =
@@ -139,6 +141,8 @@ dashd [options]
   -version
        Print version and exit
 ```
+
+
 
 ## Connection options:
 
@@ -184,9 +188,6 @@ dashd [options]
   -dnsseed
        Query for peer addresses via DNS lookup, if low on addresses (default: 1
        unless -connect used)
-
-  -enablebip61
-       Send reject messages per BIP61 (default: 1)
 
   -externalip=<ip>
        Specify your own public address
@@ -287,16 +288,19 @@ dashd [options]
        [host]:port notation for IPv6. Allowed permissions are
        bloomfilter (allow requesting BIP37 filtered blocks and
        transactions), noban (do not ban for misbehavior), forcerelay
-       (relay even non-standard transactions), relay (relay even in
-       -blocksonly mode), and mempool (allow requesting BIP35 mempool
-       contents). Specify multiple permissions separated by commas
-       (default: noban,mempool,relay). Can be specified multiple times.
+       (relay transactions that are already in the mempool; implies
+       relay), relay (relay even in -blocksonly mode), and mempool
+       (allow requesting BIP35 mempool contents). Specify multiple
+       permissions separated by commas (default: noban,mempool,relay).
+       Can be specified multiple times.
 
   -whitelist=<[permissions@]IP address or network>
        Whitelist peers connecting from the given IP address (e.g. 1.2.3.4) or
        CIDR notated network(e.g. 1.2.3.0/24). Uses same permissions as
        -whitebind. Can be specified multiple times.
 ```
+
+
 
 ## Indexing options:
 
@@ -326,10 +330,12 @@ dashd [options]
        call (default: 1)
 ```
 
+
+
 ## Wallet options:
 
 > 🚧 zapwallettxes
->
+> 
 > Dash Core 18.1.0 removed the `-zapwallettxes` startup option and its functionality. This option was originally intended to allow for the fee bumping of transactions that did not signal RBF. This functionality has been superseded with the [abandon transaction capability](core-api-ref-remote-procedure-calls-wallet#abandontransaction) available via RPC/console or when right-clicking on unconfirmed transactions in Dash-Qt.
 
 ```text
@@ -352,7 +358,10 @@ dashd [options]
        locked (%s in cmd is replaced by TxID)
 
   -keypool=<n>
-       Set key pool size to <n> (default: 1000)
+       Set key pool size to <n> (default: 1000). Warning: Smaller sizes may
+       increase the risk of losing funds when restoring from an old
+       backup, if none of the addresses in the original keypool have
+       been used.
 
   -rescan=<mode>
        Rescan the block chain for missing wallet transactions on startup (1 =
@@ -361,16 +370,14 @@ dashd [options]
   -spendzeroconfchange
        Spend unconfirmed change when sending transactions (default: 1)
 
-  -upgradewallet
-       Upgrade wallet to latest format on startup
-
   -wallet=<path>
-       Specify wallet database path. Can be specified multiple times to load
-       multiple wallets. Path is interpreted relative to <walletdir> if
-       it is not absolute, and will be created if it does not exist (as
-       a directory containing a wallet.dat file and log files). For
-       backwards compatibility this will also accept names of existing
-       data files in <walletdir>.)
+       Specify wallet path to load at startup. Can be used multiple times to
+       load multiple wallets. Path is to a directory containing wallet
+       data and log files. If the path is not absolute, it is
+       interpreted relative to <walletdir>. This only loads existing
+       wallets and does not create new ones. For backwards compatibility
+       this also accepts names of existing top-level data files in
+       <walletdir>.
 
   -walletbackupsdir=<dir>
        Specify full path to directory for automatic wallet backups (must exist)
@@ -383,9 +390,14 @@ dashd [options]
        exists, otherwise <datadir>)
 
   -walletnotify=<cmd>
-       Execute command when a wallet transaction changes (%s in cmd is replaced
-       by TxID)
+       Execute command when a wallet transaction changes. %s in cmd is replaced
+       by TxID and %w is replaced by wallet name. %w is not currently
+       implemented on windows. On systems where %w is supported, it
+       should NOT be quoted because this would break shell escaping used
+       to invoke the command.
 ```
+
+
 
 ## Wallet fee options:
 
@@ -413,6 +425,8 @@ dashd [options]
        confirmation on average within n blocks (default: 6)
 ```
 
+
+
 ## HD wallet options:
 
 ```text
@@ -432,6 +446,8 @@ dashd [options]
        Use hierarchical deterministic key generation (HD) after BIP39/BIP44.
        Only has effect during wallet creation/first start (default: 0)
 ```
+
+
 
 ## CoinJoin options:
 
@@ -464,6 +480,8 @@ dashd [options]
   -enablecoinjoin
        Enable use of CoinJoin for funds stored in this wallet (0-1, default: 0)
 ```
+
+
 
 ## ZeroMQ notification options:
 
@@ -598,6 +616,8 @@ dashd [options]
        Set publish raw transaction lock signature outbound message high water
        mark (default: 1000)
 ```
+
+
 
 ## Debugging/Testing options:
 
@@ -736,6 +756,8 @@ dashd [options]
        Watch and validate quorum communication (default: 0)
 ```
 
+
+
 ## Chain selection options:
 
 ```
@@ -776,6 +798,10 @@ dashd [options]
        Override the default LLMQ type used for InstantSendDIP0024. (default:
        llmq_60_75, devnet-only)
 
+  -llmqplatform=<quorum name>
+       Override the default LLMQ type used for Platform. (default: llmq_100_67,
+       devnet-only)
+
   -llmqtestinstantsendparams=<size>:<threshold>
        Override the default LLMQ size for the LLMQ_TEST_INSTANTSEND quorums
        (default: 3:2, regtest-only)
@@ -806,6 +832,8 @@ dashd [options]
        thresholdmin and falloffcoeff is optional.
 ```
 
+
+
 ## Masternode options:
 
 ```
@@ -827,6 +855,8 @@ dashd [options]
        Set the username for the "platform user", a restricted user intended to
        be used by Dash Platform, to the specified username.
 ```
+
+
 
 ## Node relay options:
 
@@ -862,14 +892,15 @@ dashd [options]
   -whitelistforcerelay
        Add 'forcerelay' permission to whitelisted inbound peers with default
        permissions. This will relay transactions even if the
-       transactions were already in the mempool or violate local relay
-       policy. (default: 0)
+       transactions were already in the mempool. (default: 0)
 
   -whitelistrelay
        Add 'relay' permission to whitelisted inbound peers with default
        permissions. This will accept relayed transactions even when not
        relaying transactions (default: 1)
 ```
+
+
 
 ## Block creation options:
 
@@ -884,6 +915,8 @@ dashd [options]
   -blockversion=<n>
        Override block version to test forking scenarios
 ```
+
+
 
 ## RPC server options:
 
@@ -956,6 +989,8 @@ dashd [options]
        Accept command line and JSON-RPC commands
 ```
 
+
+
 ## Statsd options:
 
 ```text
@@ -979,10 +1014,12 @@ dashd [options]
        Specify statsd port (default: 8125)
 ```
 
+
+
 ## Wallet debugging/testing options:
 
 > 🚧 
->
+> 
 > These options are normally hidden and will only be shown if using the help debug option: `dashd --held -help-debug`
 
 ```text
@@ -996,10 +1033,18 @@ dashd [options]
   -privdb
        Sets the DB_PRIVATE flag in the wallet db environment (default: 1)
 
+  -unsafesqlitesync
+       Set SQLite synchronous=OFF to disable waiting for the database to sync
+       to disk. This is unsafe and can cause data loss and corruption.
+       This option is only used by tests to improve their performance
+       (default: false)
+
   -walletrejectlongchains
        Wallet will not create transactions that violate mempool chain limits
        (default: 0)
 ```
+
+
 
 # Network Dependent Options
 
@@ -1033,6 +1078,10 @@ The following options can only be used for specific network types. These options
        Override the default LLMQ type used for InstantSendDIP0024. (default:
        llmq_60_75, devnet-only)
 
+  -llmqplatform=<quorum name>
+       Override the default LLMQ type used for Platform. (default: llmq_100_67,
+       devnet-only)
+
   -minimumdifficultyblocks=<n>
        The number of blocks that can be mined with the minimum difficulty at
        the start of a chain (default: 0, devnet-only)
@@ -1042,17 +1091,25 @@ The following options can only be used for specific network types. These options
        minutes, devnet-only)
 ```
 
+
+
 The quorum names used in these options are:
 
-| LLMQ Type | LLMQ Name |
-| :-: | - |
-| 1 | llmq50_60 |
-| 2 | llmq400_60 |
-| 3 | llmq400_85 |
-| 4 | llmq100_67 |
-| 5 | llmq60_75 |
-| 100 | llmq_test |
-| 101 | llmq_devnet |
+| LLMQ Type | LLMQ Name             |
+| :-------: | --------------------- |
+|     1     | llmq50_60             |
+|     2     | llmq400_60            |
+|     3     | llmq400_85            |
+|     4     | llmq100_67            |
+|     5     | llmq60_75             |
+|    100    | llmq_test             |
+|    101    | llmq_devnet           |
+|    102    | llmq_test_v17         |
+|    103    | llmq_test_dip0024     |
+|    104    | llqm_test_instantsend |
+|    105    | llmq_devnet_dip0024   |
+|    106    | llmq_test_platform    |
+|    107    | llmq_devnet_platform  |
 
 Refer to [this table in DIP-6 - LLMQs](https://github.com/dashpay/dips/blob/master/dip-0006.md#current-llmq-types) for details on each quorum type.
 

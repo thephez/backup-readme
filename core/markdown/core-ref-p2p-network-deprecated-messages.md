@@ -91,6 +91,80 @@ c42c13810ffcae14995bb648340219e3
 
 The `ix` message (transaction lock request) has the same structure as the [`tx` message](core-ref-p2p-network-data-messages#tx). The masternode network responds with `txlvote` messages if the transaction inputs can be locked.
 
+# reject
+
+>❗️
+>
+> Removed in 19.0.0
+
+*Added in protocol version 70002 as described by BIP61.*
+
+The [`reject` message](core-ref-p2p-network-control-messages#reject) informs the receiving <<glossary:node>> that one of its previous messages has been rejected.
+
+| Bytes    | Name          | Data Type        | Description
+|----------|---------------|------------------|--------------
+| *Varies* | message bytes | compactSize uint | The number of bytes in the following message field.
+| *Varies* | message       | string           | The type of message rejected as ASCII text *without null padding*.  For example: "tx", "block", or "version".
+| 1        | code          | char             | The reject message code.  See the table below.
+| *Varies* | reason bytes  | compactSize uint | The number of bytes in the following reason field.  May be 0x00 if a text reason isn't provided.
+| *Varies* | reason        | string           | The reason for the rejection in ASCII text.  This should not be displayed to the user; it is only for debugging purposes.
+| *Varies* | extra data    | *varies*         | Optional additional data provided with the rejection.  For example, most rejections of [`tx` messages](core-ref-p2p-network-data-messages#tx) or [`block` messages](core-ref-p2p-network-data-messages#block) include the hash of the rejected transaction or block header.  See the code table below.
+
+The following table lists message reject codes.  Codes are tied to the type of message they reply to; for example there is a 0x10 reject code for transactions and a 0x10 reject code for blocks.
+
+| Code | In Reply To       | Extra Bytes | Extra Type | Description
+|------|-------------------|-------------|------------|----------------
+| 0x01 | *any message*     | 0           | N/A        | Message could not be decoded.  Be careful of [`reject` message](core-ref-p2p-network-control-messages#reject) feedback loops where two peers each don't understand each other's [`reject` messages](core-ref-p2p-network-control-messages#reject) and so keep sending them back and forth forever.
+| 0x10 | [`block` message](core-ref-p2p-network-data-messages#block)   | 32          | char[32]   | Block is invalid for some reason (invalid proof-of-work, invalid signature, etc).  Extra data may include the rejected block's header hash.
+| 0x10 | [`tx` message](core-ref-p2p-network-data-messages#tx)      | 32          | char[32]   | Transaction is invalid for some reason (invalid signature, output value greater than input, etc.).  Extra data may include the rejected transaction's TXID.
+| 0x10 | `ix` message      | 32          | char[32]   | InstantSend transaction is invalid for some reason (invalid tx lock request, conflicting tx lock request, etc.).  Extra data may include the rejected transaction's TXID.
+| 0x11 | [`block` message](core-ref-p2p-network-data-messages#block)   | 32          | char[32]   | The block uses a version that is no longer supported.  Extra data may include the rejected block's header hash.
+| 0x11 | [`version` message](core-ref-p2p-network-control-messages#version) | 0           | N/A        | Connecting node is using a protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dsa` message](core-ref-p2p-network-privatesend-messages#dsa)     | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dsi` message](core-ref-p2p-network-privatesend-messages#dsi)     | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dsc` message](core-ref-p2p-network-privatesend-messages#dsc)     | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dsf` message](core-ref-p2p-network-privatesend-messages#dsf)     | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dsq` message](core-ref-p2p-network-privatesend-messages#dsq)     | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`dssu` message](core-ref-p2p-network-privatesend-messages#dssu)    | 0           | N/A        | Connecting node is using a CoinJoin protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`govsync` message](core-ref-p2p-network-governance-messages#govsync) | 0           | N/A        | Connecting node is using a governance protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`govobj` message](core-ref-p2p-network-governance-messages#govobj)  | 0           | N/A        | Connecting node is using a governance protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | [`govobjvote` message](core-ref-p2p-network-governance-messages#govobjvote) | 0           | N/A        | Connecting node is using a governance protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | `mnget` message   | 0           | N/A        | Connecting node is using a masternode payment protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | `mnw` message     | 0           | N/A        | Connecting node is using a masternode payment protocol version that the rejecting node considers obsolete and unsupported.
+| 0x11 | `txlvote` message | 0           | N/A        | Connecting node is using an InstantSend protocol version that the rejecting node considers obsolete and unsupported.
+| 0x12 | [`tx` message](core-ref-p2p-network-data-messages#tx)      | 32          | char[32]   | Duplicate input spend (double spend): the rejected transaction spends the same input as a previously-received transaction.  Extra data may include the rejected transaction's TXID.
+| 0x12 | [`version` message](core-ref-p2p-network-control-messages#version) | 0           | N/A        | More than one [`version` message](core-ref-p2p-network-control-messages#version) received in this connection.
+| 0x40 | [`tx` message](core-ref-p2p-network-data-messages#tx)      | 32          | char[32]   | The transaction will not be mined or relayed because the rejecting node considers it non-standard---a transaction type or version unknown by the server.  Extra data may include the rejected transaction's TXID.
+| 0x41 | [`tx` message](core-ref-p2p-network-data-messages#tx)      | 32          | char[32]   | One or more output amounts are below the dust threshold.  Extra data may include the rejected transaction's TXID.
+| 0x42 | [`tx` message](core-ref-p2p-network-data-messages#tx)      |             | char[32]   | The transaction did not have a large enough fee or priority to be relayed or mined.  Extra data may include the rejected transaction's TXID.
+| 0x43 | [`block` message](core-ref-p2p-network-data-messages#block)   | 32          | char[32]   | The block belongs to a block chain which is not the same block chain as provided by a compiled-in checkpoint.  Extra data may include the rejected block's header hash.
+
+Reject Codes
+
+| Code | Description
+|------|--------------
+| 0x01 | Malformed
+| 0x10 | Invalid
+| 0x11 | Obsolete
+| 0x12 | Duplicate
+| 0x40 | Non-standard
+| 0x41 | Dust
+| 0x42 | Insufficient fee
+| 0x43 | Checkpoint
+
+The annotated hexdump below shows a [`reject` message](core-ref-p2p-network-control-messages#reject). (The message header has been omitted.)
+
+``` text
+02 ................................. Number of bytes in message: 2
+7478 ............................... Type of message rejected: tx
+12 ................................. Reject code: 0x12 (duplicate)
+15 ................................. Number of bytes in reason: 21
+6261642d74786e732d696e707574732d
+7370656e74 ......................... Reason: bad-txns-inputs-spent
+394715fcab51093be7bfca5a31005972
+947baf86a31017939575fb2354222821 ... TXID
+```
+
 # txlvote
 
 >❗️

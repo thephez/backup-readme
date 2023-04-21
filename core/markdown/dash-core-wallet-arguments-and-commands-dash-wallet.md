@@ -7,6 +7,8 @@ Usage:
   dash-wallet [options] <command>
 ```
 
+
+
 ## Options
 
 ```
@@ -20,6 +22,8 @@ Usage:
        Specify wallet name
 ```
 
+
+
 ## Debugging/Testing options
 
 ```
@@ -30,6 +34,8 @@ Usage:
        Send trace/debug info to console (default: 1 when no -debug is true, 0
        otherwise).
 ```
+
+
 
 ## Chain selection options
 
@@ -62,6 +68,10 @@ Usage:
        Override the default LLMQ type used for InstantSendDIP0024. (default:
        llmq_60_75, devnet-only)
 
+  -llmqplatform=<quorum name>
+       Override the default LLMQ type used for Platform. (default: llmq_100_67,
+       devnet-only)
+
   -minimumdifficultyblocks=<n>
        The number of blocks that can be mined with the minimum difficulty at
        the start of a chain (default: 0, devnet-only)
@@ -73,6 +83,8 @@ Usage:
   -testnet
        Use the test chain
 ```
+
+
 
 ## Commands
 

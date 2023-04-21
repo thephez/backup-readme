@@ -17,8 +17,6 @@ Sync Item IDs
 
 | ID | Description | Response To
 |------|--------------|---------------
-| 2 | MASTERNODE_SYNC_LIST | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`dseg` message
-| 3 | MASTERNODE_SYNC_MNW | _Deprecated following activation of [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) in Dash Core 0.13.0_<br><br>`mnget` message
 | 10 | MASTERNODE_SYNC_GOVOBJ | [`govsync` message](core-ref-p2p-network-governance-messages#govsync)
 | 11 | MASTERNODE_SYNC_GOVOBJ_VOTE | [`govsync` message](core-ref-p2p-network-governance-messages#govsync) with non-zero hash
 
@@ -46,7 +44,7 @@ This is primarily used as a DoS protection mechanism to allow persistent connect
 | Bytes | Name | Data type | Description |
 | --- | --- | --- | --- |
 | 32 | proRegTxHash | uint256 | The hash of the ProRegTx that identifies the masternode
-| 96 | sig | byte[] | BLS signature of the [`version` message's](core-ref-p2p-network-control-messages#version) `mnauth_challenge`. Signed with the operator key of the masternode.
+| 96 | sig | byte[] | BLS signature of the [`version` message's](core-ref-p2p-network-control-messages#version) `mnauth_challenge`. Signed with the operator key of the masternode.<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 The following annotated hexdump shows a [`mnauth` message](core-ref-p2p-network-masternode-messages#mnauth). (The message header has been omitted.)
 

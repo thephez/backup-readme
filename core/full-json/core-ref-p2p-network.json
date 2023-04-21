@@ -118,7 +118,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-01-25T15:35:54.592Z"
+  "updatedAt": "2023-02-21T19:15:38.583Z"
  },
  "title": "P2P Network",
  "icon": "",
@@ -137,17 +137,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T04:36:43.878Z",
  "revision": 6,
- "_id": "6388e57de5231e009cab8001",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77a5",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-25T15:35:54.264Z",
  "createdAt": "2019-10-23T15:50:27.219Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "6388e57de5231e009cab7ff9",
+ "category": "63f5176df91c7700118e779d",
  "__v": 6,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab8001",
+ "id": "63f5176df91c7700118e77a5",
  "body_html": "<div class=\"magic-block-textarea\"><p>This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the &lt;&lt;glossary:BIP70 payment protocol&gt;&gt;, the <a href=\"core-guide-mining-block-prototypes#getblocktemplate-rpc\">GetBlockTemplate mining protocol</a>, or any network protocol never implemented in an official version of Dash Core.</p>\n<p>All peer-to-peer communication occurs entirely over TCP.</p>\n<blockquote>\n<p>\ud83d\udea7 </p>\n<p>Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.</p>\n</blockquote>\n<p><img src=\"https://files.readme.io/2f6f207-home-map-1.svg\" alt=\"Worldwide network\" style=\"width:55%;text-align:center;\"></p>\n\n</div>"
 }

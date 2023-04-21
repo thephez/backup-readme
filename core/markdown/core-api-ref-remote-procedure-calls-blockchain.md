@@ -148,7 +148,7 @@ Name | Type | Presence | Description
 →<br>`nTx` | number (int) | Required<br>(exactly 1) | *Added in Dash Core 0.16.0*<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
-→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br> If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
 
 
@@ -197,8 +197,8 @@ Name | Type | Presence | Description
 → → → → → →<br>Address | string | Required<br>(1 or more) | A P2PKH or P2SH address
 → →<br>`extraPayloadSize` | number (int) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0.0*<br><br>Size of the DIP2 extra payload. Only present if it's a DIP2 special transaction
 → →<br>`extraPayload` | string (hex) | Optional<br>(0 or 1) | *Added in Dash Core 0.13.0.0*<br><br>Hex encoded DIP2 extra payload data. Only present if it's a DIP2 special transaction
-→ →<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
-→ →<br>`instantlock_internal` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction has an InstantSend lock
+→ →<br>`instantlock` | bool | Required<br>(exactly 1) | If set to `true`, this transaction is locked (by InstantSend or a ChainLock)
+→ →<br>`instantlock_internal` | bool | Required<br>(exactly 1) | If set to `true`, this transaction has an InstantSend lock
 →<br>`cbTx` | object | Required<br>(exactly 1) | Coinbase special transaction details
 → →<br>`version` | number (int) | Required<br>(exactly 1) | The version of the Coinbase special transaction (CbTx)
 → →<br>`height` | number (int) | Required<br>(exactly 1) | The height of this block on its block chain
@@ -213,7 +213,7 @@ Name | Type | Presence | Description
 →<br>`nTx` | number (int) | Required<br>(exactly 1) | **Added in Dash Core 0.16.0**<br><br>The number of transactions in the block
 →<br>`previousblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the header of the previous block, encoded as hex in RPC byte order.  Not returned for genesis block
 →<br>`nextblockhash` | string (hex) | Optional<br>(0 or 1) | The hash of the next block on the best block chain, if known, encoded as hex in RPC byte order
-→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
+→<br>`chainlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.14.0*<br><br> If set to `true`, this transaction is in a block that is locked (not susceptible to a chain re-org)
 
 *Example from Dash Core 0.16.0*
 
@@ -1382,7 +1382,7 @@ Name | Type | Presence | Description
 →→→<br>`descendent` | number | Optional<br>(0 or 1) | **Added in Dash Core 0.17.0**<br>Modified fees (see above) of in-mempool descendants (including this one) in DASH
 →<br>`depends` | array | Required<br>(exactly 1) | An array holding TXIDs of unconfirmed transactions this transaction depends upon (parent transactions).  Those transactions must be part of a block before this transaction can be added to a block, although all transactions may be included in the same block.  The array may be empty
 → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
-→<br>`instantlock` | bool | Required<br>(exactly 1) | **Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>True if this transaction was locked via InstantSend
+→<br>`instantlock` | bool | Required<br>(exactly 1) | True if this transaction was locked via InstantSend
 
 *Example from Dash Core 0.17.0*
 
@@ -1515,7 +1515,7 @@ Name | Type | Presence | Description
 → → →<br>Depends TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions this transaction depends upon, encoded as hex in RPC byte order
 → →<br>`spentby` | array | Required<br>(exactly 1) | **Added in Dash Core 0.17.0**<br>An array of unconfirmed transactions spending outputs from this transaction
 → → →<br>TXID | string | Optional (0 or more) | The TXIDs of any unconfirmed transactions spending from this transaction
-→ →<br>`instantlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>**Always `false` if [lite mode](core-guide-dash-features#lite-mode) is enabled**<br><br>Set to `true` for locked InstantSend transactions (masternode quorum has locked the transaction inputs via `islock` message). Set to `false` if the masternodes have not approved the InstantSend transaction
+→ →<br>`instantlock` | bool | Required<br>(exactly 1) | *Added in Dash Core 0.12.3*<br><br>Set to `true` for locked InstantSend transactions (masternode quorum has locked the transaction inputs via `islock` message). Set to `false` if the masternodes have not approved the InstantSend transaction
 
 *Examples from Dash Core 0.17.0*
 

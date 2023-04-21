@@ -205,7 +205,7 @@ curl --user 'my_username:my_secret_password' --data-binary '''
   --header 'Content-Type: text/plain;' localhost:9998
 ```
 
-##Multi-wallet Support
+## Multi-wallet Support
 
 > 👍
 >

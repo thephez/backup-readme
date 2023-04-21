@@ -40,7 +40,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:15:48.765Z"
  },
  "title": "Connecting to Peers",
  "icon": "",
@@ -59,17 +60,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.002Z",
  "revision": 2,
- "_id": "6388e57de5231e009cab802a",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77ce",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2020-05-28T20:45:01.058Z",
  "createdAt": "2019-10-24T14:17:25.543Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
- "parentDoc": "6388e57de5231e009cab8028",
- "category": "6388e57de5231e009cab7ffa",
+ "parentDoc": "63f5176df91c7700118e77cc",
+ "category": "63f5176df91c7700118e779e",
  "__v": 1,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab802a",
+ "id": "63f5176df91c7700118e77ce",
  "body_html": "<div class=\"magic-block-textarea\"><p>Connecting to a &lt;&lt;glossary:peer&gt;&gt; is done by sending a <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>, which contains your version number, block, and current time to the remote node. The remote node responds with its own <a href=\"core-ref-p2p-network-control-messages#version\"><code>version</code> message</a>. Then both nodes send a <a href=\"core-ref-p2p-network-control-messages#verack\"><code>verack</code> message</a> to the other node to indicate the connection has been established.</p>\n<p>Once connected, the client can send to the remote node <code>getaddr</code> and <a href=\"core-ref-p2p-network-control-messages#addr\"><code>addr</code> messages</a> to gather additional peers.</p>\n<p>In order to maintain a connection with a peer, nodes by default will send a message to peers before 30 minutes of inactivity. If 90 minutes pass without a message being received by a peer, the client will assume that connection has closed.</p>\n\n</div>"
 }

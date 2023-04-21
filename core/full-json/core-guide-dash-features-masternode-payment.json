@@ -39,8 +39,9 @@
   ]
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false
+  "recordCount": 2,
+  "publishPending": false,
+  "updatedAt": "2023-03-08T14:06:12.964Z"
  },
  "title": "Masternode Payment",
  "icon": "",
@@ -48,7 +49,7 @@
  "type": "basic",
  "slug": "core-guide-dash-features-masternode-payment",
  "excerpt": "",
- "body": "Since [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) (introduced in Dash Core 0.13.0), <<glossary:masternode>> reward payments are based on the deterministic masternode list information found on-chain in each <<glossary:block>>. This results in a transparent, deterministic process that operates using the [algorithm described in DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards).\n\nOn-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).",
+ "body": "Since [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) (introduced in Dash Core 0.13.0), <<glossary:masternode>> reward payments are based on the deterministic masternode list information found on-chain in each <<glossary:block>>. This results in a transparent, deterministic process that operates using the [algorithm described in DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards).\n\nOn-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).\n\n# High-Performance Masternodes\n\nSince high-performance masternodes (HPMNs) have four times more collateral than regular masternodes, HPMNs will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, HPMNs will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.",
  "order": 6,
  "isReference": false,
  "deprecated": false,
@@ -58,18 +59,18 @@
  "link_external": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T16:59:21.145Z",
- "revision": 1,
- "_id": "6388e57de5231e009cab801e",
- "version": "6388e57de5231e009cab8087",
- "updatedAt": "2019-11-12T19:29:57.516Z",
+ "revision": 3,
+ "_id": "63f5176df91c7700118e77c2",
+ "version": "63f5176df91c7700118e7825",
+ "updatedAt": "2023-03-08T14:06:12.621Z",
  "createdAt": "2019-10-23T19:47:12.331Z",
  "project": "5daf2e65f4109c0040fd51e1",
- "user": "62b2101422da70001ee51d95",
- "parentDoc": "6388e57de5231e009cab8019",
- "category": "6388e57de5231e009cab7ffa",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "parentDoc": "63f5176df91c7700118e77bd",
+ "category": "63f5176df91c7700118e779e",
  "__v": 3,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab801e",
- "body_html": "<div class=\"magic-block-textarea\"><p>Since <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> (introduced in Dash Core 0.13.0), &lt;&lt;glossary:masternode&gt;&gt; reward payments are based on the deterministic masternode list information found on-chain in each &lt;&lt;glossary:block&gt;&gt;. This results in a transparent, deterministic process that operates using the <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards\">algorithm described in DIP3</a>.</p>\n<p>On-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).</p>\n\n</div>"
+ "id": "63f5176df91c7700118e77c2",
+ "body_html": "<div class=\"magic-block-textarea\"><p>Since <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\">DIP3</a> (introduced in Dash Core 0.13.0), &lt;&lt;glossary:masternode&gt;&gt; reward payments are based on the deterministic masternode list information found on-chain in each &lt;&lt;glossary:block&gt;&gt;. This results in a transparent, deterministic process that operates using the <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards\">algorithm described in DIP3</a>.</p>\n<p>On-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-high-performance-masternodes\"></div>High-Performance Masternodes<a class=\"fa fa-anchor\" href=\"#section-high-performance-masternodes\"></a></h1>\n<p>Since high-performance masternodes (HPMNs) have four times more collateral than regular masternodes, HPMNs will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, HPMNs will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.</p>\n\n</div>"
 }

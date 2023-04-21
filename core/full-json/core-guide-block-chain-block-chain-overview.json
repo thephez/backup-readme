@@ -40,7 +40,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:16:00.759Z"
  },
  "title": "Blockchain Overview",
  "icon": "",
@@ -59,17 +60,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-08T19:23:37.099Z",
  "revision": 1,
- "_id": "6388e57de5231e009cab8054",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77f7",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2022-08-08T19:38:15.512Z",
  "createdAt": "2019-10-28T15:46:27.050Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
- "parentDoc": "6388e57de5231e009cab8053",
- "category": "6388e57de5231e009cab7ffa",
+ "parentDoc": "63f5176df91c7700118e77f6",
+ "category": "63f5176df91c7700118e779e",
  "__v": 5,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab8054",
+ "id": "63f5176df91c7700118e77f7",
  "body_html": "<div class=\"magic-block-textarea\"><p><img src=\"https://dash-docs.github.io/img/dev/en-blockchain-overview.svg\" alt=\"Block Chain Overview\"></p>\n<p>The illustration above shows a simplified version of a &lt;&lt;glossary:block chain&gt;&gt;. A &lt;&lt;glossary:block&gt;&gt; of one or more new transactions is collected into the &lt;&lt;glossary:transaction&gt;&gt; data part of a block. Copies of each transaction are hashed, and the hashes are then paired, hashed, paired again, and hashed again until a single hash remains, the &lt;&lt;glossary:merkle root&gt;&gt; of a &lt;&lt;glossary:merkle tree&gt;&gt;.</p>\n<p>The merkle root is stored in the &lt;&lt;glossary:block header&gt;&gt;. Each block also stores the hash of the previous block&#39;s header, chaining the blocks together. This ensures a transaction cannot be modified without modifying the block that records it and all following blocks.</p>\n<p>Transactions are also chained together. Dash &lt;&lt;glossary:wallet&gt;&gt; software gives the impression that &lt;&lt;glossary:duffs&gt;&gt; are sent from and to wallets, but Dash value really moves from transaction to transaction. Each transaction spends the duffs previously received in one or more earlier transactions, so the input of one transaction is the output of a previous transaction.</p>\n<p><img src=\"https://dash-docs.github.io/img/dev/en-transaction-propagation.svg\" alt=\"Transaction Propagation\"></p>\n<p>A single transaction can create multiple &lt;&lt;glossary:outputs&gt;&gt;, as would be the case when sending to multiple &lt;&lt;glossary:addresses&gt;&gt;, but each output of a particular transaction can only be used as an &lt;&lt;glossary:input&gt;&gt; once in the blockchain. Any subsequent reference is a forbidden double spend---an attempt to spend the same duffs twice.</p>\n<p>Outputs are tied to &lt;&lt;glossary:transaction identifiers&gt;&gt; ( TXIDs), which are the hashes of signed transactions.</p>\n<p>Because each output of a particular transaction can only be spent once, the outputs of a transaction included in the blockchain can be categorized as either an &lt;&lt;glossary:unspent transaction output&gt;&gt; or a spent transaction output. For a payment to be valid, it must only use UTXOs as inputs.</p>\n<p>Ignoring coinbase transactions (described later), if the value of a transaction&#39;s outputs exceed its inputs, the transaction will be rejected---but if the inputs exceed the value of the outputs, any difference in value may be claimed as a &lt;&lt;glossary:transaction fee&gt;&gt; by the Dash &lt;&lt;glossary:miner&gt;&gt; who creates the block containing that transaction. For example, in the illustration above, each transaction spends 10,000 duffs fewer than it receives from its combined inputs, effectively paying a 10,000 duff transaction fee.</p>\n\n</div>"
 }

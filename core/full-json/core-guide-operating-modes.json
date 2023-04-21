@@ -47,7 +47,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:16:01.799Z"
  },
  "title": "Operating Modes",
  "icon": "",
@@ -66,17 +67,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.676Z",
  "revision": 2,
- "_id": "6388e57de5231e009cab804e",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77f1",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-13T21:26:09.503Z",
  "createdAt": "2019-10-28T13:43:47.059Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
- "category": "6388e57de5231e009cab7ffa",
+ "category": "63f5176df91c7700118e779e",
  "__v": 1,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab804e",
+ "id": "63f5176df91c7700118e77f1",
  "body_html": "<div class=\"magic-block-textarea\"><p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full &lt;&lt;glossary:nodes&gt;&gt; and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>\n\n</div>"
 }

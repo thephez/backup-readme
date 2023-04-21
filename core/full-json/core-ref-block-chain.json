@@ -55,7 +55,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-01-25T15:34:35.191Z"
+  "updatedAt": "2023-02-21T19:15:42.122Z"
  },
  "title": "Blockchain",
  "icon": "",
@@ -74,17 +74,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
  "revision": 6,
- "_id": "6388e57de5231e009cab8009",
- "version": "6388e57de5231e009cab8087",
+ "_id": "63f5176df91c7700118e77ad",
+ "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-25T15:34:34.851Z",
  "createdAt": "2019-10-23T16:04:02.473Z",
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "6388e57de5231e009cab7ff9",
+ "category": "63f5176df91c7700118e779d",
  "__v": 2,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "6388e57de5231e009cab8009",
+ "id": "63f5176df91c7700118e77ad",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following subsections briefly document core block details.</p>\n<p><img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"></p>\n\n</div>"
 }

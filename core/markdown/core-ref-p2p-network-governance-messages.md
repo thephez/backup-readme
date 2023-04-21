@@ -17,7 +17,7 @@ The [`govobj` message](core-ref-p2p-network-governance-messages#govobj) contains
 | 0-16384 | strData | string | Required | Data field - can be used for anything (leading varint indicates size of data)
 | 4 | nObjectType | int | Required | Type of governance object: <br>• `0` - Unknown<br>• `1` - Proposal<br>• `2` - Trigger
 | 36 | masternode<br>OutPoint | outPoint | Required* | The unspent outpoint of the masternode (holding 1000 DASH) which is signing this object.<br><br>Set to all zeros for proposals since they can be created by non-masternodes.
-| 97 | vchSig | char | Required* | _ECDSA signature (65 bytes) prior to DIP3 activation_<br><br>BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))<br><br>Not required for proposals - they will have a length of 0x00 and no Signature.
+| 97 | vchSig | char | Required* | BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation<br><br>Not required for proposals - they will have a length of 0x00 and no Signature.
 
 Governance Object Types (defined by `src/governance-object.h`)
 
@@ -108,7 +108,7 @@ the node being banned.
 | 4 | nVoteOutcome | int | Required | None (0), Yes (1), No (2), Abstain (3)
 | 4 | nVoteSignal | int | Required |  None (0), Funding (1), Valid (2), Delete (3), Endorsed (4)
 | 8 | nTime | int64_t | Required | Time the vote was created
-| 97 | vchSig | char[] | Required | _ECDSA signature (65 bytes) prior to [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) activation_<br><br>BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))
+| 97 | vchSig | char[] | Required | BLS Signature of the masternode (Length (1 byte) + Signature (96 bytes))<br>**Note**: serialized using the basic BLS scheme after Dash 19.0 activation
 
 Governance Object Vote Signals (defined by `src/governance-object.h`)
 

@@ -696,6 +696,7 @@ The [`mnlistdiff` message](core-ref-p2p-network-data-messages#mnlistdiff) is a r
 | 1-9 | merkleFlags<br>Count | compactSize uint | Required | Number of Merkle flag bytes
 | variable | merkleFlags | vector<uint8_t> | Required | Merkle flag bits, packed per 8 in a byte, least significant bit first
 | variable | cbTx | CTransaction | Required | The fully serialized coinbase transaction of `blockHash`
+| 2 | version | uint16_t | Required | **_Added in protocol version 70225_**<br><br>Version of the message |
 | 1-9 | deletedMNsCount | compactSize uint | Required | Number of ProRegTx hashes which were deleted after baseBlockHash
 | variable | deletedMNs | vector | Required | A list of ProRegTx hashes for masternode which were deleted after `baseBlockHash`
 | variable | mnList | vector | Required | The list of Simplified Masternode List (SML) entries which were added or updated since `baseBlockHash`
@@ -712,13 +713,16 @@ Simplified Masternode List (SML) Entry
 | 32 | confirmedHash | uint256 | The hash of the block at which the masternode got confirmed
 | 16 | ipAddress | byte[] | IPv6 address in network byte order. Only IPv4 mapped addresses are allowed (to be extended in the future)
 | 2 | port | uint_16 | Port (network byte order)
-| 48 | pubKeyOperator | BLSPubKey | The operators public key
+| 48 | pubKeyOperator | BLSPubKey | The operator public key<br>**Note**: serialization varies based on the Dash v19.0.0 fork:<br>-  Before hard fork - legacy BLS scheme<br>- After hard fork - basic BLS scheme
 | 20 |keyIDVoting | CKeyID | The public key hash used for voting.
 | 1 | isValid | bool | True if a masternode is not PoSe-banned
+| 0 or 2 | type | uint_16  | Masternode type:<br>0 - regular masternode<br>1 - high-performance masternode<br>**Note**: Only present after the Dash v19.0.0 hard fork. |
+| 0 or 2 | platformHTTPPort | uint_16 | TCP port of Platform HTTP/API interface (network byte order).<br>**Note**: Only present when mnlistdiff `version` is 2 and `type` is 1. |
+0 or 20 | platformNodeID | byte[] | Dash Platform P2P node ID, derived from P2P public key.<br>**Note**: Only present when mnlistdiff `version` is 2 and `type` is 1. |
 
 The following annotated hexdump shows a [`mnlistdiff` message](core-ref-p2p-network-data-messages#mnlistdiff). (The message header has been omitted.)
 
-``` text
+``` text Pre-Dash v19.0.0 mnlistdiff
 000001ee5108348a2c59396da29dc576
 9b2a9bb303d7577aee9cd95136c49b9b ........... Base block hash
 

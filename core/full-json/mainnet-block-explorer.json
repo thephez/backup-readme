@@ -32,7 +32,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-02-21T19:16:10.726Z"
  },
  "title": "Mainnet Block Explorer",
  "icon": "",
@@ -51,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-03T23:03:15.433Z",
  "revision": 1,
- "_id": "6388e57de5231e009cab8084",
+ "_id": "63f5176df91c7700118e7822",
  "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-04T13:50:16.677Z",
  "updatedAt": "2021-03-04T13:50:16.677Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "6388e57de5231e009cab7fff",
+ "category": "63f5176df91c7700118e77a3",
  "project": "5daf2e65f4109c0040fd51e1",
- "version": "6388e57de5231e009cab8087",
+ "version": "63f5176df91c7700118e7825",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "6388e57de5231e009cab8084",
+ "id": "63f5176df91c7700118e7822",
  "body_html": "&nbsp;"
 }

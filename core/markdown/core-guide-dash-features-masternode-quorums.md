@@ -16,7 +16,7 @@ The following table details the data flow of P2P messages exchanged during the d
 
 > 🚧 Minimum Masternode Protocol Version
 >
-> As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70223 in Dash Core 18.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version.
+> As of Dash Core 0.16.0, masternodes perform a [version check](https://github.com/dashpay/dash/pull/3390) on their quorum peers during DKG. Masternodes that do not meet the `MIN_MASTERNODE_PROTO_VERSION` (70227 in Dash Core 19.0) will begin receiving increases in [PoSe](core-guide-dash-features-proof-of-service) score once 60% of the masternodes on the network have upgraded to that version.
 
 | **Masternode** | **Direction**  | **Peers**   | **Description** |
 | --- | :---: | --- | --- |
@@ -83,7 +83,7 @@ The specific quorum type used for a feature can vary based on the network. The f
 | ChainLocks ([DIP-8](https://github.com/dashpay/dips/blob/master/dip-0008.md)) | LLMQ_400_60 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST |
 | Deterministic InstantSend | LLMQ_60_75 | LLMQ_60_75 | LLMQ_60_75 | LLMQ_TEST_DIP0024 |
 | InstantSend (pre DIP-24) | LLMQ_50_60 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST_INSTANTSEND |
-| Platform | LLMQ_100_67 | LLMQ_100_67 | LLMQ_100_67 | LLMQ_TEST |
+| Platform | LLMQ_100_67 | LLMQ_25_67 | LLMQ_100_67 | LLMQ_TEST_PLATFORM |
 | Enhanced Hard Fork ([DIP-23](https://github.com/dashpay/dips/blob/master/dip-0023.md))| LLMQ_400_85 | LLMQ_50_60 | LLMQ_50_60 | LLMQ_TEST |
 
 \* Note that the quorum types used on RegTest and Devnets have customizable parameters as described above
@@ -101,9 +101,12 @@ The following table showing which quorums are enabled for each network type is d
 | LLMQ_400_60 | x | x | x | - |
 | LLMQ_400_85 | x | x | x | - |
 | LLMQ_100_67 | x | x | x | - |
+| LLMQ_25_67 | - | x | - | - |
 | LLMQ_DEVNET | - | - | x | - |
 | LLMQ_DEVNET_DIP0024 | - | - | x | - |
+| LLMQ_DEVNET_PLATFORM | - | - | x | - |
 | LLMQ_TEST | - | - | - | x |
 | LLMQ_TEST_INSTANTSEND | - | - | - | x |
 | LLMQ_TEST_V17 | - | - | - | x |
 | LLMQ_TEST_DIP0024 | - | - | - | x |
+| LLMQ_TEST_PLATFORM | - | - | - | x |
