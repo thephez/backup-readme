@@ -1,13 +1,10 @@
-# Overview
+# Tutorial
 
 GroveDB generally uses the `prove_query()` function to [generate](https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/generate.rs) query proofs, and the `verify_query()` function to [verify](https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/proof/verify.rs) query proofs. `prove_query()` just takes a path query as an argument and `verify_query()` takes a proof as well as a path query.
 
-## Prerequisites
+This tutorial assumes the reader has already populated GroveDB with the key-values from Simple Query Tutorial, but should be easy to follow anyways. Note that the first block of code in `main()` is essentially the same as Simple Query Tutorial, but without the `populate()` function. We will generate a proof for the query from Simple Query Tutorial, use it to calculate the root hash, and then compare that root hash to the GroveDB root hash.
 
-This tutorial assumes the reader has already populated GroveDB with the key-values from Tutorial 4, but should be easy to follow anyways. Note that the first block of code in `main()` is essentially the same as Tutorial 4, but without the `populate()` function. We will generate a proof for the query from Tutorial 4, use it to calculate the root hash, and then compare that root hash to the GroveDB root hash.
-
-# Code
-In “grovedb-tutorials”, create a new Rust project using `cargo new proof`. Navigate to the new project, add GroveDB to the Cargo.toml file, and paste the following code into the main.rs file. Do `cargo run`.
+The following code can be run with cargo run --bin proofs.
 
 ``` rust
 use grovedb::GroveDb;

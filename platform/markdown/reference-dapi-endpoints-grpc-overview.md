@@ -4,11 +4,7 @@ The gRPC endpoints provide access to information from Dash Platform (layer 2) as
 
 ## Auto-generated Clients
 
-Clients for a number of languages are built automatically from the protocol definitions and are available in the `packages/dapi-grpc/clients` folder of the [platform](https://github.com/dashevo/platform/) repository. The protocol definitions are available in the `protos` folder.
-
-> 📘 Pull Requests welcome
->
-> Pull requests are welcome to add support for additional languages that are not currently being built.
+Clients for a number of languages are built automatically from the protocol definitions and are available in the `packages/dapi-grpc/clients` folder of the [platform](https://github.com/dashpay/platform/tree/master/packages/dapi-grpc/clients) repository. The protocol definitions are available in the [`protos` folder](https://github.com/dashpay/platform/tree/master/packages/dapi-grpc/protos). Pull requests are welcome to add support for additional languages that are not currently being built.
 
 ## Command Line Examples
 
@@ -18,20 +14,18 @@ To use gRPCurl as shown in the detailed examples, clone the [platform](https://g
 
 ```shell
 # Clone the dapi-grpc repository
-git clone https://github.com/dashevo/platform.git
+git clone https://github.com/dashpay/platform.git
 cd platform/packages/dapi-grpc
 
 # Execute gRPCurl command
 grpcurl -plaintext -proto protos/...
-``` 
+```
 
 # Data Encoding
 
 The data submitted/received from the gRPC endpoints is encoded using both [CBOR](https://tools.ietf.org/html/rfc7049) and Base64. Data is first encoded with CBOR and the resulting output is then encoded in Base64 before being sent. 
 
-> 🚧 Canonical Encoding
->
-> Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data.
+Canonical encoding is used for state transitions, identities, data contracts, and documents. This puts the object's data fields in a sorted order to ensure the same hash is produced every time regardless of the actual order received by the encoder. Reproducible hashes are necessary to support validation of request/response data.
 
 Libraries such as [`cbor` (JavaScript)](https://www.npmjs.com/package/cbor) and [`cbor2` (Python)](https://pypi.org/project/cbor2/) can be used to encode/decode data for DAPI gRPC endpoints.
 

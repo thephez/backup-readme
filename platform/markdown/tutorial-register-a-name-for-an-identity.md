@@ -19,22 +19,70 @@ Dash Platform names make cryptographic identities easy to remember and communica
 >
 > The name must be the full domain name including the parent domain (i.e. `myname.dash` instead of just `myname`). Currently `dash` is the only top-level domain that may be used.
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerName = async () => {\n  const { platform } = client;\n\n  const identity = await platform.identities.get('an identity ID goes here');\n  const nameRegistration = await platform.names.register(\n    '<identity name goes here>.dash',\n    { dashUniqueIdentityId: identity.getId() },\n    identity,\n  );\n\n  return nameRegistration;\n};\n\nregisterName()\n  .then((d) => console.log('Name registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Register Name for Identity"
+```javascript Register Name for Identity
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
     },
-    {
-      "code": "const Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',\n    unsafeOptions: {\n      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022\n    },\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst registerAlias = async () => {\n  const platform = client.platform;\n  const identity = await platform.identities.get('an identity ID goes here');\n  const aliasRegistration = await platform.names.register(\n    '<identity alias goes here>.dash',\n    { dashAliasIdentityId: identity.getId() },\n    identity,\n  );\n\n  return aliasRegistration;\n};\n\nregisterAlias()\n  .then((d) => console.log('Alias registered:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());",
-      "language": "javascript",
-      "name": "Register Alias for Identity"
-    }
-  ]
-}
-[/block]
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerName = async () => {
+  const { platform } = client;
+
+  const identity = await platform.identities.get('an identity ID goes here');
+  const nameRegistration = await platform.names.register(
+    '<identity name goes here>.dash',
+    { dashUniqueIdentityId: identity.getId() },
+    identity,
+  );
+
+  return nameRegistration;
+};
+
+registerName()
+  .then((d) => console.log('Name registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+```javascript Register Alias for Identity
+const Dash = require('dash');
+
+const clientOpts = {
+  network: 'testnet',
+  wallet: {
+    mnemonic: 'a Dash wallet mnemonic with testnet funds goes here',
+    unsafeOptions: {
+      skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
+    },
+  },
+};
+const client = new Dash.Client(clientOpts);
+
+const registerAlias = async () => {
+  const platform = client.platform;
+  const identity = await platform.identities.get('an identity ID goes here');
+  const aliasRegistration = await platform.names.register(
+    '<identity alias goes here>.dash',
+    { dashAliasIdentityId: identity.getId() },
+    identity,
+  );
+
+  return aliasRegistration;
+};
+
+registerAlias()
+  .then((d) => console.log('Alias registered:\n', d.toJSON()))
+  .catch((e) => console.error('Something went wrong:\n', e))
+  .finally(() => client.disconnect());
+```
+
 # What's Happening
 
 After initializing the Client, we fetch the Identity we'll be associating with a name. This is an asynchronous method so we use _await_ to pause until the request is complete. Next, we call `platform.names.register` and pass in the name we want to register, the type of identity record to create, and the identity we just fetched. We wait for the result, and output it to the console.

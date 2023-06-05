@@ -32,7 +32,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-03-07T17:41:04.992Z"
  },
  "title": "JavaScript SDK",
  "icon": "",
@@ -51,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2020-08-23T23:33:06.360Z",
  "revision": 1,
- "_id": "62b226d1fcc32e002300c54c",
- "version": "62b226d1fcc32e002300c574",
+ "_id": "640776c254e6100011466670",
+ "version": "640776c254e610001146669e",
  "project": "5bda01cad172e200499a20a9",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "62b226d1fcc32e002300c50a",
+ "category": "640776c254e610001146662f",
  "updatedAt": "2020-08-24T13:59:12.221Z",
  "createdAt": "2020-02-10T08:47:42.947Z",
  "__v": 0,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "62b226d1fcc32e002300c54c",
+ "id": "640776c254e6100011466670",
  "body_html": "&nbsp;"
 }

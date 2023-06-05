@@ -3,13 +3,14 @@
 The endpoints described on this page provide access to information from the Core chain (layer 1).
 
 ## Required Parameters
+
 All valid JSON-RPC requests require the inclusion the parameters listed in the following table.
 
-| Name | Type | Description |
-| - | - | - |
-| `method` | String | Name of the endpoint |
-| `id` | Integer | Request id (returned in the response to differentiate results from the same endpoint) |
-| `jsonrpc` | String | JSON-RPC version ("2.0") |
+| Name      | Type    | Description                                                                           |
+| --------- | ------- | ------------------------------------------------------------------------------------- |
+| `method`  | String  | Name of the endpoint                                                                  |
+| `id`      | Integer | Request id (returned in the response to differentiate results from the same endpoint) |
+| `jsonrpc` | String  | JSON-RPC version ("2.0")                                                              |
 
 Additional information may be found in the [JSON-RPC 2.0 specification](https://www.jsonrpc.org/specification#request_object).
 
@@ -17,14 +18,14 @@ Additional information may be found in the [JSON-RPC 2.0 specification](https://
 
 ## getBestBlockHash
 
-**Returns**: the block hash of the chaintip
+**Returns**: the block hash of the chaintip  
 **Parameters**: none
 
 ### Example Request and Response
 
 ```curl Curl
-curl --request POST \
-  --url http://seed-1.testnet.networks.dash.org:3000/ \
+curl -k --request POST \
+  --url https://seed-1.testnet.networks.dash.org:1443/ \
   --header 'content-type: application/json' \
   --data '{
       "method":"getBestBlockHash",
@@ -38,7 +39,7 @@ var request = require("request");
 
 var options = {
   method: 'POST',
-  url: 'http://seed-1.testnet.networks.dash.org:3000',
+  url: 'https://seed-1.testnet.networks.dash.org:1443',
   headers: {'content-type': 'application/json'},
   body: '{"method":"getBestBlockHash","id":1,"jsonrpc":"2.0"}'
 };
@@ -61,7 +62,7 @@ xhr.addEventListener("readystatechange", function () {
   }
 });
 
-xhr.open("POST", "http://seed-1.testnet.networks.dash.org:3000");
+xhr.open("POST", "https://seed-1.testnet.networks.dash.org:1443");
 xhr.setRequestHeader("content-type", "application/json");
 
 xhr.send(data);
@@ -70,7 +71,7 @@ xhr.send(data);
 import requests
 import json
 
-url = "http://seed-1.testnet.networks.dash.org:3000/"
+url = "https://seed-1.testnet.networks.dash.org:1443/"
 headers = {'content-type': 'application/json'}
 
 payload_json = {
@@ -88,7 +89,7 @@ print(response.text)
 require 'uri'
 require 'net/http'
 
-url = URI("http://seed-1.testnet.networks.dash.org:3000/")
+url = URI("https://seed-1.testnet.networks.dash.org:1443/")
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
@@ -109,24 +110,24 @@ puts response.read_body
 {
   "jsonrpc": "2.0",
   "id": 1,
-  "result": "000000bbdda70535d4fa854ca8c12d67f5788bcc6f7d85d39722bc2abed10f58"
+  "result": "0000009fd106a7aa7142925fcd311442790145a3351fa2508d9da2b3462086fd"
 }
-``` 
+```
 
 ## getBlockHash
 
-**Returns**:  the block hash for the given height
+**Returns**:  the block hash for the given height  
 **Parameters**:
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| `height` | Integer | Yes | Block height |
+| Name     | Type    | Required | Description  |
+| -------- | ------- | -------- | ------------ |
+| `height` | Integer | Yes      | Block height |
 
 ### Example Request and Response
 
 ```shell Curl
-curl --request POST \
-  --url http://seed-1.testnet.networks.dash.org:3000/ \
+curl -k --request POST \
+  --url https://seed-1.testnet.networks.dash.org:1443/ \
   --header 'content-type: application/json' \
   --data '{
       "method":"getBlockHash",
@@ -141,7 +142,7 @@ curl --request POST \
 import requests
 import json
 
-url = "http://seed-1.testnet.networks.dash.org:3000/"
+url = "https://seed-1.testnet.networks.dash.org:1443/"
 headers = {'content-type': 'application/json'}
 
 payload_json = {
@@ -161,7 +162,7 @@ print(response.text)
 require 'uri'
 require 'net/http'
 
-url = URI("http://seed-1.testnet.networks.dash.org:3000/")
+url = URI("https://seed-1.testnet.networks.dash.org:1443/")
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
@@ -186,23 +187,23 @@ puts response.read_body
   "id": 1,
   "result": "0000047d24635e347be3aaaeb66c26be94901a2f962feccd4f95090191f208c1"
 }
-``` 
+```
 
 ## getMnListDiff
 
-**Returns**: a masternode list diff for the provided block hashes
+**Returns**: a masternode list diff for the provided block hashes  
 **Parameters**:
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| `baseBlockHash` | String | Yes | Block hash for the starting block |
-| `blockHash` | String | Yes | Block hash for the ending block |
+| Name            | Type   | Required | Description                       |
+| --------------- | ------ | -------- | --------------------------------- |
+| `baseBlockHash` | String | Yes      | Block hash for the starting block |
+| `blockHash`     | String | Yes      | Block hash for the ending block   |
 
 ### Example Request and Response
 
 ```shell Curl
-curl --request POST \
-  --url http://seed-1.testnet.networks.dash.org:3000/ \
+curl -k --request POST \
+  --url https://seed-1.testnet.networks.dash.org:1443/ \
   --header 'content-type: application/json' \
   --data '{
       "method":"getMnListDiff",
@@ -218,7 +219,7 @@ curl --request POST \
 import requests
 import json
 
-url = "http://seed-1.testnet.networks.dash.org:3000/"
+url = "https://seed-1.testnet.networks.dash.org:1443/"
 headers = {'content-type': 'application/json'}
 
 payload_json = {
@@ -239,7 +240,7 @@ print(response.text)
 require 'uri'
 require 'net/http'
 
-url = URI("http://seed-1.testnet.networks.dash.org:3000/")
+url = URI("https://seed-1.testnet.networks.dash.org:1443/")
 http = Net::HTTP.new(url.host, url.port)
 
 request = Net::HTTP::Post.new(url)
@@ -274,9 +275,11 @@ puts response.read_body
         "proRegTxHash": "682b3e58e283081c51f2e8e7a7de5c7312a2e8074affaf389fafcc39c4805404",
         "confirmedHash": "00000018c824355520c6a850076c041b533d05cbe481f8187e541d7e2f856def",
         "service": "64.193.62.206:19999",
-        "pubKeyOperator": "05f2269374676476f00068b7cb168d124b7b780a92e8564e18edf45d77497abd9debf186ee98001a0c9a6dfccbab7a0a",
+        "pubKeyOperator": "85f2269374676476f00068b7cb168d124b7b780a92e8564e18edf45d77497abd9debf186ee98001a0c9a6dfccbab7a0a",
         "votingAddress": "yid7uAsVJzvSLrEekHuGNuY3KWCqJopyJ8",
-        "isValid": true
+        "isValid": true,
+        "nVersion": 2,
+        "nType": 0
       },
       {
         "proRegTxHash": "c48a44a9493eae641bea36992bc8c27eaaa33adb1884960f55cd259608d26d2f",
@@ -284,29 +287,36 @@ puts response.read_body
         "service": "173.61.30.231:19013",
         "pubKeyOperator": "8700add55a28ef22ec042a2f28e25fb4ef04b3024a7c56ad7eed4aebc736f312d18f355370dfb6a5fec9258f464b227e",
         "votingAddress": "yTMDce5yEpiPqmgPrPmTj7yAmQPJERUSVy",
-        "isValid": true
+        "isValid": true,
+        "nVersion": 2,
+        "nType": 0
       },
       {
         "proRegTxHash": "9f4f9f83ecbcd5739d7f1479ee14b508f2414d044a717acba0960566c4e6091d",
         "confirmedHash": "0000000000000000000000000000000000000000000000000000000000000000",
         "service": "45.32.211.155:19999",
-        "pubKeyOperator": "08e37b3fcba972fe0c2c0ea15f8285c8bfb262ad4d8a6741a530154f1abc4edd367a22abd0cb1934647f033913cca58a",
+        "pubKeyOperator": "88e37b3fcba972fe0c2c0ea15f8285c8bfb262ad4d8a6741a530154f1abc4edd367a22abd0cb1934647f033913cca58a",
         "votingAddress": "ybAZoZ6iybhEwoCfb6utGfU753R1wcQSZT",
-        "isValid": true
+        "isValid": true,
+        "nVersion": 2,
+        "nType": 0
       }
     ],
+    "nVersion": 2,
     "deletedQuorums": [],
     "newQuorums": [],
     "merkleRootMNList": "e9bf66fe8884e046ef1c393813a91ac7dfb77dd0fb9abb077ed2259b430420f0"
   }
 }
-``` 
+
+```
 
 # Deprecated Endpoints
 
-There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.22.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
+There are no recently deprecated endpoint, but the previous version of documentation can be [viewed here](https://dashplatform.readme.io/v0.23.0/docs/reference-dapi-endpoints-json-rpc-endpoints).
 
 # Code Reference
 
 Implementation details related to the information on this page can be found in:
+
 - The [DAPI repository](https://github.com/dashevo/platform/tree/master/packages/dapi) `lib/rpcServer/commands` folder

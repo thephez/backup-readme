@@ -102,23 +102,37 @@ connect()
 
 
 The example below demonstrates retrieving the hash of the best block hash directly from a DAPI node via command line and several languages:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "curl --request POST \\\n  --url http://seed-1.testnet.networks.dash.org:3000/ \\\n  --header 'content-type: application/json' \\\n  --data '{\"method\":\"getBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"height\": 100 }}'",
-      "language": "shell",
-      "name": null
-    },
-    {
-      "code": "import requests\n\nurl = \"http://seed-1.testnet.networks.dash.org:3000/\"\n\npayload = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\nheaders = {'content-type': 'application/json'}\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers)\n\nprint(response.text)\n",
-      "language": "python",
-      "name": "Python"
-    },
-    {
-      "code": "require 'uri'\nrequire 'net/http'\n\nurl = URI(\"http://seed-1.testnet.networks.dash.org:3000/\")\n\nhttp = Net::HTTP.new(url.host, url.port)\n\nrequest = Net::HTTP::Post.new(url)\nrequest[\"content-type\"] = 'application/json'\nrequest.body = \"{\\\"method\\\":\\\"getBlockHash\\\",\\\"id\\\":1,\\\"jsonrpc\\\":\\\"2.0\\\",\\\"params\\\":{\\\"height\\\":100}}\"\n\nresponse = http.request(request)\nputs response.read_body",
-      "language": "ruby"
-    }
-  ]
-}
-[/block]
+
+```shell
+curl --request POST \
+  --url http://seed-1.testnet.networks.dash.org:3000/ \
+  --header 'content-type: application/json' \
+  --data '{"method":"getBlockHash","id":1,"jsonrpc":"2.0","params":{"height": 100 }}'
+```
+```python
+import requests
+
+url = "http://seed-1.testnet.networks.dash.org:3000/"
+
+payload = "{\"method\":\"getBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"height\":100}}"
+headers = {'content-type': 'application/json'}
+
+response = requests.request("POST", url, data=payload, headers=headers)
+
+print(response.text)
+```
+```ruby
+require 'uri'
+require 'net/http'
+
+url = URI("http://seed-1.testnet.networks.dash.org:3000/")
+
+http = Net::HTTP.new(url.host, url.port)
+
+request = Net::HTTP::Post.new(url)
+request["content-type"] = 'application/json'
+request.body = "{\"method\":\"getBlockHash\",\"id\":1,\"jsonrpc\":\"2.0\",\"params\":{\"height\":100}}"
+
+response = http.request(request)
+puts response.read_body
+```

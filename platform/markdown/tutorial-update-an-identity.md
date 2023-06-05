@@ -2,8 +2,8 @@
 
 Since Dash Platform v0.23, it is possible to update identities to add new keys or disable existing ones. 
 
-> 📘
->
+> 📘 
+> 
 > Platform retains disabled keys so that any existing data they signed can still be verified while preventing them from signing new data.
 
 # Prerequisites
@@ -16,8 +16,8 @@ Since Dash Platform v0.23, it is possible to update identities to add new keys o
 
 The two examples below demonstrate updating an existing identity to add a new key and disabling an existing key:
 
-> 🚧
->
+> 🚧 
+> 
 > The current SDK version signs all state transitions with public key id `1`. If it is disabled, the SDK will be unable to use the identity. Future SDK versions will provide a way to also sign using keys added in an identity update.
 
 ```javascript Disable identity key
@@ -57,7 +57,7 @@ updateIdentityDisableKey()
 ```
 ```javascript Add identity key
 const Dash = require('dash');
-const IdentityPublicKey = require('@dashevo/dpp/lib/identity/IdentityPublicKey');
+const { IdentityPublicKey, IdentityPublicKeyWithWitness } = require('@dashevo/wasm-dpp');
 
 const clientOpts = {
   network: 'testnet',
@@ -85,13 +85,14 @@ const updateIdentityAddKey = async () => {
 
   const identityPublicKey = identityPrivateKey.toPublicKey().toBuffer();
 
-  const newPublicKey = new IdentityPublicKey({
+  const newPublicKey = new IdentityPublicKeyWithWitness({
     id: newKeyId,
     type: IdentityPublicKey.TYPES.ECDSA_SECP256K1,
-    purpose: IdentityPublicKey.PURPOSES.AUTHENTICATION,
-    securityLevel: IdentityPublicKey.SECURITY_LEVELS.HIGH,
     data: identityPublicKey,
+    purpose: IdentityPublicKey.PURPOSES.AUTHENTICATION,
+    securityLevel: IdentityPublicKey.SECURITY_LEVELS.CRITICAL,
     readOnly: false,
+    signature: Buffer.alloc(0),
   });
 
   const updateAdd = {
@@ -117,20 +118,22 @@ updateIdentityAddKey()
 ## Disabling keys
 
 After we initialize the Client, we retrieve our existing identity and provide the `id` of one (or more) of the identity keys to disable. The update is submitted to DAPI using the `platform.identities.update` method with two arguments:
- 1. An identity
- 1. An object containing the key(s) to be disabled
+
+1. An identity
+2. An object containing the key(s) to be disabled
 
 Internally, the method creates a State Transition containing the updated identity, signs the state transition, and submits the signed state transition to DAPI. After the identity is updated, we output it to the console.
 
 ## Adding keys
 
 After we initialize the Client, we retrieve our existing identity and set an `id` for the key to be added. Next, we get an unused private key from our wallet and use it to derive a public key to add to our identity. The update is submitted to DAPI using the `platform.identities.update` method with three arguments:
- 1. An identity
- 1. An object containing the key(s) to be added
- 1. An object containing the id and private key for each public key being added
 
-> 📘
->
+1. An identity
+2. An object containing the key(s) to be added
+3. An object containing the id and private key for each public key being added
+
+> 📘 
+> 
 > When adding new public keys, they must be signed using the associated private key to prove ownership of the keys.
 
 Internally, the method creates a State Transition containing the updated identity, signs the state transition, and submits the signed state transition to DAPI. After the identity is updated, we output it to the console.

@@ -3,6 +3,7 @@
 In this tutorial we will register a data contract.
 
 ## Prerequisites
+
 - [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 - A wallet mnemonic with some funds in it: [Tutorial: Create and Fund a Wallet](tutorial-create-and-fund-a-wallet)
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) 
@@ -17,14 +18,14 @@ The most basic example below (tab 1) demonstrates a data contract containing a s
 
 The second tab shows the same data contract with an index defined on the `$ownerId` field. This would allow querying for documents owned by a specific identity using a [where clause](reference-query-syntax#where-clause).
 
-> 🚧
->
+> 🚧 
+> 
 > Since Platform v0.23, an index can [only use the ascending order](https://github.com/dashevo/platform/pull/435) (`asc`). Future updates will remove this restriction.
 
 The third tab shows a data contract using the [JSON-Schema $ref feature](https://json-schema.org/understanding-json-schema/structuring.html#reuse) that enables reuse of defined objects.
 
-> 🚧
->
+> 🚧 
+> 
 > The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
 
 The fourth tab shows a data contract requiring the optional `$createdAt` and `$updatedAt` [base fields](explanation-platform-protocol-document#base-fields). Using these fields enables retrieving timestamps that indicate when a document was created or modified.
@@ -143,8 +144,10 @@ array of bytes (e.g. a NodeJS Buffer).
 */
 ```
 
-> 📘
->
+
+
+> 📘 
+> 
 > Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.
 
 ## Registering the data contract
@@ -182,10 +185,9 @@ const registerContract = async () => {
   };
 
   const contract = await platform.contracts.create(contractDocuments, identity);
-  console.dir({ contract });
+  console.dir({ contract: contract.toJSON() });
 
   // Make sure contract passes validation checks
-  await platform.dpp.initialize();
   const validationResult = await platform.dpp.dataContract.validate(contract);
 
   if (validationResult.isValid()) {
@@ -223,10 +225,11 @@ const registerContract = async () => {
   const contractDocuments = {
     note: {
       type: 'object',
-      indices: [
-        name: "ownerId",
-        { properties: [{ $ownerId: 'asc' }], unique: false },
-      ],
+      indices: [{
+        name: 'ownerId',
+        properties: [{ $ownerId: 'asc' }],
+        unique: false,
+      }],
       properties: {
         message: {
           type: 'string',
@@ -237,10 +240,9 @@ const registerContract = async () => {
   };
 
   const contract = await platform.contracts.create(contractDocuments, identity);
-  console.dir({ contract });
+  console.dir({ contract: contract.toJSON() });
 
   // Make sure contract passes validation checks
-  await platform.dpp.initialize();
   const validationResult = await platform.dpp.dataContract.validate(contract);
 
   if (validationResult.isValid()) {
@@ -307,10 +309,9 @@ const registerContract = async () => {
 
   // Add reusable definitions referred to by "$ref" to contract
   contract.setDefinitions(definitions);
-  console.dir({ contract });
+  console.dir({ contract: contract.toJSON() });
 
   // Make sure contract passes validation checks
-  await platform.dpp.initialize();
   const validationResult = await platform.dpp.dataContract.validate(contract);
 
   if (validationResult.isValid()) {
@@ -359,10 +360,9 @@ const registerContract = async () => {
   };
 
   const contract = await platform.contracts.create(contractDocuments, identity);
-  console.dir({ contract });
+  console.dir({ contract: contract.toJSON() });
 
   // Make sure contract passes validation checks
-  await platform.dpp.initialize();
   const validationResult = await platform.dpp.dataContract.validate(contract);
 
   if (validationResult.isValid()) {
@@ -413,10 +413,9 @@ const registerContract = async () => {
   };
 
   const contract = await platform.contracts.create(contractDocuments, identity);
-  console.dir({ contract }, { depth: 5 });
+  console.dir({ contract: contract.toJSON() }, { depth: 5 });
 
   // Make sure contract passes validation checks
-  await platform.dpp.initialize();
   const validationResult = await platform.dpp.dataContract.validate(contract);
 
   if (validationResult.isValid()) {
@@ -434,8 +433,10 @@ registerContract()
   .finally(() => client.disconnect());
 ```
 
-> 👍
->
+
+
+> 👍 
+> 
 > **Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**
 
 # What's Happening
@@ -445,7 +446,7 @@ After we initialize the Client, we create an object defining the documents this 
 Once the data contract has been created, we still need to submit it to DAPI. The `platform.contracts.publish` method takes a data contract and an identity parameter. Internally, it creates a State Transition containing the previously created contract, signs the state transition, and submits the signed state transition to DAPI. A response will only be returned if an error is encountered.
 
 > 📘 Wallet Operations
->
+> 
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
->
+> 
 > A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.

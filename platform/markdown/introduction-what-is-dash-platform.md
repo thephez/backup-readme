@@ -10,13 +10,14 @@ Store your application data in the safest place on the Internet. All data stored
 
 Because your application data is stored across many nodes on the Dash network, it is safe and always available for customers, business partners, and investors.
 
-## Client Libraries 
+## Client Libraries
 
 Write code and integrate with Dash Platform using the languages that matter to your business. Don't worry about understanding blockchain infrastructure: a growing number of client libraries abstract away the complexity typically associated with working on blockchain-based networks.
 
 ## Instant Data Confirmation
 
 Unlike many blockchain-based networks, data stored on the platform is instantly confirmed by the Dash consensus algorithm to ensure the best user experience for users. With Dash Platform, you can gain the advantages of a blockchain-based storage network without the usual UX compromises.
+
 [block:image]
 {
   "images": [
@@ -24,15 +25,17 @@ Unlike many blockchain-based networks, data stored on the platform is instantly 
       "image": [
         "https://files.readme.io/2213390-join-community.svg",
         "join-community.svg",
-        171,
-        150,
-        "#ffffff"
+        171
       ],
+      "align": "center",
       "sizing": "60"
     }
   ]
 }
 [/block]
+
+
+
 # Key Components
 
 ## DAPI - A decentralized API
@@ -44,8 +47,9 @@ DAPI provides developers the same access and security as running their own Dash 
 Developers can connect to DAPI directly or use a client library. This initial client library, dapi-client, is a relatively simple API wrapper developed by Dash Core Group to provide function calls to the DAPI endpoints.
 
 The source for both DAPI and dapi-client are available on GitHub:
- - DAPI: https://github.com/dashevo/platform/tree/master/packages/dapi
- - DAPI-Client: https://github.com/dashevo/platform/tree/master/packages/js-dapi-client
+
+- DAPI: <https://github.com/dashpay/platform/tree/master/packages/dapi>
+- DAPI-Client: <https://github.com/dashpay/platform/tree/master/packages/js-dapi-client>
 
 ## Drive - Decentralized Storage
 
@@ -54,4 +58,5 @@ Drive is Dash Platform's storage component, allowing for consensus-based verific
 Data created by users of the application is validated and verified against this contract. Upon successful validation/verification, application data is submitted to Drive (via DAPI), where it is stored on the masternode network. Drive uses Dash's purpose-built database, [GroveDB](https://github.com/dashevo/grovedb/), to provide efficient proofs with query responses, so you don't have to trust the API provider to be certain your data is authentic.
 
 The source is available on GitHub: 
- - Drive: https://github.com/dashevo/platform/tree/master/packages/js-drive
+
+- Drive: <https://github.com/dashpay/platform/tree/master/packages/js-drive>

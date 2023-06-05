@@ -32,7 +32,8 @@
  },
  "algolia": {
   "recordCount": 1,
-  "publishPending": false
+  "publishPending": false,
+  "updatedAt": "2023-03-07T17:41:11.343Z"
  },
  "title": "Testnet Faucet",
  "icon": "",
@@ -51,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-05-06T09:57:21.335Z",
  "revision": 2,
- "_id": "62b226d1fcc32e002300c56d",
+ "_id": "640776c254e6100011466690",
  "pendingAlgoliaPublish": false,
  "createdAt": "2021-05-06T13:10:52.691Z",
  "updatedAt": "2021-12-29T17:12:59.565Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "62b226d1fcc32e002300c50a",
+ "category": "640776c254e610001146662f",
  "project": "5bda01cad172e200499a20a9",
- "version": "62b226d1fcc32e002300c574",
+ "version": "640776c254e610001146669e",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "62b226d1fcc32e002300c56d",
+ "id": "640776c254e6100011466690",
  "body_html": "&nbsp;"
 }

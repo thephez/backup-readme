@@ -3,6 +3,7 @@
 In this tutorial we will submit some data to an application on Dash Platform. Data is stored in the form of [documents](explanation-platform-protocol-document) which are encapsulated in a [state transition](explanation-platform-protocol-state-transition) before being submitted to DAPI. 
 
 ## Prerequisites
+
 - [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 - A wallet mnemonic with some funds in it: [Tutorial: Create and Fund a Wallet](tutorial-create-and-fund-a-wallet)
 - A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity)
@@ -54,13 +55,15 @@ const submitNoteDocument = async () => {
 };
 
 submitNoteDocument()
-  .then((d) => console.log(d))
+  .then((d) => console.log(d.toJSON()))
   .catch((e) => console.error('Something went wrong:\n', e))
   .finally(() => client.disconnect());
-``` 
+```
+
+
 
 > 👍 Initializing the Client with a contract identity
->
+> 
 > The example above shows how access to contract documents via `<contract name>.<contract document>` syntax (e.g. `tutorialContract.note`) can be enabled by passing a contract identity to the constructor. Please refer to the [Dash SDK documentation](https://github.com/dashevo/platform/blob/master/packages/js-dash-sdk/docs/getting-started/multiple-apps.md) for details.
 
 # What's happening
@@ -72,7 +75,7 @@ Once the document has been created, we still need to submit it to [DAPI](explana
 The `platform.documents.broadcast` method then takes the document batch and an identity parameter. Internally, it creates a [State Transition](explanation-platform-protocol-state-transition) containing the previously created document, signs the state transition, and submits the signed state transition to DAPI.
 
 > 📘 Wallet Operations
->
+> 
 > The JavaScript SDK does not cache wallet information. It re-syncs the entire Core chain for some wallet operations (e.g. `client.getWalletAccount()`) which can result in wait times of  5+ minutes. 
->
+> 
 > A future release will add caching so that access is much faster after the initial sync. For now, the `skipSynchronizationBeforeHeight` option can be used to sync the wallet starting at a certain block height.

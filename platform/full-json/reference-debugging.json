@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-01-18T18:24:58.747Z"
+  "updatedAt": "2023-03-07T17:41:10.815Z"
  },
  "title": "Debugging",
  "icon": "",
@@ -52,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-25T00:06:08.981Z",
  "revision": 3,
- "_id": "62b226d1fcc32e002300c56c",
+ "_id": "640776c254e610001146668f",
  "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-25T12:32:12.874Z",
  "updatedAt": "2023-01-18T18:24:58.578Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "62b226d1fcc32e002300c50b",
+ "category": "640776c254e6100011466630",
  "project": "5bda01cad172e200499a20a9",
- "version": "62b226d1fcc32e002300c574",
+ "version": "640776c254e610001146669e",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "62b226d1fcc32e002300c56c",
+ "id": "640776c254e610001146668f",
  "body_html": "<div class=\"magic-block-textarea\"><blockquote>\n<p>\ud83d\udea7 Under construction</p>\n</blockquote>\n\n</div>"
 }
