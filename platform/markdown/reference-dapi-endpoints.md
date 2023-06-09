@@ -23,7 +23,7 @@
 
 ## Platform gRPC Service
 
-In addition to providing the request data, the following endpoints can also provide [proofs](reference-platform-proofs) that the data returned is valid and complete.
+In addition to providing the request data, the following endpoints can also provide proofs that the data returned is valid and complete.
 
 | Layer | Endpoint                                                                                                       |                                                                                                                           |
 | :---: | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
@@ -33,8 +33,6 @@ In addition to providing the request data, the following endpoints can also prov
 |   2   | [`getDataContract`](reference-dapi-endpoints-platform-endpoints#getdatacontract)                               | Returns the requested data contract                                                                                       |
 |   2   | [`getDocuments`](reference-dapi-endpoints-platform-endpoints#getdocuments)                                     | Returns the requested document(s)                                                                                         |
 |   2   | [`waitForStateTransitionResult`](reference-dapi-endpoints-platform-endpoints#waitforstatetransitionresult)     | Responds with the state transition hash and either a proof that the state transition was confirmed in a block or an error |
-
-
 
 [block:html]
 {

@@ -6,20 +6,13 @@ Dash Platform data objects consist of JSON and are validated using the JSON Sche
 
 In addition to ensuring data complies with predefined JSON Schemas, DPP also defines rules for hashing and serialization of these objects.
 
-> ❗️ Breaking changes
-> 
-> **Dash Platform Protocol 0.22**  
-> A number of breaking changes were introduced in DPP 0.22. Details can be found in the [GitHub release](https://github.com/dashevo/platform/releases/tag/v0.22.0).
-> 
-> **Dash Platform Protocol 0.21**  
-> A number of breaking changes were introduced in DPP 0.21. Details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.21.0).
-> 
-> **Dash Platform Protocol 0.20**  
-> This release updated to a newer version of JSON Schema (2020-12 spec) and also switched to a new regex module (Re2) for improved security. More details can be found in the [GitHub release](https://github.com/dashevo/js-dpp/releases/tag/v0.20.0).
-
 # Reference Implementation
 
-The current reference implementation is the (JavaScript) [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp) library. The schemas and meta-schemas referred to in this specification can be found here in the reference implementation: <https://github.com/dashpay/platform/tree/master/packages/js-dpp/schema>.
+The current reference implementation is the (Rust) [rs-dpp](https://github.com/dashevo/platform/tree/master/packages/rs-dpp) library. The schemas and meta-schemas referred to in this specification can be found here in the reference implementation: <https://github.com/dashpay/platform/tree/master/packages/rs-dpp/src/schema>.
+
+# Release Notes
+
+Release notes for past versions are located on the [dashpay/platform GitHub release page](https://github.com/dashpay/platform/releases). They provide information about breaking changes, features, and fixes.
 
 # Topics
 

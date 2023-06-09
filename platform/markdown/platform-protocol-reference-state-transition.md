@@ -2,43 +2,41 @@
 
  State transitions are the means for submitting data that creates, updates, or deletes platform data and results in a change to a new state. Each one must contain:
 
- - [Common fields](#common-fields) present in all state transitions
- - Additional fields specific to the type of action the state transition provides (e.g. [creating an identity](platform-protocol-reference-identity#identity-create-schema))
+- [Common fields](#common-fields) present in all state transitions
+- Additional fields specific to the type of action the state transition provides (e.g. [creating an identity](platform-protocol-reference-identity#identity-create-schema))
 
 ## Fees
 
-State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/identity/creditsConverter.js#L1). Fees for actions vary based on parameters related to storage and computational effort that are defined in [js-dpp](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/stateTransition/fee/constants.js).
-
-**Note:** Prior to Dash Platform v0.23 a rudimentary fee system charged a flat rate rate of [1 credit/byte](https://github.com/dashevo/platform/blob/v0.22.0/packages/js-dpp/lib/stateTransition/calculateStateTransitionFee.js#L1) for all actions.
+State transition fees are paid via the credits established when an identity is created. Credits are created at a rate of [1000 credits/satoshi](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/identity/credits_converter.rs#L3). Fees for actions vary based on parameters related to storage and computational effort that are defined in [rs-dpp](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/state_transition/fee/constants.rs).
 
 ## Size
 
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/util/serializer.js#L5).
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/util/serializer.rs#L8).
 
 ## Common Fields
 
 All state transitions include the following fields:
 
-| Field | Type | Description|
-| - | - | - |
-| protocolVersion | integer | The platform protocol version (currently `1`) |
-| type | integer | State transition type:<br>`0` - [data contract create](platform-protocol-reference-data-contract#data-contract-creation)<br>`1` - [documents batch](platform-protocol-reference-document#document-submission)<br>`2` - [identity create](platform-protocol-reference-identity#identity-creation)<br>`3` - [identity topup](identity.md#identity-topup)<br>`4` - [data contract update](data-contract.md#data-contract-update)<br>`5` - [identity update](identity.md#identity-update) |
-| signature | array of bytes | Signature of state transition data (65 bytes) |
+| Field           | Type           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| protocolVersion | integer        | The platform protocol version (currently `1`)                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| type            | integer        | State transition type:<br>`0` - [data contract create](platform-protocol-reference-data-contract#data-contract-creation)<br>`1` - [documents batch](platform-protocol-reference-document#document-submission)<br>`2` - [identity create](platform-protocol-reference-identity#identity-creation)<br>`3` - [identity topup](identity.md#identity-topup)<br>`4` - [data contract update](data-contract.md#data-contract-update)<br>`5` - [identity update](identity.md#identity-update) |
+| signature       | array of bytes | Signature of state transition data (65 bytes)                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 Additionally, all state transitions except the identity create and topup state transitions include:
 
-| Field | Type | Description|
-| - | - | - |
-| signaturePublicKeyId | integer | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition (`=> 0`)|
+| Field                | Type    | Description                                                                                                                               |
+| -------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| signaturePublicKeyId | integer | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition (`=> 0`) |
 
 # State Transition Types
 
 ## Data Contract Create
 
-| Field | Type | Description|
-| - | - | - |
+| Field        | Type                                                                                   | Description                                                                                |
+| ------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | dataContract | [data contract object](platform-protocol-reference-data-contract#data-contract-object) | Object containing valid [data contract](platform-protocol-reference-data-contract) details |
-| entropy | array of bytes | Entropy used to generate the data contract ID (32 bytes) |
+| entropy      | array of bytes                                                                         | Entropy used to generate the data contract ID (32 bytes)                                   |
 
 More detailed information about the `dataContract` object can be found in the [data contract section](platform-protocol-reference-data-contract).
 
@@ -46,62 +44,62 @@ More detailed information about the `dataContract` object can be found in the [d
 
 Entropy is included in [Data Contracts](platform-protocol-reference-data-contract#data-contract-creation) and [Documents](platform-protocol-reference-document#document-create-transition).
 
-```javascript
-// From the JavaScript reference implementation (js-dpp)
+```rust
+// From the Rust reference implementation (rs-dpp)
 // entropyGenerator.js
-function generate() {
-  return crypto.randomBytes(32);
+fn generate(&self) -> anyhow::Result<[u8; 32]> {
+  let mut buffer = [0u8; 32];
+  getrandom(&mut buffer).context("generating entropy failed")?;
+  Ok(buffer)
 }
 ```
 
 ## Data Contract Update
 
-| Field | Type | Description|
-| - | - | - |
+| Field        | Type                                                                                   | Description                                                                                |
+| ------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | dataContract | [data contract object](platform-protocol-reference-data-contract#data-contract-object) | Object containing valid [data contract](platform-protocol-reference-data-contract) details |
 
 More detailed information about the `dataContract` object can be found in the [data contract section](platform-protocol-reference-data-contract).
 
 ## Documents Batch
 
-| Field | Type | Description|
-| - | - | - |
-| ownerId | array of bytes | [Identity](platform-protocol-reference-identity) submitting the document(s) (32 bytes) |
-| transitions | array of transition objects | Document `create`, `replace`, or `delete` transitions (up to 10 objects) |
+| Field       | Type                        | Description                                                                            |
+| ----------- | --------------------------- | -------------------------------------------------------------------------------------- |
+| ownerId     | array of bytes              | [Identity](platform-protocol-reference-identity) submitting the document(s) (32 bytes) |
+| transitions | array of transition objects | Document `create`, `replace`, or `delete` transitions (up to 10 objects)               |
 
 More detailed information about the `transitions` array can be found in the [document section](platform-protocol-reference-document).
 
 ## Identity Create
 
-| Field | Type | Description|
-| - | - | - |
-| assetLockProof | array of bytes | Lock [outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint) from the layer 1 locking transaction (36 bytes) |
-| publicKeys | array of keys | [Public key(s)](platform-protocol-reference-identity#identity-publickeys) associated with the identity (maximum number of keys: `10`)|
+| Field          | Type           | Description                                                                                                                                          |
+| -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| assetLockProof | array of bytes | Lock [outpoint](https://docs.dash.org/projects/core/en/stable/docs/resources/glossary.html#outpoint) from the layer 1 locking transaction (36 bytes) |
+| publicKeys     | array of keys  | [Public key(s)](platform-protocol-reference-identity#identity-publickeys) associated with the identity (maximum number of keys: `10`)                |
 
 More detailed information about the `publicKeys` object can be found in the [identity section](platform-protocol-reference-identity).
 
 ## Identity TopUp
 
-| Field | Type | Description|
-| - | - | - |
-| assetLockProof | array of bytes | Lock [outpoint](https://dashcore.readme.io/docs/core-additional-resources-glossary#section-outpoint) from the layer 1 locking transaction (36 bytes) |
-| identityId | array of bytes | An [Identity ID](platform-protocol-reference-identity#identity-id) for the identity receiving the topup (can be any identity) (32 bytes) |
+| Field          | Type           | Description                                                                                                                                          |
+| -------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| assetLockProof | array of bytes | Lock [outpoint](https://docs.dash.org/projects/core/en/stable/docs/resources/glossary.html#outpoint) from the layer 1 locking transaction (36 bytes) |
+| identityId     | array of bytes | An [Identity ID](platform-protocol-reference-identity#identity-id) for the identity receiving the topup (can be any identity) (32 bytes)             |
 
 ## Identity Update
 
-| Field | Type | Description|
-| - | - | - |
-| identityId | array of bytes | The [Identity ID](platform-protocol-reference-identity#identity-id) for the identity being updated (32 bytes) |
-| revision | integer | Identity update revision. Used for optimistic concurrency control. Incremented by one with each new update so that the update will fail if the underlying data is modified between reading and writing. |
-| addPublicKeys | array of public keys | (Optional) Array of up to 10 new public keys to add to the identity. Required if adding keys. |
-| disablePublicKeys | array of integers | (Optional) Array of up to 10 existing identity public key ID(s) to disable for the identity. Required if disabling keys. |
-| publicKeysDisabledAt | integer | (Optional) Timestamp when keys were disabled. Required if `disablePublicKeys` is present.
+| Field                | Type                 | Description                                                                                                                                                                                             |
+| -------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| identityId           | array of bytes       | The [Identity ID](platform-protocol-reference-identity#identity-id) for the identity being updated (32 bytes)                                                                                           |
+| revision             | integer              | Identity update revision. Used for optimistic concurrency control. Incremented by one with each new update so that the update will fail if the underlying data is modified between reading and writing. |
+| addPublicKeys        | array of public keys | (Optional) Array of up to 10 new public keys to add to the identity. Required if adding keys.                                                                                                           |
+| disablePublicKeys    | array of integers    | (Optional) Array of up to 10 existing identity public key ID(s) to disable for the identity. Required if disabling keys.                                                                                |
+| publicKeysDisabledAt | integer              | (Optional) Timestamp when keys were disabled. Required if `disablePublicKeys` is present.                                                                                                               |
 
 # State Transition Signing
 
-State transitions must be signed by a private key associated with the identity creating the state transition.
-
-**Note:** Since v0.23, each identity must have at least two keys: a primary key (security level `0`) that is only used when signing identity update state transitions and an additional key (security level `2`) that is used to sign all other state transitions.
+State transitions must be signed by a private key associated with the identity creating the state transition. Since v0.23, each identity must have at least two keys: a primary key (security level `0`) that is only used when signing identity update state transitions and an additional key (security level `2`) that is used to sign all other state transitions.
 
 The process to sign a state transition consists of the following steps:
 
@@ -112,7 +110,7 @@ The process to sign a state transition consists of the following steps:
 
 ## Signature Validation
 
-The `signature` validation (see [js-dpp](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/test/unit/stateTransition/validation/validateStateTransitionIdentitySignatureFactory.spec.js)) verifies that:
+The `signature` validation (see [js-dpp](https://github.com/dashpay/platform/blob/v0.24.5/packages/js-dpp/test/unit/stateTransition/validation/validateStateTransitionIdentitySignatureFactory.spec.js)) verifies that:
 
 1. The identity exists
 2. The identity has a public key

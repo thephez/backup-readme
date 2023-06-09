@@ -4,53 +4,8 @@ Data contracts define the schema (structure) of data an application will store o
 
 The following sections provide details that developers need to construct valid contracts: [documents](#documents) and [definitions](#definitions). All data contracts must define one or more documents, whereas definitions are optional and may not be used for simple contracts.
 
-# General Constraints
-
-> 🚧 Constraints
->
-> There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [js-dpp data contract meta schema](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json)).
-
-## Keyword
-
-> 📘 Dash Platform Protocol 0.20
->
-> Updating to the JSON Schema 2012-12 specification replaced the `definitions` keyword with the `$defs` keyword.
-
-> 🚧
->
-> The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
-
-| Keyword | Constraint |
-| - | - |
-| `default` | Restricted - cannot be used (defined in DPP logic) |
-| `propertyNames` | Restricted - cannot be used (defined in DPP logic) |
-| `uniqueItems: true` | `maxItems` must be defined (maximum: 100000) |
-| `pattern: <something>` | `maxLength` must be defined (maximum: 50000) |
-| `format: <something>` | `maxLength` must be defined (maximum: 50000) |
-| `$ref: <something>` | **Temporarily disabled**<br>`$ref` can only reference `$defs` - <br> remote references not supported |
-| `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts |
-| `dependencies` | Not supported. Use `dependentRequired` and `dependentSchema` instead |
-| `additionalItems` | Not supported. Use `items: false` and `prefixItems` instead |
-| `patternProperties` | Restricted - cannot be used for data contracts |
-| `pattern` | Accept only [RE2](https://github.com/google/re2/wiki/Syntax) compatible regular expressions (defined in DPP logic) |
-
-
-## Data Size
-
-**Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
-
-All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/util/serializer.js#L5).
-
-## Additional Properties
-
-Although JSON Schema allows additional, undefined properties [by default](https://json-schema.org/understanding-json-schema/reference/object.html?#properties), they are not allowed in Dash Platform data contracts. Data contract validation will fail if they are not explicitly forbidden using the `additionalProperties` keyword anywhere `properties` are defined (including within document properties of type `object`).
-
-Include the following at the same level as the `properties` keyword to ensure proper validation:
-```json
-"additionalProperties": false
-```
-
 # Documents
+
 The `documents` object defines each type of document required by the data contract. At a minimum, a document must consist of 1 or more properties. Documents may also define [indices](#document-indices) and a list of [required properties](#required-properties-optional). The `additionalProperties` properties keyword must be included as described in the [constraints](#additional-properties) section.
 
 The following example shows a minimal `documents` object defining a single document (`note`) that has one property (`message`).
@@ -66,57 +21,54 @@ The following example shows a minimal `documents` object defining a single docum
     "additionalProperties": false
   }
 }
-``` 
+```
 
 ## Document Properties
 
-The `properties` object defines each field that will be used by a document. Each field consists of an object that, at a minimum, must define its data `type` (`string`, `number`, `integer`, `boolean`, `array`, `object`). Fields may also apply a variety of optional JSON Schema constraints related to the format, range, length, etc. of the data.
+The `properties` object defines each field that will be used by a document. Each field consists of an object that, at a minimum, must define its data `type` (`string`, `number`, `integer`, `boolean`, `array`, `object`). 
 
-> 🚧 Property type: `object`
->
-> The `object` type is required to have properties defined either directly or via the data contract's [$defs](#definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):
-> ```javascript
-> const contractDocuments = {
->   message: {
->     type: "object",
->     properties: {
->       body: {
->         type: "object",
->        properties: {
->           objectProperty: {
->             type: "string"
->           },
->         },
->         additionalProperties: false,
->       },
->       header: {
->         type: "string"
->       }
->     },
->     additionalProperties: false
->   }
-> };
-> ```
+Fields may also apply a variety of optional JSON Schema constraints related to the format, range, length, etc. of the data. A full explanation of the capabilities of JSON Schema is beyond the scope of this document. For more information regarding its data types and the constraints that can be applied, please refer to the [JSON Schema reference](https://json-schema.org/understanding-json-schema/reference/index.html) documentation.
 
-> 📘 JSON Schema
->
-> A full explanation of the capabilities of JSON Schema is beyond the scope of this document. For more information regarding its data types and the constraints that can be applied, please refer to the [JSON Schema reference](https://json-schema.org/understanding-json-schema/reference/index.html) documentation.
+### Special requirements for `object` properties
 
-#### Property Constraints
+The `object` type is required to have properties defined either directly or via the data contract's [$defs](#definitions). For example, the `body` property shown below is an object containing a single string property (`objectProperty`):
+
+```javascript
+const contractDocuments = {
+  message: {
+    type: "object",
+    properties: {
+      body: {
+        type: "object",
+       properties: {
+          objectProperty: {
+            type: "string"
+          },
+        },
+        additionalProperties: false,
+      },
+      header: {
+        type: "string"
+      }
+    },
+    additionalProperties: false
+  }
+};
+```
+
+### Property Constraints
 
 There are a variety of constraints currently defined for performance and security reasons.
 
-| Description | Value |
-| - | - |
-| Minimum number of properties | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L22) |
-| Maximum number of properties | [100](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L23) |
-| Minimum property name length | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) (Note: minimum length was 3 prior to v0.23) |
-| Maximum property name length | [64](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L9) |
-| Property name characters | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hyphen (`-`) <br>Underscore (`_`) |
+| Description                  | Value                                                                                                                                                                |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Minimum number of properties | [1](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L22)                                             |
+| Maximum number of properties | [100](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L23)                                           |
+| Minimum property name length | [1](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L20) (Note: minimum length was 3 prior to v0.23) |
+| Maximum property name length | [64](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L20)                                            |
+| Property name characters     | Alphanumeric (`A-Z`, `a-z`, `0-9`)<br>Hyphen (`-`) <br>Underscore (`_`)                                                                                              |
 
-> 📘
->
-> Note: Prior to Dash Platform v0.23 there were stricter limitations on minimum property name length and the characters that could be used in property names.
+Prior to Dash Platform v0.23 there were stricter limitations on minimum property name length and the characters that could be used in property names.
 
 ### Required Properties (Optional)
 
@@ -127,9 +79,9 @@ Each document may have some fields that are required for the document to be vali
   "<field name a>",
   "<field name b>"
 ]
-``` 
+```
 
-**Example**
+**Example**  
 The following example (excerpt from the DPNS contract's `domain` document) demonstrates a document that has 6 required fields:
 
 ```json
@@ -141,26 +93,21 @@ The following example (excerpt from the DPNS contract's `domain` document) demon
   "preorderSalt",
   "records"
 ],
-``` 
+```
 
 ## Document Indices
 
-> 📘 
->
-> The `indices` object should be excluded for documents that do not require indices.
->
-> **Note:** Dash Platform v0.23 only allows [ascending default ordering](https://github.com/dashevo/platform/pull/435) for indices.
-
-Document indices may be defined if indexing on document fields is required. 
+Document indices may be defined if indexing on document fields is required. The `indices` object should be excluded for documents that do not require indices.
 
 The `indices` array consists of:
- - One or more objects that each contain:
-    - A unique `name` for the index
-    - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: `asc` only for Dash Platform v0.23)
-    - An (optional) `unique` element that determines if duplicate values are allowed for the document
+
+- One or more objects that each contain:
+  - A unique `name` for the index
+  - A `properties` array composed of a `<field name: sort order>` object for each document field that is part of the index (sort order: [`asc` only](https://github.com/dashevo/platform/pull/435) for Dash Platform v0.23)
+  - An (optional) `unique` element that determines if duplicate values are allowed for the document
 
 > 🚧 Compound Indices
->
+> 
 > When defining an index with multiple properties (i.e a compound index), the order in which the properties are listed is important. Refer to the [mongoDB documentation](https://docs.mongodb.com/manual/core/index-compound/#prefixes) for details regarding the significance of the order as it relates to querying capabilities. Dash uses [GroveDB](https://github.com/dashevo/grovedb) which works similarly but does requiring listing all the index's fields in query order by statements.
 
 ```json
@@ -178,26 +125,24 @@ The `indices` array consists of:
     ], 
   }    
 ]
-``` 
+```
 
 ### Index Constraints
 
-> 🚧 
->
-> For performance and security reasons, indices have the following constraints. These constraints are subject to change over time.
+For performance and security reasons, indices have the following constraints. These constraints are subject to change over time.
 
-| Description | Value |
-| - | - |
-| Minimum/maximum length of index `name` | [1](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L376) / [32](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L377) |
-| Maximum number of indices | [10](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L404) |
-| Maximum number of unique indices | [3](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/errors/consensus/basic/dataContract/UniqueIndicesLimitReachedError.js#L22) |
-| Maximum number of properties in a single index | [10](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/schema/dataContract/dataContractMeta.json#L394) |
-| Maximum length of indexed string property | [63](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L22) |
-| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L23) |
-| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashevo/platform/pull/225)**<br>Maximum number of indexed array items | [1024](https://github.com/dashevo/platform/blob/v0.23.0/packages/js-dpp/lib/dataContract/validation/validateDataContractFactory.js#L24) |
-| Usage of `$id` in an index [disallowed](https://github.com/dashevo/platform/pull/178) | N/A |
+| Description                                                                                                                                                        | Value                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Minimum/maximum length of index `name`                                                                                                                             | [1](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L413) / [32](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L414) |
+| Maximum number of indices                                                                                                                                          | [10](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L446)                                                                                                                             |
+| Maximum number of unique indices                                                                                                                                   | [3](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/data_contract/validation/data_contract_validator.rs#L40)                                                                                                                      |
+| Maximum number of properties in a single index                                                                                                                     | [10](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json#L433)                                                                                                                             |
+| Maximum length of indexed string property                                                                                                                          | [63](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/data_contract/validation/data_contract_validator.rs#L39)                                                                                                                     |
+| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashpay/platform/pull/225)**<br>Maximum length of indexed byte array property | [255](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/data_contract/validation/data_contract_validator.rs#L43)                                                                                                                    |
+| **Note: Dash Platform v0.22+. [does not allow indices for arrays](https://github.com/dashpay/platform/pull/225)**<br>Maximum number of indexed array items         | [1024](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/data_contract/validation/data_contract_validator.rs#L44)                                                                                                                   |
+| Usage of `$id` in an index [disallowed](https://github.com/dashpay/platform/pull/178)                                                                              | N/A                                                                                                                                                                                                                                                    |
 
-**Example**
+**Example**  
 The following example (excerpt from the DPNS contract's `preorder` document) creates an index on `saltedDomainHash` that also enforces uniqueness across all documents of that type:
 
 ```json
@@ -209,9 +154,10 @@ The following example (excerpt from the DPNS contract's `preorder` document) cre
     "unique": true
   }
 ],
-``` 
+```
 
 ## Full Document Syntax
+
 This example syntax shows the structure of a documents object that defines two documents, an index, and a required field.
 
 ```json
@@ -255,20 +201,17 @@ This example syntax shows the structure of a documents object that defines two d
     "additionalProperties": false
   },    
 }
-``` 
+```
 
 # Definitions
-The optional `$defs` object enables definition of aspects of a schema that are used in multiple places. This is done using the JSON Schema support for [reuse](https://json-schema.org/understanding-json-schema/structuring.html#reuse). Items defined in `$defs` may then be referenced when defining `documents` through use of the `$ref` keyword.
 
-> 📘 
->
-> Properties defined in the `$defs` object must meet the same criteria as those defined in the `documents` object.
+> ❗️ Definitions are currently unavailable
 
->❗️ Remote references blocked
->
-> Data contracts can only use the `$ref` keyword to reference their own `$defs`. Referencing external definitions is not supported by the platform protocol.
+The optional `$defs` object enables definition of aspects of a schema that are used in multiple places. This is done using the JSON Schema support for [reuse](https://json-schema.org/understanding-json-schema/structuring.html#reuse). 
 
-**Example**
+Items defined in `$defs` may then be referenced when defining `documents` through use of the `$ref` keyword. Properties defined in the `$defs` object must meet the same criteria as those defined in the `documents` object. Data contracts can only use the `$ref` keyword to reference their own `$defs`. Referencing external definitions is not supported by the platform protocol.
+
+**Example**  
 The following example shows a definition for a `message` object consisting of two properties:
 
 ```json
@@ -289,15 +232,44 @@ The following example shows a definition for a `message` object consisting of tw
     }
   }
 }
-``` 
+```
 
+## General Constraints
 
->❗️ Toplevel definitions blocked by issue #185
->
-> Currently using definitions at the document toplevel throws an error. See [https://github.com/dashevo/js-dpp/issues/185](https://github.com/dashevo/js-dpp/issues/185)
+There are a variety of constraints currently defined for performance and security reasons. The following constraints are applicable to all aspects of data contracts. Unless otherwise noted, these constraints are defined in the platform's JSON Schema rules (e.g. [rs-dpp data contract meta schema](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/dataContractMeta.json)).
 
-> 📘 Adding $defs with js-dpp
->
-> In the `js-dpp` reference implementation, definitions are added to a data contract via the `.setDefinitions()` method (e.g. `myContract.setDefinitions({"message": { ... }})`. This must be done prior to broadcasting the contract for registration.
->
-> For a code example for setting definitions using `js-dpp` see this [gist](https://gist.github.com/dashameter/9afc48276b3669de8875f0200eec6e5c)
+### Keyword
+
+> 🚧 
+> 
+> The `$ref` keyword has been [disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
+
+| Keyword                                                | Constraint                                                                                                         |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+| `default`                                              | Restricted - cannot be used (defined in DPP logic)                                                                 |
+| `propertyNames`                                        | Restricted - cannot be used (defined in DPP logic)                                                                 |
+| `uniqueItems: true`                                    | `maxItems` must be defined (maximum: 100000)                                                                       |
+| `pattern: <something>`                                 | `maxLength` must be defined (maximum: 50000)                                                                       |
+| `format: <something>`                                  | `maxLength` must be defined (maximum: 50000)                                                                       |
+| `$ref: <something>`                                    | **Temporarily disabled**<br>`$ref` can only reference `$defs` - <br> remote references not supported               |
+| `if`, `then`, `else`, `allOf`, `anyOf`, `oneOf`, `not` | Disabled for data contracts                                                                                        |
+| `dependencies`                                         | Not supported. Use `dependentRequired` and `dependentSchema` instead                                               |
+| `additionalItems`                                      | Not supported. Use `items: false` and `prefixItems` instead                                                        |
+| `patternProperties`                                    | Restricted - cannot be used for data contracts                                                                     |
+| `pattern`                                              | Accept only [RE2](https://github.com/google/re2/wiki/Syntax) compatible regular expressions (defined in DPP logic) |
+
+### Data Size
+
+**Note:** These constraints are defined in the Dash Platform Protocol logic (not in JSON Schema).
+
+All serialized data (including state transitions) is limited to a maximum size of [16 KB](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/util/serializer.rs#L8).
+
+### Additional Properties
+
+Although JSON Schema allows additional, undefined properties [by default](https://json-schema.org/understanding-json-schema/reference/object.html?#properties), they are not allowed in Dash Platform data contracts. Data contract validation will fail if they are not explicitly forbidden using the `additionalProperties` keyword anywhere `properties` are defined (including within document properties of type `object`).
+
+Include the following at the same level as the `properties` keyword to ensure proper validation:
+
+```json
+"additionalProperties": false
+```
