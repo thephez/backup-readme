@@ -22,11 +22,7 @@ The second tab shows the same data contract with an index defined on the `$owner
 > 
 > Since Platform v0.23, an index can [only use the ascending order](https://github.com/dashevo/platform/pull/435) (`asc`). Future updates will remove this restriction.
 
-The third tab shows a data contract using the [JSON-Schema $ref feature](https://json-schema.org/understanding-json-schema/structuring.html#reuse) that enables reuse of defined objects.
-
-> 🚧 
-> 
-> The `$ref` keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
+The third tab shows a data contract using the [JSON-Schema $ref feature](https://json-schema.org/understanding-json-schema/structuring.html#reuse) that enables reuse of defined objects. Note, that the $ref keyword has been [temporarily disabled](https://github.com/dashevo/platform/pull/300) since Platform v0.22.
 
 The fourth tab shows a data contract requiring the optional `$createdAt` and `$updatedAt` [base fields](explanation-platform-protocol-document#base-fields). Using these fields enables retrieving timestamps that indicate when a document was created or modified.
 
@@ -143,8 +139,6 @@ Setting `"byteArray": true` indicates that the provided data will be an
 array of bytes (e.g. a NodeJS Buffer).
 */
 ```
-
-
 
 > 📘 
 > 
@@ -432,8 +426,6 @@ registerContract()
   .catch((e) => console.error('Something went wrong:\n', e))
   .finally(() => client.disconnect());
 ```
-
-
 
 > 👍 
 > 

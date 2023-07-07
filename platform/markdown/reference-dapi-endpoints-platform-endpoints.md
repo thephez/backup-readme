@@ -43,7 +43,7 @@ Broadcasts a [state transition](explanation-platform-protocol-state-transition) 
 
 > 🚧 Breaking changes
 > 
-> As of Dash Platform 0.24 the `protocolVersion` is no longer included in the CBOR-encoded data. It is instead prepended as a varint to the data following CBOR encoding.
+> As of Dash Platform 0.24 the `protocolVersion` is no longer included in the CBOR-encoded data. It is instead prepended as a variant to the data following CBOR encoding.
 
 **Returns**: [Identity](explanation-identity) information for the requested identity  
 **Parameters**:
