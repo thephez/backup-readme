@@ -17,7 +17,7 @@ Dash Platform names make cryptographic identities easy to remember and communica
 
 The examples below demonstrate creating both the default name and alias names.
 
-Do note that the name must be the full domain name including the parent domain (i.e. `myname.dash` instead of just `myname`). Currently `dash` is the only top-level domain that may be used.
+**Note**: the name must be the full domain name including the parent domain (i.e. `myname.dash` instead of just `myname`). Currently `dash` is the only top-level domain that may be used.
 
 ```javascript Register Name for Identity
 const Dash = require('dash');
