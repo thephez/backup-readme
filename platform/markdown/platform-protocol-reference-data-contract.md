@@ -581,13 +581,13 @@ of a data contract can be updated:
 Data contracts are updated on the platform by submitting the modified [data contract  
 object](#data-contract-object) in a data contract update state transition consisting of:
 
-| Field                | Type                                          | Description                                                                                                                                                           |
-| -------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| protocolVersion      | integer                                       | The platform protocol version ([currently `1`](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/version/mod.rs#L9))                               |
-| type                 | integer                                       | State transition type (`4` for data contract update)                                                                                                                  |
-| dataContract         | [data contract object](#data-contract-object) | Object containing the updated data contract details<br>**Note:** the data contract's [`version` property](data-contract-version) must be incremented with each update |
-| signaturePublicKeyId | number                                        | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition                                      |
-| signature            | array of bytes                                | Signature of state transition data (65 or 96 bytes)                                                                                                                   |
+| Field                | Type                                          | Description                                                                                                                                                            |
+| -------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| protocolVersion      | integer                                       | The platform protocol version ([currently `1`](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/version/mod.rs#L9))                                |
+| type                 | integer                                       | State transition type (`4` for data contract update)                                                                                                                   |
+| dataContract         | [data contract object](#data-contract-object) | Object containing the updated data contract details<br>**Note:** the data contract's [`version` property](#data-contract-version) must be incremented with each update |
+| signaturePublicKeyId | number                                        | The `id` of the [identity public key](platform-protocol-reference-identity#identity-publickeys) that signed the state transition                                       |
+| signature            | array of bytes                                | Signature of state transition data (65 or 96 bytes)                                                                                                                    |
 
 Each data contract state transition must comply with this JSON-Schema definition established in  
 [rs-dpp](https://github.com/dashpay/platform/blob/v0.24.5/packages/rs-dpp/src/schema/data_contract/stateTransition/dataContractUpdate.json):
