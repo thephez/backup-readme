@@ -1,6 +1,7 @@
 In this tutorial we will retrieve the name created in the [Register a Name for an Identity tutorial](tutorial-register-a-name-for-an-identity). Additional details regarding identities can be found in the [Identity description](explanation-identity).
 
 ## Prerequisites
+
 - [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)
 
 # Code
@@ -64,22 +65,22 @@ The following example response shows a retrieved name (`user-9999.dash`):
 
 ```json
 {
-  '$protocolVersion': 0,
-  '$id': '4veLBZPHDkaCPF9LfZ8fX3JZiS5q5iUVGhdBbaa9ga5E',
-  '$type': 'domain',
-  '$dataContractId': '566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy',
-  '$ownerId': 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn',
-  '$revision': 1,
-  label: 'user-9999',
-  records: {
-    dashUniqueIdentityId: 'HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn'
+  "$protocolVersion": 0,
+  "$id": "4veLBZPHDkaCPF9LfZ8fX3JZiS5q5iUVGhdBbaa9ga5E",
+  "$type": "domain",
+  "$dataContractId": "566vcJkmebVCAb2Dkj2yVMSgGFcsshupnQqtsz1RFbcy",
+  "$ownerId": "HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn",
+  "$revision": 1,
+  "label": "user-9999",
+  "records": {
+    "dashUniqueIdentityId": "HBNMY5QWuBVKNFLhgBTC1VmpEnscrmqKPMXpnYSHwhfn"
   },
-  preorderSalt: 'BzQi567XVqc8wYiVHS887sJtL6MDbxLHNnp+UpTFSB0',
-  subdomainRules: { allowSubdomains: false },
-  normalizedLabel: 'user-9999',
-  normalizedParentDomainName: 'dash'
+  "preorderSalt": "BzQi567XVqc8wYiVHS887sJtL6MDbxLHNnp+UpTFSB0",
+  "subdomainRules": { "allowSubdomains": false },
+  "normalizedLabel": "user-9999",
+  "normalizedParentDomainName": "dash"
 }
-``` 
+```
 
 # What's Happening
 

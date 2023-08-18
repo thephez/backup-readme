@@ -51,6 +51,7 @@ request(options, function (error, response, body) {
 });
 ```
 ```javascript Node
+// Node.js
 var XMLHttpRequest = require('xhr2');
 var data = '{"method":"getBestBlockHash","id":1,"jsonrpc":"2.0"}';
 

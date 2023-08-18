@@ -51,7 +51,7 @@ corePromiseClient.client.broadcastTransaction({ transaction: tx.toBuffer() })
 
 ```json
 {
-  transactionId: '552eaf24a60014edcbbb253dbc4dd68766532cab3854b44face051cedcfd578f'
+  "transactionId": "552eaf24a60014edcbbb253dbc4dd68766532cab3854b44face051cedcfd578f"
 }
 ```
 
