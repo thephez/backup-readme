@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:48:14.265Z"
+ },
+ "title": "getIdentity",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-platform-getidentity",
+ "excerpt": "",
+ "body": "**Usage**: `async client.platform.getIdentity(id)`  \n**Description**: Fetch the identity by id\n\nParameters:\n\n| parameters | type   | required | Description                 |\n| ---------- | ------ | -------- | --------------------------- |\n| **id**     | String | yes      | A valid registered identity |\n\nReturns : Promise\\<!Buffer|null>",
+ "order": 3,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "getidentity",
+ "slugUpdatedAt": "2023-07-26T16:48:14.106Z",
+ "revision": 4,
+ "_id": "64c1478ac88714148efe9533",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c1470e909af80034898ee7",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T16:19:22.042Z",
+ "updatedAt": "2023-07-26T16:48:14.099Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c1478ac88714148efe9533",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getIdentity(id)</code><br><strong>Description</strong>: Fetch the identity by id</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>id</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid registered identity</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise\\&lt;!Buffer|null&gt;</p>\n\n</div>"
+}

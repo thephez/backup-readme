@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:48:04.033Z"
+ },
+ "title": "getDocuments",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-platform-getdocuments",
+ "excerpt": "",
+ "body": "**Usage**: `async client.platform.getDocuments(contractId, type, options)`  \n**Description**: Fetch Documents from Drive\n\nParameters:\n\n| parameters             | type   | required | Description                                        |\n| ---------------------- | ------ | -------- | -------------------------------------------------- |\n| **contractId**         | String | yes      | A valid registered contractId                      |\n| **type**               | String | yes      | DAP object type to fetch (e.g: 'preorder' in DPNS) |\n| **options.where**      | Object | yes      | Mongo-like query                                   |\n| **options.orderBy**    | Object | yes      | Mongo-like sort field                              |\n| **options.limit**      | Number | yes      | Limit the number of object to fetch                |\n| **options.startAt**    | Number | yes      | number of objects to skip                          |\n| **options.startAfter** | Number | yes      | exclusive skip                                     |\n\nReturns : Promise\\<Buffer\\[]>",
+ "order": 2,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "getdocuments",
+ "slugUpdatedAt": "2023-07-26T16:48:03.685Z",
+ "revision": 4,
+ "_id": "64c14770d958ff0044bd668f",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c1470e909af80034898ee7",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T16:18:56.171Z",
+ "updatedAt": "2023-07-26T16:48:03.678Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c14770d958ff0044bd668f",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getDocuments(contractId, type, options)</code><br><strong>Description</strong>: Fetch Documents from Drive</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>contractId</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid registered contractId</td>\n</tr>\n<tr>\n<td><strong>type</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>DAP object type to fetch (e.g: &#39;preorder&#39; in DPNS)</td>\n</tr>\n<tr>\n<td><strong>options.where</strong></td>\n<td>Object</td>\n<td>yes</td>\n<td>Mongo-like query</td>\n</tr>\n<tr>\n<td><strong>options.orderBy</strong></td>\n<td>Object</td>\n<td>yes</td>\n<td>Mongo-like sort field</td>\n</tr>\n<tr>\n<td><strong>options.limit</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>Limit the number of object to fetch</td>\n</tr>\n<tr>\n<td><strong>options.startAt</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>number of objects to skip</td>\n</tr>\n<tr>\n<td><strong>options.startAfter</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>exclusive skip</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise\\&lt;Buffer\\[]&gt;</p>\n\n</div>"
+}

@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:45:55.807Z"
+ },
+ "title": "generateToAddress",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-core-generatetoaddress",
+ "excerpt": "",
+ "body": "**Usage**: `await client.core.generateToAddress(blockMumber, address, options)`  \n**Description**: Allow to broadcast a valid **signed** transaction to the network.  \n**Notes**: Will only works on regtest.\n\nParameters:\n\n| parameters       | type              | required | Description                                               |\n| ---------------- | ----------------- | -------- | --------------------------------------------------------- |\n| **blocksNumber** | Number            | yes      | A number of block to see generated on the regtest network |\n| **address**      | String            | yes      | The address that will receive the newly generated Dash    |\n| **options**      | DAPIClientOptions | no       |                                                           |\n\nReturns : {Promise\\<string\\[]>} - a set of generated blockhashes.",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "generatetoaddress",
+ "slugUpdatedAt": "2023-07-26T16:45:55.488Z",
+ "revision": 4,
+ "_id": "64c13f52862701004abe8779",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c13d4a816e22155138804e",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T15:44:18.563Z",
+ "updatedAt": "2023-07-26T16:45:55.473Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c13f52862701004abe8779",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.generateToAddress(blockMumber, address, options)</code><br><strong>Description</strong>: Allow to broadcast a valid <strong>signed</strong> transaction to the network.<br><strong>Notes</strong>: Will only works on regtest.</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>blocksNumber</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>A number of block to see generated on the regtest network</td>\n</tr>\n<tr>\n<td><strong>address</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>The address that will receive the newly generated Dash</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise\\&lt;string\\[]&gt;} - a set of generated blockhashes.</p>\n\n</div>"
+}

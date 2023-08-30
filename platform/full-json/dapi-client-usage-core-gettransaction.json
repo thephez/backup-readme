@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:47:12.974Z"
+ },
+ "title": "getTransaction",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-core-gettransaction",
+ "excerpt": "",
+ "body": "**Usage**: `await client.core.getTransaction(id, options)`  \n**Description**: Allow to fetch a transaction by ID\n\nParameters:\n\n| parameters  | type              | required | Description                     |\n| ----------- | ----------------- | -------- | ------------------------------- |\n| **id**      | string            | yes      | A valid transaction id to fetch |\n| **options** | DAPIClientOptions | no       |                                 |\n\nReturns : {Promise\\<null|Buffer>} - The bufferized transaction",
+ "order": 8,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "gettransaction",
+ "slugUpdatedAt": "2023-07-26T16:47:12.642Z",
+ "revision": 4,
+ "_id": "64c1401d0d042b0064278e15",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c13d4a816e22155138804e",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T15:47:41.296Z",
+ "updatedAt": "2023-07-26T16:47:12.633Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c1401d0d042b0064278e15",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getTransaction(id, options)</code><br><strong>Description</strong>: Allow to fetch a transaction by ID</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>id</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>A valid transaction id to fetch</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise\\&lt;null|Buffer&gt;} - The bufferized transaction</p>\n\n</div>"
+}

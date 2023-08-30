@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:25.762Z"
+ },
+ "title": "Sign and verify messages",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-examples-sign-and-verify-messages",
+ "excerpt": "",
+ "body": "## Sign and verify messages\n\nDash SDK exports the Message constructor inside the Core namespace `new Dash.Core.Message`\n\n```js\nconst Dash = require('dash');\n\nconst mnemonic = '';\n\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic,\n  },\n});\n\nasync function signAndVerify() {\n  const account = await client.wallet.getAccount();\n\n  const pk = new Dash.Core.PrivateKey();\n  const message = new Dash.Core.Message('hello, world');\n  const signed = account.sign(message, pk);\n  const verified = message.verify(pk.toAddress().toString(), signed.toString());\n}\n```",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "sign-and-verify-messages",
+ "slugUpdatedAt": "2023-07-17T21:35:14.963Z",
+ "revision": 7,
+ "_id": "64b005dbe8562300541f78f4",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64aeb657cf92f1000ccc20f2",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T14:10:35.240Z",
+ "updatedAt": "2023-07-18T14:07:25.383Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b005dbe8562300541f78f4",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-sign-and-verify-messages\"></div>Sign and verify messages<a class=\"fa fa-anchor\" href=\"#section-sign-and-verify-messages\"></a></h2>\n<p>Dash SDK exports the Message constructor inside the Core namespace <code>new Dash.Core.Message</code></p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">Dash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">'dash'</span>);\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">mnemonic</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">''</span>;\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Client</span>({\n  <span class=\"cm-property\">wallet</span>: {\n    <span class=\"cm-property\">mnemonic</span>,\n  },\n});\n\n<span class=\"cm-keyword\">async</span> <span class=\"cm-keyword\">function</span> <span class=\"cm-def\">signAndVerify</span>() {\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">account</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>();\n\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">pk</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>.<span class=\"cm-property\">PrivateKey</span>();\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">message</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>.<span class=\"cm-property\">Message</span>(<span class=\"cm-string\">'hello, world'</span>);\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">signed</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">account</span>.<span class=\"cm-property\">sign</span>(<span class=\"cm-variable-2\">message</span>, <span class=\"cm-variable-2\">pk</span>);\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">verified</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">message</span>.<span class=\"cm-property\">verify</span>(<span class=\"cm-variable-2\">pk</span>.<span class=\"cm-property\">toAddress</span>().<span class=\"cm-property\">toString</span>(), <span class=\"cm-variable-2\">signed</span>.<span class=\"cm-property\">toString</span>());\n}</span>\n</code></pre>\n\n</div>"
+}

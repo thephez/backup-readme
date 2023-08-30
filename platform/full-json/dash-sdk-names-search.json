@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:08:06.439Z"
+ },
+ "title": "Search",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-names-search",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.names.search(labelPrefix, parentDomain)`  \n**Description**: This method will allow you to search all records matching the label prefix on the specified parent domain. \n\nParameters: \n\n| parameters       | type   | required | Description                                       |\n| ---------------- | ------ | -------- | ------------------------------------------------- |\n| **labelPrefix**  | String | yes      | label prefix to search for                        |\n| **parentDomain** | String | yes      | parent domain name on which to perform the search |\n\n**Example**: \n\nThis example will describe how to search all names on the parent domain `dash` that starts with the label prefix `al`.  \nIt will resolves names documents such as `alice`, `alex` etc...   \n\n```js\nconst labelPrefix = 'al';\nconst parentDomain = 'dash';\nconst document = await client.platform.names.search(labelPrefix, parentDomain);\n```\n\nReturns: Documents matching the label prefix on the parent domain.",
+ "order": 3,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "search",
+ "slugUpdatedAt": "2023-07-18T11:25:58.197Z",
+ "revision": 4,
+ "_id": "64b03eecab58f815552241cc",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03e96438f4f000c93c04f",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:14:04.438Z",
+ "updatedAt": "2023-07-18T14:08:06.015Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03eecab58f815552241cc",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.names.search(labelPrefix, parentDomain)</code><br><strong>Description</strong>: This method will allow you to search all records matching the label prefix on the specified parent domain. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>labelPrefix</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>label prefix to search for</td>\n</tr>\n<tr>\n<td><strong>parentDomain</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>parent domain name on which to perform the search</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: </p>\n<p>This example will describe how to search all names on the parent domain <code>dash</code> that starts with the label prefix <code>al</code>.<br>It will resolves names documents such as <code>alice</code>, <code>alex</code> etc...   </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">labelPrefix</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'al'</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">parentDomain</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'dash'</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">document</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">names</span>.<span class=\"cm-property\">search</span>(<span class=\"cm-variable\">labelPrefix</span>, <span class=\"cm-variable\">parentDomain</span>);</span>\n</code></pre>\n<p>Returns: Documents matching the label prefix on the parent domain.</p>\n\n</div>"
+}

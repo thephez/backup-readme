@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:47:23.963Z"
+ },
+ "title": "subscribeToTransactionsWithProofs",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-core-subscribetotransactionswithproofs",
+ "excerpt": "",
+ "body": "**Usage**: `await client.core.subscribeToTransactionsWithProofs(bloomFilter, options = { count: 0 })`  \n**Description**: For any provided bloomfilter, it will return a ClientReadableStream streaming the transaction matching the filter.\n\nParameters:\n\n| parameters                  | type             | required        | Description                                                                                               |\n| --------------------------- | ---------------- | --------------- | --------------------------------------------------------------------------------------------------------- |\n| **bloomFilter.vData**       | Uint8Array/Array | yes             | The filter itself is simply a bit field of arbitrary byte-aligned size. The maximum size is 36,000 bytes. |\n| **bloomFilter.nHashFuncs**  | Number           | yes             | The number of hash functions to use in this filter. The maximum value allowed in this field is 50.        |\n| **bloomFilter.nTweak**      | Number           | yes             | A random value to add to the seed value in the hash function used by the bloom filter.                    |\n| **bloomFilter.nFlags**      | Number           | yes             | A set of flags that control how matched items are added to the filter.                                    |\n| **options.fromBlockHash**   | String           | yes             | Specifies block hash to start syncing from                                                                |\n| **options.fromBlockHeight** | Number           | yes             | Specifies block height to start syncing from                                                              |\n| **options.count**           | Number           | no (default: 0) | Number of blocks to sync, if set to 0 syncing is continuously sends new data as well                      |\n\nReturns : Promise<EventEmitter>|!grpc.web.ClientReadableStream\\<!TransactionsWithProofsResponse>\n\nExample :\n\n```js\nconst filter; // A BloomFilter object\nconst stream = await client.subscribeToTransactionsWithProofs(filter, { fromBlockHeight: 0 });\n\nstream\n      .on('data', (response) => {\n        const merkleBlock = response.getRawMerkleBlock();\n        const transactions = response.getRawTransactions();\n\n        if (merkleBlock) {\n          const merkleBlockHex = Buffer.from(merkleBlock).toString('hex');\n        }\n\n        if (transactions) {\n          transactions.getTransactionsList()\n              .forEach((tx) => {\n                  // tx are probabilistic, so you will have to verify it's yours\n                  const tx = new Transaction(Buffer.from(tx));\n              });\n        }\n      })\n    .on('error', (err) => {\n        // do something with err\n      });\n```",
+ "order": 9,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "subscribetotransactionswithproofs",
+ "slugUpdatedAt": "2023-07-26T16:47:23.625Z",
+ "revision": 4,
+ "_id": "64c140a198c46d15ab6d44be",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c13d4a816e22155138804e",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T15:49:53.047Z",
+ "updatedAt": "2023-07-26T16:47:23.618Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c140a198c46d15ab6d44be",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.subscribeToTransactionsWithProofs(bloomFilter, options = { count: 0 })</code><br><strong>Description</strong>: For any provided bloomfilter, it will return a ClientReadableStream streaming the transaction matching the filter.</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>bloomFilter.vData</strong></td>\n<td>Uint8Array/Array</td>\n<td>yes</td>\n<td>The filter itself is simply a bit field of arbitrary byte-aligned size. The maximum size is 36,000 bytes.</td>\n</tr>\n<tr>\n<td><strong>bloomFilter.nHashFuncs</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>The number of hash functions to use in this filter. The maximum value allowed in this field is 50.</td>\n</tr>\n<tr>\n<td><strong>bloomFilter.nTweak</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>A random value to add to the seed value in the hash function used by the bloom filter.</td>\n</tr>\n<tr>\n<td><strong>bloomFilter.nFlags</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>A set of flags that control how matched items are added to the filter.</td>\n</tr>\n<tr>\n<td><strong>options.fromBlockHash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>Specifies block hash to start syncing from</td>\n</tr>\n<tr>\n<td><strong>options.fromBlockHeight</strong></td>\n<td>Number</td>\n<td>yes</td>\n<td>Specifies block height to start syncing from</td>\n</tr>\n<tr>\n<td><strong>options.count</strong></td>\n<td>Number</td>\n<td>no (default: 0)</td>\n<td>Number of blocks to sync, if set to 0 syncing is continuously sends new data as well</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise&lt;EventEmitter&gt;|!grpc.web.ClientReadableStream\\&lt;!TransactionsWithProofsResponse&gt;</p>\n<p>Example :</p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">filter</span>; <span class=\"cm-comment\">&#47;&#47; A BloomFilter object</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">stream</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">subscribeToTransactionsWithProofs</span>(<span class=\"cm-variable\">filter</span>, { <span class=\"cm-property\">fromBlockHeight</span>: <span class=\"cm-number\">0</span> });\n\n<span class=\"cm-variable\">stream</span>\n      .<span class=\"cm-property\">on</span>(<span class=\"cm-string\">'data'</span>, (<span class=\"cm-def\">response</span>) <span class=\"cm-operator\">=&gt;</span> {\n        <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">merkleBlock</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">response</span>.<span class=\"cm-property\">getRawMerkleBlock</span>();\n        <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">transactions</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">response</span>.<span class=\"cm-property\">getRawTransactions</span>();\n\n        <span class=\"cm-keyword\">if</span> (<span class=\"cm-variable-2\">merkleBlock</span>) {\n          <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">merkleBlockHex</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Buffer</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable-2\">merkleBlock</span>).<span class=\"cm-property\">toString</span>(<span class=\"cm-string\">'hex'</span>);\n        }\n\n        <span class=\"cm-keyword\">if</span> (<span class=\"cm-variable-2\">transactions</span>) {\n          <span class=\"cm-variable-2\">transactions</span>.<span class=\"cm-property\">getTransactionsList</span>()\n              .<span class=\"cm-property\">forEach</span>((<span class=\"cm-def\">tx</span>) <span class=\"cm-operator\">=&gt;</span> {\n                  <span class=\"cm-comment\">&#47;&#47; tx are probabilistic, so you will have to verify it's yours</span>\n                  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">tx</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Transaction</span>(<span class=\"cm-variable\">Buffer</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable-2\">tx</span>));\n              });\n        }\n      })\n    .<span class=\"cm-property\">on</span>(<span class=\"cm-string\">'error'</span>, (<span class=\"cm-def\">err</span>) <span class=\"cm-operator\">=&gt;</span> {\n        <span class=\"cm-comment\">&#47;&#47; do something with err</span>\n      });</span>\n</code></pre>\n\n</div>"
+}

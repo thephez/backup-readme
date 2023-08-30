@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:25.760Z"
+ },
+ "title": "Pay to another address",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-examples-paying-to-another-address",
+ "excerpt": "",
+ "body": "## Paying to another address\n\nIn order to pay, you need to have an [existing balance](https://dashplatform.readme.io/docs/dash-sdk-examples-receive-money-and-check-balance).  \nThe below code will allow you to pay to a single address a specific amount of satoshis.\n\n```js\nconst Dash = require('dash');\n\nconst mnemonic = ''; // your mnemonic here.\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic,\n  },\n});\n\nasync function payToRecipient(account) {\n  const transaction = account.createTransaction({\n    recipient: 'yNPbcFfabtNmmxKdGwhHomdYfVs6gikbPf',\n    satoshis: 10000,\n  });\n  const transactionId = await account.broadcastTransaction(transaction);\n}\n\nclient.wallet.getAccount().then(payToRecipient);\n\n```\n\nSee more on create [transaction options here](https://dashpay.github.io/platform/Wallet-library/account/createTransaction/).",
+ "order": 2,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "paying-to-another-address",
+ "slugUpdatedAt": "2023-07-17T21:34:49.636Z",
+ "revision": 12,
+ "_id": "64aef0caa6d3141703946a51",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64aeb657cf92f1000ccc20f2",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-12T18:28:26.262Z",
+ "updatedAt": "2023-07-18T14:07:25.384Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64aef0caa6d3141703946a51",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-paying-to-another-address\"></div>Paying to another address<a class=\"fa fa-anchor\" href=\"#section-paying-to-another-address\"></a></h2>\n<p>In order to pay, you need to have an <a href=\"https://dashplatform.readme.io/docs/dash-sdk-examples-receive-money-and-check-balance\">existing balance</a>.<br>The below code will allow you to pay to a single address a specific amount of satoshis.</p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">Dash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">'dash'</span>);\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">mnemonic</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">''</span>; <span class=\"cm-comment\">&#47;&#47; your mnemonic here.</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Client</span>({\n  <span class=\"cm-property\">wallet</span>: {\n    <span class=\"cm-property\">mnemonic</span>,\n  },\n});\n\n<span class=\"cm-keyword\">async</span> <span class=\"cm-keyword\">function</span> <span class=\"cm-def\">payToRecipient</span>(<span class=\"cm-def\">account</span>) {\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">transaction</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">account</span>.<span class=\"cm-property\">createTransaction</span>({\n    <span class=\"cm-property\">recipient</span>: <span class=\"cm-string\">'yNPbcFfabtNmmxKdGwhHomdYfVs6gikbPf'</span>,\n    <span class=\"cm-property\">satoshis</span>: <span class=\"cm-number\">10000</span>,\n  });\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">transactionId</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable-2\">account</span>.<span class=\"cm-property\">broadcastTransaction</span>(<span class=\"cm-variable-2\">transaction</span>);\n}\n\n<span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>().<span class=\"cm-property\">then</span>(<span class=\"cm-variable\">payToRecipient</span>);</span>\n</code></pre>\n<p>See more on create <a href=\"https://dashpay.github.io/platform/Wallet-library/account/createTransaction/\">transaction options here</a>.</p>\n\n</div>"
+}

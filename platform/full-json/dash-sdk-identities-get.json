@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:59.760Z"
+ },
+ "title": "Get",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-identities-get",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.identities.get(identityId)`  \n**Description**: This method will allow you to fetch back an identity from its id. \n\nParameters: \n\n| parameters     | type   | required | Description                                          |\n| -------------- | ------ | -------- | ---------------------------------------------------- |\n| **identifier** | string | yes      | Will fetch back the identity matching the identifier |\n\n**Example**: `await client.platform.identities.get('3GegupTgRfdN9JMS8R6QXF3B2VbZtiw63eyudh1oMJAk')`\n\nReturns: Identity (or `null` if it does not exist).",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "get-2",
+ "slugUpdatedAt": "2023-07-18T11:21:35.991Z",
+ "revision": 4,
+ "_id": "64b03e15876db30044cbbb30",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03dfb6da8e8005077c893",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:10:29.857Z",
+ "updatedAt": "2023-07-18T14:07:59.573Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03e15876db30044cbbb30",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.identities.get(identityId)</code><br><strong>Description</strong>: This method will allow you to fetch back an identity from its id. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>identifier</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Will fetch back the identity matching the identifier</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.identities.get(&#39;3GegupTgRfdN9JMS8R6QXF3B2VbZtiw63eyudh1oMJAk&#39;)</code></p>\n<p>Returns: Identity (or <code>null</code> if it does not exist).</p>\n\n</div>"
+}

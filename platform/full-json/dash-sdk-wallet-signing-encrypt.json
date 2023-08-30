@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 4,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:08:19.241Z"
+ },
+ "title": "Signing encrypt",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-wallet-signing-encrypt",
+ "excerpt": "",
+ "body": "## Obtain account\n\n```js\nconst account = await client.wallet.getAccount();\n```\n\n## Sign a Transaction\n\n```js\nconst tx = new Dash.Core.Transaction({\n  // ...txOpts\n});\nconst signedTx = account.sign(tx);\n```\n\n## Encrypt a message\n\n```js\n  const message = 'Something';\n  const signedMessage = account.encrypt('AES', message, 'secret');\n```\n\n## Decrypt a message\n\n```js\nconst encrypted = 'U2FsdGVkX19JLa+1UpbMcut1/QFWLMlKUS+iqz+7Wl4=';\nconst message = account.decrypt('AES', encrypted, 'secret');\n```",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "signing-encrypt",
+ "slugUpdatedAt": "2023-07-18T11:27:24.316Z",
+ "revision": 5,
+ "_id": "64b04459941ce60049b27d41",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b0440fcb24ff005fece4aa",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:37:13.489Z",
+ "updatedAt": "2023-07-18T14:08:18.925Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b04459941ce60049b27d41",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-obtain-account\"></div>Obtain account<a class=\"fa fa-anchor\" href=\"#section-obtain-account\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">account</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>();</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-sign-a-transaction\"></div>Sign a Transaction<a class=\"fa fa-anchor\" href=\"#section-sign-a-transaction\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">tx</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>.<span class=\"cm-property\">Transaction</span>({\n  <span class=\"cm-comment\">&#47;&#47; ...txOpts</span>\n});\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">signedTx</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">sign</span>(<span class=\"cm-variable\">tx</span>);</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-encrypt-a-message\"></div>Encrypt a message<a class=\"fa fa-anchor\" href=\"#section-encrypt-a-message\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'>  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">message</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'Something'</span>;\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">signedMessage</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">encrypt</span>(<span class=\"cm-string\">'AES'</span>, <span class=\"cm-variable\">message</span>, <span class=\"cm-string\">'secret'</span>);</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-decrypt-a-message\"></div>Decrypt a message<a class=\"fa fa-anchor\" href=\"#section-decrypt-a-message\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">encrypted</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'U2FsdGVkX19JLa+1UpbMcut1&#47;QFWLMlKUS+iqz+7Wl4='</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">message</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">decrypt</span>(<span class=\"cm-string\">'AES'</span>, <span class=\"cm-variable\">encrypted</span>, <span class=\"cm-string\">'secret'</span>);</span>\n</code></pre>\n\n</div>"
+}

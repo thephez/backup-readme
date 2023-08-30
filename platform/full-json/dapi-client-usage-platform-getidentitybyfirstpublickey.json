@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:48:38.434Z"
+ },
+ "title": "getIdentityByFirstPublicKey",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-platform-getidentitybyfirstpublickey",
+ "excerpt": "",
+ "body": "**Usage**: `async client.platform.getIdentityByFirstPublicKey(publicKeyHash)`  \n**Description**: Fetch the identity using the public key hash of the identity's first key\n\nParameters:\n\n| parameters        | type   | required | Description             |\n| ----------------- | ------ | -------- | ----------------------- |\n| **publicKeyHash** | String | yes      | A valid public key hash |\n\nReturns : Promise\\<!Buffer|null>",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "getidentitybyfirstpublickey",
+ "slugUpdatedAt": "2023-07-26T16:48:23.750Z",
+ "revision": 5,
+ "_id": "64c1479a64533a005b3e88bb",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c1470e909af80034898ee7",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T16:19:38.236Z",
+ "updatedAt": "2023-07-26T16:48:38.102Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c1479a64533a005b3e88bb",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getIdentityByFirstPublicKey(publicKeyHash)</code><br><strong>Description</strong>: Fetch the identity using the public key hash of the identity&#39;s first key</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>publicKeyHash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid public key hash</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise\\&lt;!Buffer|null&gt;</p>\n\n</div>"
+}

@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:47:55.234Z"
+ },
+ "title": "getDataContract",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-platform-getdatacontract",
+ "excerpt": "",
+ "body": "**Usage**: `async client.platform.getDataContract(contractId)`  \n**Description**: Fetch Data Contract by id\n\nParameters:\n\n| parameters     | type   | required | Description                   |\n| -------------- | ------ | -------- | ----------------------------- |\n| **contractId** | String | yes      | A valid registered contractId |\n\nReturns : Promise<Buffer>",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "getdatacontract",
+ "slugUpdatedAt": "2023-07-26T16:47:54.922Z",
+ "revision": 4,
+ "_id": "64c147629e5d120051224a44",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c1470e909af80034898ee7",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T16:18:42.610Z",
+ "updatedAt": "2023-07-26T16:47:54.916Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c147629e5d120051224a44",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getDataContract(contractId)</code><br><strong>Description</strong>: Fetch Data Contract by id</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>contractId</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid registered contractId</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise&lt;Buffer&gt;</p>\n\n</div>"
+}

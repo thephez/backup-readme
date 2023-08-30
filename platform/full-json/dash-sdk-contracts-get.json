@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:49.491Z"
+ },
+ "title": "Get",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-contracts-get",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.contracts.get(contractId)`  \n**Description**: This method will allow you to fetch back a contract from its id. \n\nParameters: \n\n| parameters     | type   | required | Description                                          |\n| -------------- | ------ | -------- | ---------------------------------------------------- |\n| **identifier** | string | yes      | Will fetch back the contract matching the identifier |\n\n**Example**: `await client.platform.contracts.get('77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3')`\n\nReturns: Contract (or `null` if it's not a registered contract).",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "get",
+ "slugUpdatedAt": "2023-07-17T21:41:12.907Z",
+ "revision": 4,
+ "_id": "64b03b45211cb200121eb9ef",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b01811fd33a50064662ab8",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T17:58:29.940Z",
+ "updatedAt": "2023-07-18T14:07:49.134Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03b45211cb200121eb9ef",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.contracts.get(contractId)</code><br><strong>Description</strong>: This method will allow you to fetch back a contract from its id. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>identifier</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Will fetch back the contract matching the identifier</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.contracts.get(&#39;77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3&#39;)</code></p>\n<p>Returns: Contract (or <code>null</code> if it&#39;s not a registered contract).</p>\n\n</div>"
+}

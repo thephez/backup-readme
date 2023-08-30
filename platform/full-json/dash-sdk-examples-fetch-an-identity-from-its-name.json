@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:25.758Z"
+ },
+ "title": "Fetch an identity from its name",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-examples-fetch-an-identity-from-its-name",
+ "excerpt": "",
+ "body": "## Fetching an identity from its name\n\nAssuming you have created an identity and attached a name to it (see how to [register an identity](https://dashplatform.readme.io/docs/tutorial-register-an-identity) and how to [attach it to a name](https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity)), you will then be able to directly recover an identity from its names. See below: \n\n```js\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic: '', // Your app mnemonic, which holds the identity\n  },\n});\n\n// This is the name previously registered in DPNS.\nconst identityName = 'alice';\n\nconst nameDocument = await client.platform.names.resolve(`${identityName}.dash`);\nconst identity = await client.platform.identities.get(nameDocument.ownerId);\n```",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "sdk-examples-fetch-an-identity-from-its-name",
+ "slugUpdatedAt": "2023-07-17T21:34:26.060Z",
+ "revision": 10,
+ "_id": "64aeb689da6f36005f4553a8",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64aeb657cf92f1000ccc20f2",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-12T14:19:53.746Z",
+ "updatedAt": "2023-07-18T14:07:25.381Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64aeb689da6f36005f4553a8",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-fetching-an-identity-from-its-name\"></div>Fetching an identity from its name<a class=\"fa fa-anchor\" href=\"#section-fetching-an-identity-from-its-name\"></a></h2>\n<p>Assuming you have created an identity and attached a name to it (see how to <a href=\"https://dashplatform.readme.io/docs/tutorial-register-an-identity\">register an identity</a> and how to <a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity\">attach it to a name</a>), you will then be able to directly recover an identity from its names. See below: </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Client</span>({\n  <span class=\"cm-property\">wallet</span>: {\n    <span class=\"cm-property\">mnemonic</span>: <span class=\"cm-string\">''</span>, <span class=\"cm-comment\">&#47;&#47; Your app mnemonic, which holds the identity</span>\n  },\n});\n\n<span class=\"cm-comment\">&#47;&#47; This is the name previously registered in DPNS.</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identityName</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'alice'</span>;\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">nameDocument</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">names</span>.<span class=\"cm-property\">resolve</span>(<span class=\"cm-string-2\">`${</span><span class=\"cm-variable\">identityName</span><span class=\"cm-string-2\">}.dash`</span>);\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identity</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">identities</span>.<span class=\"cm-property\">get</span>(<span class=\"cm-variable\">nameDocument</span>.<span class=\"cm-property\">ownerId</span>);</span>\n</code></pre>\n\n</div>"
+}

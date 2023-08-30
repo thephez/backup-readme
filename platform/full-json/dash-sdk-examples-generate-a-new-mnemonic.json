@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 5,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:25.761Z"
+ },
+ "title": "Generate a new mnemonic",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-examples-generate-a-new-mnemonic",
+ "excerpt": "",
+ "body": "## Generate a new mnemonic\n\nIn order to be able to keep your private keys private, we encourage to create your own mnemonic instead of using those from the examples (that might be empty).\nBelow, you will be proposed two options allowing you to create a new mnemonic, depending on the level of customisation you need. \n\n## Dash.Client\n\nBy passing `null` to the mnemonic value of the wallet options, you can get Wallet-lib to generate a new mnemonic for you. \n\n```js\nconst Dash = require(\"dash\");\nconst client = new Dash.Client({\n  network: \"testnet\",\n  wallet: {\n    mnemonic: null,\n  },\n});\nconst mnemonic = client.wallet.exportWallet();\nconsole.log({mnemonic});\n```\n\n## Dash.Mnemonic \n\n```js\nconst Dash = require(\"dash\");\nconst {Mnemonic} = Dash.Core;\n\nconst mnemnonic = new Mnemonic().toString()\n```\n\n### Language selection \n\n```js\nconst {Mnemonic} = Dash.Core;\nconst {CHINESE, ENGLISH, FRENCH, ITALIAN, JAPANESE, SPANISH} = Mnemonic.Words;\nconsole.log(new Mnemonic(Mnemonic.Words.FRENCH).toString())\n```\n\n### Entropy size\n\nBy default, the value for mnemonic is `128` (12 words), but you can generate a 24 words (or other) : \n\n```js\nconst {Mnemonic} = Dash.Core;\nconsole.log(new Mnemonic(256).toString())\n```\n\nYou can even replace the word list by your own, providing a list of 2048 unique words.",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "generate-a-new-mnemonic",
+ "slugUpdatedAt": "2023-07-17T21:34:39.573Z",
+ "revision": 10,
+ "_id": "64aeb735786fa90072071df9",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64aeb657cf92f1000ccc20f2",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-12T14:22:45.488Z",
+ "updatedAt": "2023-07-18T14:07:25.384Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64aeb735786fa90072071df9",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-generate-a-new-mnemonic\"></div>Generate a new mnemonic<a class=\"fa fa-anchor\" href=\"#section-generate-a-new-mnemonic\"></a></h2>\n<p>In order to be able to keep your private keys private, we encourage to create your own mnemonic instead of using those from the examples (that might be empty).<br>Below, you will be proposed two options allowing you to create a new mnemonic, depending on the level of customisation you need. </p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-client\"></div>Dash.Client<a class=\"fa fa-anchor\" href=\"#section-dash-client\"></a></h2>\n<p>By passing <code>null</code> to the mnemonic value of the wallet options, you can get Wallet-lib to generate a new mnemonic for you. </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">Dash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">\"dash\"</span>);\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Client</span>({\n  <span class=\"cm-property\">network</span>: <span class=\"cm-string\">\"testnet\"</span>,\n  <span class=\"cm-property\">wallet</span>: {\n    <span class=\"cm-property\">mnemonic</span>: <span class=\"cm-atom\">null</span>,\n  },\n});\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">mnemonic</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">exportWallet</span>();\n<span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>({<span class=\"cm-property\">mnemonic</span>});</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-mnemonic\"></div>Dash.Mnemonic<a class=\"fa fa-anchor\" href=\"#section-dash-mnemonic\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">Dash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">\"dash\"</span>);\n<span class=\"cm-keyword\">const</span> {<span class=\"cm-def\">Mnemonic</span>} <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>;\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">mnemnonic</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Mnemonic</span>().<span class=\"cm-property\">toString</span>()</span>\n</code></pre>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-language-selection\"></div>Language selection<a class=\"fa fa-anchor\" href=\"#section-language-selection\"></a></h3>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> {<span class=\"cm-def\">Mnemonic</span>} <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>;\n<span class=\"cm-keyword\">const</span> {<span class=\"cm-def\">CHINESE</span>, <span class=\"cm-def\">ENGLISH</span>, <span class=\"cm-def\">FRENCH</span>, <span class=\"cm-def\">ITALIAN</span>, <span class=\"cm-def\">JAPANESE</span>, <span class=\"cm-def\">SPANISH</span>} <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Mnemonic</span>.<span class=\"cm-property\">Words</span>;\n<span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>(<span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Mnemonic</span>(<span class=\"cm-variable\">Mnemonic</span>.<span class=\"cm-property\">Words</span>.<span class=\"cm-property\">FRENCH</span>).<span class=\"cm-property\">toString</span>())</span>\n</code></pre>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-entropy-size\"></div>Entropy size<a class=\"fa fa-anchor\" href=\"#section-entropy-size\"></a></h3>\n<p>By default, the value for mnemonic is <code>128</code> (12 words), but you can generate a 24 words (or other) : </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> {<span class=\"cm-def\">Mnemonic</span>} <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>;\n<span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>(<span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Mnemonic</span>(<span class=\"cm-number\">256</span>).<span class=\"cm-property\">toString</span>())</span>\n</code></pre>\n<p>You can even replace the word list by your own, providing a list of 2048 unique words.</p>\n\n</div>"
+}

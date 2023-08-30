@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:59.927Z"
+ },
+ "title": "Register",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-identities-register",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.identities.register()`  \n**Description**: This method will register a new identity for you. \n\nParameters: \n\n| parameters    | type   | required | Description                                                         |\n| ------------- | ------ | -------- | ------------------------------------------------------------------- |\n| fundingAmount | number | no       | Defaults: 10000. Allow to set a funding amount in duffs (satoshis). |\n\n**Example**: `await client.platform.identities.register()`\n\n**Note**: The created identity will be associated to the active account. You might want to know more about how to [change your active account](https://dashplatform.readme.io/docs/dash-sdk-examples-use-different-account).  \n\nReturns: Identity.",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "register",
+ "slugUpdatedAt": "2023-07-18T11:21:53.699Z",
+ "revision": 7,
+ "_id": "64b03e25c14224006aa5f8d6",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03dfb6da8e8005077c893",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:10:45.870Z",
+ "updatedAt": "2023-07-18T14:07:59.577Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03e25c14224006aa5f8d6",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.identities.register()</code><br><strong>Description</strong>: This method will register a new identity for you. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>fundingAmount</td>\n<td>number</td>\n<td>no</td>\n<td>Defaults: 10000. Allow to set a funding amount in duffs (satoshis).</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.identities.register()</code></p>\n<p><strong>Note</strong>: The created identity will be associated to the active account. You might want to know more about how to <a href=\"https://dashplatform.readme.io/docs/dash-sdk-examples-use-different-account\">change your active account</a>.  </p>\n<p>Returns: Identity.</p>\n\n</div>"
+}

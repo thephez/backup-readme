@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:49.120Z"
+ },
+ "title": "Contracts",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-contracts",
+ "excerpt": "",
+ "body": "## What is a contract\n\nContracts are registered sets of rules defined in a [JSON Application Schema](https://dashplatform.readme.io/docs/core-concepts).\n\nSee the Dash Platform documentation for more information about [Data Contracts](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract).",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "sdk-contracts",
+ "slugUpdatedAt": "2023-07-17T21:40:44.451Z",
+ "revision": 8,
+ "_id": "64b01811fd33a50064662ab8",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T15:28:17.238Z",
+ "updatedAt": "2023-07-18T14:07:48.811Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "64b01811fd33a50064662ab8",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-what-is-a-contract\"></div>What is a contract<a class=\"fa fa-anchor\" href=\"#section-what-is-a-contract\"></a></h2>\n<p>Contracts are registered sets of rules defined in a <a href=\"https://dashplatform.readme.io/docs/core-concepts\">JSON Application Schema</a>.</p>\n<p>See the Dash Platform documentation for more information about <a href=\"https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract\">Data Contracts</a>.</p>\n\n</div>"
+}

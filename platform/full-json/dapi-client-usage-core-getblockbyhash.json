@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:46:17.729Z"
+ },
+ "title": "getBlockByHash",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-core-getblockbyhash",
+ "excerpt": "",
+ "body": "**Usage**: `await client.core.getBlockByHash(hash, options)`  \n**Description**: Allow to fetch a specific block by its hash\n\nParameters:\n\n| parameters  | type              | required | Description        |\n| ----------- | ----------------- | -------- | ------------------ |\n| **hash**    | String            | yes      | A valid block hash |\n| **options** | DAPIClientOptions | no       |                    |\n\nReturns : {Promise\\<null|Buffer>} - The specified bufferized block",
+ "order": 3,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "getblockbyhash",
+ "slugUpdatedAt": "2023-07-26T16:46:17.403Z",
+ "revision": 4,
+ "_id": "64c13f7aa02c4700473371fa",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c13d4a816e22155138804e",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T15:44:58.641Z",
+ "updatedAt": "2023-07-26T16:46:17.384Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c13f7aa02c4700473371fa",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getBlockByHash(hash, options)</code><br><strong>Description</strong>: Allow to fetch a specific block by its hash</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>hash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid block hash</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise\\&lt;null|Buffer&gt;} - The specified bufferized block</p>\n\n</div>"
+}

@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:54.791Z"
+ },
+ "title": "Broadcast",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-documents-broadcast",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.document.broadcast(documents, identity)`  \n**Description**: This method will broadcast the document on the Application Chain\n\nParameters: \n\n| parameters            | type                | required | Description                                                                                                 |\n| --------------------- | ------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |\n| **documents**         | Object              | yes      |                                                                                                             |\n| **documents.create**  | ExtendedDocument\\[] | no       | array of valid [created document](https://dashplatform.readme.io/docs/dash-sdk-documents-create) to create  |\n| **documents.replace** | ExtendedDocument\\[] | no       | array of valid [created document](https://dashplatform.readme.io/docs/dash-sdk-documents-create) to replace |\n| **documents.delete**  | ExtendedDocument\\[] | no       | array of valid [created document](https://dashplatform.readme.io/docs/dash-sdk-documents-create) to delete  |\n| **identity**          | Identity            | yes      | A valid [registered identity](https://dashplatform.readme.io/docs/dash-sdk-identities-register)             |\n\n**Example**:\n\n```js\nconst identityId = '';// Your identity identifier\nconst identity = await client.platform.identities.get(identityId);\n\nconst helloWorldDocument = await client.platform.documents.create(\n    // Assuming a contract tutorialContract is registered with a field note\n    'tutorialContract.note',\n    identity,\n    { message: 'Hello World'},\n);\n\nawait client.platform.documents.broadcast({ create: [helloWorldDocument] }, identity);\n```\n\nReturns: documents.",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "broadcast",
+ "slugUpdatedAt": "2023-07-17T21:42:03.802Z",
+ "revision": 7,
+ "_id": "64b03c5841b9d30069f7e8a8",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03c3cbc5af516fae45cd5",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:03:04.398Z",
+ "updatedAt": "2023-07-18T14:07:54.438Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03c5841b9d30069f7e8a8",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.document.broadcast(documents, identity)</code><br><strong>Description</strong>: This method will broadcast the document on the Application Chain</p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>documents</strong></td>\n<td>Object</td>\n<td>yes</td>\n<td></td>\n</tr>\n<tr>\n<td><strong>documents.create</strong></td>\n<td>ExtendedDocument[]</td>\n<td>no</td>\n<td>array of valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-documents-create\">created document</a> to create</td>\n</tr>\n<tr>\n<td><strong>documents.replace</strong></td>\n<td>ExtendedDocument[]</td>\n<td>no</td>\n<td>array of valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-documents-create\">created document</a> to replace</td>\n</tr>\n<tr>\n<td><strong>documents.delete</strong></td>\n<td>ExtendedDocument[]</td>\n<td>no</td>\n<td>array of valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-documents-create\">created document</a> to delete</td>\n</tr>\n<tr>\n<td><strong>identity</strong></td>\n<td>Identity</td>\n<td>yes</td>\n<td>A valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-identities-register\">registered identity</a></td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>:</p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identityId</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">''</span>;<span class=\"cm-comment\">&#47;&#47; Your identity identifier</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identity</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">identities</span>.<span class=\"cm-property\">get</span>(<span class=\"cm-variable\">identityId</span>);\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">helloWorldDocument</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">documents</span>.<span class=\"cm-property\">create</span>(\n    <span class=\"cm-comment\">&#47;&#47; Assuming a contract tutorialContract is registered with a field note</span>\n    <span class=\"cm-string\">'tutorialContract.note'</span>,\n    <span class=\"cm-variable\">identity</span>,\n    { <span class=\"cm-property\">message</span>: <span class=\"cm-string\">'Hello World'</span>},\n);\n\n<span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">documents</span>.<span class=\"cm-property\">broadcast</span>({ <span class=\"cm-property\">create</span>: [<span class=\"cm-variable\">helloWorldDocument</span>] }, <span class=\"cm-variable\">identity</span>);</span>\n</code></pre>\n<p>Returns: documents.</p>\n\n</div>"
+}

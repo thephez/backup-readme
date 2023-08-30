@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 2,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:08:12.760Z"
+ },
+ "title": "Dapi",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-usage-dapi",
+ "excerpt": "",
+ "body": "## About DAPI\n\nDAPI (Decentralized API) is a distributed and decentralized endpoints provided by the Masternode Network.\n\n## Get the DAPI-Client instance\n\n```js\n const dapiClient = client.getDAPIClient();\n```\n\nThe usage is then [described here](https://dashplatform.readme.io/docs/explanation-dapi).",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "dapi",
+ "slugUpdatedAt": "2023-07-18T11:26:38.682Z",
+ "revision": 4,
+ "_id": "64b03f2024e51a000ac7cb48",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03f0cfd3e740075012b5b",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:14:56.767Z",
+ "updatedAt": "2023-07-18T14:08:12.589Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03f2024e51a000ac7cb48",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-about-dapi\"></div>About DAPI<a class=\"fa fa-anchor\" href=\"#section-about-dapi\"></a></h2>\n<p>DAPI (Decentralized API) is a distributed and decentralized endpoints provided by the Masternode Network.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-get-the-dapi-client-instance\"></div>Get the DAPI-Client instance<a class=\"fa fa-anchor\" href=\"#section-get-the-dapi-client-instance\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'> <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">dapiClient</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getDAPIClient</span>();</span>\n</code></pre>\n<p>The usage is then <a href=\"https://dashplatform.readme.io/docs/explanation-dapi\">described here</a>.</p>\n\n</div>"
+}

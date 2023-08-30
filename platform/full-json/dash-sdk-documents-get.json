@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:54.792Z"
+ },
+ "title": "Get",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-documents-get",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.documents.get(typeLocator, opts)`  \n**Description**: This method will allow you to fetch back documents matching the provided parameters. \n\nParameters: \n\n| parameters      | type   | required         | Description                                                         |\n| --------------- | ------ | ---------------- | ------------------------------------------------------------------- |\n| **typeLocator** | string | yes              | Field of a specific application, under the form `appName.fieldName` |\n| **opts**        | object | no (default: {}) | Query options of the request                                        |\n\n**Queries options**:\n\n| parameters     | type    | required | Description               |\n| -------------- | ------- | -------- | ------------------------- |\n| **where**      | array   | no       | Mongo-like where query    |\n| **orderBy**    | array   | no       | Mongo-like orderBy query  |\n| **limit**      | integer | no       | how many objects to fetch |\n| **startAt**    | integer | no       | number of objects to skip |\n| **startAfter** | integer | no       | exclusive skip            |\n\n[Learn more about query syntax](https://dashplatform.readme.io/docs/reference-query-syntax).\n\n**Example**: \n\n```js\n   const queryOpts = {\n         where: [\n             ['normalizedLabel', '==', 'alice'],\n             ['normalizedParentDomainName', '==', 'dash'],\n         ],\n     };\n  await client.platform.documents.get('dpns.domain', queryOpts);\n```",
+ "order": 2,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "get-1",
+ "slugUpdatedAt": "2023-07-17T21:42:26.687Z",
+ "revision": 5,
+ "_id": "64b03c85e8562300542467c6",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03c3cbc5af516fae45cd5",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:03:49.763Z",
+ "updatedAt": "2023-07-18T14:07:54.439Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03c85e8562300542467c6",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.documents.get(typeLocator, opts)</code><br><strong>Description</strong>: This method will allow you to fetch back documents matching the provided parameters. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>typeLocator</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Field of a specific application, under the form <code>appName.fieldName</code></td>\n</tr>\n<tr>\n<td><strong>opts</strong></td>\n<td>object</td>\n<td>no (default: {})</td>\n<td>Query options of the request</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Queries options</strong>:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>where</strong></td>\n<td>array</td>\n<td>no</td>\n<td>Mongo-like where query</td>\n</tr>\n<tr>\n<td><strong>orderBy</strong></td>\n<td>array</td>\n<td>no</td>\n<td>Mongo-like orderBy query</td>\n</tr>\n<tr>\n<td><strong>limit</strong></td>\n<td>integer</td>\n<td>no</td>\n<td>how many objects to fetch</td>\n</tr>\n<tr>\n<td><strong>startAt</strong></td>\n<td>integer</td>\n<td>no</td>\n<td>number of objects to skip</td>\n</tr>\n<tr>\n<td><strong>startAfter</strong></td>\n<td>integer</td>\n<td>no</td>\n<td>exclusive skip</td>\n</tr>\n</tbody>\n</table></div>\n<p><a href=\"https://dashplatform.readme.io/docs/reference-query-syntax\">Learn more about query syntax</a>.</p>\n<p><strong>Example</strong>: </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'>   <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">queryOpts</span> <span class=\"cm-operator\">=</span> {\n         <span class=\"cm-property\">where</span>: [\n             [<span class=\"cm-string\">'normalizedLabel'</span>, <span class=\"cm-string\">'=='</span>, <span class=\"cm-string\">'alice'</span>],\n             [<span class=\"cm-string\">'normalizedParentDomainName'</span>, <span class=\"cm-string\">'=='</span>, <span class=\"cm-string\">'dash'</span>],\n         ],\n     };\n  <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">documents</span>.<span class=\"cm-property\">get</span>(<span class=\"cm-string\">'dpns.domain'</span>, <span class=\"cm-variable\">queryOpts</span>);</span>\n</code></pre>\n\n</div>"
+}

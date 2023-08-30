@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-26T16:30:13.269Z"
+ },
+ "title": "broadcastTransaction",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dapi-client-usage-core-broadcasttransaction",
+ "excerpt": "",
+ "body": "**Usage**: `await client.core.broadcastTransaction(transaction)`  \n**Description**: Allow to broadcast a valid **signed** transaction to the network.\n\nParameters:\n\n| parameters                | type    | required   | Description                                                                                                      |\n| ------------------------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------------------- |\n| **transaction**           | Buffer  | yes        | A valid Buffer representation of a transaction                                                                   |\n| **options**               | Object  |            |                                                                                                                  |\n| **options.allowHighFees** | Boolean | no[=false] | As safety measure, \"absurd\" fees are rejected when considered to high. This allow to overwrite that comportement |\n| **options.bypassLimits**  | Boolean | no[=false] | Allow to bypass default transaction policy rules limitation                                                      |\n\nReturns : transactionId (string).\n\nN.B : The TransactionID provided is subject to [transaction malleability](https://dashcore.readme.io/docs/core-guide-transactions-transaction-malleability), and is not a source of truth (the transaction might be included in a block with a different txid).",
+ "order": 0,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2023-07-26T12:42:16.042Z",
+ "revision": 5,
+ "_id": "64c13da84108f115a48390bb",
+ "user": "5b8400d7185d5e00036dcc3b",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64c13d4a816e22155138804e",
+ "category": "64c13a0837805800720ad297",
+ "createdAt": "2023-07-26T15:37:12.994Z",
+ "updatedAt": "2023-07-26T16:30:12.827Z",
+ "version": "640776c254e610001146669e",
+ "__v": 0,
+ "isApi": false,
+ "id": "64c13da84108f115a48390bb",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.broadcastTransaction(transaction)</code><br><strong>Description</strong>: Allow to broadcast a valid <strong>signed</strong> transaction to the network.</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>transaction</strong></td>\n<td>Buffer</td>\n<td>yes</td>\n<td>A valid Buffer representation of a transaction</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>Object</td>\n<td></td>\n<td></td>\n</tr>\n<tr>\n<td><strong>options.allowHighFees</strong></td>\n<td>Boolean</td>\n<td>no[=false]</td>\n<td>As safety measure, &quot;absurd&quot; fees are rejected when considered to high. This allow to overwrite that comportement</td>\n</tr>\n<tr>\n<td><strong>options.bypassLimits</strong></td>\n<td>Boolean</td>\n<td>no[=false]</td>\n<td>Allow to bypass default transaction policy rules limitation</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : transactionId (string).</p>\n<p>N.B : The TransactionID provided is subject to <a href=\"https://dashcore.readme.io/docs/core-guide-transactions-transaction-malleability\">transaction malleability</a>, and is not a source of truth (the transaction might be included in a block with a different txid).</p>\n\n</div>"
+}

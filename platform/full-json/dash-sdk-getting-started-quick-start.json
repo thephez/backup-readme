@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 4,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:32.226Z"
+ },
+ "title": "Quick start",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-getting-started-quick-start",
+ "excerpt": "",
+ "body": "# Quick start\n\nIn order to use this library, you will need to add our [NPM package](https://www.npmjs.com/dash) to your project.\n\nHaving [NodeJS](https://nodejs.org/) installed, just type :\n\n```bash\nnpm install dash\n```\n\n## Initialization\n\nLet's create a Dash SDK client instance specifying both our mnemonic and the schema we wish to work with.\n\n```js\nconst Dash = require('dash');\nconst opts = {\n  wallet: {\n    mnemonic: \"arena light cheap control apple buffalo indicate rare motor valid accident isolate\",\n  },\n};\nconst client = new Dash.Client(opts);\nclient.wallet.getAccount().then(async (account) => {\n  // Do something\n})\n```\n\nQuick note:\nIf no `mnemonic` is provided or `mnemonic: null` is passed inside the `wallet` option, a new mnemonic will be generated.\n\n\n## Make a payment\n\n```js\nclient.wallet.getAccount().then(async (account) => {\n  const transaction = account.createTransaction({\n    recipient: 'yixnmigzC236WmTXp9SBZ42csyp9By6Hw8',\n    amount: 0.12,\n  });\n  await account.broadcastTransaction(transaction);\n});\n```\n\n## Interact with Dash Platform\n\nSee the [Tutorial section](https://dashplatform.readme.io/docs/tutorials-introduction) of the Dash Platform documentation for examples.",
+ "order": 4,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "quick-start",
+ "slugUpdatedAt": "2023-07-17T21:39:58.364Z",
+ "revision": 5,
+ "_id": "64b015dc6da8e80050740a12",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b00904fd3e740075fc4564",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T15:18:52.377Z",
+ "updatedAt": "2023-07-18T14:07:31.838Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b015dc6da8e80050740a12",
+ "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-quick-start\"></div>Quick start<a class=\"fa fa-anchor\" href=\"#section-quick-start\"></a></h1>\n<p>In order to use this library, you will need to add our <a href=\"https://www.npmjs.com/dash\">NPM package</a> to your project.</p>\n<p>Having <a href=\"https://nodejs.org/\">NodeJS</a> installed, just type :</p>\n<pre><code class=\"lang-bash\"><span class='cm-s-neo'><span class=\"cm-builtin\">npm</span> install dash</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-initialization\"></div>Initialization<a class=\"fa fa-anchor\" href=\"#section-initialization\"></a></h2>\n<p>Let&#39;s create a Dash SDK client instance specifying both our mnemonic and the schema we wish to work with.</p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">Dash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">'dash'</span>);\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">opts</span> <span class=\"cm-operator\">=</span> {\n  <span class=\"cm-property\">wallet</span>: {\n    <span class=\"cm-property\">mnemonic</span>: <span class=\"cm-string\">\"arena light cheap control apple buffalo indicate rare motor valid accident isolate\"</span>,\n  },\n};\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Client</span>(<span class=\"cm-variable\">opts</span>);\n<span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>().<span class=\"cm-property\">then</span>(<span class=\"cm-keyword\">async</span> (<span class=\"cm-def\">account</span>) <span class=\"cm-operator\">=&gt;</span> {\n  <span class=\"cm-comment\">&#47;&#47; Do something</span>\n})</span>\n</code></pre>\n<p>Quick note:<br>If no <code>mnemonic</code> is provided or <code>mnemonic: null</code> is passed inside the <code>wallet</code> option, a new mnemonic will be generated.</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-make-a-payment\"></div>Make a payment<a class=\"fa fa-anchor\" href=\"#section-make-a-payment\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>().<span class=\"cm-property\">then</span>(<span class=\"cm-keyword\">async</span> (<span class=\"cm-def\">account</span>) <span class=\"cm-operator\">=&gt;</span> {\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">transaction</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable-2\">account</span>.<span class=\"cm-property\">createTransaction</span>({\n    <span class=\"cm-property\">recipient</span>: <span class=\"cm-string\">'yixnmigzC236WmTXp9SBZ42csyp9By6Hw8'</span>,\n    <span class=\"cm-property\">amount</span>: <span class=\"cm-number\">0.12</span>,\n  });\n  <span class=\"cm-keyword\">await</span> <span class=\"cm-variable-2\">account</span>.<span class=\"cm-property\">broadcastTransaction</span>(<span class=\"cm-variable-2\">transaction</span>);\n});</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-interact-with-dash-platform\"></div>Interact with Dash Platform<a class=\"fa fa-anchor\" href=\"#section-interact-with-dash-platform\"></a></h2>\n<p>See the <a href=\"https://dashplatform.readme.io/docs/tutorials-introduction\">Tutorial section</a> of the Dash Platform documentation for examples.</p>\n\n</div>"
+}

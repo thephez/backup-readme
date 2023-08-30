@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:08:06.473Z"
+ },
+ "title": "Resolve",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-names-resolve",
+ "excerpt": "",
+ "body": "**Usage**: `client.platform.names.resolve('<name>.dash')`  \n**Description**: This method will allow you to resolve a DPNS record from its humanized name. \n\nParameters: \n\n| parameters | type   | required | Description                                                                   |\n| ---------- | ------ | -------- | ----------------------------------------------------------------------------- |\n| **name**   | String | yes      | An alphanumeric (2-63) value used for human-identification (can contains `-`) |\n\n**Example**: `await client.platform.names.resolve('alice.dash')`\n\nReturns : ExtendedDocument (or `null` if do not exist).",
+ "order": 1,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "resolve",
+ "slugUpdatedAt": "2023-07-18T11:25:38.586Z",
+ "revision": 4,
+ "_id": "64b03ebe1344d700454b2c32",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b03e96438f4f000c93c04f",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:13:18.874Z",
+ "updatedAt": "2023-07-18T14:08:06.013Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b03ebe1344d700454b2c32",
+ "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.names.resolve(&#39;&lt;name&gt;.dash&#39;)</code><br><strong>Description</strong>: This method will allow you to resolve a DPNS record from its humanized name. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>name</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>An alphanumeric (2-63) value used for human-identification (can contains <code>-</code>)</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.names.resolve(&#39;alice.dash&#39;)</code></p>\n<p>Returns : ExtendedDocument (or <code>null</code> if do not exist).</p>\n\n</div>"
+}

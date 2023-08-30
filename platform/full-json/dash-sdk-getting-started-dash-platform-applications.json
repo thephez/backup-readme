@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 2,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:32.233Z"
+ },
+ "title": "Dash platform applications",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-getting-started-dash-platform-applications",
+ "excerpt": "",
+ "body": "## DPNS\n\nDPNS is handled in the Dash SDK Client under the namespace `client.platform.names.*'`. [Read more here](https://dashplatform.readme.io/docs/dash-sdk-names)\n\n## DashPay\n\nThe DashPay contract is registered on testnet under contract id `Bwr4WHCPz5rFVAD87RqTs3izo4zpzwsEdKPWUT1NS1C7`. Its functionality is not incorporated with the Dash SDK at this time.",
+ "order": 2,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "dash-platform-applications",
+ "slugUpdatedAt": "2023-07-17T21:39:25.178Z",
+ "revision": 8,
+ "_id": "64b0153d010b14000af98696",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "parentDoc": "64b00904fd3e740075fc4564",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T15:16:13.929Z",
+ "updatedAt": "2023-07-18T14:07:31.839Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "isApi": false,
+ "id": "64b0153d010b14000af98696",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dpns\"></div>DPNS<a class=\"fa fa-anchor\" href=\"#section-dpns\"></a></h2>\n<p>DPNS is handled in the Dash SDK Client under the namespace <code>client.platform.names.*&#39;</code>. <a href=\"https://dashplatform.readme.io/docs/dash-sdk-names\">Read more here</a></p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dash-pay\"></div>DashPay<a class=\"fa fa-anchor\" href=\"#section-dash-pay\"></a></h2>\n<p>The DashPay contract is registered on testnet under contract id <code>Bwr4WHCPz5rFVAD87RqTs3izo4zpzwsEdKPWUT1NS1C7</code>. Its functionality is not incorporated with the Dash SDK at this time.</p>\n\n</div>"
+}

@@ -1,0 +1,70 @@
+{
+ "metadata": {
+  "image": [],
+  "title": "",
+  "description": ""
+ },
+ "api": {
+  "method": "get",
+  "url": "",
+  "auth": "required",
+  "results": {
+   "codes": [
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 200
+    },
+    {
+     "name": "",
+     "code": "{}",
+     "language": "json",
+     "status": 400
+    }
+   ]
+  },
+  "params": [],
+  "examples": {
+   "codes": []
+  }
+ },
+ "next": {
+  "description": "",
+  "pages": []
+ },
+ "algolia": {
+  "recordCount": 1,
+  "publishPending": false,
+  "updatedAt": "2023-07-18T14:07:54.423Z"
+ },
+ "title": "Documents",
+ "icon": "",
+ "updates": [],
+ "type": "basic",
+ "slug": "dash-sdk-documents",
+ "excerpt": "",
+ "body": "## What is a document\n\nDocuments in Dash Platform are similar to those in standard document-oriented databases (MongoDB,...).  \nThey represent a record consisting of one, or multiples field-value pairs and should respect the structure of the dataContract on which they are submitted in.\n\nSee more on the Dash Platform documentation about [Data Contract](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract).",
+ "order": 5,
+ "isReference": false,
+ "deprecated": false,
+ "hidden": false,
+ "sync_unique": "",
+ "link_url": "",
+ "link_external": false,
+ "previousSlug": "documents",
+ "slugUpdatedAt": "2023-07-17T21:41:50.907Z",
+ "revision": 5,
+ "_id": "64b03c3cbc5af516fae45cd5",
+ "user": "62b2101422da70001ee51d95",
+ "project": "5bda01cad172e200499a20a9",
+ "category": "64999bbd928d7500763b43ad",
+ "createdAt": "2023-07-13T18:02:36.531Z",
+ "updatedAt": "2023-07-18T14:07:54.109Z",
+ "version": "640776c254e610001146669e",
+ "__v": 1,
+ "parentDoc": null,
+ "isApi": false,
+ "id": "64b03c3cbc5af516fae45cd5",
+ "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-what-is-a-document\"></div>What is a document<a class=\"fa fa-anchor\" href=\"#section-what-is-a-document\"></a></h2>\n<p>Documents in Dash Platform are similar to those in standard document-oriented databases (MongoDB,...).<br>They represent a record consisting of one, or multiples field-value pairs and should respect the structure of the dataContract on which they are submitted in.</p>\n<p>See more on the Dash Platform documentation about <a href=\"https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract\">Data Contract</a>.</p>\n\n</div>"
+}
