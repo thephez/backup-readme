@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:59.760Z"
+  "updatedAt": "2023-09-06T16:36:53.629Z"
  },
  "title": "Get",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "get-2",
  "slugUpdatedAt": "2023-07-18T11:21:35.991Z",
  "revision": 4,
- "_id": "64b03e15876db30044cbbb30",
+ "_id": "64f8a9df750465004742adfa",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b03dfb6da8e8005077c893",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adf9",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:10:29.857Z",
  "updatedAt": "2023-07-18T14:07:59.573Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03e15876db30044cbbb30",
+ "id": "64f8a9df750465004742adfa",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.identities.get(identityId)</code><br><strong>Description</strong>: This method will allow you to fetch back an identity from its id. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>identifier</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Will fetch back the identity matching the identifier</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.identities.get(&#39;3GegupTgRfdN9JMS8R6QXF3B2VbZtiw63eyudh1oMJAk&#39;)</code></p>\n<p>Returns: Identity (or <code>null</code> if it does not exist).</p>\n\n</div>"
 }

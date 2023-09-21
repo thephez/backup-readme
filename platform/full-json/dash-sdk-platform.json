@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 2,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:44.127Z"
+  "updatedAt": "2023-09-06T16:36:51.585Z"
  },
  "title": "Platform",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "platform",
  "slugUpdatedAt": "2023-07-17T21:40:29.525Z",
  "revision": 6,
- "_id": "64b01676446a5c00328b2bb0",
+ "_id": "64f8a9df750465004742adef",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "category": "64999bbd928d7500763b43ad",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T15:21:26.059Z",
  "updatedAt": "2023-07-18T14:07:43.968Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "parentDoc": null,
  "isApi": false,
- "id": "64b01676446a5c00328b2bb0",
+ "id": "64f8a9df750465004742adef",
  "body_html": "<div class=\"magic-block-textarea\"><h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-about-dash-platform\"></div>About Dash Platform<a class=\"fa fa-anchor\" href=\"#section-about-dash-platform\"></a></h3>\n<p>The Dash Platform provides a technology stack on the top of Dash Network that allows creation of feature-rich decentralized applications. </p>\n<p>You can learn more from the <a href=\"https://dashplatform.readme.io/docs/introduction-what-is-dash-platform\">Dash Platform Documentation - What is Dash Platform?</a></p>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-platform-components\"></div>Platform components<a class=\"fa fa-anchor\" href=\"#section-platform-components\"></a></h3>\n<ul>\n<li >DAPI: A decentralized API that runs on all Masternodes and offers gRPC endpoints for retrieving payment chain metadata (blocks, transactions), as well as application data (documents, contracts, identities). </li><li >Drive: Application chain storage layer where the data defined by Data Contracts is stored and managed.</li><li >DPNS: Naming service provided by a Dash Platform App</li></ul>\n\n</div>"
 }

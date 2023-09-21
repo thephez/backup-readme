@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:47:12.974Z"
+  "updatedAt": "2023-09-06T16:36:57.757Z"
  },
  "title": "getTransaction",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "gettransaction",
  "slugUpdatedAt": "2023-07-26T16:47:12.642Z",
  "revision": 4,
- "_id": "64c1401d0d042b0064278e15",
+ "_id": "64f8a9df750465004742ae14",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64c13d4a816e22155138804e",
- "category": "64c13a0837805800720ad297",
+ "parentDoc": "64f8a9df750465004742ae0b",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:47:41.296Z",
  "updatedAt": "2023-07-26T16:47:12.633Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64c1401d0d042b0064278e15",
+ "id": "64f8a9df750465004742ae14",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getTransaction(id, options)</code><br><strong>Description</strong>: Allow to fetch a transaction by ID</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>id</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>A valid transaction id to fetch</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise\\&lt;null|Buffer&gt;} - The bufferized transaction</p>\n\n</div>"
 }

@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:38:30.932Z"
+  "updatedAt": "2023-09-06T16:36:56.201Z"
  },
  "title": "Overview",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "",
  "slugUpdatedAt": "2023-07-25T20:02:06.937Z",
  "revision": 9,
- "_id": "64c13a55e8aa20001d8ae194",
+ "_id": "64f8a9df750465004742ae09",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "category": "64c13a0837805800720ad297",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:23:01.888Z",
  "updatedAt": "2023-07-26T16:38:30.092Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "64c13a55e8aa20001d8ae194",
+ "id": "64f8a9df750465004742ae09",
  "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-dapi-client\"></div>DAPI-Client<a class=\"fa fa-anchor\" href=\"#section-dapi-client\"></a></h2>\n<p><a href=\"https://www.npmjs.com/package/@dashevo/dapi-client\"><img src=\"https://img.shields.io/npm/v/@dashevo/dapi-client\" alt=\"NPM Version\"></a><br><a href=\"https://github.com/dashevo/js-dapi-client/actions/workflows/test_and_release.yml\"><img src=\"https://github.com/dashevo/js-dapi-client/actions/workflows/test_and_release.yml/badge.svg\" alt=\"Build Status\"></a><br><a href=\"https://github.com/dashpay/platform/releases/latest\"><img src=\"https://img.shields.io/github/release-date/dashpay/platform\" alt=\"Release Date\"></a><br><a href=\"https://github.com/RichardLitt/standard-readme\"><img src=\"https://img.shields.io/badge/readme%20style-standard-brightgreen\" alt=\"standard-readme compliant\"></a></p>\n<p>Client library used to access Dash DAPI endpoints</p>\n<p>This library enables HTTP-based interaction with the Dash blockchain and Dash Platform via the decentralized API (<a href=\"https://github.com/dashpay/platform/tree/master/packages/dapi\">DAPI</a>) hosted on Dash masternodes.</p>\n<ul>\n<li ><code>DAPI-Client</code> provides automatic server (masternode) discovery using either a default seed node or a user-supplied one</li><li ><code>DAPI-Client</code> maps to DAPI&#39;s <a href=\"https://github.com/dashpay/platform/tree/master/packages/dapi/lib/rpcServer/commands\">RPC</a> and <a href=\"https://github.com/dashpay/platform/tree/master/packages/dapi/lib/grpcServer/handlers\">gRPC</a> endpoints</li></ul>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-install\"></div>Install<a class=\"fa fa-anchor\" href=\"#section-install\"></a></h3>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-es-5-es-6-via-npm\"></div>ES5/ES6 via NPM<a class=\"fa fa-anchor\" href=\"#section-es-5-es-6-via-npm\"></a></h3>\n<p>In order to use this library in Node, you will need to add it to your project as a dependency.</p>\n<p>Having <a href=\"https://nodejs.org/\">NodeJS</a> installed, just type in your terminal :</p>\n<pre><code class=\"lang-sh\"><span class='cm-s-neo'><span class=\"cm-builtin\">npm</span> install @dashevo&#47;dapi-client</span>\n</code></pre>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-cdn-standalone\"></div>CDN Standalone<a class=\"fa fa-anchor\" href=\"#section-cdn-standalone\"></a></h3>\n<p>For browser usage, you can also directly rely on unpkg :</p>\n<pre><code>&lt;script src=&quot;https://unpkg.com/@dashevo/dapi-client&quot;&gt;&lt;/script&gt;\n</code></pre><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-licence\"></div>Licence<a class=\"fa fa-anchor\" href=\"#section-licence\"></a></h2>\n<p><a href=\"https://github.com/dashevo/dapi-client/blob/master/LICENCE.md\">MIT</a> \u00a9 Dash Core Group, Inc.</p>\n\n</div>"
 }

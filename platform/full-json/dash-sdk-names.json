@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:08:05.996Z"
+  "updatedAt": "2023-09-06T16:36:54.142Z"
  },
  "title": "Names",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "dpns-naming-service",
  "slugUpdatedAt": "2023-07-18T11:22:24.064Z",
  "revision": 5,
- "_id": "64b03e96438f4f000c93c04f",
+ "_id": "64f8a9df750465004742adfd",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "category": "64999bbd928d7500763b43ad",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:12:38.886Z",
  "updatedAt": "2023-07-18T14:08:05.654Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "parentDoc": null,
  "isApi": false,
- "id": "64b03e96438f4f000c93c04f",
+ "id": "64f8a9df750465004742adfd",
  "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-what-is-dpns\"></div>What is DPNS<a class=\"fa fa-anchor\" href=\"#section-what-is-dpns\"></a></h2>\n<p>DPNS is a special Dash Platform Application that is intended to provide a naming service for the Application Chain.  </p>\n<p>Decoupling name from the blockchain identity enables a unique user experience coupled with the highest security while remaining compatible with <a href=\"https://www.w3.org/TR/did-core/\">Decentralized Identifiers</a>.</p>\n<p>Limitation: max length of 63 characters on charset <code>0-9</code>,<code>A-Z</code>(case insensitive), <code>-</code>.</p>\n<p>Domain names are linked to an Identity.</p>\n\n</div>"
 }

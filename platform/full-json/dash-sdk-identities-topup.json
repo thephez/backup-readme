@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:59.924Z"
+  "updatedAt": "2023-09-06T16:36:53.970Z"
  },
  "title": "TopUp",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "topup",
  "slugUpdatedAt": "2023-07-18T11:22:03.749Z",
  "revision": 7,
- "_id": "64b03e405de9040041e767ac",
+ "_id": "64f8a9df750465004742adfc",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b03dfb6da8e8005077c893",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adf9",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:11:12.679Z",
  "updatedAt": "2023-07-18T14:07:59.576Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03e405de9040041e767ac",
+ "id": "64f8a9df750465004742adfc",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.identities.topUp(identity, amount)</code><br><strong>Description</strong>: This method will topup the provided identity&#39;s balance. </p>\n<p><em>The identity balance might slightly vary from the topped up amount because of the transaction fee estimation.</em></p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>identity</strong></td>\n<td>Identity</td>\n<td>yes</td>\n<td>A valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-identities-register\">registered identity</a></td>\n</tr>\n<tr>\n<td><strong>amount</strong></td>\n<td>number</td>\n<td>yes</td>\n<td>A duffs (satoshis) value corresponding to the amount you want to top up to the identity.</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identityId</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">''</span>;<span class=\"cm-comment\">&#47;&#47; Your identity identifier</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identity</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">identities</span>.<span class=\"cm-property\">get</span>(<span class=\"cm-variable\">identityId</span>);\n<span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">identities</span>.<span class=\"cm-property\">topUp</span>(<span class=\"cm-variable\">identity</span>.<span class=\"cm-property\">getId</span>(), <span class=\"cm-number\">10000</span>);\n\n<span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>(<span class=\"cm-string-2\">`New identity balance: ${</span><span class=\"cm-variable\">identity</span>.<span class=\"cm-property\">balance</span><span class=\"cm-string-2\">}`</span>)</span>\n</code></pre>\n<p>Returns: Boolean.</p>\n\n</div>"
 }

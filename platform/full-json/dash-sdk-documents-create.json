@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:54.610Z"
+  "updatedAt": "2023-09-06T16:36:53.115Z"
  },
  "title": "Create",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "create-1",
  "slugUpdatedAt": "2023-07-17T21:42:15.003Z",
  "revision": 6,
- "_id": "64b03c737eadbe000cb70509",
+ "_id": "64f8a9df750465004742adf7",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b03c3cbc5af516fae45cd5",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adf5",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:03:31.173Z",
  "updatedAt": "2023-07-18T14:07:54.437Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03c737eadbe000cb70509",
+ "id": "64f8a9df750465004742adf7",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.documents.create(typeLocator, identity, documentOpts)</code><br><strong>Description</strong>: This method will return a ExtendedDocument object initialized with the parameters defined and apply to the used identity. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>dotLocator</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Field of a specific application, under the form <code>appName.fieldName</code></td>\n</tr>\n<tr>\n<td><strong>identity</strong></td>\n<td>Identity</td>\n<td>yes</td>\n<td>A valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-identities-register\">registered identity</a></td>\n</tr>\n<tr>\n<td><strong>docOpts</strong></td>\n<td>Object</td>\n<td>yes</td>\n<td>A valid data that match the data contract structure</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identityId</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">''</span>;<span class=\"cm-comment\">&#47;&#47; Your identity identifier</span>\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identity</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">identities</span>.<span class=\"cm-property\">get</span>(<span class=\"cm-variable\">identityId</span>);\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">helloWorldDocument</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">documents</span>.<span class=\"cm-property\">create</span>(\n      <span class=\"cm-comment\">&#47;&#47; Assume a contract helloWorldContract is registered with a field note</span>\n      <span class=\"cm-string\">'helloWorldContract.note'</span>,\n      <span class=\"cm-variable\">identity</span>,\n     { <span class=\"cm-property\">message</span>: <span class=\"cm-string\">'Hello World'</span>},\n  );</span>\n</code></pre>\n<p><strong>Note</strong>: When your document is created, it will only exist locally, use the <a href=\"https://dashplatform.readme.io/docs/dash-sdk-documents-broadcast\">broadcast</a> method to register it.  </p>\n<p>Returns: ExtendedDocument</p>\n\n</div>"
 }

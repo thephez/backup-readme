@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-03-07T17:41:09.586Z"
+  "updatedAt": "2023-09-06T16:36:44.951Z"
  },
  "title": "Contracts and Documents",
  "icon": "",
@@ -52,17 +52,17 @@
  "previousSlug": "contracts-and-documents",
  "slugUpdatedAt": "2020-12-17T19:28:37.093Z",
  "revision": 2,
- "_id": "640776c254e6100011466686",
+ "_id": "64f8a9df750465004742adc8",
  "pendingAlgoliaPublish": false,
  "createdAt": "2020-12-17T19:28:18.074Z",
  "updatedAt": "2023-01-16T17:10:18.858Z",
  "user": "62b2101422da70001ee51d95",
- "category": "640776c254e610001146662e",
+ "category": "64f8a9df750465004742ad6e",
  "project": "5bda01cad172e200499a20a9",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "640776c254e6100011466686",
+ "id": "64f8a9df750465004742adc8",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following tutorials cover working with data contracts as well as storing and updating related data using the documents they define.</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/tutorial-register-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-register-a-data-contract\">Register a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-a-data-contract\">Retrieve a Data Contract</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-update-a-data-contract\" class=\"doc-link\" data-sidebar=\"tutorial-update-a-data-contract\">Update a Data Contract</a></li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-submit-documents\" class=\"doc-link\" data-sidebar=\"tutorial-submit-documents\">Submit Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-retrieve-documents\" class=\"doc-link\" data-sidebar=\"tutorial-retrieve-documents\">Retrieve Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-update-documents\" class=\"doc-link\" data-sidebar=\"tutorial-update-documents\">Update Documents</a> </li><li ><a href=\"https://dashplatform.readme.io/docs/tutorial-delete-documents\" class=\"doc-link\" data-sidebar=\"tutorial-delete-documents\">Delete Documents</a></li></ul>\n<blockquote>\n<p>\ud83d\udcd8 Tutorial code</p>\n<p>You can clone a repository containing the code for all tutorials from <a href=\"https://github.com/dashevo/platform-readme-tutorials#readme\" target=\"_blank\">GitHub</a> or download it as a <a href=\"https://github.com/dashevo/platform-readme-tutorials/archive/refs/heads/main.zip\">zip file</a>.</p>\n</blockquote>\n\n</div>"
 }

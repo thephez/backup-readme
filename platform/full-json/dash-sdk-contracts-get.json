@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:49.491Z"
+  "updatedAt": "2023-09-06T16:36:52.099Z"
  },
  "title": "Get",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "get",
  "slugUpdatedAt": "2023-07-17T21:41:12.907Z",
  "revision": 4,
- "_id": "64b03b45211cb200121eb9ef",
+ "_id": "64f8a9df750465004742adf2",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b01811fd33a50064662ab8",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adf0",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T17:58:29.940Z",
  "updatedAt": "2023-07-18T14:07:49.134Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03b45211cb200121eb9ef",
+ "id": "64f8a9df750465004742adf2",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.contracts.get(contractId)</code><br><strong>Description</strong>: This method will allow you to fetch back a contract from its id. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>identifier</strong></td>\n<td>string</td>\n<td>yes</td>\n<td>Will fetch back the contract matching the identifier</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.contracts.get(&#39;77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3&#39;)</code></p>\n<p>Returns: Contract (or <code>null</code> if it&#39;s not a registered contract).</p>\n\n</div>"
 }

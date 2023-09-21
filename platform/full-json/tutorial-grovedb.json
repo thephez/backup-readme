@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 2,
   "publishPending": false,
-  "updatedAt": "2023-03-07T18:05:12.334Z"
+  "updatedAt": "2023-09-06T16:36:48.102Z"
  },
  "title": "GroveDB",
  "icon": "",
@@ -52,16 +52,16 @@
  "previousSlug": "grovedb",
  "slugUpdatedAt": "2023-02-08T19:56:04.288Z",
  "revision": 26,
- "_id": "640776c254e6100011466699",
+ "_id": "64f8a9df750465004742addb",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "category": "640776c254e610001146662e",
+ "category": "64f8a9df750465004742ad6e",
  "createdAt": "2023-02-08T19:55:38.359Z",
  "updatedAt": "2023-03-07T18:05:12.001Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "640776c254e6100011466699",
+ "id": "64f8a9df750465004742addb",
  "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-introduction\"></div>Introduction<a class=\"fa fa-anchor\" href=\"#section-introduction\"></a></h1>\n<p>These tutorials aim to give readers a solid foundation on how to interact with <a href=\"https://github.com/dashpay/grovedb\">GroveDB</a> so that they may begin using it for their own applications.</p>\n<p>GroveDB is the Merkle tree structure overlaying Dash Platform&#39;s RocksDB backing store which allows for the most complex, cryptographically verifiable, queries of all databases in existence today. Existing solutions have very limited capabilities compared to non-cryptographically verifiable databases such as MongoDB, which motivated Dash Core Group to build their own solution. The design, a <em>grove</em> of Merkle AVL trees (specifically <a href=\"https://github.com/nomic-io/merk\">Merks</a>) interconnected via root hashes and references, is largely inspired by the paper <a href=\"https://ia.cr/2015/351\">Database Outsourcing with Hierarchical Authenticated Data Structures</a>.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-setup\"></div>Setup<a class=\"fa fa-anchor\" href=\"#section-setup\"></a></h1>\n<p>It\u2019s not required, but if you wish to follow along interactively, clone the <a href=\"https://github.com/thephez/grovedb-tutorials\">grovedb-tutorials</a> repo and open the tutorials directory.</p>\n<pre><code>git clone https://github.com/thephez/grovedb-tutorials.git &amp;&amp; cd tutorials\n</code></pre><p>To run a tutorial, do:</p>\n<pre><code>cargo run --bin &lt;tutorial name&gt;\n</code></pre><p>Valid tutorial names are: open, insert, delete, query-simple, query-complex, proofs.</p>\n\n</div>"
 }

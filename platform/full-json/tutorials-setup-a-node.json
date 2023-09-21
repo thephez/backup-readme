@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-06-08T17:55:15.100Z"
+  "updatedAt": "2023-09-06T16:36:47.570Z"
  },
  "title": "Set up a Node",
  "icon": "",
@@ -52,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2022-05-26T17:31:00.918Z",
  "revision": 2,
- "_id": "640776c254e6100011466696",
+ "_id": "64f8a9df750465004742add8",
  "pendingAlgoliaPublish": false,
  "createdAt": "2022-05-26T18:56:12.596Z",
  "updatedAt": "2023-06-08T17:55:14.795Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "640776c254e610001146662e",
+ "category": "64f8a9df750465004742ad6e",
  "project": "5bda01cad172e200499a20a9",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "640776c254e6100011466696",
+ "id": "64f8a9df750465004742add8",
  "body_html": "<div class=\"magic-block-textarea\"><p>Since Dash Platform is accessible through DAPI, running a node is typically unnecessary. The information provided in this section is for advanced users interested in running their own network for development or participating in testing the project by running a testnet node.</p>\n\n</div>"
 }

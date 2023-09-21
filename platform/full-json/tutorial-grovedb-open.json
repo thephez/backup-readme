@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-03-07T18:11:29.723Z"
+  "updatedAt": "2023-09-06T16:36:49.030Z"
  },
  "title": "Open",
  "icon": "",
@@ -52,16 +52,16 @@
  "previousSlug": "open",
  "slugUpdatedAt": "2023-03-07T18:11:29.402Z",
  "revision": 3,
- "_id": "64077cf13affec0ea88032fd",
+ "_id": "64f8a9df750465004742ade0",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "640776c254e6100011466699",
- "category": "640776c254e610001146662e",
+ "parentDoc": "64f8a9df750465004742addb",
+ "category": "64f8a9df750465004742ad6e",
  "createdAt": "2023-03-07T18:05:37.279Z",
  "updatedAt": "2023-03-07T18:05:37.279Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64077cf13affec0ea88032fd",
+ "id": "64f8a9df750465004742ade0",
  "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-tutorial\"></div>Tutorial<a class=\"fa fa-anchor\" href=\"#section-tutorial\"></a></h1>\n<p>GroveDB uses the <code>open()</code> function to <a href=\"https://github.com/dashpay/grovedb/blob/master/grovedb/src/lib.rs\">open</a> an existing instance of GroveDB at the given path in your filesystem, unless there is no existing instance, in which case a new one will be created with an empty root tree. The only argument for <code>open()</code> is the filesystem path.</p>\n<p>The following code can be run with <code>cargo run --bin open</code>.</p>\n<pre><code class=\"lang-rust\"><span class='cm-s-neo'><span class=\"cm-keyword\">use</span> <span class=\"cm-variable\">grovedb</span>::<span class=\"cm-variable\">GroveDb</span>;\n\n<span class=\"cm-keyword\">fn</span> <span class=\"cm-def\">main</span>() {\n\n   <span class=\"cm-comment\">&#47;&#47; Specify the path where you want to set up the GroveDB instance</span>\n   <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">path</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">String</span>::<span class=\"cm-variable\">from</span>(<span class=\"cm-string\">\"..&#47;storage\"</span>);\n\n   <span class=\"cm-comment\">&#47;&#47; Open a new GroveDB at the path</span>\n   <span class=\"cm-variable\">GroveDb</span>::<span class=\"cm-variable\">open</span>(<span class=\"cm-variable\">path</span>).<span class=\"cm-variable\">unwrap</span>();\n\n   <span class=\"cm-comment\">&#47;&#47; Print to terminal</span>\n   <span class=\"cm-variable-3\">println!</span>(<span class=\"cm-string\">\"Opened {:?}\"</span>, <span class=\"cm-variable\">path</span>);\n\n}</span>\n</code></pre>\n<p>A folder called \u201cstorage\u201d should have appeared in your grovedb-tutorials directory, populated with a bunch of files. GroveDB is set up and ready for us to insert some data.</p>\n\n</div>"
 }

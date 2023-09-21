@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 7,
   "publishPending": false,
-  "updatedAt": "2023-03-07T17:41:03.216Z"
+  "updatedAt": "2023-09-06T16:36:38.302Z"
  },
  "title": "Connecting to EvoNet (dapi-client)",
  "icon": "",
@@ -52,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-11-30T16:58:49.889Z",
  "revision": 2,
- "_id": "640776c254e6100011466666",
- "version": "640776c254e610001146669e",
+ "_id": "64f8a9df750465004742ada8",
+ "version": "64f8a9df750465004742ae1d",
  "project": "5bda01cad172e200499a20a9",
  "user": "5b8400d7185d5e00036dcc3b",
- "category": "640776c254e610001146662e",
+ "category": "64f8a9df750465004742ad6e",
  "updatedAt": "2023-01-18T18:34:25.163Z",
  "createdAt": "2019-12-27T19:51:58.127Z",
  "__v": 0,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "640776c254e6100011466666",
+ "id": "64f8a9df750465004742ada8",
  "body_html": "<div class=\"magic-block-textarea\"><p>The purpose of this tutorial is to walk through the steps necessary to access the network.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-overview\"></div>Overview<a class=\"fa fa-anchor\" href=\"#section-overview\"></a></h1>\n<p>EvoNet is the initial development network provided for experimentation and evaluation of Dash Platform features.</p>\n<p>Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it&#39;s easier to use <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\">DAPI-client</a>.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-connect-via-dapi-client\"></div>Connect via DAPI-client<a class=\"fa fa-anchor\" href=\"#section-connect-via-dapi-client\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-1-install-dapi-client\"></div>1. Install dapi-client<a class=\"fa fa-anchor\" href=\"#section-1-install-dapi-client\"></a></h2>\n<p>The JavaScript dapi-client package is available from <a href=\"https://www.npmjs.com/package/@dashevo/dapi-client\">npmjs.com</a> and can be installed by running <code>npm install</code>:</p>\n<pre><code class=\"lang-shell\"><span class='cm-s-neo'><span class=\"cm-builtin\">npm</span> install @dashevo&#47;dapi-client</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-2-verify-a-successful-response\"></div>2. Verify a Successful Response<a class=\"fa fa-anchor\" href=\"#section-2-verify-a-successful-response\"></a></h2>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-a-create-index-js-and-add-the-following-code\"></div>a. Create <code>index.js</code> and add the following code:<a class=\"fa fa-anchor\" href=\"#section-a-create-index-js-and-add-the-following-code\"></a></h3>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">DAPIClient</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">'@dashevo&#47;dapi-client'</span>);\n\n<span class=\"cm-keyword\">let</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">DAPIClient</span>({\n  <span class=\"cm-property\">seeds</span>: [{\n    <span class=\"cm-property\">service</span>: <span class=\"cm-string\">'18.236.131.253:3000'</span>,\n    <span class=\"cm-property\">port</span>: <span class=\"cm-number\">3000</span>\n  }],\n});\n\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">start</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">async</span> () <span class=\"cm-operator\">=&gt;</span> {\n  <span class=\"cm-keyword\">let</span> <span class=\"cm-def\">height</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getBestBlockHash</span>();\n  <span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>(<span class=\"cm-string\">'Best block hash:'</span>, <span class=\"cm-variable-2\">height</span>);\n};\n\n<span class=\"cm-variable\">start</span>();</span>\n</code></pre>\n<h3 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-b-run-index-js\"></div>b. Run <code>index.js</code><a class=\"fa fa-anchor\" href=\"#section-b-run-index-js\"></a></h3>\n<pre><code class=\"lang-shell\"><span class='cm-s-neo'><span class=\"cm-builtin\">node</span> index.js</span>\n</code></pre>\n<p>The best block hash will be retrieved and printed to the console.</p>\n<pre><code class=\"lang-text\">Best block hash: \n  00000038fd1a1f6f691889d986a563372f3f4887320ad27b635caf4fcc9768c1\n</code></pre>\n<p>Once this returns successfully, you&#39;re ready to begin developing!</p>\n\n</div>"
 }

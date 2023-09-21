@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:31.817Z"
+  "updatedAt": "2023-09-06T16:36:50.395Z"
  },
  "title": "Getting Started",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "sdk-getting-started",
  "slugUpdatedAt": "2023-07-17T21:35:48.799Z",
  "revision": 8,
- "_id": "64b00904fd3e740075fc4564",
+ "_id": "64f8a9df750465004742ade8",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "category": "64999bbd928d7500763b43ad",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T14:24:04.252Z",
  "updatedAt": "2023-07-18T14:07:31.478Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "parentDoc": null,
  "isApi": false,
- "id": "64b00904fd3e740075fc4564",
+ "id": "64f8a9df750465004742ade8",
  "body_html": "<div class=\"magic-block-textarea\"><p>The following pages cover:</p>\n<ul>\n<li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-about-schemas\">About schemas</a></li><li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-core-concepts\">Core concepts</a></li><li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-dash-platform-applications\">Dash platform applications</a></li><li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-working-with-multiple-apps\">Working with multiple apps</a></li><li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-quick-start\">Quick starting the library</a></li><li ><a href=\"https://dashplatform.readme.io/docs/dash-sdk-getting-started-with-typescript\">Use Dash SDK with TypeScript.</a></li></ul>\n\n</div>"
 }

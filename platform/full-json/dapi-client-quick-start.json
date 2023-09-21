@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:39:43.226Z"
+  "updatedAt": "2023-09-06T16:36:56.372Z"
  },
  "title": "Quick start",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "",
  "slugUpdatedAt": "2023-07-26T15:24:50.344Z",
  "revision": 5,
- "_id": "64c13b2e9d38b00039bb019f",
+ "_id": "64f8a9df750465004742ae0a",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "category": "64c13a0837805800720ad297",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:26:38.286Z",
  "updatedAt": "2023-07-26T16:39:42.893Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,
- "id": "64c13b2e9d38b00039bb019f",
+ "id": "64f8a9df750465004742ae0a",
  "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-quick-start\"></div>Quick start<a class=\"fa fa-anchor\" href=\"#section-quick-start\"></a></h1>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-es-5-es-6-via-npm\"></div>ES5/ES6 via NPM<a class=\"fa fa-anchor\" href=\"#section-es-5-es-6-via-npm\"></a></h2>\n<p>In order to use this library in Node, you will need to add it to your project as a dependency.</p>\n<p>Having <a href=\"https://nodejs.org/\">NodeJS</a> installed, just type in your terminal :</p>\n<pre><code class=\"lang-sh\"><span class='cm-s-neo'><span class=\"cm-builtin\">npm</span> install @dashevo&#47;dapi-client</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-cdn-standalone\"></div>CDN Standalone<a class=\"fa fa-anchor\" href=\"#section-cdn-standalone\"></a></h2>\n<p>For browser usage, you can also directly rely on unpkg :</p>\n<pre><code>&lt;script src=&quot;https://unpkg.com/@dashevo/dapi-client&quot;&gt;&lt;/script&gt;\n</code></pre><p>You can see an <a href=\"https://github.com/dashpay/platform/blob/master/packages/js-dapi-client/examples/web/web.usage.html\">example usage here</a> .</p>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-initialization\"></div>Initialization<a class=\"fa fa-anchor\" href=\"#section-initialization\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">DAPIClient</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">require</span>(<span class=\"cm-string\">'@dashevo&#47;dapi-client'</span>);\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">client</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">DAPIClient</span>();\n\n(<span class=\"cm-keyword\">async</span> () <span class=\"cm-operator\">=&gt;</span> {\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">bestBlockHash</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">core</span>.<span class=\"cm-property\">getBestBlockHash</span>();\n  <span class=\"cm-variable\">console</span>.<span class=\"cm-property\">log</span>(<span class=\"cm-variable-2\">bestBlockHash</span>);\n})();</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-quicknotes\"></div>Quicknotes<a class=\"fa fa-anchor\" href=\"#section-quicknotes\"></a></h2>\n<p>This package allows you to fetch &amp; send information from both the payment chain (layer 1) and the application chain (layer 2, a.k.a Platform chain).</p>\n\n</div>"
 }

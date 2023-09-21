@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:08:06.223Z"
+  "updatedAt": "2023-09-06T16:36:54.316Z"
  },
  "title": "Register",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "register-1",
  "slugUpdatedAt": "2023-07-18T11:22:34.117Z",
  "revision": 7,
- "_id": "64b03eaf52eb970fa78f3930",
+ "_id": "64f8a9df750465004742adfe",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b03e96438f4f000c93c04f",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adfd",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:13:03.130Z",
  "updatedAt": "2023-07-18T14:08:06.014Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03eaf52eb970fa78f3930",
+ "id": "64f8a9df750465004742adfe",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.names.register(name, records, identity)</code><br><strong>Description</strong>: This method will create a DPNS record matching your identity to the user or appname defined.</p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>name</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>An alphanumeric (1-63 character) value used for human-identification (can contain <code>-</code> but not as the first or last character). If a name with no parent domain is entered, &#39;.dash&#39; is used.</td>\n</tr>\n<tr>\n<td><strong>records</strong></td>\n<td>Object</td>\n<td>yes</td>\n<td>records object having only one of the following items</td>\n</tr>\n<tr>\n<td><strong>records.dashUniqueIdentityId</strong></td>\n<td>String</td>\n<td>no</td>\n<td>Unique Identity ID for this name record</td>\n</tr>\n<tr>\n<td><strong>records.dashAliasIdentityId</strong></td>\n<td>String</td>\n<td>no</td>\n<td>Used to signify that this name is the alias for another id</td>\n</tr>\n<tr>\n<td><strong>identity</strong></td>\n<td>Identity</td>\n<td>yes</td>\n<td>A valid <a href=\"https://dashplatform.readme.io/docs/dash-sdk-identities-register\">registered identity</a></td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: <code>await client.platform.names.register(&#39;alice&#39;, { dashUniqueIdentityId: identity.getId() }, identity)</code></p>\n<p>Returns: the created domain document</p>\n\n</div>"
 }

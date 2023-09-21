@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-03-07T17:41:12.150Z"
+  "updatedAt": "2023-09-06T16:36:46.679Z"
  },
  "title": "Client App options",
  "icon": "",
@@ -52,17 +52,17 @@
  "previousSlug": "",
  "slugUpdatedAt": "2021-05-17T06:59:56.629Z",
  "revision": 1,
- "_id": "640776c254e6100011466691",
+ "_id": "64f8a9df750465004742add3",
  "pendingAlgoliaPublish": false,
  "createdAt": "2021-05-17T16:12:51.193Z",
  "updatedAt": "2021-05-17T16:16:02.928Z",
  "user": "5b8400d7185d5e00036dcc3b",
- "parentDoc": "640776c254e6100011466686",
- "category": "640776c254e610001146662e",
+ "parentDoc": "64f8a9df750465004742adc8",
+ "category": "64f8a9df750465004742ad6e",
  "project": "5bda01cad172e200499a20a9",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "640776c254e6100011466691",
+ "id": "64f8a9df750465004742add3",
  "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>"
 }

@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:46:50.692Z"
+  "updatedAt": "2023-09-06T16:36:57.414Z"
  },
  "title": "getMnListDiff",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "getmnlistdiff-1",
  "slugUpdatedAt": "2023-07-26T16:46:50.377Z",
  "revision": 4,
- "_id": "64c13fc6351d78003b684389",
+ "_id": "64f8a9df750465004742ae12",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64c13d4a816e22155138804e",
- "category": "64c13a0837805800720ad297",
+ "parentDoc": "64f8a9df750465004742ae0b",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:46:14.444Z",
  "updatedAt": "2023-07-26T16:46:50.371Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64c13fc6351d78003b684389",
+ "id": "64f8a9df750465004742ae12",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getMnListDiff(baseBlockHash, blockHash, options)</code><br><strong>Description</strong>: Allow to fetch a specific block hash from  its height</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>baseBlockHash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>hash or height of start block</td>\n</tr>\n<tr>\n<td><strong>blockHash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>hash or height of end block</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise&lt;object&gt;} - The Masternode List Diff of the specified period</p>\n\n</div>"
 }

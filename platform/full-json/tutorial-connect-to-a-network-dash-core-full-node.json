@@ -33,7 +33,7 @@
  "algolia": {
   "recordCount": 3,
   "publishPending": false,
-  "updatedAt": "2023-07-03T19:48:26.628Z"
+  "updatedAt": "2023-09-06T16:36:37.626Z"
  },
  "title": "Dash Core Full Node",
  "icon": "",
@@ -54,17 +54,17 @@
  "previousSlug": "tutorial-connecting-to-evonet-dash-core-full-node",
  "slugUpdatedAt": "2021-02-24T15:50:34.309Z",
  "revision": 3,
- "_id": "640776c254e610001146665d",
- "version": "640776c254e610001146669e",
+ "_id": "64f8a9df750465004742ad9f",
+ "version": "64f8a9df750465004742ae1d",
  "project": "5bda01cad172e200499a20a9",
  "user": "62b2101422da70001ee51d95",
- "parentDoc": "640776c254e6100011466696",
- "category": "640776c254e610001146662e",
+ "parentDoc": "64f8a9df750465004742add8",
+ "category": "64f8a9df750465004742ad6e",
  "updatedAt": "2023-07-03T19:47:08.841Z",
  "createdAt": "2019-12-11T22:46:57.904Z",
  "__v": 1,
  "pendingAlgoliaPublish": false,
  "isApi": false,
- "id": "640776c254e610001146665d",
+ "id": "64f8a9df750465004742ad9f",
  "body_html": "<div class=\"magic-block-textarea\"><p>Since Dash Platform is fully accessible via DAPI, running a full node is unnecessary and generally provides no particular benefit. Regardless, the steps below provide the necessary information for advanced users to connect.</p>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-config-file\"></div>Config File<a class=\"fa fa-anchor\" href=\"#section-config-file\"></a></h1>\n<p> The config file shown below may be used to connect a Dash Core node to Testnet. Testnet currently operates using <a href=\"https://github.com/dashpay/dash/releases/tag/v18.1.0-rc.1\">Dash Core v18.1.0-RC1</a>.</p>\n<pre><code class=\"lang-dash-testnet.conf\"><span class='cm-s-neo'>testnet=1\n\n# Hard-coded first node\naddnode=seed-1.testnet.networks.dash.org:19999</span>\n</code></pre>\n<h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-starting-dash-core\"></div>Starting Dash Core<a class=\"fa fa-anchor\" href=\"#section-starting-dash-core\"></a></h1>\n<p>To start Dash Core and connect to Testnet, simply run dashd or dash-qt with the <code>conf</code> parameter set to the configuration file created above: <code>&lt;path to binary&gt; -conf=&lt;path to configuration file&gt;</code></p>\n<p><code>shell Start dashd on Testnet\ndashd -conf=/home/dash/.dashcore/dash-testnet.conf</code></p>\n\n</div>"
 }

@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:08:06.471Z"
+  "updatedAt": "2023-09-06T16:36:54.488Z"
  },
  "title": "ResolveByRecord",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "resolvebyrecord",
  "slugUpdatedAt": "2023-07-18T11:25:49.895Z",
  "revision": 4,
- "_id": "64b03ed3d4bfac0c33e6fa57",
+ "_id": "64f8a9df750465004742ae00",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b03e96438f4f000c93c04f",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742adfd",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:13:39.767Z",
  "updatedAt": "2023-07-18T14:08:06.016Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b03ed3d4bfac0c33e6fa57",
+ "id": "64f8a9df750465004742ae00",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>client.platform.names.resolveByRecord(record, value)</code><br><strong>Description</strong>: This method will allow you to resolve a DPNS record by identity ID. </p>\n<p>Parameters: </p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>record</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>Type of the record (<code>dashUniqueIdentityId</code> or <code>dashAliasIdentityId</code>)</td>\n</tr>\n<tr>\n<td><strong>value</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>Identifier value for the record</td>\n</tr>\n</tbody>\n</table></div>\n<p><strong>Example</strong>: </p>\n<p>This example will describe how to resolve names by the dash unique identity id.  </p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">identityId</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'3ge4yjGinQDhxh2aVpyLTQaoka45BkijkoybfAkDepoN'</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">document</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">platform</span>.<span class=\"cm-property\">names</span>.<span class=\"cm-property\">resolveByRecord</span>(<span class=\"cm-string\">'dashUniqueIdentityId'</span>, <span class=\"cm-variable\">identityId</span>);</span>\n</code></pre>\n<p>Returns: array of ExtendedDocument.</p>\n\n</div>"
 }

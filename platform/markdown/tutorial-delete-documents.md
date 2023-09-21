@@ -23,7 +23,7 @@ const clientOpts = {
   },
   apps: {
     tutorialContract: {
-      contractId: '3iaEhdyAVbmSjd59CT6SCrqPjfAfMdPTc8ksydgqSaWE',
+      contractId: '8cvMFwa2YbEsNNoc1PXfTacy2PVq2SzVnkZLeQSzjfi6',
     },
   },
 };
@@ -41,7 +41,8 @@ const deleteNoteDocument = async () => {
   );
 
   // Sign and submit the document delete transition
-  return platform.documents.broadcast({ delete: [document] }, identity);
+  await platform.documents.broadcast({ delete: [document] }, identity);
+  return document;  
 };
 
 deleteNoteDocument()
@@ -49,8 +50,6 @@ deleteNoteDocument()
   .catch((e) => console.error('Something went wrong:\n', e))
   .finally(() => client.disconnect());
 ```
-
-
 
 > 👍 Initializing the Client with a contract identity
 > 

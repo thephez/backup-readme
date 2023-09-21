@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:48:38.434Z"
+  "updatedAt": "2023-09-06T16:36:59.466Z"
  },
  "title": "getIdentityByFirstPublicKey",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "getidentitybyfirstpublickey",
  "slugUpdatedAt": "2023-07-26T16:48:23.750Z",
  "revision": 5,
- "_id": "64c1479a64533a005b3e88bb",
+ "_id": "64f8a9df750465004742ae1b",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64c1470e909af80034898ee7",
- "category": "64c13a0837805800720ad297",
+ "parentDoc": "64f8a9df750465004742ae16",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T16:19:38.236Z",
  "updatedAt": "2023-07-26T16:48:38.102Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64c1479a64533a005b3e88bb",
+ "id": "64f8a9df750465004742ae1b",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getIdentityByFirstPublicKey(publicKeyHash)</code><br><strong>Description</strong>: Fetch the identity using the public key hash of the identity&#39;s first key</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>publicKeyHash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid public key hash</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise\\&lt;!Buffer|null&gt;</p>\n\n</div>"
 }

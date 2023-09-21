@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:49.120Z"
+  "updatedAt": "2023-09-06T16:36:52.266Z"
  },
  "title": "Contracts",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "sdk-contracts",
  "slugUpdatedAt": "2023-07-17T21:40:44.451Z",
  "revision": 8,
- "_id": "64b01811fd33a50064662ab8",
+ "_id": "64f8a9df750465004742adf0",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "category": "64999bbd928d7500763b43ad",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T15:28:17.238Z",
  "updatedAt": "2023-07-18T14:07:48.811Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "parentDoc": null,
  "isApi": false,
- "id": "64b01811fd33a50064662ab8",
+ "id": "64f8a9df750465004742adf0",
  "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-what-is-a-contract\"></div>What is a contract<a class=\"fa fa-anchor\" href=\"#section-what-is-a-contract\"></a></h2>\n<p>Contracts are registered sets of rules defined in a <a href=\"https://dashplatform.readme.io/docs/core-concepts\">JSON Application Schema</a>.</p>\n<p>See the Dash Platform documentation for more information about <a href=\"https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract\">Data Contracts</a>.</p>\n\n</div>"
 }

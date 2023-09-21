@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:46:17.729Z"
+  "updatedAt": "2023-09-06T16:36:56.895Z"
  },
  "title": "getBlockByHash",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "getblockbyhash",
  "slugUpdatedAt": "2023-07-26T16:46:17.403Z",
  "revision": 4,
- "_id": "64c13f7aa02c4700473371fa",
+ "_id": "64f8a9df750465004742ae0f",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64c13d4a816e22155138804e",
- "category": "64c13a0837805800720ad297",
+ "parentDoc": "64f8a9df750465004742ae0b",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:44:58.641Z",
  "updatedAt": "2023-07-26T16:46:17.384Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64c13f7aa02c4700473371fa",
+ "id": "64f8a9df750465004742ae0f",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getBlockByHash(hash, options)</code><br><strong>Description</strong>: Allow to fetch a specific block by its hash</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>hash</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid block hash</td>\n</tr>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise\\&lt;null|Buffer&gt;} - The specified bufferized block</p>\n\n</div>"
 }

@@ -157,7 +157,7 @@ const clientOpts = {
     mnemonic: 'a Dash wallet mnemonic with funds goes here',
     unsafeOptions: {
       skipSynchronizationBeforeHeight: 650000, // only sync from early-2022
-    },    
+    },
   },
 };
 const client = new Dash.Client(clientOpts);
@@ -169,6 +169,11 @@ const registerContract = async () => {
   const contractDocuments = {
     note: {
       type: 'object',
+      indices: [{
+        name: 'ownerId',
+        properties: [{ $ownerId: 'asc' }],
+        unique: false,
+      }],
       properties: {
         message: {
           type: 'string',
@@ -182,7 +187,8 @@ const registerContract = async () => {
   console.dir({ contract: contract.toJSON() });
 
   // Sign and submit the data contract
-  return platform.contracts.publish(contract, identity);
+  await platform.contracts.publish(contract, identity);
+  return contract;
 };
 
 registerContract()
@@ -228,16 +234,9 @@ const registerContract = async () => {
   const contract = await platform.contracts.create(contractDocuments, identity);
   console.dir({ contract: contract.toJSON() });
 
-  // Make sure contract passes validation checks
-  const validationResult = await platform.dpp.dataContract.validate(contract);
-
-  if (validationResult.isValid()) {
-    console.log('Validation passed, broadcasting contract..');
-    // Sign and submit the data contract
-    return platform.contracts.publish(contract, identity);
-  }
-  console.error(validationResult); // An array of detailed validation errors
-  throw validationResult.errors[0];
+  // Sign and submit the data contract
+  await platform.contracts.publish(contract, identity);
+  return contract;
 };
 
 registerContract()
@@ -297,16 +296,9 @@ const registerContract = async () => {
   contract.setDefinitions(definitions);
   console.dir({ contract: contract.toJSON() });
 
-  // Make sure contract passes validation checks
-  const validationResult = await platform.dpp.dataContract.validate(contract);
-
-  if (validationResult.isValid()) {
-    console.log('Validation passed, broadcasting contract..');
-    // Sign and submit the data contract
-    return platform.contracts.publish(contract, identity);
-  }
-  console.error(validationResult); // An array of detailed validation errors
-  throw validationResult.errors[0];
+  // Sign and submit the data contract
+  await platform.contracts.publish(contract, identity);
+  return contract;
 };
 
 registerContract()
@@ -348,16 +340,9 @@ const registerContract = async () => {
   const contract = await platform.contracts.create(contractDocuments, identity);
   console.dir({ contract: contract.toJSON() });
 
-  // Make sure contract passes validation checks
-  const validationResult = await platform.dpp.dataContract.validate(contract);
-
-  if (validationResult.isValid()) {
-    console.log('Validation passed, broadcasting contract..');
-    // Sign and submit the data contract
-    return platform.contracts.publish(contract, identity);
-  }
-  console.error(validationResult); // An array of detailed validation errors
-  throw validationResult.errors[0];
+  // Sign and submit the data contract
+  await platform.contracts.publish(contract, identity);
+  return contract;
 };
 
 registerContract()
@@ -401,16 +386,9 @@ const registerContract = async () => {
   const contract = await platform.contracts.create(contractDocuments, identity);
   console.dir({ contract: contract.toJSON() }, { depth: 5 });
 
-  // Make sure contract passes validation checks
-  const validationResult = await platform.dpp.dataContract.validate(contract);
-
-  if (validationResult.isValid()) {
-    console.log('Validation passed, broadcasting contract..');
-    // Sign and submit the data contract
-    return platform.contracts.publish(contract, identity);
-  }
-  console.error(validationResult); // An array of detailed validation errors
-  throw validationResult.errors[0];
+  // Sign and submit the data contract
+  await platform.contracts.publish(contract, identity);
+  return contract;
 };
 
 registerContract()
@@ -421,7 +399,7 @@ registerContract()
 
 > 👍 
 > 
-> **Make a note of the returned data contract `$id` as it will be used used in subsequent tutorials throughout the documentation.**
+> **Make a note of the returned data contract `id` as it will be used used in subsequent tutorials throughout the documentation.**
 
 # What's Happening
 

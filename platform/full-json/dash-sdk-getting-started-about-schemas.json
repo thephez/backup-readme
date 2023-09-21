@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:07:32.025Z"
+  "updatedAt": "2023-09-06T16:36:50.732Z"
  },
  "title": "About schemas",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "about-schemas",
  "slugUpdatedAt": "2023-07-17T21:35:58.816Z",
  "revision": 6,
- "_id": "64b0095e5bc018004cb8c40e",
+ "_id": "64f8a9df750465004742ade9",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b00904fd3e740075fc4564",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742ade8",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T14:25:34.915Z",
  "updatedAt": "2023-07-18T14:07:31.835Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b0095e5bc018004cb8c40e",
+ "id": "64f8a9df750465004742ade9",
  "body_html": "<div class=\"magic-block-textarea\"><h1 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-about-schemas\"></div>About Schemas<a class=\"fa fa-anchor\" href=\"#section-about-schemas\"></a></h1>\n<p>Schemas represents the application data structure, a JSON Schema language based set of rules that allows the creation of a Data Contract.</p>\n<p>You can read more in the <a href=\"https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract\">Dash Platform Documentation - Data contract section</a>.</p>\n\n</div>"
 }

@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
-  "updatedAt": "2023-07-26T16:47:00.733Z"
+  "updatedAt": "2023-09-06T16:36:58.099Z"
  },
  "title": "getStatus",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "getstatus",
  "slugUpdatedAt": "2023-07-26T16:47:00.399Z",
  "revision": 4,
- "_id": "64c13fda8c429e004f563f34",
+ "_id": "64f8a9df750465004742ae13",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64c13d4a816e22155138804e",
- "category": "64c13a0837805800720ad297",
+ "parentDoc": "64f8a9df750465004742ae0b",
+ "category": "64f8a9df750465004742ad75",
  "createdAt": "2023-07-26T15:46:34.199Z",
  "updatedAt": "2023-07-26T16:47:00.389Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 0,
  "isApi": false,
- "id": "64c13fda8c429e004f563f34",
+ "id": "64f8a9df750465004742ae13",
  "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>await client.core.getStatus(options)</code><br><strong>Description</strong>: Allow to fetch a specific block hash from  its height</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>options</strong></td>\n<td>DAPIClientOptions</td>\n<td>no</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : {Promise&lt;object&gt;} - Status object</p>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">status</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">core</span>.<span class=\"cm-property\">getStatus</span>()\n<span class=\"cm-comment\">&#47;**</span>\n<span class=\"cm-comment\">{</span>\n<span class=\"cm-comment\">  coreVersion: 150000,</span>\n<span class=\"cm-comment\">  protocolVersion: 70216,</span>\n<span class=\"cm-comment\">  blocks: 10630,</span>\n<span class=\"cm-comment\">  timeOffset: 0,</span>\n<span class=\"cm-comment\">  connections: 58,</span>\n<span class=\"cm-comment\">  proxy: '',</span>\n<span class=\"cm-comment\">  difficulty: 0.001745769130443678,</span>\n<span class=\"cm-comment\">  testnet: false,</span>\n<span class=\"cm-comment\">  relayFee: 0.00001,</span>\n<span class=\"cm-comment\">  errors: '',</span>\n<span class=\"cm-comment\">  network: 'testnet'</span>\n<span class=\"cm-comment\">}</span>\n<span class=\"cm-comment\">**&#47;</span></span>\n</code></pre>\n\n</div>"
 }

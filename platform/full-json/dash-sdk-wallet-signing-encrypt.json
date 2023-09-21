@@ -36,7 +36,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
-  "updatedAt": "2023-07-18T14:08:19.241Z"
+  "updatedAt": "2023-09-06T16:36:55.852Z"
  },
  "title": "Signing encrypt",
  "icon": "",
@@ -55,16 +55,16 @@
  "previousSlug": "signing-encrypt",
  "slugUpdatedAt": "2023-07-18T11:27:24.316Z",
  "revision": 5,
- "_id": "64b04459941ce60049b27d41",
+ "_id": "64f8a9df750465004742ae07",
  "user": "62b2101422da70001ee51d95",
  "project": "5bda01cad172e200499a20a9",
- "parentDoc": "64b0440fcb24ff005fece4aa",
- "category": "64999bbd928d7500763b43ad",
+ "parentDoc": "64f8a9df750465004742ae05",
+ "category": "64f8a9df750465004742ad74",
  "createdAt": "2023-07-13T18:37:13.489Z",
  "updatedAt": "2023-07-18T14:08:18.925Z",
- "version": "640776c254e610001146669e",
+ "version": "64f8a9df750465004742ae1d",
  "__v": 1,
  "isApi": false,
- "id": "64b04459941ce60049b27d41",
+ "id": "64f8a9df750465004742ae07",
  "body_html": "<div class=\"magic-block-textarea\"><h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-obtain-account\"></div>Obtain account<a class=\"fa fa-anchor\" href=\"#section-obtain-account\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">account</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">await</span> <span class=\"cm-variable\">client</span>.<span class=\"cm-property\">wallet</span>.<span class=\"cm-property\">getAccount</span>();</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-sign-a-transaction\"></div>Sign a Transaction<a class=\"fa fa-anchor\" href=\"#section-sign-a-transaction\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">tx</span> <span class=\"cm-operator\">=</span> <span class=\"cm-keyword\">new</span> <span class=\"cm-variable\">Dash</span>.<span class=\"cm-property\">Core</span>.<span class=\"cm-property\">Transaction</span>({\n  <span class=\"cm-comment\">&#47;&#47; ...txOpts</span>\n});\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">signedTx</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">sign</span>(<span class=\"cm-variable\">tx</span>);</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-encrypt-a-message\"></div>Encrypt a message<a class=\"fa fa-anchor\" href=\"#section-encrypt-a-message\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'>  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">message</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'Something'</span>;\n  <span class=\"cm-keyword\">const</span> <span class=\"cm-def\">signedMessage</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">encrypt</span>(<span class=\"cm-string\">'AES'</span>, <span class=\"cm-variable\">message</span>, <span class=\"cm-string\">'secret'</span>);</span>\n</code></pre>\n<h2 class=\"header-scroll\"><div class=\"anchor waypoint\" id=\"section-decrypt-a-message\"></div>Decrypt a message<a class=\"fa fa-anchor\" href=\"#section-decrypt-a-message\"></a></h2>\n<pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-keyword\">const</span> <span class=\"cm-def\">encrypted</span> <span class=\"cm-operator\">=</span> <span class=\"cm-string\">'U2FsdGVkX19JLa+1UpbMcut1&#47;QFWLMlKUS+iqz+7Wl4='</span>;\n<span class=\"cm-keyword\">const</span> <span class=\"cm-def\">message</span> <span class=\"cm-operator\">=</span> <span class=\"cm-variable\">account</span>.<span class=\"cm-property\">decrypt</span>(<span class=\"cm-string\">'AES'</span>, <span class=\"cm-variable\">encrypted</span>, <span class=\"cm-string\">'secret'</span>);</span>\n</code></pre>\n\n</div>"
 }
