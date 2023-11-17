@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -52,6 +53,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-08-24T11:42:29.864Z",
  "revision": 1,

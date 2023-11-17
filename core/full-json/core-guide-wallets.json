@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Wallets",
-  "description": "A Dash wallet can refer to either a wallet program or a wallet file."
+  "description": "A Dash wallet can refer to either a wallet program or a wallet file.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -64,6 +65,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.441Z",
  "revision": 2,

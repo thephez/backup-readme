@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash transaction details",
-  "description": "The subsections briefly document core transaction details."
+  "description": "The subsections briefly document core transaction details.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -92,6 +93,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T05:14:26.299Z",
  "revision": 3,

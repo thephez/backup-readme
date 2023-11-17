@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Block Broadcasting",
-  "description": "When a miner discovers a new block, it broadcasts the new block to its peers using one of the methods described here."
+  "description": "When a miner discovers a new block, it broadcasts the new block to its peers using one of the methods described here.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:52.226Z",
  "revision": 3,

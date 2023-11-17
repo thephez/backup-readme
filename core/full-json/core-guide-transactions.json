@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Transactions",
-  "description": "Transactions let users spend duffs. Each transaction is constructed out of several parts which enable both simple direct payments and complex transactions."
+  "description": "Transactions let users spend duffs. Each transaction is constructed out of several parts which enable both simple direct payments and complex transactions.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -113,6 +114,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T18:21:38.504Z",
  "revision": 2,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "https://bitcoin.org/bitcoin.pdf",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-03T23:00:14.417Z",
  "revision": 1,

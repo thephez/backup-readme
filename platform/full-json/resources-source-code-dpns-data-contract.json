@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "https://github.com/dashevo/platform/tree/master/packages/dpns-contract",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-11-28T21:22:28.327Z",
  "revision": 1,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Operating Modes",
-  "description": "Currently there are two primary methods of validating the blockchain as a client: Full nodes and SPV clients."
+  "description": "Currently there are two primary methods of validating the blockchain as a client: Full nodes and SPV clients.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -64,6 +65,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.676Z",
  "revision": 2,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "tutorial-connecting-to-evonet-dash-core-masternode",
  "slugUpdatedAt": "2021-02-24T15:44:56.248Z",
  "revision": 16,

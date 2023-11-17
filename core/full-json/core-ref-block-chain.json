@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Introduction to the blockchain",
-  "description": "The blockchain technology is the heart and soul of the crypto ecosystem, including Dash."
+  "description": "The blockchain technology is the heart and soul of the crypto ecosystem, including Dash.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -71,6 +72,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
  "revision": 6,

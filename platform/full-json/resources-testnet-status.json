@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "https://dash-testnet.freshstatus.io/",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "testnet-status",
  "slugUpdatedAt": "2021-02-24T16:07:59.270Z",
  "revision": 1,

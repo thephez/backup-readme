@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Evaluating A Bloom Filter",
-  "description": "Using a bloom filter to find matching data is nearly identical to constructing a bloom filter---except that at each step we check to see if the calculated index bit is set in the existing filter."
+  "description": "Using a bloom filter to find matching data is nearly identical to constructing a bloom filter---except that at each step we check to see if the calculated index bit is set in the existing filter.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.100Z",
  "revision": 2,

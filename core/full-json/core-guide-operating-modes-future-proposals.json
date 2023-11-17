@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Future Proposals",
-  "description": "There are future proposals such as Unspent Transaction Output (UTXO) commitments in the blockchain"
+  "description": "There are future proposals such as Unspent Transaction Output (UTXO) commitments in the blockchain",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.847Z",
  "revision": 3,

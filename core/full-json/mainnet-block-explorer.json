@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "https://insight.dashevo.org/insight/",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-03T23:03:15.433Z",
  "revision": 1,

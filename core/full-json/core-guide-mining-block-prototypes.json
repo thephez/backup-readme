@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Block Prototypes",
-  "description": "In both solo and pool mining, the mining software needs to get the information necessary to construct block headers."
+  "description": "In both solo and pool mining, the mining software needs to get the information necessary to construct block headers.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.105Z",
  "revision": 2,

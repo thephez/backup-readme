@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Introduction to Dash Core guide",
-  "description": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification"
+  "description": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -108,6 +109,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T02:36:50.968Z",
  "revision": 1,

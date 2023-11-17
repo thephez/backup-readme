@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Core Governance",
-  "description": "Dash Core synchronizes the governance system via the masternode network as the last stage of the Masternode sync process"
+  "description": "Dash Core synchronizes the governance system via the masternode network as the last stage of the Masternode sync process",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T16:59:21.912Z",
  "revision": 2,

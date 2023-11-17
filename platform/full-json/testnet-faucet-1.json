@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "http://faucet.testnet.networks.dash.org/",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-05-06T09:57:21.335Z",
  "revision": 2,

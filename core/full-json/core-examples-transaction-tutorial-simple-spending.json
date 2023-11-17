@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Simple Spending",
-  "description": "Dash Core provides several RPCs which handle all the details of spending, including creating a change output and paying an appropriate transaction fee."
+  "description": "Dash Core provides several RPCs which handle all the details of spending, including creating a change output and paying an appropriate transaction fee.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.829Z",
  "revision": 7,

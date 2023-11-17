@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash transaction data",
-  "description": "Every Dash block must include one or more transactions. The first one of these transactions must be a coinbase transaction."
+  "description": "Every Dash block must include one or more transactions. The first one of these transactions must be a coinbase transaction.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-07T20:21:31.610Z",
  "revision": 1,

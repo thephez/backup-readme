@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "What is the Dash blockchain?",
-  "description": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records."
+  "description": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -85,6 +86,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T18:17:39.288Z",
  "revision": 1,

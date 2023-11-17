@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Initial Block Download",
-  "description": "Before a full node can validate unconfirmed transactions and recently-mined blocks, it must download and validate all the blocks."
+  "description": "Before a full node can validate unconfirmed transactions and recently-mined blocks, it must download and validate all the blocks.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.702Z",
  "revision": 2,

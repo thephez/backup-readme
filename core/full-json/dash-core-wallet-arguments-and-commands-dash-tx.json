@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "dash-tx",
-  "description": "The dash-tx application provides a command-line option for creating, parsing, or modifying transactions."
+  "description": "The dash-tx application provides a command-line option for creating, parsing, or modifying transactions.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-10-06T21:19:25.877Z",
  "revision": 5,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Core Protocol Versions",
-  "description": "The table in this section lists some notable versions of the Dash core network protocol. The most recent versions are listed first."
+  "description": "The table in this section lists some notable versions of the Dash core network protocol. The most recent versions are listed first.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-08-11T18:31:56.656Z",
  "revision": 14,

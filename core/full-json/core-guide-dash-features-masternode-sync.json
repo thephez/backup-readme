@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Masternode Sync",
-  "description": "Dash Core performs full masternode synchronization as required. There are four conditions that initiate a start/restart the sync process."
+  "description": "Dash Core performs full masternode synchronization as required. There are four conditions that initiate a start/restart the sync process.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-09-21T17:11:52.722Z",
  "revision": 2,

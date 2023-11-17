@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Evo RPCs",
-  "description": "This subsection has all the Evo RPCs used by Dash Core."
+  "description": "This subsection has all the Evo RPCs used by Dash Core.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -59,6 +60,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-14T23:12:43.855Z",
  "revision": 116,

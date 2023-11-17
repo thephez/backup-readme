@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash HTTP Rest Quick Reference",
-  "description": "A list of all the HTTP REST APIs available on Dash Core."
+  "description": "A list of all the HTTP REST APIs available on Dash Core.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-10-26T19:42:05.528Z",
  "revision": 1,

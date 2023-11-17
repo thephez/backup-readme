@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Simplified Payment Verification (SPV)",
-  "description": "An alternative approach detailed in the original Bitcoin paper is a client that only downloads the headers of blocks during the initial syncing process."
+  "description": "An alternative approach detailed in the original Bitcoin paper is a client that only downloads the headers of blocks during the initial syncing process.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.101Z",
  "revision": 2,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Consensus Rule Changes",
-  "description": "To maintain consensus, all full nodes validate blocks using the same consensus rules. However, sometimes the consensus rules are changed to introduce new features or prevent network abuse."
+  "description": "To maintain consensus, all full nodes validate blocks using the same consensus rules. However, sometimes the consensus rules are changed to introduce new features or prevent network abuse.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-08T18:39:14.257Z",
  "revision": 1,

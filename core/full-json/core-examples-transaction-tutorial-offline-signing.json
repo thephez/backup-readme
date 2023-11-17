@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Offline Signing",
-  "description": "We will now spend the transaction created in the Complex Raw Transaction subsection without sending it to the local node first."
+  "description": "We will now spend the transaction created in the Complex Raw Transaction subsection without sending it to the local node first.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-05-17T23:15:18.103Z",
  "revision": 5,

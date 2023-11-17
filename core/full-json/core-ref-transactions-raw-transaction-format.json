@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Raw Transaction Format",
-  "description": "Dash transactions are broadcast between peers in a serialized byte format, called raw format. This is further SHA256 hashed to create the TXID and merkle root."
+  "description": "Dash transactions are broadcast between peers in a serialized byte format, called raw format. This is further SHA256 hashed to create the TXID and merkle root.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-07-26T20:35:38.418Z",
  "revision": 5,

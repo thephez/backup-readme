@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Proof of Service",
-  "description": "Dash Proof of Service (PoSe) helps incentivize masternodes to provide network services. Masternodes that neglect to participate receive an increased PoSe score."
+  "description": "Dash Proof of Service (PoSe) helps incentivize masternodes to provide network services. Masternodes that neglect to participate receive an increased PoSe score.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-03T23:12:30.232Z",
  "revision": 2,

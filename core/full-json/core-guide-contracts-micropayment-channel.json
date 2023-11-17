@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Micropayment Channel",
-  "description": "For larger payments, Dash transaction fees are very low as a percentage of the total transaction value, so it makes more sense to protect payments with immediately-broadcast separate transactions."
+  "description": "For larger payments, Dash transaction fees are very low as a percentage of the total transaction value, so it makes more sense to protect payments with immediately-broadcast separate transactions.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:58:07.901Z",
  "revision": 2,

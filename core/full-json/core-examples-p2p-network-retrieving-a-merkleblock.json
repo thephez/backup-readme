@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Retrieving A MerkleBlock",
-  "description": "For the merkleblock message documentation on the reference page, an actual merkle block was retrieved from the network and manually processed."
+  "description": "For the merkleblock message documentation on the reference page, an actual merkle block was retrieved from the network and manually processed.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.631Z",
  "revision": 4,

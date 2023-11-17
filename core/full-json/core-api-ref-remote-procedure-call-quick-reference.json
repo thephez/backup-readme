@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Core JSON-RPC List",
-  "description": "This subsection has a list of all the RPCs that are currently live on Dash Core."
+  "description": "This subsection has a list of all the RPCs that are currently live on Dash Core.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-09T02:11:43.773Z",
  "revision": 54,

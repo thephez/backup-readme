@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "P2PKH Script Validation",
-  "description": "P2PKH Script Validation procedure requires evaluation of the signature script and pubkey script."
+  "description": "P2PKH Script Validation procedure requires evaluation of the signature script and pubkey script.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T17:58:27.764Z",
  "revision": 2,

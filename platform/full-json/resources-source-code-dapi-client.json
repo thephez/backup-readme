@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "",
-  "description": ""
+  "description": "",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "https://github.com/dashevo/platform/tree/master/packages/js-dapi-client",
  "link_external": true,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-09-02T20:42:01.009Z",
  "revision": 1,

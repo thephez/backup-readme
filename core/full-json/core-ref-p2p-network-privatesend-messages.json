@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "CoinJoin Messages",
-  "description": "The network messages in this subsection will help control the CoinJoin features built into Dash and facilitated by the masternode network."
+  "description": "The network messages in this subsection will help control the CoinJoin features built into Dash and facilitated by the masternode network.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-02-15T03:24:52.072Z",
  "revision": 17,

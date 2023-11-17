@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Message Headers",
-  "description": "All messages in the network protocol use the same container format, which provides a required multi-field message header and an optional payload."
+  "description": "All messages in the network protocol use the same container format, which provides a required multi-field message header and an optional payload.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-07-27T17:29:29.064Z",
  "revision": 1,

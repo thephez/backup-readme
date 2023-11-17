@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Non-Standard Transactions",
-  "description": "Non-Standard Transactions are ones whose pubkey scripts and signature scripts don't match a small set of believed-to-be-safe templates."
+  "description": "Non-Standard Transactions are ones whose pubkey scripts and signature scripts don't match a small set of believed-to-be-safe templates.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T18:15:23.236Z",
  "revision": 3,

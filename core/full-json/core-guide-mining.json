@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Mining",
-  "description": "Mining adds new blocks to the block chain, making transaction history hard to modify."
+  "description": "Mining adds new blocks to the block chain, making transaction history hard to modify.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -71,6 +72,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.202Z",
  "revision": 2,

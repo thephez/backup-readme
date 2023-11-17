@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Misbehaving Nodes",
-  "description": "Mechanisms are in place to punish misbehaving peers who take up bandwidth and computing resources by sending false information."
+  "description": "Mechanisms are in place to punish misbehaving peers who take up bandwidth and computing resources by sending false information.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2021-03-24T15:50:50.997Z",
  "revision": 8,

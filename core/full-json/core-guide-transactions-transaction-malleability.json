@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Transaction Malleability",
-  "description": "None of Dash's signature hash types protect the signature script, leaving the door open for a limited denial of service attack called transaction malleability."
+  "description": "None of Dash's signature hash types protect the signature script, leaving the door open for a limited denial of service attack called transaction malleability.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T18:45:35.609Z",
  "revision": 2,

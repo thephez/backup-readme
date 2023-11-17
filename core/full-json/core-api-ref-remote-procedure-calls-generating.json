@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash generating RPC",
-  "description": "The generating RPC in Dash mines blocks immediately before the RPC call returns."
+  "description": "The generating RPC in Dash mines blocks immediately before the RPC call returns.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-01T21:23:34.961Z",
  "revision": 16,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Governance Messages",
-  "description": "Dash governance messages allows the network to effectively govern the protocol using the features built into the code."
+  "description": "Dash governance messages allows the network to effectively govern the protocol using the features built into the code.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-25T04:59:37.605Z",
  "revision": 10,

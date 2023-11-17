@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Blockchain RPCs",
-  "description": "The Address Index RPC returns the header hash of the most recent block on the best blockchain."
+  "description": "The Address Index RPC returns the header hash of the most recent block on the best blockchain.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-07T08:30:32.143Z",
  "revision": 20,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash HTTP REST",
-  "description": "Dash Core provides an unauthenticated HTTP REST interface. The interface runs on the same port as the JSON-RPC interface, by default port 9998 for mainnet and port 19998 for testnet"
+  "description": "Dash Core provides an unauthenticated HTTP REST interface. The interface runs on the same port as the JSON-RPC interface, by default port 9998 for mainnet and port 19998 for testnet",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -64,6 +65,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-08-02T01:44:21.027Z",
  "revision": 3,

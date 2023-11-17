@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Locktime and Sequence Number",
-  "description": "One thing all signature hash types sign is the transaction's locktime. The locktime indicates the earliest time a transaction can be added to the blockchain."
+  "description": "One thing all signature hash types sign is the transaction's locktime. The locktime indicates the earliest time a transaction can be added to the blockchain.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-18T17:58:26.549Z",
  "revision": 4,

@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Peer Discovery",
-  "description": "When started for the first time, programs don't know the IP addresses of any active full nodes."
+  "description": "When started for the first time, programs don't know the IP addresses of any active full nodes.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T19:52:31.682Z",
  "revision": 2,

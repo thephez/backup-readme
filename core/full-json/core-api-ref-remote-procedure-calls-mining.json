@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Mining RPCs",
-  "description": "The Dash mining RPC gets a block template or proposal for use with mining software."
+  "description": "The Dash mining RPC gets a block template or proposal for use with mining software.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-12-07T01:50:51.384Z",
  "revision": 4,

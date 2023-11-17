@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Core Introduction",
-  "description": "The following guide aims to provide examples to help you start building Dash-based applications."
+  "description": "The following guide aims to provide examples to help you start building Dash-based applications.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -78,6 +79,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:53.572Z",
  "revision": 2,

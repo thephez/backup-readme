@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Dash Core RPC",
-  "description": "Dash Core provides an RPC interface for various administrative tasks, wallet operations, and queries about network and blockchain data."
+  "description": "Dash Core provides an RPC interface for various administrative tasks, wallet operations, and queries about network and blockchain data.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-11-09T10:19:48.850Z",
  "revision": 44,

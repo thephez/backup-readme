@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Transaction Tutorial",
-  "description": "This section describes how to use Dash Core's RPC interface to create transactions with various attributes."
+  "description": "This section describes how to use Dash Core's RPC interface to create transactions with various attributes.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -92,6 +93,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.808Z",
  "revision": 2,

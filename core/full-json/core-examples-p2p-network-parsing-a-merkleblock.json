@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Parsing A MerkleBlock",
-  "description": "In the section above, we retrieved a merkle block from the network; now we will parse it. Most of the block header has been omitted."
+  "description": "In the section above, we retrieved a merkle block from the network; now we will parse it. Most of the block header has been omitted.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:51.688Z",
  "revision": 2,

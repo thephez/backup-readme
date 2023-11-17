@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Escrow and Arbitration",
-  "description": "An escrow agreement defines the terms and conditions between parties involved."
+  "description": "An escrow agreement defines the terms and conditions between parties involved.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-09-20T18:32:50.887Z",
  "revision": 2,

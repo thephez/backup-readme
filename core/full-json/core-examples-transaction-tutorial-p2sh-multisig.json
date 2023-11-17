@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "P2SH Multisig",
-  "description": "In this subsection, we will create a P2SH multisig address, spend duffs to it, and then spend those duffs from it to another address."
+  "description": "In this subsection, we will create a P2SH multisig address, spend duffs to it, and then spend those duffs from it to another address.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -57,6 +58,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2022-05-18T14:25:28.499Z",
  "revision": 5,

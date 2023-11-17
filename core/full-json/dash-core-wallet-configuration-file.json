@@ -2,7 +2,8 @@
  "metadata": {
   "image": [],
   "title": "Configuration File",
-  "description": "To use dashd and dash-cli, you will need to add a RPC password to your dash.conf file."
+  "description": "To use dashd and dash-cli, you will need to add a RPC password to your dash.conf file.",
+  "keywords": ""
  },
  "api": {
   "method": "get",
@@ -49,6 +50,7 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
+ "reusableContent": [],
  "previousSlug": "",
  "slugUpdatedAt": "2020-10-07T18:30:29.837Z",
  "revision": 16,
