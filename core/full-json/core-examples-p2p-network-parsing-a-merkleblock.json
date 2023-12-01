@@ -3,7 +3,8 @@
   "image": [],
   "title": "Parsing A MerkleBlock",
   "description": "In the section above, we retrieved a merkle block from the network; now we will parse it. Most of the block header has been omitted.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

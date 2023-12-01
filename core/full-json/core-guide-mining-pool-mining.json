@@ -3,7 +3,8 @@
   "image": [],
   "title": "Pool Mining",
   "description": "Dash mining pool operators pay miners based on their individual share of the work done.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

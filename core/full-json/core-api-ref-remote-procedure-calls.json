@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core RPC",
   "description": "Dash Core provides an RPC interface for various administrative tasks, wallet operations, and queries about network and blockchain data.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

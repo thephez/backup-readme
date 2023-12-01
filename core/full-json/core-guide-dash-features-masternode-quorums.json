@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Masternode Quorum",
   "description": "Dash's masternode quorums are used to facilitate the operation of masternode provided features in a decentralized, deterministic way.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

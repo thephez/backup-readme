@@ -3,7 +3,8 @@
   "image": [],
   "title": "What are serialized blocks?",
   "description": "Under current consensus rules, a block is not valid unless its serialized size is less than or equal to 2 MB.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

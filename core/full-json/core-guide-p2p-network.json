@@ -3,7 +3,8 @@
   "image": [],
   "title": "P2P Network",
   "description": "The Dash network protocol allows full nodes (peers) to collaboratively maintain a peer-to-peer network for block and transaction exchange.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

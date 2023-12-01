@@ -3,7 +3,8 @@
   "image": [],
   "title": "Receiving ZMQ Notifications",
   "description": "Receiving notifications from Dash Core is important for a variety of use-cases.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

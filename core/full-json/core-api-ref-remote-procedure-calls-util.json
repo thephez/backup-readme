@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Util RPCs",
   "description": "This subsection includes all util RPCs in Dash like CreateMultiSig, EstimateSmartFee, SignMessageWithPrivKey, ValidateAddress, and VerifyMessage.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

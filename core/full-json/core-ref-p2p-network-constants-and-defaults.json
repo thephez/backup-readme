@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core Constants and Defaults",
   "description": "In this section we will learn the constants and defaults taken from Dash Core's source code file.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "dash-qt",
   "description": "Dash Core QT GUI includes all the same command line options as dashd with the exception of -daemon. It also provides additional options for UI as described below.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

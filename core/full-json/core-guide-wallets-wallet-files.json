@@ -3,7 +3,8 @@
   "image": [],
   "title": "Wallet Files",
   "description": "Dash wallets at their core are a collection of private keys. These collections are stored digitally in a file, or can even be physically stored on pieces of paper.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Transactions",
   "description": "Transactions let users spend duffs. Each transaction is constructed out of several parts which enable both simple direct payments and complex transactions.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

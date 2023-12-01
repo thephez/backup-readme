@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Control Messages",
   "description": "Dash control messages helps control the connection between two peers or allows them to advise each other about the rest of the network.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

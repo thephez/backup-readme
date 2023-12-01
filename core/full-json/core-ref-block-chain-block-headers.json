@@ -3,7 +3,8 @@
   "image": [],
   "title": "What are block headers?",
   "description": "Dash block headers are serialized in the 80-byte format hashed as part of the proof-of-work algorithm.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

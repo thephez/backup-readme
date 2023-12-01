@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash transaction data",
   "description": "Every Dash block must include one or more transactions. The first one of these transactions must be a coinbase transaction.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

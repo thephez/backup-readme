@@ -3,7 +3,8 @@
   "image": [],
   "title": "Escrow and Arbitration",
   "description": "An escrow agreement defines the terms and conditions between parties involved.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

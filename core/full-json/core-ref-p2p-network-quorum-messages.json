@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Quorum Messages",
   "description": "The network messages in this subsection will enable the long-living masternode quorum features built into Dash.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

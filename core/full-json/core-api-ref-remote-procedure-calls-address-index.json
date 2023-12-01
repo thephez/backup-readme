@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Address Index RPC",
   "description": "The Dash Core address index RPC returns the balance for address(es).",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

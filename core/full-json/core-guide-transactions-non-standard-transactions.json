@@ -3,7 +3,8 @@
   "image": [],
   "title": "Non-Standard Transactions",
   "description": "Non-Standard Transactions are ones whose pubkey scripts and signature scripts don't match a small set of believed-to-be-safe templates.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

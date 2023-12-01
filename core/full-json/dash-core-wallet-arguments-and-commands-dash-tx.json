@@ -3,7 +3,8 @@
   "image": [],
   "title": "dash-tx",
   "description": "The dash-tx application provides a command-line option for creating, parsing, or modifying transactions.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

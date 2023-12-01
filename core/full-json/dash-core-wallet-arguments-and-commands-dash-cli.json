@@ -3,7 +3,8 @@
   "image": [],
   "title": "dash-cli",
   "description": "The dash-cli application provides a command-line option for accessing Dash Core RPCs.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

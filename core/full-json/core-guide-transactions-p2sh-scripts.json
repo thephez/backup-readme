@@ -3,7 +3,8 @@
   "image": [],
   "title": "P2SH Scripts",
   "description": "Pay-to-script-hash (P2SH) transactions were created in 2012 to let a spender create a pubkey script containing a hash of a second script, the redeem script.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "What is proof of work",
   "description": "The proof of work used in Dash takes advantage of the apparently random nature of cryptographic hashes. To prove you did some extra work to create a block, you must create a hash of the block header which does not exceed a certain value.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

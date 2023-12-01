@@ -3,7 +3,8 @@
   "image": [],
   "title": "Transaction Fees and Change",
   "description": "Transactions pay fees based on the total byte size of the signed transaction. They are based on current demand for space in mined blocks.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Transaction Broadcasting",
   "description": "To send a transaction to a peer, an inv message is sent. If a getdata message is received in reply, the transaction is sent using a tx message.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

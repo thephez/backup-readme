@@ -3,7 +3,8 @@
   "image": [],
   "title": "Configuration File",
   "description": "To use dashd and dash-cli, you will need to add a RPC password to your dash.conf file.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Operating Modes",
   "description": "Currently there are two primary methods of validating the blockchain as a client: Full nodes and SPV clients.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

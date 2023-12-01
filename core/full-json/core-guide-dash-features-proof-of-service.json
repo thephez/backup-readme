@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Proof of Service",
   "description": "Dash Proof of Service (PoSe) helps incentivize masternodes to provide network services. Masternodes that neglect to participate receive an increased PoSe score.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

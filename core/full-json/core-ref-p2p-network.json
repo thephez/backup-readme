@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash P2P Network Overview",
   "description": "This corresponding subsections describes the Dash P2P network protocol in detail. .",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Deterministic Wallet Formats",
   "description": "Dash has two types of deterministic wallet formats \u2013 Single Chain Wallets and Hierarchical Deterministic (HD) Wallets.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

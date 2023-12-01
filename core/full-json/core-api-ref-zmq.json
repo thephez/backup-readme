@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash ZeroMQ (ZMQ) Notifications",
   "description": "ZeroMQ is a lightweight wrapper around TCP connections, inter-process communication, and shared-memory, providing various message-oriented semantics such as publish/subscribe, request/reply, and push/pull.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Contracts",
   "description": "Contracts are transactions which use the decentralized Dash system to enforce financial agreements.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

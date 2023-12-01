@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Mining",
   "description": "Mining adds new blocks to the block chain, making transaction history hard to modify.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Message Headers",
   "description": "All messages in the network protocol use the same container format, which provides a required multi-field message header and an optional payload.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

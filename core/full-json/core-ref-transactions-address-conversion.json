@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Address Conversion",
   "description": "The hashes used in P2PKH and P2SH outputs are commonly encoded as Dash addresses. This is the procedure to encode those hashes and decode the addresses.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

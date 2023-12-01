@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core JSON-RPC List",
   "description": "This subsection has a list of all the RPCs that are currently live on Dash Core.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Block Broadcasting",
   "description": "When a miner discovers a new block, it broadcasts the new block to its peers using one of the methods described here.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

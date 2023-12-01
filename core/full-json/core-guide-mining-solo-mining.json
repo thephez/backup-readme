@@ -3,7 +3,8 @@
   "image": [],
   "title": "Solo Mining",
   "description": "Solo miners typically use dashd to get new transactions from the network.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

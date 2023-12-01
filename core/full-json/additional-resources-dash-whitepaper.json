@@ -3,7 +3,8 @@
   "image": [],
   "title": "",
   "description": "",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",
@@ -52,7 +53,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2023-11-22T17:11:21.475Z",
+ "slugUpdatedAt": "2023-11-29T21:40:36.851Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e780f",
  "version": "63f5176df91c7700118e7825",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash ZeroMQ (ZMQ) RPCs",
   "description": "The ZeroMQ RPCs were added in Dash Core 0.17.0. It returns information about the active ZeroMQ notifications.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

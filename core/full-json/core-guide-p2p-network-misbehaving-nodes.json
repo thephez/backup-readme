@@ -3,7 +3,8 @@
   "image": [],
   "title": "Misbehaving Nodes",
   "description": "Mechanisms are in place to punish misbehaving peers who take up bandwidth and computing resources by sending false information.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

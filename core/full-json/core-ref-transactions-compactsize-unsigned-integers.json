@@ -3,7 +3,8 @@
   "image": [],
   "title": "CompactSize Unsigned Integers",
   "description": "The variable-length integers used to indicate the number of bytes in a piece of data is known as compactSize.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

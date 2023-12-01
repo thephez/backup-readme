@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Consensus Rule Changes",
   "description": "To maintain consensus, all full nodes validate blocks using the same consensus rules. However, sometimes the consensus rules are changed to introduce new features or prevent network abuse.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

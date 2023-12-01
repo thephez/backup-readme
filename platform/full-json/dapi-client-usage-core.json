@@ -3,7 +3,8 @@
   "image": [],
   "title": "",
   "description": "",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

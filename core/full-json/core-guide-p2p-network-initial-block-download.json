@@ -3,7 +3,8 @@
   "image": [],
   "title": "Initial Block Download",
   "description": "Before a full node can validate unconfirmed transactions and recently-mined blocks, it must download and validate all the blocks.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

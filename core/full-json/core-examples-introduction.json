@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core Introduction",
   "description": "The following guide aims to provide examples to help you start building Dash-based applications.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

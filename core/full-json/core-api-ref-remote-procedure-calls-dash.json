@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash RPCs",
   "description": "RPCs for Dash-specific Features",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Removed RPCs",
   "description": "This subsection has all the RPCs that have been removed from the latest verios of Dash Core.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

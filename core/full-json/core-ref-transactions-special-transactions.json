@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Special Transactions framework",
   "description": "The Special Transactions framework enabled the implementation of new on-chain features and consensus mechanisms.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

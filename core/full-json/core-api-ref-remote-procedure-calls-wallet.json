@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Wallet RPCs",
   "description": "This subsection includes all the Dash wallet RPCs. RPCs that require wallet support are not available on masternodes for security reasons.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

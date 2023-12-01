@@ -3,7 +3,8 @@
   "image": [],
   "title": "Blockchain RPCs",
   "description": "The Address Index RPC returns the header hash of the most recent block on the best blockchain.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Signature Hash Types",
   "description": "OP_CHECKSIG extracts a non-stack argument from each signature it evaluates, allowing the signer to decide which parts of the transaction to sign.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

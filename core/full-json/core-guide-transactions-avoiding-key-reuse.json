@@ -3,7 +3,8 @@
   "image": [],
   "title": "Avoiding Key Reuse",
   "description": "In a transaction, the spender and receiver each reveal to each other all public keys or addresses used in the transaction.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

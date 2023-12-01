@@ -3,7 +3,8 @@
   "image": [],
   "title": "Offline Signing",
   "description": "We will now spend the transaction created in the Complex Raw Transaction subsection without sending it to the local node first.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

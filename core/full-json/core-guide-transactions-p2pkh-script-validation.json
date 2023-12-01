@@ -3,7 +3,8 @@
   "image": [],
   "title": "P2PKH Script Validation",
   "description": "P2PKH Script Validation procedure requires evaluation of the signature script and pubkey script.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

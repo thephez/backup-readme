@@ -3,7 +3,8 @@
   "image": [],
   "title": "Introduction to the blockchain",
   "description": "The blockchain technology is the heart and soul of the crypto ecosystem, including Dash.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

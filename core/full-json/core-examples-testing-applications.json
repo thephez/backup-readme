@@ -3,7 +3,8 @@
   "image": [],
   "title": "Testing Applications",
   "description": "Dash Core provides several network options designed to let developers test their applications with reduced risks and limitations.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

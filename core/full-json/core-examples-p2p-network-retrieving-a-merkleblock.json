@@ -3,7 +3,8 @@
   "image": [],
   "title": "Retrieving A MerkleBlock",
   "description": "For the merkleblock message documentation on the reference page, an actual merkle block was retrieved from the network and manually processed.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

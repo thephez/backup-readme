@@ -3,7 +3,8 @@
   "image": [],
   "title": "Simple Raw Transaction",
   "description": "The raw transaction RPCs allow users to create custom transactions and delay broadcasting those transactions.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

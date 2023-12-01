@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Data Messages",
   "description": "Data messages use inventories as unique identifiers for transactions and blocks. Inventories have a simple 36-byte structure.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "P2SH Multisig",
   "description": "In this subsection, we will create a P2SH multisig address, spend duffs to it, and then spend those duffs from it to another address.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

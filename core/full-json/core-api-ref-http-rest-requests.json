@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash HTTP REST Requests",
   "description": "Comprehensive description of all the HTTP REST requests on Dash Core.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Complex Raw Transaction",
   "description": "A demonstration of a Complex Raw Transaction. Let's create a transaction with two inputs and two outputs.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

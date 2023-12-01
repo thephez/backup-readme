@@ -3,7 +3,8 @@
   "image": [],
   "title": "Transaction Tutorial",
   "description": "This section describes how to use Dash Core's RPC interface to create transactions with various attributes.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

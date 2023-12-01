@@ -3,7 +3,8 @@
   "image": [],
   "title": "Wallet Programs",
   "description": "Permitting receiving and spending of duffs is the only essential feature of wallet software---but a particular wallet program doesn't need to do both things.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

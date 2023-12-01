@@ -3,7 +3,8 @@
   "image": [],
   "title": "Bloom Filter Script",
   "description": "Complete Python script demonstrating the Creating/Evaluating bloom filter.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

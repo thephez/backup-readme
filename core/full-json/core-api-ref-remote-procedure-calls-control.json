@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Control RPC",
   "description": "The Dash Control RPC changes the debug category from the console.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

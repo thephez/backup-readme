@@ -3,7 +3,8 @@
   "image": [],
   "title": "Hash Byte Order",
   "description": "Dash Core RPCs accept and return the byte-wise reverse of computed SHA-256 hash values.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

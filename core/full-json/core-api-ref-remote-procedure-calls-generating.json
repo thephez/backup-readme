@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash generating RPC",
   "description": "The generating RPC in Dash mines blocks immediately before the RPC call returns.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

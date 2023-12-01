@@ -3,7 +3,8 @@
   "image": [],
   "title": "Creating A Bloom Filter",
   "description": "In this section, we'll use variable names that correspond to the field names in the filterload message documentation.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

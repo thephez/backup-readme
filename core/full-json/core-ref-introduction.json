@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core Reference Overview",
   "description": "The Developer Reference aims to provide technical details and API information to help you start building Dash-based applications.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Connecting to Peers",
   "description": "Connecting to a peer is done by sending a version message, which contains your version number, block, and current time to the remote node.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

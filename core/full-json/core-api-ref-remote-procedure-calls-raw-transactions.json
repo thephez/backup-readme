@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Raw Transaction RPC",
   "description": "This subsection covers all the raw transaction RPCs in Dash.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

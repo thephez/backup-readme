@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Mining RPCs",
   "description": "The Dash mining RPC gets a block template or proposal for use with mining software.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Network RPC",
   "description": "This is section has a bunch of Network RPCs which include addnode, ClearBanned, DisconnectNode, GetAddedNodeInfo, GetConnectionCount, GetNetTotals, GetNetworkInfo, GetPeerInfo, ListBanned, Ping, SetBan and SetNetworkActive.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

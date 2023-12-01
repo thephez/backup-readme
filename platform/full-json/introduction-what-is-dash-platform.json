@@ -3,7 +3,8 @@
   "image": [],
   "title": "",
   "description": "Dash Platform is a Web3 technology stack for building truly decentralized applications on the Dash network",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

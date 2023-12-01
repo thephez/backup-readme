@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash ChainLock Protection",
   "description": "Dash's ChainLock feature leverages LLMQ Signing Requests/Sessions to reduce uncertainty when receiving funds and removing 51% attacks.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

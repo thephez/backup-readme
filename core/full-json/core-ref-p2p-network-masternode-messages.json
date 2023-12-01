@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash masternode messages",
   "description": "The network messages defined in this subsection helps enable the masternode features built into Dash.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

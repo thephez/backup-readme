@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash block height and forking",
   "description": "Since multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

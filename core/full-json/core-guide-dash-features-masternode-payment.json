@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Masternode Payment",
   "description": "Dash masternode payments are based on the deterministic masternode list information found on-chain in each block",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Standard Transactions",
   "description": "Standard transactions are ones whose pubkey scripts and signature scripts matched a small set of believed-to-be-safe templates.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Wallets",
   "description": "A Dash wallet can refer to either a wallet program or a wallet file.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

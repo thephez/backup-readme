@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash InstantSend Messages",
   "description": "InstantSend uses the masternode network to lock transaction inputs and enable secure, instantaneous transactions.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Transaction Malleability",
   "description": "None of Dash's signature hash types protect the signature script, leaving the door open for a limited denial of service attack called transaction malleability.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

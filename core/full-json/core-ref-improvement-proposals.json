@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Improvement Proposals",
   "description": "A Dash Improvement Proposal is a design document for providing information to the Dash community, or describing a new feature for Dash processes/environment",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

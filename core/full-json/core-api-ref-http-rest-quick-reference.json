@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash HTTP Rest Quick Reference",
   "description": "A list of all the HTTP REST APIs available on Dash Core.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

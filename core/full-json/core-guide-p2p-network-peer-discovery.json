@@ -3,7 +3,8 @@
   "image": [],
   "title": "Peer Discovery",
   "description": "When started for the first time, programs don't know the IP addresses of any active full nodes.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

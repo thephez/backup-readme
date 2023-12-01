@@ -3,7 +3,8 @@
   "image": [],
   "title": "Full Node",
   "description": "The first and most secure model is the one followed by Dash Core, also known as a \u201cthick\u201d or \u201cfull chain\u201d client.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

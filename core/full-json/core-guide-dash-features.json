@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Features",
   "description": "The subsection below will take you through the main Dash Core features. These include governance, InstantSend, CoinJoin, among others.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

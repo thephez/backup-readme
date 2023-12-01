@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Evo RPCs",
   "description": "This subsection has all the Evo RPCs used by Dash Core.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",

@@ -3,7 +3,8 @@
   "image": [],
   "title": "Dash Core Protocol Versions",
   "description": "The table in this section lists some notable versions of the Dash core network protocol. The most recent versions are listed first.",
-  "keywords": ""
+  "keywords": "",
+  "robots": "index"
  },
  "api": {
   "method": "get",
