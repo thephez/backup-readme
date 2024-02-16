@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 171,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-13T16:29:43.650Z"
  },
  "title": "Glossary",

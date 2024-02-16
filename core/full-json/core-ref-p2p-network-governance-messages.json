@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-14T19:01:29.169Z"
  },
  "title": "Governance Messages",

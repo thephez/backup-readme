@@ -53,6 +53,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:38.479Z"
  },
  "title": "Register a Name for an Identity",

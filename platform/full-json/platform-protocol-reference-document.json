@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 10,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:43.343Z"
  },
  "title": "Document",

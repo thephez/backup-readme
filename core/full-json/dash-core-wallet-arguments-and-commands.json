@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 7,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:16:08.872Z"
  },
  "title": "Arguments and Commands",

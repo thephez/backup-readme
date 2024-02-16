@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 20,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-23T20:38:48.272Z"
  },
  "title": "Quorum Messages",

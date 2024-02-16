@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 6,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:47.931Z"
  },
  "title": "Fees",

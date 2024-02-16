@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 3,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-14T19:04:45.763Z"
  },
  "title": "Masternode Messages",

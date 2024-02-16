@@ -49,6 +49,7 @@
  "algolia": {
   "recordCount": 7,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:35.498Z"
  },
  "title": "Identity",

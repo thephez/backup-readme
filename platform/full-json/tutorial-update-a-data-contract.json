@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-12T17:05:42.850Z"
  },
  "title": "Update a Data Contract",

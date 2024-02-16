@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 15,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-14T20:52:32.301Z"
  },
  "title": "Remote Procedure Calls",

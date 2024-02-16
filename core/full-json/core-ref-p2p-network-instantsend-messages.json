@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-23T20:39:36.654Z"
  },
  "title": "InstantSend Messages",

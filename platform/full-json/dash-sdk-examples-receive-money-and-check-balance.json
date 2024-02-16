@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:50.226Z"
  },
  "title": "Receive money and check balance",

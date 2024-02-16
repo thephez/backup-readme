@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:49.710Z"
  },
  "title": "Generate a new mnemonic",

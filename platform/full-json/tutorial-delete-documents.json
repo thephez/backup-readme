@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-12T13:20:52.585Z"
  },
  "title": "Delete Documents",

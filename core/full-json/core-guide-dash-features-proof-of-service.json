@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-08T20:47:55.899Z"
  },
  "title": "Proof of Service",

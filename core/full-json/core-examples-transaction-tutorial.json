@@ -78,6 +78,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:15:50.154Z"
  },
  "title": "Transaction Tutorial",

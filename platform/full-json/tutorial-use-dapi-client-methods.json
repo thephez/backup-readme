@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 3,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:44.607Z"
  },
  "title": "Use DAPI Client Methods",

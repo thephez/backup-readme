@@ -53,6 +53,7 @@
  "algolia": {
   "recordCount": 10,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-20T20:33:45.267Z"
  },
  "title": "Connect to a Network",

@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:16:08.676Z"
  },
  "title": "Configuration Files",

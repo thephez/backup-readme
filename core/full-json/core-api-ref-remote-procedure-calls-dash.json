@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 32,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-25T18:20:43.037Z"
  },
  "title": "Dash RPCs",

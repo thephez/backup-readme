@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 6,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-11T17:11:51.110Z"
  },
  "title": "dash-wallet",

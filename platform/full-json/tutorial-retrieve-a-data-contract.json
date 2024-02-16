@@ -53,6 +53,7 @@
  "algolia": {
   "recordCount": 7,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-12T12:42:55.938Z"
  },
  "title": "Retrieve a Data Contract",

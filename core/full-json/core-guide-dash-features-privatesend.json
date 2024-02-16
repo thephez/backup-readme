@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-25T20:01:05.557Z"
  },
  "title": "CoinJoin",

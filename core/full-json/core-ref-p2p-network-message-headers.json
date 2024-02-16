@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 2,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:15:39.442Z"
  },
  "title": "Message Headers",

@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 5,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-12T12:55:18.292Z"
  },
  "title": "Retrieve a Name",

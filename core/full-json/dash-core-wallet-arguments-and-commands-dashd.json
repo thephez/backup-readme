@@ -35,6 +35,7 @@
  "algolia": {
   "recordCount": 20,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-11T16:59:37.328Z"
  },
  "title": "dashd",

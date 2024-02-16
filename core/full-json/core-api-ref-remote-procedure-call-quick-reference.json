@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 14,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-20T13:51:41.497Z"
  },
  "title": "Quick Reference",

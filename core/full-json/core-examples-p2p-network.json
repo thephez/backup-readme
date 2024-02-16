@@ -71,6 +71,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:15:48.397Z"
  },
  "title": "P2P Network",
@@ -89,7 +90,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2024-02-09T01:03:18.846Z",
+ "slugUpdatedAt": "2024-02-15T20:51:05.829Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e77cb",
  "version": "63f5176df91c7700118e7825",

@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 1,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:16:00.759Z"
  },
  "title": "Blockchain Overview",

@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 4,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:43.919Z"
  },
  "title": "Retrieve an Account's Identities",

@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 11,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-13T20:07:35.784Z"
  },
  "title": "Platform gRPC Endpoints",

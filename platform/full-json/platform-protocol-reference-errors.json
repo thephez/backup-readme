@@ -38,6 +38,7 @@
  "algolia": {
   "recordCount": 15,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-09-06T16:36:47.051Z"
  },
  "title": "Consensus Errors",

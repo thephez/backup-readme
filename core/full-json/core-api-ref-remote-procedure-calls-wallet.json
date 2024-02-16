@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 62,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-10T18:56:09.550Z"
  },
  "title": "Wallet RPCs",

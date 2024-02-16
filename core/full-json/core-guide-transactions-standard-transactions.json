@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 6,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-21T19:16:03.486Z"
  },
  "title": "Standard Transactions",

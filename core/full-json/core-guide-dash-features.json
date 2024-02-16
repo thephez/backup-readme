@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 7,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-03-08T18:38:31.547Z"
  },
  "title": "Dash Features",

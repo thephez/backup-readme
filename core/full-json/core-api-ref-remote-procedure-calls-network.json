@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 14,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-04-25T18:22:23.541Z"
  },
  "title": "Network RPCs",

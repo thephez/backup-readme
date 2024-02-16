@@ -43,6 +43,7 @@
  "algolia": {
   "recordCount": 29,
   "publishPending": false,
+  "translationFailure": false,
   "updatedAt": "2023-02-23T19:11:20.977Z"
  },
  "title": "Data Messages",
