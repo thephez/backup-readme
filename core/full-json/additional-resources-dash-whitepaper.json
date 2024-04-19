@@ -54,7 +54,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2024-04-11T15:37:14.525Z",
+ "slugUpdatedAt": "2024-04-18T18:14:21.965Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e780f",
  "version": "63f5176df91c7700118e7825",
@@ -68,5 +68,5 @@
  "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "63f5176df91c7700118e780f",
- "body_html": "&nbsp;"
+ "body_html": ""
 }

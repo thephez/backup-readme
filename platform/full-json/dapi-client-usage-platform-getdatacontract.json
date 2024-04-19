@@ -70,5 +70,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742ae18",
- "body_html": "<div class=\"magic-block-textarea\"><p><strong>Usage</strong>: <code>async client.platform.getDataContract(contractId)</code><br><strong>Description</strong>: Fetch Data Contract by id</p>\n<p>Parameters:</p>\n<div class=\"marked-table\"><table>\n<thead>\n<tr>\n<th>parameters</th>\n<th>type</th>\n<th>required</th>\n<th>Description</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td><strong>contractId</strong></td>\n<td>String</td>\n<td>yes</td>\n<td>A valid registered contractId</td>\n</tr>\n</tbody>\n</table></div>\n<p>Returns : Promise&lt;Buffer&gt;</p>\n\n</div>"
+ "body_html": "<p><strong>Usage</strong>: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">async client.platform.getDataContract(contractId)</code><br/>\n<strong>Description</strong>: Fetch Data Contract by id</p>\n<p>Parameters:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"rdmd-table\"><div class=\"rdmd-table-inner\"><table><thead><tr><th>parameters</th><th>type</th><th>required</th><th>Description</th></tr></thead><tbody><tr><td><strong>contractId</strong></td><td>String</td><td>yes</td><td>A valid registered contractId</td></tr></tbody></table></div></div>\n<p>Returns : Promise</p>"
 }

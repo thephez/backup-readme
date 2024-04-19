@@ -68,5 +68,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742add3",
- "body_html": "<div class=\"magic-block-textarea\"><pre><code class=\"lang-js\"><span class='cm-s-neo'><span class=\"cm-variable\">client</span>.<span class=\"cm-property\">getApps</span>().<span class=\"cm-property\">set</span>(<span class=\"cm-string\">'myNewContract'</span>, {\n  <span class=\"cm-property\">contractId</span>: <span class=\"cm-variable\">Identifier</span>.<span class=\"cm-property\">from</span>(<span class=\"cm-variable\">myNewContractId</span>),\n  <span class=\"cm-property\">contract</span>: <span class=\"cm-variable\">retrievedContract</span>,\n});</span>\n</code></pre>\n\n</div>"
+ "body_html": "<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JavaScript</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-js theme-light\" data-lang=\"js\" name=\"\" tabindex=\"0\">client.getApps().set(&#x27;myNewContract&#x27;, {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n</code></pre></div></div>"
 }
