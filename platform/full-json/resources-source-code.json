@@ -54,7 +54,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2024-04-25T21:45:39.880Z",
+ "slugUpdatedAt": "2024-05-02T18:32:26.287Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad82",
  "version": "64f8a9df750465004742ae1d",
@@ -67,5 +67,5 @@
  "parentDoc": null,
  "isApi": false,
  "id": "64f8a9df750465004742ad82",
- "body_html": "<p>Source code produced by Dash Core Group is located in two GitHub organizations:</p>\n<ul>\n<li><a href=\"https://github.com/dashpay\" target=\"\" title=\"\">Dashpay</a> - Dash Core Blockchain software and documention</li>\n<li><a href=\"https://github.com/dashevo\" target=\"\" title=\"\">Dashevo</a> - Dash Platform software</li>\n</ul>"
+ "body_html": "Source code produced by Dash Core Group is located in two GitHub organizations:\n- [Dashpay](https://github.com/dashpay) - Dash Core Blockchain software and documention\n- [Dashevo](https://github.com/dashevo) - Dash Platform software"
 }

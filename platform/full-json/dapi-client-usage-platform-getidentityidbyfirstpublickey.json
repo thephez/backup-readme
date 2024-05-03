@@ -70,5 +70,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742ae1c",
- "body_html": "<p><strong>Usage</strong>: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">async client.platform.getIdentityIdByFirstPublicKey(publicKeyHash)</code><br/>\n<strong>Description</strong>: Fetch the identity ID using the public key hash of the identity&#x27;s first key</p>\n<p>Parameters:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"rdmd-table\"><div class=\"rdmd-table-inner\"><table><thead><tr><th>parameters</th><th>type</th><th>required</th><th>Description</th></tr></thead><tbody><tr><td><strong>publicKeyHash</strong></td><td>String</td><td>yes</td><td>A valid public key hash</td></tr></tbody></table></div></div>\n<p>Returns : Promise&lt;!Buffer|null&gt;</p>"
+ "body_html": "**Usage**: `async client.platform.getIdentityIdByFirstPublicKey(publicKeyHash)`  \n**Description**: Fetch the identity ID using the public key hash of the identity's first key\n\nParameters:\n\n| parameters        | type   | required | Description             |\n| ----------------- | ------ | -------- | ----------------------- |\n| **publicKeyHash** | String | yes      | A valid public key hash |\n\nReturns : Promise\\<!Buffer|null>"
 }

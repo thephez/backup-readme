@@ -70,5 +70,5 @@
  "parentDoc": null,
  "isApi": false,
  "id": "64f8a9df750465004742adf0",
- "body_html": "<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"what-is-a-contract\"></div><div class=\"heading-text\"><div id=\"section-what-is-a-contract\" class=\"heading-anchor_backwardsCompatibility\"></div>What is a contract</div><a aria-label=\"Skip link to What is a contract\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#what-is-a-contract\"></a></h2>\n<p>Contracts are registered sets of rules defined in a <a href=\"https://dashplatform.readme.io/docs/core-concepts\" target=\"\" title=\"\">JSON Application Schema</a>.</p>\n<p>See the Dash Platform documentation for more information about <a href=\"https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract\" target=\"\" title=\"\">Data Contracts</a>.</p>"
+ "body_html": "## What is a contract\n\nContracts are registered sets of rules defined in a [JSON Application Schema](https://dashplatform.readme.io/docs/core-concepts).\n\nSee the Dash Platform documentation for more information about [Data Contracts](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract)."
 }
