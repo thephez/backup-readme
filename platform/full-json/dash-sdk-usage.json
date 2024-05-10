@@ -70,5 +70,5 @@
  "parentDoc": null,
  "isApi": false,
  "id": "64f8a9df750465004742ae02",
- "body_html": "The following pages cover:\n\n- [Dapi](https://dashplatform.readme.io/docs/dash-sdk-usage-dapi)\n- [Dashcore Lib Primitives](https://dashplatform.readme.io/docs/dash-sdk-usage-dashcore-lib-primitives)"
+ "body_html": "<p>The following pages cover:</p>\n<ul>\n<li><a href=\"https://dashplatform.readme.io/docs/dash-sdk-usage-dapi\" target=\"\" title=\"\">Dapi</a></li>\n<li><a href=\"https://dashplatform.readme.io/docs/dash-sdk-usage-dashcore-lib-primitives\" target=\"\" title=\"\">Dashcore Lib Primitives</a></li>\n</ul>"
 }

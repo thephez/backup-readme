@@ -68,5 +68,5 @@
  "parentDoc": null,
  "isApi": false,
  "id": "64f8a9df750465004742adb9",
- "body_html": "# Creating\n\n# Withdrawing\n\nRequires a withdraw key (type: 3). Withdraw keys must have a [security level of Critical](https://github.com/dashevo/platform/pull/352)"
+ "body_html": "<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"creating\"></div><div class=\"heading-text\"><div id=\"section-creating\" class=\"heading-anchor_backwardsCompatibility\"></div>Creating</div><a aria-label=\"Skip link to Creating\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#creating\"></a></h1>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"withdrawing\"></div><div class=\"heading-text\"><div id=\"section-withdrawing\" class=\"heading-anchor_backwardsCompatibility\"></div>Withdrawing</div><a aria-label=\"Skip link to Withdrawing\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#withdrawing\"></a></h1>\n<p>Requires a withdraw key (type: 3). Withdraw keys must have a <a href=\"https://github.com/dashevo/platform/pull/352\" target=\"\" title=\"\">security level of Critical</a></p>"
 }

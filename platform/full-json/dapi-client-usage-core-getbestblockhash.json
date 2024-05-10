@@ -70,5 +70,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742ae0e",
- "body_html": "**Usage**: `await client.core.getBestBlockHash(options)`  \n**Description**: Allow to fetch the best (highest/latest block hash) from the network\n\nParameters:\n\n| parameters  | type              | required | Description |\n| ----------- | ----------------- | -------- | ----------- |\n| **options** | DAPIClientOptions | no       |             |\n\nReturns : {Promise<string>} - The best block hash"
+ "body_html": "<p><strong>Usage</strong>: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">await client.core.getBestBlockHash(options)</code><br/>\n<strong>Description</strong>: Allow to fetch the best (highest/latest block hash) from the network</p>\n<p>Parameters:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"rdmd-table\"><div class=\"rdmd-table-inner\"><table><thead><tr><th>parameters</th><th>type</th><th>required</th><th>Description</th></tr></thead><tbody><tr><td><strong>options</strong></td><td>DAPIClientOptions</td><td>no</td><td></td></tr></tbody></table></div></div>\n<p>Returns : {Promise<!-- -->} - The best block hash</p>"
 }

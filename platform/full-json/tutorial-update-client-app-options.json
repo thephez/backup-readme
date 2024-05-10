@@ -68,5 +68,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742add3",
- "body_html": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```"
+ "body_html": "<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JavaScript</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-js theme-light\" data-lang=\"js\" name=\"\" tabindex=\"0\">client.getApps().set(&#x27;myNewContract&#x27;, {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n</code></pre></div></div>"
 }

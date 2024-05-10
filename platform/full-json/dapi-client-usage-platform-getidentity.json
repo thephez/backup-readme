@@ -70,5 +70,5 @@
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742ae1a",
- "body_html": "**Usage**: `async client.platform.getIdentity(id)`  \n**Description**: Fetch the identity by id\n\nParameters:\n\n| parameters | type   | required | Description                 |\n| ---------- | ------ | -------- | --------------------------- |\n| **id**     | String | yes      | A valid registered identity |\n\nReturns : Promise\\<!Buffer|null>"
+ "body_html": "<p><strong>Usage</strong>: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">async client.platform.getIdentity(id)</code><br/>\n<strong>Description</strong>: Fetch the identity by id</p>\n<p>Parameters:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<div class=\"rdmd-table\"><div class=\"rdmd-table-inner\"><table><thead><tr><th>parameters</th><th>type</th><th>required</th><th>Description</th></tr></thead><tbody><tr><td><strong>id</strong></td><td>String</td><td>yes</td><td>A valid registered identity</td></tr></tbody></table></div></div>\n<p>Returns : Promise&lt;!Buffer|null&gt;</p>"
 }

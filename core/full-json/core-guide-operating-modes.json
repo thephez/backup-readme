@@ -83,5 +83,5 @@
  "pendingAlgoliaPublish": false,
  "isApi": false,
  "id": "63f5176df91c7700118e77f1",
- "body_html": "Currently there are two primary methods of validating the <<glossary:block chain>> as a client: Full <<glossary:nodes>> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended."
+ "body_html": "<p>Currently there are two primary methods of validating the <span class=\"GlossaryItem-trigger\">block chain</span> as a client: Full <span class=\"GlossaryItem-trigger\">nodes</span> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>"
 }
