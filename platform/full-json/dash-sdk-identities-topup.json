@@ -48,6 +48,7 @@
  "slug": "dash-sdk-identities-topup",
  "excerpt": "",
  "body": "**Usage**: `client.platform.identities.topUp(identity, amount)`  \n**Description**: This method will topup the provided identity's balance. \n\n_The identity balance might slightly vary from the topped up amount because of the transaction fee estimation._\n\nParameters: \n\n| parameters   | type     | required | Description                                                                                     |\n| ------------ | -------- | -------- | ----------------------------------------------------------------------------------------------- |\n| **identity** | Identity | yes      | A valid [registered identity](https://dashplatform.readme.io/docs/dash-sdk-identities-register) |\n| **amount**   | number   | yes      | A duffs (satoshis) value corresponding to the amount you want to top up to the identity.        |\n\n**Example**: \n\n```js\nconst identityId = '';// Your identity identifier\nconst identity = await client.platform.identities.get(identityId);\nawait client.platform.identities.topUp(identity.getId(), 10000);\n\nconsole.log(`New identity balance: ${identity.balance}`)\n```\n\nReturns: Boolean.",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

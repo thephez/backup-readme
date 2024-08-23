@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-core-generatetoaddress",
  "excerpt": "",
  "body": "**Usage**: `await client.core.generateToAddress(blockMumber, address, options)`  \n**Description**: Allow to broadcast a valid **signed** transaction to the network.  \n**Notes**: Will only works on regtest.\n\nParameters:\n\n| parameters       | type              | required | Description                                               |\n| ---------------- | ----------------- | -------- | --------------------------------------------------------- |\n| **blocksNumber** | Number            | yes      | A number of block to see generated on the regtest network |\n| **address**      | String            | yes      | The address that will receive the newly generated Dash    |\n| **options**      | DAPIClientOptions | no       |                                                           |\n\nReturns : {Promise\\<string\\[]>} - a set of generated blockhashes.",
+ "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

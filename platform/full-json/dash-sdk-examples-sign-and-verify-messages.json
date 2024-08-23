@@ -48,6 +48,7 @@
  "slug": "dash-sdk-examples-sign-and-verify-messages",
  "excerpt": "",
  "body": "## Sign and verify messages\n\nDash SDK exports the Message constructor inside the Core namespace `new Dash.Core.Message`\n\n```js\nconst Dash = require('dash');\n\nconst mnemonic = '';\n\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic,\n  },\n});\n\nasync function signAndVerify() {\n  const account = await client.wallet.getAccount();\n\n  const pk = new Dash.Core.PrivateKey();\n  const message = new Dash.Core.Message('hello, world');\n  const signed = account.sign(message, pk);\n  const verified = message.verify(pk.toAddress().toString(), signed.toString());\n}\n```",
+ "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,

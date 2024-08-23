@@ -48,6 +48,7 @@
  "slug": "dash-sdk-examples-paying-to-another-address",
  "excerpt": "",
  "body": "## Paying to another address\n\nIn order to pay, you need to have an [existing balance](https://dashplatform.readme.io/docs/dash-sdk-examples-receive-money-and-check-balance).  \nThe below code will allow you to pay to a single address a specific amount of satoshis.\n\n```js\nconst Dash = require('dash');\n\nconst mnemonic = ''; // your mnemonic here.\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic,\n  },\n});\n\nasync function payToRecipient(account) {\n  const transaction = account.createTransaction({\n    recipient: 'yNPbcFfabtNmmxKdGwhHomdYfVs6gikbPf',\n    satoshis: 10000,\n  });\n  const transactionId = await account.broadcastTransaction(transaction);\n}\n\nclient.wallet.getAccount().then(payToRecipient);\n\n```\n\nSee more on create [transaction options here](https://dashpay.github.io/platform/Wallet-library/account/createTransaction/).",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

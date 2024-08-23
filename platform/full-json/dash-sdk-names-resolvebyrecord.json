@@ -48,6 +48,7 @@
  "slug": "dash-sdk-names-resolvebyrecord",
  "excerpt": "",
  "body": "**Usage**: `client.platform.names.resolveByRecord(record, value)`  \n**Description**: This method will allow you to resolve a DPNS record by identity ID. \n\nParameters: \n\n| parameters | type   | required | Description                                                          |\n| ---------- | ------ | -------- | -------------------------------------------------------------------- |\n| **record** | String | yes      | Type of the record (`dashUniqueIdentityId` or `dashAliasIdentityId`) |\n| **value**  | String | yes      | Identifier value for the record                                      |\n\n**Example**: \n\nThis example will describe how to resolve names by the dash unique identity id.  \n\n```js\nconst identityId = '3ge4yjGinQDhxh2aVpyLTQaoka45BkijkoybfAkDepoN';\nconst document = await client.platform.names.resolveByRecord('dashUniqueIdentityId', identityId);\n```\n\nReturns: array of ExtendedDocument.",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-platform-getdatacontract",
  "excerpt": "",
  "body": "**Usage**: `async client.platform.getDataContract(contractId)`  \n**Description**: Fetch Data Contract by id\n\nParameters:\n\n| parameters     | type   | required | Description                   |\n| -------------- | ------ | -------- | ----------------------------- |\n| **contractId** | String | yes      | A valid registered contractId |\n\nReturns : Promise<Buffer>",
+ "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

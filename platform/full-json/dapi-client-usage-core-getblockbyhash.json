@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-core-getblockbyhash",
  "excerpt": "",
  "body": "**Usage**: `await client.core.getBlockByHash(hash, options)`  \n**Description**: Allow to fetch a specific block by its hash\n\nParameters:\n\n| parameters  | type              | required | Description        |\n| ----------- | ----------------- | -------- | ------------------ |\n| **hash**    | String            | yes      | A valid block hash |\n| **options** | DAPIClientOptions | no       |                    |\n\nReturns : {Promise\\<null|Buffer>} - The specified bufferized block",
+ "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

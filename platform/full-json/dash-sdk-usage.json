@@ -48,6 +48,7 @@
  "slug": "dash-sdk-usage",
  "excerpt": "",
  "body": "The following pages cover:\n\n- [Dapi](https://dashplatform.readme.io/docs/dash-sdk-usage-dapi)\n- [Dashcore Lib Primitives](https://dashplatform.readme.io/docs/dash-sdk-usage-dashcore-lib-primitives)",
+ "mdxAltBody": "",
  "order": 8,
  "isReference": false,
  "deprecated": false,

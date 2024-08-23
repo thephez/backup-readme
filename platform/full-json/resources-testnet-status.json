@@ -45,6 +45,7 @@
  "slug": "resources-testnet-status",
  "excerpt": "",
  "body": "",
+ "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

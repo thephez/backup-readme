@@ -48,6 +48,7 @@
  "slug": "dash-sdk-contracts-publish",
  "excerpt": "",
  "body": "**Usage**: `client.platform.contracts.publish(contract, identity)`  \n**Description**: This method will sign and broadcast any valid contract.\n\nParameters:\n\n| parameters   | type     | required | Description                                                                                              |\n| ------------ | -------- | -------- | -------------------------------------------------------------------------------------------------------- |\n| **contract** | Contract | yes      | A valid [created contract](https://dashplatform.readme.io/docs/dash-sdk-documents-create)                |\n| **identity** | Identity | yes      | A valid [registered `application` identity](https://dashplatform.readme.io/docs/dash-sdk-names-register) |\n\n**Example**:\n\n```js\nconst identityId = '';// Your identity identifier.\nconst identity = await client.platform.identities.get(identityId);\n// See the contract.create documentation for more on how to create a dataContract\nconst contract = await client.platform.contracts.create(contractDefinitions, identity);\nawait client.platform.contracts.publish(contract, identity);\n```\n\nReturns : DataContractCreateTransition.",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

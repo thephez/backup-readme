@@ -45,6 +45,7 @@
  "slug": "tutorial-grovedb-open",
  "excerpt": "",
  "body": "# Tutorial\n\nGroveDB uses the `open()` function to [open](https://github.com/dashpay/grovedb/blob/master/grovedb/src/lib.rs) an existing instance of GroveDB at the given path in your filesystem, unless there is no existing instance, in which case a new one will be created with an empty root tree. The only argument for `open()` is the filesystem path.\n\nThe following code can be run with ```cargo run --bin open```.\n\n``` rust\nuse grovedb::GroveDb;\n\nfn main() {\n\n   // Specify the path where you want to set up the GroveDB instance\n   let path = String::from(\"../storage\");\n  \n   // Open a new GroveDB at the path\n   GroveDb::open(path).unwrap();\n\n   // Print to terminal\n   println!(\"Opened {:?}\", path);\n\n}\n```\n\nA folder called \u201cstorage\u201d should have appeared in your grovedb-tutorials directory, populated with a bunch of files. GroveDB is set up and ready for us to insert some data.",
+ "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

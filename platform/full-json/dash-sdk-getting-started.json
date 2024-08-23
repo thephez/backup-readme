@@ -48,6 +48,7 @@
  "slug": "dash-sdk-getting-started",
  "excerpt": "",
  "body": "The following pages cover:\n\n- [About schemas](https://dashplatform.readme.io/docs/dash-sdk-getting-started-about-schemas)\n- [Core concepts](https://dashplatform.readme.io/docs/dash-sdk-getting-started-core-concepts)\n- [Dash platform applications](https://dashplatform.readme.io/docs/dash-sdk-getting-started-dash-platform-applications)\n- [Working with multiple apps](https://dashplatform.readme.io/docs/dash-sdk-getting-started-working-with-multiple-apps)\n- [Quick starting the library](https://dashplatform.readme.io/docs/dash-sdk-getting-started-quick-start)\n- [Use Dash SDK with TypeScript.](https://dashplatform.readme.io/docs/dash-sdk-getting-started-with-typescript)",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

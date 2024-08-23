@@ -88,6 +88,7 @@
  "slug": "core-ref-transactions",
  "excerpt": "",
  "body": "The following subsections briefly document core transaction details.\n\n<img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"/>",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

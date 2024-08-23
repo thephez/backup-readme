@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-platform-getdocuments",
  "excerpt": "",
  "body": "**Usage**: `async client.platform.getDocuments(contractId, type, options)`  \n**Description**: Fetch Documents from Drive\n\nParameters:\n\n| parameters             | type   | required | Description                                        |\n| ---------------------- | ------ | -------- | -------------------------------------------------- |\n| **contractId**         | String | yes      | A valid registered contractId                      |\n| **type**               | String | yes      | DAP object type to fetch (e.g: 'preorder' in DPNS) |\n| **options.where**      | Object | yes      | Mongo-like query                                   |\n| **options.orderBy**    | Object | yes      | Mongo-like sort field                              |\n| **options.limit**      | Number | yes      | Limit the number of object to fetch                |\n| **options.startAt**    | Number | yes      | number of objects to skip                          |\n| **options.startAfter** | Number | yes      | exclusive skip                                     |\n\nReturns : Promise\\<Buffer\\[]>",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

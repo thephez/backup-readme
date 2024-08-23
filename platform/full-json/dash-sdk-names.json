@@ -48,6 +48,7 @@
  "slug": "dash-sdk-names",
  "excerpt": "",
  "body": "## What is DPNS\n\nDPNS is a special Dash Platform Application that is intended to provide a naming service for the Application Chain.  \n\nDecoupling name from the blockchain identity enables a unique user experience coupled with the highest security while remaining compatible with [Decentralized Identifiers](https://www.w3.org/TR/did-core/).\n\nLimitation: max length of 63 characters on charset `0-9`,`A-Z`(case insensitive), `-`.\n\nDomain names are linked to an Identity.",
+ "mdxAltBody": "",
  "order": 7,
  "isReference": false,
  "deprecated": false,

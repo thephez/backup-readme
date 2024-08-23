@@ -48,6 +48,7 @@
  "slug": "dash-sdk-documents",
  "excerpt": "",
  "body": "## What is a document\n\nDocuments in Dash Platform are similar to those in standard document-oriented databases (MongoDB,...).  \nThey represent a record consisting of one, or multiples field-value pairs and should respect the structure of the dataContract on which they are submitted in.\n\nSee more on the Dash Platform documentation about [Data Contract](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract).",
+ "mdxAltBody": "",
  "order": 5,
  "isReference": false,
  "deprecated": false,

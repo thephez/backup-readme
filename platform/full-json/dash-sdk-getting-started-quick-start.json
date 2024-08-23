@@ -48,6 +48,7 @@
  "slug": "dash-sdk-getting-started-quick-start",
  "excerpt": "",
  "body": "# Quick start\n\nIn order to use this library, you will need to add our [NPM package](https://www.npmjs.com/dash) to your project.\n\nHaving [NodeJS](https://nodejs.org/) installed, just type :\n\n```bash\nnpm install dash\n```\n\n## Initialization\n\nLet's create a Dash SDK client instance specifying both our mnemonic and the schema we wish to work with.\n\n```js\nconst Dash = require('dash');\nconst opts = {\n  wallet: {\n    mnemonic: \"arena light cheap control apple buffalo indicate rare motor valid accident isolate\",\n  },\n};\nconst client = new Dash.Client(opts);\nclient.wallet.getAccount().then(async (account) => {\n  // Do something\n})\n```\n\nQuick note:\nIf no `mnemonic` is provided or `mnemonic: null` is passed inside the `wallet` option, a new mnemonic will be generated.\n\n\n## Make a payment\n\n```js\nclient.wallet.getAccount().then(async (account) => {\n  const transaction = account.createTransaction({\n    recipient: 'yixnmigzC236WmTXp9SBZ42csyp9By6Hw8',\n    amount: 0.12,\n  });\n  await account.broadcastTransaction(transaction);\n});\n```\n\n## Interact with Dash Platform\n\nSee the [Tutorial section](https://dashplatform.readme.io/docs/tutorials-introduction) of the Dash Platform documentation for examples.",
+ "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,

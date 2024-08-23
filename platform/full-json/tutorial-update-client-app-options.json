@@ -45,6 +45,7 @@
  "slug": "tutorial-update-client-app-options",
  "excerpt": "",
  "body": "```js\nclient.getApps().set('myNewContract', {\n  contractId: Identifier.from(myNewContractId),\n  contract: retrievedContract,\n});\n```",
+ "mdxAltBody": "",
  "order": 7,
  "isReference": false,
  "deprecated": false,

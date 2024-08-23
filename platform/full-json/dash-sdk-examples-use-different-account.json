@@ -48,6 +48,7 @@
  "slug": "dash-sdk-examples-use-different-account",
  "excerpt": "",
  "body": "## Using a different account\n\nClients initialized with a mnemonic support multiple accounts as defined in [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).\n\nBy default `client.wallet.getAccount()` returns the account at index `0`.\n\nTo access other accounts, pass the `index` option:\n\n```\nconst secondAccount = await client.wallet.getAccount({ index: 1 })\n```",
+ "mdxAltBody": "",
  "order": 5,
  "isReference": false,
  "deprecated": false,

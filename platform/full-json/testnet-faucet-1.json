@@ -45,6 +45,7 @@
  "slug": "testnet-faucet-1",
  "excerpt": "",
  "body": "",
+ "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

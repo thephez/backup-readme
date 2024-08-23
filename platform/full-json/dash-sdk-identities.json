@@ -48,6 +48,7 @@
  "slug": "dash-sdk-identities",
  "excerpt": "",
  "body": "## What is an identity\n\nAn Identity is a blockchain-based identifier for individuals (users) and applications.  \nIdentities are the atomic element that, when linked with additional applications, can be extended to provide new functionality.\n\nRead more on the Dash Platform documentation about [Identity](https://dashplatform.readme.io/docs/explanation-identity).  \nYou might also want to consult the usage for the [DPNS Name Service](https://dashplatform.readme.io/docs/dash-sdk-names) in order to attach a name to your created identity.\n\n## Credits\n\nEach identity contains a credit balance. The ratio is 1 duff = 1000 credits.",
+ "mdxAltBody": "",
  "order": 6,
  "isReference": false,
  "deprecated": false,

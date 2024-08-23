@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-core-getmnlistdiff",
  "excerpt": "",
  "body": "**Usage**: `await client.core.getMnListDiff(baseBlockHash, blockHash, options)`  \n**Description**: Allow to fetch a specific block hash from  its height\n\nParameters:\n\n| parameters        | type              | required | Description                   |\n| ----------------- | ----------------- | -------- | ----------------------------- |\n| **baseBlockHash** | String            | yes      | hash or height of start block |\n| **blockHash**     | String            | yes      | hash or height of end block   |\n| **options**       | DAPIClientOptions | no       |                               |\n\nReturns : {Promise<object>} - The Masternode List Diff of the specified period",
+ "mdxAltBody": "",
  "order": 6,
  "isReference": false,
  "deprecated": false,

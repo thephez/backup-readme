@@ -45,6 +45,7 @@
  "slug": "previous-version-of-docs",
  "excerpt": "",
  "body": "",
+ "mdxAltBody": "",
  "order": 7,
  "isReference": false,
  "deprecated": false,

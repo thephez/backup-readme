@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-platform-broadcaststatetransition",
  "excerpt": "",
  "body": "**Usage**: `async client.platform.broadcastStateTransition(stateTransition, options)`  \n**Description**: Send State Transition to machine\n\nParameters:\n\n| parameters          | type              | required | Description                         |\n| ------------------- | ----------------- | -------- | ----------------------------------- |\n| **stateTransition** | Buffer            | yes      | A valid bufferized state transition |\n| **options**         | DAPIClientOptions | no       | A valid state transition            |\n\nReturns : Promise\\<!BroadcastStateTransitionResponse>",
+ "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

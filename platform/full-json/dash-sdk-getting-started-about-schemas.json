@@ -48,6 +48,7 @@
  "slug": "dash-sdk-getting-started-about-schemas",
  "excerpt": "",
  "body": "# About Schemas\n\nSchemas represents the application data structure, a JSON Schema language based set of rules that allows the creation of a Data Contract.\n\nYou can read more in the [Dash Platform Documentation - Data contract section](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract).",
+ "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

@@ -48,6 +48,7 @@
  "slug": "dash-sdk-names-resolve",
  "excerpt": "",
  "body": "**Usage**: `client.platform.names.resolve('<name>.dash')`  \n**Description**: This method will allow you to resolve a DPNS record from its humanized name. \n\nParameters: \n\n| parameters | type   | required | Description                                                                   |\n| ---------- | ------ | -------- | ----------------------------------------------------------------------------- |\n| **name**   | String | yes      | An alphanumeric (2-63) value used for human-identification (can contains `-`) |\n\n**Example**: `await client.platform.names.resolve('alice.dash')`\n\nReturns : ExtendedDocument (or `null` if do not exist).",
+ "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

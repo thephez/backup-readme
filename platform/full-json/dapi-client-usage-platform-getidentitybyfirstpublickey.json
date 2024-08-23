@@ -48,6 +48,7 @@
  "slug": "dapi-client-usage-platform-getidentitybyfirstpublickey",
  "excerpt": "",
  "body": "**Usage**: `async client.platform.getIdentityByFirstPublicKey(publicKeyHash)`  \n**Description**: Fetch the identity using the public key hash of the identity's first key\n\nParameters:\n\n| parameters        | type   | required | Description             |\n| ----------------- | ------ | -------- | ----------------------- |\n| **publicKeyHash** | String | yes      | A valid public key hash |\n\nReturns : Promise\\<!Buffer|null>",
+ "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,

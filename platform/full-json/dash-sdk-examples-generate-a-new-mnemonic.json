@@ -48,6 +48,7 @@
  "slug": "dash-sdk-examples-generate-a-new-mnemonic",
  "excerpt": "",
  "body": "## Generate a new mnemonic\n\nIn order to be able to keep your private keys private, we encourage to create your own mnemonic instead of using those from the examples (that might be empty).\nBelow, you will be proposed two options allowing you to create a new mnemonic, depending on the level of customisation you need. \n\n## Dash.Client\n\nBy passing `null` to the mnemonic value of the wallet options, you can get Wallet-lib to generate a new mnemonic for you. \n\n```js\nconst Dash = require(\"dash\");\nconst client = new Dash.Client({\n  network: \"testnet\",\n  wallet: {\n    mnemonic: null,\n  },\n});\nconst mnemonic = client.wallet.exportWallet();\nconsole.log({mnemonic});\n```\n\n## Dash.Mnemonic \n\n```js\nconst Dash = require(\"dash\");\nconst {Mnemonic} = Dash.Core;\n\nconst mnemnonic = new Mnemonic().toString()\n```\n\n### Language selection \n\n```js\nconst {Mnemonic} = Dash.Core;\nconst {CHINESE, ENGLISH, FRENCH, ITALIAN, JAPANESE, SPANISH} = Mnemonic.Words;\nconsole.log(new Mnemonic(Mnemonic.Words.FRENCH).toString())\n```\n\n### Entropy size\n\nBy default, the value for mnemonic is `128` (12 words), but you can generate a 24 words (or other) : \n\n```js\nconst {Mnemonic} = Dash.Core;\nconsole.log(new Mnemonic(256).toString())\n```\n\nYou can even replace the word list by your own, providing a list of 2048 unique words.",
+ "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

@@ -48,6 +48,7 @@
  "slug": "dash-sdk-wallet",
  "excerpt": "",
  "body": "### About Wallet-lib\n\nWhen Dash.Client is initiated with a `mnemonic` property, a wallet instance becomes accessible via `client.wallet` property.\n\nTo initialize the wallet account and synchronize with the network, use `client.wallet.getAccount()`.\n\nFind out more about the Wallet in its [complete documentation](https://dashpay.github.io/platform/Wallet-library/)",
+ "mdxAltBody": "",
  "order": 9,
  "isReference": false,
  "deprecated": false,
