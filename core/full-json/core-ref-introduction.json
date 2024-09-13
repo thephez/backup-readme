@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -81,7 +85,6 @@
  "slug": "core-ref-introduction",
  "excerpt": "Dash Core Reference Overview",
  "body": "The Developer Reference aims to provide technical details and API information to help you start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://www.github.com/dashpay/dash) or from a [pre-compiled executable](https://github.com/dashpay/dash/releases/latest).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted as via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \n\"`[...]`\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below.\n\n# Not A Specification\n\nThis Developer Documentation describes how Dash works to help educate new Dash developers, but it is not a specification---and it never will be.\n\nDash security depends on <<glossary:consensus>>. Should your program diverge from consensus, its security is weakened or destroyed. The cause of the divergence doesn't matter: it could be a bug in your program, it could be an error in this documentation which you implemented as described, or it could be you do everything right but other software on the <<glossary:network>> [behaves unexpectedly](https://bitcoin.org/en/alert/2013-03-11-chain-fork) as in the case of Bitcoin's v0.8 chain fork. The specific cause will not matter to the users of your software whose wealth is lost.\n\nThe only correct specification of consensus behavior is the actual behavior of programs on the network which maintain consensus. As that behavior is subject to arbitrary inputs in a large variety of unique environments, it cannot ever be fully documented here or anywhere else.\n\nIn addition, we also warn you that this documentation has not been extensively reviewed by Dash experts and so likely contains numerous errors.",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

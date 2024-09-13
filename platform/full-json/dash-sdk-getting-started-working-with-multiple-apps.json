@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-getting-started-working-with-multiple-apps",
  "excerpt": "",
  "body": "# Working with multiple apps\n\nWhen working with other registered contracts, you will need to know their `contractId` and reference it in the SDK constructor.\n\nAssuming a contract DashPay has the following `contractId: \"77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3\"`. \nYou can then pass it as an option.\n\n```js\nconst client = new Dash.Client({\n  apps: {\n    dashpay: {\n      contractId: '77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3'\n    }\n  }\n});\n```\n\nThis allow the method `client.platform.documents.get` to provide you field selection. \nTherefore, if the contract has a `profile` field that you wish to access, the SDK will allow you to use dot-syntax for access :\n\n```js\nconst bobProfile = await client.platform.documents.get('dashpay.profile', { name: 'bob' });\n```",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

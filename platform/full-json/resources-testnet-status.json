@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "resources-testnet-status",
  "excerpt": "",
  "body": "",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

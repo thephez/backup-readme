@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-contracts",
  "excerpt": "",
  "body": "## What is a contract\n\nContracts are registered sets of rules defined in a [JSON Application Schema](https://dashplatform.readme.io/docs/core-concepts).\n\nSee the Dash Platform documentation for more information about [Data Contracts](https://dashplatform.readme.io/docs/explanation-platform-protocol-data-contract).",
- "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,

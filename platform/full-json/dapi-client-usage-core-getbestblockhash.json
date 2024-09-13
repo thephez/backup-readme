@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-usage-core-getbestblockhash",
  "excerpt": "",
  "body": "**Usage**: `await client.core.getBestBlockHash(options)`  \n**Description**: Allow to fetch the best (highest/latest block hash) from the network\n\nParameters:\n\n| parameters  | type              | required | Description |\n| ----------- | ----------------- | -------- | ----------- |\n| **options** | DAPIClientOptions | no       |             |\n\nReturns : {Promise<string>} - The best block hash",
- "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

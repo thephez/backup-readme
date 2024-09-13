@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -66,7 +70,6 @@
  "slug": "tutorial-retrieve-a-data-contract",
  "excerpt": "Retrieve details for a Dash Platform data contract",
  "body": "# Overview\n\nIn this tutorial we will retrieve the data contract created in the [Register a Data Contract tutorial](tutorial-register-a-data-contract).\n\n## Prerequisites\n\n- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)\n- A Dash Platform Contract ID: [Tutorial: Register a Data Contract](tutorial-register-a-data-contract) \n\n# Code\n\n## Retrieving a data contract\n\n```javascript\nconst Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveContract = async () => {\n  const contractId = '8cvMFwa2YbEsNNoc1PXfTacy2PVq2SzVnkZLeQSzjfi6';\n  return client.platform.contracts.get(contractId);\n};\n\nretrieveContract()\n  .then((d) => console.dir(d.toJSON(), { depth: 5 }))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n```\n\n## Updating the client app list\n\n> \ud83d\udcd8 \n> \n> In many cases it may be desirable to work with a newly retrieved data contract using the `<contract name>.<contract document>` syntax (e.g. `dpns.domain`). Data contracts that were created after the client was initialized or not included in the initial client options can be added via `client.getApps().set(...)`.\n\n```javascript\nconst Dash = require('dash');\nconst { PlatformProtocol: { Identifier } } = Dash;\n\nconst myContractId = 'a contract ID';\nconst client = new Dash.Client();\n\nclient.platform.contracts.get(myContractId)\n  .then((myContract) => {\n    client.getApps().set('myNewContract', {\n      contractId: Identifier.from(myContractId),\n      contract: myContract,\n    });\n  });\n```\n\n# Example Data Contract\n\nThe following example response shows a retrieved contract:\n\n```json\n{\n  \"$format_version\": \"0\",\n  \"id\": \"8cvMFwa2YbEsNNoc1PXfTacy2PVq2SzVnkZLeQSzjfi6\",\n  \"config\": {\n    \"$format_version\": \"0\",\n    \"canBeDeleted\": false,\n    \"readonly\": false,\n    \"keepsHistory\": false,\n    \"documentsKeepHistoryContractDefault\": false,\n    \"documentsMutableContractDefault\": true,\n    \"requiresIdentityEncryptionBoundedKey\": null,\n    \"requiresIdentityDecryptionBoundedKey\": null\n  },\n  \"version\": 1,\n  \"ownerId\": \"AsdMKouqE5NB7CeQFi4wr5oj8vFUYTtdSvxFtAvtCbhh\",\n  \"schemaDefs\": null,\n  \"documentSchemas\": {\n    \"note\": {\n      \"type\": \"object\",\n      \"properties\": { \"message\": { \"type\": \"string\" } },\n      \"additionalProperties\": false\n    }\n  }\n}\n```\n\n> \ud83d\udcd8 \n> \n> Please refer to the [data contract reference page](reference-data-contracts) for more comprehensive details related to contracts and documents.\n\n# What's Happening\n\nAfter we initialize the Client, we request a contract. The `platform.contracts.get` method takes a single argument: a contract ID. After the contract is retrieved, it is displayed on the console.\n\nThe second code example shows how the contract could be assigned a name to make it easily accessible without initializing an additional client.",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

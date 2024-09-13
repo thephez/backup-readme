@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-quick-start",
  "excerpt": "",
  "body": "# Quick start\n\n## ES5/ES6 via NPM\n\nIn order to use this library in Node, you will need to add it to your project as a dependency.\n\nHaving [NodeJS](https://nodejs.org/) installed, just type in your terminal :\n\n```sh\nnpm install @dashevo/dapi-client\n```\n\n## CDN Standalone\n\nFor browser usage, you can also directly rely on unpkg :\n\n```\n<script src=\"https://unpkg.com/@dashevo/dapi-client\"></script>\n```\n\nYou can see an [example usage here](https://github.com/dashpay/platform/blob/master/packages/js-dapi-client/examples/web/web.usage.html) .\n\n## Initialization\n\n```js\nconst DAPIClient = require('@dashevo/dapi-client');\nconst client = new DAPIClient();\n\n(async () => {\n  const bestBlockHash = await client.core.getBestBlockHash();\n  console.log(bestBlockHash);\n})();\n```\n\n## Quicknotes\n\nThis package allows you to fetch & send information from both the payment chain (layer 1) and the application chain (layer 2, a.k.a Platform chain).",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

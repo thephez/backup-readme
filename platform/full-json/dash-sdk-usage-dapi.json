@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-usage-dapi",
  "excerpt": "",
  "body": "## About DAPI\n\nDAPI (Decentralized API) is a distributed and decentralized endpoints provided by the Masternode Network.\n\n## Get the DAPI-Client instance\n\n```js\n const dapiClient = client.getDAPIClient();\n```\n\nThe usage is then [described here](https://dashplatform.readme.io/docs/explanation-dapi).",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

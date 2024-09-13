@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "tutorial-grovedb-delete",
  "excerpt": "",
  "body": "# Tutorial\n\nGroveDB uses the `delete()` function to [delete](https://github.com/dashpay/grovedb/blob/009787b79538dae833ed6711253852046dfcc59d/grovedb/src/operations/delete/mod.rs) key-values from storage. It takes four arguments as shown below.\n\n``` rust\n// Delete Element from GroveDB\npub fn delete<'p, P>(\n    &self,\n    // Tree path to where the key is located ([] for root)\n    path: P,\n    // Key to be deleted\n    key: &'p [u8],\n    // Delete options\n    options: Option<DeleteOptions>,\n    // Transaction that the delete operation should be included in\n    transaction: TransactionArg,\n) -> CostResult<(), Error>\n```\n\nThis tutorial assumes the reader has already inserted the two key-values from Insert Tutorial, but should be easy to follow anyways. It uses `get()` to check if the values are there first, then deletes them, and checks if they\u2019re there again.\n\nThe following code can be run with ```cargo run --bin delete```.\n\n``` rust\nuse grovedb::GroveDb;\n\nfn main() {\n\n   // Specify a path and open GroveDB at the path as db\n   let path = String::from(\"../storage\");\n   let db = GroveDb::open(path).unwrap();\n\n   // Check the key-values are there\n   let key1 = b\"hello\";\n   let key2 = b\"grovedb\";\n   let result1 = db.get([], key1, None).unwrap();\n   let result2 = db.get([], key2, None).unwrap();\n   println!(\"Before deleting, we have key1: {:?}\", result1);\n   println!(\"Before deleting, we have key2: {:?}\", result2);\n\n   // Delete the values\n   db.delete([], key1, None, None)\n      .unwrap()\n      .expect(\"successfully deleted key1\");\n   db.delete([], key2, None, None)\n      .unwrap()\n      .expect(\"successfully deleted key2\");\n\n   // Check the key-values again\n   let result3 = db.get([], key1, None).unwrap();\n   let result4 = db.get([], key2, None).unwrap();\n   println!(\"After deleting, we have key1: {:?}\", result3);\n   println!(\"After deleting, we have key2: {:?}\", result4);\n}\n```\n\nThe terminal should output:\n\n``` text\nBefore deleting, we have key1 Ok(item: [hex: 776f726c64, str: world])\nBefore deleting, we have key2 Ok(item: [hex: 726f636b73, str: rocks])\nAfter deleting, we have key1 Err(PathKeyNotFound(\"key not found in Merk for get: 68656c6c6f\"))\nAfter deleting, we have key2 Err(PathKeyNotFound(\"key not found in Merk for get: 67726f76656462\"))\n```",
- "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

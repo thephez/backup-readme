@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "introduction-quickstart",
  "excerpt": "Get up and running quickly with a Client library",
  "body": "The quickest way to get started with Dash Platform is by completing these two simple steps:\n\n1. Install the Dash SDK to interact with the Dash Platform decentralized API (DAPI)\n2. Verify a successful API response to a DAPI test request\n\n# 1. Install the Dash SDK\n\nThe quickest way to start developing on Dash Platform is to use the Dash SDK. Currently, the SDK is available in Javascript, Objective-C, and Java. After navigating to your project directory, you can install the Javascript SDK by issuing the following command in your terminal or command line:\n\n```shell\nnpm install dash\n```\n\nRequire the Dash SDK by adding the following code to your project\u2019s index:\n\n** add code to project index **\n\nSee the library source on [GitHub](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk).\n\n# 2. Verify a successful API response\n\nTo confirm proper installation, use `dash` to send a request to DAPI and check for a valid response. The example shown here requests the current height of the Dash blockchain:\n\n```javascript\nconst DAPIClient = require('@dashevo/dapi-client');\n\nvar client = new DAPIClient();\n\nvar blockHeight = client.getBestBlockHeight();\nblockHeight.then(height => {\n  console.log(`Best block height: ${height}`);\n});\n```\n\nA live example of this code can be run [here on Repl.it](https://repl.it/@thephez/DAPI-Client-Basic-Example)\n\n> \ud83d\udea7 DAPI-Client Seed node(s)\n>\n> If using DAPI-Client in a devnet or testnet setting, at least one seed node must be provided in the constructor. For example,\n> ```js\n> var client = new DAPIClient({\n>   seeds: [{\n>     service: 'example.com:20001',\n>     port: 3000\n>   }],\n> });\n> ```\n\nOnce you have verified dapi-client requests are working, you can move on to exploring the available endpoints.",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

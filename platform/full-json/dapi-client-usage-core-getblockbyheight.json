@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-usage-core-getblockbyheight",
  "excerpt": "",
  "body": "**Usage**: `await client.core.getBlockByHeight(height, options)`  \n**Description**: Allow to fetch a specific block by its height\n\nParameters:\n\n| parameters  | type              | required | Description          |\n| ----------- | ----------------- | -------- | -------------------- |\n| **height**  | Number            | yes      | A valid block height |\n| **options** | DAPIClientOptions | no       |                      |\n\nReturns : {Promise\\<null|Buffer>} - The specified bufferized block",
- "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,

@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-examples",
  "excerpt": "",
  "body": "The following pages cover:\n\n- [Fetching an identity from its name](https://dashplatform.readme.io/docs/dash-sdk-examples-fetch-an-identity-from-its-name)\n- [Generate a new mnemonic](https://dashplatform.readme.io/docs/dash-sdk-examples-generate-a-new-mnemonic)\n- [Pay to another address](https://dashplatform.readme.io/docs/dash-sdk-examples-paying-to-another-address)\n- [Receive money and check balance](https://dashplatform.readme.io/docs/dash-sdk-examples-receive-money-and-check-balance)\n- [Sign and verify messages](https://dashplatform.readme.io/docs/dash-sdk-examples-sign-and-verify-messages)\n- [Use different account](https://dashplatform.readme.io/docs/dash-sdk-examples-use-different-account)",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

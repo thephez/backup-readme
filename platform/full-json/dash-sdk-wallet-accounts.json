@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-wallet-accounts",
  "excerpt": "",
  "body": "## Getting an account\n\nWhen Wallet is initialized with `mnemonic`, it holds multiple Accounts according to BIP44.  \nEach Account holds the keys needed to make a payments from it.\n\nWallet's `getAccount` method used to access an account:\n\n```js\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic: \"maximum blast eight orchard waste wood gospel siren parent deer athlete impact\",\n  },\n});\n\nconst account = await client.wallet.getAccount()\n// Do something with account\n```\n\nAs optional parameter, an integer representing the account `index` can be passed as parameter. By default, index account on call is 0.\n\n```\nclient.wallet.getAccount({ index: 1 })\n```\n\nAwaiting for the `getAccount()` promise is necessary to ensure the wallet is synced-up with the network and make sure that the UTXO set is ready to be used for payment/signing.",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

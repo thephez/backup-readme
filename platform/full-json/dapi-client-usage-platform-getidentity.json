@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-usage-platform-getidentity",
  "excerpt": "",
  "body": "**Usage**: `async client.platform.getIdentity(id)`  \n**Description**: Fetch the identity by id\n\nParameters:\n\n| parameters | type   | required | Description                 |\n| ---------- | ------ | -------- | --------------------------- |\n| **id**     | String | yes      | A valid registered identity |\n\nReturns : Promise\\<!Buffer|null>",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

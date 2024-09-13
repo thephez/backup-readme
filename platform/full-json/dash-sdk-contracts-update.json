@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-contracts-update",
  "excerpt": "",
  "body": "**Usage**: `client.platform.contracts.update(contract, identity)`  \n**Description**: This method will sign and broadcast an updated valid contract.\n\nParameters:\n\n| parameters   | type     | required | Description                                                                                                   |\n| ------------ | -------- | -------- | ------------------------------------------------------------------------------------------------------------- |\n| **contract** | Contract | yes      | A valid [created contract](https://dashplatform.readme.io/docs/dash-sdk-contracts-create)                     |\n| **identity** | Identity | yes      | A valid [registered `application` identity](https://dashplatform.readme.io/docs/dash-sdk-identities-register) |\n\nReturns: DataContractUpdateTransition.",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

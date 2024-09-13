@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "explanation-credits",
  "excerpt": "",
  "body": "# Creating\n\n# Withdrawing\n\nRequires a withdraw key (type: 3). Withdraw keys must have a [security level of Critical](https://github.com/dashevo/platform/pull/352)",
- "mdxAltBody": "",
  "order": 8,
  "isReference": false,
  "deprecated": false,

@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-wallet-signing-encrypt",
  "excerpt": "",
  "body": "## Obtain account\n\n```js\nconst account = await client.wallet.getAccount();\n```\n\n## Sign a Transaction\n\n```js\nconst tx = new Dash.Core.Transaction({\n  // ...txOpts\n});\nconst signedTx = account.sign(tx);\n```\n\n## Encrypt a message\n\n```js\n  const message = 'Something';\n  const signedMessage = account.encrypt('AES', message, 'secret');\n```\n\n## Decrypt a message\n\n```js\nconst encrypted = 'U2FsdGVkX19JLa+1UpbMcut1/QFWLMlKUS+iqz+7Wl4=';\nconst message = account.decrypt('AES', encrypted, 'secret');\n```",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

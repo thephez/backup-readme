@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "dash-core-wallet-configuration-file",
  "excerpt": "Dash Core settings",
  "body": "# dash.conf\n\nTo use `dashd` and `dash-cli`, you will need to add a RPC password to your `dash.conf` file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:\n\n``` text\nrpcpassword=change_this_to_a_long_random_password\n```\n\nYou should also make the `dash.conf` file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:\n\n``` text\nchmod 0600 dash.conf\n```\n\nFor development, it's safer and cheaper to use Dash's test network (<<glossary:testnet>>), <<glossary:regression test mode>> (regtest), or a developer network  (<<glossary:devnet>>) described below.\n\nQuestions about Dash use are best sent to the [Dash forum](https://www.dash.org/forum/categories/dash-support.61/) and [Discord channels](http://www.dashchat.org).\n\n## Example Testnet Config\n\n```text\ntestnet=1\n\n# RPC Settings\nrpcuser=user\nrpcpassword=pass\nrpcallowip=127.0.0.1\n#----\nlisten=1\nserver=1\n\n# Index Settings\ntxindex=1\naddressindex=1\ntimestampindex=1\nspentindex=1\n\n[test]\nrpcport=19998\n```\n\n## Configuration sections for different networks\n\nSince Dash Core 0.16 it is possible for a single configuration file to set different options for different networks. This is done by using sections or by prefixing the option with the network as shown below:\n\n>\u2757\ufe0f Valid Section Names\n>\n> Please note that the only valid section names are **`[main]`**, **`[test]`**, **`[regtest]`**, and **`[devnet]`**.\n\n``` text Example dash.conf\n# Enable RPC server for all networks\nserver=1\n\n[main]\n# Set custom mainnet ports\nport=9989\nrpcport=9988\n# Set custom mainnet RPC auth\nrpcuser=mainnetuser\nrpcpassword=mainnetpass\n\n[test]\n# Set custom testnet RPC auth\nrpcuser=testnetuser\nrpcpassword=testnetpass\n\n# Enabling indexing\ntxindex=1\naddressindex=1\ntimestampindex=1\nspentindex=1\n\n[regtest]\nmempoolsize=20\n\n[devnet]\nport=21999\nrpcport=21998\n```\n\nWith this configuration file, dashd, dash-qt, or dash-cli can be run with the `-conf=<configuration file>` along with the `-testnet`,  `-regtest`, or `-devnet=<devnet name>` parameter to select the correct settings.\n\n>\u2757\ufe0f \n>\n> The following options will only apply to mainnet **_unless they are in a section_** (e.g., `[test]`): `addnode=`, `connect=`, `port=`, `bind=`, `rpcport=`, `rpcbind=` and `wallet=`. \nThe options to choose a network (`regtest=` and `testnet=`) must be specified outside of sections.\n\n# settings.json\n\n> \ud83d\udc4d Added in Dash Core 18.1.0\n\nSince Dash Core 18.1, wallets created or loaded in the GUI will now be automatically loaded on startup so they don't need to be manually reloaded the next time Dash is started. The list of wallets to load on startup is stored in `\\<datadir\\>/settings.json`. Additionally, any wallets specified in `-wallet=` settings on the command line or in the `dash.conf` file are also loaded. Wallets that are unloaded in the GUI are also removed from the settings list so they won't automatically load on the next startup.\n\nThe `createwallet`, `loadwallet`, and `unloadwallet` RPCs now accept `load_on_startup` options to modify the settings list. Unless these options are explicitly set to true or false, the list is not modified, so the RPC methods remain backwards compatible.",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

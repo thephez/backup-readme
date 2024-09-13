@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-examples-fetch-an-identity-from-its-name",
  "excerpt": "",
  "body": "## Fetching an identity from its name\n\nAssuming you have created an identity and attached a name to it (see how to [register an identity](https://dashplatform.readme.io/docs/tutorial-register-an-identity) and how to [attach it to a name](https://dashplatform.readme.io/docs/tutorial-register-a-name-for-an-identity)), you will then be able to directly recover an identity from its names. See below: \n\n```js\nconst client = new Dash.Client({\n  wallet: {\n    mnemonic: '', // Your app mnemonic, which holds the identity\n  },\n});\n\n// This is the name previously registered in DPNS.\nconst identityName = 'alice';\n\nconst nameDocument = await client.platform.names.resolve(`${identityName}.dash`);\nconst identity = await client.platform.identities.get(nameDocument.ownerId);\n```",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-contracts-get",
  "excerpt": "",
  "body": "**Usage**: `client.platform.contracts.get(contractId)`  \n**Description**: This method will allow you to fetch back a contract from its id. \n\nParameters: \n\n| parameters     | type   | required | Description                                          |\n| -------------- | ------ | -------- | ---------------------------------------------------- |\n| **identifier** | string | yes      | Will fetch back the contract matching the identifier |\n\n**Example**: `await client.platform.contracts.get('77w8Xqn25HwJhjodrHW133aXhjuTsTv9ozQaYpSHACE3')`\n\nReturns: Contract (or `null` if it's not a registered contract).",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

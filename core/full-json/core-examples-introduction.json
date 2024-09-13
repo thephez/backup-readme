@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -74,7 +78,6 @@
  "slug": "core-examples-introduction",
  "excerpt": "",
  "body": "The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nOnce installed, you'll have access to three programs: `dashd`, `dash-qt`, and `dash-cli`.\n\n* `dash-qt` provides a combination full Dash <<glossary:peer>> and <<glossary:wallet>> frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.\n\n* `dashd` is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for <<glossary:testnet>> / 19898 for regtest).\n\n* `dash-cli` allows you to send RPC commands to `dashd` from the command line.  For example, `dash-cli help`",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

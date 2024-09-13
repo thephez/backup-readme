@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "resources-github-repositories",
  "excerpt": "",
  "body": "## [dashcore-lib](https://github.com/dashevo/dashcore-lib)\nnpm: `@dashevo/dashcore-lib`\nThis handles core network functions like managing private keys, creating and signing transactions, and verifying blocks, as well as some masternode-related functions such as fetching governance objects and the deterministic masternode list. Based on Bitcoin's bitcore-lib.\n\n## [dash-spv](https://github.com/dashevo/dash-spv)\nnpm: `@dashevo/dash-spv`\nThis offers [SPV](glossary#section-simple-payment-verification) functions on top of dashcore-lib to enable lightweight wallet clients that can start quickly and don't need to download the whole Dash blockchain.\n\n## [dapi-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client)\nnpm: `@dashevo/dapi-client`\nEnables interaction with Dash platform through the DAPI hosted on masternodes. Provides automatic masternode discovery starting from any initial masternode.\nUses dash-spv and dashcore-lib.\n\n## [js-dpp](https://github.com/dashevo/platform/tree/master/packages/js-dpp)\nnpm: `@dashevo/dpp`\n\n## [wallet-lib](https://github.com/dashevo/platform/tree/master/packages/wallet-lib)\nnpm: `@dashevo/wallet-lib`\nProvides layer-1 spv wallet functions\nUses dapi-client, dashcore-lib, and js-dpp.\n\n## [DashJS](https://github.com/dashevo/platform/tree/master/packages/js-dash-sdk)\nnpm: `dash`\nuses wallet-lib, dapi-client, and dashcore-lib to expose layer-1 and layer-2 functionality. Main user is app developers",
- "mdxAltBody": "",
  "order": 9,
  "isReference": false,
  "deprecated": false,

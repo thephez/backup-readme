@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -53,7 +57,6 @@
  "slug": "core-examples-configuration-file",
  "excerpt": "",
  "body": "All three programs get settings from `dash.conf` in the `DashCore` application directory:\n\n* Windows: `%APPDATA%\\DashCore\\`\n\n* OSX: `$HOME/Library/Application Support/DashCore/`\n\n* Linux: `$HOME/.dashcore/`\n\nTo use `dashd` and `dash-cli`, you will need to add a RPC password to your `dash.conf` file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:\n\n``` text\nrpcpassword=change_this_to_a_long_random_password\n```\n\nYou should also make the `dash.conf` file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:\n\n``` text\nchmod 0600 dash.conf\n```\n\nFor development, it's safer and cheaper to use Dash's test network (<<glossary:testnet>>), <<glossary:regression test mode>> (regtest), or a developer network  (<<glossary:devnet>>) described below.\n\nQuestions about Dash use are best sent to the [Dash forum](https://www.dash.org/forum/categories/dash-support.61/) and [Discord channels](http://www.dashchat.org).\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a cross-reference link, a brief definition of the term will be displayed.",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

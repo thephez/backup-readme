@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "resources-source-code-dpns-data-contract",
  "excerpt": "",
  "body": "",
- "mdxAltBody": "",
  "order": 6,
  "isReference": false,
  "deprecated": false,

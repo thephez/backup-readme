@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "tutorial-grovedb",
  "excerpt": "",
  "body": "# Introduction\n\nThese tutorials aim to give readers a solid foundation on how to interact with [GroveDB](https://github.com/dashpay/grovedb) so that they may begin using it for their own applications.\n\nGroveDB is the Merkle tree structure overlaying Dash Platform's RocksDB backing store which allows for the most complex, cryptographically verifiable, queries of all databases in existence today. Existing solutions have very limited capabilities compared to non-cryptographically verifiable databases such as MongoDB, which motivated Dash Core Group to build their own solution. The design, a *grove* of Merkle AVL trees (specifically [Merks](https://github.com/nomic-io/merk)) interconnected via root hashes and references, is largely inspired by the paper [Database Outsourcing with Hierarchical Authenticated Data Structures](https://ia.cr/2015/351).\n\n# Setup\n\nIt\u2019s not required, but if you wish to follow along interactively, clone the [grovedb-tutorials](https://github.com/thephez/grovedb-tutorials) repo and open the tutorials directory.\n\n```\ngit clone https://github.com/thephez/grovedb-tutorials.git && cd tutorials\n```\n\nTo run a tutorial, do:\n\n```\ncargo run --bin <tutorial name>\n```\n\nValid tutorial names are: open, insert, delete, query-simple, query-complex, proofs.",
- "mdxAltBody": "",
  "order": 13,
  "isReference": false,
  "deprecated": false,

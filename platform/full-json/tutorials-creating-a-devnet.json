@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "tutorials-creating-a-devnet",
  "excerpt": "",
  "body": "# Minimal Platform Devnet\n\nRequires following components:\n  - Core\n  - Insight\n  - DAPI \n\nLimitations:\nGiven the lack of Drive, such a devnet would only allow interacting with Layer 1 (blockchain-related) DAPI endpoints\n\nCaveats:\n - To use with the `dapi-client` library, it is necessary to configure Core as a masternode (since `dapi-client` uses the masternode list to determine what nodes it will communicate with, at least one masternode must be present on the devnet).\n\n# Full Platform Devnet\n\nRequires all components:\n - Core\n - Insight\n - DAPI\n - Drive\n\nLimitations:\nTheoretically none.\n\nCaveats:\n - It's unclear if it will be possible to actually run a fully functional devnet with only a few nodes. State transitions need to be signed by a quorum of some kind and this could be an issue unless there is a \"devnet mode\" that allows signing by a single node or a smaller quorum.",
- "mdxAltBody": "",
  "order": 11,
  "isReference": false,
  "deprecated": false,
@@ -55,7 +58,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2024-09-05T20:20:04.173Z",
+ "slugUpdatedAt": "2024-09-12T17:47:39.658Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad88",
  "version": "64f8a9df750465004742ae1d",

@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-usage-platform",
  "excerpt": "",
  "body": "**Usage**: `new DAPIClient(options)`  \n**Description**: This method creates a new DAPIClient instance.\n\nParameters:\n\n| parameters                      | type                | required[def value]         | Description                                                                                    |\n| :------------------------------ | :------------------ | :-------------------------- | :--------------------------------------------------------------------------------------------- |\n| **options**                     | Object              |                             |                                                                                                |\n| **options.dapiAddressProvider** | DAPIAddressProvider | no[ListDAPIAddressProvider] | Allow to override the default dapiAddressProvider (do not allow seeds or dapiAddresses params) |\n| **options.seeds**               | string\\[]           | no[seeds]                   | Allow to override default seeds (to connect to specific node)                                  |\n| **options.network**             | string              | no[=evonet]                 | Allow to setup the network to be used (livenet, testnet, evonet,..)                            |\n| **options.timeout**             | number              | no[=2000]                   | Used to specify the timeout time in milliseconds.                                              |\n| **options.retries**             | number              | no[=3]                      | Used to specify the number of retries before aborting and erroring a request.                  |\n| **options.baseBanTime**         | number              | no[=6000]                   |                                                                                                |\n\nReturns : DAPIClient instance.\n\n```js\nconst DAPIClient = require('@dashevo/dapi-client');\nconst client = new DAPIClient({\n  timeout: 5000,\n  retries: 3,\n  network: 'livenet'\n});\n```\n\n**Notes**: \n\n- Accessing the SimplifiedMasternodeListDAPIAddressProvider (or its overwrote instance), can be accessed via `client.dapiAddressProvider`.",
- "mdxAltBody": "",
  "order": 3,
  "isReference": false,
  "deprecated": false,

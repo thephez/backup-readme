@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "dash-core-wallet-arguments-and-commands-dash-qt",
  "excerpt": "Dash Core Wallet GUI",
  "body": "# Usage\n\n```bash\ndash-qt [command-line options]     \n```\n\n\n\n> \ud83d\udea7 Debug Options\n> \n> The following sections show all available options including debug options that are not normally displayed. To see only regular options, run dash-qt --help.\n\nDash Core QT GUI includes all the same command line options as [dashd](dash-core-wallet-arguments-and-commands-dashd) with the exception of `-daemon`. It also provides additional options for UI as described below.\n\n## UI Options:\n\n```text\n  -choosedatadir\n       Choose data directory on startup (default: 0)\n\n  -custom-css-dir\n       Set a directory which contains custom css files. Those will be used as\n       stylesheets for the UI.\n\n  -debug-ui\n       Updates the UI's stylesheets in realtime with changes made to the css\n       files in -custom-css-dir and forces some widgets to show up which\n       are usually only visible under certain circumstances. (default:\n       0)\n\n  -font-family\n       Set the font family. Possible values: SystemDefault, Montserrat.\n       (default: SystemDefault)\n\n  -font-scale\n       Set a scale factor which gets applied to the base font size. Possible\n       range -100 (smallest fonts) to 100 (largest fonts). (default: 0)\n\n  -font-weight-bold\n       Set the font weight for bold texts. Possible range 0 to 8 (default: 4)\n\n  -font-weight-normal\n       Set the font weight for normal texts. Possible range 0 to 8 (default: 2)\n\n  -lang=<lang>\n       Set language, for example \"de_DE\" (default: system locale)\n\n  -min\n       Start minimized\n\n  -resetguisettings\n       Reset all settings changed in the GUI\n\n  -splash\n       Show splash screen on startup (default: 1)\n\n  -uiplatform\n       Select platform to customize UI for (one of windows, macosx, other;\n       default: other)\n\n  -windowtitle=<name>\n       Sets a window title which is appended to \"Dash Core - \"\n```",
- "mdxAltBody": "",
  "order": 1,
  "isReference": false,
  "deprecated": false,

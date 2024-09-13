@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dapi-client-usage-core-gettransaction",
  "excerpt": "",
  "body": "**Usage**: `await client.core.getTransaction(id, options)`  \n**Description**: Allow to fetch a transaction by ID\n\nParameters:\n\n| parameters  | type              | required | Description                     |\n| ----------- | ----------------- | -------- | ------------------------------- |\n| **id**      | string            | yes      | A valid transaction id to fetch |\n| **options** | DAPIClientOptions | no       |                                 |\n\nReturns : {Promise\\<null|Buffer>} - The bufferized transaction",
- "mdxAltBody": "",
  "order": 8,
  "isReference": false,
  "deprecated": false,

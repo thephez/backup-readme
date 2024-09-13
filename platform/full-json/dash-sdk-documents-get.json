@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-documents-get",
  "excerpt": "",
  "body": "**Usage**: `client.platform.documents.get(typeLocator, opts)`  \n**Description**: This method will allow you to fetch back documents matching the provided parameters. \n\nParameters: \n\n| parameters      | type   | required         | Description                                                         |\n| --------------- | ------ | ---------------- | ------------------------------------------------------------------- |\n| **typeLocator** | string | yes              | Field of a specific application, under the form `appName.fieldName` |\n| **opts**        | object | no (default: {}) | Query options of the request                                        |\n\n**Queries options**:\n\n| parameters     | type    | required | Description               |\n| -------------- | ------- | -------- | ------------------------- |\n| **where**      | array   | no       | Mongo-like where query    |\n| **orderBy**    | array   | no       | Mongo-like orderBy query  |\n| **limit**      | integer | no       | how many objects to fetch |\n| **startAt**    | integer | no       | number of objects to skip |\n| **startAfter** | integer | no       | exclusive skip            |\n\n[Learn more about query syntax](https://dashplatform.readme.io/docs/reference-query-syntax).\n\n**Example**: \n\n```js\n   const queryOpts = {\n         where: [\n             ['normalizedLabel', '==', 'alice'],\n             ['normalizedParentDomainName', '==', 'dash'],\n         ],\n     };\n  await client.platform.documents.get('dpns.domain', queryOpts);\n```",
- "mdxAltBody": "",
  "order": 2,
  "isReference": false,
  "deprecated": false,

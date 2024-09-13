@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -81,7 +85,6 @@
  "slug": "core-examples-p2p-network",
  "excerpt": "",
  "body": "",
- "mdxAltBody": "",
  "order": 4,
  "isReference": false,
  "deprecated": false,
@@ -91,7 +94,7 @@
  "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2024-09-05T20:20:04.183Z",
+ "slugUpdatedAt": "2024-09-12T17:47:38.760Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e77cb",
  "version": "63f5176df91c7700118e7825",

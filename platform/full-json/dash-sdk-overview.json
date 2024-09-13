@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-overview",
  "excerpt": "",
  "body": "# Dash SDK\n\n[![NPM Version](https://img.shields.io/npm/v/dash)](https://www.npmjs.org/package/dash)  \n[![Release Packages](https://github.com/dashpay/platform/actions/workflows/release.yml/badge.svg)](https://github.com/dashpay/platform/actions/workflows/release.yml)  \n[![Release Date](https://img.shields.io/github/release-date/dashpay/platform)](https://github.com/dashpay/platform/releases/latest)  \n[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen)](https://github.com/RichardLitt/standard-readme)\n\nDash library for JavaScript/TypeScript ecosystem (Wallet, DAPI, Primitives, BLS, ...)\n\nDash library provides access via [DAPI](https://dashplatform.readme.io/docs/explanation-dapi) to use both the Dash Core network and Dash Platform on [supported networks](https://github.com/dashpay/platform/#supported-networks). The Dash Core network can be used to broadcast and receive payments. Dash Platform can be used to manage identities, register data contracts for applications, and submit or retrieve application data via documents.\n\n## Install\n\n### From NPM\n\nIn order to use this library, you will need to add our [NPM package](https://www.npmjs.com/dash) to your project.\n\nHaving [NodeJS](https://nodejs.org/) installed, just type:\n\n```bash\nnpm install dash\n```\n\n### From unpkg\n\n```html\n<script src=\"https://unpkg.com/dash\"></script>\n```\n\n### Usage examples\n\n- [Generate a mnemonic](https://dashplatform.readme.io/docs/generate-a-new-mnemonic)\n- [Receive money and display balance](https://dashplatform.readme.io/docs/dash-sdk-examples-receive-money-and-check-balance)\n- [Pay to another address](https://dashplatform.readme.io/docs/dash-sdk-examples-paying-to-another-address)\n- [Use another BIP44 account](https://dashplatform.readme.io/docs/use-different-account)\n\n### Dash Platform Tutorials\n\nSee the [Tutorial section](https://dashplatform.readme.io/docs/tutorials-introduction) of the Dash Platform documentation for examples.\n\n## Licence\n\n[MIT](https://github.com/dashevo/dashjs/blob/master/LICENCE.md) \u00a9 Dash Core Group, Inc.",
- "mdxAltBody": "",
  "order": 0,
  "isReference": false,
  "deprecated": false,

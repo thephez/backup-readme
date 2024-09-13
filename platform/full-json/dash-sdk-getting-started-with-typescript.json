@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -48,7 +52,6 @@
  "slug": "dash-sdk-getting-started-with-typescript",
  "excerpt": "",
  "body": "In order to use Dash SDK with TypeScript.    \n\nCreate an index.ts file  \n\n```js\nimport Dash from 'dash';\nconst clientOpts = {\n  wallet: {\n    mnemonic: null, // Will generate a new address, you should keep it.\n  },\n};\nconst client = new Dash.Client(clientOpts);\n\nconst initializeAccount = async () => {\n  const account = await client.wallet.getAccount();\n  const balance = account.getTotalBalance();\n  console.log(`Account balance: ${balance}`)\n}\n```\n\nHave a following `tsconfig.json` file\n\n```json\n{\n  \"compilerOptions\": {\n    \"module\": \"commonjs\",\n    \"moduleResolution\": \"node\",\n    \"esModuleInterop\": true\n  }\n}\n```\n\n**Compile:** `tsc -p tsconfig.json`  \n**Run:** `node index.js`",
- "mdxAltBody": "",
  "order": 5,
  "isReference": false,
  "deprecated": false,

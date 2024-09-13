@@ -6,6 +6,10 @@
   "keywords": "",
   "robots": "index"
  },
+ "mdx": {
+  "altBody": "",
+  "status": "rdmd"
+ },
  "api": {
   "method": "get",
   "url": "",
@@ -45,7 +49,6 @@
  "slug": "reference-debugging",
  "excerpt": "",
  "body": "> \ud83d\udea7 Under construction\n>\n>",
- "mdxAltBody": "",
  "order": 8,
  "isReference": false,
  "deprecated": false,
