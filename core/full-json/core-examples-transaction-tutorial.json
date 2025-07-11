@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Transaction Tutorial",
-  "description": "This section describes how to use Dash Core's RPC interface to create transactions with various attributes.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "This section describes how to use Dash Core's RPC interface to create transactions with various attributes.",
+  "title": "Transaction Tutorial",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Core Examples",
@@ -77,32 +76,16 @@
     "slug": "core-examples-p2p-network",
     "category": "Core Examples"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:50.154Z"
  },
- "title": "Transaction Tutorial",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-examples-transaction-tutorial",
- "excerpt": "",
- "body": "Creating transactions is something most Dash applications do. This section describes how to use Dash Core's RPC interface to create transactions with various attributes.\n\nYour applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.\n\nIn order to use this tutorial, you will need to setup [Dash Core](https://www.dash.org/wallets/#wallets) and create a <<glossary:regression test mode>> environment with 500 DASH in your test wallet.",
- "order": 3,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T18:32:50.808Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e77d5",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-11T20:17:35.253Z",
@@ -110,9 +93,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e77a0",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 3,
+ "body": "Creating transactions is something most Dash applications do. This section describes how to use Dash Core's RPC interface to create transactions with various attributes.\n\nYour applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.\n\nIn order to use this tutorial, you will need to setup [Dash Core](https://www.dash.org/wallets/#wallets) and create a <<glossary:regression test mode>> environment with 500 DASH in your test wallet.",
+ "excerpt": "",
+ "slug": "core-examples-transaction-tutorial",
+ "type": "basic",
+ "title": "Transaction Tutorial",
  "__v": 2,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-20T18:32:50.808Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77d5",
  "body_html": "<p>Creating transactions is something most Dash applications do. This section describes how to use Dash Core&#x27;s RPC interface to create transactions with various attributes.</p>\n<p>Your applications may use something besides Dash Core to create transactions, but in any system, you will need to provide the same kinds of data to create transactions with the same attributes as those described below.</p>\n<p>In order to use this tutorial, you will need to setup <a href=\"https://www.dash.org/wallets/#wallets\" target=\"\" title=\"\">Dash Core</a> and create a <span class=\"GlossaryItem-trigger\">regression test mode</span> environment with 500 DASH in your test wallet.</p>"

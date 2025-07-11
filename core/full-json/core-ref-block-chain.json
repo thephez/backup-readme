@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Introduction to the blockchain",
-  "description": "The blockchain technology is the heart and soul of the crypto ecosystem, including Dash.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "The blockchain technology is the heart and soul of the crypto ecosystem, including Dash.",
+  "title": "Introduction to the blockchain",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Core Reference",
@@ -56,32 +55,16 @@
     "slug": "core-ref-transactions",
     "category": "Core Reference"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:42.122Z"
  },
- "title": "Blockchain",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-ref-block-chain",
- "excerpt": "",
- "body": "The following subsections briefly document core block details.\n\n<img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"/>",
- "order": 1,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
- "revision": 6,
  "_id": "63f5176df91c7700118e77ad",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-25T15:34:34.851Z",
@@ -89,9 +72,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "63f5176df91c7700118e779d",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 1,
+ "body": "The following subsections briefly document core block details.\n\n<img src=\"https://files.readme.io/0a51d76-businessplan.svg\" alt=\"\" style=\"width:75%;text-align:center;\"/>",
+ "excerpt": "",
+ "slug": "core-ref-block-chain",
+ "type": "basic",
+ "title": "Blockchain",
  "__v": 2,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-11-24T05:14:26.010Z",
+ "deprecated": false,
+ "icon": "",
+ "revision": 6,
  "isApi": false,
  "id": "63f5176df91c7700118e77ad",
  "body_html": "<p>The following subsections briefly document core block details.</p>\n<span aria-label=\"\" class=\"img lightbox closed\" role=\"button\" tabindex=\"0\"><span class=\"lightbox-inner\"><img alt=\"\" loading=\"lazy\" src=\"https://files.readme.io/0a51d76-businessplan.svg\" style=\"width:75%;text-align:center\" align=\"\" caption=\"\" height=\"auto\" title=\"\" width=\"auto\"/></span></span>"

@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash HTTP REST",
-  "description": "Dash Core provides an unauthenticated HTTP REST interface. The interface runs on the same port as the JSON-RPC interface, by default port 9998 for mainnet and port 19998 for testnet",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "Dash Core provides an unauthenticated HTTP REST interface. The interface runs on the same port as the JSON-RPC interface, by default port 9998 for mainnet and port 19998 for testnet",
+  "title": "Dash HTTP REST",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Core API Reference",
@@ -49,32 +48,16 @@
     "slug": "core-api-ref-http-rest-requests",
     "category": "Core API Reference"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:56.032Z"
  },
- "title": "HTTP REST",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-api-ref-http-rest",
- "excerpt": "",
- "body": ">\u2757\ufe0f Privacy\n>\n> **Warning:** A web browser can access a HTTP REST interface running on localhost, possibly allowing third parties to use cross-site scripting attacks to download your transaction and block data, reducing your privacy.  If you have privacy concerns, you should not run a browser on the same computer as a REST-enabled Dash Core node.\n\nDash Core provides an **unauthenticated** HTTP REST interface.  The interface runs on the same port as the JSON-RPC interface, by default port 9998 for <<glossary:mainnet>> and port 19998 for <<glossary:testnet>>. It must be enabled by either starting Dash Core with the `-rest` option or by specifying `rest=1` in the configuration file. Make sure that the RPC interface is also activated. Set `server=1` in `dash.conf` or supply the `-server` argument when starting Dash Core. Starting Dash Core with `dashd` automatically enables the RPC interface.\n\nThe interface is not intended for public access and is only accessible from localhost by default. The interface uses standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) and returns a plain-text description of errors for debugging.",
- "order": 2,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-08-02T01:44:21.027Z",
- "revision": 3,
  "_id": "63f5176df91c7700118e77e8",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-16T14:08:47.057Z",
@@ -82,9 +65,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "63f5176df91c7700118e77a1",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 2,
+ "body": ">\u2757\ufe0f Privacy\n>\n> **Warning:** A web browser can access a HTTP REST interface running on localhost, possibly allowing third parties to use cross-site scripting attacks to download your transaction and block data, reducing your privacy.  If you have privacy concerns, you should not run a browser on the same computer as a REST-enabled Dash Core node.\n\nDash Core provides an **unauthenticated** HTTP REST interface.  The interface runs on the same port as the JSON-RPC interface, by default port 9998 for <<glossary:mainnet>> and port 19998 for <<glossary:testnet>>. It must be enabled by either starting Dash Core with the `-rest` option or by specifying `rest=1` in the configuration file. Make sure that the RPC interface is also activated. Set `server=1` in `dash.conf` or supply the `-server` argument when starting Dash Core. Starting Dash Core with `dashd` automatically enables the RPC interface.\n\nThe interface is not intended for public access and is only accessible from localhost by default. The interface uses standard [HTTP status codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) and returns a plain-text description of errors for debugging.",
+ "excerpt": "",
+ "slug": "core-api-ref-http-rest",
+ "type": "basic",
+ "title": "HTTP REST",
  "__v": 2,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-08-02T01:44:21.027Z",
+ "revision": 3,
  "isApi": false,
  "id": "63f5176df91c7700118e77e8",
  "body_html": "<blockquote class=\"callout callout_error\" theme=\"\u2757\ufe0f\"><h2 class=\"callout-heading\"><span class=\"callout-icon\">\u2757\ufe0f</span><p>Privacy</p></h2><p><strong>Warning:</strong> A web browser can access a HTTP REST interface running on localhost, possibly allowing third parties to use cross-site scripting attacks to download your transaction and block data, reducing your privacy.  If you have privacy concerns, you should not run a browser on the same computer as a REST-enabled Dash Core node.</p></blockquote>\n<p>Dash Core provides an <strong>unauthenticated</strong> HTTP REST interface.  The interface runs on the same port as the JSON-RPC interface, by default port 9998 for <span class=\"GlossaryItem-trigger\">mainnet</span> and port 19998 for <span class=\"GlossaryItem-trigger\">testnet</span>. It must be enabled by either starting Dash Core with the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">-rest</code> option or by specifying <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">rest=1</code> in the configuration file. Make sure that the RPC interface is also activated. Set <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">server=1</code> in <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash.conf</code> or supply the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">-server</code> argument when starting Dash Core. Starting Dash Core with <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dashd</code> automatically enables the RPC interface.</p>\n<p>The interface is not intended for public access and is only accessible from localhost by default. The interface uses standard <a href=\"https://en.wikipedia.org/wiki/List_of_HTTP_status_codes\" target=\"\" title=\"\">HTTP status codes</a> and returns a plain-text description of errors for debugging.</p>"

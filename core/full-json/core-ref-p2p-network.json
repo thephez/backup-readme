@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash P2P Network Overview",
-  "description": "This corresponding subsections describes the Dash P2P network protocol in detail. .",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "This corresponding subsections describes the Dash P2P network protocol in detail. .",
+  "title": "Dash P2P Network Overview",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -119,32 +118,16 @@
     "slug": "core-ref-improvement-proposals",
     "category": "Core Reference"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:38.583Z"
  },
- "title": "P2P Network",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-ref-p2p-network",
- "excerpt": "Dash P2P Network Overview",
- "body": "This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <<glossary:BIP70 payment protocol>>, the [GetBlockTemplate mining protocol](core-guide-mining-block-prototypes#getblocktemplate-rpc), or any network protocol never implemented in an official version of Dash Core.\n\nAll peer-to-peer communication occurs entirely over TCP.\n\n> \ud83d\udea7 \n>\n> Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.\n\n<img src=\"https://files.readme.io/2f6f207-home-map-1.svg\" alt=\"Worldwide network\" style=\"width:55%;text-align:center;\"/>",
- "order": 4,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2020-11-24T04:36:43.878Z",
- "revision": 6,
  "_id": "63f5176df91c7700118e77a5",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-25T15:35:54.264Z",
@@ -152,9 +135,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "63f5176df91c7700118e779d",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 4,
+ "body": "This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <<glossary:BIP70 payment protocol>>, the [GetBlockTemplate mining protocol](core-guide-mining-block-prototypes#getblocktemplate-rpc), or any network protocol never implemented in an official version of Dash Core.\n\nAll peer-to-peer communication occurs entirely over TCP.\n\n> \ud83d\udea7 \n>\n> Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.\n\n<img src=\"https://files.readme.io/2f6f207-home-map-1.svg\" alt=\"Worldwide network\" style=\"width:55%;text-align:center;\"/>",
+ "excerpt": "Dash P2P Network Overview",
+ "slug": "core-ref-p2p-network",
+ "type": "basic",
+ "title": "P2P Network",
  "__v": 6,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-11-24T04:36:43.878Z",
+ "deprecated": false,
+ "icon": "",
+ "revision": 6,
  "isApi": false,
  "id": "63f5176df91c7700118e77a5",
  "body_html": "<p>This section describes the Dash P2P network protocol (but it is not a specification). It does not describe the <span class=\"GlossaryItem-trigger\">BIP70 payment protocol</span>, the <a href=\"core-guide-mining-block-prototypes#getblocktemplate-rpc\" target=\"\" title=\"\">GetBlockTemplate mining protocol</a>, or any network protocol never implemented in an official version of Dash Core.</p>\n<p>All peer-to-peer communication occurs entirely over TCP.</p>\n<blockquote class=\"callout callout_warn\" theme=\"\ud83d\udea7\"><h2 class=\"callout-heading empty\"><span class=\"callout-icon\">\ud83d\udea7</span></h2><p>Note: unless their description says otherwise, all multi-byte integers mentioned in this section are transmitted in little-endian order.</p></blockquote>\n<span aria-label=\"Worldwide network\" class=\"img lightbox closed\" role=\"button\" tabindex=\"0\"><span class=\"lightbox-inner\"><img alt=\"Worldwide network\" loading=\"lazy\" src=\"https://files.readme.io/2f6f207-home-map-1.svg\" style=\"width:55%;text-align:center\" align=\"\" caption=\"\" height=\"auto\" title=\"\" width=\"auto\"/></span></span>"

@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Avoiding Key Reuse",
-  "description": "In a transaction, the spender and receiver each reveal to each other all public keys or addresses used in the transaction.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "In a transaction, the spender and receiver each reveal to each other all public keys or addresses used in the transaction.",
+  "title": "Avoiding Key Reuse",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-guide-transactions-transaction-malleability",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:04.238Z"
  },
- "title": "Avoiding Key Reuse",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-transactions-avoiding-key-reuse",
- "excerpt": "",
- "body": "In a <<glossary:transaction>>, the spender and receiver each reveal to each other all <<glossary:public keys>> or <<glossary:addresses>> used in the transaction. This allows either person to use the public <<glossary:block chain>> to track past and future transactions involving the other person's same public keys or addresses.\n\nIf the same public key is reused often, as happens when people use Dash addresses (hashed public keys) as static payment addresses, other people can easily track the receiving and spending habits of that person, including how many <<glossary:duffs>> they control in known addresses.\n\nIt doesn't have to be that way. If each public key is used exactly twice---once to receive a payment and once to spend that payment---the user can gain a significant amount of financial privacy.\n\nEven better, using new public keys or <<glossary:unique addresses>> when accepting payments or creating change outputs can be combined with other techniques discussed later, such as CoinJoin or merge avoidance, to make it extremely difficult to use the block chain by itself to reliably track how users receive and spend their duffs.\n\nAvoiding key reuse can also provide security against attacks which might allow reconstruction of <<glossary:private keys>> from public keys (hypothesized) or from signature comparisons (possible today under certain circumstances described below, with more general attacks hypothesized).\n\n1. Unique (non-reused) <<glossary:P2PKH>> and <<glossary:P2SH>> addresses protect against the first type of attack by keeping ECDSA public keys hidden (hashed) until the first time duffs sent to those addresses are spent, so attacks are effectively useless unless they can reconstruct private keys in less than the hour or two it takes for a transaction to be well protected by the block chain.\n\n2. Unique (non-reused) private keys protect against the second type of attack by only generating one signature per private key, so attackers never get a subsequent signature to use in comparison-based attacks. Existing comparison-based attacks are only practical today when insufficient entropy is used in signing or when the entropy used is exposed by some means, such as a [side-channel attack](https://en.wikipedia.org/wiki/Side_channel_attack).\n\nSo, for both privacy and security, we encourage you to build your applications to avoid public key reuse and, when possible, to discourage users from reusing addresses. If your application needs to provide a fixed URI to which payments should be sent, please use `dash:` URIs as defined by [BIP21](https://github.com/dashevo/bips/blob/master/bip-0021.mediawiki#general-format).",
- "order": 7,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2021-03-24T15:50:39.976Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e7803",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2021-03-24T20:43:13.960Z",
@@ -76,8 +59,25 @@
  "user": "62b2101422da70001ee51d95",
  "parentDoc": "63f5176df91c7700118e77fc",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 7,
+ "body": "In a <<glossary:transaction>>, the spender and receiver each reveal to each other all <<glossary:public keys>> or <<glossary:addresses>> used in the transaction. This allows either person to use the public <<glossary:block chain>> to track past and future transactions involving the other person's same public keys or addresses.\n\nIf the same public key is reused often, as happens when people use Dash addresses (hashed public keys) as static payment addresses, other people can easily track the receiving and spending habits of that person, including how many <<glossary:duffs>> they control in known addresses.\n\nIt doesn't have to be that way. If each public key is used exactly twice---once to receive a payment and once to spend that payment---the user can gain a significant amount of financial privacy.\n\nEven better, using new public keys or <<glossary:unique addresses>> when accepting payments or creating change outputs can be combined with other techniques discussed later, such as CoinJoin or merge avoidance, to make it extremely difficult to use the block chain by itself to reliably track how users receive and spend their duffs.\n\nAvoiding key reuse can also provide security against attacks which might allow reconstruction of <<glossary:private keys>> from public keys (hypothesized) or from signature comparisons (possible today under certain circumstances described below, with more general attacks hypothesized).\n\n1. Unique (non-reused) <<glossary:P2PKH>> and <<glossary:P2SH>> addresses protect against the first type of attack by keeping ECDSA public keys hidden (hashed) until the first time duffs sent to those addresses are spent, so attacks are effectively useless unless they can reconstruct private keys in less than the hour or two it takes for a transaction to be well protected by the block chain.\n\n2. Unique (non-reused) private keys protect against the second type of attack by only generating one signature per private key, so attackers never get a subsequent signature to use in comparison-based attacks. Existing comparison-based attacks are only practical today when insufficient entropy is used in signing or when the entropy used is exposed by some means, such as a [side-channel attack](https://en.wikipedia.org/wiki/Side_channel_attack).\n\nSo, for both privacy and security, we encourage you to build your applications to avoid public key reuse and, when possible, to discourage users from reusing addresses. If your application needs to provide a fixed URI to which payments should be sent, please use `dash:` URIs as defined by [BIP21](https://github.com/dashevo/bips/blob/master/bip-0021.mediawiki#general-format).",
+ "excerpt": "",
+ "slug": "core-guide-transactions-avoiding-key-reuse",
+ "type": "basic",
+ "title": "Avoiding Key Reuse",
  "__v": 1,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-03-24T15:50:39.976Z",
+ "deprecated": false,
+ "icon": "",
+ "revision": 2,
  "isApi": false,
  "id": "63f5176df91c7700118e7803",
  "body_html": "<p>In a <span class=\"GlossaryItem-trigger\">transaction</span>, the spender and receiver each reveal to each other all <span class=\"GlossaryItem-trigger\">public keys</span> or <span class=\"GlossaryItem-trigger\">addresses</span> used in the transaction. This allows either person to use the public <span class=\"GlossaryItem-trigger\">block chain</span> to track past and future transactions involving the other person&#x27;s same public keys or addresses.</p>\n<p>If the same public key is reused often, as happens when people use Dash addresses (hashed public keys) as static payment addresses, other people can easily track the receiving and spending habits of that person, including how many <span class=\"GlossaryItem-trigger\">duffs</span> they control in known addresses.</p>\n<p>It doesn&#x27;t have to be that way. If each public key is used exactly twice---once to receive a payment and once to spend that payment---the user can gain a significant amount of financial privacy.</p>\n<p>Even better, using new public keys or <span class=\"GlossaryItem-trigger\">unique addresses</span> when accepting payments or creating change outputs can be combined with other techniques discussed later, such as CoinJoin or merge avoidance, to make it extremely difficult to use the block chain by itself to reliably track how users receive and spend their duffs.</p>\n<p>Avoiding key reuse can also provide security against attacks which might allow reconstruction of <span class=\"GlossaryItem-trigger\">private keys</span> from public keys (hypothesized) or from signature comparisons (possible today under certain circumstances described below, with more general attacks hypothesized).</p>\n<ol>\n<li>\n<p>Unique (non-reused) <span class=\"GlossaryItem-trigger\">P2PKH</span> and <span class=\"GlossaryItem-trigger\">P2SH</span> addresses protect against the first type of attack by keeping ECDSA public keys hidden (hashed) until the first time duffs sent to those addresses are spent, so attacks are effectively useless unless they can reconstruct private keys in less than the hour or two it takes for a transaction to be well protected by the block chain.</p>\n</li>\n<li>\n<p>Unique (non-reused) private keys protect against the second type of attack by only generating one signature per private key, so attackers never get a subsequent signature to use in comparison-based attacks. Existing comparison-based attacks are only practical today when insufficient entropy is used in signing or when the entropy used is exposed by some means, such as a <a href=\"https://en.wikipedia.org/wiki/Side_channel_attack\" target=\"\" title=\"\">side-channel attack</a>.</p>\n</li>\n</ol>\n<p>So, for both privacy and security, we encourage you to build your applications to avoid public key reuse and, when possible, to discourage users from reusing addresses. If your application needs to provide a fixed URI to which payments should be sent, please use <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash:</code> URIs as defined by <a href=\"https://github.com/dashevo/bips/blob/master/bip-0021.mediawiki#general-format\" target=\"\" title=\"\">BIP21</a>.</p>"

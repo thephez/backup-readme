@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Bloom Filter Script",
-  "description": "Complete Python script demonstrating the Creating/Evaluating bloom filter.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "Complete Python script demonstrating the Creating/Evaluating bloom filter.",
+  "title": "Bloom Filter Script",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-examples-p2p-network-retrieving-a-merkleblock",
     "category": "Core Examples"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:51.591Z"
  },
- "title": "Bloom Filter Script",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-examples-p2p-network-bloom-filter-script",
- "excerpt": "",
- "body": "Complete Python script demonstrating the [Creating](core-examples-p2p-network-creating-a-bloom-filter)/[Evaluating](core-examples-p2p-network-evaluating-a-bloom-filter) bloom filter examples (available [here](https://gist.github.com/dash-docs/5d63f095352a717f90d41a5e7fbbdac1#file-bloom_filter_example-py)):\n\n``` python\n#!/usr/bin/env python\nfrom math import log\nfrom bitarray import bitarray  # from pypi.python.org/pypi/bitarray\nimport pyhash  # from https://github.com/flier/pyfasthash\n\n# Based on BIP-37\n# https://github.com/QuantumExplorer/bips/blob/master/bip-0037.mediawiki\n\n# Defined in bloom.h\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L19-#L20\nMAX_BLOOM_FILTER_SIZE = 36000\nMAX_HASH_FUNCS = 50\n\n# Set of flags that control how matched items are added to the filter (per BIP-37)\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L26\nnFlags = 0\n\nnElements = 1 # Number of elements\nnFPRate = 0.0001 # False positive rate\n\nnFilterBytes = int(min((-1 / log(2)**2 * nElements * log(nFPRate)) / 8, MAX_BLOOM_FILTER_SIZE))\n\n# Calculate the number of hash functions to use in the filter\n# Limit the maximum number to 50 per BIP-37\nnHashFuncs = int(min(nFilterBytes * 8 / nElements * log(2), MAX_HASH_FUNCS))\n\nmurmur3 = pyhash.murmur3_32()\n\nTEST_TXID = \"019f5b01d4195ecbc9398fbf3c3b1fa9bb3183301d7a1fb3bd174fcfa40a2b65\"\n\ndef bloom_hash(nHashNum, data):\n    seed = (nHashNum * 0xfba4c795 + nTweak) & 0xffffffff\n    return( murmur3(data, seed=seed) % (nFilterBytes * 8) )\n\n\n# Bloom Filter creation\ndef create_filter(nTweak):\n    print('Creating bloom filter')\n    vData = nFilterBytes * 8 * bitarray('0', endian=\"little\")\n\n    data_to_hash = TEST_TXID\n    data_to_hash = data_to_hash.decode(\"hex\")\n\n    print('Filter bytes: {}; Hash functions: {}'.format(nFilterBytes, nHashFuncs))\n\n    print(\"                             Filter (As Bits)\")\n    print(\"nHashNum   nIndex   Filter   0123456789abcdef\")\n    print(\"~~~~~~~~   ~~~~~~   ~~~~~~   ~~~~~~~~~~~~~~~~\")\n    for nHashNum in range(nHashFuncs):\n        nIndex = bloom_hash(nHashNum, data_to_hash)\n\n        ## Set the bit at nIndex to 1\n        vData[nIndex] = True\n\n        ## Debug: print current state\n        print('      {0:2}      {1:2}     {2}   {3}'.format(\n            nHashNum,\n            hex(int(nIndex)),\n            vData.tobytes().encode(\"hex\"),\n            vData.to01()\n        ))\n\n    print('Bloom filter: {}\\n'.format(vData.tobytes().encode(\"hex\")))\n\n\n# Bloom Filter evaluation\ndef evaluate_filter():\n    print('Evaluating bloom filter')\n    vData = bitarray(endian='little')\n    vData.frombytes(\"b50f\".decode(\"hex\"))\n    nHashFuncs = 11\n    nTweak = 0\n    nFlags = 0\n\n    def contains(nHashFuncs, data_to_hash):\n        for nHashNum in range(nHashFuncs):\n            ## bloom_hash as defined in previous section\n            nIndex = bloom_hash(nHashNum, data_to_hash)\n\n            if vData[nIndex] != True:\n                print(\"MATCH FAILURE: Index {0} not set in {1}\\n\".format(\n                    hex(int(nIndex)),\n                    vData.to01()\n                ))\n                return False\n        print(\"MATCH SUCCESS\\n\")\n\n    ## Test 1: Same TXID as previously added to filter\n    data_to_hash = TEST_TXID\n    print('\\nChecking: {}'.format(data_to_hash))\n    data_to_hash = data_to_hash.decode(\"hex\")\n    contains(nHashFuncs, data_to_hash)\n\n    ## Test 2: Arbitrary string\n    data_to_hash = \"1/10,000 chance this ASCII string will match\"\n    print('Checking: {}'.format(data_to_hash))\n    contains(nHashFuncs, data_to_hash)\n\n\n# Tweak is a random value added to the seed value in the hash function\n# used by the bloom filter\nnTweak = 0\n\ncreate_filter(nTweak)\nevaluate_filter()\n```",
- "order": 2,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T18:32:52.108Z",
- "revision": 4,
  "_id": "63f5176df91c7700118e77db",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-01-22T16:09:38.797Z",
@@ -76,8 +59,25 @@
  "user": "62b2101422da70001ee51d95",
  "parentDoc": "63f5176df91c7700118e77cb",
  "category": "63f5176df91c7700118e77a0",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 2,
+ "body": "Complete Python script demonstrating the [Creating](core-examples-p2p-network-creating-a-bloom-filter)/[Evaluating](core-examples-p2p-network-evaluating-a-bloom-filter) bloom filter examples (available [here](https://gist.github.com/dash-docs/5d63f095352a717f90d41a5e7fbbdac1#file-bloom_filter_example-py)):\n\n``` python\n#!/usr/bin/env python\nfrom math import log\nfrom bitarray import bitarray  # from pypi.python.org/pypi/bitarray\nimport pyhash  # from https://github.com/flier/pyfasthash\n\n# Based on BIP-37\n# https://github.com/QuantumExplorer/bips/blob/master/bip-0037.mediawiki\n\n# Defined in bloom.h\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L19-#L20\nMAX_BLOOM_FILTER_SIZE = 36000\nMAX_HASH_FUNCS = 50\n\n# Set of flags that control how matched items are added to the filter (per BIP-37)\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L26\nnFlags = 0\n\nnElements = 1 # Number of elements\nnFPRate = 0.0001 # False positive rate\n\nnFilterBytes = int(min((-1 / log(2)**2 * nElements * log(nFPRate)) / 8, MAX_BLOOM_FILTER_SIZE))\n\n# Calculate the number of hash functions to use in the filter\n# Limit the maximum number to 50 per BIP-37\nnHashFuncs = int(min(nFilterBytes * 8 / nElements * log(2), MAX_HASH_FUNCS))\n\nmurmur3 = pyhash.murmur3_32()\n\nTEST_TXID = \"019f5b01d4195ecbc9398fbf3c3b1fa9bb3183301d7a1fb3bd174fcfa40a2b65\"\n\ndef bloom_hash(nHashNum, data):\n    seed = (nHashNum * 0xfba4c795 + nTweak) & 0xffffffff\n    return( murmur3(data, seed=seed) % (nFilterBytes * 8) )\n\n\n# Bloom Filter creation\ndef create_filter(nTweak):\n    print('Creating bloom filter')\n    vData = nFilterBytes * 8 * bitarray('0', endian=\"little\")\n\n    data_to_hash = TEST_TXID\n    data_to_hash = data_to_hash.decode(\"hex\")\n\n    print('Filter bytes: {}; Hash functions: {}'.format(nFilterBytes, nHashFuncs))\n\n    print(\"                             Filter (As Bits)\")\n    print(\"nHashNum   nIndex   Filter   0123456789abcdef\")\n    print(\"~~~~~~~~   ~~~~~~   ~~~~~~   ~~~~~~~~~~~~~~~~\")\n    for nHashNum in range(nHashFuncs):\n        nIndex = bloom_hash(nHashNum, data_to_hash)\n\n        ## Set the bit at nIndex to 1\n        vData[nIndex] = True\n\n        ## Debug: print current state\n        print('      {0:2}      {1:2}     {2}   {3}'.format(\n            nHashNum,\n            hex(int(nIndex)),\n            vData.tobytes().encode(\"hex\"),\n            vData.to01()\n        ))\n\n    print('Bloom filter: {}\\n'.format(vData.tobytes().encode(\"hex\")))\n\n\n# Bloom Filter evaluation\ndef evaluate_filter():\n    print('Evaluating bloom filter')\n    vData = bitarray(endian='little')\n    vData.frombytes(\"b50f\".decode(\"hex\"))\n    nHashFuncs = 11\n    nTweak = 0\n    nFlags = 0\n\n    def contains(nHashFuncs, data_to_hash):\n        for nHashNum in range(nHashFuncs):\n            ## bloom_hash as defined in previous section\n            nIndex = bloom_hash(nHashNum, data_to_hash)\n\n            if vData[nIndex] != True:\n                print(\"MATCH FAILURE: Index {0} not set in {1}\\n\".format(\n                    hex(int(nIndex)),\n                    vData.to01()\n                ))\n                return False\n        print(\"MATCH SUCCESS\\n\")\n\n    ## Test 1: Same TXID as previously added to filter\n    data_to_hash = TEST_TXID\n    print('\\nChecking: {}'.format(data_to_hash))\n    data_to_hash = data_to_hash.decode(\"hex\")\n    contains(nHashFuncs, data_to_hash)\n\n    ## Test 2: Arbitrary string\n    data_to_hash = \"1/10,000 chance this ASCII string will match\"\n    print('Checking: {}'.format(data_to_hash))\n    contains(nHashFuncs, data_to_hash)\n\n\n# Tweak is a random value added to the seed value in the hash function\n# used by the bloom filter\nnTweak = 0\n\ncreate_filter(nTweak)\nevaluate_filter()\n```",
+ "excerpt": "",
+ "slug": "core-examples-p2p-network-bloom-filter-script",
+ "type": "basic",
+ "title": "Bloom Filter Script",
  "__v": 1,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 4,
+ "slugUpdatedAt": "2022-09-20T18:32:52.108Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77db",
  "body_html": "<p>Complete Python script demonstrating the <a href=\"core-examples-p2p-network-creating-a-bloom-filter\" target=\"\" title=\"\">Creating</a>/<a href=\"core-examples-p2p-network-evaluating-a-bloom-filter\" target=\"\" title=\"\">Evaluating</a> bloom filter examples (available <a href=\"https://gist.github.com/dash-docs/5d63f095352a717f90d41a5e7fbbdac1#file-bloom_filter_example-py\" target=\"\" title=\"\">here</a>):</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Python</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-python theme-light\" data-lang=\"python\" name=\"\" tabindex=\"0\">#!/usr/bin/env python\nfrom math import log\nfrom bitarray import bitarray  # from pypi.python.org/pypi/bitarray\nimport pyhash  # from https://github.com/flier/pyfasthash\n\n# Based on BIP-37\n# https://github.com/QuantumExplorer/bips/blob/master/bip-0037.mediawiki\n\n# Defined in bloom.h\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L19-#L20\nMAX_BLOOM_FILTER_SIZE = 36000\nMAX_HASH_FUNCS = 50\n\n# Set of flags that control how matched items are added to the filter (per BIP-37)\n# https://github.com/dashpay/dash/blob/master/src/bloom.h#L26\nnFlags = 0\n\nnElements = 1 # Number of elements\nnFPRate = 0.0001 # False positive rate\n\nnFilterBytes = int(min((-1 / log(2)**2 * nElements * log(nFPRate)) / 8, MAX_BLOOM_FILTER_SIZE))\n\n# Calculate the number of hash functions to use in the filter\n# Limit the maximum number to 50 per BIP-37\nnHashFuncs = int(min(nFilterBytes * 8 / nElements * log(2), MAX_HASH_FUNCS))\n\nmurmur3 = pyhash.murmur3_32()\n\nTEST_TXID = &quot;019f5b01d4195ecbc9398fbf3c3b1fa9bb3183301d7a1fb3bd174fcfa40a2b65&quot;\n\ndef bloom_hash(nHashNum, data):\n    seed = (nHashNum * 0xfba4c795 + nTweak) &amp; 0xffffffff\n    return( murmur3(data, seed=seed) % (nFilterBytes * 8) )\n\n\n# Bloom Filter creation\ndef create_filter(nTweak):\n    print(&#x27;Creating bloom filter&#x27;)\n    vData = nFilterBytes * 8 * bitarray(&#x27;0&#x27;, endian=&quot;little&quot;)\n\n    data_to_hash = TEST_TXID\n    data_to_hash = data_to_hash.decode(&quot;hex&quot;)\n\n    print(&#x27;Filter bytes: {}; Hash functions: {}&#x27;.format(nFilterBytes, nHashFuncs))\n\n    print(&quot;                             Filter (As Bits)&quot;)\n    print(&quot;nHashNum   nIndex   Filter   0123456789abcdef&quot;)\n    print(&quot;~~~~~~~~   ~~~~~~   ~~~~~~   ~~~~~~~~~~~~~~~~&quot;)\n    for nHashNum in range(nHashFuncs):\n        nIndex = bloom_hash(nHashNum, data_to_hash)\n\n        ## Set the bit at nIndex to 1\n        vData[nIndex] = True\n\n        ## Debug: print current state\n        print(&#x27;      {0:2}      {1:2}     {2}   {3}&#x27;.format(\n            nHashNum,\n            hex(int(nIndex)),\n            vData.tobytes().encode(&quot;hex&quot;),\n            vData.to01()\n        ))\n\n    print(&#x27;Bloom filter: {}\\n&#x27;.format(vData.tobytes().encode(&quot;hex&quot;)))\n\n\n# Bloom Filter evaluation\ndef evaluate_filter():\n    print(&#x27;Evaluating bloom filter&#x27;)\n    vData = bitarray(endian=&#x27;little&#x27;)\n    vData.frombytes(&quot;b50f&quot;.decode(&quot;hex&quot;))\n    nHashFuncs = 11\n    nTweak = 0\n    nFlags = 0\n\n    def contains(nHashFuncs, data_to_hash):\n        for nHashNum in range(nHashFuncs):\n            ## bloom_hash as defined in previous section\n            nIndex = bloom_hash(nHashNum, data_to_hash)\n\n            if vData[nIndex] != True:\n                print(&quot;MATCH FAILURE: Index {0} not set in {1}\\n&quot;.format(\n                    hex(int(nIndex)),\n                    vData.to01()\n                ))\n                return False\n        print(&quot;MATCH SUCCESS\\n&quot;)\n\n    ## Test 1: Same TXID as previously added to filter\n    data_to_hash = TEST_TXID\n    print(&#x27;\\nChecking: {}&#x27;.format(data_to_hash))\n    data_to_hash = data_to_hash.decode(&quot;hex&quot;)\n    contains(nHashFuncs, data_to_hash)\n\n    ## Test 2: Arbitrary string\n    data_to_hash = &quot;1/10,000 chance this ASCII string will match&quot;\n    print(&#x27;Checking: {}&#x27;.format(data_to_hash))\n    contains(nHashFuncs, data_to_hash)\n\n\n# Tweak is a random value added to the seed value in the hash function\n# used by the bloom filter\nnTweak = 0\n\ncreate_filter(nTweak)\nevaluate_filter()\n</code></pre></div></div>"

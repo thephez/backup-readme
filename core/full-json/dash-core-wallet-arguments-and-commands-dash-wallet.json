@@ -1,10 +1,10 @@
 {
  "metadata": {
+  "keywords": "",
+  "robots": "index",
   "image": [],
   "title": "",
-  "description": "",
-  "keywords": "",
-  "robots": "index"
+  "description": ""
  },
  "mdx": {
   "altBody": "",
@@ -37,11 +37,13 @@
   "pages": []
  },
  "algolia": {
-  "recordCount": 6,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 6,
   "updatedAt": "2023-04-11T17:11:51.110Z"
  },
+ "reusableContent": [],
+ "_id": "63f5176df91c7700118e7824",
  "title": "dash-wallet",
  "icon": "",
  "updates": [],
@@ -56,12 +58,10 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
+ "pendingAlgoliaPublish": false,
  "previousSlug": "dash-wallet",
  "slugUpdatedAt": "2022-10-19T20:58:34.390Z",
  "revision": 12,
- "_id": "63f5176df91c7700118e7824",
- "pendingAlgoliaPublish": false,
  "createdAt": "2022-10-19T20:57:39.947Z",
  "updatedAt": "2023-04-11T17:11:50.776Z",
  "user": "5b8400d7185d5e00036dcc3b",

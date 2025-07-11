@@ -1,10 +1,10 @@
 {
  "metadata": {
+  "keywords": "",
+  "robots": "index",
   "image": [],
   "title": "dash-qt",
-  "description": "Dash Core QT GUI includes all the same command line options as dashd with the exception of -daemon. It also provides additional options for UI as described below.",
-  "keywords": "",
-  "robots": "index"
+  "description": "Dash Core QT GUI includes all the same command line options as dashd with the exception of -daemon. It also provides additional options for UI as described below."
  },
  "mdx": {
   "altBody": "",
@@ -37,13 +37,14 @@
   "pages": []
  },
  "algolia": {
-  "recordCount": 2,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 2,
   "updatedAt": "2023-04-11T17:00:25.964Z"
  },
+ "reusableContent": [],
+ "_id": "63f5176df91c7700118e781e",
  "title": "dash-qt",
- "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "dash-core-wallet-arguments-and-commands-dash-qt",
@@ -51,16 +52,10 @@
  "body": "# Usage\n\n```bash\ndash-qt [command-line options]     \n```\n\n\n\n> \ud83d\udea7 Debug Options\n> \n> The following sections show all available options including debug options that are not normally displayed. To see only regular options, run dash-qt --help.\n\nDash Core QT GUI includes all the same command line options as [dashd](dash-core-wallet-arguments-and-commands-dashd) with the exception of `-daemon`. It also provides additional options for UI as described below.\n\n## UI Options:\n\n```text\n  -choosedatadir\n       Choose data directory on startup (default: 0)\n\n  -custom-css-dir\n       Set a directory which contains custom css files. Those will be used as\n       stylesheets for the UI.\n\n  -debug-ui\n       Updates the UI's stylesheets in realtime with changes made to the css\n       files in -custom-css-dir and forces some widgets to show up which\n       are usually only visible under certain circumstances. (default:\n       0)\n\n  -font-family\n       Set the font family. Possible values: SystemDefault, Montserrat.\n       (default: SystemDefault)\n\n  -font-scale\n       Set a scale factor which gets applied to the base font size. Possible\n       range -100 (smallest fonts) to 100 (largest fonts). (default: 0)\n\n  -font-weight-bold\n       Set the font weight for bold texts. Possible range 0 to 8 (default: 4)\n\n  -font-weight-normal\n       Set the font weight for normal texts. Possible range 0 to 8 (default: 2)\n\n  -lang=<lang>\n       Set language, for example \"de_DE\" (default: system locale)\n\n  -min\n       Start minimized\n\n  -resetguisettings\n       Reset all settings changed in the GUI\n\n  -splash\n       Show splash screen on startup (default: 1)\n\n  -uiplatform\n       Select platform to customize UI for (one of windows, macosx, other;\n       default: other)\n\n  -windowtitle=<name>\n       Sets a window title which is appended to \"Dash Core - \"\n```",
  "order": 1,
  "isReference": false,
- "deprecated": false,
  "hidden": false,
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2020-10-06T21:18:55.598Z",
- "revision": 6,
- "_id": "63f5176df91c7700118e781e",
  "pendingAlgoliaPublish": false,
  "parentDoc": "63f5176df91c7700118e781a",
  "createdAt": "2020-06-04T14:57:04.870Z",
@@ -70,6 +65,11 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "version": "63f5176df91c7700118e7825",
  "__v": 0,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-10-06T21:18:55.598Z",
+ "deprecated": false,
+ "icon": "",
+ "revision": 6,
  "isApi": false,
  "id": "63f5176df91c7700118e781e",
  "body_html": "<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"usage\"></div><div class=\"heading-text\"><div id=\"section-usage\" class=\"heading-anchor_backwardsCompatibility\"></div>Usage</div><a aria-label=\"Skip link to Usage\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#usage\"></a></h1>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Bash</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-bash theme-light\" data-lang=\"bash\" name=\"\" tabindex=\"0\">dash-qt [command-line options]     \n</code></pre></div></div>\n<blockquote class=\"callout callout_warn\" theme=\"\ud83d\udea7\"><h2 class=\"callout-heading\"><span class=\"callout-icon\">\ud83d\udea7</span><p>Debug Options</p></h2><p>The following sections show all available options including debug options that are not normally displayed. To see only regular options, run dash-qt --help.</p></blockquote>\n<p>Dash Core QT GUI includes all the same command line options as <a href=\"dash-core-wallet-arguments-and-commands-dashd\" target=\"\" title=\"\">dashd</a> with the exception of <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">-daemon</code>. It also provides additional options for UI as described below.</p>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"ui-options\"></div><div class=\"heading-text\"><div id=\"section-ui-options\" class=\"heading-anchor_backwardsCompatibility\"></div>UI Options:</div><a aria-label=\"Skip link to UI Options:\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#ui-options\"></a></h2>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Text</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-text theme-light\" data-lang=\"text\" name=\"\" tabindex=\"0\">  -choosedatadir\n       Choose data directory on startup (default: 0)\n\n  -custom-css-dir\n       Set a directory which contains custom css files. Those will be used as\n       stylesheets for the UI.\n\n  -debug-ui\n       Updates the UI&#x27;s stylesheets in realtime with changes made to the css\n       files in -custom-css-dir and forces some widgets to show up which\n       are usually only visible under certain circumstances. (default:\n       0)\n\n  -font-family\n       Set the font family. Possible values: SystemDefault, Montserrat.\n       (default: SystemDefault)\n\n  -font-scale\n       Set a scale factor which gets applied to the base font size. Possible\n       range -100 (smallest fonts) to 100 (largest fonts). (default: 0)\n\n  -font-weight-bold\n       Set the font weight for bold texts. Possible range 0 to 8 (default: 4)\n\n  -font-weight-normal\n       Set the font weight for normal texts. Possible range 0 to 8 (default: 2)\n\n  -lang=&lt;lang&gt;\n       Set language, for example &quot;de_DE&quot; (default: system locale)\n\n  -min\n       Start minimized\n\n  -resetguisettings\n       Reset all settings changed in the GUI\n\n  -splash\n       Show splash screen on startup (default: 1)\n\n  -uiplatform\n       Select platform to customize UI for (one of windows, macosx, other;\n       default: other)\n\n  -windowtitle=&lt;name&gt;\n       Sets a window title which is appended to &quot;Dash Core - &quot;\n</code></pre></div></div>"

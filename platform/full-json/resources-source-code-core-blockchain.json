@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
+  "keywords": "",
+  "robots": "index",
   "title": "",
   "description": "",
-  "keywords": "",
-  "robots": "index"
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,35 +27,26 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-09-06T16:36:32.000Z"
  },
- "title": "Core (Layer 1 Protocol)",
  "icon": "",
- "updates": [],
- "type": "link",
- "slug": "resources-source-code-core-blockchain",
- "excerpt": "",
- "body": "",
- "order": 8,
- "isReference": false,
  "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "https://github.com/dashpay/dash",
- "link_external": true,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2025-07-03T22:53:30.195Z",
+ "slugUpdatedAt": "2025-07-10T21:26:21.048Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad83",
  "version": "64f8a9df750465004742ae1d",
@@ -68,6 +56,18 @@
  "category": "64f8a9df750465004742ad6f",
  "user": "5b8400d7185d5e00036dcc3b",
  "parentDoc": "64f8a9df750465004742ad82",
+ "updates": [],
+ "link_external": true,
+ "link_url": "https://github.com/dashpay/dash",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 8,
+ "body": "",
+ "excerpt": "",
+ "slug": "resources-source-code-core-blockchain",
+ "type": "link",
+ "title": "Core (Layer 1 Protocol)",
  "__v": 0,
  "isApi": false,
  "id": "64f8a9df750465004742ad83",

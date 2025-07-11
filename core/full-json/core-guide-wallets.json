@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash Wallets",
-  "description": "A Dash wallet can refer to either a wallet program or a wallet file.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "A Dash wallet can refer to either a wallet program or a wallet file.",
+  "title": "Dash Wallets",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -49,32 +48,16 @@
     "slug": "core-guide-wallets-wallet-files",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:05.350Z"
  },
- "title": "Wallets",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-wallets",
- "excerpt": "",
- "body": "A Dash <<glossary:wallet>> can refer to either a wallet program or a wallet file. Wallet programs create <<glossary:public keys>> to receive <<glossary:duffs>> and use the corresponding <<glossary:private keys>> to spend those duffs. Wallet files store private keys and (optionally) other information related to <<glossary:transactions>> for the wallet program.\n\nWallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we're talking about wallet programs or wallet files.",
- "order": 5,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T18:32:51.441Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e780a",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-13T20:42:29.409Z",
@@ -82,9 +65,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 5,
+ "body": "A Dash <<glossary:wallet>> can refer to either a wallet program or a wallet file. Wallet programs create <<glossary:public keys>> to receive <<glossary:duffs>> and use the corresponding <<glossary:private keys>> to spend those duffs. Wallet files store private keys and (optionally) other information related to <<glossary:transactions>> for the wallet program.\n\nWallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we're talking about wallet programs or wallet files.",
+ "excerpt": "",
+ "slug": "core-guide-wallets",
+ "type": "basic",
+ "title": "Wallets",
  "__v": 2,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-20T18:32:51.441Z",
  "isApi": false,
  "id": "63f5176df91c7700118e780a",
  "body_html": "<p>A Dash <span class=\"GlossaryItem-trigger\">wallet</span> can refer to either a wallet program or a wallet file. Wallet programs create <span class=\"GlossaryItem-trigger\">public keys</span> to receive <span class=\"GlossaryItem-trigger\">duffs</span> and use the corresponding <span class=\"GlossaryItem-trigger\">private keys</span> to spend those duffs. Wallet files store private keys and (optionally) other information related to <span class=\"GlossaryItem-trigger\">transactions</span> for the wallet program.</p>\n<p>Wallet programs and wallet files are addressed below in separate subsections, and this document attempts to always make it clear whether we&#x27;re talking about wallet programs or wallet files.</p>"

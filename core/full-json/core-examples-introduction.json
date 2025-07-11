@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash Core Introduction",
-  "description": "The following guide aims to provide examples to help you start building Dash-based applications.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "The following guide aims to provide examples to help you start building Dash-based applications.",
+  "title": "Dash Core Introduction",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Core Examples",
@@ -63,32 +62,16 @@
     "slug": "core-examples-p2p-network",
     "category": "Core Examples"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:49.134Z"
  },
- "title": "Introduction",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-examples-introduction",
- "excerpt": "",
- "body": "The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nOnce installed, you'll have access to three programs: `dashd`, `dash-qt`, and `dash-cli`.\n\n* `dash-qt` provides a combination full Dash <<glossary:peer>> and <<glossary:wallet>> frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.\n\n* `dashd` is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for <<glossary:testnet>> / 19898 for regtest).\n\n* `dash-cli` allows you to send RPC commands to `dashd` from the command line.  For example, `dash-cli help`",
- "order": 0,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T18:32:53.572Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e77d0",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-11T20:03:09.513Z",
@@ -96,9 +79,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e77a0",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 0,
+ "body": "The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nOnce installed, you'll have access to three programs: `dashd`, `dash-qt`, and `dash-cli`.\n\n* `dash-qt` provides a combination full Dash <<glossary:peer>> and <<glossary:wallet>> frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.\n\n* `dashd` is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for <<glossary:testnet>> / 19898 for regtest).\n\n* `dash-cli` allows you to send RPC commands to `dashd` from the command line.  For example, `dash-cli help`",
+ "excerpt": "",
+ "slug": "core-examples-introduction",
+ "type": "basic",
+ "title": "Introduction",
  "__v": 2,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-20T18:32:53.572Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77d0",
  "body_html": "<p>The following guide aims to provide examples to help you start building Dash-based applications. To make the best use of this document, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\" target=\"\" title=\"\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\" target=\"\" title=\"\">pre-compiled executable</a>.</p>\n<p>Once installed, you&#x27;ll have access to three programs: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dashd</code>, <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-qt</code>, and <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-cli</code>.</p>\n<ul>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-qt</code> provides a combination full Dash <span class=\"GlossaryItem-trigger\">peer</span> and <span class=\"GlossaryItem-trigger\">wallet</span> frontend. From the Help menu, you can access a console where you can enter the RPC commands used throughout this document.</p>\n</li>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dashd</code> is more useful for programming: it provides a full peer which you can interact with through RPCs to port 9998 (or 19998 for <span class=\"GlossaryItem-trigger\">testnet</span> / 19898 for regtest).</p>\n</li>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-cli</code> allows you to send RPC commands to <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dashd</code> from the command line.  For example, <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-cli help</code></p>\n</li>\n</ul>"

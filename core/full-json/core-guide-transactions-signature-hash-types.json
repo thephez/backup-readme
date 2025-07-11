@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Signature Hash Types",
-  "description": "OP_CHECKSIG extracts a non-stack argument from each signature it evaluates, allowing the signer to decide which parts of the transaction to sign.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "OP_CHECKSIG extracts a non-stack argument from each signature it evaluates, allowing the signer to decide which parts of the transaction to sign.",
+  "title": "Signature Hash Types",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-guide-transactions-locktime-and-sequence-number",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:03.677Z"
  },
- "title": "Signature Hash Types",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-transactions-signature-hash-types",
- "excerpt": "",
- "body": "`OP_CHECKSIG` extracts a non-stack argument from each <<glossary:signature>> it evaluates, allowing the signer to decide which parts of the <<glossary:transaction>> to sign. Since the signature protects those parts of the transaction from modification, this lets signers selectively choose to let other people modify their transactions.\n\nThe various options for what to sign are called <<glossary:signature hash>> types. There are three base SIGHASH types currently available:\n\n* <<glossary:SIGHASH_ALL>>, the default, signs all the <<glossary:inputs>> and <<glossary:outputs>>, protecting everything except the signature scripts against modification.\n\n* <<glossary:SIGHASH_NONE>> signs all of the inputs but none of the outputs, allowing anyone to change where the <<glossary:duffs>> are going unless other signatures using other signature hash flags protect the outputs.\n\n* <<glossary:SIGHASH_SINGLE>> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value \"1\" will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.\n\nThe base types can be modified with the <<glossary:SIGHASH_ANYONECANPAY>> (anyone can pay) flag, creating three new combined types:\n\n* `SIGHASH_ALL|SIGHASH_ANYONECANPAY` signs all of the outputs but only this one input, and it also allows anyone to add or remove other inputs, so anyone can contribute additional duffs but they cannot change how many duffs are sent nor where they go.\n\n* `SIGHASH_NONE|SIGHASH_ANYONECANPAY` signs only this one input and allows anyone to add or remove other inputs or outputs, so anyone who gets a copy of this input can spend it however they'd like.\n\n* `SIGHASH_SINGLE|SIGHASH_ANYONECANPAY` signs this one input and its corresponding output. Allows anyone to add or remove other inputs.\n\nBecause each input is signed, a transaction with multiple inputs can have multiple signature hash types signing different parts of the transaction. For example, a single-input transaction signed with `NONE` could have its output changed by the miner who adds it to the block chain. On the other hand, if a two-input transaction has one input signed with `NONE` and one input signed with `ALL`, the `ALL` signer can choose where to spend the duffs without consulting the `NONE` signer---but nobody else can modify the transaction.",
- "order": 4,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-18T17:59:59.892Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e7800",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-13T17:46:47.881Z",
@@ -76,8 +59,25 @@
  "user": "62b2101422da70001ee51d95",
  "parentDoc": "63f5176df91c7700118e77fc",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 4,
+ "body": "`OP_CHECKSIG` extracts a non-stack argument from each <<glossary:signature>> it evaluates, allowing the signer to decide which parts of the <<glossary:transaction>> to sign. Since the signature protects those parts of the transaction from modification, this lets signers selectively choose to let other people modify their transactions.\n\nThe various options for what to sign are called <<glossary:signature hash>> types. There are three base SIGHASH types currently available:\n\n* <<glossary:SIGHASH_ALL>>, the default, signs all the <<glossary:inputs>> and <<glossary:outputs>>, protecting everything except the signature scripts against modification.\n\n* <<glossary:SIGHASH_NONE>> signs all of the inputs but none of the outputs, allowing anyone to change where the <<glossary:duffs>> are going unless other signatures using other signature hash flags protect the outputs.\n\n* <<glossary:SIGHASH_SINGLE>> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value \"1\" will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.\n\nThe base types can be modified with the <<glossary:SIGHASH_ANYONECANPAY>> (anyone can pay) flag, creating three new combined types:\n\n* `SIGHASH_ALL|SIGHASH_ANYONECANPAY` signs all of the outputs but only this one input, and it also allows anyone to add or remove other inputs, so anyone can contribute additional duffs but they cannot change how many duffs are sent nor where they go.\n\n* `SIGHASH_NONE|SIGHASH_ANYONECANPAY` signs only this one input and allows anyone to add or remove other inputs or outputs, so anyone who gets a copy of this input can spend it however they'd like.\n\n* `SIGHASH_SINGLE|SIGHASH_ANYONECANPAY` signs this one input and its corresponding output. Allows anyone to add or remove other inputs.\n\nBecause each input is signed, a transaction with multiple inputs can have multiple signature hash types signing different parts of the transaction. For example, a single-input transaction signed with `NONE` could have its output changed by the miner who adds it to the block chain. On the other hand, if a two-input transaction has one input signed with `NONE` and one input signed with `ALL`, the `ALL` signer can choose where to spend the duffs without consulting the `NONE` signer---but nobody else can modify the transaction.",
+ "excerpt": "",
+ "slug": "core-guide-transactions-signature-hash-types",
+ "type": "basic",
+ "title": "Signature Hash Types",
  "__v": 1,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-18T17:59:59.892Z",
  "isApi": false,
  "id": "63f5176df91c7700118e7800",
  "body_html": "<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_CHECKSIG</code> extracts a non-stack argument from each <span class=\"GlossaryItem-trigger\">signature</span> it evaluates, allowing the signer to decide which parts of the <span class=\"GlossaryItem-trigger\">transaction</span> to sign. Since the signature protects those parts of the transaction from modification, this lets signers selectively choose to let other people modify their transactions.</p>\n<p>The various options for what to sign are called <span class=\"GlossaryItem-trigger\">signature hash</span> types. There are three base SIGHASH types currently available:</p>\n<ul>\n<li>\n<p><span class=\"GlossaryItem-trigger\">SIGHASH_ALL</span>, the default, signs all the <span class=\"GlossaryItem-trigger\">inputs</span> and <span class=\"GlossaryItem-trigger\">outputs</span>, protecting everything except the signature scripts against modification.</p>\n</li>\n<li>\n<p><span class=\"GlossaryItem-trigger\">SIGHASH_NONE</span> signs all of the inputs but none of the outputs, allowing anyone to change where the <span class=\"GlossaryItem-trigger\">duffs</span> are going unless other signatures using other signature hash flags protect the outputs.</p>\n</li>\n<li>\n<p><span class=\"GlossaryItem-trigger\">SIGHASH_SINGLE</span> the only output signed is the one corresponding to this input (the output with the same output index number as this input), ensuring nobody can change your part of the transaction but allowing other signers to change their part of the transaction. The corresponding output must exist or the value &quot;1&quot; will be signed, breaking the security scheme. This input, as well as other inputs, are included in the signature. The sequence numbers of other inputs are not included in the signature, and can be updated.</p>\n</li>\n</ul>\n<p>The base types can be modified with the <span class=\"GlossaryItem-trigger\">SIGHASH_ANYONECANPAY</span> (anyone can pay) flag, creating three new combined types:</p>\n<ul>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">SIGHASH_ALL|SIGHASH_ANYONECANPAY</code> signs all of the outputs but only this one input, and it also allows anyone to add or remove other inputs, so anyone can contribute additional duffs but they cannot change how many duffs are sent nor where they go.</p>\n</li>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">SIGHASH_NONE|SIGHASH_ANYONECANPAY</code> signs only this one input and allows anyone to add or remove other inputs or outputs, so anyone who gets a copy of this input can spend it however they&#x27;d like.</p>\n</li>\n<li>\n<p><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">SIGHASH_SINGLE|SIGHASH_ANYONECANPAY</code> signs this one input and its corresponding output. Allows anyone to add or remove other inputs.</p>\n</li>\n</ul>\n<p>Because each input is signed, a transaction with multiple inputs can have multiple signature hash types signing different parts of the transaction. For example, a single-input transaction signed with <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">NONE</code> could have its output changed by the miner who adds it to the block chain. On the other hand, if a two-input transaction has one input signed with <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">NONE</code> and one input signed with <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">ALL</code>, the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">ALL</code> signer can choose where to spend the duffs without consulting the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">NONE</code> signer---but nobody else can modify the transaction.</p>"

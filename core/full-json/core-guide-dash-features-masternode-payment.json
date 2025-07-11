@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash Masternode Payment",
-  "description": "Dash masternode payments are based on the deterministic masternode list information found on-chain in each block",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "Dash masternode payments are based on the deterministic masternode list information found on-chain in each block",
+  "title": "Dash Masternode Payment",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-guide-dash-features-masternode-sync",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 2,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 2,
   "updatedAt": "2023-03-08T14:06:12.964Z"
  },
- "title": "Masternode Payment",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-dash-features-masternode-payment",
- "excerpt": "",
- "body": "Since [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) (introduced in Dash Core 0.13.0), <<glossary:masternode>> reward payments are based on the deterministic masternode list information found on-chain in each <<glossary:block>>. This results in a transparent, deterministic process that operates using the [algorithm described in DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards).\n\nOn-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).\n\n# High-Performance Masternodes\n\nSince high-performance masternodes (HPMNs) have four times more collateral than regular masternodes, HPMNs will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, HPMNs will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.",
- "order": 6,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-08-02T16:59:21.145Z",
- "revision": 3,
  "_id": "63f5176df91c7700118e77c2",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2023-03-08T14:06:12.621Z",
@@ -76,8 +59,25 @@
  "user": "5b8400d7185d5e00036dcc3b",
  "parentDoc": "63f5176df91c7700118e77bd",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 6,
+ "body": "Since [DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md) (introduced in Dash Core 0.13.0), <<glossary:masternode>> reward payments are based on the deterministic masternode list information found on-chain in each <<glossary:block>>. This results in a transparent, deterministic process that operates using the [algorithm described in DIP3](https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards).\n\nOn-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).\n\n# High-Performance Masternodes\n\nSince high-performance masternodes (HPMNs) have four times more collateral than regular masternodes, HPMNs will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, HPMNs will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.",
+ "excerpt": "",
+ "slug": "core-guide-dash-features-masternode-payment",
+ "type": "basic",
+ "title": "Masternode Payment",
  "__v": 3,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-08-02T16:59:21.145Z",
+ "revision": 3,
  "isApi": false,
  "id": "63f5176df91c7700118e77c2",
  "body_html": "<p>Since <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md\" target=\"\" title=\"\">DIP3</a> (introduced in Dash Core 0.13.0), <span class=\"GlossaryItem-trigger\">masternode</span> reward payments are based on the deterministic masternode list information found on-chain in each <span class=\"GlossaryItem-trigger\">block</span>. This results in a transparent, deterministic process that operates using the <a href=\"https://github.com/dashpay/dips/blob/master/dip-0003.md#masternode-rewards\" target=\"\" title=\"\">algorithm described in DIP3</a>.</p>\n<p>On-chain masternode lists reduce the complexity of reward payments, make payments much more predictable, and also allow masternode payments to be enforced for all blocks (enforcement for superblocks was not possible in the previous system).</p>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"high-performance-masternodes\"></div><div class=\"heading-text\"><div id=\"section-high-performance-masternodes\" class=\"heading-anchor_backwardsCompatibility\"></div>High-Performance Masternodes</div><a aria-label=\"Skip link to High-Performance Masternodes\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#high-performance-masternodes\"></a></h1>\n<p>Since high-performance masternodes (HPMNs) have four times more collateral than regular masternodes, HPMNs will be paid in four consecutive blocks each time they are selected for payment to maintain the same incentive structure that regular masternodes have. Additionally, HPMNs will receive 100% of the fees generated from Dash Platform since they are the only nodes that host it.</p>"

@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,37 +27,26 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 4,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 4,
   "updatedAt": "2023-09-06T16:36:36.376Z"
  },
- "title": "Incentives",
  "icon": "",
- "updates": [
-  "5df7c721dc48b501898aac93"
- ],
- "type": "basic",
- "slug": "explanation-incentives",
- "excerpt": "",
- "body": "# Overview\n\nIn a decentralized network, there is no authority directing each part of the system to do its work. Because of this, it's important to plan the system so that each participant benefits only by contributing in a way that helps the network. The major participants in Dash Platform are two of the three participants in Dash Core:\n\n**Users:** new services that are part of Dash Platform give users capabilities they didn't have before.\n\n**DAPI (Masternodes):** Masternodes operate a public API which receives platform data requests and alterations. They must have the resources to respond quickly and consistently.\n\n**Miners:** Masternode data is hashed to a separate blockchain (the [platform chain](explanation-drive-platform-chain)) operated just by the masternodes, so miners' only contribution to Dash Platform is to store transactions from users converting Dash to credits, or from masternodes converting credits back to Dash.\n\nIn general, masternodes and miners are incentivized to perform this work by fees that the users pay as they use Dash Platform. In some cases, such as new user creation, someone else may pay the fee for the user. This may be expanded in the future to allow organizations to pay for their own users' platform activity.\n\n# Details\n\n## Fees\n\nDash Platform collects fees for three activities:\n\n* [Registering a new identity](tutorial-register-an-identity)\n* [Registering a Data Contract](tutorial-register-a-data-contract)\n* [Updating Application Data](tutorial-submit-a-state-transition)\n\nNew users may not have any Dash of their own, so when registering an identity, some Dash is converted into _credits_, which is Dash that can only be spent on Platform activity. Users can also convert Dash into credits after registration as needed.\n\nDash Platform fees go to the masternodes, but how they are distributed is not yet finalized. The fees for registering a new identity, registering a data contract, and submitting a state transition, mainly exist today to reduce frivolous use of the platform. In the future when block rewards have decreased, fees may become the main source of compensation for the work Masternodes do storing and processing these activities.\n\n## Attacks\n\nAnother kind of incentive which must be considered is the incentive to cheat. If there is a way that a participant can harm the network to improve their own situation, someone will do it. For example, if the fees from state transitions always went to the next masternode in line for a block payout, that masternode would be able to spam large, expensive state transitions, knowing that they would be getting their money back almost immediately. These kind of incentives guide and constrain all aspects of decentralized systems like Dash.",
- "order": 9,
- "isReference": false,
  "deprecated": false,
- "hidden": true,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2025-07-03T22:53:26.492Z",
+ "slugUpdatedAt": "2025-07-10T21:25:14.843Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad9d",
  "version": "64f8a9df750465004742ae1d",
@@ -69,6 +55,20 @@
  "project": "5bda01cad172e200499a20a9",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "64f8a9df750465004742ad71",
+ "updates": [
+  "5df7c721dc48b501898aac93"
+ ],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": true,
+ "isReference": false,
+ "order": 9,
+ "body": "# Overview\n\nIn a decentralized network, there is no authority directing each part of the system to do its work. Because of this, it's important to plan the system so that each participant benefits only by contributing in a way that helps the network. The major participants in Dash Platform are two of the three participants in Dash Core:\n\n**Users:** new services that are part of Dash Platform give users capabilities they didn't have before.\n\n**DAPI (Masternodes):** Masternodes operate a public API which receives platform data requests and alterations. They must have the resources to respond quickly and consistently.\n\n**Miners:** Masternode data is hashed to a separate blockchain (the [platform chain](explanation-drive-platform-chain)) operated just by the masternodes, so miners' only contribution to Dash Platform is to store transactions from users converting Dash to credits, or from masternodes converting credits back to Dash.\n\nIn general, masternodes and miners are incentivized to perform this work by fees that the users pay as they use Dash Platform. In some cases, such as new user creation, someone else may pay the fee for the user. This may be expanded in the future to allow organizations to pay for their own users' platform activity.\n\n# Details\n\n## Fees\n\nDash Platform collects fees for three activities:\n\n* [Registering a new identity](tutorial-register-an-identity)\n* [Registering a Data Contract](tutorial-register-a-data-contract)\n* [Updating Application Data](tutorial-submit-a-state-transition)\n\nNew users may not have any Dash of their own, so when registering an identity, some Dash is converted into _credits_, which is Dash that can only be spent on Platform activity. Users can also convert Dash into credits after registration as needed.\n\nDash Platform fees go to the masternodes, but how they are distributed is not yet finalized. The fees for registering a new identity, registering a data contract, and submitting a state transition, mainly exist today to reduce frivolous use of the platform. In the future when block rewards have decreased, fees may become the main source of compensation for the work Masternodes do storing and processing these activities.\n\n## Attacks\n\nAnother kind of incentive which must be considered is the incentive to cheat. If there is a way that a participant can harm the network to improve their own situation, someone will do it. For example, if the fees from state transitions always went to the next masternode in line for a block payout, that masternode would be able to spam large, expensive state transitions, knowing that they would be getting their money back almost immediately. These kind of incentives guide and constrain all aspects of decentralized systems like Dash.",
+ "excerpt": "",
+ "slug": "explanation-incentives",
+ "type": "basic",
+ "title": "Incentives",
  "__v": 1,
  "parentDoc": null,
  "isApi": false,

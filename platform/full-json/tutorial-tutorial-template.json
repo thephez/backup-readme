@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,35 +27,26 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 8,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 8,
   "updatedAt": "2023-09-06T16:36:33.885Z"
  },
- "title": "Tutorial Template",
  "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "tutorial-tutorial-template",
- "excerpt": "",
- "body": "# Intro/Overview\n## Purpose of tutorial\n## Background info - maybe? (link to content)\n\n\n## Prerequisites\n- Tools needed (e.g. Node installation, npm, etc.)\n- Knowledge (e.g. assumes familiarity with JavaScript, etc.)\n\n# Steps to complete tutorial\n## 1.\n## 2.\n\n# Related tutorials/info or suggested next steps as needed",
- "order": 1,
- "isReference": false,
  "deprecated": false,
- "hidden": true,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
  "previousSlug": "",
- "slugUpdatedAt": "2025-07-03T22:52:30.198Z",
+ "slugUpdatedAt": "2025-07-10T21:25:15.342Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad92",
  "version": "64f8a9df750465004742ae1d",
@@ -67,6 +55,18 @@
  "project": "5bda01cad172e200499a20a9",
  "user": "5d5abd2ace3a96005e4f8d68",
  "category": "64f8a9df750465004742ad6e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": true,
+ "isReference": false,
+ "order": 1,
+ "body": "# Intro/Overview\n## Purpose of tutorial\n## Background info - maybe? (link to content)\n\n\n## Prerequisites\n- Tools needed (e.g. Node installation, npm, etc.)\n- Knowledge (e.g. assumes familiarity with JavaScript, etc.)\n\n# Steps to complete tutorial\n## 1.\n## 2.\n\n# Related tutorials/info or suggested next steps as needed",
+ "excerpt": "",
+ "slug": "tutorial-tutorial-template",
+ "type": "basic",
+ "title": "Tutorial Template",
  "__v": 0,
  "parentDoc": null,
  "isApi": false,

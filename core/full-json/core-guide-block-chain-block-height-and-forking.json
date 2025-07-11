@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Dash block height and forking",
-  "description": "Since multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "Since multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier",
+  "title": "Dash block height and forking",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,31 +41,16 @@
     "slug": "core-guide-block-chain-transaction-data",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:02.356Z"
  },
- "title": "Block Height and Forking",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-block-chain-block-height-and-forking",
- "excerpt": "",
- "body": "Any Dash <<glossary:miner>> who successfully hashes a <<glossary:block header>> to a value below the <<glossary:target threshold>> can add the entire <<glossary:block>> to the <<glossary:block chain>> (assuming the block is otherwise valid). These blocks are commonly addressed by their <<glossary:block height>>---the number of blocks between them and the first Dash block (block 0, most commonly known as the <<glossary:genesis block>>).\n\n![Common And Uncommon Block Chain Forks](https://dash-docs.github.io/img/dev/en-blockchain-fork.svg)\n\nMultiple blocks can all have the same block height, as is common when two or more miners each produce a block at roughly the same time. This creates an apparent <<glossary:fork>> in the block chain, as shown in the illustration above.\n\nWhen miners produce simultaneous blocks at the end of the block chain, each <<glossary:node>> individually chooses which block to accept. In the absence of other considerations, discussed below, nodes usually use the first block they see.\n\nEventually a miner produces another block which attaches to only one of the competing simultaneously-mined blocks. This makes that side of the fork stronger than the other side. Assuming a fork only contains valid blocks, normal <<glossary:peers>> always follow the most difficult chain to recreate and throw away any <<glossary:stale block>> belonging to shorter forks. (Stale blocks are also sometimes called orphans or orphan blocks, but those terms are also used for true orphan blocks without a known parent block.)\n\nLong-term forks are possible if different miners work at cross-purposes, such as some miners diligently working to extend the block chain at the same time other miners are attempting a <<glossary:51 percent attack>> to revise transaction history.\n\nSince multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier. Instead, blocks are usually referenced by the hash of their header (often with the byte order reversed, and in hexadecimal).",
- "order": 2,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-08-08T19:46:18.296Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e77f9",
  "version": "63f5176df91c7700118e7825",
@@ -76,8 +60,24 @@
  "user": "62b2101422da70001ee51d95",
  "parentDoc": "63f5176df91c7700118e77f6",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 2,
+ "body": "Any Dash <<glossary:miner>> who successfully hashes a <<glossary:block header>> to a value below the <<glossary:target threshold>> can add the entire <<glossary:block>> to the <<glossary:block chain>> (assuming the block is otherwise valid). These blocks are commonly addressed by their <<glossary:block height>>---the number of blocks between them and the first Dash block (block 0, most commonly known as the <<glossary:genesis block>>).\n\n![Common And Uncommon Block Chain Forks](https://dash-docs.github.io/img/dev/en-blockchain-fork.svg)\n\nMultiple blocks can all have the same block height, as is common when two or more miners each produce a block at roughly the same time. This creates an apparent <<glossary:fork>> in the block chain, as shown in the illustration above.\n\nWhen miners produce simultaneous blocks at the end of the block chain, each <<glossary:node>> individually chooses which block to accept. In the absence of other considerations, discussed below, nodes usually use the first block they see.\n\nEventually a miner produces another block which attaches to only one of the competing simultaneously-mined blocks. This makes that side of the fork stronger than the other side. Assuming a fork only contains valid blocks, normal <<glossary:peers>> always follow the most difficult chain to recreate and throw away any <<glossary:stale block>> belonging to shorter forks. (Stale blocks are also sometimes called orphans or orphan blocks, but those terms are also used for true orphan blocks without a known parent block.)\n\nLong-term forks are possible if different miners work at cross-purposes, such as some miners diligently working to extend the block chain at the same time other miners are attempting a <<glossary:51 percent attack>> to revise transaction history.\n\nSince multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier. Instead, blocks are usually referenced by the hash of their header (often with the byte order reversed, and in hexadecimal).",
+ "excerpt": "",
+ "slug": "core-guide-block-chain-block-height-and-forking",
+ "type": "basic",
+ "title": "Block Height and Forking",
  "__v": 5,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-08-08T19:46:18.296Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77f9",
  "body_html": "<p>Any Dash <span class=\"GlossaryItem-trigger\">miner</span> who successfully hashes a <span class=\"GlossaryItem-trigger\">block header</span> to a value below the <span class=\"GlossaryItem-trigger\">target threshold</span> can add the entire <span class=\"GlossaryItem-trigger\">block</span> to the <span class=\"GlossaryItem-trigger\">block chain</span> (assuming the block is otherwise valid). These blocks are commonly addressed by their <span class=\"GlossaryItem-trigger\">block height</span>---the number of blocks between them and the first Dash block (block 0, most commonly known as the <span class=\"GlossaryItem-trigger\">genesis block</span>).</p>\n<p><span aria-label=\"Common And Uncommon Block Chain Forks\" class=\"img lightbox closed\" role=\"button\" tabindex=\"0\"><span class=\"lightbox-inner\"><img alt=\"Common And Uncommon Block Chain Forks\" loading=\"lazy\" src=\"https://dash-docs.github.io/img/dev/en-blockchain-fork.svg\" align=\"\" caption=\"\" height=\"auto\" title=\"\" width=\"auto\"/></span></span></p>\n<p>Multiple blocks can all have the same block height, as is common when two or more miners each produce a block at roughly the same time. This creates an apparent <span class=\"GlossaryItem-trigger\">fork</span> in the block chain, as shown in the illustration above.</p>\n<p>When miners produce simultaneous blocks at the end of the block chain, each <span class=\"GlossaryItem-trigger\">node</span> individually chooses which block to accept. In the absence of other considerations, discussed below, nodes usually use the first block they see.</p>\n<p>Eventually a miner produces another block which attaches to only one of the competing simultaneously-mined blocks. This makes that side of the fork stronger than the other side. Assuming a fork only contains valid blocks, normal <span class=\"GlossaryItem-trigger\">peers</span> always follow the most difficult chain to recreate and throw away any <span class=\"GlossaryItem-trigger\">stale block</span> belonging to shorter forks. (Stale blocks are also sometimes called orphans or orphan blocks, but those terms are also used for true orphan blocks without a known parent block.)</p>\n<p>Long-term forks are possible if different miners work at cross-purposes, such as some miners diligently working to extend the block chain at the same time other miners are attempting a <span class=\"GlossaryItem-trigger\">51 percent attack</span> to revise transaction history.</p>\n<p>Since multiple blocks can have the same height during a block chain fork, block height should not be used as a globally unique identifier. Instead, blocks are usually referenced by the hash of their header (often with the byte order reversed, and in hexadecimal).</p>"

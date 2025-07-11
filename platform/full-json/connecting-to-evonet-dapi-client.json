@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,46 +27,49 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 7,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 7,
   "updatedAt": "2023-09-06T16:36:38.302Z"
  },
- "title": "Connecting to EvoNet (dapi-client)",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "connecting-to-evonet-dapi-client",
- "excerpt": "The Dash Platform development network",
- "body": "The purpose of this tutorial is to walk through the steps necessary to access the network.\n\n# Overview\nEvoNet is the initial development network provided for experimentation and evaluation of Dash Platform features.\n\nPlatform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it's easier to use [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client).\n\n# Connect via DAPI-client\n\n## 1. Install dapi-client\nThe JavaScript dapi-client package is available from [npmjs.com](https://www.npmjs.com/package/@dashevo/dapi-client) and can be installed by running `npm install`:\n\n```shell\nnpm install @dashevo/dapi-client\n```\n## 2. Verify a Successful Response\n\n### a. Create `index.js` and add the following code:\n\n```js\nconst DAPIClient = require('@dashevo/dapi-client');\n\nlet client = new DAPIClient({\n  seeds: [{\n    service: '18.236.131.253:3000',\n    port: 3000\n  }],\n});\n\nconst start = async () => {\n  let height = await client.getBestBlockHash();\n  console.log('Best block hash:', height);\n};\n\nstart();\n```\n\n### b. Run `index.js`\n\n```shell\nnode index.js\n```\n\nThe best block hash will be retrieved and printed to the console.\n\n```text\nBest block hash: \n  00000038fd1a1f6f691889d986a563372f3f4887320ad27b635caf4fcc9768c1\n```\n\nOnce this returns successfully, you're ready to begin developing!",
- "order": 12,
- "isReference": false,
- "deprecated": false,
- "hidden": true,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2021-11-30T16:58:49.889Z",
- "revision": 2,
  "_id": "64f8a9df750465004742ada8",
  "version": "64f8a9df750465004742ae1d",
  "project": "5bda01cad172e200499a20a9",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "64f8a9df750465004742ad6e",
+ "updates": [],
  "updatedAt": "2023-01-18T18:34:25.163Z",
  "createdAt": "2019-12-27T19:51:58.127Z",
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": true,
+ "isReference": false,
+ "order": 12,
+ "body": "The purpose of this tutorial is to walk through the steps necessary to access the network.\n\n# Overview\nEvoNet is the initial development network provided for experimentation and evaluation of Dash Platform features.\n\nPlatform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it's easier to use [DAPI-client](https://github.com/dashevo/platform/tree/master/packages/js-dapi-client).\n\n# Connect via DAPI-client\n\n## 1. Install dapi-client\nThe JavaScript dapi-client package is available from [npmjs.com](https://www.npmjs.com/package/@dashevo/dapi-client) and can be installed by running `npm install`:\n\n```shell\nnpm install @dashevo/dapi-client\n```\n## 2. Verify a Successful Response\n\n### a. Create `index.js` and add the following code:\n\n```js\nconst DAPIClient = require('@dashevo/dapi-client');\n\nlet client = new DAPIClient({\n  seeds: [{\n    service: '18.236.131.253:3000',\n    port: 3000\n  }],\n});\n\nconst start = async () => {\n  let height = await client.getBestBlockHash();\n  console.log('Best block hash:', height);\n};\n\nstart();\n```\n\n### b. Run `index.js`\n\n```shell\nnode index.js\n```\n\nThe best block hash will be retrieved and printed to the console.\n\n```text\nBest block hash: \n  00000038fd1a1f6f691889d986a563372f3f4887320ad27b635caf4fcc9768c1\n```\n\nOnce this returns successfully, you're ready to begin developing!",
+ "excerpt": "The Dash Platform development network",
+ "slug": "connecting-to-evonet-dapi-client",
+ "type": "basic",
+ "title": "Connecting to EvoNet (dapi-client)",
  "__v": 0,
  "parentDoc": null,
+ "deprecated": false,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-11-30T16:58:49.889Z",
+ "icon": "",
+ "revision": 2,
  "isApi": false,
  "id": "64f8a9df750465004742ada8",
  "body_html": "<p>The purpose of this tutorial is to walk through the steps necessary to access the network.</p>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"overview\"></div><div class=\"heading-text\"><div id=\"section-overview\" class=\"heading-anchor_backwardsCompatibility\"></div>Overview</div><a aria-label=\"Skip link to Overview\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#overview\"></a></h1>\n<p>EvoNet is the initial development network provided for experimentation and evaluation of Dash Platform features.</p>\n<p>Platform services are provided via a combination of HTTP and gRPC connections to DAPI, and some connections to an Insight API. Although one could interact with DAPI by connecting to these directly, it&#x27;s easier to use <a href=\"https://github.com/dashevo/platform/tree/master/packages/js-dapi-client\" target=\"\" title=\"\">DAPI-client</a>.</p>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"connect-via-dapi-client\"></div><div class=\"heading-text\"><div id=\"section-connect-via-dapi-client\" class=\"heading-anchor_backwardsCompatibility\"></div>Connect via DAPI-client</div><a aria-label=\"Skip link to Connect via DAPI-client\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#connect-via-dapi-client\"></a></h1>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"1-install-dapi-client\"></div><div class=\"heading-text\"><div id=\"section-1-install-dapi-client\" class=\"heading-anchor_backwardsCompatibility\"></div>1. Install dapi-client</div><a aria-label=\"Skip link to 1. Install dapi-client\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#1-install-dapi-client\"></a></h2>\n<p>The JavaScript dapi-client package is available from <a href=\"https://www.npmjs.com/package/@dashevo/dapi-client\" target=\"\" title=\"\">npmjs.com</a> and can be installed by running <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">npm install</code>:</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Shell</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-shell theme-light\" data-lang=\"shell\" name=\"\" tabindex=\"0\">npm install @dashevo/dapi-client\n</code></pre></div></div>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"2-verify-a-successful-response\"></div><div class=\"heading-text\"><div id=\"section-2-verify-a-successful-response\" class=\"heading-anchor_backwardsCompatibility\"></div>2. Verify a Successful Response</div><a aria-label=\"Skip link to 2. Verify a Successful Response\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#2-verify-a-successful-response\"></a></h2>\n<h3 class=\"heading heading-3 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"a-create-indexjs-and-add-the-following-code\"></div><div class=\"heading-text\"><div id=\"section-a-create-index-js-and-add-the-following-code\" class=\"heading-anchor_backwardsCompatibility\"></div>a. Create <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">index.js</code> and add the following code:</div><a aria-label=\"Skip link to a. Create \" class=\"heading-anchor-icon fa fa-anchor\" href=\"#a-create-indexjs-and-add-the-following-code\"></a></h3>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JavaScript</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-js theme-light\" data-lang=\"js\" name=\"\" tabindex=\"0\">const DAPIClient = require(&#x27;@dashevo/dapi-client&#x27;);\n\nlet client = new DAPIClient({\n  seeds: [{\n    service: &#x27;18.236.131.253:3000&#x27;,\n    port: 3000\n  }],\n});\n\nconst start = async () =&gt; {\n  let height = await client.getBestBlockHash();\n  console.log(&#x27;Best block hash:&#x27;, height);\n};\n\nstart();\n</code></pre></div></div>\n<h3 class=\"heading heading-3 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"b-run-indexjs\"></div><div class=\"heading-text\"><div id=\"section-b-run-index-js\" class=\"heading-anchor_backwardsCompatibility\"></div>b. Run <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">index.js</code></div><a aria-label=\"Skip link to b. Run \" class=\"heading-anchor-icon fa fa-anchor\" href=\"#b-run-indexjs\"></a></h3>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Shell</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-shell theme-light\" data-lang=\"shell\" name=\"\" tabindex=\"0\">node index.js\n</code></pre></div></div>\n<p>The best block hash will be retrieved and printed to the console.</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Text</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-text theme-light\" data-lang=\"text\" name=\"\" tabindex=\"0\">Best block hash: \n  00000038fd1a1f6f691889d986a563372f3f4887320ad27b635caf4fcc9768c1\n</code></pre></div></div>\n<p>Once this returns successfully, you&#x27;re ready to begin developing!</p>"

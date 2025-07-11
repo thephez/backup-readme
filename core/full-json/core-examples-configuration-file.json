@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Configuration File",
-  "description": "For development, it's safer and cheaper to use Dash's test network (testnet), regression test mode (regtest), or a developer network (devnet) described here.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "For development, it's safer and cheaper to use Dash's test network (testnet), regression test mode (regtest), or a developer network (devnet) described here.",
+  "title": "Configuration File",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-examples-testing-applications",
     "category": "Core Examples"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:15:47.593Z"
  },
- "title": "Configuration File",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-examples-configuration-file",
- "excerpt": "",
- "body": "All three programs get settings from `dash.conf` in the `DashCore` application directory:\n\n* Windows: `%APPDATA%\\DashCore\\`\n\n* OSX: `$HOME/Library/Application Support/DashCore/`\n\n* Linux: `$HOME/.dashcore/`\n\nTo use `dashd` and `dash-cli`, you will need to add a RPC password to your `dash.conf` file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:\n\n``` text\nrpcpassword=change_this_to_a_long_random_password\n```\n\nYou should also make the `dash.conf` file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:\n\n``` text\nchmod 0600 dash.conf\n```\n\nFor development, it's safer and cheaper to use Dash's test network (<<glossary:testnet>>), <<glossary:regression test mode>> (regtest), or a developer network  (<<glossary:devnet>>) described below.\n\nQuestions about Dash use are best sent to the [Dash forum](https://www.dash.org/forum/categories/dash-support.61/) and [Discord channels](http://www.dashchat.org).\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a cross-reference link, a brief definition of the term will be displayed.",
- "order": 1,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-20T18:32:50.861Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e77c9",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-11T20:05:15.974Z",
@@ -75,9 +58,26 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e77a0",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 1,
+ "body": "All three programs get settings from `dash.conf` in the `DashCore` application directory:\n\n* Windows: `%APPDATA%\\DashCore\\`\n\n* OSX: `$HOME/Library/Application Support/DashCore/`\n\n* Linux: `$HOME/.dashcore/`\n\nTo use `dashd` and `dash-cli`, you will need to add a RPC password to your `dash.conf` file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:\n\n``` text\nrpcpassword=change_this_to_a_long_random_password\n```\n\nYou should also make the `dash.conf` file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:\n\n``` text\nchmod 0600 dash.conf\n```\n\nFor development, it's safer and cheaper to use Dash's test network (<<glossary:testnet>>), <<glossary:regression test mode>> (regtest), or a developer network  (<<glossary:devnet>>) described below.\n\nQuestions about Dash use are best sent to the [Dash forum](https://www.dash.org/forum/categories/dash-support.61/) and [Discord channels](http://www.dashchat.org).\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a cross-reference link, a brief definition of the term will be displayed.",
+ "excerpt": "",
+ "slug": "core-examples-configuration-file",
+ "type": "basic",
+ "title": "Configuration File",
  "__v": 1,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-20T18:32:50.861Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77c9",
  "body_html": "<p>All three programs get settings from <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash.conf</code> in the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">DashCore</code> application directory:</p>\n<ul>\n<li>\n<p>Windows: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">%APPDATA%\\DashCore\\</code></p>\n</li>\n<li>\n<p>OSX: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">$HOME/Library/Application Support/DashCore/</code></p>\n</li>\n<li>\n<p>Linux: <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">$HOME/.dashcore/</code></p>\n</li>\n</ul>\n<p>To use <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dashd</code> and <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash-cli</code>, you will need to add a RPC password to your <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash.conf</code> file. Both programs will read from the same file if both run on the same system as the same user, so any long random password will work:</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Text</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-text theme-light\" data-lang=\"text\" name=\"\" tabindex=\"0\">rpcpassword=change_this_to_a_long_random_password\n</code></pre></div></div>\n<p>You should also make the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">dash.conf</code> file only readable to its owner.  On Linux, Mac OSX, and other Unix-like systems, this can be accomplished by running the following command in the Dash Core application directory:</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Text</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-text theme-light\" data-lang=\"text\" name=\"\" tabindex=\"0\">chmod 0600 dash.conf\n</code></pre></div></div>\n<p>For development, it&#x27;s safer and cheaper to use Dash&#x27;s test network (<span class=\"GlossaryItem-trigger\">testnet</span>), <span class=\"GlossaryItem-trigger\">regression test mode</span> (regtest), or a developer network  (<span class=\"GlossaryItem-trigger\">devnet</span>) described below.</p>\n<p>Questions about Dash use are best sent to the <a href=\"https://www.dash.org/forum/categories/dash-support.61/\" target=\"\" title=\"\">Dash forum</a> and <a href=\"http://www.dashchat.org\" target=\"\" title=\"\">Discord channels</a>.</p>\n<p>In the following documentation, some strings have been shortened or wrapped: &quot;[...]&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below. If you hover over a cross-reference link, a brief definition of the term will be displayed.</p>"

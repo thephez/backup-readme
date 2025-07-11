@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,35 +27,24 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:06.671Z"
  },
- "title": "SDK Resources",
  "icon": "",
- "updates": [],
- "type": "link",
- "slug": "additional-resources-sdk-resources",
- "excerpt": "",
- "body": "",
- "order": 5,
- "isReference": false,
  "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources",
- "link_external": true,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2021-03-03T23:25:01.681Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e7812",
  "version": "63f5176df91c7700118e7825",
@@ -67,9 +53,23 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "63f5176df91c7700118e77a3",
+ "updates": [],
+ "link_external": true,
+ "link_url": "https://docs.dash.org/en/stable/developers/integration.html#sdk-resources",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 5,
+ "body": "",
+ "excerpt": "",
+ "slug": "additional-resources-sdk-resources",
+ "type": "link",
+ "title": "SDK Resources",
  "__v": 0,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2021-03-03T23:25:01.681Z",
  "isApi": false,
  "id": "63f5176df91c7700118e7812",
  "body_html": ""

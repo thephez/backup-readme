@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "Introduction to Dash Core guide",
-  "description": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification",
+  "title": "Introduction to Dash Core guide",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -91,33 +90,16 @@
     "slug": "core-guide-mining",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:05.165Z"
  },
- "title": "Introduction",
- "icon": "",
- "updates": [
-  "5dc1d392429c7c00634e8f70"
- ],
- "type": "basic",
- "slug": "core-guide-introduction",
- "excerpt": "",
- "body": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.",
- "order": 0,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-08-02T02:36:50.968Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e7806",
  "version": "63f5176df91c7700118e7825",
@@ -126,9 +108,27 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e779e",
+ "updates": [
+  "5dc1d392429c7c00634e8f70"
+ ],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 0,
+ "body": "The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from [source](https://github.com/dashpay/dash/) or from a [pre-compiled executable](https://www.dash.org/wallets/#wallets).\n\nQuestions about Dash development are best asked in one of the [Dash development communities](https://www.dash.org/community/). Errors or suggestions related to documentation can be submitted via the \"Suggest Edits\" button on the top, right of each page.\n\nIn the following documentation, some strings have been shortened or wrapped: \"[...]\" indicates extra data was removed, and lines ending in a single backslash \"\\\\\" are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.",
+ "excerpt": "",
+ "slug": "core-guide-introduction",
+ "type": "basic",
+ "title": "Introduction",
  "__v": 2,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-08-02T02:36:50.968Z",
  "isApi": false,
  "id": "63f5176df91c7700118e7806",
  "body_html": "<p>The Developer Guide aims to provide the information you need to understand Dash and start building Dash-based applications, but it is not a specification. To make the best use of this documentation, you may want to install the current version of Dash Core, either from <a href=\"https://github.com/dashpay/dash/\" target=\"\" title=\"\">source</a> or from a <a href=\"https://www.dash.org/wallets/#wallets\" target=\"\" title=\"\">pre-compiled executable</a>.</p>\n<p>Questions about Dash development are best asked in one of the <a href=\"https://www.dash.org/community/\" target=\"\" title=\"\">Dash development communities</a>. Errors or suggestions related to documentation can be submitted via the &quot;Suggest Edits&quot; button on the top, right of each page.</p>\n<p>In the following documentation, some strings have been shortened or wrapped: &quot;[...]&quot; indicates extra data was removed, and lines ending in a single backslash &quot;\\&quot; are continued below. If you hover over a glossary term, a brief definition of the term will be displayed in a tooltip.</p>"

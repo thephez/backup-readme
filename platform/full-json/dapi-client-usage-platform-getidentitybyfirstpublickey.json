@@ -40,11 +40,13 @@
   "pages": []
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-09-06T16:36:59.466Z"
  },
+ "reusableContent": [],
+ "_id": "64f8a9df750465004742ae1b",
  "title": "getIdentityByFirstPublicKey",
  "icon": "",
  "updates": [],
@@ -59,11 +61,9 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
  "previousSlug": "getidentitybyfirstpublickey",
  "slugUpdatedAt": "2023-07-26T16:48:23.750Z",
  "revision": 5,
- "_id": "64f8a9df750465004742ae1b",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
  "parentDoc": "64f8a9df750465004742ae16",

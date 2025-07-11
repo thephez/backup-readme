@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,37 +27,23 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
-  "pages": []
+  "pages": [],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 5,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 5,
   "updatedAt": "2023-09-06T16:36:36.200Z"
  },
- "title": "Platform Chain",
  "icon": "",
- "updates": [
-  "5e0275932462d40013a48a64"
- ],
- "type": "basic",
- "slug": "explanation-drive-platform-chain",
- "excerpt": "Distributed ledger for tracking state transitions",
- "body": "# Overview\n\nThe platform chain is the [Drive](explanation-drive) component responsible for replicating the platform state across all masternodes participating in the network. Masternodes operate this Proof of Service (PoSe) chain to provide layer 2 consensus and support Dash Platform-specific requirements without impacting layer 1 functionality. Although the platform chain can read from the Dash layer 1 core blockchain, the core blockchain is not dependent on it or aware of it. \n\n# Details\n\n## Evolution of design\n\nEarly designs of Drive were based on using on the layer 1 core blockchain and [IPFS](https://docs.ipfs.io/introduction/overview/) to replicate layer 2 data. As the design matured, a number of challenges led to a re-evaluation of how to efficiently secure, propagate, and finalize this data. Ultimately, meeting the requirements for a trustless, decentralized system led to choosing a blockchain-based solution over some seemingly obvious choices that work fine in a centralized setting.\n\n## Characteristics\n\nIn order to support Dash Platform's performance requirements, the platform chain has the following design characteristics:\n- Relies on masternode Proof of Service, not miner Proof of Work (PoW)\n- Hosted exclusively on masternodes\n- Uses a [practical Byzantine Fault Tolerance (pBFT)](reference-glossary#practical-byzantine-fault-tolerance-pbft) consensus algorithm\n- Has a deterministic fee structure\n- Provides fast (< 10 seconds) and absolute block finality (no reorgs) \n\n## Blocks and Transitions\n\nSimilar to transactions on the Dash core chain, state transitions are aggregated and put into blocks periodically on the platform chain. Each block has a header that points back to the previous block, thus forming a chain of blocks that is shared among all masternodes. The platform's pBFT consensus algorithm is responsible for ordering the state transitions into a block and then committing the block. As soon as a block is accepted by a \u2154 + 1 majority of validators, it becomes final and cannot be changed. Thus, the platform chain is not susceptible to blockchain reorganizations.",
- "order": 0,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-05-11T20:21:12.754Z",
  "revision": 1,
  "_id": "64f8a9df750465004742ad9b",
  "version": "64f8a9df750465004742ae1d",
@@ -69,9 +52,26 @@
  "project": "5bda01cad172e200499a20a9",
  "user": "5b8400d7185d5e00036dcc3b",
  "category": "64f8a9df750465004742ad71",
+ "updates": [
+  "5e0275932462d40013a48a64"
+ ],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 0,
+ "body": "# Overview\n\nThe platform chain is the [Drive](explanation-drive) component responsible for replicating the platform state across all masternodes participating in the network. Masternodes operate this Proof of Service (PoSe) chain to provide layer 2 consensus and support Dash Platform-specific requirements without impacting layer 1 functionality. Although the platform chain can read from the Dash layer 1 core blockchain, the core blockchain is not dependent on it or aware of it. \n\n# Details\n\n## Evolution of design\n\nEarly designs of Drive were based on using on the layer 1 core blockchain and [IPFS](https://docs.ipfs.io/introduction/overview/) to replicate layer 2 data. As the design matured, a number of challenges led to a re-evaluation of how to efficiently secure, propagate, and finalize this data. Ultimately, meeting the requirements for a trustless, decentralized system led to choosing a blockchain-based solution over some seemingly obvious choices that work fine in a centralized setting.\n\n## Characteristics\n\nIn order to support Dash Platform's performance requirements, the platform chain has the following design characteristics:\n- Relies on masternode Proof of Service, not miner Proof of Work (PoW)\n- Hosted exclusively on masternodes\n- Uses a [practical Byzantine Fault Tolerance (pBFT)](reference-glossary#practical-byzantine-fault-tolerance-pbft) consensus algorithm\n- Has a deterministic fee structure\n- Provides fast (< 10 seconds) and absolute block finality (no reorgs) \n\n## Blocks and Transitions\n\nSimilar to transactions on the Dash core chain, state transitions are aggregated and put into blocks periodically on the platform chain. Each block has a header that points back to the previous block, thus forming a chain of blocks that is shared among all masternodes. The platform's pBFT consensus algorithm is responsible for ordering the state transitions into a block and then committing the block. As soon as a block is accepted by a \u2154 + 1 majority of validators, it becomes final and cannot be changed. Thus, the platform chain is not susceptible to blockchain reorganizations.",
+ "excerpt": "Distributed ledger for tracking state transitions",
+ "slug": "explanation-drive-platform-chain",
+ "type": "basic",
+ "title": "Platform Chain",
  "__v": 1,
  "parentDoc": "64f8a9df750465004742ad9c",
  "pendingAlgoliaPublish": false,
+ "deprecated": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-05-11T20:21:12.754Z",
  "isApi": false,
  "id": "64f8a9df750465004742ad9b",
  "body_html": "<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"overview\"></div><div class=\"heading-text\"><div id=\"section-overview\" class=\"heading-anchor_backwardsCompatibility\"></div>Overview</div><a aria-label=\"Skip link to Overview\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#overview\"></a></h1>\n<p>The platform chain is the <a href=\"explanation-drive\" target=\"\" title=\"\">Drive</a> component responsible for replicating the platform state across all masternodes participating in the network. Masternodes operate this Proof of Service (PoSe) chain to provide layer 2 consensus and support Dash Platform-specific requirements without impacting layer 1 functionality. Although the platform chain can read from the Dash layer 1 core blockchain, the core blockchain is not dependent on it or aware of it. </p>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"details\"></div><div class=\"heading-text\"><div id=\"section-details\" class=\"heading-anchor_backwardsCompatibility\"></div>Details</div><a aria-label=\"Skip link to Details\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#details\"></a></h1>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"evolution-of-design\"></div><div class=\"heading-text\"><div id=\"section-evolution-of-design\" class=\"heading-anchor_backwardsCompatibility\"></div>Evolution of design</div><a aria-label=\"Skip link to Evolution of design\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#evolution-of-design\"></a></h2>\n<p>Early designs of Drive were based on using on the layer 1 core blockchain and <a href=\"https://docs.ipfs.io/introduction/overview/\" target=\"\" title=\"\">IPFS</a> to replicate layer 2 data. As the design matured, a number of challenges led to a re-evaluation of how to efficiently secure, propagate, and finalize this data. Ultimately, meeting the requirements for a trustless, decentralized system led to choosing a blockchain-based solution over some seemingly obvious choices that work fine in a centralized setting.</p>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"characteristics\"></div><div class=\"heading-text\"><div id=\"section-characteristics\" class=\"heading-anchor_backwardsCompatibility\"></div>Characteristics</div><a aria-label=\"Skip link to Characteristics\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#characteristics\"></a></h2>\n<p>In order to support Dash Platform&#x27;s performance requirements, the platform chain has the following design characteristics:</p>\n<ul>\n<li>Relies on masternode Proof of Service, not miner Proof of Work (PoW)</li>\n<li>Hosted exclusively on masternodes</li>\n<li>Uses a <a href=\"reference-glossary#practical-byzantine-fault-tolerance-pbft\" target=\"\" title=\"\">practical Byzantine Fault Tolerance (pBFT)</a> consensus algorithm</li>\n<li>Has a deterministic fee structure</li>\n<li>Provides fast (&lt; 10 seconds) and absolute block finality (no reorgs) </li>\n</ul>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"blocks-and-transitions\"></div><div class=\"heading-text\"><div id=\"section-blocks-and-transitions\" class=\"heading-anchor_backwardsCompatibility\"></div>Blocks and Transitions</div><a aria-label=\"Skip link to Blocks and Transitions\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#blocks-and-transitions\"></a></h2>\n<p>Similar to transactions on the Dash core chain, state transitions are aggregated and put into blocks periodically on the platform chain. Each block has a header that points back to the previous block, thus forming a chain of blocks that is shared among all masternodes. The platform&#x27;s pBFT consensus algorithm is responsible for ordering the state transitions into a block and then committing the block. As soon as a block is accepted by a \u2154 + 1 majority of validators, it becomes final and cannot be changed. Thus, the platform chain is not susceptible to blockchain reorganizations.</p>"

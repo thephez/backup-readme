@@ -1,10 +1,10 @@
 {
  "metadata": {
+  "keywords": "",
+  "robots": "index",
   "image": [],
   "title": "",
-  "description": "",
-  "keywords": "",
-  "robots": "index"
+  "description": ""
  },
  "mdx": {
   "altBody": "",
@@ -52,13 +52,14 @@
   ]
  },
  "algolia": {
-  "recordCount": 5,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 5,
   "updatedAt": "2023-09-06T16:36:46.513Z"
  },
+ "reusableContent": [],
+ "_id": "64f8a9df750465004742add0",
  "title": "Retrieve an Identity",
- "icon": "",
  "updates": [],
  "type": "basic",
  "slug": "tutorial-retrieve-an-identity",
@@ -66,17 +67,13 @@
  "body": "# Overview\n\nIn this tutorial we will retrieve the identity created in the [Register an Identity tutorial](tutorial-register-an-identity).\n\n## Prerequisites\n- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)\n- A Dash Platform Identity: [Tutorial: Register an Identity](tutorial-register-an-identity) \n\n# Code\n\n```javascript\nconst Dash = require('dash');\n\nconst client = new Dash.Client({ network: 'testnet' });\n\nconst retrieveIdentity = async () => {\n  return client.platform.identities.get('an identity ID goes here');\n};\n\nretrieveIdentity()\n  .then((d) => console.log('Identity retrieved:\\n', d.toJSON()))\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n``` \n\n# Example Identity\n\nThe following example response shows a retrieved identity:\n\n```json\n{\n   \"protocolVersion\":0,\n   \"id\":\"6Jz8pFZFhssKSTacgQmZP14zGZNnFYZFKSbx4WVAJFy3\",\n   \"publicKeys\":[\n      {\n         \"id\":0,\n         \"type\":0,\n         \"data\":\"A4zZl0EaRBB6IlDbyR80YUM2l02qqNUCoIizkQxubtxi\"\n      }\n   ],\n   \"balance\":10997588,\n   \"revision\":0\n}\n``` \n\n# What's Happening\n\nAfter we initialize the Client, we request an identity. The `platform.identities.get` method takes a single argument: an identity ID. After the identity is retrieved, it is displayed on the console.",
  "order": 1,
  "isReference": false,
- "deprecated": false,
  "hidden": false,
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
+ "pendingAlgoliaPublish": false,
  "previousSlug": "identity-retrieve-an-identity",
  "slugUpdatedAt": "2021-03-11T18:07:07.511Z",
- "revision": 3,
- "_id": "64f8a9df750465004742add0",
- "pendingAlgoliaPublish": false,
  "createdAt": "2021-03-11T18:06:49.085Z",
  "updatedAt": "2023-01-22T17:09:35.818Z",
  "user": "62b2101422da70001ee51d95",
@@ -85,6 +82,9 @@
  "project": "5bda01cad172e200499a20a9",
  "version": "64f8a9df750465004742ae1d",
  "__v": 2,
+ "deprecated": false,
+ "icon": "",
+ "revision": 3,
  "isApi": false,
  "id": "64f8a9df750465004742add0",
  "body_html": "<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"overview\"></div><div class=\"heading-text\"><div id=\"section-overview\" class=\"heading-anchor_backwardsCompatibility\"></div>Overview</div><a aria-label=\"Skip link to Overview\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#overview\"></a></h1>\n<p>In this tutorial we will retrieve the identity created in the <a href=\"tutorial-register-an-identity\" target=\"\" title=\"\">Register an Identity tutorial</a>.</p>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"prerequisites\"></div><div class=\"heading-text\"><div id=\"section-prerequisites\" class=\"heading-anchor_backwardsCompatibility\"></div>Prerequisites</div><a aria-label=\"Skip link to Prerequisites\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#prerequisites\"></a></h2>\n<ul>\n<li><a href=\"tutorials-introduction#prerequisites\" target=\"\" title=\"\">General prerequisites</a> (Node.js / Dash SDK installed)</li>\n<li>A Dash Platform Identity: <a href=\"tutorial-register-an-identity\" target=\"\" title=\"\">Tutorial: Register an Identity</a> </li>\n</ul>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"code\"></div><div class=\"heading-text\"><div id=\"section-code\" class=\"heading-anchor_backwardsCompatibility\"></div>Code</div><a aria-label=\"Skip link to Code\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#code\"></a></h1>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JavaScript</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-javascript theme-light\" data-lang=\"javascript\" name=\"\" tabindex=\"0\">const Dash = require(&#x27;dash&#x27;);\n\nconst client = new Dash.Client({ network: &#x27;testnet&#x27; });\n\nconst retrieveIdentity = async () =&gt; {\n  return client.platform.identities.get(&#x27;an identity ID goes here&#x27;);\n};\n\nretrieveIdentity()\n  .then((d) =&gt; console.log(&#x27;Identity retrieved:\\n&#x27;, d.toJSON()))\n  .catch((e) =&gt; console.error(&#x27;Something went wrong:\\n&#x27;, e))\n  .finally(() =&gt; client.disconnect());\n</code></pre></div></div>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"example-identity\"></div><div class=\"heading-text\"><div id=\"section-example-identity\" class=\"heading-anchor_backwardsCompatibility\"></div>Example Identity</div><a aria-label=\"Skip link to Example Identity\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#example-identity\"></a></h1>\n<p>The following example response shows a retrieved identity:</p>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JSON</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-json theme-light\" data-lang=\"json\" name=\"\" tabindex=\"0\">{\n   &quot;protocolVersion&quot;:0,\n   &quot;id&quot;:&quot;6Jz8pFZFhssKSTacgQmZP14zGZNnFYZFKSbx4WVAJFy3&quot;,\n   &quot;publicKeys&quot;:[\n      {\n         &quot;id&quot;:0,\n         &quot;type&quot;:0,\n         &quot;data&quot;:&quot;A4zZl0EaRBB6IlDbyR80YUM2l02qqNUCoIizkQxubtxi&quot;\n      }\n   ],\n   &quot;balance&quot;:10997588,\n   &quot;revision&quot;:0\n}\n</code></pre></div></div>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"whats-happening\"></div><div class=\"heading-text\"><div id=\"section-whats-happening\" class=\"heading-anchor_backwardsCompatibility\"></div>What&#x27;s Happening</div><a aria-label=\"Skip link to What&#x27;s Happening\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#whats-happening\"></a></h1>\n<p>After we initialize the Client, we request an identity. The <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">platform.identities.get</code> method takes a single argument: an identity ID. After the identity is retrieved, it is displayed on the console.</p>"

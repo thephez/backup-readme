@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "What is the Dash blockchain?",
-  "description": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.",
+  "title": "What is the Dash blockchain?",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Core Guides",
@@ -70,31 +69,16 @@
     "slug": "core-guide-block-chain-consensus-rule-changes",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:01.984Z"
  },
- "title": "Blockchain",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-block-chain",
- "excerpt": "",
- "body": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.\n\nEach full node in the Dash network independently stores a blockchain containing only blocks validated by that node. When several nodes all have the same blocks in their blockchain, they are considered to be in <<glossary:consensus>>. The validation rules these nodes follow to maintain consensus are called <<glossary:consensus rules>>. This section describes many of the consensus rules used by Dash Core.",
- "order": 2,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-08-02T18:17:39.288Z",
  "revision": 1,
  "_id": "63f5176df91c7700118e77f6",
  "version": "63f5176df91c7700118e7825",
@@ -103,9 +87,25 @@
  "project": "5daf2e65f4109c0040fd51e1",
  "user": "62b2101422da70001ee51d95",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 2,
+ "body": "The blockchain provides Dash's public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.\n\nEach full node in the Dash network independently stores a blockchain containing only blocks validated by that node. When several nodes all have the same blocks in their blockchain, they are considered to be in <<glossary:consensus>>. The validation rules these nodes follow to maintain consensus are called <<glossary:consensus rules>>. This section describes many of the consensus rules used by Dash Core.",
+ "excerpt": "",
+ "slug": "core-guide-block-chain",
+ "type": "basic",
+ "title": "Blockchain",
  "__v": 4,
  "parentDoc": null,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2022-08-02T18:17:39.288Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77f6",
  "body_html": "<p>The blockchain provides Dash&#x27;s public ledger, an ordered and timestamped record of transactions. This system is used to protect against double spending and modification of previous transaction records.</p>\n<p>Each full node in the Dash network independently stores a blockchain containing only blocks validated by that node. When several nodes all have the same blocks in their blockchain, they are considered to be in <span class=\"GlossaryItem-trigger\">consensus</span>. The validation rules these nodes follow to maintain consensus are called <span class=\"GlossaryItem-trigger\">consensus rules</span>. This section describes many of the consensus rules used by Dash Core.</p>"

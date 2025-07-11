@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "P2PKH Script Validation",
-  "description": "P2PKH Script Validation procedure requires evaluation of the signature script and pubkey script.",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "P2PKH Script Validation procedure requires evaluation of the signature script and pubkey script.",
+  "title": "P2PKH Script Validation",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "type": "doc",
@@ -42,32 +41,16 @@
     "slug": "core-guide-transactions-p2sh-scripts",
     "category": "Core Guides"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-02-21T19:16:03.111Z"
  },
- "title": "P2PKH Script Validation",
- "icon": "",
- "updates": [],
- "type": "basic",
- "slug": "core-guide-transactions-p2pkh-script-validation",
- "excerpt": "",
- "body": "The validation procedure requires evaluation of the <<glossary:signature script>> and <<glossary:pubkey script>>. In a <<glossary:P2PKH>> <<glossary:output>>, the pubkey script is:\n\n```\nOP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG\n```\n\nThe spender's signature script is evaluated and prefixed to the beginning of the script. In a P2PKH transaction, the signature script contains an secp256k1 signature (sig) and full public key (pubkey), creating the following concatenation:\n\n```\n<Sig> <PubKey> OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG\n```\n\nThe script language is a [Forth-like](https://en.wikipedia.org/wiki/Forth_%28programming_language%29) stack-based language deliberately designed to be stateless and not Turing complete. Statelessness ensures that once a <<glossary:transaction>> is added to the <<glossary:block chain>>, there is no condition which renders it permanently unspendable. Turing-incompleteness (specifically, a lack of loops or gotos) makes the script language less flexible and more predictable, greatly simplifying the security model.\n\nTo test whether the transaction is valid, signature script and pubkey script operations are executed one item at a time, starting with Bob's signature script and continuing to the end of Alice's pubkey script. The figure below shows the evaluation of a standard P2PKH pubkey script; below the figure is a description of the process.\n\n![P2PKH Stack Evaluation](https://dash-docs.github.io/img/dev/en-p2pkh-stack.svg)\n\n* The <<glossary:signature>> (from Bob's signature script) is added (pushed) to an empty stack. Because it's just data, nothing is done except adding it to the stack. The <<glossary:public key>> (also from the signature script) is pushed on top of the signature.\n\n* From Alice's pubkey script, the `OP_DUP` operation is executed. `OP_DUP` pushes onto the stack a copy of the data currently at the top of it---in this case creating a copy of the public key Bob provided.\n\n* The operation executed next, `OP_HASH160`, pushes onto the stack a hash of the data currently on top of it---in this case, Bob's public key. This creates a hash of Bob's public key.\n\n* Alice's pubkey script then pushes the pubkey hash that Bob gave her for the first transaction.  At this point, there should be two copies of Bob's pubkey hash at the top of the stack.\n\n* Now it gets interesting: Alice's pubkey script executes `OP_EQUALVERIFY`. `OP_EQUALVERIFY` is equivalent to executing `OP_EQUAL` followed by `OP_VERIFY` (not shown).\n\n    `OP_EQUAL` (not shown) checks the two values at the top of the stack; in this case, it checks whether the pubkey hash generated from the full public key Bob provided equals the pubkey hash Alice provided when she created transaction #1. `OP_EQUAL` pops (removes from the top of the stack) the two values it compared, and replaces them with the result of that comparison: zero (*false*) or one (*true*).\n\n    `OP_VERIFY` (not shown) checks the value at the top of the stack. If the value is *false* it immediately terminates evaluation and the transaction validation fails. Otherwise it pops the *true* value off the stack.\n\n* Finally, Alice's pubkey script executes `OP_CHECKSIG`, which checks the signature Bob provided against the now-authenticated public key he also provided. If the signature matches the public key and was generated using all of the data required to be signed, `OP_CHECKSIG` pushes the value *true* onto the top of the stack.\n\nIf *false* is not at the top of the stack after the pubkey script has been evaluated, the transaction is valid (provided there are no other problems with it).",
- "order": 0,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
  "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2022-09-18T17:58:27.764Z",
- "revision": 2,
  "_id": "63f5176df91c7700118e77fd",
  "version": "63f5176df91c7700118e7825",
  "updatedAt": "2019-11-13T16:32:26.519Z",
@@ -76,8 +59,25 @@
  "user": "62b2101422da70001ee51d95",
  "parentDoc": "63f5176df91c7700118e77fc",
  "category": "63f5176df91c7700118e779e",
+ "updates": [],
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 0,
+ "body": "The validation procedure requires evaluation of the <<glossary:signature script>> and <<glossary:pubkey script>>. In a <<glossary:P2PKH>> <<glossary:output>>, the pubkey script is:\n\n```\nOP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG\n```\n\nThe spender's signature script is evaluated and prefixed to the beginning of the script. In a P2PKH transaction, the signature script contains an secp256k1 signature (sig) and full public key (pubkey), creating the following concatenation:\n\n```\n<Sig> <PubKey> OP_DUP OP_HASH160 <PubkeyHash> OP_EQUALVERIFY OP_CHECKSIG\n```\n\nThe script language is a [Forth-like](https://en.wikipedia.org/wiki/Forth_%28programming_language%29) stack-based language deliberately designed to be stateless and not Turing complete. Statelessness ensures that once a <<glossary:transaction>> is added to the <<glossary:block chain>>, there is no condition which renders it permanently unspendable. Turing-incompleteness (specifically, a lack of loops or gotos) makes the script language less flexible and more predictable, greatly simplifying the security model.\n\nTo test whether the transaction is valid, signature script and pubkey script operations are executed one item at a time, starting with Bob's signature script and continuing to the end of Alice's pubkey script. The figure below shows the evaluation of a standard P2PKH pubkey script; below the figure is a description of the process.\n\n![P2PKH Stack Evaluation](https://dash-docs.github.io/img/dev/en-p2pkh-stack.svg)\n\n* The <<glossary:signature>> (from Bob's signature script) is added (pushed) to an empty stack. Because it's just data, nothing is done except adding it to the stack. The <<glossary:public key>> (also from the signature script) is pushed on top of the signature.\n\n* From Alice's pubkey script, the `OP_DUP` operation is executed. `OP_DUP` pushes onto the stack a copy of the data currently at the top of it---in this case creating a copy of the public key Bob provided.\n\n* The operation executed next, `OP_HASH160`, pushes onto the stack a hash of the data currently on top of it---in this case, Bob's public key. This creates a hash of Bob's public key.\n\n* Alice's pubkey script then pushes the pubkey hash that Bob gave her for the first transaction.  At this point, there should be two copies of Bob's pubkey hash at the top of the stack.\n\n* Now it gets interesting: Alice's pubkey script executes `OP_EQUALVERIFY`. `OP_EQUALVERIFY` is equivalent to executing `OP_EQUAL` followed by `OP_VERIFY` (not shown).\n\n    `OP_EQUAL` (not shown) checks the two values at the top of the stack; in this case, it checks whether the pubkey hash generated from the full public key Bob provided equals the pubkey hash Alice provided when she created transaction #1. `OP_EQUAL` pops (removes from the top of the stack) the two values it compared, and replaces them with the result of that comparison: zero (*false*) or one (*true*).\n\n    `OP_VERIFY` (not shown) checks the value at the top of the stack. If the value is *false* it immediately terminates evaluation and the transaction validation fails. Otherwise it pops the *true* value off the stack.\n\n* Finally, Alice's pubkey script executes `OP_CHECKSIG`, which checks the signature Bob provided against the now-authenticated public key he also provided. If the signature matches the public key and was generated using all of the data required to be signed, `OP_CHECKSIG` pushes the value *true* onto the top of the stack.\n\nIf *false* is not at the top of the stack after the pubkey script has been evaluated, the transaction is valid (provided there are no other problems with it).",
+ "excerpt": "",
+ "slug": "core-guide-transactions-p2pkh-script-validation",
+ "type": "basic",
+ "title": "P2PKH Script Validation",
  "__v": 1,
+ "deprecated": false,
+ "icon": "",
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "revision": 2,
+ "slugUpdatedAt": "2022-09-18T17:58:27.764Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77fd",
  "body_html": "<p>The validation procedure requires evaluation of the <span class=\"GlossaryItem-trigger\">signature script</span> and <span class=\"GlossaryItem-trigger\">pubkey script</span>. In a <span class=\"GlossaryItem-trigger\">P2PKH</span> <span class=\"GlossaryItem-trigger\">output</span>, the pubkey script is:</p>\n<pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_DUP OP_HASH160 &lt;PubkeyHash&gt; OP_EQUALVERIFY OP_CHECKSIG\n</code></pre>\n<p>The spender&#x27;s signature script is evaluated and prefixed to the beginning of the script. In a P2PKH transaction, the signature script contains an secp256k1 signature (sig) and full public key (pubkey), creating the following concatenation:</p>\n<pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">&lt;Sig&gt; &lt;PubKey&gt; OP_DUP OP_HASH160 &lt;PubkeyHash&gt; OP_EQUALVERIFY OP_CHECKSIG\n</code></pre>\n<p>The script language is a <a href=\"https://en.wikipedia.org/wiki/Forth_%28programming_language%29\" target=\"\" title=\"\">Forth-like</a> stack-based language deliberately designed to be stateless and not Turing complete. Statelessness ensures that once a <span class=\"GlossaryItem-trigger\">transaction</span> is added to the <span class=\"GlossaryItem-trigger\">block chain</span>, there is no condition which renders it permanently unspendable. Turing-incompleteness (specifically, a lack of loops or gotos) makes the script language less flexible and more predictable, greatly simplifying the security model.</p>\n<p>To test whether the transaction is valid, signature script and pubkey script operations are executed one item at a time, starting with Bob&#x27;s signature script and continuing to the end of Alice&#x27;s pubkey script. The figure below shows the evaluation of a standard P2PKH pubkey script; below the figure is a description of the process.</p>\n<p><span aria-label=\"P2PKH Stack Evaluation\" class=\"img lightbox closed\" role=\"button\" tabindex=\"0\"><span class=\"lightbox-inner\"><img alt=\"P2PKH Stack Evaluation\" loading=\"lazy\" src=\"https://dash-docs.github.io/img/dev/en-p2pkh-stack.svg\" align=\"\" caption=\"\" height=\"auto\" title=\"\" width=\"auto\"/></span></span></p>\n<ul>\n<li>\n<p>The <span class=\"GlossaryItem-trigger\">signature</span> (from Bob&#x27;s signature script) is added (pushed) to an empty stack. Because it&#x27;s just data, nothing is done except adding it to the stack. The <span class=\"GlossaryItem-trigger\">public key</span> (also from the signature script) is pushed on top of the signature.</p>\n</li>\n<li>\n<p>From Alice&#x27;s pubkey script, the <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_DUP</code> operation is executed. <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_DUP</code> pushes onto the stack a copy of the data currently at the top of it---in this case creating a copy of the public key Bob provided.</p>\n</li>\n<li>\n<p>The operation executed next, <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_HASH160</code>, pushes onto the stack a hash of the data currently on top of it---in this case, Bob&#x27;s public key. This creates a hash of Bob&#x27;s public key.</p>\n</li>\n<li>\n<p>Alice&#x27;s pubkey script then pushes the pubkey hash that Bob gave her for the first transaction.  At this point, there should be two copies of Bob&#x27;s pubkey hash at the top of the stack.</p>\n</li>\n<li>\n<p>Now it gets interesting: Alice&#x27;s pubkey script executes <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_EQUALVERIFY</code>. <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_EQUALVERIFY</code> is equivalent to executing <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_EQUAL</code> followed by <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_VERIFY</code> (not shown).</p>\n<p>  <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_EQUAL</code> (not shown) checks the two values at the top of the stack; in this case, it checks whether the pubkey hash generated from the full public key Bob provided equals the pubkey hash Alice provided when she created transaction #1. <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_EQUAL</code> pops (removes from the top of the stack) the two values it compared, and replaces them with the result of that comparison: zero (<em>false</em>) or one (<em>true</em>).</p>\n<p>  <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_VERIFY</code> (not shown) checks the value at the top of the stack. If the value is <em>false</em> it immediately terminates evaluation and the transaction validation fails. Otherwise it pops the <em>true</em> value off the stack.</p>\n</li>\n<li>\n<p>Finally, Alice&#x27;s pubkey script executes <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_CHECKSIG</code>, which checks the signature Bob provided against the now-authenticated public key he also provided. If the signature matches the public key and was generated using all of the data required to be signed, <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">OP_CHECKSIG</code> pushes the value <em>true</em> onto the top of the stack.</p>\n</li>\n</ul>\n<p>If <em>false</em> is not at the top of the stack after the pubkey script has been evaluated, the transaction is valid (provided there are no other problems with it).</p>"

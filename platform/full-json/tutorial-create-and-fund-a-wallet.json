@@ -1,19 +1,16 @@
 {
  "metadata": {
-  "image": [],
-  "title": "",
-  "description": "",
   "keywords": "",
-  "robots": "index"
+  "robots": "index",
+  "description": "",
+  "title": "",
+  "image": []
  },
  "mdx": {
   "altBody": "",
   "status": "rdmd"
  },
  "api": {
-  "method": "get",
-  "url": "",
-  "auth": "required",
   "results": {
    "codes": [
     {
@@ -30,10 +27,12 @@
     }
    ]
   },
-  "params": []
+  "auth": "required",
+  "params": [],
+  "url": "",
+  "method": "get"
  },
  "next": {
-  "description": "",
   "pages": [
    {
     "category": "Tutorials",
@@ -49,16 +48,21 @@
     "slug": "tutorial-send-funds",
     "category": "Tutorials"
    }
-  ]
+  ],
+  "description": ""
  },
  "algolia": {
-  "recordCount": 5,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 5,
   "updatedAt": "2023-09-06T16:36:38.845Z"
  },
- "title": "Create and Fund a Wallet",
- "icon": "",
+ "reusableContent": [],
+ "_id": "64f8a9df750465004742adaa",
+ "version": "64f8a9df750465004742ae1d",
+ "project": "5bda01cad172e200499a20a9",
+ "user": "62b2101422da70001ee51d95",
+ "category": "64f8a9df750465004742ad6e",
  "updates": [
   "5e0a98f872e3a9002428381f",
   "5e17df431ec14f006f610a3a",
@@ -66,31 +70,27 @@
   "5e7e005268a13700678019f8",
   "5f2cff4a5871fb03e29dad8f"
  ],
- "type": "basic",
- "slug": "tutorial-create-and-fund-a-wallet",
- "excerpt": "",
- "body": "# Overview\n\nIn order to make changes on Dash Platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.\n\n## Prerequisites\n\n- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)\n\n# Code\n\n```javascript\nconst Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n    // if you want to get a new address for an existing wallet\n    // replace 'null' with an existing wallet mnemonic\n    offlineMode: true,  // this indicates we don't want to sync the chain\n    // it can only be used when the mnemonic is set to 'null'\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});\n``` \n\n```text\nMnemonic: thrive wolf habit timber birth service crystal patient tiny depart tower focus\nUnused address: yXF7LsyajRvJGX96vPHBmo9Dwy9zEvzkbh\n``` \n\n> \ud83d\udea7 \n>\n> **Please save your mnemonic for the next step and for re-use in subsequent tutorials throughout the documentation.**\n\n# What's Happening\n\nOnce we connect, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `account.getUnusedAddress()`.\n\n# Next Step\n\nUsing the faucet at https://testnet-faucet.dash.org/, send test funds to the \"unused address\" from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at https://testnet-insight.dashevo.org/insight/ which can be used to check confirmations.",
- "order": 4,
- "isReference": false,
- "deprecated": false,
- "hidden": false,
- "sync_unique": "",
- "link_url": "",
- "link_external": false,
- "reusableContent": [],
- "previousSlug": "",
- "slugUpdatedAt": "2020-08-07T04:56:30.848Z",
- "revision": 2,
- "_id": "64f8a9df750465004742adaa",
- "version": "64f8a9df750465004742ae1d",
- "project": "5bda01cad172e200499a20a9",
- "user": "62b2101422da70001ee51d95",
- "category": "64f8a9df750465004742ad6e",
  "updatedAt": "2023-01-22T17:02:57.957Z",
  "createdAt": "2019-12-30T03:21:06.334Z",
+ "link_external": false,
+ "link_url": "",
+ "sync_unique": "",
+ "hidden": false,
+ "isReference": false,
+ "order": 4,
+ "body": "# Overview\n\nIn order to make changes on Dash Platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.\n\n## Prerequisites\n\n- [General prerequisites](tutorials-introduction#prerequisites) (Node.js / Dash SDK installed)\n\n# Code\n\n```javascript\nconst Dash = require('dash');\n\nconst clientOpts = {\n  network: 'testnet',\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n    // if you want to get a new address for an existing wallet\n    // replace 'null' with an existing wallet mnemonic\n    offlineMode: true,  // this indicates we don't want to sync the chain\n    // it can only be used when the mnemonic is set to 'null'\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () => {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log('Mnemonic:', mnemonic);\n  console.log('Unused address:', address.address);\n};\n\ncreateWallet()\n  .catch((e) => console.error('Something went wrong:\\n', e))\n  .finally(() => client.disconnect());\n\n// Handle wallet async errors\nclient.on('error', (error, context) => {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});\n``` \n\n```text\nMnemonic: thrive wolf habit timber birth service crystal patient tiny depart tower focus\nUnused address: yXF7LsyajRvJGX96vPHBmo9Dwy9zEvzkbh\n``` \n\n> \ud83d\udea7 \n>\n> **Please save your mnemonic for the next step and for re-use in subsequent tutorials throughout the documentation.**\n\n# What's Happening\n\nOnce we connect, we output the newly generated mnemonic from `client.wallet.exportWallet()` and an unused address from the wallet from `account.getUnusedAddress()`.\n\n# Next Step\n\nUsing the faucet at https://testnet-faucet.dash.org/, send test funds to the \"unused address\" from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at https://testnet-insight.dashevo.org/insight/ which can be used to check confirmations.",
+ "excerpt": "",
+ "slug": "tutorial-create-and-fund-a-wallet",
+ "type": "basic",
+ "title": "Create and Fund a Wallet",
  "__v": 8,
  "parentDoc": null,
  "pendingAlgoliaPublish": false,
+ "previousSlug": "",
+ "slugUpdatedAt": "2020-08-07T04:56:30.848Z",
+ "deprecated": false,
+ "icon": "",
+ "revision": 2,
  "isApi": false,
  "id": "64f8a9df750465004742adaa",
  "body_html": "<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"overview\"></div><div class=\"heading-text\"><div id=\"section-overview\" class=\"heading-anchor_backwardsCompatibility\"></div>Overview</div><a aria-label=\"Skip link to Overview\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#overview\"></a></h1>\n<p>In order to make changes on Dash Platform, you need a wallet with a balance. This tutorial explains how to generate a new wallet, retrieve an address from it, and transfer test funds to the address from a faucet.</p>\n<h2 class=\"heading heading-2 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"prerequisites\"></div><div class=\"heading-text\"><div id=\"section-prerequisites\" class=\"heading-anchor_backwardsCompatibility\"></div>Prerequisites</div><a aria-label=\"Skip link to Prerequisites\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#prerequisites\"></a></h2>\n<ul>\n<li><a href=\"tutorials-introduction#prerequisites\" target=\"\" title=\"\">General prerequisites</a> (Node.js / Dash SDK installed)</li>\n</ul>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"code\"></div><div class=\"heading-text\"><div id=\"section-code\" class=\"heading-anchor_backwardsCompatibility\"></div>Code</div><a aria-label=\"Skip link to Code\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#code\"></a></h1>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">JavaScript</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-javascript theme-light\" data-lang=\"javascript\" name=\"\" tabindex=\"0\">const Dash = require(&#x27;dash&#x27;);\n\nconst clientOpts = {\n  network: &#x27;testnet&#x27;,\n  wallet: {\n    mnemonic: null, // this indicates that we want a new wallet to be generated\n    // if you want to get a new address for an existing wallet\n    // replace &#x27;null&#x27; with an existing wallet mnemonic\n    offlineMode: true,  // this indicates we don&#x27;t want to sync the chain\n    // it can only be used when the mnemonic is set to &#x27;null&#x27;\n  },\n};\n\nconst client = new Dash.Client(clientOpts);\n\nconst createWallet = async () =&gt; {\n  const account = await client.getWalletAccount();\n\n  const mnemonic = client.wallet.exportWallet();\n  const address = account.getUnusedAddress();\n  console.log(&#x27;Mnemonic:&#x27;, mnemonic);\n  console.log(&#x27;Unused address:&#x27;, address.address);\n};\n\ncreateWallet()\n  .catch((e) =&gt; console.error(&#x27;Something went wrong:\\n&#x27;, e))\n  .finally(() =&gt; client.disconnect());\n\n// Handle wallet async errors\nclient.on(&#x27;error&#x27;, (error, context) =&gt; {\n  console.error(`Client error: ${error.name}`);\n  console.error(context);\n});\n</code></pre></div></div>\n<div class=\"CodeTabs CodeTabs_initial theme-light\"><div class=\"CodeTabs-toolbar\" role=\"tablist\"><button aria-selected=\"true\" class=\"CodeTabs_active\" role=\"tab\" type=\"button\">Text</button></div><div class=\"CodeTabs-inner\" role=\"tabpanel\"><pre><button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang-text theme-light\" data-lang=\"text\" name=\"\" tabindex=\"0\">Mnemonic: thrive wolf habit timber birth service crystal patient tiny depart tower focus\nUnused address: yXF7LsyajRvJGX96vPHBmo9Dwy9zEvzkbh\n</code></pre></div></div>\n<blockquote class=\"callout callout_warn\" theme=\"\ud83d\udea7\"><h2 class=\"callout-heading empty\"><span class=\"callout-icon\">\ud83d\udea7</span></h2><p><strong>Please save your mnemonic for the next step and for re-use in subsequent tutorials throughout the documentation.</strong></p></blockquote>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"whats-happening\"></div><div class=\"heading-text\"><div id=\"section-whats-happening\" class=\"heading-anchor_backwardsCompatibility\"></div>What&#x27;s Happening</div><a aria-label=\"Skip link to What&#x27;s Happening\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#whats-happening\"></a></h1>\n<p>Once we connect, we output the newly generated mnemonic from <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">client.wallet.exportWallet()</code> and an unused address from the wallet from <button aria-label=\"Copy Code\" class=\"rdmd-code-copy fa\"></button><code class=\"rdmd-code lang- theme-light\" data-lang=\"\" name=\"\" tabindex=\"0\">account.getUnusedAddress()</code>.</p>\n<h1 class=\"heading heading-1 header-scroll\" align=\"\"><div class=\"heading-anchor anchor waypoint\" id=\"next-step\"></div><div class=\"heading-text\"><div id=\"section-next-step\" class=\"heading-anchor_backwardsCompatibility\"></div>Next Step</div><a aria-label=\"Skip link to Next Step\" class=\"heading-anchor-icon fa fa-anchor\" href=\"#next-step\"></a></h1>\n<p>Using the faucet at <a href=\"https://testnet-faucet.dash.org/\" target=\"\" title=\"\">https://testnet-faucet.dash.org/</a>, send test funds to the &quot;unused address&quot; from the console output. You will need to wait until the funds are confirmed to use them. There is a block explorer running at <a href=\"https://testnet-insight.dashevo.org/insight/\" target=\"\" title=\"\">https://testnet-insight.dashevo.org/insight/</a> which can be used to check confirmations.</p>"

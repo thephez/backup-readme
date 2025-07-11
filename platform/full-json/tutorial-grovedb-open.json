@@ -1,10 +1,10 @@
 {
  "metadata": {
+  "keywords": "",
+  "robots": "index",
   "image": [],
   "title": "",
-  "description": "",
-  "keywords": "",
-  "robots": "index"
+  "description": ""
  },
  "mdx": {
   "altBody": "",
@@ -37,11 +37,13 @@
   "pages": []
  },
  "algolia": {
-  "recordCount": 1,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 1,
   "updatedAt": "2023-09-06T16:36:49.030Z"
  },
+ "reusableContent": [],
+ "_id": "64f8a9df750465004742ade0",
  "title": "Open",
  "icon": "",
  "updates": [],
@@ -56,11 +58,9 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
  "previousSlug": "open",
  "slugUpdatedAt": "2023-03-07T18:11:29.402Z",
  "revision": 3,
- "_id": "64f8a9df750465004742ade0",
  "user": "5b8400d7185d5e00036dcc3b",
  "project": "5bda01cad172e200499a20a9",
  "parentDoc": "64f8a9df750465004742addb",

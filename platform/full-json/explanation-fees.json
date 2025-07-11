@@ -1,10 +1,10 @@
 {
  "metadata": {
+  "keywords": "",
+  "robots": "index",
   "image": [],
   "title": "",
-  "description": "",
-  "keywords": "",
-  "robots": "index"
+  "description": ""
  },
  "mdx": {
   "altBody": "",
@@ -45,13 +45,16 @@
   ]
  },
  "algolia": {
-  "recordCount": 6,
-  "publishPending": false,
   "translationFailure": false,
+  "publishPending": false,
+  "recordCount": 6,
   "updatedAt": "2023-09-06T16:36:47.931Z"
  },
- "title": "Fees",
  "icon": "",
+ "reusableContent": [],
+ "revision": 1,
+ "_id": "64f8a9df750465004742add9",
+ "title": "Fees",
  "updates": [],
  "type": "basic",
  "slug": "explanation-fees",
@@ -64,12 +67,9 @@
  "sync_unique": "",
  "link_url": "",
  "link_external": false,
- "reusableContent": [],
+ "pendingAlgoliaPublish": false,
  "previousSlug": "",
  "slugUpdatedAt": "2022-07-11T05:15:58.224Z",
- "revision": 1,
- "_id": "64f8a9df750465004742add9",
- "pendingAlgoliaPublish": false,
  "createdAt": "2022-07-11T14:34:42.374Z",
  "updatedAt": "2022-07-14T04:16:13.148Z",
  "user": "5b8400d7185d5e00036dcc3b",
