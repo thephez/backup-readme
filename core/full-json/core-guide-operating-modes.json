@@ -87,5 +87,5 @@
  "slugUpdatedAt": "2022-09-20T18:32:51.676Z",
  "isApi": false,
  "id": "63f5176df91c7700118e77f1",
- "body_html": "<p>Currently there are two primary methods of validating the &lt;&lt;glossary:block chain&gt;&gt; as a client: Full <span class=\"GlossaryItem-trigger\">nodes</span> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>"
+ "body_html": "<p>Currently there are two primary methods of validating the <span class=\"GlossaryItem-trigger\">block chain</span> as a client: Full <span class=\"GlossaryItem-trigger\">nodes</span> and SPV clients. Other methods, such as server-trusting methods, are not discussed as they are not recommended.</p>"
 }
